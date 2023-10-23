@@ -8,10 +8,31 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        montserrat: ["var(--font-montserrat)"],
-        grotesk: ["var(--font-spaceGrotesk)"],
+        mont: ["var(--font-montserrat)"],
+        grotesk: ["var(--font-space-grotesk)"],
+      },
+      boxShadow: {
+        'abc': '0 2px 8px 0 rgba(0, 0, 0, 0.15)'
       }
     },
+    screens: {
+      '2xl': {'max': '1535px'},
+      // => @media (max-width: 1535px) { ... }
+
+      'xl': {'max': '1200px'},
+      // => @media (max-width: 1279px) { ... }
+
+      'lg': {'max': '900px'},
+      // => @media (max-width: 1023px) { ... }
+
+      'md': {'max': '767px'},
+      // => @media (max-width: 767px) { ... }
+
+      'sm': {'max': '639px'},
+      // => @media (max-width: 639px) { ... }
+      'xm': {'max': '467px'},
+      // => @media (max-width: 639px) { ... }
+    }
   },
   plugins: [],
 }
