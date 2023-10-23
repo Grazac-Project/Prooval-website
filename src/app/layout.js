@@ -1,8 +1,59 @@
-import {  Montserrat, Space_Grotesk } from 'next/font/google'
+import { Space_Grotesk, Montserrat } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 
-const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' })
-const space_grotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk'})
+const space_grotesk = Space_Grotesk({ subsets: ['latin'], display: 'swap', variable: '--font-space-grotesk'})
+const montserrat = Montserrat({ subsets: ['latin'], display: 'swap', variable: '--font-montserrat' })
+const myFont = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Montserrat/Montserrat-Regular.ttf',
+      weight: '400',
+    },
+    {
+      path: '../../public/fonts/Montserrat/Montserrat-Medium.ttf',
+      weight: '500',
+    },
+    {
+      path: '../../public/fonts/Montserrat/Montserrat-SemiBold.ttf',
+      weight: '600',
+    },
+    {
+      path: '../../public/fonts/Montserrat/Montserrat-Bold.ttf',
+      weight: '700',
+    },
+    {
+      path: '../../public/fonts/Montserrat/Montserrat-ExtraBold.ttf',
+      weight: '800',
+    },
+  ],
+  variable: '--font-montserrat'
+})
+const spaceGrotesk = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Space_Grotesk/SpaceGrotesk-Light.ttf',
+      weight: '300',
+    },
+    {
+      path: '../../public/fonts/Space_Grotesk/SpaceGrotesk-Regular.ttf',
+      weight: '400',
+    },
+    {
+      path: '../../public/fonts/Space_Grotesk/SpaceGrotesk-Medium.ttf',
+      weight: '500',
+    },
+    {
+      path: '../../public/fonts/Space_Grotesk/SpaceGrotesk-SemiBold.ttf',
+      weight: '600',
+    },
+    {
+      path: '../../public/fonts/Space_Grotesk/SpaceGrotesk-Bold.ttf',
+      weight: '700',
+    },
+  ],
+  variable: '--font-space-grotesk'
+})
 
 export const metadata = {
   title: 'Hack the Jobs',
@@ -12,7 +63,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} ${space_grotesk.variable}`}>{children}</body>
+      <body className={`${myFont.variable} ${spaceGrotesk.variable}`}>{children}</body>
     </html>
   )
 }

@@ -58,7 +58,7 @@ const WaitList = () => {
           </p>
         </div>
         <Image
-          src="/line.png"
+          src="/spiral.png"
           width="200"
           height="200"
           alt="img"
