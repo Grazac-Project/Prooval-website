@@ -2,7 +2,7 @@ import {  Montserrat, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' })
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-spaceGrotesk'})
+const space_grotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space-grotesk'})
 
 export const metadata = {
   title: 'Hack the Jobs',
@@ -12,7 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} ${spaceGrotesk.variable}`}>{children}</body>
+      <body className={`${montserrat.variable} ${space_grotesk.variable}`}>{children}</body>
     </html>
   )
 }

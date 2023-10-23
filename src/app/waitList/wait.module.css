@@ -1,0 +1,229 @@
+.waitListContainer {
+  background-color: #0a1a2a;
+  text-align: center;
+  padding-bottom: 136px;
+  position: relative;
+}
+.pad{
+  height: 88px;
+}
+.heroText {
+  width: 749px;
+  margin: 0 auto;
+  position: relative;
+}
+.line {
+  position: absolute;
+  top: 0;
+  margin-left: 70px;
+  margin-top: 330px;
+}
+.heroText h4 {
+  color: #7df7ff;
+  font-family: var(--font-space-grotesk);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 27px */
+  letter-spacing: 1.44px;
+  text-transform: uppercase;
+  padding-top: 88px;
+}
+.heroText h1 {
+  color: #fff;
+  margin: 16px 0;
+  text-align: center;
+  font-family: var(--font-space-grotesk);
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 113.6%; /* 68.16px */
+}
+.heroText p {
+  width: 716px;
+  margin: auto;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-family: var(--font-space-grotesk);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 36px */
+  padding-bottom: 100px;
+}
+@media screen and (max-width: 1024px) {
+  .line {
+    margin-left: 40px;
+    width: 15%;
+    margin-top: 380px;
+  }
+}
+@media screen and (max-width: 835px) {
+  .heroText {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 790px) {
+  .line {
+    margin-left: 10px;
+    width: 15%;
+    margin-top: 300px;
+  }
+  .heroText h1 {
+    font-size: 48px;
+  }
+  .heroText p {
+    font-size: 18px;
+    width: 80%;
+  }
+  .heroText h4 {
+    padding-top: 42px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .heroText h1 {
+    font-size: 32px;
+  }
+  .heroText p {
+    font-size: 16px;
+    padding-bottom: 34px;
+    width: 100%;
+  }
+  .heroText h4 {
+    padding-top: 27px;
+  }
+}
+
+.authContainer {
+  display: flex;
+  width: 90%;
+  /* height: 1392px; */
+  padding: 10px;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 80px;
+  background: #fff;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+}
+.auth h5 {
+  color: var(--dark, #333);
+  font-family: var(--font-space-grotesk);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding-top: 136px;
+}
+.form h4 {
+  color: var(--333333, #333);
+  font-family: var(--font-montserrat);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 12px;
+}
+.form {
+  text-align: left;
+  margin-top: 32px;
+}
+.form input {
+  width: 658px;
+  padding: 13.5px 12px 13.5px 16px;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid var(--Stroke, #d9dce1);
+}
+.form select {
+  width: 658px;
+  padding: 13.5px 12px 13.5px 16px;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid var(--Stroke, #d9dce1);
+}
+.button {
+  display: flex;
+  width: 277px;
+  padding: 10px 0;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: #005f70;
+  color: #fff;
+  font-family: var(--font-montserrat);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 32px auto 136px;
+}
+
+@media screen and (max-width: 790px) {
+  .authContainer {
+    width: 95%;
+    border-radius: 40px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .authContainer {
+    width: 100%;
+    border-radius: 0;
+  }
+  .form input {
+    width: 558px;
+  }
+  .form select {
+    width: 558px;
+  }
+  .line {
+    display: none;
+  }
+}
+@media screen and (max-width: 720px) {
+  .form input {
+    width: 458px;
+  }
+  .form select {
+    width: 458px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .form input {
+    width: 397px;
+  }
+  .form select {
+    width: 397px;
+  }
+  .button {
+    display: flex;
+    height: 56px;
+    width: 95%;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+  }
+}
+
+@media screen and (max-width: 395px) {
+  .form input {
+    width: 350px;
+  }
+  .form select {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .form select {
+    width: 100%;
+  }
+  .form input {
+    width: 100%;
+  }
+}

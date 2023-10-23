@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         montserrat: ["var(--font-montserrat)"],
-        grotesk: ["var(--font-spaceGrotesk)"],
+        grotesk: ["var(--font-space-grotesk)"],
       }
     },
   },
