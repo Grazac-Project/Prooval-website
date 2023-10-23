@@ -3,6 +3,9 @@
   align-items: center;
   text-align: center;
 }
+.pad{
+  height: 88px;
+}
 .heroText {
   width: 85%;
   margin: 0 auto;

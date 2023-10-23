@@ -8,14 +8,12 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Navbar from "@/components/navbar/nav";
 import axios from "axios";
+import Footer from "@/components/footer/footer";
 const WaitList = () => {
-  const Url =
-    "https://hack-d-jobs-6b8f81a0524b.herokuapp.com/api/v1/user/create";
-
   const schema = yup.object().shape({
     email: yup.string().required(),
     name: yup.string().required(),
-    phoneNumber: yup.number().required(),
+    phoneNumber: yup.string().required(),
     gender: yup.string(),
     haveYouEverAttendedABootCamp: yup.string(),
     duration: yup.string(),
@@ -32,7 +30,7 @@ const WaitList = () => {
 
   const Fetch = (data) => {
     axios
-      .post(Url, data)
+      .post("https://hack-d-jobs-6b8f81a0524b.herokuapp.com/api/v1/user/create", data)
       .then((resp) => {
         console.log(resp);
       })
@@ -173,6 +171,7 @@ const WaitList = () => {
           </div>
         </section>
       </div>
+      <Footer/>
     </>
   );
 };

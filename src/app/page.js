@@ -1,10 +1,13 @@
 import Footer from '@/components/footer/footer'
+import Navbar from '@/components/navbar/nav'
 import Image from 'next/image'
 
 export default function Home() {
   return (
     <main className="">
+      <Navbar/>
       <section className='relative bg-[#091A29] flex justify-between sm:justify-center sm:flex-wrap pl-[120px] xl:pl-[80px] lg:pl-[50px] md:pl-[25px] sm:pl-[16px] sm:pr-[16px] pb-[120px] sm:pb-[31px] sm:block sm:text-center '>
+    
         <div className=''>
           <h1 className='font-grotesk w-[558px] xl:w-[458px] sm:w-[80%] xm:w-[90%] sm:m-auto sm:mb-[24px] text-[48px] xl:text-[40px] lg:text-[36px] xm:text-[30px] text-[#fff] pt-[137.5px] xl:pt-[47.5px] lg:pt-[27px] pb-6 xl:p-2 leading-[61.25px] md:leading-[40.83px] sm:text-center'>
             You Can Gain Real-Life Experience on Exciting Projects as a Newbie!
