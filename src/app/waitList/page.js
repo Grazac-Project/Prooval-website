@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+
 import Classes from "./wait.module.css";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
@@ -9,12 +10,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Navbar from "@/components/navbar/nav";
 import axios from "axios";
 import Footer from "@/components/footer/footer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const WaitList = () => {
   const schema = yup.object().shape({
     email: yup.string().required(),
     name: yup.string().required(),
     phoneNumber: yup.string().min(11).required(),
     gender: yup.string(),
+    location: yup.string(),
     haveYouEverAttendedABootCamp: yup.string(),
     duration: yup.string(),
     whatSkillsDoYouHave: yup.string(),
@@ -30,12 +35,19 @@ const WaitList = () => {
 
   const Fetch = (data) => {
     axios
-      .post("https://hack-d-jobs-6b8f81a0524b.herokuapp.com/api/v1/user/create", data)
-      .then((resp) => {
-        console.log(resp);
+      .post(
+        "https://hack-d-jobs-6b8f81a0524b.herokuapp.com/api/v1/user/create",
+        data
+      )
+      .then((response) => {
+        console.log(response);
+        toast.success(response.data.message);
+        // console.log(data);
       })
       .catch((error) => {
         console.error("Error making POST request:", error.message);
+        toast.warn(error.response.data.message);
+        console.log(error);
       });
   };
   const onSubmit = (data) => {
@@ -44,6 +56,7 @@ const WaitList = () => {
   };
   return (
     <>
+      <ToastContainer closeButton={false} />
       <Navbar />
       <div className={Classes.waitListContainer}>
         <div className={Classes.pad}></div>
@@ -51,7 +64,8 @@ const WaitList = () => {
           <h4>Join The Waitlist</h4>
           <h1>You are at the right place!</h1>
           <p>
-          Don’t stop now, fill in your details correctly and get ready to gain real-life experiences
+            Don’t stop now, fill in your details correctly and get ready to gain
+            real-life experiences
           </p>
         </div>
         <Image
@@ -170,9 +184,8 @@ const WaitList = () => {
           </div>
         </section>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
-
 export default WaitList;

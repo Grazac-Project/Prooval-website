@@ -209,6 +209,9 @@
     gap: 10px;
     align-self: stretch;
   }
+  .authContainer {
+    padding: 20px;
+  }
 }
 
 @media screen and (max-width: 395px) {
