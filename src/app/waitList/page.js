@@ -11,15 +11,18 @@ import axios from "axios";
 import Footer from "@/components/footer/footer";
 import Modal from "@/components/modal/modal";
 import { useRouter } from 'next/navigation'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const WaitList = () => {
   const router = useRouter();
-  const [showModal, setShowModal] = useState(true)
+  const [showModal, setShowModal] = useState(false)
   const schema = yup.object().shape({
     email: yup.string().required(),
     name: yup.string().required(),
-    phoneNumber: yup.string().required(),
+    phoneNumber: yup.string().min(11).required(),
     gender: yup.string(),
+    location: yup.string(),
     haveYouEverAttendedABootCamp: yup.string(),
     duration: yup.string(),
     whatSkillsDoYouHave: yup.string(),
@@ -39,9 +42,13 @@ const WaitList = () => {
       .then((resp) => {
         console.log(resp);
         setShowModal(true)
+        // toast.success(response.data.message);
+        // console.log(data);
       })
       .catch((error) => {
-        console.error("Error making POST request:", error.message);
+        // console.error("Error making POST request:", error.message);
+        toast.warn(error.response.data.message);
+        // console.log(error);
       });
   };
   const onSubmit = (data) => {
@@ -53,6 +60,7 @@ const WaitList = () => {
   }
   return (
     <>
+      <ToastContainer closeButton={false} />
       <Navbar />
       {showModal ? <Modal modalClose={closeModal} /> : (<>
       <div className={Classes.waitListContainer}>
@@ -61,8 +69,8 @@ const WaitList = () => {
           <h4>Join The Waitlist</h4>
           <h1>You are at the right place!</h1>
           <p>
-            Don’t stop now, fill in your details correctly and get ready to be a
-            real tech enthusiast
+            Don’t stop now, fill in your details correctly and get ready to gain
+            real-life experiences
           </p>
         </div>
         <Image
@@ -125,7 +133,7 @@ const WaitList = () => {
                 </select>
               </div>
               <div className={Classes.form}>
-                <h4>If yes, what was the duration?</h4>
+                <h4>If yes, what was the duration?(optional)</h4>
                 <select {...register("duration")} required>
                   <option value=""></option>
 
@@ -186,5 +194,4 @@ const WaitList = () => {
     </>
   );
 };
-
 export default WaitList;
