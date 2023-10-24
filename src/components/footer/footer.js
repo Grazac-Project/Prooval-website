@@ -1,14 +1,16 @@
 import Image from 'next/image'
-import React from 'react'
+import Link from 'next/link'
 
 const Footer = () => {
   return (
     <footer className='bg-[#0A1A2A]'>
         <div className='flex  justify-between sm:justify-center xm:justify-start sm:flex-wrap sm:flex-col-reverse bg-[#0A1A2A] px-[120px] xl:px-[80px] lg:pl-[60px] md:pl-[25px] lg:pr-[30px] pt-[86px] xl:pt-[66px] md:pt-[40px] mb-[168px] sm:mb-[29px] text-[#fff]'>
             <div className=''>
-                <p className='w-[188px] h-[48px] font-grotesk font-bold text-[32px] leading-[48px] text-[#fff]'>
-                    Hack<span className='font-medium text-[#005F70]'>the</span>Job
-                </p>
+                <Link href='/'>
+                    <p className='w-[188px] h-[48px] font-grotesk font-bold text-[32px] leading-[48px] text-[#fff]'>
+                        Hack<span className='font-medium text-[#005F70]'>the</span>Job
+                    </p>
+                </Link>
                 <p className='h-8 flex gap-4 mt-[10px]'>
                     <Image src='/gmail.png' width={32} height={32} alt='gmail logo'  />
                     <Image src='/instagram.png' width={32} height={32} alt='instagram logo' />

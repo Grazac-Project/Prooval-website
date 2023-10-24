@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, {useState} from "react";
 import Classes from "./wait.module.css";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
@@ -9,7 +9,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Navbar from "@/components/navbar/nav";
 import axios from "axios";
 import Footer from "@/components/footer/footer";
+import Modal from "@/components/modal/modal";
+import { useRouter } from 'next/navigation'
+
 const WaitList = () => {
+  const router = useRouter();
+  const [showModal, setShowModal] = useState(true)
   const schema = yup.object().shape({
     email: yup.string().required(),
     name: yup.string().required(),
@@ -33,6 +38,7 @@ const WaitList = () => {
       .post("https://hack-d-jobs-6b8f81a0524b.herokuapp.com/api/v1/user/create", data)
       .then((resp) => {
         console.log(resp);
+        setShowModal(true)
       })
       .catch((error) => {
         console.error("Error making POST request:", error.message);
@@ -42,9 +48,13 @@ const WaitList = () => {
     Fetch(data);
     console.log(data);
   };
+  const closeModal = () => {
+    router.push('/')
+  }
   return (
     <>
       <Navbar />
+      {showModal ? <Modal modalClose={closeModal} /> : (<>
       <div className={Classes.waitListContainer}>
         <div className={Classes.pad}></div>
         <div className={Classes.heroText}>
@@ -172,6 +182,7 @@ const WaitList = () => {
         </section>
       </div>
       <Footer/>
+    </>)}
     </>
   );
 };

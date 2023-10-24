@@ -1,23 +1,26 @@
 import Footer from '@/components/footer/footer'
 import Navbar from '@/components/navbar/nav'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Home() {
   return (
     <main className="">
       <Navbar/>
-      <section className='relative bg-[#091A29] flex justify-between sm:justify-center sm:flex-wrap pl-[120px] xl:pl-[80px] lg:pl-[50px] md:pl-[25px] sm:pl-[16px] sm:pr-[16px] pb-[120px] sm:pb-[31px] sm:block sm:text-center '>
-    
+      <section className='relative bg-[#091A29] flex justify-between sm:justify-center sm:flex-wrap pl-[120px] xl:pl-[80px] lg:pl-[50px] md:pl-[25px] sm:pl-[16px] sm:pr-[16px] pb-[120px] sm:pb-[31px] sm:block sm:text-center pt-[100px]'>
+        {/* <div className='h-[88px]'></div> */}
         <div className=''>
-          <h1 className='font-grotesk w-[558px] xl:w-[458px] sm:w-[80%] xm:w-[90%] sm:m-auto sm:mb-[24px] text-[48px] xl:text-[40px] lg:text-[36px] xm:text-[30px] text-[#fff] pt-[137.5px] xl:pt-[47.5px] lg:pt-[27px] pb-6 xl:p-2 leading-[61.25px] md:leading-[40.83px] sm:text-center'>
-            You Can Gain Real-Life Experience on Exciting Projects as a Newbie!
+          <h1 className='font-grotesk w-[652px] xl:w-[458px] sm:w-[80%] xm:w-[90%] sm:m-auto sm:mb-[24px] text-[48px] xl:text-[40px] lg:text-[36px] xm:text-[30px] text-[#fff] pt-[137.5px] xl:pt-[47.5px] lg:pt-[27px] pb-6 xl:p-2 leading-[61.25px] md:leading-[40.83px] sm:text-center'>
+          Gain Real-Life Experience working on Exciting Projects as a Newbie!
           </h1>
           <p className='font-mont w-[558px] xl:w-[408px] sm:w-[80%] xm:w-[90%] sm:m-auto sm:mb-[24px] text-[20px] lg:text-[18px] font-normal leading-[30px] md:leading-[24px] text-[#fff] opacity-80 mb-20 xl:mb-[24px] mt-6 xl:mt-2 sm:text-center'>
             With HacktheJob, you can now walk to a potential employer with 100% confidence
           </p>
-          <button className='bg-[#005F70] font-mont text-[18px] leading-[21.94px] font-medium text-[#fff] p-[10px] w-[277px] h-[56px] rounded-lg lg:mb-[20px]'>Join waitlist</button>
+          <Link href='/waitList'>
+            <button className='bg-[#005F70] font-mont text-[18px] leading-[21.94px] font-medium text-[#fff] p-[10px] w-[277px] h-[56px] rounded-lg lg:mb-[20px]'>Join waitlist</button>
+          </Link>
         </div>
-        <div>
+        <div className='pt-[]'>
           <Image src='/landinghero.png' width={685} height={834} alt='a guy reading'/>
         </div>
         {/* <div className='sm:pt-[43px] mx-auto w-[90]'> */}
@@ -75,9 +78,11 @@ export default function Home() {
               Our mission is to create a thriving tech community where every enthusiast has access to mentorship, internship...
             </p>
           </div>
-          <button className='bg-[#005F70] text-[18px] text-[#fff] font-mont leading-[21.94px] rounded-[8px] w-[277px] sm:w-[100%] h-[56px]'>
-            Learn more
-          </button>
+          <Link href='/aboutUs'>
+            <button className='bg-[#005F70] text-[18px] text-[#fff] font-mont leading-[21.94px] rounded-[8px] w-[277px] sm:w-[100%] h-[56px]'>
+              Learn more
+            </button>
+          </Link>
         </div>
       </section>
       <section className='flex xm:block items-end justify-between sm:justify-center sm:flex-wrap  bg-[#F9F9F9] text-[#333333] pl-[120px] xl:pl-[80px] lg:pl-[50px] md:pl-[25px] pr-[60px] xl:pr-[30px] lg:pr-0'>
@@ -90,9 +95,9 @@ export default function Home() {
               <Image src={'/line.png'} width={23} height={151} alt='line' />
             </div>
             <div className='w-[323px] md:w-[300px]'>
-              <h4 className='font-grotesk font-bold text-[24px] md:text-[20px] leading-9 md:leading-[30px]'>Click on “Join Waitlist”</h4>
-              <p className='font-mont font-normal text-[16px] leading-6'>To join us, all you need to do is fill the waitlist form with the correct information, 
-                  watch out for our response and attend our webinar
+              <h4 className='font-grotesk font-bold text-[24px] md:text-[20px] leading-9 md:leading-[30px]'>Assessment & Interview</h4>
+              <p className='font-mont font-normal text-[16px] leading-6'>
+                Join the waitlist, take the skills assessment, and if you pass, you could be selected to join the program after an interview.
               </p>
             </div>
           </div>
@@ -102,10 +107,9 @@ export default function Home() {
               <Image src={'/line.png'} width={23} height={151} alt='line' />
             </div>
             <div className='w-[323px] md:w-[300px]'>
-              <h4 className='font-grotesk font-bold text-[24px] md:text-[20px] leading-9 md:leading-[30px]'>Fill in the right details</h4>
+              <h4 className='font-grotesk font-bold text-[24px] md:text-[20px] leading-9 md:leading-[30px] w-[339px] sm:w-[100%]'>Team matching & Assignment</h4>
               <p className='font-mont font-normal text-[16px] leading-6'>
-                To join us, all you need to do is fill the waitlist form with the correct information, 
-                watch out for our response and attend our webinar
+                Upon joining, you'll be assigned to a team that suits your skills and aspirations. You'll then receive project-based tasks under the guidance of an experienced Product manager.
               </p>
             </div>
           </div>
@@ -115,9 +119,8 @@ export default function Home() {
               {/* <Image src={'/line.png'} width={23} height={151} alt='line' /> */}
             {/* </div> */}
             <div className='w-[323px] md:w-[300px]'>
-              <h4 className='font-grotesk font-bold text-[24px] md:text-[20px] text-[#333] leading-9 md:leading-[30px]'>Join the screening</h4>
-              <p className='font-mont font-normal text-[16px] leading-6'>To join us, all you need to do is fill the waitlist form with the correct information, 
-                  watch out for our response and attend our webinar
+              <h4 className='font-grotesk font-bold text-[24px] md:text-[20px] text-[#333] leading-9 md:leading-[30px]'>Portfolio Building</h4>
+              <p className='font-mont font-normal text-[16px] leading-6'>Display your finished projects in your portfolio to showcase real-world results, facilitating connections with potential employers interested in your skills.
               </p>
             </div>
           </div>
