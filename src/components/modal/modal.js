@@ -8,7 +8,7 @@ const Modal = ({modalClose}) => {
             <Image src='/confirm.png' width={120} height={120} alt='confirm' className='mx-auto pt-[98.5px] sm:pt-[50px] pb-[10px]' />
             <h4 className='font-grotesk font-bold text-[32px] lg:text-[30px] md:text-[28px] leading-[40.83px] lg:leading-[38px] md:leading-[36px] text-[#333333] text-center'>Registration Confirmed</h4>
             <p className='font-mont font-normal text-base text-center pb-[126.5px] sm:pb-[70px] sm:px-[20px]'>Thank you for joining our waitlist, be sure to check your email for any updates.</p>
-        <span className='text-[24px] absolute top-[20px] right-[20px] text-[#373737] z-[10001]' onClick={modalClose}>&times;</span>
+        <span className='text-[24px] absolute top-[20px] right-[20px] text-[#373737] z-[10001] cursor-pointer' onClick={modalClose}>&times;</span>
         </div>
         
         

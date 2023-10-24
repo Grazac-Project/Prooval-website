@@ -21,7 +21,7 @@ const Navbar = () => {
                   <Link href="/aboutUs" >About us</Link>
                 </li>
                 <li>
-                  <Link href="/waitList" >Contact us</Link>
+                  <Link href="/" >Contact us</Link>
                 </li>
                
               </ul>
@@ -37,13 +37,10 @@ const Navbar = () => {
                   <Link href="/aboutUs" onClick={() => setDropdown(false)}>About Us</Link>
                 </li>
                 <li>
-                  <Link href="/waitList" onClick={() => setDropdown(false)}>Contact Us</Link>
+                  <Link href="/" onClick={() => setDropdown(false)}>Contact Us</Link>
                 </li>
               </ul>
 
-              {/* <button>
-                <Link href="/" onClick={() => setDropdown(false)}>Join Waitlist</Link>
-              </button> */}
             </nav>
           ) : null}
           {!dropdown ? (
