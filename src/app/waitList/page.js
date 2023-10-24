@@ -13,7 +13,7 @@ const WaitList = () => {
   const schema = yup.object().shape({
     email: yup.string().required(),
     name: yup.string().required(),
-    phoneNumber: yup.string().required(),
+    phoneNumber: yup.string().min(11).required(),
     gender: yup.string(),
     haveYouEverAttendedABootCamp: yup.string(),
     duration: yup.string(),
@@ -51,8 +51,7 @@ const WaitList = () => {
           <h4>Join The Waitlist</h4>
           <h1>You are at the right place!</h1>
           <p>
-            Don’t stop now, fill in your details correctly and get ready to be a
-            real tech enthusiast
+          Don’t stop now, fill in your details correctly and get ready to gain real-life experiences
           </p>
         </div>
         <Image
@@ -115,7 +114,7 @@ const WaitList = () => {
                 </select>
               </div>
               <div className={Classes.form}>
-                <h4>If yes, what was the duration?</h4>
+                <h4>If yes, what was the duration?(optional)</h4>
                 <select {...register("duration")} required>
                   <option value=""></option>
 
