@@ -8,7 +8,7 @@ const Footer = () => {
             <div className=''>
                 <Link href='/'>
                     <p className='w-[188px] h-[48px] font-grotesk font-bold text-[32px] leading-[48px] text-[#fff]'>
-                        Hack<span className='font-medium text-[#005F70]'>the</span>Job
+                        Hack<span className='font-medium text-[#005F70]'>the</span>Jobs
                     </p>
                 </Link>
                 <p className='h-8 flex gap-4 mt-[10px]'>
@@ -41,7 +41,7 @@ const Footer = () => {
         </div>
         <hr className='w-[83.3%] mx-auto mb-[19px]'/>
         <p className='font-mont text-base md:text-xs font-medium text-[#fff] opacity-80 text-center pb-[41px] px-[120px] xl:px-[80px]'>
-            &copy; Copyright 2023, All Rights Reserved by HacktheJob
+            &copy; Copyright 2023, All Rights Reserved by HacktheJobs
         </p>
         
     </footer>

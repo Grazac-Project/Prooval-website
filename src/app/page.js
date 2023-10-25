@@ -14,7 +14,7 @@ export default function Home() {
           Gain Real-Life Experience working on Exciting Projects as a Newbie!
           </h1>
           <p className='font-mont w-[558px] xl:w-[408px] sm:w-[80%] xm:w-[90%] sm:m-auto sm:mb-[24px] text-[20px] lg:text-[18px] font-normal leading-[30px] md:leading-[24px] text-[#fff] opacity-80 mb-20 xl:mb-[24px] mt-6 xl:mt-2 sm:text-center'>
-            With HacktheJob, you can now walk to a potential employer with 100% confidence
+            With HacktheJobs, you can now walk to a potential employer with 100% confidence
           </p>
           <Link href='/waitList'>
             <button className='bg-[#005F70] hover:bg-[#fff] font-mont text-[18px] leading-[21.94px] font-medium text-[#fff] hover:text-[#005F70] p-[10px] w-[277px] h-[56px] rounded-lg lg:mb-[20px]'>Join waitlist</button>
@@ -40,7 +40,7 @@ export default function Home() {
           <Image src='/man.png' width={449.69} height={462.5} alt='man holding fone' />
         </div>
         <div >
-          <h2 className='font-grotesk font-normal text-[18px] leading-[27px] text-[#33333399] opacity-60 sm:text-center'>
+          <h2 className='font-grotesk font-normal text-[18px] leading-[27px] text-[#33333399] opacity-80 sm:text-center'>
             WHO ARE WE?
           </h2>
           <h3 className='font-grotesk font-medium text-[48px] xl:text-[38px] lg:text-[32px] leading-[72px] lg:leading-[48px] text-[#333333] pt-4 sm:text-center'>

@@ -13,7 +13,7 @@ const AboutUs = () => {
 
         <section className={Classes.hero}>
           <div className={Classes.heroText}>
-            <h4>ABOUT HACKTHEJOB</h4>
+            <h4>ABOUT HACKTHEJOBS</h4>
             <h1>We are here to provide you real life experiences</h1>
             <p>
               At Hack the Jobs, we're trailblazing in the tech industry by

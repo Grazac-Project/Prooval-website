@@ -82,7 +82,7 @@ const WaitList = () => {
         />
         <section className={Classes.authContainer}>
           <div className={Classes.auth}>
-            <h5>HacktheJob Waitlist</h5>
+            <h5>HacktheJobs Waitlist</h5>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className={Classes.form}>
                 <h4>Email Address</h4>
