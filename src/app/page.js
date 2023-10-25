@@ -17,7 +17,7 @@ export default function Home() {
             With HacktheJob, you can now walk to a potential employer with 100% confidence
           </p>
           <Link href='/waitList'>
-            <button className='bg-[#005F70] font-mont text-[18px] leading-[21.94px] font-medium text-[#fff] p-[10px] w-[277px] h-[56px] rounded-lg lg:mb-[20px]'>Join waitlist</button>
+            <button className='bg-[#005F70] hover:bg-[#fff] font-mont text-[18px] leading-[21.94px] font-medium text-[#fff] hover:text-[#005F70] p-[10px] w-[277px] h-[56px] rounded-lg lg:mb-[20px]'>Join waitlist</button>
           </Link>
         </div>
         <div className='pt-[]'>
