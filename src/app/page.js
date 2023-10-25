@@ -20,12 +20,12 @@ export default function Home() {
             <button className='bg-[#005F70] hover:bg-[#fff] font-mont text-[18px] leading-[21.94px] font-medium text-[#fff] hover:text-[#005F70] p-[10px] w-[277px] h-[56px] rounded-lg lg:mb-[20px]'>Join waitlist</button>
           </Link>
         </div>
-        <div className='pt-[]'>
+        <div className=''>
           <Image src='/landinghero.png' width={685} height={834} alt='a guy reading'/>
         </div>
         {/* <div className='sm:pt-[43px] mx-auto w-[90]'> */}
           <Image src='/floatmobi.png' width={343} height={394} alt='floating image' className='hidden sm:block sm:pt-[43px] mx-auto'/>
-          <div className='w-[80%] absolute top-[calc(85%)] left-[calc(8%)]'>
+          <div className='block sm:hidden w-[80%] absolute top-[calc(85%)] left-[calc(8%)]'>
             <Image src='/float.png' width={1200} height={237} alt='floating image' className=''/>
           </div>
 
