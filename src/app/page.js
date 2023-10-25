@@ -35,7 +35,7 @@ export default function Home() {
 
       <Image src='/float.png' width={1200} height={237} alt='floating image' className=''/>
       </div> */}
-      <section className='bg-white flex justify-between sm:justify-center sm:flex-wrap  px-[120px] xl:px-[80px] lg:px-[50px] pt-[150px] sm:pt-[24px] pb-[52px]  items-center '>
+      <section className='bg-white gap-[20px] flex justify-between sm:justify-center sm:flex-wrap  px-[120px] xl:px-[80px] lg:px-[50px] pt-[150px] sm:pt-[24px] pb-[52px]  items-center '>
         <div className='sm:pb-[24px]'>
           <Image src='/man.png' width={449.69} height={462.5} alt='man holding fone' />
         </div>

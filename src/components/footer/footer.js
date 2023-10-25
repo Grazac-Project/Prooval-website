@@ -4,7 +4,7 @@ import Link from 'next/link'
 const Footer = () => {
   return (
     <footer className='bg-[#0A1A2A]'>
-        <div className='flex  justify-between sm:justify-center xm:justify-start sm:flex-wrap sm:flex-col-reverse bg-[#0A1A2A] px-[120px] xl:px-[80px] lg:pl-[60px] md:pl-[25px] lg:pr-[30px] pt-[86px] xl:pt-[66px] md:pt-[40px] mb-[168px] sm:mb-[29px] text-[#fff]'>
+        <div className='flex xxl:gap-[40px] xl:gap-[10px] justify-between sm:justify-center xm:justify-start sm:flex-wrap sm:flex-col-reverse bg-[#0A1A2A] px-[120px] xl:px-[80px] lg:pl-[60px] md:pl-[25px] lg:pr-[30px] pt-[86px] xl:pt-[66px] md:pt-[40px] mb-[168px] sm:mb-[29px] text-[#fff]'>
             <div className=''>
                 <Link href='/'>
                     <p className='w-[188px] h-[48px] font-grotesk font-bold text-[32px] leading-[48px] text-[#fff]'>
@@ -17,7 +17,7 @@ const Footer = () => {
                     <Image src='/youtube.png' width={32} height={32} alt='youtube logo' className='cursor-pointer' />
                     <Image src='/twitter.png' width={32} height={32} alt='twitter logo' className='cursor-pointer' />
                 </p>
-                <div className='flex pt-[64px] sm:pt-[32px] gap-2 sm:gap-[111px] xm:gap-[50px] '>
+                <div className='flex gap-[10px] pt-[64px] sm:pt-[32px] gap-2 sm:gap-[111px] xm:gap-[50px] '>
                     <ul>
                         <Link href='/aboutUs'><li className='font-mont text-base xl:text-sm font-medium xl:font-normal w-max cursor-pointer'>About us</li></Link>
                         <li className='font-mont text-base xl:text-sm font-medium xl:font-normal w-max my-[16px] cursor-pointer'>How it works</li>
