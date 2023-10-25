@@ -2,10 +2,18 @@ import Footer from '@/components/footer/footer'
 import Navbar from '@/components/navbar/nav'
 import Image from 'next/image'
 import Link from 'next/link'
+import Head from 'next/head'
 
 export default function Home() {
   return (
     <main className="">
+      <Head>
+        <title>Hack the Jobs</title>
+        <metadata
+          name='HacktheJobs - Gain real life working Experience'
+          content='Bridge the gap between the completion of your Bootcamp and landing your dream tech role by getting relevant working experience through HacktheJobs' 
+        />
+      </Head>
       <Navbar/>
       <section className='relative bg-[#091A29] flex justify-between sm:justify-center sm:flex-wrap pl-[120px] xl:pl-[80px] lg:pl-[50px] md:pl-[25px] sm:pl-[16px] sm:pr-[16px] pb-[120px] sm:pb-[31px] sm:block sm:text-center pt-[100px]'>
         {/* <div className='h-[88px]'></div> */}

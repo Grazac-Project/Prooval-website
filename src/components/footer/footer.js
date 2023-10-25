@@ -17,7 +17,7 @@ const Footer = () => {
                     <Image src='/youtube.png' width={32} height={32} alt='youtube logo' className='cursor-pointer' />
                     <Image src='/twitter.png' width={32} height={32} alt='twitter logo' className='cursor-pointer' />
                 </p>
-                <div className='flex gap-[10px] pt-[64px] sm:pt-[32px] gap-2 sm:gap-[111px] xm:gap-[50px] '>
+                <div className='flex gap-[10px] pt-[64px] sm:pt-[32px] sm:gap-[111px] xm:gap-[50px] '>
                     <ul>
                         <Link href='/aboutUs'><li className='font-mont text-base xl:text-sm font-medium xl:font-normal w-max cursor-pointer'>About us</li></Link>
                         <li className='font-mont text-base xl:text-sm font-medium xl:font-normal w-max my-[16px] cursor-pointer'>How it works</li>
