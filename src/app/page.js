@@ -126,8 +126,8 @@ export default function Home() {
           </div>
         </div>
         <div className=''>
-          <Image src='/iPhone.png' width={979.76} height={725.96} alt='iPhone' className='block sm:hidden'/>
-          <Image src='/iPhonesmall.png' width={339} height={387} priority alt='iPhone on mobile screen' className='hidden sm:block sm:mt-5 pb-[50px]'/>
+          <Image src='/phone.png' width={979.76} height={725.96} alt='iPhone' className='block lg:hidden'/>
+          <Image src='/iPhonesmall.png' width={339} height={387} priority alt='iPhone on mobile screen' className='hidden lg:block sm:mt-5 pb-[50px]'/>
         </div>
       </section>
       <Footer />
