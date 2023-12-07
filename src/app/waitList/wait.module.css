@@ -136,6 +136,7 @@
   align-items: center;
   border-radius: 5px;
   border: 1px solid var(--Stroke, #d9dce1);
+  outline: none;
 }
 .form select {
   width: 658px;
