@@ -5,7 +5,7 @@ import Classes from "./wait.module.css";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+// import { yupResolver } from "@hookform/resolvers/yup";
 import Navbar from "@/components/navbar/nav";
 import axios from "axios";
 import Footer from "@/components/footer/footer";
@@ -33,7 +33,7 @@ const WaitList = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    // resolver: yupResolver(schema),
   });
 
   const Fetch = (data) => {
