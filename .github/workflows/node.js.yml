@@ -1,0 +1,68 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+name: HackTheJobs CICD
+on:
+  push:
+    branches:
+      - main
+      - development
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Slack Notification - Deployment Initiated
+        uses: rtCamp/action-slack-notify@v2.2.0
+        env:
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_MESSAGE: "Starting deployment :hourglass_flowing_sand: commit: ${{ github.event.head_commit.message }}"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
+      - name: Determine Heroku App Name
+        id: setHerokuAppName
+        run: |
+          if [[ ${{ github.ref }} == 'refs/heads/main' ]]; then
+            echo "::set-output name=herokuAppName::hackthejobs-production"
+          elif [[ ${{ github.ref }} == 'refs/heads/development' ]]; then
+            echo "::set-output name=herokuAppName::hackthejobs-web"
+          fi
+        shell: bash
+
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ steps.setHerokuAppName.outputs.herokuAppName }}
+          heroku_email: "grazactech@gmail.com"
+
+      - name: Slack Notification - Deployment Success
+        uses: rtCamp/action-slack-notify@v2.2.0
+        if: ${{ success() }}
+        env:
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_MESSAGE: "Success :rocket: commit: ${{ github.event.head_commit.message }}"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
+      - name: Slack Notification - Deployment Failed
+        uses: rtCamp/action-slack-notify@v2.2.0
+        if: ${{ failure() }}
+        env:
+          SLACK_COLOR: ${{ job.status }}
+          SLACK_MESSAGE: "Failed deployment :x: commit: ${{ github.event.head_commit.message }}"
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
