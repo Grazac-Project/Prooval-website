@@ -1,6 +1,5 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-name: HackTheJobs CICD
+name: Hack The Jobs CICD
+
 on:
   push:
     branches:
@@ -19,6 +18,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set NODE_ENV
+        run: echo "NODE_ENV=development" >> .env
+        if: github.ref == 'refs/heads/development'
+      
+        
+      - name: Set NODE_ENV
+        run: echo "NODE_ENV=production" >> .env
+        if: github.ref == 'refs/heads/main'
+        
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -27,6 +35,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Determine Server Directory
+        id: determine-server-dir
+        run: echo "::set-output name=server-dir::${{ github.event_name == 'push' && contains(github.event.ref, 'main') && 'hackthejobs.com/' || contains(github.event.ref, 'development') && 'staging.hackthejobs.com/' }}"
+
       - name: Slack Notification - Deployment Initiated
         uses: rtCamp/action-slack-notify@v2.2.0
         env:
@@ -34,22 +46,14 @@ jobs:
           SLACK_MESSAGE: "Starting deployment :hourglass_flowing_sand: commit: ${{ github.event.head_commit.message }}"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
 
-      - name: Determine Heroku App Name
-        id: setHerokuAppName
-        run: |
-          if [[ ${{ github.ref }} == 'refs/heads/main' ]]; then
-            echo "::set-output name=herokuAppName::hackthejobs-production"
-          elif [[ ${{ github.ref }} == 'refs/heads/development' ]]; then
-            echo "::set-output name=herokuAppName::hackthejobs-web"
-          fi
-        shell: bash
-
-      - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
+      - name: 📂 Sync folders and files to the server
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ steps.setHerokuAppName.outputs.herokuAppName }}
-          heroku_email: "grazactech@gmail.com"
+          server: "ftp.smartvesty.com"
+          protocol: "ftps"  
+          username: "grazac2023"
+          password: "ghI231*4mD!7i1a6"
+          server-dir: "./${{ steps.determine-server-dir.outputs.server-dir }}"
 
       - name: Slack Notification - Deployment Success
         uses: rtCamp/action-slack-notify@v2.2.0
