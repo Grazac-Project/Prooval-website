@@ -2,6 +2,7 @@
 import React, {useState} from 'react'
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import AuthSide from '@/components/authSide/page';
 
 const Signup = () => {
     const [hidePassword, setHidePassword] = useState(false)
@@ -9,9 +10,9 @@ const Signup = () => {
         setHidePassword(prev => !prev)
     }
   return (
-    <section className='font-inter px-10 py-9'>
+    <section className='font-whyte px-10 py-9 flex'>
         <div className='w-[552px]'>
-            <h1 className='text-[32px] font-medium leading-[32px] text-[#2A2A2A] mb-2'>Create an Account</h1>
+            <h1 className='text-[32px] font-medium leading-[32px] text-[#2A2A2A] mb-2 mt-[84px]'>Create an Account</h1>
             <p className='font-regular text-4 leading-[19.36px] text-[#828282] mb-12'>We are happy to have you back. Provide the correct information</p>
             <button className='flex justify-center items-center w-[100%] text-[#2A2A2A] text-[16px] leading-[19.36px] font-medium border-[1px] h-[47px]'><FcGoogle className='mr-[0.5px] text-[20px]'/> Signup with Google</button>
             <p className='text-[14px] leading-[16.94px] font-regular py-10'>or</p>
@@ -39,11 +40,13 @@ const Signup = () => {
                     <input type='checkbox' id='checkbox'/>
                     <label htmlFor='checkbox' className='text-[14px] font-regular leading-[21px]'>Accept all<span className='text-[#6E4AFF]'> Terms of Service</span> and <span className='text-[#6E4AFF]'>Privacy Policy</span></label>
                 </div>
-                <button className='bg-[#6E4AFF] rounded-[4px] py-3 w-[100%] text-[#fff]'>Create account</button>
+                <button className='bg-[#1453FF] rounded-[4px] py-3 w-[100%] text-[#fff]'>Create account</button>
                 <p className='font-medium leading-[19.36px] text-4 text-[#828282] text-center mt-4 '>Already have an account ? <span className='text-[#6E4AFF]'>Login</span></p>
             </div>
         </div>
-        <div></div>
+        <div>
+            <AuthSide />
+        </div>
     </section>
   )
 }

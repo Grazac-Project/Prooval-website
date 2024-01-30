@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         mont: ["var(--font-montserrat)"],
         inter: ["var(--font-inter)"],
+        whyte: ["var(--font-whyte)"],
         grotesk: ["var(--font-space-grotesk)"],
         
       },

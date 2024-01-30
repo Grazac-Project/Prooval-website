@@ -4,6 +4,23 @@ import localFont from 'next/font/local'
 import './globals.css'
 
 // const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const whyte = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Whyte/Whyte-Regular.ttf',
+      weight: '400',
+    },
+    {
+      path: '../../public/fonts/Whyte/Whyte-Medium.ttf',
+      weight: '500',
+    },
+    {
+      path: '../../public/fonts/Whyte/Whyte-Bold.ttf',
+      weight: '700',
+    },
+  ],
+  variable: '--font-whyte'
+})
 const inter = localFont({
   src: [
     {
@@ -88,7 +105,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable}`}>{children}</body>
+      <body className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable} ${whyte.variable}`}>{children}</body>
     </html>
   )
 }
