@@ -1,9 +1,34 @@
-import { Space_Grotesk, Montserrat } from 'next/font/google'
+// import { Space_Grotesk, Montserrat, Inter } from 'next/font/google'
+
 import localFont from 'next/font/local'
 import './globals.css'
 
-const space_grotesk = Space_Grotesk({ subsets: ['latin'], display: 'swap', variable: '--font-space-grotesk'})
-const montserrat = Montserrat({ subsets: ['latin'], display: 'swap', variable: '--font-montserrat' })
+// const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const inter = localFont({
+  src: [
+    {
+      path: '../../public/fonts/Inter/Inter-Regular.ttf',
+      weight: '400',
+    },
+    {
+      path: '../../public/fonts/Inter/Inter-Medium.ttf',
+      weight: '500',
+    },
+    {
+      path: '../../public/fonts/Inter/Inter-SemiBold.ttf',
+      weight: '600',
+    },
+    {
+      path: '../../public/fonts/Inter/Inter-Bold.ttf',
+      weight: '700',
+    },
+    {
+      path: '../../public/fonts/Inter/Inter-ExtraBold.ttf',
+      weight: '800',
+    },
+  ],
+  variable: '--font-inter'
+})
 const myFont = localFont({
   src: [
     {
@@ -63,7 +88,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${myFont.variable} ${spaceGrotesk.variable}`}>{children}</body>
+      <body className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable}`}>{children}</body>
     </html>
   )
 }

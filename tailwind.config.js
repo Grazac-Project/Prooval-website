@@ -9,7 +9,9 @@ module.exports = {
     extend: {
       fontFamily: {
         mont: ["var(--font-montserrat)"],
+        inter: ["var(--font-inter)"],
         grotesk: ["var(--font-space-grotesk)"],
+        
       },
       boxShadow: {
         'abc': '0 2px 8px 0 rgba(0, 0, 0, 0.15)'
