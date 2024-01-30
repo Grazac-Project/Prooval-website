@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
-const Login = () => {
+const Signup = () => {
     const [hidePassword, setHidePassword] = useState(false)
     const toggleVisibility = () => {
         setHidePassword(prev => !prev)
@@ -48,4 +48,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Signup
