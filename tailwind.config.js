@@ -10,6 +10,7 @@ module.exports = {
       fontFamily: {
         mont: ["var(--font-montserrat)"],
         inter: ["var(--font-inter)"],
+        whyte: ["var(--font-whyte)"],
         grotesk: ["var(--font-space-grotesk)"],
         
       },
@@ -29,7 +30,7 @@ module.exports = {
       'lg': {'max': '900px'},
       // => @media (max-width: 1023px) { ... }
 
-      'md': {'max': '767px'},
+      'md': {'max': '768px'},
       // => @media (max-width: 767px) { ... }
 
       'sm': {'max': '639px'},
