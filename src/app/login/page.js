@@ -3,14 +3,15 @@
 import React from "react";
 import Classes from "./login.module.css";
 import Image from "next/image";
+import AuthSide from "@/components/authSide/page";
 
 const Login = () => {
   return (
-    <div className={Classes.container}>
+    <>
       <div className={Classes.innerContainer}>
         <div className={Classes.auth}>
-        <Image src="hackthejobs.svg" alt="icon" width={164.204} height={36} />
-          
+          <Image src="hackthejobs.svg" alt="icon" width={164.204} height={36} />
+
           <div className={Classes.authText}>
             <h5>Welcome back!</h5>
             <p>
@@ -38,7 +39,7 @@ const Login = () => {
                 <h4>Password</h4>
                 <a href="forgotPassword">
                   <p>Forgot Password</p>
-                  </a>
+                </a>
               </div>
               <div className={Classes.input}>
                 <input placeholder="Enter Password" type="password" />
@@ -51,9 +52,11 @@ const Login = () => {
             Don’t have an account ? <a href="signup"> Create account</a>{" "}
           </p>
         </div>
-        <div className={Classes.innerContainer2}></div>
+        <div className={Classes.innerContainer2}>
+          <AuthSide/>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
