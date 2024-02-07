@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const AuthSide = () => {
   return (
-    <section className='font-whyte pl-[52px] xxl:pl-[20px] pr-[68px] xxl:pr-[10px] text-[#fff] bg-[#1453FF] h-[100%] w-[100%] relative'>
+    <section className='font-whyte pl-[52px] xxl:pl-[20px] pr-[68px] xxl:pr-[10px] text-[#fff] bg-[#1453FF] h-[952px] w-[100%] relative'>
         <Image src='/pattern.svg' width={728} height={952} className='absolute top-[0px] left-[0px]'/>
         <Image src='/star.svg' width={80} height={80} className='absolute top-[260px] left-[52px]'/>
         <h2 className='w-[608px] text-[60px] leading-[72px] font-medium pb-[24px] pt-[468px] z-100 tracking-tighter'>

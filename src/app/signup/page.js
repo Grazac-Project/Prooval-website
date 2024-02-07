@@ -11,12 +11,9 @@ const Signup = () => {
         setHidePassword(prev => !prev)
     }
   return (
-    <section className='font-whyte px-10 xm:px-[16px] py-9 flex gap-[80px] xxl:gap-[40px] '>
-        {/* <div className='w-[552px]  bg-[green]'>
-            hello
-        </div> */}
+    <section className='font-whyte px-10 xxl:px-5 md:px-[100px] xm:px-[30px]  py-9 xxl:py-7 flex gap-[80px] xxl:gap-[40px] '>
         <div className='w-[552px] md:w-[100%]'>
-            <Image src='/hack-logo.png' width={180} height={52}/>
+            <Image src='/hack-logo.png' width={180} height={52} className='cursor-pointer'/>
             <h1 className='text-[32px] font-medium leading-[41.6px] text-[#2A2A2A] mb-2 mt-[84px] xm:mt-8'>Create an Account</h1>
             <p className='font-regular text-4 leading-[20.8px] text-[#828282] mb-12'>We are happy to have you back. Provide the correct information</p>
             <button className='flex justify-center items-center w-[100%] text-[#2A2A2A] text-[16px] leading-[19.36px] font-medium border-[1px] h-[47px] '><FcGoogle className='mr-[0.5px] text-[20px]'/> Signup with Google</button>
@@ -47,14 +44,13 @@ const Signup = () => {
                 </div>
                 <div className='mb-12 mt-3 flex items-center gap-[3px]'>
                     <input type='checkbox' id='checkbox' className='block'/>
-                    <label htmlFor='checkbox' className='text-[14px] xm:text-[12px] font-regular leading-[16.8px] xm:leading-[18px] block '>Accept all<span className='text-[#1453FF]'> Terms of Service</span> and <span className='text-[#1453FF]'>Privacy Policy</span></label>
+                    <label htmlFor='checkbox' className='text-[14px] xm:text-[12px] font-regular leading-[16.8px] xm:leading-[18px] block '>Accept all<span className='text-[#1453FF] cursor-pointer'> Terms of Service</span> and <span className='text-[#1453FF] cursor-pointer'>Privacy Policy</span></label>
                 </div>
                 <button className='bg-[#1453FF] rounded-[4px] py-3 w-[100%] text-[#fff]'>Create account</button>
-                <p className='font-medium leading-[20.8px] text-4 text-[#828282] text-center mt-4 '>Already have an account ? <span className='text-[#1453FF]'>Login</span></p>
+                <p className='font-medium leading-[20.8px] text-4 text-[#828282] text-center mt-4 '>Already have an account ? <span className='text-[#1453FF] cursor-pointer'>Login</span></p>
             </div>
         </div>
         <div className='w-[728px] md:hidden'>
-            {/* world */}
             <AuthSide />
         </div>
     </section>
