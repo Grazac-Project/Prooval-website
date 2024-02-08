@@ -1,0 +1,15 @@
+.otpInput{
+    width: 74px !important;
+    height: 74px;
+    font-size: 16px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5.17px;
+    text-align: center;
+    outline: none;
+}
+@media screen and (max-width: 639px) {
+    .otpInput {
+      width: 40px !important;
+      height: 40px;
+    }
+  }

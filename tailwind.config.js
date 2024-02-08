@@ -37,6 +37,8 @@ module.exports = {
       // => @media (max-width: 639px) { ... }
       'xm': {'max': '467px'},
       // => @media (max-width: 639px) { ... }
+      'xxm': {'max': '420px'},
+      // => @media (max-width: 639px) { ... }
     }
   },
   plugins: [],
