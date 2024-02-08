@@ -1,11 +1,35 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Classes from "./login.module.css";
 import Image from "next/image";
 import AuthSide from "@/components/authSide/page";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
+  const [hidePassword, setHidePassword] = useState(true);
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const doLogin = () => {
+    e.preventDefualt();
+    let payload = JSON.stringify({
+      email: email,
+      password: password,
+    });
+    
+  };
+
+  const toggleVisibility = () => {
+    setHidePassword((prev) => !prev);
+  };
   return (
     <>
       <div className={Classes.innerContainer}>
@@ -31,7 +55,12 @@ const Login = () => {
             <div className={Classes.form}>
               <h4>Email Address</h4>
               <div className={Classes.input}>
-                <input placeholder="Email Address" type="email" />
+                <input
+                  placeholder="Email Address"
+                  type="email"
+                  name="email"
+                  onChange={handleChange}
+                />
               </div>
             </div>
             <div className={Classes.form}>
@@ -42,18 +71,25 @@ const Login = () => {
                 </a>
               </div>
               <div className={Classes.input}>
-                <input placeholder="Enter Password" type="password" />
-                <Image src="eye.svg" alt="icon" width={20} height={20} />
+                <input
+                  placeholder="Enter Password"
+                  type={hidePassword ? "password" : "text"}
+                  name="password"
+                  onChange={handleChange}
+                />
+                <div onClick={toggleVisibility}>
+                  {hidePassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                </div>
               </div>
             </div>
             <button className={Classes.btn}>Login</button>
           </form>
           <p className={Classes.create}>
-            Don’t have an account ? <a href="signup"> Create account</a>{" "}
+            Don’t have an account ?&nbsp; <a href="signup"> Create account</a>{" "}
           </p>
         </div>
         <div className={Classes.innerContainer2}>
-          <AuthSide/>
+          <AuthSide />
         </div>
       </div>
     </>

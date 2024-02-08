@@ -1,7 +1,8 @@
 .innerContainer {
   display: flex;
+  justify-content: space-evenly;
   margin: auto;
-  align-items: center;
+  /* align-items: center; */
 }
 .auth {
   width: 50%;
@@ -79,6 +80,9 @@
   background: var(--White, #fff);
   padding: 0 10px;
 }
+.form input:focus {
+  outline: none;
+}
 .labelFlex {
   width: 95%;
   display: flex;
@@ -124,7 +128,6 @@
 }
 .innerContainer2 {
   width: 50%;
-  height: fit-content;
   /* background-color: hsl(224, 100%, 54%); */
 }
 @media screen and (max-width: 768px) {

@@ -142,9 +142,49 @@
   align-items: center;
   margin: auto;
 }
+@media screen and (max-width: 1024px) {
+  .heroText{
+    width: 50%;
+  }
+  .form input {
+    width: 100%;
+   
+  }
+  .form2 input{
+    width: 100%;
+  }
+  .button {
+    width: 100%;
+  }
+  .heroText h3{
+    font-size: 40px;
+  }
+  .heroText span{
+    font-size: 40px;
+  }
+  .heroText p{
+    font-size: 16px;
+  }
+}
 @media screen and (max-width: 768px) {
 .hero{
   width: 95%;
+}
+.heroText{
+  width: 577px;
+}
+.formFlex{
+  width: 577px;
+}
+.form input {
+  width: 181px;
+ 
+}
+.form2 input{
+  width: 388px;
+}
+.button {
+  width: 577px;
 }
 }
 @media screen and (max-width: 600px) {
@@ -153,6 +193,7 @@
   }
   .formFlex {
     display: block;
+    width: 100%;
   }
   .form input {
     width: 100%;

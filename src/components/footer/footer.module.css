@@ -45,8 +45,13 @@
     margin: auto;
   }
 }
+@media screen and (max-width: 430px) {
+  .flex1 p{
+    font-size: 10px;
+  }
+}
 @media screen and (max-width: 375px) {
-  .flex1 P{
+  .flex1 p{
     font-size: 8px;
   }
   .footer {
