@@ -17,6 +17,7 @@ const initialValues = {
     
 }
 const onSubmit = (values, actions) => {
+    console.log(values)
     actions.resetForm()
 }
 
@@ -59,16 +60,16 @@ const Signup = () => {
                         <input type='text' id='firstName' placeholder='Enter firstname' value={values.firstName} onChange={handleChange} onBlur={handleBlur} className='block text-[#828282] border-[1px] h-[48px] w-[270px] md:w-[100%] rounded-[8px] p-[15px] outline-none '/>
                     </div>
                     <div>
-                        <label htmlFor='lastName' className={(errors.firstName && touched.firstName) ? 'text-[#fc8181] block mb-2':'block mb-2 '}>{(errors.lastName && touched.lastName) ?`${errors.lastName}`:'Last name'}</label>
+                        <label htmlFor='lastName' className={(errors.lastName && touched.lastName) ? 'text-[#fc8181] block mb-2':'block mb-2 '}>{(errors.lastName && touched.lastName) ?`${errors.lastName}`:'Last name'}</label>
                         <input type='text' id='lastName' placeholder='Enter lastname' value={values.lastName} onChange={handleChange} onBlur={handleBlur} className='block text-[#828282] border-[1px] h-[48px] w-[270px] md:w-[100%] rounded-[8px] p-[15px] outline-none'/>
                     </div>
                 </div>
                 <div className='mb-8 sm:mb-6'>
-                    <label htmlFor='email' className={(errors.firstName && touched.firstName) ? 'text-[#fc8181] block mb-2':'block mb-2 '}>{errors.email && touched.email ?`${errors.email}`:'Email Address'}</label>
+                    <label htmlFor='email' className={(errors.email && touched.email) ? 'text-[#fc8181] block mb-2':'block mb-2 '}>{errors.email && touched.email ?`${errors.email}`:'Email Address'}</label>
                     <input type='text' id='email' placeholder='Enter email address' value={values.email} onChange={handleChange} onBlur={handleBlur} className='block text-[#828282] border-[1px] h-[48px] w-[100%] rounded-[8px] p-[15px] outline-none'/>
                 </div>
                 <div className='relative'>
-                    <label htmlFor='password' className={(errors.firstName && touched.firstName) ? 'text-[#fc8181] block mb-2':'block mb-2 '}>{errors.password && touched.password ?`${errors.password}`:'Password'}</label>
+                    <label htmlFor='password' className={(errors.password && touched.password) ? 'text-[#fc8181] block mb-2':'block mb-2 '}>{errors.password && touched.password ?`${errors.password}`:'Password'}</label>
                     <input type={hidePassword?'password':'text'} id='password' placeholder='Enter Password' value={values.password} onChange={handleChange} onBlur={handleBlur} className='block text-[#828282] border-[1px] h-[48px] w-[100%] rounded-[8px] p-[15px] outline-none'/>
                     <div className='absolute right-[10px] top-[60%]' onClick={toggleVisibility}>{hidePassword?<AiOutlineEyeInvisible />:<AiOutlineEye />}</div>
                     {/* <p className={(errors.firstName && touched.firstName) ? 'text-[#fc8181] block mb-2':'block mb-2 '}>{errors.firstName && touched.firstName ?`${errors.firstName}`:''}</p> */}
@@ -77,7 +78,7 @@ const Signup = () => {
                     <input type='checkbox' id='checkbox' className='block'/>
                     <label htmlFor='checkbox' className='text-[14px] xm:text-[12px] font-regular leading-[16.8px] xm:leading-[18px] block '>Accept all<span className='text-[#1453FF] cursor-pointer'> Terms of Service</span> and <span className='text-[#1453FF] cursor-pointer'>Privacy Policy</span></label>
                 </div>
-                <button disabled={isSubmitting} className='bg-[#1453FF] rounded-[4px] py-3 w-[100%] text-[#fff]'>Create account</button>
+                <button disabled={isSubmitting} className='disabled:opacity-[5%] bg-[#1453FF] rounded-[4px] py-3 w-[100%] text-[#fff]'>Create account</button>
                 <p className='font-medium leading-[20.8px] text-4 text-[#828282] text-center mt-4 '>Already have an account ? <span className='text-[#1453FF] cursor-pointer'>Login</span></p>
             </form>
         </div>
