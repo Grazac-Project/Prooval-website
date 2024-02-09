@@ -5,33 +5,57 @@ import Classes from "./login.module.css";
 import Image from "next/image";
 import AuthSide from "@/components/authSide/page";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { LoginAction } from "@/api/authentication/auth";
+import { useRouter } from "next/navigation";
+import { useFormik } from "formik";
+import * as yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const initialValues = {
+  email: "",
+  password: "",
+};
 
 const Login = () => {
+  const router = useRouter();
   const [hidePassword, setHidePassword] = useState(true);
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
+  const schema = yup.object({
+    email: yup
+      .string()
+      .email("Please enter a valid email")
+      .required("Email is required"),
+    password: yup.string().min(8).required("Please enter your password"),
   });
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const doLogin = () => {
-    e.preventDefualt();
-    let payload = JSON.stringify({
-      email: email,
-      password: password,
-    });
-    
-  };
+  const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
+    useFormik({
+      initialValues,
+      validationSchema: schema,
+      onSubmit: async (payload, actions) => {
+        LoginAction(payload)
+          .then((resp) => {
+            if (resp.status === 200) {
+              console.log(resp);
+              toast.success(response.data.message);
 
+              actions.resetForm();
+              router.push("/dashboard");
+            } else {
+              toast.warn("Something went wrong, please try again!!!");
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            toast.warn(error.response.data.message);
+          });
+      },
+    });
   const toggleVisibility = () => {
     setHidePassword((prev) => !prev);
   };
   return (
     <>
+      <ToastContainer closeButton={false} />
       <div className={Classes.innerContainer}>
         <div className={Classes.auth}>
           <Image src="hackthejobs.svg" alt="icon" width={164.204} height={36} />
@@ -51,7 +75,7 @@ const Login = () => {
             <p>or</p>
             <hr></hr>
           </div>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className={Classes.form}>
               <h4>Email Address</h4>
               <div className={Classes.input}>
@@ -59,8 +83,13 @@ const Login = () => {
                   placeholder="Email Address"
                   type="email"
                   name="email"
+                  value={values.email}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                 />
+              </div>
+              <div className={Classes.errorMsg}>
+                {errors.email && touched.email && <p>{errors.email}</p>}
               </div>
             </div>
             <div className={Classes.form}>
@@ -75,14 +104,23 @@ const Login = () => {
                   placeholder="Enter Password"
                   type={hidePassword ? "password" : "text"}
                   name="password"
+                  value={values.password}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                 />
                 <div onClick={toggleVisibility}>
                   {hidePassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
                 </div>
               </div>
+              <div className={Classes.errorMsg}>
+                {errors.password && touched.password && (
+                  <p>{errors.password}</p>
+                )}
+              </div>
             </div>
-            <button className={Classes.btn}>Login</button>
+            <button className={Classes.btn} type="submit">
+              Login
+            </button>
           </form>
           <p className={Classes.create}>
             Don’t have an account ?&nbsp; <a href="signup"> Create account</a>{" "}

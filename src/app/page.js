@@ -144,7 +144,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 const initialValues = {
   email: "",
-  name: "",
+  firstName: "",
 };
 
 const WaitList = () => {
@@ -155,7 +155,7 @@ const WaitList = () => {
       .string()
       .email("Please enter a valid email")
       .required("Email is required"),
-    name: yup.string().required("Name is required"),
+    firstName: yup.string().required("firstName is required"),
   });
   const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
     useFormik({
@@ -164,7 +164,7 @@ const WaitList = () => {
       onSubmit: async (values, actions) => {
         await axios
           .post(
-            "https://hack-d-jobs-6b8f81a0524b.herokuapp.com/api/v1/user/create",
+            "https://hackthejobs-staging-staging.up.railway.app/api/v1/user/create",
             values
           )
           .then((res) => {
@@ -223,11 +223,12 @@ const WaitList = () => {
                     <input
                       type="text"
                       placeholder="Enter firstname"
-                      name="name"
-                      value={values.name}
+                      name="firstName"
+                      value={values.firstName}
                       onChange={handleChange}
-                      
                     />
+                    <div className={Classes.errorMsg}>{errors.firstName && touched.firstName && (<p>{errors.firstName}</p>)}</div>
+
                   </div>
                   <div className={Classes.form2}>
                     <input
@@ -238,6 +239,7 @@ const WaitList = () => {
                       onChange={handleChange}
                      
                     />
+                    <div className={Classes.errorMsg}> {errors.email && touched.email && (<p >{errors.email}</p>)}</div>
                   </div>
                 </div>
 
@@ -260,7 +262,8 @@ const WaitList = () => {
                 responsive={responsive}
                 ssr={true} // means to render carousel on server-side.
                 infinite={true}
-                autoPlaySpeed={1000}
+                autoPlay={true}
+                autoPlaySpeed={1500}
                 keyBoardControl={true}
                 customTransition="all .5"
                 transitionDuration={500}
