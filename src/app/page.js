@@ -169,7 +169,7 @@ const WaitList = () => {
           )
           .then((res) => {
             console.log(res);
-            setShowModal(true)=
+            setShowModal(true);
             actions.resetForm();
           })
           .catch((error) => {
