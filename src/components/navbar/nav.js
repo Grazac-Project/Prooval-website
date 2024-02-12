@@ -27,7 +27,7 @@ const Navbar = () => {
               </ul> */}
 
               <button>
-                <Link href="/waitList" >Join the Waitlist</Link>
+                <Link href="/" >Join the Waitlist</Link>
               </button>
             </nav>
           {dropdown ? (

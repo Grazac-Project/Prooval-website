@@ -118,7 +118,7 @@
   border: 1px solid #dddd;
   border-radius: 16px;
   text-align: center;
-  margin-right: 20px;
+
 }
 .card h5 {
   font-family: var(--font-inter);
@@ -146,7 +146,9 @@
   width: 90%;
   align-items: center;
   margin: auto;
+  
 }
+
 @media screen and (max-width: 1024px) {
   .heroText{
     width: 50%;

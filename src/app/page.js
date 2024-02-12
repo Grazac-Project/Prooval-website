@@ -3,12 +3,10 @@
 // import Image from 'next/image'
 // import Link from 'next/link'
 
-
-
 // export default function Home() {
 //   return (
 //     <main className="">
-      
+
 //       <Navbar/>
 //       <section className='relative bg-[#091A29] flex justify-between sm:justify-center sm:flex-wrap pl-[120px] xl:pl-[80px] lg:pl-[50px] md:pl-[25px] sm:pl-[16px] sm:pr-[16px] pb-[120px] sm:pb-[31px] sm:block sm:text-center pt-[100px]'>
 //         <div className=''>
@@ -140,8 +138,10 @@ import Modal from "@/components/modal/modal";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const initialValues = {
   email: "",
   firstName: "",
@@ -198,9 +198,42 @@ const WaitList = () => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true, 
+    autoplaySpeed: 1000, 
+    responsive: [
+      {
+        breakpoint: 1024, // for screens larger than 1024px wide
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768, // for screens between 768px and 1024px wide
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480, // for screens less than 768px wide
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  
+  };
   return (
     <>
-      <ToastContainer closeButton={false} />
+      <ToastContainer  Button={false} />
       <Navbar />
       {showModal ? (
         <Modal modalClose={closeModal} />
@@ -227,8 +260,11 @@ const WaitList = () => {
                       value={values.firstName}
                       onChange={handleChange}
                     />
-                    <div className={Classes.errorMsg}>{errors.firstName && touched.firstName && (<p>{errors.firstName}</p>)}</div>
-
+                    <div className={Classes.errorMsg}>
+                      {errors.firstName && touched.firstName && (
+                        <p>{errors.firstName}</p>
+                      )}
+                    </div>
                   </div>
                   <div className={Classes.form2}>
                     <input
@@ -237,9 +273,11 @@ const WaitList = () => {
                       name="email"
                       value={values.email}
                       onChange={handleChange}
-                     
                     />
-                    <div className={Classes.errorMsg}> {errors.email && touched.email && (<p >{errors.email}</p>)}</div>
+                    <div className={Classes.errorMsg}>
+                      {" "}
+                      {errors.email && touched.email && <p>{errors.email}</p>}
+                    </div>
                   </div>
                 </div>
 
@@ -255,23 +293,7 @@ const WaitList = () => {
           <section className={Classes.talents}>
             <h4>Hear from our Past talents</h4>
             <div className={Classes.slider}>
-              <Carousel
-                swipeable={true}
-                draggable={false}
-                showDots={true}
-                responsive={responsive}
-                ssr={true} // means to render carousel on server-side.
-                infinite={true}
-                autoPlay={true}
-                autoPlaySpeed={1500}
-                keyBoardControl={true}
-                customTransition="all .5"
-                transitionDuration={500}
-                containerClass="carousel-container"
-                removeArrowOnDeviceType={["desktop","tablet", "mobile"]}
-                dotListClass="custom-dot-list-style"
-                // itemClass="carousel-item-padding-40-px"
-              >
+              <Slider {...settings}>
                 <div className={Classes.card}>
                   <Image
                     src="/talent1.png"
@@ -342,7 +364,7 @@ const WaitList = () => {
                     senior product manager to get started on
                   </p>
                 </div>
-              </Carousel>
+              </Slider>
             </div>
           </section>
           <Footer />

@@ -20,7 +20,7 @@ const page = () => {
   return (
     <div className={Classes.container}>
       <Image
-        src="hackthejobs.svg"
+        src="/hack-log.png"
         alt="icon"
         width={164.204}
         height={36}

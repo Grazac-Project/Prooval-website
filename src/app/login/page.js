@@ -58,7 +58,7 @@ const Login = () => {
       <ToastContainer closeButton={false} />
       <div className={Classes.innerContainer}>
         <div className={Classes.auth}>
-          <Image src="hackthejobs.svg" alt="icon" width={164.204} height={36} />
+          <Image src='/hack-logo.png' alt="icon"  width={164.204} height={36}  />
 
           <div className={Classes.authText}>
             <h5>Welcome back!</h5>
