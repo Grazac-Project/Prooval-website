@@ -12,9 +12,8 @@ const Navbar = () => {
     <>
       <header className={Classes.header} suppressHydrationWarning>
         <div className={Classes.navbar}>
-          <Link href="/" className={Classes.logo}>
             <Image src="/Logo.svg" alt="logo" width={150} height={150} />
-          </Link>
+          
           <nav className={Classes.nav}>
               {/* <ul>
                 <li>
