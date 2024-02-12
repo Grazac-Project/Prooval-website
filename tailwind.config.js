@@ -9,7 +9,10 @@ module.exports = {
     extend: {
       fontFamily: {
         mont: ["var(--font-montserrat)"],
+        inter: ["var(--font-inter)"],
+        whyte: ["var(--font-whyte)"],
         grotesk: ["var(--font-space-grotesk)"],
+        
       },
       boxShadow: {
         'abc': '0 2px 8px 0 rgba(0, 0, 0, 0.15)'
@@ -27,12 +30,14 @@ module.exports = {
       'lg': {'max': '900px'},
       // => @media (max-width: 1023px) { ... }
 
-      'md': {'max': '767px'},
+      'md': {'max': '768px'},
       // => @media (max-width: 767px) { ... }
 
       'sm': {'max': '639px'},
       // => @media (max-width: 639px) { ... }
       'xm': {'max': '467px'},
+      // => @media (max-width: 639px) { ... }
+      'xxm': {'max': '420px'},
       // => @media (max-width: 639px) { ... }
     }
   },
