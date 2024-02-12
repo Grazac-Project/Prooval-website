@@ -169,7 +169,7 @@ const WaitList = () => {
           )
           .then((res) => {
             console.log(res);
-            setShowModal(true);
+            setShowModal(true)=
             actions.resetForm();
           })
           .catch((error) => {
@@ -294,7 +294,7 @@ const WaitList = () => {
             <h4>Hear from our Past talents</h4>
             <div className={Classes.slider}>
               <Slider {...settings}>
-                <div className={Classes.card}>
+                <div className={`${Classes.card} ${Classes.cardSpacing}`}>
                   <Image
                     src="/talent1.png"
                     width="362"
