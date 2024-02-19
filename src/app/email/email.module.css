@@ -8,13 +8,13 @@
 }
 .content h3 {
   color: #2a2a2a;
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 34px;
   text-align: center;
 }
 .content p {
   color: #828282;
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 16px;
   text-align: center;
 }
@@ -30,7 +30,7 @@
   padding: 12px 0;
   align-items: center;
   color: var(--White, #fff);
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 16px;
 }
 .back {
@@ -38,7 +38,7 @@
   justify-content: center;
   text-align: center;
   color: var(--Gray-500, #667085);
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 14px;
   margin-top: 24px;
   cursor: pointer;
@@ -61,7 +61,7 @@
   margin: 48px auto;
   text-align: center;
   color: #1453ff;
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 48px;
   gap: 12px;
 }

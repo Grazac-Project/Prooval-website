@@ -1,7 +1,8 @@
 .innerContainer {
   display: flex;
+  justify-content: space-evenly;
   margin: auto;
-  align-items: center;
+  /* align-items: center; */
 }
 .auth {
   width: 50%;
@@ -10,18 +11,18 @@
 
 .auth h3 {
   color: #000;
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 24px;
 }
 .authText h5 {
   color: #2a2a2a;
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 32px;
   margin-top: 153px;
 }
 .authText p {
   color: #828282;
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 16px;
 }
 .google {
@@ -38,18 +39,19 @@
 }
 .google p {
   color: #2a2a2a;
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 16px;
 }
 .line {
   width: 95%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   color: #828282;
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 14px;
   margin: 40px 0;
+  gap: 10px;
 }
 .line hr {
   width: 80%;
@@ -59,7 +61,7 @@
 }
 .form h4 {
   color: #333;
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 16px;
   margin-bottom: 8px;
 }
@@ -78,6 +80,9 @@
   background: var(--White, #fff);
   padding: 0 10px;
 }
+.form input:focus {
+  outline: none;
+}
 .labelFlex {
   width: 95%;
   display: flex;
@@ -87,7 +92,7 @@
 }
 .labelFlex p {
   color: #ff5959;
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 14px;
 }
 .btn {
@@ -102,29 +107,33 @@
   align-items: center;
   margin-top: 48px;
   color: var(--White, #fff);
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 16px;
 }
 .create {
   color: #828282;
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 16px;
   margin-top: 16px;
   display: flex;
   justify-content: center;
   text-align: center;
 }
+.errorMsg p{
+  font-family: var(--font-inter);
+  font-size: 12px;
+  color: red;
+}
 .create a {
   color: #1453ff;
-  font-family: var(--font-inter);
+  font-family: var(--font-whyte);
   font-size: 16px;
   font-weight: bolder;
   letter-spacing: 0.48px;
 }
 .innerContainer2 {
   width: 50%;
-  height: 100vh;
-  background-color: hsl(224, 100%, 54%);
+  /* background-color: hsl(224, 100%, 54%); */
 }
 @media screen and (max-width: 768px) {
   .innerContainer2 {

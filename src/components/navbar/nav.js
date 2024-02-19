@@ -13,10 +13,10 @@ const Navbar = () => {
       <header className={Classes.header} suppressHydrationWarning>
         <div className={Classes.navbar}>
           <Link href="/" className={Classes.logo}>
-            <Image src="/newlogo.png" alt="logo" width={150} height={150} />
+            <Image src="/navLogo.svg" alt="logo" width={164} height={36} />
           </Link>
           <nav className={Classes.nav}>
-              <ul>
+              {/* <ul>
                 <li>
                   <Link href="/aboutUs" >About us</Link>
                 </li>
@@ -24,10 +24,10 @@ const Navbar = () => {
                   <Link href="/" >Contact us</Link>
                 </li>
                
-              </ul>
+              </ul> */}
 
               <button>
-                <Link href="/waitList" >Join Waitlist</Link>
+                <Link href="/" >Join the Waitlist</Link>
               </button>
             </nav>
           {dropdown ? (
