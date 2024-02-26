@@ -125,7 +125,6 @@
 //   )
 // }
 "use client";
-
 import React, { useState } from "react";
 import Classes from "../app/waitList/wait.module.css";
 import Image from "next/image";
@@ -139,8 +138,6 @@ import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const initialValues = {
   email: "",
@@ -148,6 +145,9 @@ const initialValues = {
 };
 
 const WaitList = () => {
+  const [isLoading, setIsLoading] = useState("Join the Waitlist");
+  // const [text, setText] = useState("Join the Waitlist");
+
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const schema = yup.object({
@@ -155,13 +155,14 @@ const WaitList = () => {
       .string()
       .email("Please enter a valid email")
       .required("Email is required"),
-    firstName: yup.string().required("firstName is required"),
+    firstName: yup.string().required("firstname is required"),
   });
-  const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
+  const { values, handleSubmit, handleChange, isSubmitting, errors, touched } =
     useFormik({
       initialValues,
       validationSchema: schema,
       onSubmit: async (values, actions) => {
+        setIsLoading("Loading...");
         await axios
           .post(
             "https://hackthejobs-staging-staging.up.railway.app/api/v1/user/create",
@@ -171,9 +172,11 @@ const WaitList = () => {
             console.log(res);
             setShowModal(true);
             actions.resetForm();
+            actions.setSubmitting(false);
           })
           .catch((error) => {
             console.log(error);
+            setIsLoading("Join the waitlist");
             toast.warn(error.response.data.message);
           });
       },
@@ -181,29 +184,31 @@ const WaitList = () => {
   const closeModal = () => {
     setShowModal(false);
     router.push("/");
+    setIsLoading("Joined");
   };
-  
+
   var settings = {
     dots: true,
-    infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true, 
-    autoplaySpeed: 1500, 
+    autoplay: true,
+    autoplaySpeed: 1500,
     responsive: [
       {
         breakpoint: 1024, // for screens larger than 1024px wide
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 3,
         },
       },
       {
         breakpoint: 768, // for screens between 768px and 1024px wide
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToScroll: 2,
+          initialSlide: 2,
         },
       },
       {
@@ -211,14 +216,14 @@ const WaitList = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
     ],
-  
   };
   return (
     <>
-      <ToastContainer  Button={false} />
+      <ToastContainer Button={false} />
       <Navbar />
       {showModal ? (
         <Modal modalClose={closeModal} />
@@ -227,13 +232,14 @@ const WaitList = () => {
           <div className={Classes.hero}>
             <div className={Classes.heroText}>
               <h3>
-                Get merged with an <span>expert</span> and gain{" "}
-                <span>real-life</span> experience{" "}
+                Bootcamps are <span>never</span> enough to give you{" "}
+                <span>real life</span> experience
               </h3>
               <p>
-                As a newbie in tech, you now have access to a team and a senior
-                product manager to get started on building your confidence and
-                potfolio, taking you closer to the job market
+                Jump on a life changing journey that will accelerate your tech
+                career as you  gain real-life experience working on Live
+                products as you make connections with mentors and industry
+                professionals to help you along the way.
               </p>
               <form onSubmit={handleSubmit}>
                 <div className={Classes.formFlex}>
@@ -247,7 +253,7 @@ const WaitList = () => {
                     />
                     <div className={Classes.errorMsg}>
                       {errors.firstName && touched.firstName && (
-                        <p>{errors.firstName}</p>
+                        <span>{errors.firstName}</span>
                       )}
                     </div>
                   </div>
@@ -261,13 +267,22 @@ const WaitList = () => {
                     />
                     <div className={Classes.errorMsg}>
                       {" "}
-                      {errors.email && touched.email && <p>{errors.email}</p>}
+                      {errors.email && touched.email && (
+                        <span>{errors.email}</span>
+                      )}
                     </div>
                   </div>
                 </div>
 
                 <button type="submit" className={Classes.button}>
-                  Join the Waitlist
+                  {isSubmitting ? (
+                    <>
+                      Loading
+                      {isLoading === "Loading..." && <Spin />}
+                    </>
+                  ) : (
+                    isLoading
+                  )}
                 </button>
               </form>
             </div>
@@ -279,7 +294,7 @@ const WaitList = () => {
             <h4>Hear from our Past talents</h4>
             <div className={Classes.slider}>
               <Slider {...settings}>
-                <div className={`${Classes.card} ${Classes.cardSpacing}`}>
+                <div className={Classes.card}>
                   <Image
                     src="/talent1.png"
                     width="362"
@@ -359,3 +374,26 @@ const WaitList = () => {
   );
 };
 export default WaitList;
+
+export const Spin = () => (
+  <svg
+    class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <circle
+      class="opacity-25"
+      cx="12"
+      cy="12"
+      r="10"
+      stroke="currentColor"
+      stroke-width="4"
+    ></circle>
+    <path
+      class="opacity-75"
+      fill="currentColor"
+      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+    ></path>
+  </svg>
+);
