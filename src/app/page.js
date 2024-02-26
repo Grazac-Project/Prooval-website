@@ -367,20 +367,31 @@
 import Image from 'next/image'
 import React from 'react'
 import ValueCard from '@/components/valueCard/valueCard'
+import { MdVerified } from "react-icons/md";
 
 const Landing = () => {
   return (
     <div>
-      <section className='px-[80px] xl:px-[25px] sm:px-[100px] xm:px-[50px] xxm:px-4 flex gap-[58px] xl:gap-[25px] items-center'>
+      <section className='px-[80px] xl:px-[25px] sm:px-[100px] xm:px-[50px] xxm:px-4 flex gap-[58px] xl:gap-[25px] items-center bg-[#F9FBFF] pb-[112px]'>
         <div className='font-whyte'>
-          <h1 className='font-bold text-[64px] xl:text-[50px] md:text-[40px] leading-[70.4px] xl:leading-[50px] md:leading-[44px] text-[#121927] w-[607px] xl:w-[500px] md:w-[400px] sm:w-[100%]'>Become workplace ready and prepared</h1>
+          <div className='flex gap-2 w-[256px] py-2 px-3 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px]'>
+            <MdVerified className='text-[#FFD700] w-[15.28px] h-[15.99px]'/>
+            <h3 className='font-regular text-[14px] text-[#121927] leading-[15.4px] tracking-[4%]'>
+              Empowered over 14k students 
+            </h3>
+          </div>
+          <h1 className='font-bold text-[64px] xl:text-[50px] md:text-[40px] leading-[83.2px] xl:leading-[50px] md:leading-[44px] text-[#121927] w-[621px] xl:w-[500px] md:w-[400px] sm:w-[100%]'>
+            Become workplace ready and <span className='text-[#fff] text-[54px] leading-[59.4px] w-[279px] bg-[#1453ff] rounded-[48px] px-5 py-3 border-[#B3C7FF]'>prepared</span>
+          </h1>
           <p className='font-regular text-[18px] leading-6 text-[#727272] w-[555px] xl:w-[500px] md:w-[400px] sm:w-[100%] pt-8 sm:pt-4 pb-8'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
-            Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. 
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis  
           </p>
-          <button className='w-[173px] sm:w-[100%] font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 py-4'>Get started</button>
+          <button className='w-[173px] sm:w-[100%] font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 py-4 mr-[16px]'>Get started</button>
+          <button className='w-[213px] sm:w-[100%] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 py-4 border-[1px] border-[#DADADA]'>Make a donation</button>
         </div>
-        <Image src='/hero-pic.png' alt='group of pictures' width={635} height={696} className='sm:hidden' />
+        <div className='w-[598px] pl-[40px] pr-[37px] sm:hidden'>
+          <Image src='/hero-pic.png' alt='group of pictures' width={524} height={673} className='sm:hidden' />
+        </div>
       </section>
       <section className='px-[80px] xl:px-[25px] sm:px-[100px] xm:px-[50px] xxm:px-4 font-whyte bg-[#F5F8FF]'>
         <h2 className='font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#121927] text-center w-[865px] lg:w-[95%] mx-auto pt-[94px] md:pt-[40px] pb-3'>
@@ -391,6 +402,29 @@ const Landing = () => {
         </h3>
 
         <ValueCard /> 
+      </section>
+      <section className='flex justify-between px-[80px]'>
+        <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
+          <Image src='/layers.svg' alt='group of pictures' width={40} height={40}  />
+          <p>Layers</p>
+        </div>
+        <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
+          <Image src='/sisyphus.png' alt='group of pictures' width={26} height={43}  />
+          <p>Sisyphus</p>
+        </div>
+        <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
+          <Image src='/circooles.png' alt='group of pictures' width={40} height={40}  />
+          <p>Circooles</p>
+        </div>
+        <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
+          <Image src='/catalog.png' alt='group of pictures' width={40} height={40}  />
+          <p>Catalog</p>
+        </div>
+        <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
+          <Image src='/quotient.png' alt='group of pictures' width={40} height={40}  />
+          <p>Quotient</p>
+        </div>
+      
       </section>
     </div>
   )
