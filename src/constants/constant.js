@@ -1,26 +1,93 @@
-import card1 from '/card1.png'
-import card2 from '/card2.png'
-import card3 from '/card3.png'
-import card4 from '/card4.png'
-const cardValues = [
+
+export const cardValues = [
     {
-        img: card1,
-        heading: 'Frequent Assessment',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare. '
+        number: 1,
+        heading: 'Assessment',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, conur adipiscing elit.'
     },
     {
-        img: card2,
-        heading: 'Team Matching',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare. '
+        number: 2,
+        heading: 'Get Matched',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, conur adipiscing elit.'
     },
     {
-        img: card3,
-        heading: 'Community Networking',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare. '
+        number: 3,
+        heading: 'Project',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, conur adipiscing elit.'
     },
     {
-        img: card4,
-        heading: 'Frequent Assessment',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare. '
+        number: 4,
+        heading: 'Build Portfolio',
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, conur adipiscing elit.'
     }
+    
 ]
+
+export const imageCards = [
+    {
+        name: 'Olivia Rhye',
+        position: 'Founder & CEO',
+        formerPosition: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Olivia Rhye',
+        position: 'Founder & CEO',
+        formerPosition: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Olivia Rhye',
+        position: 'Founder & CEO',
+        formerPosition: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Olivia Rhye',
+        position: 'Founder & CEO',
+        formerPosition: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Olivia Rhye',
+        position: 'Founder & CEO',
+        formerPosition: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Olivia Rhye',
+        position: 'Founder & CEO',
+        formerPosition: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Olivia Rhye',
+        position: 'Founder & CEO',
+        formerPosition: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Olivia Rhye',
+        position: 'Founder & CEO',
+        formerPosition: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+        img: '/mentor.png'
+    },
+]
+
+export const testimonials = [
+    {
+      name: 'Renee Wells',
+      position: 'Product Designer, Quotient',
+      text: 'Love the simplicity of the service and the prompt customer support. We can’t imagine working without it.',
+    },
+    {
+      name: 'Renee Wells 2',
+      position: 'Product Designer, Quotient',
+      text: 'Love the simplicity of the service and the prompt customer support. We can’t imagine working without it.',
+    },
+    {
+      name: 'Renee Wells 3',
+      position: 'Product Designer, Quotient',
+      text: 'Love the simplicity of the service and the prompt customer support. We can’t imagine working without it.',
+    },
+  ];
