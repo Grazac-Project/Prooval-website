@@ -3,79 +3,209 @@ import Classes from "./about.module.css";
 import Image from "next/image";
 import Navbar from "@/components/navbar/nav";
 import Footer from "@/components/footer/footer";
+import Link from "next/link";
 
 const AboutUs = () => {
   return (
     <>
       <Navbar />
       <div className={Classes.about}>
-        <div className={Classes.pad}></div>
+        <div className={Classes.intro}>
+          <h1>
+            We are <span>Exceptional</span>
+          </h1>
+          <p>
+            Our mission is to ensure teams can do their best work, no matter
+            their size or budget. We focus on the details of everything we do.
+          </p>
+        </div>
+        <Image src="/about.png" alt="img" width={1440} height={600} />
+      </div>
+      <div className={Classes.mission}>
+        <h4>Our mission is to equip people to be job READY!</h4>
+        <p>
+          Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id
+          scelerisque est ultricies ultricies. Duis est sit sed leo nisl,
+          blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at
+          scelerisque amet nulla purus habitasse. Nunc sed faucibus bibendum
+          feugiat sed interdum. Ipsum egestas condimentum mi massa. In tincidunt
+          pharetra consectetur sed duis facilisis metus. Etiam egestas in nec
+          sed et. Quis lobortis at sit dictum eget nibh tortor commodo cursus
+        </p>
+      </div>
+      <div className={Classes.story}>
+        <h4>Our story</h4>
+        <Image src="/story.png" alt="img" width={1280} height={432} />
+        <div className={Classes.storyFlex}>
+          <p>
+            Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id
+            scelerisque est ultricies ultricies. Duis est sit sed leo nisl,
+            blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at
+            scelerisque amet nulla purus habitasse.
+            <br /> Nunc sed faucibus bibendum feugiat sed interdum. Ipsum
+            egestas condimentum mi massa. In tincidunt pharetra consectetur sed
+            duis facilisis metus. Etiam egestas in nec sed et. Quis lobortis at
+            sit dictum eget nibh tortor commodo cursus.
+            <br />
+            <br />
+            Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id
+            scelerisque est ultricies ultricies. Duis est sit sed leo nisl,
+            blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at
+            scelerisque amet nulla purus habitasse.
+          </p>
+          <p>
+            Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id
+            scelerisque est ultricies ultricies. Duis est sit sed leo nisl,
+            blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at
+            scelerisque amet nulla purus habitasse. <br /> Nunc sed faucibus
+            bibendum feugiat sed interdum. Ipsum egestas condimentum mi massa.
+            In tincidunt pharetra consectetur sed duis facilisis metus. Etiam
+            egestas in nec sed et. Quis lobortis at sit dictum eget nibh tortor
+            commodo cursus.
+            <br />
+            <br />
+            Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id
+            scelerisque est ultricies ultricies. Duis est sit sed leo nisl,
+            blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at
+            scelerisque amet nulla purus habitasse.
+          </p>
+        </div>
+      </div>
+      <div className={Classes.team}>
+        <div className={Classes.teamText}>
+          <h3>Meet our team</h3>
+          <p>
+            Nisl at scelerisque amet nulla purus habitasse.Nunc sed faucibus
+            bibendum feugiat sed interdum. Ip
+          </p>
+        </div>
 
-        <section className={Classes.hero}>
-          <div className={Classes.heroText}>
-            <h4>ABOUT HACKTHEJOBS</h4>
-            <h1>We are here to provide you real life experiences</h1>
-            <p>
-              At Hack the Jobs, we're trailblazing in the tech industry by
-              ensuring that tech newbies get a strong head start in their
-              careers. We achieve this by pairing them with seasoned experts and
-              senior product managers, offering valuable hands-on experience and
-              mentorship. Join us in this exciting journey and kickstart your
-              tech career with confidence
-            </p>
-          </div>
-          <Image
-            src="/about.png"
-            alt="image"
-            width={1440}
-            height={834}
-            // style={{ width: "100%", objectFit: "cover" }}
-          />
-          <section className={Classes.statement}>
-            <div className={Classes.statementContent}>
-              <div className={Classes.vision}>
-                <div className={Classes.visionText}>
-                  <h1>Our Vision</h1>
-                  <p>
-                    Our vision is to make tech accessible and rewarding for
-                    newcomers, guiding tech enthusiasts from beginners to
-                    experts through a trusted platform that helps them grow and
-                    succeed in the industry. Our goal is to empower every tech
-                    newbie to thrive.
-                  </p>
-                </div>
-                <Image
-                  src="/vision.png"
-                  alt="vision"
-                  width={400}
-                  height={400}
-                />
-              </div>
-              <div className={Classes.mission}>
-                <Image
-                  src="/mission.png"
-                  alt="vision"
-                  width={400}
-                  height={400}
-                />
-                <div className={Classes.missionText}>
-                  <h1>Our mision</h1>
-                  <p>
-                    Our mission is to empower tech newbies by providing them
-                    with the opportunity to work on real-life projects that
-                    function as internships, bridging the gap in a landscape
-                    where numerous bootcamps train tech enthusiasts but job
-                    opportunities remain scarce. We connect these newcomers with
-                    tangible experiences that they can proudly present to
-                    potential clients and employers, enabling them to kickstart
-                    their tech careers with confidence
-                  </p>
-                </div>
+        <div className={Classes.gallery}>
+          <div className={Classes.galleryFlex}>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
               </div>
             </div>
-          </section>
-        </section>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className={Classes.galleryFlex}>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <div className={Classes.donation}>
+        <div className={Classes.donateText}>
+          <h3>Do you want to support our vision by sponsoring a talent ?</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis
+            viverra .
+          </p>
+          <button>Make donation</button>
+        </div>
+        
+        <Image src="/stars1.svg" alt="img" width={96} height={96} style={{position: "absolute", bottom:"186px", left:"80px" }}/>
+        
+      </div>
+
       <Footer />
     </>
   );
