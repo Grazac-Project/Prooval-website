@@ -113,7 +113,7 @@ const Faq = () => {
               {faq.slice(0, 4).map((item, index) => (
                 <div
                   className={Classes.questionContainer}
-                  click={handleToggle}
+                  // onClick={handleToggle}
                   key={index}
                 >
                   <div className={Classes.question}>
@@ -152,7 +152,7 @@ const Faq = () => {
               {faq.slice(5, 9).map((item, index) => (
                 <div
                   className={Classes.questionContainer}
-                  click={handleToggle}
+                  // onClick={handleToggle}
                   key={index}
                 >
                   <div className={Classes.question}>
@@ -209,7 +209,7 @@ const Faq = () => {
             </div>
             <div>
               <h5>Message</h5>
-              <textarea typebox name="message" />
+              <textarea data-typebox name="message" />
             </div>
 
             <button>Send message</button>
