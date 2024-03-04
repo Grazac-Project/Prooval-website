@@ -370,8 +370,6 @@ import ValueCard from '@/components/valueCard/valueCard'
 import { MdVerified } from "react-icons/md";
 import { cardValues, imageCards, testimonials } from '@/constants/constant';
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const Landing = () => {
   // const [angle, setAngle] = useState(0);

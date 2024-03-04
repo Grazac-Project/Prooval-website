@@ -33,11 +33,10 @@ const Login = () => {
       validationSchema: schema,
       onSubmit: async (payload, actions) => {
         LoginAction(payload)
-          .then((resp) => {
-            if (resp.status === 200) {
+          .then((res) => {
+            if (res.status === 200) {
               console.log(resp);
               toast.success(response.data.message);
-
               actions.resetForm();
               router.push("/dashboard");
             } else {
