@@ -415,7 +415,7 @@ const Landing = () => {
   return (
     <div>
       <section className='font-whyte relative'>
-        <div className=' px-[80px] py-[48px] xl:px-[25px] sm:px-[100px] xm:px-[50px] xxm:px-4 flex gap-[58px] xl:gap-[25px] items-center bg-[#F9FBFF]'>
+        <div className=' px-[80px] py-[48px] xl:px-[25px] sm:px-[25px] xm:px-[16px] flex sm:flex-col gap-[58px] xl:gap-[25px] items-center bg-[#F9FBFF]'>
           <div className=''>
             <div className='flex gap-2 w-[256px] md:w-[200px] sm:w-[256px] py-2 px-3 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px]'>
               <MdVerified className='text-[#FFD700] w-[15.28px] h-[15.99px]'/>
@@ -429,26 +429,26 @@ const Landing = () => {
             <p className='font-regular text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis  
             </p>
-            <button className='w-[173px] lg:w-[150px] md:w-[130px] sm:w-[100%] font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:pr-[12px]'>Get started</button>
-            <button className='w-[213px] lg:w-[170px] md:w-[150px] sm:w-[100%] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border-[1px] border-[#DADADA]'>Make a donation</button>
+            <button className='w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]'>Get started</button>
+            <button className='w-[213px] lg:w-[170px] md:w-[150px] sm:w-[150px] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border-[1px] border-[#DADADA]'>Make a donation</button>
           </div>
-          <div className='w-[598px] pl-[40px] xxl:pl-[30px] pr-[37px] xxl:pr-[30px] sm:hidden'>
-            <Image src='/hero-pic.png' alt='group of pictures' width={524} height={673} className='sm:hidden object-cover' />
+          <div className='w-[598px] sm:w-[100%] pl-[40px] xxl:pl-[30px] pr-[37px] xxl:pr-[30px]'>
+            <Image src='/hero-pic.png' alt='group of pictures' width={524} height={673} className='object-cover' />
           </div>
           
         </div>
-        <div className={`sm:hidden absolute z-[100] w-[205px] lgx:w-[189px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[90px] right-[650px]': 'top-[81px] xxl:top-[70px] right-[623px] xxl:right-[520px] xl:right-[600px] lgx:right-[420px] lg:right-[400px] md:right-[350px]'}`}>
+        <div className={` absolute z-[100] w-[205px] lgx:w-[189px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[90px] right-[650px]': 'top-[81px] xxl:top-[70px] sm:top-[510px] right-[623px] xxl:right-[520px] xl:right-[600px] lgx:right-[420px] lg:right-[400px] md:right-[350px]'}`}>
             <p className='font-regular text-[12px] text-[#414449] leading-[13px] w-[169px] mx-auto text-center text-[#121927]'>More than +12,000 Satisfied students across the globe</p>
           </div>
-          <div className={`sm:hidden absolute bg-[#fff] w-[139.5px] lgx:w-[123.5px] rounded-[4px] px-[18px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-ghi border-[#E4E7EC] border-[0.9px] flex justify-between transition-all duration-1000 ease-in-out ${load? 'top-[90px] right-[650px]': 'top-[149px] lgx:top-[120px] right-[22.5px] lgx:right-[0px]'}`}>
+          <div className={` absolute bg-[#fff] w-[139.5px] lgx:w-[123.5px] rounded-[4px] px-[18px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-ghi border-[#E4E7EC] border-[0.9px] flex justify-between transition-all duration-1000 ease-in-out ${load? 'top-[90px] right-[650px]': 'top-[149px] lgx:top-[120px] sm:top-[530px] right-[22.5px] lgx:right-[0px] sm:right-[70px]  '}`}>
             <Image src='/courses.png' width={33} height={33} alt='course' className='object-contain' />
             <p className='font-regular text-[14px] text-[#414449] leading-[24px] lgx:leading-4 w-[54px]'>+1000 <span className='text-[#8B8B8B]'>Courses</span></p>
           </div>
-          <div className={`sm:hidden absolute bg-[#fff] flex justify-between w-[146px] lgx:w-[126px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[90px] right-[650px]': 'bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] right-[613px] xxl:right-[520px] xl:right-[600px] lgx:right-[420px] lg:right-[390px] md:right-[320px]'}`}>
+          <div className={` absolute bg-[#fff] flex justify-between w-[146px] lgx:w-[126px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[90px] right-[650px]': 'bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[190px] right-[613px] xxl:right-[520px] xl:right-[600px] lgx:right-[420px] lg:right-[390px] md:right-[320px] sm:right-[380px]'}`}>
             <Image src='/mentors.png' width={33} height={33} alt='mentors' className='object-contain'/>
             <p className='font-regular w-[58px] text-[14px] text-[#414449] leading-[20.85px] lgx:leading-4'>+2000 <span className='text-[#8B8B8B]'>Mentors</span></p>
           </div>
-          <div className={`sm:hidden absolute bg-[#fff] w-[161px] lgx:w-[141px] flex justify-between rounded-[4px] border-[0.9px] border-[#E4E7EC] pl-[20px] lgx:pl-[10px] py-[12px] lgx:py-2 shadow-ghi transition-all duration-1000 ease-in-out ${load? 'top-[90px] right-[650px]': 'bottom-[134px] right-[0px]'}`}>
+          <div className={` absolute bg-[#fff] w-[161px] lgx:w-[141px] flex justify-between rounded-[4px] border-[0.9px] border-[#E4E7EC] pl-[20px] lgx:pl-[10px] py-[12px] lgx:py-2 shadow-ghi transition-all duration-1000 ease-in-out ${load? 'top-[90px] right-[650px]': 'bottom-[134px] sm:bottom-[100px] right-[0px] sm:right-[90px]'}`}>
             <Image src='/live.png' width={33} height={33} alt='live' className='object-contain'/>
             <p className='w-[84px] font-regular text-[14px] text-[#414449] leading-[18.96px] lgx:leading-4'>+154<br/> <span className='text-[#8B8B8B]'>Live projects</span></p>
           </div>
@@ -526,33 +526,53 @@ const Landing = () => {
           }
         </div>
       </section>
-      <section className='font-whyte flex justify-between px-[80px] lgx:px-[25px] pt-[96px] pb-[64px]'>
+      <section className='font-whyte flex justify-between sm:flex-col px-[80px] lgx:px-[25px] pt-[96px] pb-[64px]'>
         <div>
-          <h3 className='font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[580px] md:w-[510px]  text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] text-[#121927] mb-[20px]'>
+          <h3 className='font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[580px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:text-center'>
             World class mentorship at your finger tip
           </h3>
-          <p className='font-regular text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[580px] md:w-[510px]'>
+          <p className='font-regular text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[580px] md:w-[510px] sm:hidden'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
           </p>
         </div>
-        <button className='w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%]'>
+        <button className='w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden'>
             Connect to a mentor
-          </button>
+        </button>
           
       </section>
-      <section className='px-[80px] lgx:px-[25px] flex flex-wrap gap-[32px] pb-[96px]'>
-        {
-          imageCards.map((imageCard, i) => {
-            return (
-              <div key={i} className='font-whyte'>
-                <Image src={imageCard.img} width={296} height={297} alt='mentor image' className='object-cover'/>
-                <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{imageCard.name}</h4>
-                <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{imageCard.position}</h5>
-                <p className='font-regular w-[296px] text-[16px] leading-[20.8px] text-[#667085]'>{imageCard.formerPosition}</p>
-              </div>
-            )
-          })
-        }  
+      <section className='pb-[96px] sm:pb-[52px]'>
+        <div className='sm:hidden 2xl:flex px-[80px] lgx:px-[25px] sm:px-[16px] flex flex-wrap gap-[32px] pb-[96px] sm:pb-[52px]'>
+          {
+            imageCards.map((imageCard, i) => {
+              return (
+                <div key={i} className='font-whyte'>
+                  <Image src={imageCard.img} width={296} height={297} alt='mentor image' className='object-cover'/>
+                  <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{imageCard.name}</h4>
+                  <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{imageCard.position}</h5>
+                  <p className='font-regular w-[296px] text-[16px] leading-[20.8px] text-[#667085]'>{imageCard.formerPosition}</p>
+                </div>
+              )
+            })
+          }
+        </div>
+        <div className='sm:block 2xl:hidden sm:pb-[40px] mx-auto'>
+          <Slider ref={slider => {sliderRef = slider}} {...settings} className='w-[100%]'>
+                {imageCards.map((imageCard, i) => {
+                  return(
+                    <div key={i} className='font-whyte'>
+                      <Image src={imageCard.img} width={296} height={297} alt='mentor image' className='object-cover'/>
+                      <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{imageCard.name}</h4>
+                      <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{imageCard.position}</h5>
+                      <p className='font-regular w-[296px] text-[16px] leading-[20.8px] text-[#667085]'>{imageCard.formerPosition}</p>
+                    </div>
+                      )})}
+              
+
+          </Slider>
+        </div>
+        <button className=' w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden'>
+            Connect to a mentor
+        </button> 
       </section>
       <section className='flex sm:flex-wrap px-[80px] xl:px-[25px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]'>
         <Image src='/bootcamp.png' width={602} height={519} alt='several images merged into one' className='object-cover' />
@@ -586,8 +606,8 @@ const Landing = () => {
           </div>
         </div>
       </section>
-      <section className='font-whyte px-[80px] xl:px-[25px] py-[84px] relative'>
-        <h4 className='font-medium text-[48px] text-[38px] leading-[52.8px] w-[696px] lgx:w-[550px] mb-[62px] mx-auto text-center'>
+      <section className='font-whyte px-[80px] xl:px-[25px] sm:px-[16px] py-[84px] relative'>
+        <h4 className='font-medium text-[#121927] text-[48px] lgx:text-[38px] sm:text-[36px] leading-[52.8px] sm:leading-[39.6px] w-[696px] lgx:w-[550px] sm:w-[93%] mb-[62px] mx-auto text-center'>
           What our students has to say about us
         </h4>
         <div className='w-[100%] rounded-[24px] '>
@@ -596,15 +616,15 @@ const Landing = () => {
                   return(
                       <div key={index} className='w-[100%] rounded-[24px]'>
                         <div  className='bg-[#121927] flex sm:flex-col justify-between relative rounded-[24px]'>
-                          <div className='px-[64px] py-[108px] sm:order-2'>
-                            <h4 className='font-regular text-[36px] leading-[44px] tracking-[-2%] text-[#fff] w-[672px] sm:w-[100%] mb-[32px]'>
+                          <div className='px-[64px] xxl:px-[40px] lg:px-[20px] sm:px-[16px] py-[108px] sm:pt-[29.73px] sm:pb-[36.27px] sm:order-2'>
+                            <h4 className='font-regular text-[36px] xxl:text-[30px] lgx:text-[26px] md:text-[24px] leading-[44px] xxl:leading-[40px] md:leading-[36px] tracking-[-2%] text-[#fff] w-[672px] xxl:w-[600px] lgx:w-[500px] lg:w-[450px] md:w-[350px] sm:w-[100%] mb-[32px] sm:mb-[24px]'>
                               {testimonial.text}
                             </h4>
-                            <h5 className='font-medium w-[672px] sm:w-[100%] text-[18px] leading-[28px] text-[#fff]'>
+                            <h5 className='font-medium  sm:w-[100%] text-[18px] leading-[28px] text-[#fff]'>
                               {testimonial.name}
                             </h5>
                             <p className='font-regular text-[16px] leading-[24px] text-[#BEBEBE] pb-[32px]'>{testimonial.position}</p>
-                            <div className='flex gap-4'>
+                            <div className='flex sm:justify-center gap-4'>
                               {[...Array(testimonials.length).keys()].map((_, i) => (
                                 <div
                                   key={i}
@@ -614,9 +634,10 @@ const Landing = () => {
                                 ></div>
                               ))}
                             </div>
-                            <Image src='/quote.png' width={149} height={114} alt='quote' className='absolute top-[0px] sm:top-[280px] left-[54.29px] sm:left-[400px] '/>
+                            <Image src='/quote.png' width={149} height={114} alt='quote' className=' absolute top-[0px] left-[54.29px] xxl:left-[40px] sm:invisible visible' />
+                            <Image src='/quote-mobile.png' width={76} height={82} alt='quote' className='absolute top-[280px] right-[15.23px] sm:visible invisible' />
                           </div>
-                          <Image src='/testimonial.png' width={480} height={465} alt='testimonial picture' className='sm:order-1 rounded-tr-[24px] rounded-br-[24px] object-cover' />
+                          <Image src='/testimonial.png' width={480} height={465} alt='testimonial picture' className='sm:order-1 rounded-tr-[24px] rounded-br-[24px] sm:rounded-br-none sm:rounded-tl-[24px] w-[100%] object-cover' />
                         </div>
                       </div>
                       )})}
@@ -624,15 +645,17 @@ const Landing = () => {
 
           </Slider>
         </div>
-        <Image src='/big-star.png' width={109} height={110} alt='big star' className='absolute top-[83px] left-[107px]'/>
-        <Image src='/small-star.png' width={43} height={44} alt='small star' className='absolute top-[174px] right-[143px]'/>
+        <Image src='/big-star.png' width={109} height={110} alt='big star' className='absolute top-[83px] lg:top-[40px] md:top-[20px] sm:hidden left-[107px] lg:left-[40px] md:left-[20px] '/>
+        <Image src='/medium-star.png' width={54} height={54} alt='medium star' className='absolute sm:top-[26px] sm:right-[14px] 2xl:hidden sm:block'/>
+        <Image src='/small-star.png' width={43} height={44} alt='small star' className='absolute top-[174px] lg:top-[184px] right-[143px] lg:right-[103px] sm:hidden 2xl:block'/>
+        <Image src='/smallest-star.png' width={21} height={21} alt='smallest star' className='absolute sm:top-[162px] sm:left-[23px] sm:block 2xl:hidden' />
       </section>
-      <section className='flex justify-between items-center px-[80px] py-[160px]'>
-        <div className='font-whyte'>
-          <h4 className='font-medium text-[48px] leading-[52.8px] text-[#121927] pb-[32px] w-[592px]'>
+      <section className='flex sm:flex-wrap gap-[60px] lgx:gap-[40px] lg:gap-[20px] md:gap-[10px] items-center px-[80px] xl:px-[25px] py-[160px]'>
+        <div className='font-whyte sm:order-1'>
+          <h4 className='font-medium text-[48px] xxl:text-[40px] lgx:text-[36px] lg:text-[34px] sm:text-[32px] leading-[52.8px] xxl:leading-[46px] lgx:leading-[40px] sm:leading-[35.2px] text-[#121927] pb-[32px] sm:pt-[32px] w-[592px] xxl:w-[500px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]'>
             Access to endless resources
           </h4>
-          <p className='w-[589px] font-regular text-[16px] leading-[24px] text-[#333333] pb-[32px]'>
+          <p className='w-[589px] xxl:w-[500px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] font-regular text-[16px] lgx:text-[14px] leading-[24px] lgx:leading-[20px] text-[#333333] pb-[32px]'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
             Duis cursus, mi quis viverra ornare.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
             Duis cursus, mi quis viverra ornare.Lorem ipsum dolor sit amet, sectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
@@ -642,24 +665,23 @@ const Landing = () => {
             Get started
           </button>
         </div>
-        <div className='bg-[#EEF2FF] px-[40px] pt-[95px]'>
-          <Image src='/resources.png' width={556} height={460} alt='resources' />
+        <div className='bg-[#EEF2FF] px-[40px] lg:px-[20px] pt-[95px]'>
+          <Image src='/resources.png' width={556} height={460} alt='resources' className='object-cover sm:order-3'/>
         </div>
       </section>
-      <section className='p-[80px] '>
-        <div className="font-whyte bg-[#121927] px-[285px] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
-          <div className='w-[710px] mx-auto'>
-            <h4 className='font-medium text-[48px] leading-[52.8px] text-[#fff] text-center'>
+      <section className='p-[80px] xl:px-[25px] '>
+        <div className="font-whyte bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
+          <div className='w-[710px] md:w-[100%] mx-auto'>
+            <h4 className='font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#fff] mx-auto text-center'>
               Have a Question?
             </h4>
-            <p className='font-regular w-[710px] mx-auto text-[16px] leading-[24px] text-center text-[#FAFAFA] py-5'>
+            <p className='font-regular text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-5 sm:py-4'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra
             </p>
             <button className='w-[173px] h-[56px] rounded-[8px] bg-[#1453FF] text-[16px] leading-[24px] tracking-[3%] font-medium text-[#fff] block mx-[auto]'>
               Contact Us
             </button>
           </div>
-        {/* <Image src='/stroke.svg' width={1280} height={413} alt='stroke overlay' className='absolute top-[0] left-[0] z-[99]'/> */}
         </div>
       </section>
       
