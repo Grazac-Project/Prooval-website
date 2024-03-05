@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
+  margin-top: 24px;
   margin-bottom: 48px;
 }
 .intro h1 {
@@ -25,25 +26,58 @@
   width: 717px;
   color: #414141;
 }
-.intro span {
+.intro h1 span {
   color: #1453ff;
 }
 
-.intro h1::before {
-  content: "";
-  color: #121927;
+.intro h1 span {
+  position: relative;
+}
+
+.intro h1 span::before {
+  content: "Youtuber";
+  color: #1453ff;
   animation: words 20s infinite;
 }
 
-.intro h1::after {
+.intro h1 span::after {
   content: "";
   position: absolute;
-  width: calc(100%);
-  height: 50%;
+  width: calc(100% + 8px);
+  height: 110%;
   background-color: #fff;
-  border-left: 2px solid #ff7f50;
-  right: 8px;
+  border-left: 2px solid #1453ff;
+  right: -8px;
   animation: cursor 0.8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+  to {
+    /* border-left: 2px solid #1453ff; */
+  }
+}
+
+@keyframes words {
+  0%,
+  20% {
+    content: "Exceptional";
+  }
+  21%,
+  40% {
+    content: "Extraordinary";
+  }
+  41%,
+  60% {
+    content: "Remarkable";
+  }
+  61%,
+  80% {
+    content: "Superb";
+  }
+  81%,
+  100% {
+    content: "Unparalleled";
+  }
 }
 
 @keyframes typing {
@@ -68,9 +102,10 @@
   65%,
   80%,
   85% {
-    width: calc(100% + 0px);
+    width: calc(100% + 8px);
   }
 }
+
 .mission {
   width: 1280px;
   display: flex;
@@ -105,6 +140,9 @@
   line-height: 53px;
   margin-bottom: 64px;
   color: #101828;
+}
+.storyImg{
+  display: none;
 }
 .story p {
   font-family: var(--font-whyte);
@@ -216,7 +254,7 @@
   color: white;
   border-radius: 8px;
 }
-.gallerySlide{
+.gallerySlide {
   display: none;
 }
 @media screen and (max-width: 1440px) {
@@ -252,9 +290,7 @@
   }
 }
 @media screen and (max-width: 1024px) {
-  .intro h1 {
-    font-size: 54px;
-  }
+  
   .mission h4 {
     width: 50%;
   }
@@ -269,57 +305,95 @@
   .donateText p {
     width: 90%;
   }
-  .star{
+  .star {
     display: none;
   }
 }
 @media screen and (max-width: 768px) {
-.intro{
-  display: block;
-  width: 95%;
-}
-.intro h1{
-  line-height: 63.49px;
-}
-.intro p{
-  width: 100%;
-  margin-top: 24px;
-}
-.mission{
-  display: block;
-  width: 95%;
-}
-.mission h4{
-  width: 100%;
-  /* font-size: 32px; */
-}
-.mission p{
-  width: 100%;
-  margin-top: 24px ;
-  /* font-size: 16px; */
-}
-.mission{
-  margin: 54px auto;
+  .intro {
+    display: block;
+    width: 95%;
+  }
+  .intro h1 {
+    line-height: 63.49px;
+    width: 100%;
+  }
+  .intro p {
+    width: 100%;
+    margin-top: 24px;
+  }
+  .mission {
+    display: block;
+    width: 95%;
+    margin: 54px auto;
 
-}
-.storyFlex{
-  display: block;
-  width: 95%;
-}
-.storyFlex p{
-  width: 100%;
-}
-.galleryFlex{
-  display: none;
-}
-.gallerySlide{
-  display: block;
-}
-.teamText{
-  width: 95%;
-}
-.teamText p{
-  width: 100%;
-}
+  }
+  .mission h4 {
+    width: 100%;
+    font-size: 40px;
+  }
+  .mission p {
+    width: 100%;
+    margin-top: 24px;
+    /* font-size: 16px; */
+  }
+ .story h4{
+  font-size: 40px;
 
+ }
+  .storyFlex {
+    display: block;
+    width: 95%;
+  }
+  .storyFlex p {
+    width: 100%;
+  }
+  .galleryFlex {
+    display: none;
+  }
+  .gallerySlide {
+    display: block;
+    width: 95%;
+    margin: 32px auto;
+  }
+  .teamText h3{
+
+    font-size: 40px;
+
+  }
+  .teamText {
+    width: 95%;
+  }
+  
+  .teamText p {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .intro h1{
+    font-size: 54px;
+  }
+  .mission h4 {
+    font-size: 35px;
+  }
+  .story h4{
+    font-size: 35px;
+
+  }
+  .teamText h3{
+
+    font-size: 35px;
+
+  }
+  .donation{
+    padding-top: 70px;
+    padding-bottom: 33px;
+    margin-top: 40px;
+  }
+  .storyImg{
+    display: block;
+  }
+  .storyImg1{
+    display: none;
+  }
 }
