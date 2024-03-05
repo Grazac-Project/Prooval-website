@@ -14,8 +14,6 @@
   position: relative;
   font-family: var(--font-whyte);
   font-size: 74px;
-  /* font-size: 5vw; */
-
   line-height: 87px;
   width: 470px;
 }
@@ -218,7 +216,9 @@
   color: white;
   border-radius: 8px;
 }
-
+.gallerySlide{
+  display: none;
+}
 @media screen and (max-width: 1440px) {
   .about {
     width: 100%;
@@ -252,7 +252,74 @@
   }
 }
 @media screen and (max-width: 1024px) {
-  .intro h1{
-font-size: 54px;
+  .intro h1 {
+    font-size: 54px;
   }
+  .mission h4 {
+    width: 50%;
+  }
+  .mission p {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 950px) {
+  .donateText {
+    width: 90%;
+  }
+  .donateText p {
+    width: 90%;
+  }
+  .star{
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+.intro{
+  display: block;
+  width: 95%;
+}
+.intro h1{
+  line-height: 63.49px;
+}
+.intro p{
+  width: 100%;
+  margin-top: 24px;
+}
+.mission{
+  display: block;
+  width: 95%;
+}
+.mission h4{
+  width: 100%;
+  /* font-size: 32px; */
+}
+.mission p{
+  width: 100%;
+  margin-top: 24px ;
+  /* font-size: 16px; */
+}
+.mission{
+  margin: 54px auto;
+
+}
+.storyFlex{
+  display: block;
+  width: 95%;
+}
+.storyFlex p{
+  width: 100%;
+}
+.galleryFlex{
+  display: none;
+}
+.gallerySlide{
+  display: block;
+}
+.teamText{
+  width: 95%;
+}
+.teamText p{
+  width: 100%;
+}
+
 }

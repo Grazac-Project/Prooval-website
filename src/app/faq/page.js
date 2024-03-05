@@ -70,6 +70,7 @@ const Faq = () => {
   ];
   const [show, setShow] = useState({});
   const [show2, setShow2] = useState({});
+  const [question, setQuestion] = useState(false);
 
   const handleToggle = (id) => {
     console.log(id);
@@ -110,11 +111,12 @@ const Faq = () => {
           <p>Everything you need to know about hacktheJobs.</p>
           <div className={Classes.questionFlex}>
             <div className={Classes.flex1}>
-              {faq.slice(0, 4).map((item, index) => (
+              {faq.slice(0, 5).map((item, index) => (
                 <div
                   className={Classes.questionContainer}
                   // onClick={handleToggle}
                   key={index}
+                  onClick={() => handleToggle(index)}
                 >
                   <div className={Classes.question}>
                     {item.question}
@@ -149,11 +151,13 @@ const Faq = () => {
               ))}
             </div>
             <div className={Classes.flex2}>
-              {faq.slice(5, 9).map((item, index) => (
+              {faq.slice(5, 10).map((item, index) => (
                 <div
                   className={Classes.questionContainer}
                   // onClick={handleToggle}
                   key={index}
+                  onClick={() => handleToggle2(index)}
+
                 >
                   <div className={Classes.question}>
                     {item.question}
@@ -187,6 +191,55 @@ const Faq = () => {
                 </div>
               ))}
             </div>
+            {question && (
+              <div className={Classes.flex3}>
+                {faq.slice(5, 10).map((item, index) => (
+                  <div
+                    className={Classes.questionContainer}
+                    click={handleToggle}
+                    key={index}
+                    onClick={() => handleToggle2(index)}
+                  >
+                    <div className={Classes.question}>
+                      {item.question}
+                      <>
+                        {!show2[index] ? (
+                          <Image
+                            src="/drop.svg"
+                            alt="img"
+                            width={20}
+                            height={20}
+                            onClick={() => handleToggle2(index)}
+                            key={index}
+                            style={{ cursor: "pointer" }}
+                          />
+                        ) : (
+                          <Image
+                            src="/drop2.svg"
+                            alt="img"
+                            width={20}
+                            height={20}
+                            onClick={() => handleToggle2(index)}
+                            key={index}
+                            style={{ cursor: "pointer" }}
+                          />
+                        )}
+                      </>
+                    </div>
+                    {show2[index] && (
+                      <div className={Classes.answer}>{item.answer}</div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+            <button
+              className={Classes.mobileBtn}
+              onClick={() => setQuestion(true)}
+            >
+              {" "}
+              See more
+            </button>
           </div>
         </div>
         <div className={Classes.formContainer}>

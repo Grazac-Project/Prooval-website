@@ -6,6 +6,32 @@ import Footer from "@/components/footer/footer";
 import Link from "next/link";
 
 const AboutUs = () => {
+  var settings = {
+    dots: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    responsive: [
+      {
+        breakpoint: 768, // for screens between 768px and 1024px wide
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480, // for screens less than 768px wide
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+    ],
+  };
   return (
     <>
       <Navbar />
@@ -190,6 +216,115 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
+        <div className={Classes.gallerySlide}>
+          {/* <Slider {...settings}> */}
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+            <div className={Classes.card}>
+              <Image src="/team.png" alt="img" width={296} height={296} />
+              <h5>Olivia Rhye</h5>
+              <span>Founder & CEO</span>
+              <div className={Classes.social}>
+                <Link href="#">
+                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
+                </Link>
+                <Link href="#">
+                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
+                </Link>
+              </div>
+            </div>
+          {/* </Slider> */}
+        </div>
       </div>
       <div className={Classes.donation}>
         <div className={Classes.donateText}>
@@ -201,9 +336,15 @@ const AboutUs = () => {
           </p>
           <button>Make donation</button>
         </div>
-        
-        <Image src="/stars1.svg" alt="img" width={96} height={96} style={{position: "absolute", bottom:"186px", left:"80px" }}/>
-        
+
+        <Image
+          src="/stars1.svg"
+          alt="img"
+          width={96}
+          height={96}
+          className={Classes.star}
+          style={{ position: "absolute", bottom: "186px", left: "80px" }}
+        />
       </div>
 
       <Footer />
