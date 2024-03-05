@@ -371,6 +371,7 @@ import { MdVerified } from "react-icons/md";
 import { cardValues, imageCards, testimonials } from '@/constants/constant';
 import Slider from "react-slick";
 import Footer from '@/components/footer/footer';
+import Navbar from '@/components/navbar/nav';
 
 const Landing = () => {
   const [angle, setAngle] = useState('2.93deg');
@@ -444,6 +445,7 @@ const Landing = () => {
 
   return (
     <div>
+      <Navbar />
       <section className='font-whyte px-[640px] 2xl:px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative'>
         <div className='  py-[48px]  flex sm:flex-col gap-[58px] xl:gap-[25px] items-center bg-[#F9FBFF]'>
           <div className=''>
@@ -722,7 +724,7 @@ const Landing = () => {
           <Image src='/resources.png' width={556} height={460} alt='resources' className='object-cover sm:order-3'/>
         </div>
       </section>
-      <section className='px-[592.5px] 2xl:px-[80px] xl:px-[25px] xm:px-[16px] py-[80px] sm:py-[40px]'>
+      <section className='px-[592.5px] 2xl:px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px] sm:pt-[40px]'>
         <div className="font-whyte bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
           <div className='w-[710px] md:w-[100%] mx-auto'>
             <h4 className='font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#fff] mx-auto text-center'>

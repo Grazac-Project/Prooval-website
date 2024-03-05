@@ -20,14 +20,21 @@ const Footer = () => {
     //     </div>
     //   </div>
     // </footer>
-    <footer className='font-whyte px-[592.5px] 2xl:px-[80px] xl:px-[25px] xm:px-[16px]'>
+    <footer className='font-whyte px-[592.5px] 2xl:px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px]'>
       <div className="flex sm:flex-col justify-between sm:gap-[32px]">
         <div className="pb-[64px] xm:pb-[24px] sm:order-3">
-          <Image src='/footer-logo.png' width={165} height={36} alt="hackthejobs logo" />
+          <Link href='/'><Image src='/footer-logo.png' width={165} height={36} alt="hackthejobs logo" /></Link>
+          
           <ul className="flex xm:flex-col gap-[32px] xm:gap-[16px] pt-[32px]">
-            <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">Home</li>
-            <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">About</li>
-            <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">FAQ</li>
+            <Link href='/'>
+              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">Home</li>
+            </Link>
+            <Link href='/aboutUs'>
+              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">About</li>
+            </Link>
+            <Link href='/faq'>
+              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">FAQ</li>
+            </Link>
           </ul>
         </div>
         <div className="order-1">
