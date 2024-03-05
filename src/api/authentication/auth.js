@@ -1,8 +1,11 @@
 import { authKit } from "./base";
 
-export const SignupAction = (data) => {
-  return authKit.post("api/v1/user/signup", data);
-};
+export const signupAction = (data) => {
+    return authKit.post('api/v1/user/signup', data)
+}
+export const googleLogin = (data) => {
+    return authKit.get('auth/google')
+}
 export const LoginAction = (payload) => {
   return authKit.post("api/v1/user/login", payload);
 };

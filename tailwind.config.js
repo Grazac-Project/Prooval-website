@@ -15,7 +15,12 @@ module.exports = {
         
       },
       boxShadow: {
-        'abc': '0 2px 8px 0 rgba(0, 0, 0, 0.15)'
+        'abc': '0 2px 8px 0 rgba(0, 0, 0, 0.15)',
+        'def': '-4px 4px 20px 0 rgba(0,0,0,0.1)',
+        'ghi': '-5.833333492279053px 5.833333492279053px 29.166667938232422px 0px rgba(0, 0, 0, 0.1)',
+
+        
+
       }
     },
     screens: {
@@ -26,7 +31,7 @@ module.exports = {
 
       'xl': {'max': '1200px'},
       // => @media (max-width: 1279px) { ... }
-
+      'lgx': {'max': '1024px'},
       'lg': {'max': '900px'},
       // => @media (max-width: 1023px) { ... }
 
@@ -39,6 +44,9 @@ module.exports = {
       // => @media (max-width: 639px) { ... }
       'xxm': {'max': '420px'},
       // => @media (max-width: 639px) { ... }
+    },
+    colors: {
+      primary: '#1453FF'
     }
   },
   plugins: [],
