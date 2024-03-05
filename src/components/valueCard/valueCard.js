@@ -3,7 +3,7 @@ import Image from 'next/image'
 const ValueCard = () => {
   return (
     <div className='flex flex-wrap gap-[24px] justify-around'>
-      <div className='w-[829px] xxl:w-[650px] lgx:w-[523px] lg:w-[100%] rounded-[8px] px-[15px] pt-[48px] bg-[#070B14] relative'>
+      <div className='w-[829px] xxl:w-[650px] lgx:w-[523px] lg:w-[100%] rounded-[8px] px-[15px] pt-[48px] bg-[#070B14] hover:bg-[#1453FF] relative'>
         <Image src='/card1.png' width={56} height={57} alt='gvh' />
         <h4 className='font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 '>
           Frequent Assessment
@@ -15,7 +15,7 @@ const ValueCard = () => {
         <Image src='/value1.png' width={324} height={131} alt='background image' className='absolute top-0 right-0 sm:hidden'/>
         <Image src='/value-mobile.png' width={202} height={101} alt='background image' className='absolute top-0 right-0 hidden sm:block'/>
       </div>
-      <div className='w-[427px] lg:w-[100%] rounded-[8px] px-[15px] pt-[48px] bg-[#070B14] relative'>
+      <div className='w-[427px] lg:w-[100%] rounded-[8px] px-[15px] pt-[48px] bg-[#070B14] hover:bg-[#1453FF] relative'>
         <Image src='/card2.png' width={56} height={57} alt='gvh' />
         <h4 className='font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 '>
           Frequent Assessment
@@ -27,7 +27,7 @@ const ValueCard = () => {
         <Image src='/value2.png' width={220} height={140} alt='background image' className='absolute top-0 right-0 sm:hidden'/>
         <Image src='/value-mobile.png' width={202} height={101} alt='background image' className='absolute top-0 right-0 hidden sm:block'/>
       </div>
-      <div className='w-[427px] lg:w-[100%] rounded-[8px] px-[15px] pt-[48px] bg-[#070B14] relative'>
+      <div className='w-[427px] lg:w-[100%] rounded-[8px] px-[15px] pt-[48px] bg-[#070B14] hover:bg-[#1453FF] relative'>
         <Image src='/card3.png' width={56} height={57} alt='gvh' />
         <h4 className='font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 '>
           Frequent Assessment
@@ -39,7 +39,7 @@ const ValueCard = () => {
         <Image src='/value2.png' width={220} height={140} alt='background image' className='absolute top-0 right-0 sm:hidden'/>
         <Image src='/value-mobile.png' width={202} height={101} alt='background image' className='absolute top-0 right-0 hidden sm:block'/>
       </div>
-      <div className='w-[829px] xxl:w-[650px] lgx:w-[523px] lg:w-[100%] rounded-[8px] px-[15px] pt-[48px] bg-[#070B14] relative'>
+      <div className='w-[829px] xxl:w-[650px] lgx:w-[523px] lg:w-[100%] rounded-[8px] px-[15px] pt-[48px] bg-[#070B14] hover:bg-[#1453FF] relative'>
         <Image src='/card4.png' width={56} height={57} alt='gvh' />
         <h4 className='font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 '>
           Frequent Assessment

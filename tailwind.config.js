@@ -18,12 +18,14 @@ module.exports = {
         'abc': '0 2px 8px 0 rgba(0, 0, 0, 0.15)',
         'def': '-4px 4px 20px 0 rgba(0,0,0,0.1)',
         'ghi': '-5.833333492279053px 5.833333492279053px 29.166667938232422px 0px rgba(0, 0, 0, 0.1)',
+        'footerInput': '0 1px 2px 0 rgba(16, 24, 40, 0.05)'
 
         
 
       }
     },
     screens: {
+      '3xl': {'max': '2560px'},
       '2xl': {'max': '1535px'},
       // => @media (max-width: 1535px) { ... }
       
@@ -43,6 +45,8 @@ module.exports = {
       'xm': {'max': '467px'},
       // => @media (max-width: 639px) { ... }
       'xxm': {'max': '420px'},
+      // => @media (max-width: 639px) { ... }
+      'sxm': {'max': '350px'},
       // => @media (max-width: 639px) { ... }
     },
     colors: {
