@@ -42,7 +42,8 @@ const Footer = () => {
             Stay updated
           </h5>
           <form className="flex xm:block gap-[6px] ">
-            <input type="text" placeholder="Enter your email" className="w-[208px] xm:w-[100%] xm:mb-[8px] h-[44px] px-[14px] py-[10px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" />
+            <input type="text" placeholder="Enter your first name" className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] h-[44px] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" />
+            <input type="text" placeholder="Enter your email" className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] h-[44px] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-[footerInput]" />
             <button type="submit" className="w-[135.93px] xm:w-[100%] h-[44px] rounded-[6.29px] px-[31.43px] py-[15.71px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center">Subscribe</button>
           </form>
         </div>

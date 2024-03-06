@@ -378,6 +378,12 @@ const Landing = () => {
   const [color, setColor] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [load, setLoad] = useState(false)
+  const [logo, setLogo] = useState(false)
+  const [logo1, setLogo1] = useState(false)
+  const [logo2, setLogo2] = useState(false)
+  const [logo3, setLogo3] = useState(false)
+  const [logo4, setLogo4] = useState(false)
+
 
   let sliderRef = useRef(null);
 
@@ -430,9 +436,27 @@ const Landing = () => {
     setCurrentSlide(i);
   };
 
-  // useEffect(() => {
-  //   setLoad(true)
-  // }, [])
+    const handleMouseOver = () => {
+      setLoad(prev => !prev)
+    }
+
+    const handleLogoEvent = () => {
+      setLogo(prev => !prev)
+    }
+    const handleLogoEvent1 = () => {
+      setLogo1(prev => !prev)
+    }
+    const handleLogoEvent2 = () => {
+      setLogo2(prev => !prev)
+    }
+    const handleLogoEvent3 = () => {
+      setLogo3(prev => !prev)
+    }
+    const handleLogoEvent4 = () => {
+      setLogo4(prev => !prev)
+    }
+    
+    
   useEffect(() => {
     const interval = setInterval(() => {
       setAngle((prevAngle) => prevAngle === '-2.93deg' ? '2.93deg' : '-2.93deg'); 
@@ -444,7 +468,7 @@ const Landing = () => {
 
 
   return (
-    <div>
+    <div className=''>
       <Navbar />
       <section className='font-whyte px-[640px] 2xl:px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative'>
         <div className='  py-[48px]  flex sm:flex-col gap-[58px] xl:gap-[25px] items-center bg-[#F9FBFF]'>
@@ -456,7 +480,7 @@ const Landing = () => {
               </h3>
             </div>
             <h1 className='font-bold w-[621px] xxl:w-[550px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[64px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] '>
-              Become workplace ready and <span className={`text-[#000] text-[54px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] sm:leading-[33px] w-[279px] xl:w-fit bg-[${color ? 'red': '#1453ff'}] rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[1px] inline-block transform rotate-[${angle}]`}>prepared</span>
+              Become workplace ready and <span className={`text-[#000] text-[54px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[279px] xl:w-fit bg-[${color ? '#F2C003': '#1453ff'}] rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block transform rotate-[${angle}]`}>prepared</span>
             </h1>
             <p className='font-regular text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis  
@@ -465,22 +489,22 @@ const Landing = () => {
             <button className='w-[213px] lg:w-[170px] md:w-[150px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border-[1px] border-[#DADADA]'>Make a donation</button>
           </div>
           <div className='w-[598px] sm:w-[100%] pl-[40px] xxl:pl-[30px] pr-[37px] xxl:pr-[30px]'>
-            <Image src='/hero-pic.png' alt='group of pictures' width={524} height={673} className='object-cover' />
+            <Image src='/hero-pic.png' alt='group of pictures' width={524} height={673} className='object-cover' onMouseOver={handleMouseOver} onMouseOut={handleMouseOver}/>
           </div>
           
         </div>
-        <div className={` absolute z-[100] w-[205px] lgx:w-[189px] xm:w-[117.32px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[90px] right-[650px]': 'top-[81px] xxl:top-[70px] sm:top-[510px] sxm:top-[630px] right-[1183px] 2xl:right-[623px] xxl:right-[520px] xl:right-[600px] lgx:right-[420px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] sxm:right-[200px]'}`}>
+        <div className={` absolute z-[100] w-[205px] lgx:w-[189px] xm:w-[117.32px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[120px] xxl:top-[120px] sm:top-[540px] sxm:top-[650px] right-[1183px] 2xl:right-[503px] xxl:right-[460px] xl:right-[400px] lgx:right-[350px] lg:right-[350px] md:right-[250px] sm:right-[350px] xm:right-[240px] xxm:right-[230px] sxm:right-[150px]': 'top-[81px] xxl:top-[70px] sm:top-[510px] sxm:top-[630px] right-[1183px] 2xl:right-[623px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] sxm:right-[200px]'}`}>
             <p className='font-regular text-[12px] text-[#414449] xm:text-[6.87px] leading-[13px] xm:leading-[7.44px] w-[169px] xm:w-[96.72px] mx-auto text-center text-[#121927]'>More than +12,000 Satisfied students across the globe</p>
           </div>
-          <div className={` absolute bg-[#fff] w-[139.5px] lgx:w-[123.5px] xm:w-[79.83px] rounded-[4px] px-[18px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-ghi border-[#E4E7EC] border-[0.9px] flex justify-between sm:items-center transition-all duration-1000 ease-in-out ${load? 'top-[90px] right-[650px]': 'top-[149px] lgx:top-[120px] sm:top-[530px] sxm:top-[625px] right-[622.5px] 2xl:right-[22.5px] lgx:right-[0px] sm:right-[30px] xm:right-[10px]  '}`}>
+          <div className={` absolute bg-[#fff] w-[139.5px] lgx:w-[123.5px] xm:w-[79.83px] rounded-[4px] px-[18px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-ghi border-[#E4E7EC] border-[0.9px] flex justify-between sm:items-center transition-all duration-1000 ease-in-out ${load? 'top-[189px] lgx:top-[160px] sm:top-[580px] sxm:top-[665px] right-[622.5px] 2xl:right-[62.5px] lgx:right-[40px] sm:right-[70px] xm:right-[60px]': 'top-[149px] lgx:top-[120px] sm:top-[530px] sxm:top-[625px] right-[622.5px] 2xl:right-[22.5px] lgx:right-[0px] sm:right-[30px] xm:right-[10px]  '}`}>
             <Image src='/courses.png' width={33} height={33} alt='course' className='object-contain' />
             <p className='font-regular text-[14px] xm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 xm:leading-[11.54px] w-[54px] xm:w-[30.9px]'>+1000 <span className='text-[#8B8B8B]'>Courses</span></p>
           </div>
-          <div className={` absolute bg-[#fff] flex justify-between sm:items-center rounded-[4px] w-[146px] lgx:w-[126px] xm:w-[83.55px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[90px] right-[650px]': 'bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[280px] xm:bottom-[180px] sxm:bottom-[120px] right-[1173px] 2xl:right-[613px] xxl:right-[520px] xl:right-[600px] lgx:right-[420px] lg:right-[390px] md:right-[320px] sm:right-[470px] xm:right-[320px] xxm:right-[280px] sxm:right-[220px]'}`}>
+          <div className={` absolute bg-[#fff] flex justify-between sm:items-center rounded-[4px] w-[146px] lgx:w-[126px] xm:w-[83.55px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${load? 'bottom-[232px] xxl:bottom-[200px] lgx:bottom-[140px] md:bottom-[170px] sm:bottom-[310px] xm:bottom-[210px] sxm:bottom-[150px] right-[1173px] 2xl:right-[513px] xxl:right-[450px] xl:right-[470px] lgx:right-[370px] lg:right-[360px] md:right-[290px] sm:right-[440px] xm:right-[290px] xxm:right-[260px] sxm:right-[200px]': 'bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[280px] xm:bottom-[180px] sxm:bottom-[120px] right-[1173px] 2xl:right-[613px] xxl:right-[520px] xl:right-[500px] lgx:right-[400px] lg:right-[390px] md:right-[320px] sm:right-[470px] xm:right-[320px] xxm:right-[280px] sxm:right-[220px]'}`}>
             <Image src='/mentors.png' width={33} height={33} alt='mentors' className='object-contain'/>
             <p className='font-regular w-[58px] xm:w-[33.19px] text-[14px] xm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 xm:leading-[11.93px]'>+2000 <span className='text-[#8B8B8B]'>Mentors</span></p>
           </div>
-          <div className={` absolute bg-[#fff] w-[161px] lgx:w-[141px] xm:w-[99.29px] flex sm:items-center justify-between rounded-[4px] border-[0.9px] border-[#E4E7EC] pl-[20px] lgx:pl-[10px] py-[12px] lgx:py-2 shadow-ghi transition-all duration-1000 ease-in-out ${load? 'top-[90px] right-[650px]': 'bottom-[134px] sm:bottom-[140px] xm:bottom-[100px] right-[640px] 2xl:right-[0px] sm:right-[40px] xm:right-[10px]'}`}>
+          <div className={` absolute bg-[#fff] w-[161px] lgx:w-[141px] xm:w-[99.29px] flex sm:items-center justify-between rounded-[4px] border-[0.9px] border-[#E4E7EC] pl-[20px] lgx:pl-[10px] py-[12px] lgx:py-2 shadow-ghi transition-all duration-1000 ease-in-out ${load? 'bottom-[200px] xxl:bottom-[160px] sm:bottom-[180px] xm:bottom-[140px] right-[640px] 2xl:right-[100px] xxl:right-[50px] sm:right-[60px] xm:right-[40px]': 'bottom-[134px] sm:bottom-[140px] xm:bottom-[100px] right-[640px] 2xl:right-[0px] sm:right-[40px] xm:right-[10px]'}`}>
             <Image src='/live.png' width={33} height={33} alt='live' className='object-contain'/>
             <p className='w-[84px] xm:w-[48.07px] font-regular text-[14px] xm:text-[8.01px] text-[#414449] leading-[18.96px] lgx:leading-4 xm:leading-[10.85px]'>+154<br/> <span className='text-[#8B8B8B]'>Live projects</span></p>
           </div>
@@ -494,49 +518,47 @@ const Landing = () => {
           As featured in
         </h2>
         <div className='sm:hidden flex justify-between '>
-          <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
-            <Image src='/layers.svg' alt='group of pictures' width={40} height={40}  />
-            <p>Layers</p>
+          <div className='' onMouseOver={handleLogoEvent} onMouseOut={handleLogoEvent}>
+            {logo ? <Image src='/layers1.png' alt='group of pictures' width={127} height={45}  /> : <Image src='/layers.png' alt='group of pictures' width={127} height={44}  />}
           </div>
-          <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
-            <Image src='/sisyphus.png' alt='group of pictures' width={27} height={44}  />
-            <p>Sisyphus</p>
+          <div className='' onMouseOver={handleLogoEvent1} onMouseOut={handleLogoEvent1}>
+            {logo1? <Image src='/sisyphus1.png' alt='group of pictures' width={153} height={44}  />:
+            <Image src='/sisyphus.png' alt='group of pictures' width={153} height={44}  />}
           </div>
-          <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
-            <Image src='/circooles.png' alt='group of pictures' width={41} height={40}  />
-            <p>Circooles</p>
+          <div className='' onMouseOver={handleLogoEvent2} onMouseOut={handleLogoEvent2}>
+            {logo2 ? <Image src='/circooles1.png' alt='group of pictures' width={165} height={44}  /> :
+            <Image src='/circooles.png' alt='group of pictures' width={165} height={4}  />}
           </div>
-          <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
-            <Image src='/catalog.png' alt='group of pictures' width={40} height={40}  />
-            <p>Catalog</p>
+          <div className='' onMouseOver={handleLogoEvent3} onMouseOut={handleLogoEvent3}>
+            {logo3?<Image src='/catalog1.png' alt='group of pictures' width={145} height={44}  />:
+            <Image src='/catalog.png' alt='group of pictures' width={145} height={44}  />}
           </div>
-          <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
-            <Image src='/quotient.png' alt='group of pictures' width={41} height={40}  />
-            <p>Quotient</p>
+          <div className='' onMouseOver={handleLogoEvent4} onMouseOut={handleLogoEvent4}>
+            {logo4?<Image src='/quotient1.png' alt='group of pictures' width={169} height={44}  />:
+            <Image src='/quotient.png' alt='group of pictures' width={169} height={45}  />}
           </div>
         </div>
         <div className='sm:block 3xl:hidden sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
           <Slider ref={slider => {sliderRef = slider}} {...logoSettings} className=''>
-            <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
-              <Image src='/layers.svg' alt='group of pictures' width={40} height={40}  />
-              <p>Layers</p>
-            </div>
-            <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
-              <Image src='/sisyphus.png' alt='group of pictures' width={27} height={44}  />
-              <p>Sisyphus</p>
-            </div>
-            <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
-              <Image src='/circooles.png' alt='group of pictures' width={41} height={40}  />
-              <p>Circooles</p>
-            </div>
-            <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
-              <Image src='/catalog.png' alt='group of pictures' width={40} height={40}  />
-              <p>Catalog</p>
-            </div>
-            <div className='px-0 py-[2px] flex gap-[2px] items-center font-semibold text-[#475467]'>
-              <Image src='/quotient.png' alt='group of pictures' width={41} height={40}  />
-              <p>Quotient</p>
-            </div> 
+              <div className='' onMouseOver={handleLogoEvent} onMouseOut={handleLogoEvent}>
+                {logo ? <Image src='/layers1.png' alt='group of pictures' width={127} height={45}  /> : <Image src='/layers.png' alt='group of pictures' width={127} height={44}  />}
+              </div>
+              <div className='' onMouseOver={handleLogoEvent1} onMouseOut={handleLogoEvent1}>
+                {logo1? <Image src='/sisyphus1.png' alt='group of pictures' width={153} height={44}  />:
+                <Image src='/sisyphus.png' alt='group of pictures' width={153} height={44}  />}
+              </div>
+              <div className='' onMouseOver={handleLogoEvent2} onMouseOut={handleLogoEvent2}>
+                {logo2 ? <Image src='/circooles1.png' alt='group of pictures' width={165} height={44}  /> :
+                <Image src='/circooles.png' alt='group of pictures' width={165} height={4}  />}
+              </div>
+              <div className='' onMouseOver={handleLogoEvent3} onMouseOut={handleLogoEvent3}>
+                {logo3?<Image src='/catalog1.png' alt='group of pictures' width={145} height={44}  />:
+                <Image src='/catalog.png' alt='group of pictures' width={145} height={44}  />}
+              </div>
+              <div className='' onMouseOver={handleLogoEvent4} onMouseOut={handleLogoEvent4}>
+                {logo4?<Image src='/quotient1.png' alt='group of pictures' width={169} height={44}  />:
+                <Image src='/quotient.png' alt='group of pictures' width={169} height={45}  />}
+              </div>
           </Slider>
         </div>     
       </section>
@@ -553,7 +575,7 @@ const Landing = () => {
         <Image src='/big-star1.png' width={127} height={128} alt='star' className='absolute top-[0] right-[664.5px] 2xl:right-[154px] lgx:hidden 3xl:block'/>
         <Image src='/mobile-bigstar.png' width={74} height={65} alt='star' className='absolute top-[0] right-[16px] lgx:block 3xl:hidden'/>
       </section>
-      <section className='font-whyte flex sm:flex-wrap sm:justify-around gap-[24px] px-[624.5px] 2xl:px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]'>
+      <section className='font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] px-[624.5px] 2xl:px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]'>
         <div className='w-[342px] xxl:w-[300px] md:w-[250px] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xxl:pl-[14px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'>
           <h4 className='w-[242px] md:w-[220px] sm:w-[70%] font-medium text-[48px] md:text-[40px] sm:text-[48px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
             Easy process to onboard you
@@ -563,11 +585,11 @@ const Landing = () => {
           </p>
           <Image src='/easy-arrow.png' width={123} height={117} alt='arrow' className='absolute top-[9.32px] right-[14.18px] object-cover'/>
         </div>
-        <div className='flex flex-wrap sm:justify-around gap-[16px]'>
+        <div className='flex flex-wrap justify-center sm:justify-around gap-[16px]'>
           {
             cardValues.map((cardValue, i) => {
               return (
-                <div className='font-whyte w-[417px] xxl:w-[350px] lgx:w-[300px] lg:w-[250px] md:w-[200px] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 py-5' key={i}>
+                <div className='font-whyte w-[407px] xxl:w-[385px] xl:w-[350px] lgx:w-[280px] lg:w-[250px] md:w-[200px] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 py-5' key={i}>
                   <h4 className='w-[44px] h-[44px] rounded-[50%] flex items-center justify-center text-[18px] leading-[20.31px] font-medium text-[#fff] bg-[#1453FF]'>
                     {cardValue.number}
                   </h4>
@@ -598,15 +620,15 @@ const Landing = () => {
           
       </section>
       <section className='pb-[96px] sm:pb-[52px]'>
-        <div className='sm:hidden 3xl:flex px-[592.5px] 2xl:px-[80px] lgx:px-[25px] sm:px-[16px] flex flex-wrap gap-[32px] pb-[96px] sm:pb-[52px]'>
+        <div className='sm:hidden 3xl:flex px-[592.5px] 2xl:px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center xl:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]'>
           {
             imageCards.map((imageCard, i) => {
               return (
-                <div key={i} className='font-whyte'>
-                  <Image src={imageCard.img} width={296} height={297} alt='mentor image' className='object-cover'/>
+                <div key={i} className='font-whyte w-[296px] xxl:w-[250px] xl:w-[200px]'>
+                  <Image src={imageCard.img} width={296} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
                   <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{imageCard.name}</h4>
                   <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{imageCard.position}</h5>
-                  <p className='font-regular w-[296px] text-[16px] leading-[20.8px] text-[#667085]'>{imageCard.formerPosition}</p>
+                  <p className='font-regular w-[296px] xxl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]'>{imageCard.formerPosition}</p>
                 </div>
               )
             })
