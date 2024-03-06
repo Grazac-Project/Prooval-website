@@ -1,13 +1,17 @@
+"use client";
+
 import React from "react";
 import Classes from "./about.module.css";
 import Image from "next/image";
 import Navbar from "@/components/navbar/nav";
 import Footer from "@/components/footer/footer";
 import Link from "next/link";
+import Slider from "react-slick";
+
 
 const AboutUs = () => {
   var settings = {
-    dots: true,
+    dots: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -23,7 +27,7 @@ const AboutUs = () => {
         },
       },
       {
-        breakpoint: 480, // for screens less than 768px wide
+        breakpoint: 600, // for screens less than 768px wide
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -38,7 +42,7 @@ const AboutUs = () => {
       <div className={Classes.about}>
         <div className={Classes.intro}>
           <h1>
-            We are <span>Exceptional</span>
+            We are <span></span>
           </h1>
           <p>
             Our mission is to ensure teams can do their best work, no matter
@@ -61,7 +65,9 @@ const AboutUs = () => {
       </div>
       <div className={Classes.story}>
         <h4>Our story</h4>
-        <Image src="/story.png" alt="img" width={1280} height={432} />
+        <Image src="/story.png" alt="img" width={1280} height={432} className={Classes.storyImg1}/>
+        <Image src="/story2.png" alt="img" width={1280} height={432} className={Classes.storyImg} />
+
         <div className={Classes.storyFlex}>
           <p>
             Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id
@@ -217,7 +223,7 @@ const AboutUs = () => {
           </div>
         </div>
         <div className={Classes.gallerySlide}>
-          {/* <Slider {...settings}> */}
+          <Slider {...settings}>
             <div className={Classes.card}>
               <Image src="/team.png" alt="img" width={296} height={296} />
               <h5>Olivia Rhye</h5>
@@ -323,7 +329,7 @@ const AboutUs = () => {
                 </Link>
               </div>
             </div>
-          {/* </Slider> */}
+          </Slider>
         </div>
       </div>
       <div className={Classes.donation}>

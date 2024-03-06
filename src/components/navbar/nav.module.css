@@ -30,11 +30,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  justify-items:right;
+  justify-items: right;
 }
 .nav li:hover {
   border-bottom: 2px solid #1453ff;
-  
+  font-size: larger;
 }
 .nav ul {
   /* width: 50%; */
@@ -51,11 +51,10 @@
   line-height: normal;
   display: flex;
   gap: 42px;
+  animation: textDrop 1s ease-out;
 }
-.btnFlex{
+.btnFlex {
   display: flex;
-  
-
 }
 .btnFlex button {
   padding: 10px 18px;
@@ -67,10 +66,12 @@
   font-family: var(--font-whyte);
   font-size: 18px;
   font-weight: 500;
+  animation: textDrop 1s ease-out;
 }
 .nav button:hover {
   color: #fff;
   background: #1453ff;
+  font-size: larger;
 }
 .navMobile ul {
   color: #fff;
@@ -90,6 +91,16 @@
   justify-items: center;
   align-items: center;
 }
+@keyframes textDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @media screen and (max-width: 1440px) {
   .navbar {
@@ -105,9 +116,8 @@
   }
 }
 @media screen and (max-width: 768px) {
-  
   .nav {
-    display:  none;
+    display: none;
   }
   .navMobile {
     position: absolute;
@@ -118,7 +128,8 @@
     width: 100%;
     align-items: start;
     /* display: none; */
-    transition: display 0.3s ease;
+    animation: textDrop 1s ease-out;
+
     padding: 60px 0;
   }
   .navMobile ul {
@@ -129,25 +140,30 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    animation: textDrop 1s ease-out;
   }
   .navMobile ul li {
     font-size: 20px;
-    padding: 10px ;
+    padding: 10px;
   }
-  .navMobile ul li :hover {
-    border-bottom: 2px solid #1453ff ;
+  .navMobile ul li:hover {
+    border-bottom: 2px solid #fff;
   }
   .btnFlex button:hover {
     color: #1453ff;
     background: #fff;
+    border-radius: none;
   }
-.btnFlex{
-  flex-direction: column;
-  justify-content: center;
-}
-.btnFlex button{
-  color: #fff;
-}
+  .btnFlex {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  .btnFlex button {
+    color: #fff;
+    font-size: 20px;
+    animation: textDrop 1s ease-out;
+  }
   .navbar {
     width: 95%;
   }

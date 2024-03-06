@@ -23,7 +23,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/aboutUs" onClick={() => setDropdown(false)}>
+                <Link href="/about-us" onClick={() => setDropdown(false)}>
                   About Us
                 </Link>
               </li>
@@ -35,10 +35,10 @@ const Navbar = () => {
             </ul>
             <div className={Classes.btnFlex}>
               <button>
-                <Link href="/">Log in</Link>
+                <Link href="/login">Log in</Link>
               </button>
               <button>
-                <Link href="/">Sign up</Link>
+                <Link href="/signup">Sign up</Link>
               </button>
             </div>
           </nav>
@@ -51,7 +51,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/aboutUs" onClick={() => setDropdown(false)}>
+                  <Link href="/about-us" onClick={() => setDropdown(false)}>
                     About Us
                   </Link>
                 </li>
@@ -80,7 +80,7 @@ const Navbar = () => {
               className={Classes.dropdown}
               onClick={() => setDropdown(false)}
             >
-              <Image src="/cancel.svg" alt="logo" width={50} height={50} />
+              <span style={{fontSize:"34px",  }}>&#215;</span>
             </div>
           )}
         </div>
