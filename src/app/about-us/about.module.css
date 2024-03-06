@@ -211,28 +211,35 @@
   gap: 20px;
 }
 .donation {
-  width: 1280px;
+  width: 1440px;
   margin: 0 auto;
   background-color: #121927;
-  background-image: url("/star.svg");
-  background-position: top right;
-  background-repeat: no-repeat;
-  padding: 93px 0;
-  border-radius: 16px;
-  position: relative;
+  padding: 73px 80px;
+  /* border-radius: 16px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 179px; */
+
+  /* position: relative; */
 }
 .donateText {
-  width: 854px;
-  text-align: center;
-  margin: 0 auto;
+  width: 593px;
+  background-image: url("/kite.svg");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  /* text-align: center; */
+  /* margin: 0 auto; */
 }
 
 .donateText h3 {
   font-family: var(--font-whyte);
-  font-size: 40px;
+  font-size: 48px;
   font-weight: 500;
   line-height: 58px;
   color: white;
+
+
 }
 .donateText p {
   font-family: var(--font-whyte);
@@ -240,8 +247,8 @@
   font-weight: 400;
   line-height: 24px;
   color: #f8f8f8;
-  margin: 16px auto;
-  width: 536px;
+  margin: 32px 0;
+  /* width: 536px; */
   text-align: none;
 }
 .donateText button {
@@ -254,6 +261,7 @@
   color: white;
   border-radius: 8px;
 }
+
 .gallerySlide {
   display: none;
 }
@@ -277,7 +285,7 @@
     width: 100%;
   }
   .donation {
-    width: 90%;
+    /* width: 90%; */
   }
   .donationFlex {
     width: 90%;
@@ -297,14 +305,40 @@
   .mission p {
     width: 50%;
   }
+  .donateText {
+    width: 50%;
+    background-position: bottom right;
+  }
+  .donateText h3{
+    font-size: 42px;
+  }
+  .donation{
+    padding: 73px 60px;
+    gap: 50px;
+
+  }
 }
 @media screen and (max-width: 950px) {
   .donateText {
     width: 90%;
+    text-align: center;
+    margin: auto;
+    background-image: none;
   }
-  .donateText p {
-    width: 90%;
+  .donation{
+    padding: 75px 0;
+    display: block;
+    background-image: url(/stars1.svg);
+    background-position: top right;
+    background-repeat: no-repeat;
   }
+  .donation p{
+    margin: 24px 0;
+  
+    }
+ .donateImg{
+  display: none;
+ }
   .star {
     display: none;
   }
@@ -368,9 +402,7 @@
   .teamText p {
     width: 100%;
   }
-  .donation{
-    background-image: url("/stars1.svg");
-  }
+  
 }
 @media screen and (max-width: 425px) {
   .intro h1{
@@ -392,6 +424,15 @@
     padding-top: 70px;
     padding-bottom: 33px;
     margin-top: 40px;
+  }
+  .donation h3{
+    font-size: 32px;
+    line-height: 38.4px;
+  
+    }
+  .donation p{
+  margin: 16px 0;
+
   }
   .storyImg{
     display: block;

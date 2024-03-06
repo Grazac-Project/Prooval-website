@@ -8,7 +8,6 @@ import Footer from "@/components/footer/footer";
 import Link from "next/link";
 import Slider from "react-slick";
 
-
 const AboutUs = () => {
   var settings = {
     dots: false,
@@ -65,8 +64,20 @@ const AboutUs = () => {
       </div>
       <div className={Classes.story}>
         <h4>Our story</h4>
-        <Image src="/story.png" alt="img" width={1280} height={432} className={Classes.storyImg1}/>
-        <Image src="/story2.png" alt="img" width={1280} height={432} className={Classes.storyImg} />
+        <Image
+          src="/story.png"
+          alt="img"
+          width={1280}
+          height={432}
+          className={Classes.storyImg1}
+        />
+        <Image
+          src="/story2.png"
+          alt="img"
+          width={1280}
+          height={432}
+          className={Classes.storyImg}
+        />
 
         <div className={Classes.storyFlex}>
           <p>
@@ -332,7 +343,7 @@ const AboutUs = () => {
           </Slider>
         </div>
       </div>
-      <div className={Classes.donation}>
+      {/* <div className={Classes.donation}>
         <div className={Classes.donateText}>
           <h3>Do you want to support our vision by sponsoring a talent ?</h3>
           <p>
@@ -351,6 +362,22 @@ const AboutUs = () => {
           className={Classes.star}
           style={{ position: "absolute", bottom: "186px", left: "80px" }}
         />
+      </div> */}
+      <div className={Classes.donation}>
+        <div className={Classes.donateText}>
+          <h3>
+            Support our vision by empowering a talent to get work experience
+          </h3>
+          <p>
+            Your donation goes a long way in empowering tech talent to get
+            enough work experience building products that solve sustainable
+            developmental goal project
+          </p>
+          <button>Make donation</button>
+        </div>
+        <>
+          <Image src="/donateImg.png" alt="img" width={509} height={477} className={Classes.donateImg}/>
+        </>
       </div>
 
       <Footer />
