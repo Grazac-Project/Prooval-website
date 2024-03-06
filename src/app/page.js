@@ -508,7 +508,7 @@ const Landing = () => {
             <Image src='/live.png' width={33} height={33} alt='live' className='object-contain'/>
             <p className='w-[84px] xm:w-[48.07px] font-regular text-[14px] xm:text-[8.01px] text-[#414449] leading-[18.96px] lgx:leading-4 xm:leading-[10.85px]'>+154<br/> <span className='text-[#8B8B8B]'>Live projects</span></p>
           </div>
-          <Image src='/tiny-star.png' width={25} height={24} alt='tiny star' className='absolute top-[112.38px] xxl:top-[110px] lgx:top-[60px] lg:top-[40px] sm:top-[20px] left-[700.88px] 2xl:left-[110.88px] xxl:left-[70px] sm:left-[37px]'/>
+          <Image src='/tiny-star.png' width={25} height={24} alt='tiny star' className='absolute top-[112.38px] 1xl:top-[90px] xxl:top-[110px] lgx:top-[60px] lg:top-[40px] sm:top-[20px] left-[700.88px] 2xl:left-[110.88px] xxl:left-[70px] sm:left-[37px]'/>
       </section>
       <section className='h-[64px] bg-[#fff]'>
 
