@@ -146,16 +146,18 @@
     font-size: 20px;
     padding: 10px;
   }
-  .navMobile ul li :hover {
-    border-bottom: 2px solid #1453ff;
+  .navMobile ul li:hover {
+    border-bottom: 2px solid #fff;
   }
   .btnFlex button:hover {
     color: #1453ff;
     background: #fff;
+    border-radius: none;
   }
   .btnFlex {
     flex-direction: column;
     justify-content: center;
+    margin-top: 12px;
   }
   .btnFlex button {
     color: #fff;
