@@ -3,6 +3,7 @@ import Navbar from "@/components/navbar/nav";
 import Classes from "./faq.module.css";
 import Image from "next/image";
 import React, { useState } from "react";
+import Footer from "@/components/footer/footer";
 
 const Faq = () => {
   const faq = [
@@ -154,10 +155,8 @@ const Faq = () => {
               {faq.slice(5, 10).map((item, index) => (
                 <div
                   className={Classes.questionContainer}
-                  // onClick={handleToggle}
                   key={index}
                   onClick={() => handleToggle2(index)}
-
                 >
                   <div className={Classes.question}>
                     {item.question}
@@ -264,11 +263,11 @@ const Faq = () => {
               <h5>Message</h5>
               <textarea data-typebox name="message" />
             </div>
-
             <button>Send message</button>
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
