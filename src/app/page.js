@@ -493,14 +493,14 @@ const Landing = () => {
           </div>
           
         </div>
-        <div className={` absolute z-[100] w-[205px] lgx:w-[189px] xm:w-[117.32px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[120px] xxl:top-[120px] sm:top-[540px] sxm:top-[650px] right-[1183px] 2xl:right-[503px] xxl:right-[460px] xl:right-[400px] lgx:right-[350px] lg:right-[350px] md:right-[250px] sm:right-[350px] xm:right-[240px] xxm:right-[230px] sxm:right-[150px]': 'top-[81px] xxl:top-[70px] sm:top-[510px] sxm:top-[630px] right-[1183px] 2xl:right-[623px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] sxm:right-[200px]'}`}>
+        <div className={` absolute z-[100] w-[205px] lgx:w-[189px] xm:w-[117.32px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[120px] xxl:top-[120px] sm:top-[540px] sxm:top-[650px] right-[1183px] 2xl:right-[503px] xxl:right-[460px] xl:right-[400px] lgx:right-[350px] lg:right-[350px] md:right-[250px] sm:right-[350px] xm:right-[240px] xxm:right-[230px] sxm:right-[150px]': 'top-[81px] 1xl:top-[60px] xxl:top-[70px] sm:top-[510px] sxm:top-[630px] right-[1183px] 2xl:right-[623px] 1xl:right-[520px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] sxm:right-[200px]'}`}>
             <p className='font-regular text-[12px] text-[#414449] xm:text-[6.87px] leading-[13px] xm:leading-[7.44px] w-[169px] xm:w-[96.72px] mx-auto text-center text-[#121927]'>More than +12,000 Satisfied students across the globe</p>
           </div>
           <div className={` absolute bg-[#fff] w-[139.5px] lgx:w-[123.5px] xm:w-[79.83px] rounded-[4px] px-[18px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-ghi border-[#E4E7EC] border-[0.9px] flex justify-between sm:items-center transition-all duration-1000 ease-in-out ${load? 'top-[189px] lgx:top-[160px] sm:top-[580px] sxm:top-[665px] right-[622.5px] 2xl:right-[62.5px] lgx:right-[40px] sm:right-[70px] xm:right-[60px]': 'top-[149px] lgx:top-[120px] sm:top-[530px] sxm:top-[625px] right-[622.5px] 2xl:right-[22.5px] lgx:right-[0px] sm:right-[30px] xm:right-[10px]  '}`}>
             <Image src='/courses.png' width={33} height={33} alt='course' className='object-contain' />
             <p className='font-regular text-[14px] xm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 xm:leading-[11.54px] w-[54px] xm:w-[30.9px]'>+1000 <span className='text-[#8B8B8B]'>Courses</span></p>
           </div>
-          <div className={` absolute bg-[#fff] flex justify-between sm:items-center rounded-[4px] w-[146px] lgx:w-[126px] xm:w-[83.55px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${load? 'bottom-[232px] xxl:bottom-[200px] lgx:bottom-[140px] md:bottom-[170px] sm:bottom-[310px] xm:bottom-[210px] sxm:bottom-[150px] right-[1173px] 2xl:right-[513px] xxl:right-[450px] xl:right-[470px] lgx:right-[370px] lg:right-[360px] md:right-[290px] sm:right-[440px] xm:right-[290px] xxm:right-[260px] sxm:right-[200px]': 'bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[280px] xm:bottom-[180px] sxm:bottom-[120px] right-[1173px] 2xl:right-[613px] xxl:right-[520px] xl:right-[500px] lgx:right-[400px] lg:right-[390px] md:right-[320px] sm:right-[470px] xm:right-[320px] xxm:right-[280px] sxm:right-[220px]'}`}>
+          <div className={` absolute bg-[#fff] flex justify-between sm:items-center rounded-[4px] w-[146px] lgx:w-[126px] xm:w-[83.55px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${load? 'bottom-[232px] xxl:bottom-[200px] lgx:bottom-[140px] md:bottom-[170px] sm:bottom-[310px] xm:bottom-[210px] sxm:bottom-[150px] right-[1173px]  2xl:right-[513px] xxl:right-[450px] xl:right-[470px] lgx:right-[370px] lg:right-[360px] md:right-[290px] sm:right-[440px] xm:right-[290px] xxm:right-[260px] sxm:right-[200px]': 'bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[280px] xm:bottom-[180px] sxm:bottom-[120px] right-[1173px] 1xl:right-[550px] 2xl:right-[613px] xxl:right-[520px] xl:right-[500px] lgx:right-[400px] lg:right-[390px] md:right-[320px] sm:right-[470px] xm:right-[320px] xxm:right-[280px] sxm:right-[220px]'}`}>
             <Image src='/mentors.png' width={33} height={33} alt='mentors' className='object-contain'/>
             <p className='font-regular w-[58px] xm:w-[33.19px] text-[14px] xm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 xm:leading-[11.93px]'>+2000 <span className='text-[#8B8B8B]'>Mentors</span></p>
           </div>
@@ -576,11 +576,11 @@ const Landing = () => {
         <Image src='/mobile-bigstar.png' width={74} height={65} alt='star' className='absolute top-[0] right-[16px] lgx:block 3xl:hidden'/>
       </section>
       <section className='font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] px-[624.5px] 2xl:px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]'>
-        <div className='w-[342px] xxl:w-[300px] md:w-[250px] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xxl:pl-[14px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'>
+        <div className='w-[342px] 1xl:w-[300px] md:w-[250px] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xxl:pl-[14px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'>
           <h4 className='w-[242px] md:w-[220px] sm:w-[70%] font-medium text-[48px] md:text-[40px] sm:text-[48px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
             Easy process to onboard you
           </h4>
-          <p className='w-[298px] xxl:w-[262px] md:w-[220px] sm:w-[100%] font-regular text-[16px] leading-[22px] text-[#EDEDED]'>
+          <p className='w-[298px] 1xl:w-[262px] md:w-[220px] sm:w-[100%] font-regular text-[16px] leading-[22px] text-[#EDEDED]'>
             Lorem ipsum dolor sit amet, cons adipi ing elit. Suspendisse varius enim in eros elementum tristique. 
           </p>
           <Image src='/easy-arrow.png' width={123} height={117} alt='arrow' className='absolute top-[9.32px] right-[14.18px] object-cover'/>
@@ -589,7 +589,7 @@ const Landing = () => {
           {
             cardValues.map((cardValue, i) => {
               return (
-                <div className='font-whyte w-[407px] xxl:w-[385px] xl:w-[350px] lgx:w-[280px] lg:w-[250px] md:w-[200px] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 py-5' key={i}>
+                <div className='font-whyte w-[407px] 1xl:w-[385px] xl:w-[350px] lgx:w-[280px] lg:w-[250px] md:w-[200px] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 py-5' key={i}>
                   <h4 className='w-[44px] h-[44px] rounded-[50%] flex items-center justify-center text-[18px] leading-[20.31px] font-medium text-[#fff] bg-[#1453FF]'>
                     {cardValue.number}
                   </h4>
@@ -624,7 +624,7 @@ const Landing = () => {
           {
             imageCards.map((imageCard, i) => {
               return (
-                <div key={i} className='font-whyte w-[296px] xxl:w-[250px] xl:w-[200px]'>
+                <div key={i} className='font-whyte w-[296px] 1xl:w-[250px] xl:w-[200px]'>
                   <Image src={imageCard.img} width={296} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
                   <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{imageCard.name}</h4>
                   <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{imageCard.position}</h5>
