@@ -468,9 +468,9 @@ const Landing = () => {
 
 
   return (
-    <div className=''>
+    <div className='max-w-[1440px] mx-auto'>
       <Navbar />
-      <section className='font-whyte px-[640px] 2xl:px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative'>
+      <section className='font-whyte px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative'>
         <div className='  py-[48px]  flex sm:flex-col gap-[58px] xl:gap-[25px] items-center bg-[#F9FBFF]'>
           <div className=''>
             <div className='flex gap-2 w-[256px] md:w-[200px] sm:w-[256px] py-2 px-3 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px]'>
@@ -493,27 +493,27 @@ const Landing = () => {
           </div>
           
         </div>
-        <div className={` absolute z-[100] w-[205px] lgx:w-[189px] xm:w-[117.32px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[120px] xxl:top-[120px] sm:top-[540px] sxm:top-[650px] right-[1183px] 2xl:right-[503px] xxl:right-[460px] xl:right-[400px] lgx:right-[350px] lg:right-[350px] md:right-[250px] sm:right-[350px] xm:right-[240px] xxm:right-[230px] sxm:right-[150px]': 'top-[81px] 1xl:top-[60px] xxl:top-[70px] sm:top-[510px] sxm:top-[630px] right-[1183px] 2xl:right-[623px] 1xl:right-[520px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] sxm:right-[200px]'}`}>
+        <div className={` absolute z-[100] w-[205px] lgx:w-[189px] xm:w-[117.32px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[120px] xxl:top-[120px] sm:top-[540px] sxm:top-[650px] right-[503px] xxl:right-[460px] xl:right-[400px] lgx:right-[350px] lg:right-[350px] md:right-[250px] sm:right-[350px] xm:right-[240px] xxm:right-[230px] sxm:right-[150px]': 'top-[81px] 1xl:top-[60px] xxl:top-[70px] sm:top-[510px] sxm:top-[630px] right-[623px] 1xl:right-[520px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] sxm:right-[200px]'}`}>
             <p className='font-regular text-[12px] text-[#414449] xm:text-[6.87px] leading-[13px] xm:leading-[7.44px] w-[169px] xm:w-[96.72px] mx-auto text-center text-[#121927]'>More than +12,000 Satisfied students across the globe</p>
           </div>
-          <div className={` absolute bg-[#fff] w-[139.5px] lgx:w-[123.5px] xm:w-[79.83px] rounded-[4px] px-[18px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-ghi border-[#E4E7EC] border-[0.9px] flex justify-between sm:items-center transition-all duration-1000 ease-in-out ${load? 'top-[189px] lgx:top-[160px] sm:top-[580px] sxm:top-[665px] right-[622.5px] 2xl:right-[62.5px] lgx:right-[40px] sm:right-[70px] xm:right-[60px]': 'top-[149px] lgx:top-[120px] sm:top-[530px] sxm:top-[625px] right-[622.5px] 2xl:right-[22.5px] lgx:right-[0px] sm:right-[30px] xm:right-[10px]  '}`}>
+          <div className={` absolute bg-[#fff] w-[139.5px] lgx:w-[123.5px] xm:w-[79.83px] rounded-[4px] px-[18px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-ghi border-[#E4E7EC] border-[0.9px] flex justify-between sm:items-center transition-all duration-1000 ease-in-out ${load? 'top-[189px] lgx:top-[160px] sm:top-[580px] sxm:top-[665px] right-[62.5px] lgx:right-[40px] sm:right-[70px] xm:right-[60px]': 'top-[149px] lgx:top-[120px] sm:top-[530px] sxm:top-[625px] right-[22.5px] lgx:right-[0px] sm:right-[30px] xm:right-[10px]  '}`}>
             <Image src='/courses.png' width={33} height={33} alt='course' className='object-contain' />
             <p className='font-regular text-[14px] xm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 xm:leading-[11.54px] w-[54px] xm:w-[30.9px]'>+1000 <span className='text-[#8B8B8B]'>Courses</span></p>
           </div>
-          <div className={` absolute bg-[#fff] flex justify-between sm:items-center rounded-[4px] w-[146px] lgx:w-[126px] xm:w-[83.55px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${load? 'bottom-[232px] xxl:bottom-[200px] lgx:bottom-[140px] md:bottom-[170px] sm:bottom-[310px] xm:bottom-[210px] sxm:bottom-[150px] right-[1173px]  2xl:right-[513px] xxl:right-[450px] xl:right-[470px] lgx:right-[370px] lg:right-[360px] md:right-[290px] sm:right-[440px] xm:right-[290px] xxm:right-[260px] sxm:right-[200px]': 'bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[280px] xm:bottom-[180px] sxm:bottom-[120px] right-[1173px] 1xl:right-[550px] 2xl:right-[613px] xxl:right-[520px] xl:right-[500px] lgx:right-[400px] lg:right-[390px] md:right-[320px] sm:right-[470px] xm:right-[320px] xxm:right-[280px] sxm:right-[220px]'}`}>
+          <div className={` absolute bg-[#fff] flex justify-between sm:items-center rounded-[4px] w-[146px] lgx:w-[126px] xm:w-[83.55px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${load? 'bottom-[232px] xxl:bottom-[200px] lgx:bottom-[140px] md:bottom-[170px] sm:bottom-[310px] xm:bottom-[210px] sxm:bottom-[150px] right-[513px] xxl:right-[450px] xl:right-[470px] lgx:right-[370px] lg:right-[360px] md:right-[290px] sm:right-[440px] xm:right-[290px] xxm:right-[260px] sxm:right-[200px]': 'bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[280px] xm:bottom-[180px] sxm:bottom-[120px] right-[613px] 1xl:right-[550px] xxl:right-[520px] xl:right-[500px] lgx:right-[400px] lg:right-[390px] md:right-[320px] sm:right-[470px] xm:right-[320px] xxm:right-[280px] sxm:right-[220px]'}`}>
             <Image src='/mentors.png' width={33} height={33} alt='mentors' className='object-contain'/>
             <p className='font-regular w-[58px] xm:w-[33.19px] text-[14px] xm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 xm:leading-[11.93px]'>+2000 <span className='text-[#8B8B8B]'>Mentors</span></p>
           </div>
-          <div className={` absolute bg-[#fff] w-[161px] lgx:w-[141px] xm:w-[99.29px] flex sm:items-center justify-between rounded-[4px] border-[0.9px] border-[#E4E7EC] pl-[20px] lgx:pl-[10px] py-[12px] lgx:py-2 shadow-ghi transition-all duration-1000 ease-in-out ${load? 'bottom-[200px] xxl:bottom-[160px] sm:bottom-[180px] xm:bottom-[140px] right-[640px] 2xl:right-[100px] xxl:right-[50px] sm:right-[60px] xm:right-[40px]': 'bottom-[134px] sm:bottom-[140px] xm:bottom-[100px] right-[640px] 2xl:right-[0px] sm:right-[40px] xm:right-[10px]'}`}>
+          <div className={` absolute bg-[#fff] w-[161px] lgx:w-[141px] xm:w-[99.29px] flex sm:items-center justify-between rounded-[4px] border-[0.9px] border-[#E4E7EC] pl-[20px] lgx:pl-[10px] py-[12px] lgx:py-2 shadow-ghi transition-all duration-1000 ease-in-out ${load? 'bottom-[200px] xxl:bottom-[160px] sm:bottom-[180px] xm:bottom-[140px] right-[100px] xxl:right-[50px] sm:right-[60px] xm:right-[40px]': 'bottom-[134px] sm:bottom-[140px] xm:bottom-[100px] right-[0px] sm:right-[40px] xm:right-[10px]'}`}>
             <Image src='/live.png' width={33} height={33} alt='live' className='object-contain'/>
             <p className='w-[84px] xm:w-[48.07px] font-regular text-[14px] xm:text-[8.01px] text-[#414449] leading-[18.96px] lgx:leading-4 xm:leading-[10.85px]'>+154<br/> <span className='text-[#8B8B8B]'>Live projects</span></p>
           </div>
-          <Image src='/tiny-star.png' width={25} height={24} alt='tiny star' className='absolute top-[112.38px] 1xl:top-[90px] xxl:top-[110px] lgx:top-[60px] lg:top-[40px] sm:top-[20px] left-[700.88px] 2xl:left-[110.88px] xxl:left-[70px] sm:left-[37px]'/>
+          <Image src='/tiny-star.png' width={25} height={24} alt='tiny star' className='absolute top-[112.38px] 1xl:top-[90px] xxl:top-[110px] lgx:top-[60px] lg:top-[40px] sm:top-[20px] left-[110.88px] xxl:left-[70px] sm:left-[37px]'/>
       </section>
       <section className='h-[64px] bg-[#fff]'>
 
       </section>
-      <section className='font-whyte px-[680px] 2xl:px-[80px] xl:px-[25px] xm:px-[16px] py-[48px] bg-[#F9F9F9]'>
+      <section className='font-whyte px-[80px] xl:px-[25px] xm:px-[16px] py-[48px] bg-[#F9F9F9]'>
         <h2 className='font-medium text-[24px] leading-[38px] text-[#121927] text-center mb-[32px]'>
           As featured in
         </h2>
@@ -538,7 +538,7 @@ const Landing = () => {
             <Image src='/quotient.png' alt='group of pictures' width={169} height={45}  />}
           </div>
         </div>
-        <div className='sm:block 3xl:hidden sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
+        <div className='hidden sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
           <Slider ref={slider => {sliderRef = slider}} {...logoSettings} className=''>
               <div className='' onMouseOver={handleLogoEvent} onMouseOut={handleLogoEvent}>
                 {logo ? <Image src='/layers1.png' alt='group of pictures' width={127} height={45}  /> : <Image src='/layers.png' alt='group of pictures' width={127} height={44}  />}
@@ -563,7 +563,7 @@ const Landing = () => {
         </div>     
       </section>
       <section className='h-[64px] bg-[#fff]'></section>
-      <section className='px-[592.50px] 2xl:px-[80px] xl:px-[25px] xm:px-4 py-[137.5px] sm:py-[62px] font-whyte bg-[#121927] relative'>
+      <section className='px-[80px] xl:px-[25px] xm:px-4 py-[137.5px] sm:py-[62px] font-whyte bg-[#121927] relative'>
         <h2 className='font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3'>
           Communicate value that users will get
         </h2>
@@ -572,10 +572,10 @@ const Landing = () => {
         </h3>
 
         <ValueCard /> 
-        <Image src='/big-star1.png' width={127} height={128} alt='star' className='absolute top-[0] right-[664.5px] 2xl:right-[154px] lgx:hidden 3xl:block'/>
-        <Image src='/mobile-bigstar.png' width={74} height={65} alt='star' className='absolute top-[0] right-[16px] lgx:block 3xl:hidden'/>
+        <Image src='/big-star1.png' width={127} height={128} alt='star' className='absolute top-[0] right-[154px] lgx:hidden block'/>
+        <Image src='/mobile-bigstar.png' width={74} height={65} alt='star' className='absolute top-[0] right-[16px] lgx:block hidden'/>
       </section>
-      <section className='font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] px-[624.5px] 2xl:px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]'>
+      <section className='font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lgx:gap-[12px] lg:gap-[10px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]'>
         <div className='w-[342px] 1xl:w-[300px] md:w-[250px] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xxl:pl-[14px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'>
           <h4 className='w-[242px] md:w-[220px] sm:w-[70%] font-medium text-[48px] md:text-[40px] sm:text-[48px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
             Easy process to onboard you
@@ -585,11 +585,11 @@ const Landing = () => {
           </p>
           <Image src='/easy-arrow.png' width={123} height={117} alt='arrow' className='absolute top-[9.32px] right-[14.18px] object-cover'/>
         </div>
-        <div className='flex flex-wrap justify-center sm:justify-around gap-[16px]'>
+        <div className='flex flex-wrap justify-center sm:justify-around gap-[16px] lgx:gap-[12px] lg:gap-[10px]'>
           {
             cardValues.map((cardValue, i) => {
               return (
-                <div className='font-whyte w-[407px] 1xl:w-[385px] xl:w-[350px] lgx:w-[280px] lg:w-[250px] md:w-[200px] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 py-5' key={i}>
+                <div className='font-whyte w-[407px] 1xl:w-[350px] xxl:w-[350px] xl:w-[320px] lgx:w-[260px] lg:w-[200px] md:w-[200px] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 py-5' key={i}>
                   <h4 className='w-[44px] h-[44px] rounded-[50%] flex items-center justify-center text-[18px] leading-[20.31px] font-medium text-[#fff] bg-[#1453FF]'>
                     {cardValue.number}
                   </h4>
@@ -605,7 +605,7 @@ const Landing = () => {
           }
         </div>
       </section>
-      <section className='font-whyte flex justify-between sm:flex-col px-[592.5px] 2xl:px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]'>
+      <section className='font-whyte flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]'>
         <div>
           <h3 className='font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[580px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center'>
             World class mentorship at your finger tip
@@ -620,7 +620,7 @@ const Landing = () => {
           
       </section>
       <section className='pb-[96px] sm:pb-[52px]'>
-        <div className='sm:hidden 3xl:flex px-[592.5px] 2xl:px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center xl:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]'>
+        <div className='sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center xl:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]'>
           {
             imageCards.map((imageCard, i) => {
               return (
@@ -628,13 +628,13 @@ const Landing = () => {
                   <Image src={imageCard.img} width={296} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
                   <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{imageCard.name}</h4>
                   <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{imageCard.position}</h5>
-                  <p className='font-regular w-[296px] xxl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]'>{imageCard.formerPosition}</p>
+                  <p className='font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]'>{imageCard.formerPosition}</p>
                 </div>
               )
             })
           }
         </div>
-        <div className='sm:block 3xl:hidden sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
+        <div className=' hidden sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
           <Slider ref={slider => {sliderRef = slider}} {...mentorSettings} className=''>
                 {imageCards.map((imageCard, i) => {
                   return(
@@ -651,39 +651,39 @@ const Landing = () => {
             Connect to a mentor
         </button> 
       </section>
-      <section className='flex sm:flex-wrap px-[592.5px] 2xl:px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]'>
+      <section className='flex sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]'>
         <Image src='/bootcamp.png' width={602} height={519} alt='several images merged into one' className='object-cover' />
-        <div className='font-whyte'>
+        <div className='font-whyte '>
           <h4 className='font-medium text-[48px] xl:text-[44px] lgx:text-[40px] lg:text-[35px] md:text-[30px] leading-[52.8px] lgx:leading-[45px] lg:leading-[40px] text-[#121927] mb-[40px] w-[596px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] sm:text-center sm:mt-[16px]'>
             We are not just another Bootcamp
           </h4>
-          <p className='font-regular text-[18px] lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[16px] w-[629px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]'>
+          <p className='font-regular text-[18px] lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[16px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Suspendisse varius enim in eros elementum tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Suspendisse varius enim in eros elementum tristique. Lorem ipsum dolor sit amet, consectetur adipiscing e
           </p>
-          <p className='font-regular text-[18px] lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]'>
+          <p className='font-regular text-[18px] lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Suspendisse varius enim in eros elementum tristique. Lorem ipsum dolor sit amet, 
           </p>
           <div className='font-whyte text-[#1453FF] text-center flex sm:flex-col sm:items-center gap-[26px] lgx:gap-[16px] lg:gap-[10px] sm:gap-[32px]'>
-            <div className='w-[192px] xl:w-[150px] lgx:w-[130px] lg:w-[110px]'>
+            <div className='w-[192px] 1xl:w-[170px] xl:w-[150px] lgx:w-[130px] lg:w-[110px]'>
               <h5 className='font-medium text-[43.64px] xl:text-[38px] lgx:text-[34px] leading-[52.36px] xl:leading-[48px] lgx:leading-[40px] tracking-[-2%]'>400+</h5>
               <p className='font-regular text-[18px] xl:text-[16px] lgx:text-[14px] lg:text-[12px] leading-[28px] text-[#121927]'>Projects completed</p>
             </div>
-            <div className='w-[192px] xl:w-[150px] lgx:w-[130px] lg:w-[110px]'>
+            <div className='w-[192px] 1xl:w-[170px] xl:w-[150px] lgx:w-[130px] lg:w-[110px]'>
               <h5 className='font-medium text-[43.64px] xl:text-[38px] lgx:text-[34px] leading-[52.36px] xl:leading-[48px] lgx:leading-[40px] tracking-[-2%]'>70%</h5>
               <p className='font-regular text-[18px] lgx:text-[14px] lg:text-[12px] leading-[28px] text-[#121927]'>Employment rate</p>
             </div>
-            <div className='w-[192px] xl:w-[150px] lgx:w-[130px] lg:w-[110px]'>
+            <div className='w-[192px] 1xl:w-[170px] xl:w-[150px] lgx:w-[130px] lg:w-[110px]'>
               <h5 className='font-medium text-[43.64px] xl:text-[38px] lgx:text-[34px] leading-[52.36px] xl:leading-[48px] lgx:leading-[40px] tracking-[-2%]'>3000+</h5>
               <p className='font-regular text-[18px] lgx:text-[14px] lg:text-[12px] leading-[28px] text-[#121927]'>Trained</p>
             </div>
           </div>
         </div>
       </section>
-      <section className='font-whyte px-[592.5px] 2xl:px-[80px] xl:px-[25px] sm:px-[16px] py-[84px] sm:py-[78.95px] relative'>
+      <section className='font-whyte px-[80px] xl:px-[25px] sm:px-[16px] py-[84px] sm:py-[78.95px] relative'>
         <h4 className='font-medium text-[#121927] text-[48px] lgx:text-[38px] sm:text-[36px] leading-[52.8px] sm:leading-[39.6px] w-[696px] lgx:w-[550px] sm:w-[93%] mb-[62px] mx-auto text-center'>
           What our students has to say about us
         </h4>
@@ -722,12 +722,12 @@ const Landing = () => {
 
           </Slider>
         </div>
-        <Image src='/big-star.png' width={109} height={110} alt='big star' className='absolute top-[83px] lg:top-[40px] md:top-[20px] sm:hidden left-[619.5px] 2xl:left-[107px] lg:left-[40px] md:left-[20px] '/>
-        <Image src='/medium-star.png' width={54} height={54} alt='medium star' className='absolute sm:top-[26px] sm:right-[14px] 3xl:hidden sm:block'/>
-        <Image src='/small-star.png' width={43} height={44} alt='small star' className='absolute top-[174px] lg:top-[184px] right-[655.5px] 2xl:right-[143px] lg:right-[103px] sm:hidden 3xl:block'/>
-        <Image src='/smallest-star.png' width={21} height={21} alt='smallest star' className='absolute sm:top-[162px] sm:left-[23px] sm:block 3xl:hidden' />
+        <Image src='/big-star.png' width={109} height={110} alt='big star' className='absolute top-[83px] lg:top-[40px] md:top-[20px] sm:hidden left-[107px] lg:left-[40px] md:left-[20px] '/>
+        <Image src='/medium-star.png' width={54} height={54} alt='medium star' className='absolute sm:top-[26px] sm:right-[14px] hidden sm:block'/>
+        <Image src='/small-star.png' width={43} height={44} alt='small star' className='absolute top-[174px] lg:top-[184px] right-[143px] lg:right-[103px] sm:hidden block'/>
+        <Image src='/smallest-star.png' width={21} height={21} alt='smallest star' className='absolute sm:top-[162px] sm:left-[23px] sm:block hidden' />
       </section>
-      <section className='flex sm:flex-wrap gap-[60px] lgx:gap-[40px] lg:gap-[20px] md:gap-[10px] items-center px-[592.5px] 2xl:px-[80px] xl:px-[25px] xm:px-[16px] py-[160px] sm:pt-[20px] sm:pb-[40px]'>
+      <section className='flex sm:flex-wrap gap-[60px] lgx:gap-[40px] lg:gap-[20px] md:gap-[10px] items-center px-[80px] xl:px-[25px] xm:px-[16px] py-[160px] sm:pt-[20px] sm:pb-[40px]'>
         <div className='font-whyte sm:order-1'>
           <h4 className='font-medium text-[48px] xxl:text-[40px] lgx:text-[36px] lg:text-[34px] sm:text-[32px] leading-[52.8px] xxl:leading-[46px] lgx:leading-[40px] sm:leading-[35.2px] text-[#121927] pb-[32px] sm:pb-[24px] sm:pt-[32px] w-[592px] xxl:w-[500px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]'>
             Access to endless resources
@@ -746,7 +746,7 @@ const Landing = () => {
           <Image src='/resources.png' width={556} height={460} alt='resources' className='object-cover sm:order-3'/>
         </div>
       </section>
-      <section className='px-[592.5px] 2xl:px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px] sm:pt-[40px]'>
+      <section className='px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px] sm:pt-[40px]'>
         <div className="font-whyte bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
           <div className='w-[710px] md:w-[100%] mx-auto'>
             <h4 className='font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#fff] mx-auto text-center'>
