@@ -11,5 +11,7 @@ export const LoginAction = (payload) => {
 };
 export const ForgetPasswordAction = (payload) => {
     return authKit.post("api/v1/user/forgotpassword", payload);
-  };
-
+};
+export const newsLetterSub = (data) => {
+  return authKit.post('api/v1/user/zoho', data)
+}

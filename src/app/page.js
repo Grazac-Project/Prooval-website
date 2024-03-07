@@ -373,6 +373,7 @@ import Slider from "react-slick";
 import Footer from '@/components/footer/footer';
 import Navbar from '@/components/navbar/nav';
 
+
 const Landing = () => {
   const [angle, setAngle] = useState('2.93deg');
   const [color, setColor] = useState(false);
@@ -383,6 +384,7 @@ const Landing = () => {
   const [logo2, setLogo2] = useState(false)
   const [logo3, setLogo3] = useState(false)
   const [logo4, setLogo4] = useState(false)
+
 
 
   let sliderRef = useRef(null);

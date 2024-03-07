@@ -1,8 +1,47 @@
 import Image from "next/image";
 import Link from "next/link";
 import Classes from "./footer.module.css";
+import * as yup from 'yup';
+import { useFormik } from "formik";
+import { newsLetterSub } from "@/api/authentication/auth";
 
+const initialValues = {
+  fullName: '',
+  email: '',
+}
 const Footer = () => {
+  const schema = yup.object({
+    fullName: yup.string().required('Full name is required'),
+    email: yup.string().email('Please enter a valid email').required('Email is required'),
+  });
+
+  const onSubmit = async (values, actions) => {
+    // const data = {}
+    // data.firstName = values.firstName
+    // data.lastName = values.lastName
+    // data.email = values.email
+    // data.password = values.password
+    // console.log('values',values)
+    // console.log('data', data)
+    await newsLetterSub(values)
+    .then((res) => {
+      console.log(res)
+        // if(res.status == 201) {
+        //     toast.success(res.data.message)
+        //     router.push('/verification-code')
+        // }
+        // console.log(res)
+    })
+    .catch((err) => {
+        console.log(err)
+    })
+    actions.resetForm()
+}
+const {values, handleSubmit, handleChange,handleBlur,isSubmitting, errors, touched} = useFormik({
+    initialValues,
+    validationSchema: schema,
+    onSubmit
+  })
   return (
     // <footer className={Classes.footer}>
     //   <div className={Classes.innerContainer}>
@@ -41,9 +80,9 @@ const Footer = () => {
           <h5 className="font-medium text-[14px] text-[#101828] leading-[19.6px] tracking-[2%] pb-[16px] xm:pb-[8px]">
             Stay updated
           </h5>
-          <form className="flex xm:block gap-[6px] ">
-            <input type="text" placeholder="Enter your first name" className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" />
-            <input type="text" placeholder="Enter your email" className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-[footerInput]" />
+          <form className="flex xm:block gap-[6px]" onSubmit={handleSubmit}>
+            <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" />
+            <input type="text" id='email' placeholder="Enter your email" value={values.email} onChange={handleChange} onBlur={handleBlur} className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-[footerInput]" />
             <button type="submit" className="w-[135.93px] xm:w-[100%] h-[44px] rounded-[6.29px] px-[31.43px] py-[15.71px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center">Subscribe</button>
           </form>
         </div>
