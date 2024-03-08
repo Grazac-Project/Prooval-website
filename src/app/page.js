@@ -372,6 +372,8 @@ import { cardValues, imageCards, testimonials } from '@/constants/constant';
 import Slider from "react-slick";
 import Footer from '@/components/footer/footer';
 import Navbar from '@/components/navbar/nav';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 
 
 const Landing = () => {
@@ -478,14 +480,14 @@ const Landing = () => {
             <div className='flex gap-2 w-[256px] md:w-[200px] sm:w-[256px] py-2 px-3 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px]'>
               <MdVerified className='text-[#FFD700] w-[15.28px] h-[15.99px]'/>
               <h3 className='font-regular text-[14px] md:text-[10px] sm:text-[14px] text-[#121927] leading-[15.4px] tracking-[4%] '>
-                Empowered over 14k students 
+                Empowered over 14k students
               </h3>
             </div>
             <h1 className='font-bold w-[621px] xxl:w-[550px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[64px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] '>
               Become workplace ready and <span className={`text-[#000] text-[54px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[279px] xl:w-fit bg-[${color ? '#F2C003': '#1453ff'}] rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block transform rotate-[${angle}]`}>prepared</span>
             </h1>
             <p className='font-regular text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis  
+              Bootcamps are never enough! Grab the opportunity to get experience and jump the hurdles of hacking into the tech job market after going through tech training or bootcamps.  
             </p>
             <button className='w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]'>Get started</button>
             <button className='w-[213px] lg:w-[170px] md:w-[150px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border-[1px] border-[#DADADA]'>Make a donation</button>
@@ -567,10 +569,10 @@ const Landing = () => {
       <section className='h-[64px] bg-[#fff]'></section>
       <section className='px-[80px] xl:px-[25px] xm:px-4 py-[137.5px] sm:py-[62px] font-whyte bg-[#121927] relative'>
         <h2 className='font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3'>
-          Communicate value that users will get
+          Why you should choose HackTheJob
         </h2>
         <h3 className='font-regular text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.
+          Hackthejobs gives you work experience that accelerates your career from junior level to mid-level
         </h3>
 
         <ValueCard /> 
@@ -579,11 +581,11 @@ const Landing = () => {
       </section>
       <section className='font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lgx:gap-[12px] lg:gap-[10px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]'>
         <div className='w-[342px] 1xl:w-[300px] md:w-[250px] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xxl:pl-[14px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'>
-          <h4 className='w-[242px] md:w-[220px] sm:w-[70%] font-medium text-[48px] md:text-[40px] sm:text-[48px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
-            Easy process to onboard you
+          <h4 className='w-[288px] md:w-[220px] sm:w-[70%] font-medium text-[48px] md:text-[40px] sm:text-[48px] sxm:text-[40px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
+            Get Onboarded in Four Easy Steps!
           </h4>
           <p className='w-[298px] 1xl:w-[262px] md:w-[220px] sm:w-[100%] font-regular text-[16px] leading-[22px] text-[#EDEDED]'>
-            Lorem ipsum dolor sit amet, cons adipi ing elit. Suspendisse varius enim in eros elementum tristique. 
+            Follow these simple steps to get onboarded into Hackthejobs right away! Our onboarding procedure is as basic as it gets!
           </p>
           <Image src='/easy-arrow.png' width={123} height={117} alt='arrow' className='absolute top-[9.32px] right-[14.18px] object-cover'/>
         </div>
@@ -613,7 +615,7 @@ const Landing = () => {
             World class mentorship at your finger tip
           </h3>
           <p className='font-regular text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[580px] md:w-[510px] sm:hidden'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
+            Connect with extraordinary mentors from diverse backgrounds with a simple click and share all your career struggles with him/her. 
           </p>
         </div>
         <button className='w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden'>
@@ -657,17 +659,13 @@ const Landing = () => {
         <Image src='/bootcamp.png' width={602} height={519} alt='several images merged into one' className='object-cover' />
         <div className='font-whyte '>
           <h4 className='font-medium text-[48px] xl:text-[44px] lgx:text-[40px] lg:text-[35px] md:text-[30px] leading-[52.8px] lgx:leading-[45px] lg:leading-[40px] text-[#121927] mb-[40px] w-[596px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] sm:text-center sm:mt-[16px]'>
-            We are not just another Bootcamp
+            Bootcamps are never enough!
           </h4>
           <p className='font-regular text-[18px] lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[16px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Suspendisse varius enim in eros elementum tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Suspendisse varius enim in eros elementum tristique. Lorem ipsum dolor sit amet, consectetur adipiscing e
+            At HacktheJobs, we're not a boot camp, we are your work experience accelerator where you get matched with mentors and product managers from FAANG to build Products and services that contribute to achieving Sustainable Development Goals
           </p>
           <p className='font-regular text-[18px] lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Suspendisse varius enim in eros elementum tristique. Lorem ipsum dolor sit amet, 
+            HacktheJobs offers a unique solution tailored to your needs. We provide comprehensive support to fast-track you getting experience in the tech industry while ensuring you're primed for success in your chosen tech career. We operate on just one goal; to give you real life work experience, moving you from junior level to mid level
           </p>
           <div className='font-whyte text-[#1453FF] text-center flex sm:flex-col sm:items-center gap-[26px] lgx:gap-[16px] lg:gap-[10px] sm:gap-[32px]'>
             <div className='w-[192px] 1xl:w-[170px] xl:w-[150px] lgx:w-[130px] lg:w-[110px]'>
@@ -735,10 +733,7 @@ const Landing = () => {
             Access to endless resources
           </h4>
           <p className='w-[589px] xxl:w-[500px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] font-regular text-[16px] lgx:text-[14px] leading-[24px] lgx:leading-[20px] text-[#333333] pb-[32px] sm:pb-[24px]'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
-            Duis cursus, mi quis viverra ornare.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
-            Duis cursus, mi quis viverra ornare.Lorem ipsum dolor sit amet, sectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
-            Duis cursus, mi quis viverra ornare.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+            At Hackthejobs, we recognize the importance of staying informed about industry news, updates, job updates, interview trends, and trends in your chosen tech field. At Hackthejobs, we offer convenient access to these resources, empowering you to develop your career with confidence. Additionally, we provide tools designed to streamline your technical job interviews, ensuring a smooth experience. Gain unrestricted access to a wealth of invaluable resources that will equip you for success in any tech field, securing your path to a fulfilling career. 
           </p>
           <button className='w-[173px] h-[56px] font-medium leading-[24px] tracking-[3%] text-[#fff] bg-[#1453FF] rounded-[8px]'>
             Get started
@@ -754,8 +749,8 @@ const Landing = () => {
             <h4 className='font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#fff] mx-auto text-center'>
               Have a Question?
             </h4>
-            <p className='font-regular text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-5 sm:py-4'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra
+            <p className='font-regular text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4'>
+              Do you have any enquiries or feedback for the team?
             </p>
             <button className='w-[173px] h-[56px] rounded-[8px] bg-[#1453FF] text-[16px] leading-[24px] tracking-[3%] font-medium text-[#fff] block mx-[auto]'>
               Contact Us

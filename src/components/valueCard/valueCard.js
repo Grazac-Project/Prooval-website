@@ -7,11 +7,10 @@ const ValueCard = () => {
       <div className=' w-[819px] 1xl:w-[725px] xxl:w-[630px] xl:w-[523px] lgx:w-[483px] lg:w-[100%] rounded-[8px] px-[15px] pt-[48px] bg-[#070B14] hover:bg-[#1453FF] relative'>
         <Image src='/card1.png' width={56} height={57} alt='gvh' />
         <h4 className='font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 '>
-          Frequent Assessment
+          Career resources
         </h4>
         <p className='font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
-          Duis cursus, mi quis viverra ornaretum  
+          Get access to resources that will help you at every stage of your job search. (job search strategies, cover letter templates, interview preparation materials, resume writing guides)  
         </p>
         <Image src='/value1.png' width={324} height={131} alt='background image' className='absolute top-0 right-0 sm:hidden filter grayscale hover:filter-none opacity-[0.3] hover:opacity-[0.6]'/>
         <Image src='/value-mobile.png' width={202} height={101} alt='background image' className='absolute top-0 right-0 hidden sm:block filter grayscale hover:filter-none opacity-[0.3] hover:opacity-[0.6]' />
@@ -19,11 +18,10 @@ const ValueCard = () => {
       <div className=' w-[417px] xxl:w-[380px] lgx:w-[360px] lg:w-[100%] rounded-[8px] px-[15px] pt-[48px] bg-[#070B14] hover:bg-[#1453FF] relative'>
         <Image src='/card2.png' width={56} height={57} alt='gvh' />
         <h4 className='font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 '>
-          Frequent Assessment
+          Community Networking
         </h4>
         <p className='font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[56px]'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
-          Duis cursus, mi quis viverra ornaretum . 
+          Join our community and get open access to the world’s best and industry veterans. Build connections that will last throughout your career 
         </p>
         <Image src='/value2.png' width={220} height={140} alt='background image' className='absolute top-0 right-0 sm:hidden filter grayscale hover:filter-none opacity-[0.3] hover:opacity-[0.6]'/>
         <Image src='/value-mobile.png' width={202} height={101} alt='background image' className='absolute top-0 right-0 hidden sm:block filter grayscale hover:filter-none opacity-[0.3] hover:opacity-[0.6]'/>
@@ -31,11 +29,10 @@ const ValueCard = () => {
       <div className='w-[417px] xxl:w-[380px] lgx:w-[360px] lg:w-[100%] rounded-[8px] px-[15px] pt-[48px] bg-[#070B14] hover:bg-[#1453FF] relative'>
         <Image src='/card3.png' width={56} height={57} alt='gvh' />
         <h4 className='font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 '>
-          Frequent Assessment
+          Job Ready
         </h4>
         <p className='font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[51px]'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
-          Duis cursus, mi quis viverra ornare. 
+          Work on real projects that simulate the experiences you'll face in your career. Build a compelling portfolio showcasing your skills.
         </p>
         <Image src='/value2.png' width={236} height={155} alt='background image' className='absolute top-0 right-0 sm:hidden filter grayscale hover:filter-none opacity-[0.3] hover:opacity-[0.6]'/>
         <Image src='/value-mobile.png' width={202} height={101} alt='background image' className='absolute top-0 right-0 hidden sm:block filter grayscale hover:filter-none opacity-[0.3] hover:opacity-[0.6]'/>
@@ -43,11 +40,10 @@ const ValueCard = () => {
       <div className='w-[819px] 1xl:w-[725px] xxl:w-[630px] xl:w-[523px] lgx:w-[483px] lg:w-[100%] rounded-[8px] px-[15px] pt-[48px] bg-[#070B14] hover:bg-[#1453FF] relative'>
         <Image src='/card4.png' width={56} height={57} alt='gvh' />
         <h4 className='font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 '>
-          Frequent Assessment
+          Personalized Mentorship
         </h4>
         <p className='font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. 
-          Duis cursus, mi quis viverra ornare. 
+          Book a 1:1 mentorship session & get advice, and insights to move faster on any challenge faced.
         </p>
         <Image src='/value1.png' width={324} height={130} alt='background image' className='absolute top-0 right-0 sm:hidden filter grayscale hover:filter-none opacity-[0.3] hover:opacity-[0.6]'/>
         <Image src='/value-mobile.png' width={202} height={101} alt='background image' className='absolute top-0 right-0 hidden sm:block filter grayscale hover:filter-none opacity-[0.3] hover:opacity-[0.6]'/>

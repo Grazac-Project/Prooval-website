@@ -3,22 +3,22 @@ export const cardValues = [
     {
         number: 1,
         heading: 'Assessment',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, conur adipiscing elit.'
+        text: 'Your journey to a midlevel career starts here, determine your skills by taking our short assessment'
     },
     {
         number: 2,
         heading: 'Get Matched',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, conur adipiscing elit.'
+        text: 'Get matched with mentors and product managers from FAANG to build Products and services that contribute to achieving Sustainable Development Goals'
     },
     {
         number: 3,
         heading: 'Project',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, conur adipiscing elit.'
+        text: 'You have gotten the necessary training, here is an opportunity to put all that knowledge into good use by working on the projects chosen by your team under a senior product manager'
     },
     {
         number: 4,
         heading: 'Build Portfolio',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, conur adipiscing elit.'
+        text: 'Showcase your completed project in your portfolio, demonstrating your ability to deliver real-world results.'
     }
     
 ]
