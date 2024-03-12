@@ -378,7 +378,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 const Landing = () => {
   const [angle, setAngle] = useState('2.93deg');
-  const [color, setColor] = useState(false);
+  const [color, setColor] = useState('#F2C003');
   const [currentSlide, setCurrentSlide] = useState(0);
   const [load, setLoad] = useState(false)
   const [logo, setLogo] = useState(false)
@@ -459,12 +459,11 @@ const Landing = () => {
     const handleLogoEvent4 = () => {
       setLogo4(prev => !prev)
     }
-    
-    
+
   useEffect(() => {
     const interval = setInterval(() => {
       setAngle((prevAngle) => prevAngle === '-2.93deg' ? '2.93deg' : '-2.93deg'); 
-      setColor((prevColor) => !prevColor);
+      setColor(prevColor => prevColor === '#F2C003' ? '#1453ff' : '#F2C003');
     }, 1000);
 
     return () => clearInterval(interval);
@@ -484,7 +483,7 @@ const Landing = () => {
               </h3>
             </div>
             <h1 className='font-bold w-[621px] xxl:w-[550px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[64px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] '>
-              Become workplace ready and <span className={`text-[#000] text-[54px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[279px] xl:w-fit bg-[${color ? '#F2C003': '#1453ff'}] rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block transform rotate-[${angle}]`}>prepared</span>
+              Become workplace ready and <span className={`text-[#fff] text-[54px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[279px] xl:w-fit bg-[${color}] rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block transform rotate-[${angle}]`}>prepared</span>
             </h1>
             <p className='font-regular text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8'>
               Bootcamps are never enough! Grab the opportunity to get experience and jump the hurdles of hacking into the tech job market after going through tech training or bootcamps.  
@@ -760,8 +759,6 @@ const Landing = () => {
       </section>
       <Footer />
       
-
-      {/* <span className='text-[#fff] text-[54px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] sm:leading-[33px] w-[279px] xl:w-fit bg-[#1453ff] rounded-[48px] px-5 py-3 border-[#B3C7FF] inline-block transform rotate-[-2.93deg]'>prepared</span> */}
     </div>
   )
 }
