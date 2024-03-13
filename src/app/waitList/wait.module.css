@@ -85,6 +85,19 @@
   font-size: 14px;
   color: #828282;
 }
+.form2 select {
+  width: 577px;
+  padding: 13.5px 12px 13.5px 16px;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Stroke, #d9dce1);
+  outline: none;
+  font-family: var(--font-inter);
+  font-size: 14px;
+  color: #828282;
+  margin-bottom: 8px;
+
+}
 .button {
   display: flex;
   width: 577px;
@@ -157,6 +170,9 @@
   .form input {
     width: 100%;
    
+  }
+  .form2 select{
+    width: 100%;
   }
   .form2 input{
     width: 100%;

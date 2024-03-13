@@ -145,6 +145,7 @@ import "slick-carousel/slick/slick-theme.css";
 const initialValues = {
   email: "",
   firstName: "",
+  role: "",
 };
 
 const WaitList = () => {
@@ -156,6 +157,7 @@ const WaitList = () => {
       .email("Please enter a valid email")
       .required("Email is required"),
     firstName: yup.string().required("firstName is required"),
+    role: yup.string().required("role is required"),
   });
   const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
     useFormik({
@@ -265,7 +267,21 @@ const WaitList = () => {
                     </div>
                   </div>
                 </div>
+                <div className={Classes.form2}>
+                    <select value={values.role}>
 
+                    <option value=""> Select Role</option>
+                      <option name='product_designer' > Product</option>
+                      <option name='product_management' >Management</option>
+                      <option name='front_end_web_developer' >Front-end</option>
+                      <option name= 'back_end_web_developer' >Back-end</option>
+
+                    </select>
+                    <div className={Classes.errorMsg}>
+                      {" "}
+                      {errors.role && touched.role && <p>{errors.email}</p>}
+                    </div>
+                  </div>
                 <button type="submit" className={Classes.button}>
                   Join the Waitlist
                 </button>
