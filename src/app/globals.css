@@ -14,3 +14,7 @@
 
 
 
+.slick-track{
+    display: flex!important;
+    gap: 24px;
+}
