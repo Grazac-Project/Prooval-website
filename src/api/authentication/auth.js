@@ -9,7 +9,7 @@ export const googleLogin = (data) => {
 export const loginAction = (payload) => {
   return authKit.post("api/v1/user/login", payload);
 };
-export const ForgetPasswordAction = (payload) => {
+export const forgetPasswordAction = (payload) => {
     return authKit.post("api/v1/user/forgotpassword", payload);
 };
 export const newsLetterSub = (data) => {
