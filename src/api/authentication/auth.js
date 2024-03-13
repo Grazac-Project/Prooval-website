@@ -6,7 +6,7 @@ export const signupAction = (data) => {
 export const googleLogin = (data) => {
     return authKit.get('auth/google')
 }
-export const LoginAction = (payload) => {
+export const loginAction = (payload) => {
   return authKit.post("api/v1/user/login", payload);
 };
 export const ForgetPasswordAction = (payload) => {
