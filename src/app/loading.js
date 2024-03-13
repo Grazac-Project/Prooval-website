@@ -5,8 +5,12 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const Loading = () => {
   return (
     <SkeletonTheme>
-        Loading .......
-        <Skeleton style={{background: 'red'}}/>
+        Loading 
+        <Skeleton style={{ width: '200px'}}/>
+        <Skeleton style={{width: '200px'}}/>
+        <Skeleton style={{ width: '200px'}}/>
+        <Skeleton style={{ width: '200px'}}/>
+        <Skeleton style={{ width: '200px'}}/>
     </SkeletonTheme>
   )
 }
