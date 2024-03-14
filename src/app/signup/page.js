@@ -50,7 +50,7 @@ const Signup = () => {
         .then((res) => {
             if(res.status == 201) {
                 toast.success(res.data.message)
-                router.push('/verification-code')
+                router.push('/verify')
             }
             console.log(res)
         })
@@ -79,7 +79,7 @@ const Signup = () => {
     <div className='min-h-screen  bg-[#EFF6FF]'>
         <ToastContainer closeButton={false} />
             <div className='bg-[#fff] border-b-[1px] xm:border-b-[0px] border-b-[#1453FF]'>
-                <Image src='/hack-logo.png' width={180} height={52} className='cursor-pointer mx-auto xm:m-[0px] py-[20px] xm:pb-[0px] xm:px-4'/>
+                <Link href='/'><Image src='/hack-logo.png' width={180} height={52} className='cursor-pointer mx-auto xm:m-[0px] py-[20px] xm:pb-[0px] xm:px-4'/></Link>
             </div>
         <section className='font-whyte py-[30px] xm:py-[0px]'>
             <div className='w-[616px] md:w-[90%] xm:w-[100%] bg-[#fff] p-[32px] sm:p-[16px] rounded-[8px] mx-auto py-5'>

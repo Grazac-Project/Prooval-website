@@ -175,10 +175,18 @@ const Login = () => {
         console.log('values',values)
        loginAction(values)
         .then((res) => {
+
           console.log(res.data.data.data.message)
           if(res) {
               toast.success(res.data.data.data.message)
-                // router.push('/verification-code')
+              sessionStorage.setItem(
+                "user_details",
+                JSON.stringify({
+                  token: res.data.data.data.token,
+                  id: res.data.data.data.token
+                })
+              )
+                // router.push('/')
             }
             console.log(res)
         })
@@ -208,7 +216,7 @@ const Login = () => {
         <ToastContainer closeButton={false} />
     <div className='h-screen bg-[#EFF6FF] xm:bg-[#fff]'>
             <div className='bg-[#fff] border-b-[1px] xm:border-b-[0px] border-b-[#1453FF]'>
-                <Image src='/hack-logo.png' alt='hackthejobs logo' width={180} height={52} className='cursor-pointer mx-auto xm:m-[0px] py-[20px] xm:pb-[0px] xm:px-4'/>
+                <Link href='/'><Image src='/hack-logo.png' alt='hackthejobs logo' width={180} height={52} className='cursor-pointer mx-auto xm:m-[0px] py-[20px] xm:pb-[0px] xm:px-4'/></Link>
             </div>
         <section className='font-whyte py-[65px] xm:py-[0px]'>
         {/* <section className='font-whyte flex justify-center items-center h-full'> */}

@@ -141,7 +141,7 @@ const forgotPassword = () => {
   return (
     <div className='h-screen bg-[#EFF6FF] xm:bg-[#fff]'>
             <div className='bg-[#fff] border-b-[1px] xm:border-b-[0px] border-b-[#1453FF]'>
-                <Image src='/hack-logo.png' alt='hackthejobs logo' width={180} height={52} className='cursor-pointer mx-auto xm:m-[0px] py-[20px] xm:pb-[0px] xm:px-4'/>
+                <Link href='/'><Image src='/hack-logo.png' alt='hackthejobs logo' width={180} height={52} className='cursor-pointer mx-auto xm:m-[0px] py-[20px] xm:pb-[0px] xm:px-4'/></Link>
             </div>
         <section className='font-whyte py-[180px] xm:py-[0px]'>
             <div className='w-[616px] md:w-[90%] xm:w-[100%] bg-[#fff] p-[24px] sm:p-[16px] xm:pt-[0px] xm:pb-[48px] rounded-[8px] mx-auto'>

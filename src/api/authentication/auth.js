@@ -1,5 +1,16 @@
 import { authKit } from "./base";
 
+
+let token = "";
+let userId = 0;
+try {
+  let details = sessionStorage.getItem("user_details");
+  token = JSON.parse(details).token;
+  userId = JSON.parse(details).id;
+} catch (err) {
+  //err
+}
+
 export const signupAction = (data) => {
     return authKit.post('api/v1/user/signup', data)
 }
@@ -11,6 +22,9 @@ export const loginAction = (payload) => {
 };
 export const forgetPasswordAction = (payload) => {
     return authKit.post("api/v1/user/forgotpassword", payload);
+};
+export const resetPasswordAction = (payload, token) => {
+    return authKit.post(`api/v1/user/resetpassword?token=${token}`, payload);
 };
 export const newsLetterSub = (data) => {
   return authKit.post('api/v1/user/zoho', data)
