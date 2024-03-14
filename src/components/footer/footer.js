@@ -16,13 +16,6 @@ const Footer = () => {
   });
 
   const onSubmit = async (values, actions) => {
-    // const data = {}
-    // data.firstName = values.firstName
-    // data.lastName = values.lastName
-    // data.email = values.email
-    // data.password = values.password
-    // console.log('values',values)
-    // console.log('data', data)
     await newsLetterSub(values)
     .then((res) => {
       console.log(res)
@@ -68,7 +61,7 @@ const {values, handleSubmit, handleChange,handleBlur,isSubmitting, errors, touch
             <Link href='/'>
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">Home</li>
             </Link>
-            <Link href='/aboutUs'>
+            <Link href='/about-us'>
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">About</li>
             </Link>
             <Link href='/faq'>
