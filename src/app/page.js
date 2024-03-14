@@ -142,7 +142,7 @@ import Slider from "react-slick";
 const initialValues = {
   email: "",
   firstName: "",
-  role: "",
+  userRole: "",
 };
 
 const WaitList = () => {
@@ -156,8 +156,8 @@ const WaitList = () => {
       .string()
       .email("Please enter a valid email")
       .required("Email is required"),
-    firstName: yup.string().required("firstName is required"),
-    role: yup.string().required("role is required"),
+    firstName: yup.string().required("Firstname is required"),
+    userRole: yup.string().required("Role is required"),
   });
   const { values, handleSubmit, handleChange, isSubmitting, errors, touched } =
     useFormik({
@@ -276,20 +276,23 @@ const WaitList = () => {
                   </div>
                 </div>
                 <div className={Classes.form2}>
-                    <select value={values.role}>
-
-                    <option value=""> Select Role</option>
-                      <option name='product_designer' > Product</option>
-                      <option name='product_management' >Management</option>
-                      <option name='front_end_web_developer' >Front-end</option>
-                      <option name= 'back_end_web_developer' >Back-end</option>
-
-                    </select>
-                    <div className={Classes.errorMsg}>
-                      {" "}
-                      {errors.role && touched.role && <p>{errors.email}</p>}
-                    </div>
+                  <select
+                    name="userRole"
+                    value={values.userRole}
+                    onChange={handleChange}
+                    id="mySelect"
+                  >
+                    <option> Select Role</option>
+                    <option value="product_designer"> Product</option>
+                    <option value="product_management">Management</option>
+                    <option value="front_end_web_developer">Front-end</option>
+                    <option value="back_end_web_developer">Back-end</option>
+                  </select>
+                  <div className={Classes.errorMsg}>
+                    {" "}
+                    {errors.userRole && touched.userRole && <span>{errors.userRole}</span>}
                   </div>
+                </div>
                 <button type="submit" className={Classes.button}>
                   {isSubmitting ? (
                     <>
