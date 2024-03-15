@@ -475,7 +475,7 @@ const Landing = () => {
     <div className='max-w-[1440px] mx-auto'>
       <Navbar />
       <section className='font-whyte px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative bg-[#F9FBFF]'>
-        <div className='  py-[48px]  flex sm:flex-col gap-[58px] xl:gap-[25px] items-center bg-[#F9FBFF]'>
+        <div className='  py-[48px]  flex sm:flex-col gap-[58px] xl:gap-[25px] items-center '>
           <div className=''>
             <div className='flex gap-2 w-[256px] md:w-[200px] sm:w-[256px] py-2 px-3 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px]'>
               <MdVerified className='text-[#FFD700] w-[15.28px] h-[15.99px]'/>
@@ -580,7 +580,7 @@ const Landing = () => {
         <Image src='/mobile-bigstar.png' width={74} height={65} alt='star' className='absolute top-[0] right-[16px] lgx:block hidden'/>
       </section>
       <section className='font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lgx:gap-[12px] lg:gap-[10px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]'>
-        <div className='w-[342px] 1xl:w-[300px] md:w-[250px] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] 1xl:pl-[14px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'>
+        <div className='w-[342px] 1xl:w-[300px] md:w-[250px] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xxl:pl-[14px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'>
           <h4 className='w-[288px] md:w-[220px] sm:w-[70%] font-medium text-[48px] md:text-[40px] sm:text-[48px] sxm:text-[40px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
             Get Onboarded in Four Easy Steps!
           </h4>
@@ -687,9 +687,8 @@ const Landing = () => {
         <h4 className='font-medium text-[#121927] text-[48px] lgx:text-[38px] sm:text-[36px] leading-[52.8px] sm:leading-[39.6px] w-[696px] lgx:w-[550px] sm:w-[93%] mb-[62px] mx-auto text-center'>
           What our students has to say about us
         </h4>
-        {/* <div className='w-[100%] rounded-[24px] '> */}
-        <div className='w-[100%] rounded-[24px] '>
-          <Slider ref={slider => {sliderRef = slider}} {...settings} className='w-[100%]'>
+        <div className='w-[100%] rounded-[24px]'>
+          <Slider ref={slider => {sliderRef = slider}} {...settings} className='w-[100%] '>
                 {testimonials.map((testimonial, index) => {
                   return(
                       <div key={index} className='w-[100%] rounded-[24px]'>
@@ -719,6 +718,7 @@ const Landing = () => {
                         </div>
                       </div>
                       )})}
+
           </Slider>
         </div>
         <Image src='/big-star.png' width={109} height={110} alt='big star' className='absolute top-[83px] lg:top-[40px] md:top-[20px] sm:hidden left-[107px] lg:left-[40px] md:left-[20px] '/>

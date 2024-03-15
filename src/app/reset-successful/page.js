@@ -45,13 +45,13 @@ import React from 'react'
 
 const Verify = () => {
   return (
-    <div className='h-screen font-whyte bg-[#EFF6FF] xm:bg-[#fff] '>
+    <div className='min-h-screen font-whyte bg-[#EFF6FF] xm:bg-[#fff] '>
         <div className='bg-[#fff] border-b-[1px] xm:border-b-[0px] border-b-[#1453FF]'>
             <Link href='/'><Image src='/hack-logo.png' width={180} height={52} className='cursor-pointer mx-auto xm:m-[0px] py-[20px] xm:pb-[0px] xm:px-4'/></Link>
         </div>
         {/* <div className=' flex xm:block justify-center items-center h-full'> */}
         <div className=''>
-            <div className='p-[24px] xm:px-[16px] max-w-[614px] min-h-[297px] border-[1px] border-[#fff] bg-[#fff] mx-auto my-[200px] xm:my-[158px] xm:text-center'>
+            <div className='p-[24px] xm:px-[16px] max-w-[614px] min-h-[297px] border-[1px] border-[#fff] bg-[#fff] mx-auto my-[200px] 1xl:my-[100px] xl:my-[80px] lgx:my-[50px] xm:my-[158px] xm:text-center'>
                 <Image src='/verify.svg' width={102} height={102} alt='success logo' className='mx-auto mb-[32px]' />
                 <h1 className='font-medium text-[32px] leading-[41.6px] text-[#2A2A2A] text-center pb-[12px] xm:pb-[16px]'>Password reset successful</h1>
                 <p className='font-regular text-[16px] text-[#828282] leading-[25.44px] text-center pb-[32px]'>We are happy to have you back. Provide the correct information</p>

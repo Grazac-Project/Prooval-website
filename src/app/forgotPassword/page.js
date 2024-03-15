@@ -139,11 +139,11 @@ const forgotPassword = () => {
     onSubmit
   })
   return (
-    <div className='h-screen bg-[#EFF6FF] xm:bg-[#fff]'>
+    <div className='min-h-screen bg-[#EFF6FF] xm:bg-[#fff]'>
             <div className='bg-[#fff] border-b-[1px] xm:border-b-[0px] border-b-[#1453FF]'>
                 <Link href='/'><Image src='/hack-logo.png' alt='hackthejobs logo' width={180} height={52} className='cursor-pointer mx-auto xm:m-[0px] py-[20px] xm:pb-[0px] xm:px-4'/></Link>
             </div>
-        <section className='font-whyte py-[180px] xm:py-[0px]'>
+        <section className='font-whyte py-[150px] 1xl:py-[100px] xl:py-[80px] lgx:py-[50px] xm:py-[0px]'>
             <div className='w-[616px] md:w-[90%] xm:w-[100%] bg-[#fff] p-[24px] sm:p-[16px] xm:pt-[0px] xm:pb-[48px] rounded-[8px] mx-auto'>
                 <h1 className='text-[32px] font-medium leading-[41.6px] text-[#2A2A2A] mb-2 xm:mt-[42px] text-center xm:text-start'>Forgot password</h1>
                 <p className='font-regular text-[16px] leading-[20.8px] text-[#828282] mb-[48px] text-center sm:text-start'>We are happy to have you back. Provide the correct information</p>

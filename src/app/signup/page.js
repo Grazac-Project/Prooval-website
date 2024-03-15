@@ -76,7 +76,7 @@ const Signup = () => {
     //     router.push('/')
     //   }
   return (
-    <div className='min-h-screen  bg-[#EFF6FF]'>
+    <div className='min-h-screen  bg-[#EFF6FF] xm:bg-[#fff]'>
         <ToastContainer closeButton={false} />
             <div className='bg-[#fff] border-b-[1px] xm:border-b-[0px] border-b-[#1453FF]'>
                 <Link href='/'><Image src='/hack-logo.png' width={180} height={52} className='cursor-pointer mx-auto xm:m-[0px] py-[20px] xm:pb-[0px] xm:px-4'/></Link>
