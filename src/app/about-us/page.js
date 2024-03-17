@@ -10,6 +10,7 @@ import Slider from "react-slick";
 
 const AboutUs = () => {
   var settings = {
+    className: "slider variable-width",
     dots: false,
     speed: 500,
     slidesToShow: 3,
@@ -22,11 +23,11 @@ const AboutUs = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2,
+          initialSlide: 1,
         },
       },
       {
-        breakpoint: 600, // for screens less than 768px wide
+        breakpoint: 425, // for screens less than 768px wide
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -41,11 +42,12 @@ const AboutUs = () => {
       <div className={Classes.about}>
         <div className={Classes.intro}>
           <h1>
-            We are <span></span>
+            Known <span className={Classes.for}>for</span> <span className={Classes.exc}>Excellence</span>
           </h1>
           <p>
-            Our mission is to ensure teams can do their best work, no matter
-            their size or budget. We focus on the details of everything we do.
+            Our mission is to provide recent bootcamp graduates and self-taught
+            tech talents with real world work experience, helping them land
+            their dream job in tech.
           </p>
         </div>
         <Image src="/about.png" alt="img" width={1440} height={600} />
@@ -81,36 +83,33 @@ const AboutUs = () => {
 
         <div className={Classes.storyFlex}>
           <p>
-            Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id
-            scelerisque est ultricies ultricies. Duis est sit sed leo nisl,
-            blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at
-            scelerisque amet nulla purus habitasse.
-            <br /> Nunc sed faucibus bibendum feugiat sed interdum. Ipsum
-            egestas condimentum mi massa. In tincidunt pharetra consectetur sed
-            duis facilisis metus. Etiam egestas in nec sed et. Quis lobortis at
-            sit dictum eget nibh tortor commodo cursus.
-            <br />
-            <br />
-            Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id
-            scelerisque est ultricies ultricies. Duis est sit sed leo nisl,
-            blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at
-            scelerisque amet nulla purus habitasse.
+            In a world filled with endless possibilities, countless talented
+            individuals still face barriers to landing their dream jobs due to
+            the constraint of lack of experience. At Hackthejobs, our journey
+            begins with a simple yet profound belief: that everyone, regardless
+            of their background or circumstances, deserves the chance to thrive
+            in the digital age and make a career for themselves.
+            <br /> Imagine a world where a young aspiring coder, filled with
+            dreams and potential, lacks the experiences required to land his
+            first tech role frustrated and held back by lack of projects in her
+            portfolio to convince a prospective employer that she can unleash
+            her creativity. It was these stories, these untapped reservoirs of
+            talent and ambition, that ignited a spark within us.
           </p>
           <p>
-            Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id
-            scelerisque est ultricies ultricies. Duis est sit sed leo nisl,
-            blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at
-            scelerisque amet nulla purus habitasse. <br /> Nunc sed faucibus
-            bibendum feugiat sed interdum. Ipsum egestas condimentum mi massa.
-            In tincidunt pharetra consectetur sed duis facilisis metus. Etiam
-            egestas in nec sed et. Quis lobortis at sit dictum eget nibh tortor
-            commodo cursus.
-            <br />
-            <br />
-            Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id
-            scelerisque est ultricies ultricies. Duis est sit sed leo nisl,
-            blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at
-            scelerisque amet nulla purus habitasse.
+            We knew that we had to bridge the gap between ambition and
+            opportunity, to empower individuals to unlock their full potential.
+            That's why we created Hackthejobs – not just as a platform, but as a
+            beacon of hope and possibility. With each donation, you're not just
+            supporting a cause – you're changing lives.
+            <br /> You're giving someone the chance to learn, to grow, to
+            succeed in ways they never thought possible. Every penny contributed
+            goes towards providing the sort-after experience, environment
+            resources, and mentorship that open doors and shatter barriers for
+            every newbie in tech. It's about more than just helping them gain
+            experiences or putting their technical skills to use; it's about
+            empowering individuals to write their futures, to dream big and
+            achieve even bigger
           </p>
         </div>
       </div>
@@ -373,10 +372,18 @@ const AboutUs = () => {
             enough work experience building products that solve sustainable
             developmental goal project
           </p>
-          <button>Make donation</button>
+          <Link href="/donation">
+            <button>Make donation</button>
+          </Link>
         </div>
         <>
-          <Image src="/donateImg.png" alt="img" width={509} height={477} className={Classes.donateImg}/>
+          <Image
+            src="/donateImg.png"
+            alt="img"
+            width={509}
+            height={477}
+            className={Classes.donateImg}
+          />
         </>
       </div>
 

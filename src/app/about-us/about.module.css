@@ -12,7 +12,6 @@
   margin-bottom: 48px;
 }
 .intro h1 {
-  position: relative;
   font-family: var(--font-whyte);
   font-size: 74px;
   line-height: 87px;
@@ -26,86 +25,25 @@
   width: 717px;
   color: #414141;
 }
-.intro h1 span {
+.exc {
   color: #1453ff;
+  opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 2s;
 }
-
-.intro h1 span {
-  position: relative;
+.for{
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 1s;
 }
-
-.intro h1 span::before {
-  content: "Youtuber";
-  color: #1453ff;
-  animation: words 20s infinite;
-}
-
-.intro h1 span::after {
-  content: "";
-  position: absolute;
-  width: calc(100% + 8px);
-  height: 110%;
-  background-color: #fff;
-  border-left: 2px solid #1453ff;
-  right: -8px;
-  animation: cursor 0.8s infinite, typing 20s steps(14) infinite;
-}
-
-@keyframes cursor {
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
   to {
-    /* border-left: 2px solid #1453ff; */
+      opacity: 1;
   }
 }
-
-@keyframes words {
-  0%,
-  20% {
-    content: "Exceptional";
-  }
-  21%,
-  40% {
-    content: "Extraordinary";
-  }
-  41%,
-  60% {
-    content: "Remarkable";
-  }
-  61%,
-  80% {
-    content: "Superb";
-  }
-  81%,
-  100% {
-    content: "Unparalleled";
-  }
-}
-
-@keyframes typing {
-  10%,
-  15%,
-  30%,
-  35%,
-  50%,
-  55%,
-  70%,
-  75%,
-  90%,
-  95% {
-    width: 0;
-  }
-  5%,
-  20%,
-  25%,
-  40%,
-  45%,
-  60%,
-  65%,
-  80%,
-  85% {
-    width: calc(100% + 8px);
-  }
-}
-
 .mission {
   width: 1280px;
   display: flex;
@@ -141,7 +79,7 @@
   margin-bottom: 64px;
   color: #101828;
 }
-.storyImg{
+.storyImg {
   display: none;
 }
 .story p {
@@ -238,8 +176,6 @@
   font-weight: 500;
   line-height: 58px;
   color: white;
-
-
 }
 .donateText p {
   font-family: var(--font-whyte);
@@ -248,7 +184,7 @@
   line-height: 24px;
   color: #f8f8f8;
   margin: 32px 0;
-  /* width: 536px; */
+  width: 546px;
   text-align: none;
 }
 .donateText button {
@@ -284,9 +220,7 @@
   .storyFlex {
     width: 100%;
   }
-  .donation {
-    /* width: 90%; */
-  }
+
   .donationFlex {
     width: 90%;
   }
@@ -298,7 +232,6 @@
   }
 }
 @media screen and (max-width: 1024px) {
-  
   .mission h4 {
     width: 50%;
   }
@@ -309,13 +242,15 @@
     width: 50%;
     background-position: bottom right;
   }
-  .donateText h3{
+  .donateText h3 {
     font-size: 42px;
   }
-  .donation{
+  .donateText p {
+    width: 100%;
+  }
+  .donation {
     padding: 73px 60px;
     gap: 50px;
-
   }
 }
 @media screen and (max-width: 950px) {
@@ -325,20 +260,19 @@
     margin: auto;
     background-image: none;
   }
-  .donation{
+  .donation {
     padding: 75px 0;
     display: block;
     background-image: url(/stars1.svg);
     background-position: top right;
     background-repeat: no-repeat;
   }
-  .donation p{
+  .donation p {
     margin: 24px 0;
-  
-    }
- .donateImg{
-  display: none;
- }
+  }
+  .donateImg {
+    display: none;
+  }
   .star {
     display: none;
   }
@@ -360,7 +294,6 @@
     display: block;
     width: 95%;
     margin: 54px auto;
-
   }
   .mission h4 {
     width: 100%;
@@ -371,10 +304,9 @@
     margin-top: 24px;
     /* font-size: 16px; */
   }
- .story h4{
-  font-size: 40px;
-
- }
+  .story h4 {
+    font-size: 40px;
+  }
   .storyFlex {
     display: block;
     width: 95%;
@@ -387,57 +319,49 @@
   }
   .gallerySlide {
     display: block;
-    width: 95%;
+    width: 90%;
     margin: 32px auto;
   }
-  .teamText h3{
-
+  .teamText h3 {
     font-size: 40px;
-
   }
   .teamText {
     width: 95%;
   }
-  
+
   .teamText p {
     width: 100%;
   }
-  
 }
 @media screen and (max-width: 425px) {
-  .intro h1{
+  .intro h1 {
     font-size: 54px;
   }
   .mission h4 {
     font-size: 35px;
   }
-  .story h4{
+  .story h4 {
     font-size: 35px;
-
   }
-  .teamText h3{
-
+  .teamText h3 {
     font-size: 35px;
-
   }
-  .donation{
+  .donation {
     padding-top: 70px;
     padding-bottom: 33px;
     margin-top: 40px;
   }
-  .donation h3{
+  .donation h3 {
     font-size: 32px;
     line-height: 38.4px;
-  
-    }
-  .donation p{
-  margin: 16px 0;
-
   }
-  .storyImg{
+  .donation p {
+    margin: 16px 0;
+  }
+  .storyImg {
     display: block;
   }
-  .storyImg1{
+  .storyImg1 {
     display: none;
   }
 }

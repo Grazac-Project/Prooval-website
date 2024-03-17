@@ -107,9 +107,9 @@
     width: 90%;
   }
 }
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 985px) {
   .nav {
-    width: 65%;
+    width: 80%;
   }
   .navMobile ul {
     gap: 20px;

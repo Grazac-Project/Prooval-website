@@ -4,71 +4,21 @@ import Classes from "./faq.module.css";
 import Image from "next/image";
 import React, { useState } from "react";
 import Footer from "@/components/footer/footer";
+import { faq } from "@/constants/faq";
+import { useFormik } from "formik";
+import * as yup from "yup";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { faqForm } from "@/api/authentication/auth";
+
+const initialValues = {
+  email: "",
+  firstName: "",
+  lastName: "",
+  msg: "",
+};
 
 const Faq = () => {
-  const faq = [
-    {
-      id: 1,
-      question: "Is HacktheJobs free?",
-      answer:
-        "Yes, It’s completely free. Absolutely no charge. Mentors and senior product managers are volunteers in our community and they are paying it forward. ",
-    },
-    {
-      id: 2,
-      question: "What's the duration of this program?",
-      answer: "The duration for Hackthejobs is six months ",
-    },
-    {
-      id: 3,
-      question: "How long is account approval? ",
-      answer:
-        "Upon completion of your registration, the onboarding team reviews to ensure you are qualified to get in for Hackthejobs. ",
-    },
-    {
-      id: 4,
-      question: "I am a mentee, can I be a mentor? ",
-      answer:
-        "No, a mentee can not become a mentor because our mentors are selected using strict prerequisites, and career achievements, so, as a mentee, it’s certain you are yet to attain that level of becoming a mentor on Hackthejobs. ",
-    },
-    {
-      id: 5,
-      question:
-        "What are the eligibility criteria to get approved as a verified mentor? ",
-      answer:
-        "To get approved and verified as a mentor, there must be a proven track record of success and achievement in your tech career. ",
-    },
-    {
-      id: 6,
-      question: "Can I work alone? ",
-      answer:
-        "No. The nature of Hackthejobs requires collaboration with a few team members and a senior product manager who monitors your progress while you work on different projects/products. ",
-    },
-    {
-      id: 7,
-      question:
-        "Will I get a certificate of completion at the end of this program?",
-      answer:
-        "No. While we provide you with work experience and valuable resources to help you advance in your career, we don't issue a certificate of completion.",
-    },
-    {
-      id: 8,
-      question: "Can I start before completing my tech training? ",
-      answer:
-        "No. Individuals must complete their tech training before commencing Hackthejobs whether by a physical bootcamp/online boot camp or any other training ",
-    },
-    {
-      id: 9,
-      question: "Are mentors paid? ",
-      answer:
-        "No, our platform operates on the principle of community support and our mentors get appreciated from time to time.",
-    },
-    {
-      id: 10,
-      question: "What benefits do Mentors get?",
-      answer:
-        "Mentors get recognition for their work, appreciation from us and of course, that gratifying satisfaction of making an impact in someone’s career. ",
-    },
-  ];
   const [show, setShow] = useState({});
   const [show2, setShow2] = useState({});
   const [question, setQuestion] = useState(false);
@@ -91,6 +41,35 @@ const Faq = () => {
     }));
     // setShow(false);
   };
+  const schema = yup.object({
+    email: yup
+      .string()
+      .email("Please enter a valid email")
+      .required("Email is required"),
+    firstName: yup.string().required("Firstname is required"),
+    lastName: yup.string().required("Lastname is required"),
+    msg: yup.string().required("Message is required"),
+  });
+  const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
+    useFormik({
+      initialValues,
+      validationSchema: schema,
+      onSubmit: async (values, actions) => {
+        faqForm(values)
+          .then((res) => {
+            if (res.status === 200) {
+              console.log(res);
+              actions.resetForm();
+              toast.success(res.data.message);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            toast.warn(error.response.data.message);
+          });
+      },
+    });
+
   return (
     <>
       <Navbar />
@@ -244,26 +223,69 @@ const Faq = () => {
         <div className={Classes.formContainer}>
           <h4>Get in touch</h4>
           <p>We’d love to hear from you. Please fill out this form.</p>
-          <form className={Classes.form}>
+          <form className={Classes.form} onSubmit={handleSubmit}>
             <div className={Classes.inputFlex}>
               <div>
                 <h5>First name</h5>
-                <input type="text" placeholder="First name" />
+                <input
+                  type="text"
+                  placeholder="First name"
+                  name="firstName"
+                  value={values.firstName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <div className={Classes.errorMsg}>
+                  {errors.lastName && touched.lastName && (
+                    <span>{errors.lastName}</span>
+                  )}
+                </div>
               </div>
               <div>
                 <h5>First name</h5>
-                <input type="text" placeholder="First name" />
+                <input
+                  type="text"
+                  placeholder="First name"
+                  name="lastName"
+                  value={values.lastName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                <div className={Classes.errorMsg}>
+                  {errors.firstName && touched.firstName && (
+                    <span>{errors.firstName}</span>
+                  )}
+                </div>
               </div>
             </div>
             <div>
               <h5>Email</h5>
-              <input type="email" placeholder="you@company.com" />
+              <input
+                type="email"
+                placeholder="you@company.com"
+                name="email"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              <div className={Classes.errorMsg}>
+                {errors.email && touched.email && <span>{errors.email}</span>}
+              </div>
             </div>
             <div>
               <h5>Message</h5>
-              <textarea data-typebox name="message" />
+              <textarea
+                data-typebox
+                name="msg"
+                value={values.msg}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              <div className={Classes.errorMsg}>
+                {errors.msg && touched.msg && <span>{errors.msg}</span>}
+              </div>
             </div>
-            <button>Send message</button>
+            <button type="submit">Send message</button>
           </form>
         </div>
       </div>

@@ -32,6 +32,11 @@ const Navbar = () => {
                   FAQ
                 </Link>
               </li>
+              <li>
+                  <Link href="/donation" onClick={() => setDropdown(false)}>
+                    Donation
+                  </Link>
+                </li>
             </ul>
             <div className={Classes.btnFlex}>
               <button>
@@ -58,6 +63,11 @@ const Navbar = () => {
                 <li>
                   <Link href="/faq" onClick={() => setDropdown(false)}>
                     FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/donation" onClick={() => setDropdown(false)}>
+                    Donation
                   </Link>
                 </li>
               </ul>
