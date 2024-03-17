@@ -214,7 +214,7 @@ const WaitList = () => {
         },
       },
       {
-        breakpoint: 480, // for screens less than 768px wide
+        breakpoint: 500,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
