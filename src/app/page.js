@@ -428,6 +428,7 @@ const Landing = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     nextArrow: false,
+    prevArrow: false,
     centerMode: true,
     dotsClass: 'slick-dots custom-dots',
     beforeChange: (current, next) => setCurrentSlide(next),
@@ -512,7 +513,7 @@ const Landing = () => {
             <Image src='/live.png' width={33} height={33} alt='live' className='object-contain'/>
             <p className='w-[84px] xm:w-[48.07px] font-regular text-[14px] xm:text-[8.01px] text-[#414449] leading-[18.96px] lgx:leading-4 xm:leading-[10.85px]'>+154<br/> <span className='text-[#8B8B8B]'>Live projects</span></p>
           </div>
-          <Image src='/tiny-star.png' width={25} height={24} alt='tiny star' className='absolute top-[112.38px] 1xl:top-[90px] xxl:top-[110px] lgx:top-[60px] lg:top-[40px] sm:top-[20px] left-[110.88px] xxl:left-[70px] sm:left-[37px]'/>
+          <Image src='/tiny-star.png' width={25} height={24} alt='tiny star' className='absolute top-[112.38px] 1xl:top-[70px] lgx:top-[25px] sm:top-[20px] left-[110.88px] xxl:left-[100px] lgx:left-[60px] sm:left-[37px]'/>
       </section>
       <section className='h-[64px] bg-[#fff]'>
 
@@ -687,13 +688,14 @@ const Landing = () => {
         <h4 className='font-medium text-[#121927] text-[48px] lgx:text-[38px] sm:text-[36px] leading-[52.8px] sm:leading-[39.6px] w-[696px] lgx:w-[550px] sm:w-[93%] mb-[62px] mx-auto text-center'>
           What our students has to say about us
         </h4>
+        {/* <div className='w-[100%] rounded-[24px]'> */}
         <div className='w-[100%] rounded-[24px]'>
-          <Slider ref={slider => {sliderRef = slider}} {...settings} className='w-[100%] '>
+          <Slider ref={slider => {sliderRef = slider}} {...settings} className='w-[100%]'>
                 {testimonials.map((testimonial, index) => {
                   return(
                       <div key={index} className='w-[100%] rounded-[24px]'>
                         <div  className='bg-[#121927] flex sm:flex-col justify-between relative rounded-[24px]'>
-                          <div className='px-[64px] xxl:px-[40px] lg:px-[20px] sm:px-[16px] py-[108px] sm:pt-[29.73px] sm:pb-[36.27px] sm:order-2'>
+                          <div className='w-[800px] xxl:w-[680px] lgx:w-[580px] lg:w-[490px] md:w-[390px] sm:w-[100%] px-[64px] xxl:px-[40px] lg:px-[20px] sm:px-[16px] py-[108px] sm:pt-[29.73px] sm:pb-[36.27px] sm:order-2'>
                             <h4 className='font-regular text-[36px] xxl:text-[30px] lgx:text-[26px] md:text-[24px] leading-[44px] xxl:leading-[40px] md:leading-[36px] tracking-[-2%] text-[#fff] w-[672px] xxl:w-[600px] lgx:w-[500px] lg:w-[450px] md:w-[350px] sm:w-[100%] mb-[32px] sm:mb-[24px]'>
                               {testimonial.text}
                             </h4>
