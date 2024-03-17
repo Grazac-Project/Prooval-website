@@ -21,8 +21,7 @@ jobs:
       - name: Set NODE_ENV
         run: echo "NODE_ENV=development" >> .env
         if: github.ref == 'refs/heads/development'
-      
-        
+           
       - name: Set NODE_ENV
         run: echo "NODE_ENV=production" >> .env
         if: github.ref == 'refs/heads/main'
@@ -35,25 +34,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Determine Server Directory
-        id: determine-server-dir
-        run: echo "::set-output name=server-dir::${{ github.event_name == 'push' && contains(github.event.ref, 'main') && 'hackthejobs.com/' || contains(github.event.ref, 'development') && 'staging.hackthejobs.com/' }}"
-
       - name: Slack Notification - Deployment Initiated
         uses: rtCamp/action-slack-notify@v2.2.0
         env:
           SLACK_COLOR: ${{ job.status }}
           SLACK_MESSAGE: "Starting deployment :hourglass_flowing_sand: commit: ${{ github.event.head_commit.message }}"
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-
-      - name: 📂 Sync folders and files to the server
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
-        with:
-          server: "ftp.smartvesty.com"
-          protocol: "ftps"  
-          username: "grazac2023"
-          password: "ghI231*4mD!7i1a6"
-          server-dir: "./${{ steps.determine-server-dir.outputs.server-dir }}"
 
       - name: Slack Notification - Deployment Success
         uses: rtCamp/action-slack-notify@v2.2.0
