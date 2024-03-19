@@ -63,7 +63,7 @@
 
 
 'use client'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Image from 'next/image';
@@ -78,24 +78,35 @@ import { resetPasswordAction } from '@/api/authentication/auth';
 
 
 const initialValues = {
-  password: '',
+  newPassword: '',
   confirmPassword: ''
 }
 
 const setPassword = () => {
   const router =  useRouter()
   const [showPassword, setShowPassword] = useState(false);
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tokenParam = urlParams.get('token');
+    if (tokenParam) {
+      setToken(tokenParam);
+      console.log('token', token);
+    }
+  }, []);
+  console.log('token', token);
   const toggleVisibility = () => {
     setShowPassword(prev => !prev)
 }
   const schema = yup.object({
-    password: yup.string().required('Password is required').min(6),
-    confirmPassword: yup.string().oneOf([yup.ref('password')], 'Password does not match').required('Password is required').min(6)
+    newPassword: yup.string().required('Password is required').min(6),
+    confirmPassword: yup.string().oneOf([yup.ref('newPassword')], 'Password does not match').required('Password is required').min(6)
   });
 
   const onSubmit = async (values, actions) => {
     console.log('values',values)
-    resetPasswordAction(values)
+    resetPasswordAction(values, token)
     .then((res) => {
       console.log(res)
       if(res.status === 200) {
@@ -129,9 +140,9 @@ const setPassword = () => {
                     {/* <input type='text' id='email' placeholder='Enter your email' value={values.email} onChange={handleChange} onBlur={handleBlur} className='w-[100%] p-[10px] rounded-[8px] border-[0.8px] border-[#EAEAEA]'/> */}
                     <div className='relative mb-[35px] xm:mb-[24px]'>
                         <div className=''>
-                          <label htmlFor='password' className={(errors.password && touched.password) ? 'text-[#fc8181] block mb-2':'block mb-2 '}>{errors.password && touched.password ?`${errors.password}`:'New password'}</label>
+                          <label htmlFor='newPassword' className={(errors.newPassword && touched.newPassword) ? 'text-[#fc8181] block mb-2':'block mb-2 '}>{errors.newPassword && touched.newPassword ?`${errors.newPassword}`:'New password'}</label>
                         </div>
-                        <input type={showPassword?'text':'password'} id='password' placeholder='Enter Password' value={values.password} onChange={handleChange} onBlur={handleBlur} className='block text-[#828282] border-[1px] border-[#EAEAEA] h-[48px] w-[100%] rounded-[8px] p-[15px] outline-none'/>
+                        <input type={showPassword?'text':'password'} id='newPassword' placeholder='Enter Password' value={values.newPassword} onChange={handleChange} onBlur={handleBlur} className='block text-[#828282] border-[1px] border-[#EAEAEA] h-[48px] w-[100%] rounded-[8px] p-[15px] outline-none'/>
                         <div className='absolute right-[10px] top-[60%] cursor-pointer' onClick={toggleVisibility}>{showPassword?<AiOutlineEye />:<AiOutlineEyeInvisible />}</div>
                         
                     </div>
