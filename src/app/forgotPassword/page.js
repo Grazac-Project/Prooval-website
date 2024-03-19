@@ -120,15 +120,15 @@ const forgotPassword = () => {
     console.log('values',values)
    forgetPasswordAction(values)
     .then((res) => {
-      console.log(res)
+      // console.log(res)
       if(res.status === 200) {
           // toast.success('Success')
             router.push('/verify')
         }
-        console.log(res)
+        // console.log(res)
     })
     .catch((err) => {
-        console.log(err)
+        // console.log(err)
     })
     actions.resetForm()
 }
