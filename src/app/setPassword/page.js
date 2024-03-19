@@ -92,10 +92,8 @@ const setPassword = () => {
     const tokenParam = urlParams.get('token');
     if (tokenParam) {
       setToken(tokenParam);
-      console.log('token', token);
     }
   }, []);
-  console.log('token', token);
   const toggleVisibility = () => {
     setShowPassword(prev => !prev)
 }
@@ -105,10 +103,9 @@ const setPassword = () => {
   });
 
   const onSubmit = async (values, actions) => {
-    console.log('values',values)
     resetPasswordAction(values, token)
     .then((res) => {
-      console.log(res)
+      // console.log(res)
       if(res.status === 200) {
           // toast.success('Success')
             router.push('/reset-successful')
@@ -116,7 +113,7 @@ const setPassword = () => {
         console.log(res)
     })
     .catch((err) => {
-        console.log(err)
+        // console.log(err)
     })
     actions.resetForm()
 }
