@@ -9,8 +9,8 @@
   text-align: center;
   margin: 0 auto;
   opacity: 0;
-  animation: fadeIn 1s forwards;
-  animation-delay: 1s;
+  /* animation: fadeIn 1s forwards;
+  animation-delay: 1s; */
 }
 .heroText h1 {
   font-family: var(--font-whyte);
@@ -187,6 +187,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 56px;
+  margin: auto;
 }
 .donateText {
   width: 50%;
@@ -291,10 +292,10 @@
 
 @keyframes fadeIn {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 @media screen and (max-width: 1440px) {
@@ -313,10 +314,277 @@
   .donate {
     width: 90%;
   }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 columns */
+    grid-template-rows: repeat(3, 1fr); /* 4 rows */
+    gap: 10px; /* Gap between grid items */
+    justify-items: center; /* Center items horizontally */
+    align-items: center;
+  }
   .logoSlide {
-    width: 100%;
+    width: auto;
   }
   .contact {
     width: 90%;
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  .heroText {
+    width: 95%;
+  }
+
+  .whyFlex {
+    width: 100%;
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .why {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .whyFlex {
+    display: block;
+  }
+  .whyText {
+    width: 90%;
+    margin: auto;
+  }
+  .whyStat {
+    width: 95%;
+    margin: auto;
+    margin-top: 32px;
+    flex-direction: column-reverse;
+  }
+  .statFLex {
+    margin-top: 46px;
+  }
+  .whyText h3 {
+    text-align: center;
+  }
+  .videoFlex {
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+  .videoFlex h4 {
+    width: 95%;
+    margin-bottom: 16px;
+  }
+  .numbFlex {
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+  .numbImg {
+    top: 44px;
+    left: 160px;
+  }
+  .donate {
+    width: 95%;
+  }
+  .donateFlex {
+    flex-direction: column-reverse;
+  }
+  .donateText {
+    width: 90%;
+  }
+  .donateText h4 {
+    width: 90%;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 columns */
+    grid-template-rows: repeat(auto, 1fr); /* 4 rows */
+  }
+
+  .logoSlide {
+    width: 95%;
+  }
+  .contactText {
+    width: 90%;
+  }
+
+  .heroText h1 {
+    font-size: 50px;
+    line-height: 48px;
+  }
+  .heroText p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .hero {
+    padding: 82px 0;
+  }
+  .why {
+    margin: 42px auto;
+    padding: 72px 0;
+  }
+  .why h3 {
+    font-size: 40px;
+    line-height: 36px;
+  }
+  .why p {
+    font-size: 16px;
+    line-height: 27px;
+  }
+  .stat h3 {
+    font-size: 52px;
+    line-height: 63px;
+  }
+  .stat p {
+    font-size: 16px;
+    line-height: 25px;
+  }
+  .statFLex {
+    margin-top: 44px;
+  }
+  .videoFlex {
+    padding-top: 30px;
+    margin-bottom: 50px;
+  }
+  .videoFlex h4 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+  .numbContent h2 {
+    font-size: 74px;
+    line-height: 128px;
+  }
+  .numbContent span {
+    font-size: 20px;
+    line-height: 23px;
+  }
+  .numb {
+    padding: 33px 0;
+  }
+  .donateText h4 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+  .donate {
+    margin: 72px auto;
+  }
+  .logo {
+    padding: 56px 0;
+  }
+  .logo h4 {
+    font-size: 38px;
+    line-height: 41px;
+  }
+  .logoSlide {
+    margin: 35px auto;
+  }
+  .contact {
+    margin-top: 10px;
+    margin-bottom: 70px;
+    padding: 70px 0;
+  }
+  .contact h4 {
+    font-size: 40px;
+    line-height: 35px;
+  }
+  .contact p {
+    line-height: 19px;
+  }
+}
+@media screen and (max-width: 642px) {
+  .numbImg {
+    top: 24px;
+    left: 93px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .numbImg {
+    top: 34px;
+    left: 55px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .heroText h1 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+  .heroText p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .hero {
+    padding: 72px 0;
+  }
+  .why {
+    margin: 32px auto;
+    padding: 72px 0;
+  }
+  .why h3 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+  .why p {
+    font-size: 16px;
+    line-height: 27px;
+  }
+  .stat h3 {
+    font-size: 48px;
+    line-height: 63px;
+  }
+  .stat p {
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .statFLex {
+    margin-top: 24px;
+  }
+  .videoFlex {
+    padding-top: 32px;
+    margin-bottom: 40px;
+  }
+  .videoFlex h4 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+  .numbContent h2 {
+    font-size: 64px;
+    line-height: 128px;
+  }
+  .numbContent span {
+    font-size: 20px;
+    line-height: 23px;
+  }
+  .numb {
+    padding: 33px 0;
+  }
+  .donateText h4 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+  .donate {
+    margin: 62px auto;
+  }
+  .logo {
+    padding: 56px 0;
+  }
+  .logo h4 {
+    font-size: 32px;
+    line-height: 41px;
+  }
+  .logoSlide {
+    margin: 32px auto;
+  }
+  .contact {
+    margin-top: 1px;
+    margin-bottom: 70px;
+    padding: 56px 0;
+  }
+  .contact h4 {
+    font-size: 32px;
+    line-height: 35px;
+  }
+  .contact p {
+    line-height: 19px;
   }
 }

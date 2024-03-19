@@ -1,13 +1,23 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Classes from "./donation.module.css";
 import Navbar from "@/components/navbar/nav";
 import Footer from "@/components/footer/footer";
 import Image from "next/image";
-import Slider from "react-slick";
-// import "animate.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+
 
 const Donation = () => {
+
+
+  useEffect(() => {
+    AOS.init({duration: 1000,
+      offset: 200,
+      easing: 'ease-in-sine',
+      delay: 100,});
+  }, []);
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const logoSettings = {
@@ -34,7 +44,7 @@ const Donation = () => {
     <>
       <Navbar />
       <div className={Classes.hero}>
-        <div className={Classes.heroText}>
+        <div className={Classes.heroText} data-aos="fade-down">
           <h1>Support a Talent </h1>
           <p>
             Our mission is to ensure teams can do their best work, no matter
@@ -44,7 +54,7 @@ const Donation = () => {
         <button>Make donation</button>
       </div>
       <div className={Classes.why}>
-        <div className={Classes.whyFlex}>
+        <div className={Classes.whyFlex} data-aos="zoom-in">
           <div className={Classes.whyText}>
             <h3>Why we start Hackthejob </h3>
             <p>
@@ -69,7 +79,7 @@ const Donation = () => {
                 <p>Bootcamps</p>
               </div>
               <div className={Classes.stat}>
-                <h3>500K +</h3>
+                <h3> &lt;50K +</h3>
                 <p>Junior opportunities </p>
               </div>
             </div>
@@ -82,12 +92,9 @@ const Donation = () => {
           <button>Make donation</button>
         </div>
         <div className={Classes.vidCon}>
-          {/* <video ref={videoRef}>
-            <source
-              src="/The.Retirement.Plan.2023.1080p.WEBRip.x264.AAC5.1-[YTS.MX].mp4"
-              type="video/mp4"
-            />
-          </video> */}
+          <video>
+            <source src="."/>
+          </video>
           <div className={Classes.play} onClick={tooglePlay}>
             {isPlaying ? (
               <Image
@@ -119,7 +126,7 @@ const Donation = () => {
               alt="img"
               className={Classes.numbImg}
             />
-            <h2>67+</h2>
+            <h2 data-aos="fade-down">67+</h2>
             <span>
               Connected to <br />
               remote jobs
@@ -133,7 +140,7 @@ const Donation = () => {
               alt="img"
               className={Classes.numbImg}
             />
-            <h2>67+</h2>
+            <h2 data-aos="fade-down">67+</h2>
             <span>
               Connected to <br />
               remote jobs
@@ -147,7 +154,7 @@ const Donation = () => {
               alt="img"
               className={Classes.numbImg}
             />
-            <h2>67+</h2>
+            <h2 data-aos="fade-down">67+</h2>
             <span>
               Connected to <br />
               remote jobs
@@ -156,7 +163,7 @@ const Donation = () => {
         </div>
       </div>
       <div className={Classes.donate}>
-        <div className={Classes.donateFlex}>
+        <div className={Classes.donateFlex} data-aos="zoom-in">
           <div className={Classes.donateText}>
             <h4>
               Together we can <span>transform</span> next generation
@@ -181,7 +188,7 @@ const Donation = () => {
       <div className={Classes.logo}>
         <h4>Our partners samples</h4>
         <div className={Classes.logoSlide}>
-          <div className={Classes.grid}>
+          <div className={Classes.grid} data-aos="zoom-in">
             <div>
               <Image
                 src="/layers.png"
@@ -274,7 +281,7 @@ const Donation = () => {
         </div>
       </div>
       <div className={Classes.contact}>
-        <div className={Classes.contactText}>
+        <div className={Classes.contactText} data-aos="zoom-in">
           <h4>Have a Question ? </h4>
           <p>
             Our mission is to ensure teams can do their best work, no matter
