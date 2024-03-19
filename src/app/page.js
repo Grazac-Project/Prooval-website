@@ -427,8 +427,9 @@ const Landing = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    arrows: false,
     nextArrow: false,
-    centerMode: true,
+    prevArrow: false,
     dotsClass: 'slick-dots custom-dots',
     beforeChange: (current, next) => setCurrentSlide(next),
     
@@ -512,7 +513,7 @@ const Landing = () => {
             <Image src='/live.png' width={33} height={33} alt='live' className='object-contain'/>
             <p className='w-[84px] xm:w-[48.07px] font-regular text-[14px] xm:text-[8.01px] text-[#414449] leading-[18.96px] lgx:leading-4 xm:leading-[10.85px]'>+154<br/> <span className='text-[#8B8B8B]'>Live projects</span></p>
           </div>
-          <Image src='/tiny-star.png' width={25} height={24} alt='tiny star' className='absolute top-[112.38px] 1xl:top-[90px] xxl:top-[110px] lgx:top-[60px] lg:top-[40px] sm:top-[20px] left-[110.88px] xxl:left-[70px] sm:left-[37px]'/>
+          <Image src='/tiny-star.png' width={25} height={24} alt='tiny star' className='absolute top-[112.38px] 1xl:top-[70px] lgx:top-[25px] sm:top-[20px] left-[110.88px] xxl:left-[100px] lgx:left-[60px] sm:left-[37px]'/>
       </section>
       <section className='h-[64px] bg-[#fff]'>
 
@@ -580,7 +581,7 @@ const Landing = () => {
         <Image src='/mobile-bigstar.png' width={74} height={65} alt='star' className='absolute top-[0] right-[16px] lgx:block hidden'/>
       </section>
       <section className='font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lgx:gap-[12px] lg:gap-[10px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]'>
-        <div className='w-[342px] 1xl:w-[300px] md:w-[250px] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xxl:pl-[14px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'>
+        <div className='w-[342px] 1xl:w-[300px] md:w-[250px] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] 1xl:pl-[14px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'>
           <h4 className='w-[288px] md:w-[220px] sm:w-[70%] font-medium text-[48px] md:text-[40px] sm:text-[48px] sxm:text-[40px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
             Get Onboarded in Four Easy Steps!
           </h4>
@@ -656,7 +657,9 @@ const Landing = () => {
         </button> 
       </section>
       <section className='flex sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]'>
-        <Image src='/bootcamp.png' width={602} height={519} alt='several images merged into one' className='object-cover' />
+        <div>
+          <Image src='/bootcamp.png' width={602} height={519} alt='several images merged into one' className='object-cover' />
+        </div>
         <div className='font-whyte '>
           <h4 className='font-medium text-[48px] xl:text-[44px] lgx:text-[40px] lg:text-[35px] md:text-[30px] leading-[52.8px] lgx:leading-[45px] lg:leading-[40px] text-[#121927] mb-[40px] w-[596px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] sm:text-center sm:mt-[16px]'>
             Bootcamps are never enough!
@@ -687,14 +690,15 @@ const Landing = () => {
         <h4 className='font-medium text-[#121927] text-[48px] lgx:text-[38px] sm:text-[36px] leading-[52.8px] sm:leading-[39.6px] w-[696px] lgx:w-[550px] sm:w-[93%] mb-[62px] mx-auto text-center'>
           What our students has to say about us
         </h4>
+        {/* <div className='w-[100%] rounded-[24px]'> */}
         <div className='w-[100%] rounded-[24px]'>
-          <Slider ref={slider => {sliderRef = slider}} {...settings} className='w-[100%] '>
+          <Slider ref={slider => {sliderRef = slider}} {...settings} className='w-[100%]'>
                 {testimonials.map((testimonial, index) => {
                   return(
                       <div key={index} className='w-[100%] rounded-[24px]'>
-                        <div  className='bg-[#121927] flex sm:flex-col justify-between relative rounded-[24px]'>
-                          <div className='px-[64px] xxl:px-[40px] lg:px-[20px] sm:px-[16px] py-[108px] sm:pt-[29.73px] sm:pb-[36.27px] sm:order-2'>
-                            <h4 className='font-regular text-[36px] xxl:text-[30px] lgx:text-[26px] md:text-[24px] leading-[44px] xxl:leading-[40px] md:leading-[36px] tracking-[-2%] text-[#fff] w-[672px] xxl:w-[600px] lgx:w-[500px] lg:w-[450px] md:w-[350px] sm:w-[100%] mb-[32px] sm:mb-[24px]'>
+                        <div  className='bg-[#121927] flex sm:flex-col justify-between relative rounded-[24px] '>
+                          <div className='w-[800px] 1xl:w-[680px] xxl:w-[610px] lgx:w-[570px] lg:w-[470px] md:w-[390px] sm:w-[100%] px-[64px] 1xl:px-[40px] lg:px-[20px] sm:px-[16px] py-[108px] sm:pt-[29.73px] sm:pb-[36.27px] sm:order-2'>
+                            <h4 className='font-regular text-[36px] xxl:text-[30px] lgx:text-[26px] md:text-[24px] leading-[44px] xxl:leading-[40px] md:leading-[36px] tracking-[-2%] text-[#fff] w-[672px] 1xl:w-[640px] xxl:w-[600px] xl:w-[560px] lgx:w-[480px] lg:w-[450px] md:w-[350px] sm:w-[100%] mb-[32px] sm:mb-[24px]'>
                               {testimonial.text}
                             </h4>
                             <h5 className='font-medium  sm:w-[100%] text-[18px] leading-[28px] text-[#fff]'>
@@ -711,10 +715,12 @@ const Landing = () => {
                                 ></div>
                               ))}
                             </div>
-                            <Image src='/quote.png' width={149} height={114} alt='quote' className=' absolute top-[0px]  left-[54.29px] xxl:left-[40px] sm:invisible visible' />
+                            <Image src='/quote.png' width={149} height={114} alt='quote' className=' absolute top-[0px]  left-[54.29px] 1xl:left-[40px] lg:left-[20px] sm:invisible visible' />
                             <Image src='/quote-mobile.png' width={76} height={82} alt='quote' className='absolute top-[480px] xm:top-[350px] xxm:top-[270px] sxm:top-[220px]  right-[15.23px] sm:visible invisible' />
                           </div>
-                          <Image src='/testimonial.png' width={480} height={465} alt='testimonial picture' className='sm:order-1 rounded-tr-[24px] rounded-br-[24px] sm:rounded-br-none sm:rounded-tl-[24px] w-[100%] object-cover' />
+                          <div>
+                            <Image src='/testimonial.png' width={480} height={465} alt='testimonial picture' className='sm:order-1 rounded-tr-[24px] rounded-br-[24px] sm:rounded-br-none sm:rounded-tl-[24px] max-w-[100%] h-[100%] object-cover' />
+                          </div>
                         </div>
                       </div>
                       )})}
