@@ -52,10 +52,10 @@ const Signup = () => {
                 toast.success(res.data.message)
                 router.push('/verify')
             }
-            console.log(res)
+            // console.log(res)
         })
         .catch((err) => {
-            console.log(err)
+            // console.log(err)
         })
         actions.resetForm()
     }

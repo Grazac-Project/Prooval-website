@@ -1,15 +1,15 @@
 import { authKit } from "./base";
 
 
-let token = "";
-let userId = 0;
-try {
-  let details = sessionStorage.getItem("user_details");
-  token = JSON.parse(details).token;
-  userId = JSON.parse(details).id;
-} catch (err) {
-  //err
-}
+// let token = "";
+// let userId = 0;
+// try {
+//   let details = sessionStorage.getItem("user_details");
+//   token = JSON.parse(details).token;
+//   userId = JSON.parse(details).id;
+// } catch (err) {
+//   //err
+// }
 
 export const signupAction = (data) => {
     return authKit.post('api/v1/user/signup', data)

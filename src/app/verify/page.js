@@ -6,7 +6,7 @@ const Verify = () => {
   return (
     <div className='min-h-screen font-whyte bg-[#EFF6FF] xm:bg-[#fff] '>
         <div className='bg-[#fff] border-b-[1px] xm:border-b-[0px] border-b-[#1453FF]'>
-            <Image src='/hack-logo.png' width={180} height={52} className='cursor-pointer mx-auto xm:m-[0px] py-[20px] xm:pb-[0px] xm:px-4'/>
+            <Link href='/'><Image src='/hack-logo.png' width={180} height={52} className='cursor-pointer mx-auto xm:m-[0px] py-[20px] xm:pb-[0px] xm:px-4'/></Link>
         </div>
         {/* <div className=' flex xm:block justify-center items-center h-full'> */}
         <div className='my-[140px] 1xl:my-[100px] xl:my-[80px] lgx:my-[50px] xm:my-[0]'>
