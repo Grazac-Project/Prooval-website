@@ -1,8 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Verify = () => {
+  useEffect(() => {
+    // let details = sessionStorage.getItem("user_details");
+//   token = JSON.parse(details).token;
+//   userId = JSON.parse(details).id;
+  }, [])
   return (
     <div className='min-h-screen font-whyte bg-[#EFF6FF] xm:bg-[#fff] '>
         <div className='bg-[#fff] border-b-[1px] xm:border-b-[0px] border-b-[#1453FF]'>
