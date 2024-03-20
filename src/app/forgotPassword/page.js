@@ -120,13 +120,14 @@ const forgotPassword = () => {
     console.log('values',values)
    forgetPasswordAction(values)
     .then((res) => {
-      // console.log(res)
+      console.log(res)
       if(res.status === 200) {
           // toast.success('Success')
           sessionStorage.setItem(
             "user_data",
             JSON.stringify({
-              // id: res.data.data.data.token
+              name: res.data.data.user.firstName,
+              email: res.data.data.user.email
             })
           )
             router.push('/verify')
