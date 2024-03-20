@@ -379,6 +379,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const Landing = () => {
   const [angle, setAngle] = useState('2.93deg');
   const [color, setColor] = useState('#F2C003');
+  const [border, setBorder] = useState('#FFEFB2');
   const [currentSlide, setCurrentSlide] = useState(0);
   const [load, setLoad] = useState(false)
   const [logo, setLogo] = useState(false)
@@ -467,6 +468,8 @@ const Landing = () => {
         return prevAngle === '-2.93deg'?'2.93deg':'-2.93deg'}); 
       setColor(prevColor => {
         return prevColor === '#F2C003'?'#1453ff':'#F2C003'});
+      setBorder(prevColor => {
+        return prevColor === '#FFEFB2'?'#B3C7FF':'#FFEFB2'});
     }, 1000);
 
     return () => clearInterval(interval);
@@ -476,7 +479,7 @@ const Landing = () => {
     <div className='max-w-[1440px] mx-auto'>
       <Navbar />
       <section className='font-whyte px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative bg-[#F9FBFF]'>
-        <div className='  py-[48px]  flex sm:flex-col gap-[58px] xl:gap-[25px] items-center '>
+        <div className='  py-[48px] flex sm:flex-col gap-[58px] xl:gap-[25px] items-center '>
           <div className=''>
             <div className='flex gap-2 w-[256px] md:w-[200px] sm:w-[256px] py-2 px-3 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px]'>
               <MdVerified className='text-[#FFD700] w-[15.28px] h-[15.99px]'/>
@@ -485,7 +488,7 @@ const Landing = () => {
               </h3>
             </div>
             <h1 className='font-bold w-[621px] xxl:w-[550px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[64px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] '>
-              Become workplace ready and <span style={{transform: `rotate(${angle})`, background: color}} className={`text-[#fff] text-[54px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[279px] xl:w-auto rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block`}>prepared</span>
+              Become workplace ready and <span style={{transform: `rotate(${angle})`, background: color, border: `4px solid ${border}`}} className={`text-[#fff] text-[54px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[279px] xl:w-auto rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block`}>prepared</span>
             </h1>
             <p className='font-regular text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8'>
               Bootcamps are never enough! Grab the opportunity to get experience and jump the hurdles of hacking into the tech job market after going through tech training or bootcamps.  
@@ -494,11 +497,11 @@ const Landing = () => {
             <button className='w-[213px] lg:w-[170px] md:w-[150px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border-[1px] border-[#DADADA]'>Make a donation</button>
           </div>
           <div className='w-[598px] sm:w-[100%] pl-[40px] xxl:pl-[30px] pr-[37px] xxl:pr-[30px]'>
-            <Image src='/hero-pic.png' alt='group of pictures' width={524} height={673} className='object-cover' onMouseOver={handleMouseOver} onMouseOut={handleMouseOver}/>
+            <Image src='/hero-pic.png' alt='group of pictures' width={524} height={673} className='object-cover' onMouseOver={handleMouseOver} />
           </div>
           
         </div>
-        <div className={` absolute z-[100] w-[205px] lgx:w-[189px] xm:w-[117.32px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[120px] xxl:top-[120px] sm:top-[540px] sxm:top-[650px] right-[503px] xxl:right-[460px] xl:right-[400px] lgx:right-[350px] lg:right-[350px] md:right-[250px] sm:right-[350px] xm:right-[240px] xxm:right-[230px] sxm:right-[150px]': 'top-[81px] 1xl:top-[60px] xxl:top-[70px] sm:top-[510px] sxm:top-[630px] right-[623px] 1xl:right-[520px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] sxm:right-[200px]'}`}>
+        <div className={` absolute w-[205px] lgx:w-[189px] xm:w-[117.32px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[120px] xxl:top-[120px] sm:top-[540px] xxm:top-[560px] sxm:top-[650px] right-[503px] xxl:right-[460px] xl:right-[400px] lgx:right-[350px] lg:right-[350px] md:right-[250px] sm:right-[350px] xm:right-[240px] xxm:right-[230px] sxm:right-[150px]': 'top-[81px] 1xl:top-[60px] xxl:top-[70px] sm:top-[510px] xxm:top-[520px] sxm:top-[630px] right-[623px] 1xl:right-[520px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] sxm:right-[200px]'}`}>
             <p className='font-regular text-[12px] text-[#414449] xm:text-[6.87px] leading-[13px] xm:leading-[7.44px] w-[169px] xm:w-[96.72px] mx-auto text-center text-[#121927]'>More than +12,000 Satisfied students across the globe</p>
           </div>
           <div className={` absolute bg-[#fff] w-[139.5px] lgx:w-[123.5px] xm:w-[79.83px] rounded-[4px] px-[18px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-ghi border-[#E4E7EC] border-[0.9px] flex justify-between sm:items-center transition-all duration-1000 ease-in-out ${load? 'top-[189px] lgx:top-[160px] sm:top-[580px] sxm:top-[665px] right-[62.5px] lgx:right-[40px] sm:right-[70px] xm:right-[60px]': 'top-[149px] lgx:top-[120px] sm:top-[530px] sxm:top-[625px] right-[22.5px] lgx:right-[0px] sm:right-[30px] xm:right-[10px]  '}`}>

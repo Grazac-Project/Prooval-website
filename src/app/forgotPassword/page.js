@@ -123,6 +123,12 @@ const forgotPassword = () => {
       // console.log(res)
       if(res.status === 200) {
           // toast.success('Success')
+          sessionStorage.setItem(
+            "user_data",
+            JSON.stringify({
+              // id: res.data.data.data.token
+            })
+          )
             router.push('/verify')
         }
         // console.log(res)
