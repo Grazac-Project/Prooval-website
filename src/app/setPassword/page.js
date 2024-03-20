@@ -85,6 +85,7 @@ const initialValues = {
 const setPassword = () => {
   const router =  useRouter()
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [token, setToken] = useState('');
 
   useEffect(() => {
@@ -97,6 +98,9 @@ const setPassword = () => {
   const toggleVisibility = () => {
     setShowPassword(prev => !prev)
 }
+  const toggleVisibilityConfirm = () => {
+    setShowConfirmPassword(prev => !prev)
+}
   const schema = yup.object({
     newPassword: yup.string().required('Password is required').min(6),
     confirmPassword: yup.string().oneOf([yup.ref('newPassword')], 'Password does not match').required('Password is required').min(6)
@@ -105,8 +109,14 @@ const setPassword = () => {
   const onSubmit = async (values, actions) => {
     resetPasswordAction(values, token)
     .then((res) => {
-      // console.log(res)
+      console.log(res)
       if(res.status === 200) {
+        // sessionStorage.setItem(
+        //   "user_data",
+        //   JSON.stringify({
+        //     name: res.data.data.user.firstName
+        //   })
+        // )
           // toast.success('Success')
             router.push('/reset-successful')
         }
@@ -147,8 +157,8 @@ const setPassword = () => {
                         <div className=''>
                           <label htmlFor='confirmPassword' className={(errors.confirmPassword && touched.confirmPassword) ? 'text-[#fc8181] block mb-2':'block mb-2 '}>{errors.confirmPassword && touched.confirmPassword ?`${errors.confirmPassword}`:'Confirm new password'}</label>
                         </div>
-                        <input type={showPassword?'text':'password'} id='confirmPassword' placeholder='Enter Password' value={values.confirmPassword} onChange={handleChange} onBlur={handleBlur} className='block text-[#828282] border-[1px] border-[#EAEAEA] h-[48px] w-[100%] rounded-[8px] p-[15px] outline-none'/>
-                        <div className='absolute right-[10px] top-[60%] cursor-pointer' onClick={toggleVisibility}>{showPassword?<AiOutlineEye />:<AiOutlineEyeInvisible />}</div>
+                        <input type={showConfirmPassword?'text':'password'} id='confirmPassword' placeholder='Enter Password' value={values.confirmPassword} onChange={handleChange} onBlur={handleBlur} className='block text-[#828282] border-[1px] border-[#EAEAEA] h-[48px] w-[100%] rounded-[8px] p-[15px] outline-none'/>
+                        <div className='absolute right-[10px] top-[60%] cursor-pointer' onClick={toggleVisibilityConfirm}>{showConfirmPassword?<AiOutlineEye />:<AiOutlineEyeInvisible />}</div>
                         
                     </div>
                     <button className='w-[100%] bg-[#1453FF] border-[0.3px] border-[#654DE4] h-[48px] text-[#fff] mt-[51px] xm:mt-[276px] mb-[24px]'>Reset password</button>

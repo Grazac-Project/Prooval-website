@@ -141,7 +141,6 @@
 import React, {useState} from 'react'
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import AuthSide from '@/components/authSide/page';
 import Image from 'next/image';
 import { loginAction, googleLogin } from '@/api/authentication/auth';
 import { useFormik } from 'formik';
@@ -168,7 +167,7 @@ const Login = () => {
     }
     const schema = yup.object({
         email: yup.string().email('Please enter a valid email').required('Email is required'),
-        password: yup.string().required('Password is required').min(6),
+        password: yup.string().required('Password is required').min(8),
       });
 
       const onSubmit = async (values, actions) => {
@@ -191,9 +190,10 @@ const Login = () => {
             console.log(res)
         })
         .catch((err) => {
-            // console.log(err)
+            console.log(err)
+            toast.error('Incorrect password')
         })
-        actions.resetForm()
+        // actions.resetForm()
     }
       
       const {values, handleSubmit, handleChange,handleBlur,isSubmitting, errors, touched} = useFormik({
@@ -202,12 +202,7 @@ const Login = () => {
         onSubmit
       })
 
-      const googleLoginHandler = () => {
-        googleLogin()
-        .then(res => {
-            console.log(res);
-        })
-    }
+      
     //   const closeModal = () => {
     //     router.push('/')
     //   }

@@ -34,28 +34,36 @@ const Signup = () => {
         email: yup.string().email('Please enter a valid email').required('Email is required'),
         firstName: yup.string().required('First name is required'),
         lastName: yup.string().required('Last name is required'),
-        password: yup.string().required('Password is required').min(6),
+        password: yup.string().required('Password is required').min(8),
         checkbox: yup.boolean().oneOf([true], "Please accept the terms").required()
       });
 
       const onSubmit = async (values, actions) => {
-        const data = {}
-        data.firstName = values.firstName
-        data.lastName = values.lastName
-        data.email = values.email
-        data.password = values.password
+        const dataValues = {}
+        dataValues.firstName = values.firstName
+        dataValues.lastName = values.lastName
+        dataValues.email = values.email
+        dataValues.password = values.password
         console.log('values',values)
-        console.log('data', data)
-        await signupAction(data)
+        console.log('data', dataValues)
+        await signupAction(dataValues)
         .then((res) => {
+            console.log(res)
             if(res.status == 201) {
+                sessionStorage.setItem(
+                    "user_data",
+                    JSON.stringify({
+                      name: res.data.data.user.firstName,
+                      email: res.data.data.user.email
+                    })
+                  )
                 toast.success(res.data.message)
                 router.push('/verify')
             }
             // console.log(res)
         })
         .catch((err) => {
-            // console.log(err)
+            console.log(err)
         })
         actions.resetForm()
     }
