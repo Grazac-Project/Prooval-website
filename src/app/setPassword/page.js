@@ -102,8 +102,8 @@ const setPassword = () => {
     setShowConfirmPassword(prev => !prev)
 }
   const schema = yup.object({
-    newPassword: yup.string().required('Password is required').min(6),
-    confirmPassword: yup.string().oneOf([yup.ref('newPassword')], 'Password does not match').required('Password is required').min(6)
+    newPassword: yup.string().required('Password is required').min(8),
+    confirmPassword: yup.string().oneOf([yup.ref('newPassword')], 'Password does not match').required('Password is required').min(8)
   });
 
   const onSubmit = async (values, actions) => {
@@ -111,12 +111,6 @@ const setPassword = () => {
     .then((res) => {
       console.log(res)
       if(res.status === 200) {
-        // sessionStorage.setItem(
-        //   "user_data",
-        //   JSON.stringify({
-        //     name: res.data.data.user.firstName
-        //   })
-        // )
           // toast.success('Success')
             router.push('/reset-successful')
         }
@@ -161,7 +155,7 @@ const setPassword = () => {
                         <div className='absolute right-[10px] top-[60%] cursor-pointer' onClick={toggleVisibilityConfirm}>{showConfirmPassword?<AiOutlineEye />:<AiOutlineEyeInvisible />}</div>
                         
                     </div>
-                    <button className='w-[100%] bg-[#1453FF] border-[0.3px] border-[#654DE4] h-[48px] text-[#fff] mt-[51px] xm:mt-[276px] mb-[24px]'>Reset password</button>
+                    <button disabled={isSubmitting} className='disabled:opacity-[35%] w-[100%] bg-[#1453FF] border-[0.3px] border-[#654DE4] h-[48px] text-[#fff] mt-[51px] xm:mt-[276px] mb-[24px]'>Reset password</button>
                 </form>
                 <Link href='login'><div className='flex justify-center items-center text-[#667085] cursor-pointer '><IoIosArrowRoundBack className=' text-[24px]'/> Back to log in</div></Link>
             </div>

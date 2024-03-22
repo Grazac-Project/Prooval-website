@@ -157,7 +157,7 @@ const forgotPassword = () => {
                 <form className='text-[#333] font-regular' onSubmit={handleSubmit}>
                     <label className={(errors.email && touched.email) ?'font-regular text-[16px] leading-[20.8px] text-[#333333] mb-[8px] text-[#fc8181]':'font-regular text-[16px] leading-[20.8px] text-[#333333] mb-[8px]'}>{errors.email && touched.email ?`${errors.email}`:'Email Address'}</label>
                     <input type='text' id='email' placeholder='Enter your email' value={values.email} onChange={handleChange} onBlur={handleBlur} className='w-[100%] p-[10px] rounded-[8px] border-[0.8px] border-[#EAEAEA]'/>
-                    <button className='w-[100%] bg-[#1453FF] border-[0.3px] border-[#654DE4] h-[48px] text-[#fff] mt-[48px] xm:mt-[371px] mb-[24px]'>Reset password</button>
+                    <button disabled={isSubmitting} className='disabled:opacity-[35%] w-[100%] bg-[#1453FF] border-[0.3px] border-[#654DE4] h-[48px] text-[#fff] mt-[48px] xm:mt-[371px] mb-[24px]'>Reset password</button>
                 </form>
                 <Link href='login'><div className='flex justify-center items-center text-[#667085] cursor-pointer '><IoIosArrowRoundBack className=' text-[24px]'/> Back to log in</div></Link>
             </div>
