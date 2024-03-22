@@ -547,7 +547,7 @@ const Landing = () => {
             <Image src='/quotient.png' alt='group of pictures' width={169} height={45}  />}
           </div>
         </div>
-        <div className='hidden sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
+        <div className='hidden sm:block sm:pb-[40px] sm:w-[100%] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
           <Slider ref={slider => {sliderRef = slider}} {...logoSettings} className=''>
               <div className='' onMouseOver={handleLogoEvent} onMouseOut={handleLogoEvent}>
                 {logo ? <Image src='/layers1.png' alt='group of pictures' width={127} height={45}  /> : <Image src='/layers.png' alt='group of pictures' width={127} height={44}  />}
