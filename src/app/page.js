@@ -584,7 +584,37 @@ const Landing = () => {
         <Image src='/big-star1.png' width={127} height={128} alt='star' className='absolute top-[0] right-[154px] lgx:hidden block'/>
         <Image src='/mobile-bigstar.png' width={74} height={65} alt='star' className='absolute top-[0] right-[16px] lgx:block hidden'/>
       </section>
-      <section className='font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lgx:gap-[12px] lg:gap-[10px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]'>
+      <section className='w-[100%] font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]'>
+        <div className='w-[28.125%] xxl:w-[30%] lgx:w-[33%] lg:w-[35%] md:w-[38%] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xl:pl-[15px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'>
+          <h4 className='w-[288px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] sxm:text-[40px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
+            Get Onboarded in Four Easy Steps!
+          </h4>
+          <p className='w-[298px] 1xl:w-[262px] lg:w-[250px] md:w-[220px] sm:w-[100%] font-regular text-[16px] leading-[22px] text-[#EDEDED]'>
+            Follow these simple steps to get onboarded into Hackthejobs right away! Our onboarding procedure is as basic as it gets!
+          </p>
+          <Image src='/easy-arrow.png' width={123} height={117} alt='arrow' className='absolute top-[9.32px] right-[14.18px] object-cover'/>
+        </div>
+        <div className='w-[69.90%] xxl:w-[70%] lgx:w-[67%] lg:w-[65%] md:w-[62%] sm:w-[100%] flex flex-wrap sm:justify-around gap-[16px] lgx:gap-[12px] lg:gap-[10px]'>
+          {
+            cardValues.map((cardValue, i) => {
+              return (
+                <div className='font-whyte w-[48%] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 md:px-2 sm:px-5 py-5' key={i}>
+                  <h4 className='w-[44px] h-[44px] rounded-[50%] flex items-center justify-center text-[18px] leading-[20.31px] font-medium text-[#fff] bg-[#1453FF]'>
+                    {cardValue.number}
+                  </h4>
+                  <h5 className='pt-[40px] pb-[14px] font-medium text-[20px] leading-[30px] text-[#121927]'>
+                    {cardValue.heading}
+                  </h5>
+                  <p className='font-regular text-[14px] leading-[20px] text-[#4F4F4F]'>
+                    {cardValue.text}  
+                  </p>
+                </div>
+              )
+            })
+          }
+        </div>
+      </section>
+      {/* <section className='font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lgx:gap-[12px] lg:gap-[10px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]'>
         <div className='w-[342px] 1xl:w-[300px] md:w-[250px] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] 1xl:pl-[14px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'>
           <h4 className='w-[288px] md:w-[220px] sm:w-[70%] font-medium text-[48px] md:text-[40px] sm:text-[48px] sxm:text-[40px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
             Get Onboarded in Four Easy Steps!
@@ -613,7 +643,7 @@ const Landing = () => {
             })
           }
         </div>
-      </section>
+      </section> */}
       <section className='font-whyte flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]'>
         <div>
           <h3 className='font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[580px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center'>
@@ -744,9 +774,10 @@ const Landing = () => {
           <p className='w-[589px] xxl:w-[500px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] font-regular text-[16px] lgx:text-[14px] leading-[24px] lgx:leading-[20px] text-[#333333] pb-[32px] sm:pb-[24px]'>
             At Hackthejobs, we recognize the importance of staying informed about industry news, updates, job updates, interview trends, and trends in your chosen tech field. At Hackthejobs, we offer convenient access to these resources, empowering you to develop your career with confidence. Additionally, we provide tools designed to streamline your technical job interviews, ensuring a smooth experience. Gain unrestricted access to a wealth of invaluable resources that will equip you for success in any tech field, securing your path to a fulfilling career. 
           </p>
-          <button className='w-[173px] h-[56px] font-medium leading-[24px] tracking-[3%] text-[#fff] bg-[#1453FF] rounded-[8px]'>
+          <Link href='/signup'><button className='w-[173px] h-[56px] font-medium leading-[24px] tracking-[3%] text-[#fff] bg-[#1453FF] rounded-[8px]'>
             Get started
           </button>
+          </Link>
         </div>
         <div className='bg-[#EEF2FF] px-[40px] lg:px-[20px] pt-[95px]'>
           <Image src='/resources.png' width={556} height={460} alt='resources' className='object-cover sm:order-3'/>

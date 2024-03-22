@@ -82,14 +82,14 @@ const Expertise = () => {
                     <div className=' flex flex-wrap gap-3'>
                         {
                             flexData.map((item, index) => {
-                                return(<div key={index} style={{border: selectedItemIndex === index?'1px solid #1453FF':'1px solid #EAEAEA'}} className={`w-[259px] sm:w-[165.5px] sxm:w-[100%] h-[112px] rounded-[5.17px] bg-[#fcfcfc] pl-3 cursor-pointer`} onClick={() => handleSelection(item, index)}>
+                                return(<div key={index} style={{border: selectedItemIndex === index?'1px solid #1453FF':'1px solid #EAEAEA'}} className={`w-[259px] md:w-[48%] sxm:w-[100%] h-[112px] rounded-[5.17px] bg-[#fcfcfc] pl-3 cursor-pointer`} onClick={() => handleSelection(item, index)}>
                                             <Image src={`${item.img}`} width={20} height={20} alt='' className='mt-[23.5px] mb-[24px]'/>
                                             <p className='mb-[23.5px] font-regular text-[14px] leading-[16.8px] text-[#333333]'>{item.text}</p>
                                         </div>)
                             })
                         }
                     </div>
-                    <button className='w-[100%] h-[48px] bg-[#1453FF] text-[#ffffff] font-medium text-[16px] mt-[40px] lg:mt-[50px] xm:mt-[123px]' onClick={handleSubmit}>Get started</button>
+                    <button className=' w-[100%] h-[48px] bg-[#1453FF] text-[#ffffff] font-medium text-[16px] mt-[40px] lg:mt-[50px] xm:mt-[123px]' onClick={handleSubmit}>Get started</button>
             </div>
         </div>
     </section>
