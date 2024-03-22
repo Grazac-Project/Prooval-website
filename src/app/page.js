@@ -658,7 +658,39 @@ const Landing = () => {
         </button>
           
       </section>
-      <section className='pb-[96px] sm:pb-[52px]'>
+      <section className='pb-[96px] sm:pb-[52px] '>
+        <div className='sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]'>
+          {
+            imageCards.map((imageCard, i) => {
+              return (
+                <div key={i} className='font-whyte w-[23%] lg:w-[29%] '>
+                  <Image src={imageCard.img} width={296} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
+                  <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{imageCard.name}</h4>
+                  <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{imageCard.position}</h5>
+                  <p className='font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]'>{imageCard.formerPosition}</p>
+                </div>
+              )
+            })
+          }
+        </div>
+        <div className=' hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
+          <Slider ref={slider => {sliderRef = slider}} {...mentorSettings} className=''>
+                {imageCards.map((imageCard, i) => {
+                  return(
+                    <div key={i} className='font-whyte mx-auto sm:w-[400px] xm:w-[100%]'>
+                      <Image src={imageCard.img} width={296} height={297} alt='mentor image' className='object-cover '/>
+                      <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] '>{imageCard.name}</h4>
+                      <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{imageCard.position}</h5>
+                      <p className='font-regular w-[296px] xm:w-[100%]  text-[16px] leading-[20.8px] text-[#667085]'>{imageCard.formerPosition}</p>
+                    </div>
+                      )})}
+          </Slider>
+        </div>
+        <button className=' w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden'>
+            Connect to a mentor
+        </button> 
+      </section>
+      {/* <section className='pb-[96px] sm:pb-[52px]'>
         <div className='sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center xl:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]'>
           {
             imageCards.map((imageCard, i) => {
@@ -689,7 +721,7 @@ const Landing = () => {
         <button className=' w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden'>
             Connect to a mentor
         </button> 
-      </section>
+      </section> */}
       <section className='flex sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]'>
         <div>
           <Image src='/bootcamp.png' width={602} height={519} alt='several images merged into one' className='object-cover' />
