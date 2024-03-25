@@ -8,8 +8,8 @@ const Verify = () => {
   const [email, setEmail] = useState(null)
   useEffect(() => {
     let data = sessionStorage.getItem("user_data");
-  const name = JSON.parse(data).name;
-  const email = JSON.parse(data).email
+  const name = JSON.parse(data)?.name;
+  const email = JSON.parse(data)?.email
   setFirstName(name)
   setEmail(email)
   // userId = JSON.parse(details).id;

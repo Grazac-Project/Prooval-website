@@ -40,10 +40,10 @@ const Navbar = () => {
             </ul>
             <div className={Classes.btnFlex}>
               <button>
-                <Link href="/login">Log in</Link>
+                <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login">Log in</Link>
               </button>
               <button>
-                <Link href="/signup">Sign up</Link>
+                <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup">Sign up</Link>
               </button>
             </div>
           </nav>
@@ -73,10 +73,10 @@ const Navbar = () => {
               </ul>
               <div className={Classes.btnFlex}>
               <button>
-                <Link href="/login">Log in</Link>
+                <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login">Log in</Link>
               </button>
               <button>
-                <Link href="/signup">Sign up</Link>
+                <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup">Sign up</Link>
               </button>
             </div>
             </nav>
