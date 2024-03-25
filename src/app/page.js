@@ -812,7 +812,7 @@ const Landing = () => {
             <p className='w-[589px] xxl:w-[500px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] font-regular text-[16px] lgx:text-[14px] leading-[24px] lgx:leading-[20px] text-[#333333] pb-[32px] sm:pb-[24px]'>
               At Hackthejobs, we recognize the importance of staying informed about industry news, updates, job updates, interview trends, and trends in your chosen tech field. At Hackthejobs, we offer convenient access to these resources, empowering you to develop your career with confidence. Additionally, we provide tools designed to streamline your technical job interviews, ensuring a smooth experience. Gain unrestricted access to a wealth of invaluable resources that will equip you for success in any tech field, securing your path to a fulfilling career. 
             </p>
-            <Link href='/signup'><button className='w-[173px] h-[56px] font-medium leading-[24px] tracking-[3%] text-[#fff] bg-[#1453FF] rounded-[8px]'>
+            <Link href='https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup'><button className='w-[173px] h-[56px] font-medium leading-[24px] tracking-[3%] text-[#fff] bg-[#1453FF] rounded-[8px]'>
               Get started
             </button>
             </Link>
