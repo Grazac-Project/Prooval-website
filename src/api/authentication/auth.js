@@ -29,3 +29,6 @@ export const resetPasswordAction = (payload, token) => {
 export const newsLetterSub = (data) => {
   return authKit.post('api/v1/user/zoho', data)
 }
+export const faqForm = (data) => {
+  return authKit.post('api/v1/user/faqform', data)
+}
