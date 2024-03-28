@@ -23,6 +23,9 @@ export const loginAction = (payload) => {
 export const forgetPasswordAction = (payload) => {
     return authKit.post("api/v1/user/forgotpassword", payload);
 };
+export const addRole = (payload, token) => {
+    return authKit.post(`api/v1/user/addrole?token=${token}`, payload);
+};
 export const resetPasswordAction = (payload, token) => {
     return authKit.post(`api/v1/user/resetpassword?token=${token}`, payload);
 };

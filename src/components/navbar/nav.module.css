@@ -23,6 +23,7 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 21px;
+  border: 2px solid transparent;
 }
 
 .nav {
@@ -34,7 +35,7 @@
 }
 .nav li:hover {
   border-bottom: 2px solid #1453ff;
-  font-size: larger;
+  /* font-size: larger; */
 }
 .nav ul {
   /* width: 50%; */
@@ -71,7 +72,7 @@
 .nav button:hover {
   color: #fff;
   background: #1453ff;
-  font-size: larger;
+  /* font-size: larger; */
 }
 .navMobile ul {
   color: #fff;
