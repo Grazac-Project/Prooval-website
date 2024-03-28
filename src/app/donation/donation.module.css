@@ -105,15 +105,16 @@
   /* align-items: center; */
   margin-top: 86px;
 }
-
 .video {
   width: 1280px;
   margin: 0 auto;
+}
+.vidCon {
   position: relative;
 }
 .play {
   position: absolute;
-  bottom: 40%;
+  bottom: 50%;
   left: 50%;
   z-index: 0.999;
 }
@@ -374,6 +375,10 @@
     width: 95%;
     margin-bottom: 16px;
   }
+  .play {
+    bottom: 40%;
+    left: 45%;
+  }
   .numbFlex {
     display: block;
     margin: auto;
@@ -501,6 +506,10 @@
   .numbImg {
     top: 34px;
     left: 55px;
+  }
+  .play {
+    bottom: 35%;
+    left: 40%;
   }
 }
 
