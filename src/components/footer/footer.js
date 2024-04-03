@@ -2,8 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Classes from "./footer.module.css";
 import * as yup from 'yup';
+import {useState} from 'react'
 import { useFormik } from "formik";
 import { newsLetterSub } from "@/api/authentication/auth";
+import { useRouter } from "next/navigation";
 
 const initialValues = {
   fullName: '',
@@ -19,7 +21,7 @@ const Footer = () => {
     await newsLetterSub(values)
     .then((res) => {
       console.log(res)
-        // if(res.status == 201) {
+        // if(res.status == 200) {
         //     toast.success(res.data.message)
         //     router.push('/verification-code')
         // }
