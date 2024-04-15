@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Classes from "./footer.module.css";
+// import Classes from "./footer.module.css";
 import * as yup from 'yup';
 import { useFormik } from "formik";
 import { newsLetterSub } from "@/api/authentication/auth";
@@ -75,9 +75,9 @@ const {values, handleSubmit, handleChange,handleBlur,isSubmitting, errors, touch
           </h5>
           <form className="flex xm:block gap-[6px]" onSubmit={handleSubmit}>
             {/* <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" /> */}
-            <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[44px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" />
+            <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[64px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" />
             {/* <input type="text" id='email' placeholder="Enter your email" value={values.email} onChange={handleChange} onBlur={handleBlur} className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-[footerInput]" /> */}
-            <input type="text" id='email' placeholder="Enter your email" value={values.email} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[44px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-[footerInput]" />
+            <input type="text" id='email' placeholder="Enter your email" value={values.email} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[64px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD]" />
             <button type="submit" disabled={isSubmitting} className="disabled:opacity-[35%] w-[135.93px] xm:w-[100%] h-[44px] rounded-[6.29px] px-[31.43px] py-[15.71px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center">Subscribe</button>
           </form>
         </div>
