@@ -429,6 +429,8 @@ const Landing = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    centerMode: true,
+    centerPadding: '20px',
     arrows: false,
     nextArrow: false,
     prevArrow: false,
@@ -495,8 +497,8 @@ const Landing = () => {
               <p className='font-regular text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8'>
                 Bootcamps are never enough! Grab the opportunity to get experience and jump the hurdles of hacking into the tech job market after going through tech training or bootcamps.  
               </p>
-              <Link href='https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup'><span className='w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]'>Get started</span></Link>
-              <Link href='/donation'><span className='w-[213px] lg:w-[170px] md:w-[150px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border-[1px] border-[#DADADA]'>Make a donation</span></Link>
+              <Link href='https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup'><button className='w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]'>Get started</button></Link>
+              <Link href='/donation'><button className='w-[213px] lg:w-[170px] md:w-[150px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border-[1px] border-[#DADADA]'>Make a donation</button></Link>
             </div>
             <div className='w-[598px] sm:w-[100%] pl-[40px] xxl:pl-[30px] pr-[37px] xxl:pr-[30px]'>
               <Image src='/hero-pic.png' alt='group of pictures' width={524} height={673} className='object-cover' onMouseOver={handleMouseOver} />
@@ -679,11 +681,13 @@ const Landing = () => {
               })
             }
           </div>
+          {/* <div className=' hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'> */}
           <div className=' hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
             <Slider ref={slider => {sliderRef = slider}} {...mentorSettings} className=''>
                   {imageCards.map((imageCard, i) => {
                     return(
-                      <div key={i} className='font-whyte mx-auto sm:w-[400px] xm:w-[100%]'>
+                      // <div key={i} className='font-whyte mx-auto sm:w-[400px] xm:w-[100%]'>
+                      <div key={i} className='font-whyte mx-auto sm:w-[302px] xm:w-[80%]'>
                         <Image src={imageCard.img} width={296} height={297} alt='mentor image' className='object-cover '/>
                         <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] '>{imageCard.name}</h4>
                         <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{imageCard.position}</h5>
