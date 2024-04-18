@@ -430,7 +430,7 @@ const Landing = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     centerMode: true,
-    centerPadding: '20px',
+    centerPadding: '15px',
     arrows: false,
     nextArrow: false,
     prevArrow: false,
@@ -479,7 +479,7 @@ const Landing = () => {
   }, []);
 
   return (
-    <>
+    <div className='overflow-x-hidden'>
       <Navbar />
       <div className='max-w-[1440px] mx-auto'>
         <section className='font-whyte px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative bg-[#F9FBFF]'>
@@ -843,7 +843,7 @@ const Landing = () => {
         <Footer />
         
       </div>
-    </>
+    </div>
   )
 }
 
