@@ -68,8 +68,8 @@ export const imageCards = [
     },
     {
         name: 'Ayotunde Lanwo',
-        position: 'Senior Product Manage',
-        formerPosition: 'Former co-founder of Opendoor. Early staff at Spotify and Clearbit.',
+        position: 'Senior Product Manager',
+        formerPosition: 'London (UK)',
         img: '/mentor.png'
     },
 ]
