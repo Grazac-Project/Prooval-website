@@ -81,10 +81,10 @@ const {values, handleSubmit, handleChange,handleBlur,isSubmitting, errors, touch
           <form className="flex xm:block gap-[6px]" onSubmit={handleSubmit}>
             <div className="h-[44px] xm:mb-[8px] py-[0px]">
               {/* <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[100%] md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" /> */}
-              <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[100%] md:w-[150px] xm:w-[100%] px-[14px] py-[0px] md:py-[0px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "/>
+              <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[0px] md:py-[0px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD]"/>
             </div>
             <div className="h-[44px] xm:mb-[8px]">
-              <input type="text" id='email' placeholder="Enter your email" value={values.email} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[100%] md:w-[150px] xm:w-[100%] px-[14px] py-[0px] md:py-[0px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] " />
+              <input type="text" id='email' placeholder="Enter your email" value={values.email} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[0px] md:py-[0px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] " />
             </div>
             <button type="submit" disabled={isSubmitting} className="disabled:opacity-[35%] w-[135.93px] xm:w-[100%] h-[44px] rounded-[6.29px] px-[31.43px] py-[15.71px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center">Subscribe</button>
           </form>
