@@ -22,63 +22,55 @@ export const cardValues = [
 ];
 
 export const imageCards = [
-  {
-    name: "Olivia Rhye",
-    position: "Founder & CEO",
-    formerPosition:
-      "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-    img: "/mentor.png",
-  },
-  {
-    name: "Olivia Rhye",
-    position: "Founder & CEO",
-    formerPosition:
-      "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-    img: "/mentor.png",
-  },
-  {
-    name: "Olivia Rhye",
-    position: "Founder & CEO",
-    formerPosition:
-      "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-    img: "/mentor.png",
-  },
-  {
-    name: "Olivia Rhye",
-    position: "Founder & CEO",
-    formerPosition:
-      "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-    img: "/mentor.png",
-  },
-  {
-    name: "Olivia Rhye",
-    position: "Founder & CEO",
-    formerPosition:
-      "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-    img: "/mentor.png",
-  },
-  {
-    name: "Olivia Rhye",
-    position: "Founder & CEO",
-    formerPosition:
-      "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-    img: "/mentor.png",
-  },
-  {
-    name: "Olivia Rhye",
-    position: "Founder & CEO",
-    formerPosition:
-      "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-    img: "/mentor.png",
-  },
-  {
-    name: "Olivia Rhye",
-    position: "Founder & CEO",
-    formerPosition:
-      "Former co-founder of Opendoor. Early staff at Spotify and Clearbit.",
-    img: "/mentor.png",
-  },
-];
+    {
+        name: 'Deborah Dada',
+        position: 'Product Design Lead',
+        formerPosition: 'Storelab UK',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Jeremiah Ogunyemi',
+        position: 'Senior Software Engineer',
+        formerPosition: 'Apollo.io',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Dansteve Adekanbi',
+        position: 'Machine Learning Software Engineer, ',
+        formerPosition: 'Scale AI',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Daniel Fayemi',
+        position: 'Ex-Software Engineer,',
+        formerPosition: 'Binance',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Ibiniyi Obikoya',
+        position: 'Software Engineer',
+        formerPosition: 'Paystack',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Adedamola Adeleye',
+        position: 'Lead of Payment Tech',
+        formerPosition: 'Traction',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Franklin Oladipo',
+        position: 'Mobile Engineer (Flutter Specialist)',
+        formerPosition: 'BT Group',
+        img: '/mentor.png'
+    },
+    {
+        name: 'Ayotunde Lanwo',
+        position: 'Senior Product Manager',
+        formerPosition: 'London (UK)',
+        img: '/mentor.png'
+    },
+]
 
 export const testimonials = [
   {

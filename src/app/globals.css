@@ -10,6 +10,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 
@@ -29,5 +30,11 @@
     display: none;
 }
 .slick-arrow, .slick-next::before{
+    display: none;
+}
+button.slick-arrow.slick-prev{
+    display: none;
+}
+button.slick-arrow.slick-next{
     display: none;
 }
