@@ -127,6 +127,7 @@
   gap: 32px;
   margin: 64px auto;
 }
+
 .card h5 {
   font-family: var(--font-whyte);
   font-size: 20px;
@@ -321,6 +322,7 @@
     display: block;
     width: 90%;
     margin: 32px auto;
+    gap: 12px;
   }
   .teamText h3 {
     font-size: 40px;
@@ -332,6 +334,10 @@
   .teamText p {
     width: 100%;
   }
+  
+.card{
+  width: 310px;
+}
 }
 @media screen and (max-width: 425px) {
   .intro h1 {
@@ -364,4 +370,9 @@
   .storyImg1 {
     display: none;
   }
+}
+
+
+.slick-slide {
+  margin-right: 10px; /* Adjust as needed */
 }
