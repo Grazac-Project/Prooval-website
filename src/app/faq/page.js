@@ -220,10 +220,10 @@ const Faq = () => {
             </button>
           </div>
         </div>
-        <div className={Classes.formContainer}>
+        <div className={Classes.formContainer} id="contact-form">
           <h4>Get in touch</h4>
           <p>We’d love to hear from you. Please fill out this form.</p>
-          <form className={Classes.form} onSubmit={handleSubmit}>
+          <form className={Classes.form} onSubmit={handleSubmit} >
             <div className={Classes.inputFlex}>
               <div>
                 <h5>First name</h5>

@@ -375,9 +375,12 @@ import Navbar from '@/components/navbar/nav';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
 
 
 const Landing = () => {
+  const router = useRouter();
   const [angle, setAngle] = useState('2.93deg');
   const [color, setColor] = useState('#F2C003');
   const [border, setBorder] = useState('#FFEFB2');
@@ -463,6 +466,10 @@ const Landing = () => {
     }
     const handleLogoEvent4 = () => {
       setLogo4(prev => !prev)
+    }
+
+    const handleContact = () => {
+      router.push('/faq#contact-form')
     }
 
   useEffect(() => {
@@ -834,7 +841,7 @@ const Landing = () => {
               <p className='font-regular text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4'>
                 Do you have any enquiries or feedback for the team?
               </p>
-              <button className='w-[173px] h-[56px] rounded-[8px] bg-[#1453FF] text-[16px] leading-[24px] tracking-[3%] font-medium text-[#fff] block mx-[auto]'>
+              <button className='w-[173px] h-[56px] rounded-[8px] bg-[#1453FF] text-[16px] leading-[24px] tracking-[3%] font-medium text-[#fff] block mx-[auto]' onClick={handleContact}>
                 Contact Us
               </button>
             </div>
