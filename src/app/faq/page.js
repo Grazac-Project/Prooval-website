@@ -22,10 +22,10 @@ const Faq = () => {
   const [show, setShow] = useState({});
   const [show2, setShow2] = useState({});
   const [question, setQuestion] = useState(false);
+  const [loading, setLoading] = useState("Send message")
 
   const handleToggle = (id) => {
     console.log(id);
-
     setShow((prevshow) => ({
       ...prevshow,
       [id]: !prevshow[id],
@@ -34,7 +34,6 @@ const Faq = () => {
   };
   const handleToggle2 = (id) => {
     console.log(id);
-
     setShow2((prevshow) => ({
       ...prevshow,
       [id]: !prevshow[id],
@@ -46,8 +45,8 @@ const Faq = () => {
       .string()
       .email("Please enter a valid email")
       .required("Email is required"),
-    firstName: yup.string().required("Firstname is required"),
-    lastName: yup.string().required("Lastname is required"),
+    firstName: yup.string().required("First name is required"),
+    lastName: yup.string().required("Last name is required"),
     msg: yup.string().required("Message is required"),
   });
   const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
@@ -55,9 +54,11 @@ const Faq = () => {
       initialValues,
       validationSchema: schema,
       onSubmit: async (values, actions) => {
+        setLoading("Loading ...")
         faqForm(values)
           .then((res) => {
             if (res.status === 200) {
+              setLoading("Message sent")
               console.log(res);
               actions.resetForm();
               toast.success(res.data.message);
@@ -96,9 +97,11 @@ const Faq = () => {
                   className={Classes.questionContainer}
                   // onClick={handleToggle}
                   key={index}
-                  onClick={() => handleToggle(index)}
                 >
-                  <div className={Classes.question}>
+                  <div
+                    className={Classes.question}
+                    onClick={() => handleToggle(index)}
+                  >
                     {item.question}
                     <>
                       {!show[index] ? (
@@ -107,7 +110,6 @@ const Faq = () => {
                           alt="img"
                           width={20}
                           height={20}
-                          onClick={() => handleToggle(index)}
                           key={index}
                           style={{ cursor: "pointer" }}
                         />
@@ -117,7 +119,6 @@ const Faq = () => {
                           alt="img"
                           width={20}
                           height={20}
-                          onClick={() => handleToggle(index)}
                           key={index}
                           style={{ cursor: "pointer" }}
                         />
@@ -132,21 +133,19 @@ const Faq = () => {
             </div>
             <div className={Classes.flex2}>
               {faq.slice(5, 10).map((item, index) => (
-                <div
-                  className={Classes.questionContainer}
-                  key={index}
-                  onClick={() => handleToggle2(index)}
-                >
-                  <div className={Classes.question}>
+                <div className={Classes.questionContainer} key={index}>
+                  <div
+                    className={Classes.question}
+                    onClick={() => handleToggle2(index)}
+                  >
                     {item.question}
-                    <>
+                    <div>
                       {!show2[index] ? (
                         <Image
                           src="/drop.svg"
                           alt="img"
                           width={20}
                           height={20}
-                          onClick={() => handleToggle2(index)}
                           key={index}
                           style={{ cursor: "pointer" }}
                         />
@@ -156,12 +155,11 @@ const Faq = () => {
                           alt="img"
                           width={20}
                           height={20}
-                          onClick={() => handleToggle2(index)}
                           key={index}
                           style={{ cursor: "pointer" }}
                         />
                       )}
-                    </>
+                    </div>
                   </div>
                   {show2[index] && (
                     <div className={Classes.answer}>{item.answer}</div>
@@ -176,9 +174,12 @@ const Faq = () => {
                     className={Classes.questionContainer}
                     click={handleToggle}
                     key={index}
-                    onClick={() => handleToggle2(index)}
+                   
                   >
-                    <div className={Classes.question}>
+                    <div
+                      className={Classes.question}
+                      onClick={() => handleToggle2(index)}
+                    >
                       {item.question}
                       <>
                         {!show2[index] ? (
@@ -187,7 +188,6 @@ const Faq = () => {
                             alt="img"
                             width={20}
                             height={20}
-                            onClick={() => handleToggle2(index)}
                             key={index}
                             style={{ cursor: "pointer" }}
                           />
@@ -197,7 +197,6 @@ const Faq = () => {
                             alt="img"
                             width={20}
                             height={20}
-                            onClick={() => handleToggle2(index)}
                             key={index}
                             style={{ cursor: "pointer" }}
                           />
@@ -236,24 +235,24 @@ const Faq = () => {
                   onBlur={handleBlur}
                 />
                 <div className={Classes.errorMsg}>
-                  {errors.lastName && touched.lastName && (
-                    <span>{errors.lastName}</span>
+                  {errors.firstName && touched.firstName && (
+                    <span>{errors.firstName}</span>
                   )}
                 </div>
               </div>
               <div>
-                <h5>First name</h5>
+                <h5>Last name</h5>
                 <input
                   type="text"
-                  placeholder="First name"
+                  placeholder="Last Name"
                   name="lastName"
                   value={values.lastName}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
                 <div className={Classes.errorMsg}>
-                  {errors.firstName && touched.firstName && (
-                    <span>{errors.firstName}</span>
+                  {errors.lastName && touched.lastName && (
+                    <span>{errors.lastName}</span>
                   )}
                 </div>
               </div>
@@ -285,7 +284,7 @@ const Faq = () => {
                 {errors.msg && touched.msg && <span>{errors.msg}</span>}
               </div>
             </div>
-            <button type="submit">Send message</button>
+            <button type="submit">{loading}</button>
           </form>
         </div>
       </div>

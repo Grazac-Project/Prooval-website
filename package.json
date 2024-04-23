@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
     "aos": "^2.3.4",
     "axios": "^1.6.7",
     "debug": "^4.3.4",
