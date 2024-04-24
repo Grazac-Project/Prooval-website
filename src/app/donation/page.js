@@ -7,9 +7,17 @@ import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Modal from "@/components/modal/modal";
+import { useRouter } from 'next/navigation';
+
 
 const Donation = () => {
   const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
+
+  
+  const handleContact = () => {
+    router.push('/faq#contact-form')
+  }
 
   useEffect(() => {
     AOS.init({
@@ -291,7 +299,7 @@ const Donation = () => {
             their size or budget. We focus on the details of everything we do.
           </p>
         </div>
-        <button>Contact Us</button>
+        <button onClick={handleContact}>Contact Us</button>
       </div>
       <Footer  openModal={() => setShowModal(true)} />
     </>
