@@ -4,28 +4,36 @@ import Link from "next/link";
 import * as yup from 'yup';
 import { useFormik } from "formik";
 import { newsLetterSub } from "@/api/authentication/auth";
+import { useState } from "react";
 
 const initialValues = {
   fullName: '',
   email: '',
 }
-const Footer = () => {
+const Footer = ({openModal}) => {
+  const [loader, setLoader] = useState(false)
+
   const schema = yup.object({
     fullName: yup.string().required('Full name is required'),
     email: yup.string().email('Please enter a valid email').required('Email is required'),
   });
 
   const onSubmit = async (values, actions) => {
+    setLoader(true)
     await newsLetterSub(values)
     .then((res) => {
+      setLoader(false)
       console.log(res)
-        // if(res.status == 201) {
-        //     toast.success(res.data.message)
-        //     router.push('/verification-code')
-        // }
+        if(res.status == 200) {
+          console.log(openModal);
+          openModal()
+            // toast.success(res.data.message)
+            // router.push('/verification-code')
+        }
         // console.log(res)
     })
     .catch((err) => {
+      setLoader(false)
         console.log(err)
     })
     actions.resetForm()
@@ -89,7 +97,7 @@ const {values, handleSubmit, handleChange,handleBlur,isSubmitting, errors, touch
             <div className="h-[44px] xm:mb-[8px]">
               <input type="text" id='email' placeholder="Enter your email" value={values.email} onChange={handleChange} onBlur={handleBlur} className="overflow-visible w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[0px] md:py-[0px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] " />
             </div>
-            <button type="submit" disabled={isSubmitting} className="disabled:opacity-[35%] w-[135.93px] xm:w-[100%] h-[44px] rounded-[6.29px] px-[31.43px] py-[15.71px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center">Subscribe</button>
+            <button type="submit" className="disabled:opacity-[35%] w-[135.93px] xm:w-[100%] h-[44px] rounded-[6.29px] px-[31.43px] py-[15.71px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center">{loader ? <Image src='/loader.gif' width={16} height={16} alt='loader' className='mx-auto'/>:'Subscribe'}</button>
           </form>
         </div>
       </div>
