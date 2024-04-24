@@ -6,8 +6,19 @@ import Footer from "@/components/footer/footer";
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Modal from "@/components/modal/modal";
+import { useRouter } from 'next/navigation';
+
 
 const Donation = () => {
+  const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
+
+  
+  const handleContact = () => {
+    router.push('/faq#contact-form')
+  }
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -41,6 +52,8 @@ const Donation = () => {
   return (
     <>
       <Navbar />
+      { showModal && <Modal modalClose={(() => setShowModal(false))}/>}
+      
       <div className={Classes.hero}>
         <div className={Classes.heroText} data-aos="fade-down">
           <h1>Support a Talent </h1>
@@ -286,9 +299,9 @@ const Donation = () => {
             their size or budget. We focus on the details of everything we do.
           </p>
         </div>
-        <button>Contact Us</button>
+        <button onClick={handleContact}>Contact Us</button>
       </div>
-      <Footer />
+      <Footer  openModal={() => setShowModal(true)} />
     </>
   );
 };

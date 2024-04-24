@@ -7,7 +7,7 @@ export const faq = [
     },
     {
       id: 2,
-      question: "What's the duration of this program?",
+      question: "What's the duration of this program ?",
       answer: "The duration for Hackthejobs is six months ",
     },
     {
