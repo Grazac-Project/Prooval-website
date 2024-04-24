@@ -405,7 +405,7 @@ const Landing = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 5000,
     nextArrow: false,
     dotsClass: 'slick-dots custom-dots',
     beforeChange: (current, next) => setCurrentSlide(next),
