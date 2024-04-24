@@ -375,9 +375,12 @@ import Navbar from '@/components/navbar/nav';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+
 
 
 const Landing = () => {
+  const router = useRouter();
   const [angle, setAngle] = useState('2.93deg');
   const [color, setColor] = useState('#F2C003');
   const [border, setBorder] = useState('#FFEFB2');
@@ -427,7 +430,7 @@ const Landing = () => {
     speed: 900,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     centerMode: true,
     centerPadding: '15px',
@@ -463,6 +466,10 @@ const Landing = () => {
     }
     const handleLogoEvent4 = () => {
       setLogo4(prev => !prev)
+    }
+
+    const handleContact = () => {
+      router.push('/faq#contact-form')
     }
 
   useEffect(() => {
@@ -505,21 +512,25 @@ const Landing = () => {
             </div>
             
           </div>
-          <div className={`z-[1] absolute w-[205px] lgx:w-[189px] xm:w-[117.32px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[120px] xxl:top-[120px] sm:top-[540px] xxm:top-[560px] sxm:top-[650px] right-[503px] xxl:right-[460px] xl:right-[400px] lgx:right-[350px] lg:right-[350px] md:right-[250px] sm:right-[350px] xm:right-[240px] xxm:right-[230px] sxm:right-[150px]': 'top-[81px] 1xl:top-[60px] xxl:top-[70px] sm:top-[510px] xxm:top-[520px] sxm:top-[630px] right-[623px] 1xl:right-[520px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] sxm:right-[200px]'}`}>
-              <Image src='/students.png' alt='students' width={76} height={22} className='mx-auto object-contain '/>
-              <p className='font-regular text-[12px] text-[#414449] pt-[12px] xm:text-[6.87px] leading-[13px] xm:leading-[7.44px] w-[169px] xm:w-[96.72px] mx-auto text-center text-[#121927]'>More than +12,000 Satisfied students across the globe</p>
+          <div className={`z-[1] absolute w-[205px] lgx:w-[189px] sm:w-[117.32px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${load? 'top-[120px] xxl:top-[120px] sm:top-[540px] xxm:top-[560px] sxm:top-[650px] right-[503px] xxl:right-[460px] xl:right-[400px] lgx:right-[350px] lg:right-[350px] md:right-[250px] sm:right-[350px] xm:right-[240px] xxm:right-[230px] sxm:right-[150px]': 'top-[81px] 1xl:top-[60px] xxl:top-[70px] sm:top-[510px] xm:top-[560px] xxm:top-[570px] xxxm:top-[520px] xxxxm:top-[570px] sxm:top-[630px] right-[623px] 1xl:right-[520px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] xxxm:right-[280px] xxxxm:right-[250px] sxm:right-[200px]'}`}>
+              <Image src='/students.png' alt='students' width={76} height={22} className='mx-auto object-contain sm:hidden'/>
+              <Image src='/students-mobile.png' alt='students' width={44} height={13} className='mx-auto object-contain hidden sm:block'/>
+              <p className='font-regular text-[12px] text-[#414449] pt-[12px] sm:pt-[6px] sm:text-[6.87px] leading-[13px] sm:leading-[7.44px] w-[169px] sm:w-[96.72px] mx-auto text-center text-[#121927]'>More than +12,000 Satisfied students across the globe</p>
             </div>
-            <div className={` absolute bg-[#fff] w-[139.5px] lgx:w-[123.5px] xm:w-[79.83px] rounded-[4px] px-[18px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-ghi border-[#E4E7EC] border-[0.9px] flex justify-between sm:items-center transition-all duration-1000 ease-in-out ${load? 'top-[189px] lgx:top-[160px] sm:top-[580px] sxm:top-[665px] right-[62.5px] lgx:right-[40px] sm:right-[70px] xm:right-[60px]': 'top-[149px] lgx:top-[120px] sm:top-[530px] sxm:top-[625px] right-[22.5px] lgx:right-[0px] sm:right-[30px] xm:right-[10px]  '}`}>
-              <Image src='/courses.png' width={33} height={33} alt='course' className='object-contain' />
-              <p className='font-regular text-[14px] xm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 xm:leading-[11.54px] w-[54px] xm:w-[30.9px]'>+1000 <span className='text-[#8B8B8B]'>Courses</span></p>
+            <div className={` absolute bg-[#fff] w-[139.5px] lgx:w-[123.5px] sm:w-[79.83px] rounded-[4px] px-[18px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-ghi border-[#E4E7EC] border-[0.9px] flex justify-center gap-[17.5px] lg:gap-[8px] sm:gap-[2.29px] sm:items-center transition-all duration-1000 ease-in-out ${load? 'top-[189px] lgx:top-[160px] sm:top-[580px] sxm:top-[665px] right-[62.5px] lgx:right-[40px] sm:right-[70px] xm:right-[60px]': 'top-[149px] lgx:top-[120px] sm:top-[530px] xm:top-[600px] sxm:top-[625px] right-[22.5px] lgx:right-[0px] sm:right-[30px] xm:right-[10px]  '}`}>
+              <Image src='/courses.png' width={33} height={33} alt='course' className='object-contain sm:hidden' />
+              <Image src='/courses-mobile.png' width={19} height={19} alt='course' className='object-contain hidden sm:block' />
+              <p className='font-regular text-[14px] sm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 sm:leading-[11.54px] w-[54px] sm:w-[30.9px]'>+1000 <span className='text-[#8B8B8B]'>Courses</span></p>
             </div>
-            <div className={` absolute bg-[#fff] flex justify-between sm:items-center rounded-[4px] w-[146px] lgx:w-[126px] xm:w-[83.55px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${load? 'bottom-[232px] xxl:bottom-[200px] lgx:bottom-[140px] md:bottom-[170px] sm:bottom-[310px] xm:bottom-[210px] sxm:bottom-[150px] right-[513px] xxl:right-[450px] xl:right-[470px] lgx:right-[370px] lg:right-[360px] md:right-[290px] sm:right-[440px] xm:right-[290px] xxm:right-[260px] sxm:right-[200px]': 'bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[280px] xm:bottom-[180px] sxm:bottom-[120px] right-[613px] 1xl:right-[550px] xxl:right-[520px] xl:right-[500px] lgx:right-[400px] lg:right-[390px] md:right-[320px] sm:right-[470px] xm:right-[320px] xxm:right-[280px] sxm:right-[220px]'}`}>
-              <Image src='/mentors.png' width={33} height={33} alt='mentors' className='object-contain'/>
-              <p className='font-regular w-[58px] xm:w-[33.19px] text-[14px] xm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 xm:leading-[11.93px]'>+2000 <span className='text-[#8B8B8B]'>Mentors</span></p>
+            <div className={` absolute bg-[#fff] flex justify-center gap-[16px] lg:gap-[8px] sm:gap-[1.72px] sm:items-center rounded-[4px] w-[146px] lgx:w-[126px] sm:w-[83.55px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${load? 'bottom-[232px] xxl:bottom-[200px] lgx:bottom-[140px] md:bottom-[170px] sm:bottom-[310px] xm:bottom-[210px] sxm:bottom-[150px] right-[513px] xxl:right-[450px] xl:right-[470px] lgx:right-[370px] lg:right-[360px] md:right-[290px] sm:right-[440px] xm:right-[290px] xxm:right-[260px] sxm:right-[200px]': 'bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[280px] xm:bottom-[180px] sxm:bottom-[120px] right-[613px] 1xl:right-[550px] xxl:right-[520px] xl:right-[500px] lgx:right-[400px] lg:right-[390px] md:right-[320px] sm:right-[470px] xm:right-[320px] xxm:right-[280px] xxxm:right-[300px] xxxxm:right-[280px] ssxm:right-[260px] sxm:right-[220px]'}`}>
+              <Image src='/mentors.png' width={33} height={33} alt='mentors' className='object-contain sm:hidden'/>
+              <Image src='/mentors-mobile.png' width={19} height={19} alt='mentors' className='object-contain hidden sm:block'/>
+              <p className='font-regular w-[58px] sm:w-[33.19px] text-[14px] sm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 sm:leading-[11.93px]'>+2000 <span className='text-[#8B8B8B]'>Mentors</span></p>
             </div>
-            <div className={` absolute bg-[#fff] w-[161px] lgx:w-[141px] xm:w-[99.29px] flex sm:items-center justify-between rounded-[4px] border-[0.9px] border-[#E4E7EC] pl-[20px] lgx:pl-[10px] py-[12px] lgx:py-2 shadow-ghi transition-all duration-1000 ease-in-out ${load? 'bottom-[200px] xxl:bottom-[160px] sm:bottom-[180px] xm:bottom-[140px] right-[100px] xxl:right-[50px] sm:right-[60px] xm:right-[40px]': 'bottom-[134px] sm:bottom-[140px] xm:bottom-[100px] right-[0px] sm:right-[40px] xm:right-[10px]'}`}>
-              <Image src='/live.png' width={33} height={33} alt='live' className='object-contain'/>
-              <p className='w-[84px] xm:w-[48.07px] font-regular text-[14px] xm:text-[8.01px] text-[#414449] leading-[18.96px] lgx:leading-4 xm:leading-[10.85px]'>+154<br/> <span className='text-[#8B8B8B]'>Live projects</span></p>
+            <div className={` absolute bg-[#fff] w-[161px] lgx:w-[141px] sm:w-[99.29px] flex sm:items-center justify-center gap-[17px] lg:gap-[8px] sm:gap-[2.29px] rounded-[4px] border-[0.9px] border-[#E4E7EC]  py-[12px] lgx:py-2 shadow-ghi transition-all duration-1000 ease-in-out ${load? 'bottom-[200px] xxl:bottom-[160px] sm:bottom-[180px] xm:bottom-[140px] right-[100px] xxl:right-[50px] sm:right-[60px] xm:right-[40px]': 'bottom-[134px] sm:bottom-[140px] xm:bottom-[100px] right-[0px] sm:right-[40px] xm:right-[10px]'}`}>
+              <Image src='/live.png' width={33} height={33} alt='live' className='object-contain sm:hidden'/>
+              <Image src='/live-mobile.png' width={19} height={19} alt='live' className='object-contain hidden sm:block'/>
+              <p className='w-[84px] sm:w-[48.07px] font-regular text-[14px] sm:text-[8.01px] text-[#414449] leading-[18.96px] lgx:leading-4 sm:leading-[10.85px]'>+154<br/> <span className='text-[#8B8B8B]'>Live projects</span></p>
             </div>
             <Image src='/tiny-star.png' width={25} height={24} alt='tiny star' className='absolute top-[112.38px] 1xl:top-[70px] lgx:top-[25px] sm:top-[20px] left-[110.88px] xxl:left-[100px] lgx:left-[60px] sm:left-[37px]'/>
             <Image src='/hero-star.png' width={59} height={59} alt='big star' className='absolute top-[112.38px] 1xl:top-[70px]  sm:top-[10px] right-[753px] 1xl:right-[650px] xxl:right-[620px] lgx:right-[520px] lg:right-[500px] md:right-[400px] sm:right-[20px] z-[0]'/>
@@ -834,7 +845,7 @@ const Landing = () => {
               <p className='font-regular text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4'>
                 Do you have any enquiries or feedback for the team?
               </p>
-              <button className='w-[173px] h-[56px] rounded-[8px] bg-[#1453FF] text-[16px] leading-[24px] tracking-[3%] font-medium text-[#fff] block mx-[auto]'>
+              <button className='w-[173px] h-[56px] rounded-[8px] bg-[#1453FF] text-[16px] leading-[24px] tracking-[3%] font-medium text-[#fff] block mx-[auto]' onClick={handleContact}>
                 Contact Us
               </button>
             </div>
