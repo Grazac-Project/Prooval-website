@@ -1,48 +1,59 @@
 import Image from "next/image";
 import Link from "next/link";
 // import Classes from "./footer.module.css";
-import * as yup from 'yup';
+import * as yup from "yup";
 import { useFormik } from "formik";
 import { newsLetterSub } from "@/api/authentication/auth";
 import { useState } from "react";
 
 const initialValues = {
-  fullName: '',
-  email: '',
-}
-const Footer = ({openModal}) => {
-  const [loader, setLoader] = useState(false)
+  fullName: "",
+  email: "",
+};
+const Footer = ({ openModal }) => {
+  const [loader, setLoader] = useState(false);
 
   const schema = yup.object({
-    fullName: yup.string().required('Full name is required'),
-    email: yup.string().email('Please enter a valid email').required('Email is required'),
+    fullName: yup.string().required("Full name is required"),
+    email: yup
+      .string()
+      .email("Please enter a valid email")
+      .required("Email is required"),
   });
 
   const onSubmit = async (values, actions) => {
-    setLoader(true)
+    setLoader(true);
     await newsLetterSub(values)
-    .then((res) => {
-      setLoader(false)
-      console.log(res)
-        if(res.status == 200) {
+      .then((res) => {
+        setLoader(false);
+        console.log(res);
+        if (res.status == 200) {
           console.log(openModal);
-          openModal()
-            // toast.success(res.data.message)
-            // router.push('/verification-code')
+          openModal();
+          // toast.success(res.data.message)
+          // router.push('/verification-code')
         }
         // console.log(res)
-    })
-    .catch((err) => {
-      setLoader(false)
-        console.log(err)
-    })
-    actions.resetForm()
-}
-const {values, handleSubmit, handleChange,handleBlur,isSubmitting, errors, touched} = useFormik({
+      })
+      .catch((err) => {
+        setLoader(false);
+        console.log(err);
+      });
+    actions.resetForm();
+  };
+  const {
+    values,
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    isSubmitting,
+    errors,
+    touched,
+  } = useFormik({
     initialValues,
     validationSchema: schema,
-    onSubmit
-  })
+    onSubmit,
+  });
   return (
     // <footer className={Classes.footer}>
     //   <div className={Classes.innerContainer}>
@@ -60,23 +71,38 @@ const {values, handleSubmit, handleChange,handleBlur,isSubmitting, errors, touch
     //     </div>
     //   </div>
     // </footer>
-    <footer className='font-whyte px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px]'>
+    <footer className="font-whyte px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px]">
       <div className="flex sm:flex-col justify-between sm:gap-[32px]">
         <div className="pb-[64px] xm:pb-[24px] sm:order-3">
-          <Link href='/'><Image src='/footer-logo.png' width={165} height={36} alt="hackthejobs logo" /></Link>
-          
+          <Link href="/">
+            <Image
+              src="/footer-logo.png"
+              width={165}
+              height={36}
+              alt="hackthejobs logo"
+            />
+          </Link>
+
           <ul className="flex xm:flex-col gap-[32px] xm:gap-[16px] pt-[32px]">
-            <Link href='/'>
-              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">Home</li>
+            <Link href="/">
+              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+                Home
+              </li>
             </Link>
-            <Link href='/about-us'>
-              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">About</li>
+            <Link href="/about-us">
+              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+                About
+              </li>
             </Link>
-            <Link href='/faq'>
-              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">FAQ</li>
+            <Link href="/faq">
+              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+                FAQ
+              </li>
             </Link>
-            <Link href='/donation'>
-              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">Donation</li>
+            <Link href="/donation">
+              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+                Donation
+              </li>
             </Link>
           </ul>
         </div>
@@ -89,15 +115,46 @@ const {values, handleSubmit, handleChange,handleBlur,isSubmitting, errors, touch
             <input type="text" id='email' placeholder="Enter your email" value={values.email} onChange={handleChange} onBlur={handleBlur} className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-[footerInput]" />
             <button type="submit" disabled={isSubmitting} className="disabled:opacity-[35%] w-[135.93px] xm:w-[100%] h-[44px] rounded-[6.29px] px-[31.43px] py-[15.71px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center">Subscribe</button>
           </form> */}
-          <form className="flex xm:block gap-[6px]" onSubmit={handleSubmit}>
+          <form className="flex flex-wrap xm:block gap-[6px]" onSubmit={handleSubmit}>
             <div className="h-[44px] xm:mb-[8px] py-[0px]">
               {/* <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[100%] md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" /> */}
-              <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className=" w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD]"/>
+              <input
+                type="text"
+                id="fullName"
+                placeholder="Enter your full name"
+                value={values.fullName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className=" w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD]"
+              />
             </div>
             <div className="h-[44px] xm:mb-[8px]">
-              <input type="text" id='email' placeholder="Enter your email" value={values.email} onChange={handleChange} onBlur={handleBlur} className="overflow-visible w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[0px] md:py-[0px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] " />
+              <input
+                type="text"
+                id="email"
+                placeholder="Enter your email"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className="overflow-visible w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[0px] md:py-[0px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
+              />
             </div>
-            <button type="submit" className="disabled:opacity-[35%] w-[135.93px] xm:w-[100%] h-[44px] rounded-[6.29px] px-[31.43px] py-[15.71px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center">{loader ? <Image src='/loader.gif' width={16} height={16} alt='loader' className='mx-auto'/>:'Subscribe'}</button>
+            <button
+              type="submit"
+              className="disabled:opacity-[35%] w-[135.93px] xm:w-[100%] h-[44px] rounded-[6.29px] px-[31.43px] py-[15.71px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center"
+            >
+              {loader ? (
+                <Image
+                  src="/loader.gif"
+                  width={16}
+                  height={16}
+                  alt="loader"
+                  className="mx-auto"
+                />
+              ) : (
+                "Subscribe"
+              )}
+            </button>
           </form>
         </div>
       </div>

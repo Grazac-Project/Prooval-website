@@ -10,6 +10,8 @@ import * as yup from "yup";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { faqForm } from "@/api/authentication/auth";
+import Modal from "@/components/modal/modal";
+import FaqModal from "@/components/modal/faqModal";
 
 const initialValues = {
   email: "",
@@ -22,7 +24,11 @@ const Faq = () => {
   const [show, setShow] = useState({});
   const [show2, setShow2] = useState({});
   const [question, setQuestion] = useState(false);
-  const [loading, setLoading] = useState("Send message")
+  const [loading, setLoading] = useState(false)
+  const [showModal, setShowModal] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
+
+
 
   const handleToggle = (id) => {
     console.log(id);
@@ -54,14 +60,14 @@ const Faq = () => {
       initialValues,
       validationSchema: schema,
       onSubmit: async (values, actions) => {
-        setLoading("Loading ...")
+        setLoading(true)
         faqForm(values)
           .then((res) => {
             if (res.status === 200) {
-              setLoading("Message sent")
-              console.log(res);
+              setLoading(false)
+              // console.log(res);
               actions.resetForm();
-              toast.success(res.data.message);
+             setShowModal2(true)
             }
           })
           .catch((error) => {
@@ -74,6 +80,9 @@ const Faq = () => {
   return (
     <>
       <Navbar />
+      { showModal && <Modal modalClose={(() => setShowModal(false))}/>}
+      { showModal2 && <FaqModal modalClose={(() => setShowModal2(false))}/>}
+
 
       <div className={Classes.Faq}>
         <div className={Classes.hero}>
@@ -284,11 +293,21 @@ const Faq = () => {
                 {errors.msg && touched.msg && <span>{errors.msg}</span>}
               </div>
             </div>
-            <button type="submit">{loading}</button>
+            <button type="submit">{loading ? (
+                <Image
+                  src="/loader.gif"
+                  width={16}
+                  height={16}
+                  alt="loader"
+                  className="mx-auto"
+                />
+              ) : (
+                "Send message"
+              )}</button>
           </form>
         </div>
       </div>
-      <Footer />
+      <Footer  openModal={() => setShowModal(true)} />
     </>
   );
 };

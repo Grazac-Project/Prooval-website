@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Classes from "./about.module.css";
 import Image from "next/image";
 import Navbar from "@/components/navbar/nav";
@@ -9,11 +9,14 @@ import Link from "next/link";
 import { CoreValue, TeamCards } from "@/constants/constant";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import Modal from "@/components/modal/modal";
 
 const AboutUs = () => {
+  const [showModal, setShowModal] = useState(false);
+
   var options = {
     type: "loop",
-    gap: "8px",
+    gap: "16px",
     autoplay: true,
     pauseOnHover: true,
     resetProgess: false,
@@ -29,6 +32,8 @@ const AboutUs = () => {
     <>
       <Navbar />
       <div className={Classes.about}>
+        {showModal && <Modal modalClose={() => setShowModal(false)} />}
+
         <div className={Classes.intro}>
           <h1>
             Known <span className={Classes.for}>for</span>{" "}
@@ -152,11 +157,7 @@ const AboutUs = () => {
         <div className={Classes.gallery}>
           <div className="grid  grid-cols-4 xl:grid-cols-3 md:hidden gap-[32px] w-[1280px] 2xl:w-[90%] sm:w-[95%] my-[64px] mx-auto">
             {TeamCards.map((item, index) => (
-              <div
-                key={index}
-                className={Classes.card}
-               
-              >
+              <div key={index} className={Classes.card}>
                 <Image src={item.img} alt="img" width={296} height={296} />
                 <h5>{item.name}</h5>
                 <span>{item.position}</span>
@@ -185,10 +186,7 @@ const AboutUs = () => {
         <div className={Classes.gallerySlide}>
           <Splide options={options}>
             {TeamCards.map((item, index) => (
-              <SplideSlide
-                key={index}
-                className={Classes.card}
-              >
+              <SplideSlide key={index} className={Classes.card}>
                 <Image src={item.img} alt="img" width={310} height={296} />
                 <h5>{item.name}</h5>
                 <span>{item.position}</span>
@@ -260,7 +258,7 @@ const AboutUs = () => {
         </>
       </div>
 
-      <Footer />
+      <Footer openModal={() => setShowModal(true)} />
     </>
   );
 };

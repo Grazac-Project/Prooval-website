@@ -28,20 +28,20 @@
 .exc {
   color: #1453ff;
   opacity: 0;
-    animation: fadeIn 1s forwards;
-    animation-delay: 2s;
+  animation: fadeIn 1s forwards;
+  animation-delay: 2s;
 }
-.for{
+.for {
   opacity: 0;
   animation: fadeIn 1s forwards;
   animation-delay: 1s;
 }
 @keyframes fadeIn {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 .mission {
@@ -334,10 +334,10 @@
   .teamText p {
     width: 100%;
   }
-  
-.card{
-  width: 310px;
-}
+
+  .card {
+    width: 310px;
+  }
 }
 @media screen and (max-width: 425px) {
   .intro h1 {
@@ -345,6 +345,7 @@
   }
   .mission h4 {
     font-size: 35px;
+    line-height: 35.2px;
   }
   .story h4 {
     font-size: 35px;
@@ -371,7 +372,6 @@
     display: none;
   }
 }
-
 
 .slick-slide {
   margin-right: 10px; /* Adjust as needed */
