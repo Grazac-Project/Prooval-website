@@ -376,11 +376,13 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import Modal from '@/components/modal/modal'
 
 
 
 const Landing = () => {
   const router = useRouter();
+  const [showModal, setShowModal] = useState(false);
   const [angle, setAngle] = useState('2.93deg');
   const [color, setColor] = useState('#F2C003');
   const [border, setBorder] = useState('#FFEFB2');
@@ -487,6 +489,7 @@ const Landing = () => {
 
   return (
     <div className='overflow-x-hidden'>
+        { showModal && <Modal modalClose={(() => setShowModal(false))}/>}
       <Navbar />
       <div className='max-w-[1440px] mx-auto'>
         <section className='font-whyte px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative bg-[#F9FBFF]'>
@@ -604,14 +607,19 @@ const Landing = () => {
           <Image src='/mobile-bigstar.png' width={74} height={65} alt='star' className='absolute top-[0] right-[16px] lgx:block hidden'/>
         </section>
         <section className='w-[100%] font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]'>
+          {/* <div className='w-[28.125%] xxl:w-[30%] lgx:w-[33%] lg:w-[35%] md:w-[38%] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xl:pl-[15px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'> */}
           <div className='w-[28.125%] xxl:w-[30%] lgx:w-[33%] lg:w-[35%] md:w-[38%] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xl:pl-[15px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'>
-            <h4 className='w-[288px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] sxm:text-[40px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
+            {/* <h4 className='w-[288px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] sxm:text-[40px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
+              Get Onboarded in Four Easy Steps!
+            </h4> */}
+            <h4 className='w-[288px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] xm:w-[231px] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] xm:text-[32px] leading-[52.8px] xm:leading-[35.2px] text-[#FBFCFD] pb-[17px]'>
               Get Onboarded in Four Easy Steps!
             </h4>
             <p className='w-[298px] 1xl:w-[262px] lg:w-[250px] md:w-[220px] sm:w-[100%] font-regular text-[16px] leading-[22px] text-[#EDEDED]'>
               Follow these simple steps to get onboarded into Hackthejobs right away! Our onboarding procedure is as basic as it gets!
             </p>
-            <Image src='/easy-arrow.png' width={123} height={117} alt='arrow' className='absolute top-[9.32px] right-[14.18px] object-cover'/>
+            <Image src='/easy-arrow.png' width={123} height={117} alt='arrow' className='absolute top-[9.32px] right-[14.18px] object-cover sm:hidden'/>
+            <Image src='/easy-arrow-mobile.png' width={126} height={123} alt='arrow' className='absolute top-[59.6px] right-[0px] ssxm:right-[-15px] object-cover hidden sm:block'/>
           </div>
           <div className='w-[69.90%] xxl:w-[70%] lgx:w-[67%] lg:w-[65%] md:w-[62%] sm:w-[100%] flex flex-wrap sm:justify-around gap-[16px] lgx:gap-[12px] lg:gap-[10px]'>
             {
@@ -751,10 +759,10 @@ const Landing = () => {
             <h4 className='font-medium text-[48px] xl:text-[44px] lgx:text-[40px] lg:text-[35px] md:text-[30px] leading-[52.8px] lgx:leading-[45px] lg:leading-[40px] text-[#121927] mb-[40px] w-[596px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] sm:text-center sm:mt-[16px]'>
               Bootcamps are never enough!
             </h4>
-            <p className='font-regular text-[18px] lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[16px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]'>
+            <p className='font-regular text-[18px] lgx:text-[16px] sm:text-center md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[16px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]'>
               At HacktheJobs, we're not a boot camp, we are your work experience accelerator where you get matched with mentors and product managers from FAANG to build Products and services that contribute to achieving Sustainable Development Goals
             </p>
-            <p className='font-regular text-[18px] lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]'>
+            <p className='font-regular text-[18px] sm:text-center lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]'>
               HacktheJobs offers a unique solution tailored to your needs. We provide comprehensive support to fast-track you getting experience in the tech industry while ensuring you're primed for success in your chosen tech career. We operate on just one goal; to give you real life work experience, moving you from junior level to mid level
             </p>
             <div className='font-whyte text-[#1453FF] text-center flex sm:flex-col sm:items-center gap-[26px] lgx:gap-[16px] lg:gap-[10px] sm:gap-[32px]'>
@@ -838,7 +846,7 @@ const Landing = () => {
         </section>
         <section className='px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px] sm:pt-[40px]'>
           <div className="font-whyte bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
-            <div className='w-[710px] md:w-[100%] mx-auto'>
+            <div className='w-[710px] md:w-[100%] mx-auto px-[20px]'>
               <h4 className='font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#fff] mx-auto text-center'>
                 Have a Question?
               </h4>
@@ -851,8 +859,7 @@ const Landing = () => {
             </div>
           </div>
         </section>
-        <Footer />
-        
+        <Footer openModal={() => setShowModal(true)}/>
       </div>
     </div>
   )

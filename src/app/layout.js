@@ -112,11 +112,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"></meta>
-      <body
-        className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable} ${whyte.variable}`}
-      >
-        {children}
+      <body className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable} ${whyte.variable}`}>
+          {children}
       </body>
     </html>
   );
