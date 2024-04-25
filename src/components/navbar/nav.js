@@ -13,16 +13,16 @@ const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const setActive = () => {
-    useEffect((pathname) => {
+  // const setActive = () => {
+  //   useEffect((pathname) => {
       
-      setIsActive(pathname);
-    }, []);
+  //     setIsActive(pathname);
+  //   }, []);
 
 
-  }
-  console.log(pathname);
-  console.log(isActive);
+  // }
+  // console.log(pathname);
+  // console.log(isActive);
 
   return (
     <>
@@ -34,14 +34,14 @@ const Navbar = () => {
           <nav className={Classes.nav}>
             <ul>
               <li>
-                <Link href="/" className={isActive === "/" ? "active" : ""} onClick={setActive}>
+                <Link href="/" className={isActive === "/" ? "active" : ""}>
                   Home
                 </Link>
               </li>
               <li>
                 <Link
                   href="/about-us"
-                  className={isActive === "/about-us" ? "active" : ""} onClick={setActive}
+                  className={isActive === "/about-us" ? "active" : ""}
                 >
                   About Us
                 </Link>
