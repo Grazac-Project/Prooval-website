@@ -424,7 +424,7 @@ const Landing = () => {
     //   console.log(next);
     //   setCurrentSlide(next)},
     
-    afterChange: (index) => {console.log(index);
+    afterChange: (index) => {
       setDotPosition(index)},
   };
   const logoSettings = {
@@ -461,8 +461,6 @@ const Landing = () => {
   };
 
   const goToSlide = (index, i) => {
-    console.log(i);
-    console.log(index);
     // if (index === i) {
     //   sliderRef.slickGoTo(i);
     //   setCurrentSlide(i);
@@ -546,7 +544,7 @@ const Landing = () => {
               <Image src='/courses-mobile.png' width={19} height={19} alt='course' className='object-contain hidden sm:block' />
               <p className='font-regular text-[14px] sm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 sm:leading-[11.54px] w-[54px] sm:w-[30.9px]'>+1000 <span className='text-[#8B8B8B]'>Courses</span></p>
             </div>
-            <div className={` absolute bg-[#fff] flex justify-center gap-[16px] lg:gap-[8px] sm:gap-[1.72px] sm:items-center rounded-[4px] w-[146px] lgx:w-[126px] sm:w-[83.55px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${load? 'bottom-[232px] xxl:bottom-[200px] lgx:bottom-[140px] md:bottom-[170px] sm:bottom-[310px] xm:bottom-[210px] sxm:bottom-[150px] right-[513px] xxl:right-[450px] xl:right-[470px] lgx:right-[370px] lg:right-[340px] md:right-[290px] sm:right-[440px] xm:right-[290px] xxm:right-[260px] xxxm:right-[270px] xxxxm:right-[260px] ssxm:right-[240px] sxm:right-[200px]': 'bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[280px] xm:bottom-[180px] sxm:bottom-[120px] right-[613px] 1xl:right-[550px] xxl:right-[520px] xl:right-[500px] lgx:right-[400px] lg:right-[390px] md:right-[320px] sm:right-[470px] xm:right-[320px] xxm:right-[280px] xxxm:right-[300px] xxxxm:right-[280px] ssxm:right-[260px] sxm:right-[220px]'}`}>
+            <div className={` absolute bg-[#fff] flex justify-center gap-[16px] lg:gap-[8px] sm:gap-[1.72px] sm:items-center rounded-[4px] w-[146px] lgx:w-[126px] sm:w-[83.55px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${load? 'bottom-[232px] xxl:bottom-[200px] lgx:bottom-[140px] md:bottom-[170px] sm:bottom-[310px] xm:bottom-[210px] sxm:bottom-[150px] right-[513px] xxl:right-[450px] xl:right-[470px] lgx:right-[370px] lg:right-[340px] md:right-[290px] sm:right-[440px] xm:right-[290px] xxm:right-[260px] xxxm:right-[270px] xxxxm:right-[260px] ssxm:right-[240px] sxm:right-[200px]': 'bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[280px] xm:bottom-[180px] sxm:bottom-[120px] right-[613px] 1xl:right-[540px] xxl:right-[520px] xl:right-[500px] lgx:right-[400px] lg:right-[390px] md:right-[320px] sm:right-[470px] xm:right-[320px] xxm:right-[280px] xxxm:right-[300px] xxxxm:right-[280px] ssxm:right-[260px] sxm:right-[220px]'}`}>
               <Image src='/mentors.png' width={33} height={33} alt='mentors' className='object-contain sm:hidden'/>
               <Image src='/mentors-mobile.png' width={19} height={19} alt='mentors' className='object-contain hidden sm:block'/>
               <p className='font-regular w-[58px] sm:w-[33.19px] text-[14px] sm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 sm:leading-[11.93px]'>+2000 <span className='text-[#8B8B8B]'>Mentors</span></p>

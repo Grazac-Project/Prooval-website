@@ -136,7 +136,7 @@ const Footer = ({ openModal }) => {
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="overflow-visible w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] pt-[20px] md:pt-[20px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
+                className="overflow-visible w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[20px] md:py-[20px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
               />
             </div>
             <button
