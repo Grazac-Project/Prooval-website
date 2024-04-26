@@ -125,7 +125,7 @@ const Footer = ({ openModal }) => {
                 value={values.fullName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className=" w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD]"
+                className="font-inter w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD]"
               />
               {errors.fullName && touched.email && <p className="text-[#fc8181]">{errors.fullName}</p>}
             </div>
@@ -137,26 +137,28 @@ const Footer = ({ openModal }) => {
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="overflow-visible w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[20px] md:py-[20px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
+                className="font-inter overflow-visible w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] p-[14px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
               />
               {errors.email && touched.email && <p className="text-[#fc8181]">{errors.email}</p>}
             </div>
-            <button
-              type="submit"
-              className="disabled:opacity-[35%] w-[135.93px] xm:w-[100%] h-[44px] rounded-[6.29px] px-[31.43px] py-[15.71px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center"
-            >
-              {loader ? (
-                <Image
-                  src="/loader.gif"
-                  width={16}
-                  height={16}
-                  alt="loader"
-                  className="mx-auto"
-                />
-              ) : (
-                "Subscribe"
-              )}
-            </button>
+            <div className="h-[44px]">
+              <button
+                type="submit"
+                className="disabled:opacity-[35%] w-[135.93px] h-[100%] xm:w-[100%] rounded-[6.29px] px-[31.43px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center"
+              >
+                {loader ? (
+                  <Image
+                    src="/loader.gif"
+                    width={16}
+                    height={16}
+                    alt="loader"
+                    className="mx-auto"
+                  />
+                ) : (
+                  "Subscribe"
+                )}
+              </button>
+            </div>
           </form>
         </div>
       </div>
