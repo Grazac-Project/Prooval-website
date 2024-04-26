@@ -35,8 +35,8 @@ const Footer = ({ openModal }) => {
       })
       .catch((err) => {
         setLoader(false);
-        console.log(err?.response?.data?.message?.error);
-        // setErrorResponse(err.response.data.message.error);
+        // console.log(err?.response?.data?.message?.error);
+        setErrorResponse(err?.response?.data?.message?.error);
       });
     actions.resetForm();
   };
