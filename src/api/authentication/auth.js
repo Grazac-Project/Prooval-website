@@ -35,3 +35,6 @@ export const newsLetterSub = (data) => {
 export const faqForm = (data) => {
   return authKit.post('api/v1/user/faqform', data)
 }
+export const fetchMentors = (data) => {
+  return authKit.get(`api/v1/mentors/searchAll?query=${data}`)
+}

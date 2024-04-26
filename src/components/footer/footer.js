@@ -12,6 +12,7 @@ const initialValues = {
 };
 const Footer = ({ openModal }) => {
   const [loader, setLoader] = useState(false);
+  const [errorResponse, setErrorResponse] = useState(null);
 
   const schema = yup.object({
     fullName: yup.string().required("Full name is required"),
@@ -27,17 +28,15 @@ const Footer = ({ openModal }) => {
       .then((res) => {
         setLoader(false);
         console.log(res);
-        if (res.status == 200) {
-          console.log(openModal);
+        if (res.status === 200) {
+          // console.log(openModal);
           openModal();
-          // toast.success(res.data.message)
-          // router.push('/verification-code')
         }
-        // console.log(res)
       })
       .catch((err) => {
         setLoader(false);
-        console.log(err);
+        console.log(err?.response?.data?.message?.error);
+        // setErrorResponse(err.response.data.message.error);
       });
     actions.resetForm();
   };
@@ -115,6 +114,7 @@ const Footer = ({ openModal }) => {
             <input type="text" id='email' placeholder="Enter your email" value={values.email} onChange={handleChange} onBlur={handleBlur} className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-[footerInput]" />
             <button type="submit" disabled={isSubmitting} className="disabled:opacity-[35%] w-[135.93px] xm:w-[100%] h-[44px] rounded-[6.29px] px-[31.43px] py-[15.71px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center">Subscribe</button>
           </form> */}
+          {errorResponse && <p className="text-[#fc8181]">{errorResponse}</p>}
           <form className="flex flex-wrap xm:block gap-[6px]" onSubmit={handleSubmit}>
             <div className="h-[44px] xm:mb-[8px] py-[0px]">
               {/* <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[100%] md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" /> */}
@@ -127,6 +127,7 @@ const Footer = ({ openModal }) => {
                 onBlur={handleBlur}
                 className=" w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD]"
               />
+              {errors.fullName && touched.email && <p className="text-[#fc8181]">{errors.fullName}</p>}
             </div>
             <div className="h-[44px] xm:mb-[8px]">
               <input
@@ -138,6 +139,7 @@ const Footer = ({ openModal }) => {
                 onBlur={handleBlur}
                 className="overflow-visible w-[208px] h-[100%] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[20px] md:py-[20px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
               />
+              {errors.email && touched.email && <p className="text-[#fc8181]">{errors.email}</p>}
             </div>
             <button
               type="submit"
