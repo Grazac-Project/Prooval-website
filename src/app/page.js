@@ -517,7 +517,7 @@ const Landing = () => {
               <div className='flex gap-2 w-[256px] md:w-[200px] sm:w-[256px] py-2 px-3 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px]'>
                 <MdVerified className='text-[#FFD700] w-[15.28px] text-[15.99px]'/>
                 <h3 className='font-regular text-[14px] md:text-[10px] sm:text-[14px] text-[#121927] leading-[15.4px] tracking-[4%] '>
-                  Empowered over 14k students
+                  <span className='text-[#4F4F4F]'>Empowered</span> over 14k students
                 </h3>
               </div>
               <h1 className='font-bold w-[621px] xxl:w-[550px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[64px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] '>
