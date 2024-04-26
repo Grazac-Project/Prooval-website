@@ -103,7 +103,7 @@ const Donation = () => {
           <button>Make donation</button>
         </div>
         <div className={Classes.vidCon}>
-          <video ref={videoRef} id="video" width="100%" height="489" autoPlay loop>
+          <video ref={videoRef} id="video" width="100%" height="489"  loop>
             <source src="/landing-video.mp4" type="video/mp4" />
           </video>
           <div className={Classes.play} onClick={tooglePlay}>
