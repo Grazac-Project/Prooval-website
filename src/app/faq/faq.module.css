@@ -234,7 +234,7 @@
   padding: 0px 16px;
   border-radius: 8px;
   border: 1px solid #d0d5dd;
-  font-family: var(-n-font-whyte);
+  font-family: var(--font-inter);
   font-size: 14px;
   outline: none;
   background-color: transparent;
@@ -250,7 +250,7 @@
   padding: 0px 16px;
   border-radius: 8px;
   border: 1px solid #d0d5dd;
-  font-family: var(--font-whyte);
+  font-family: var(--font-inter);
   font-size: 14px;
   outline: none;
   background-color: transparent;
