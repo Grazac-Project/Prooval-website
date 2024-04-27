@@ -743,12 +743,24 @@ const Landing = () => {
               })
             }
           </div>
-          {/* <div className=' hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'> */}
-          <div className=' hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
+          {/* <div className=' hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
             <Slider ref={slider => {sliderRef = slider}} {...mentorSettings} className=''>
                   {imageCards.map((imageCard, i) => {
                     return(
                       // <div key={i} className='font-whyte mx-auto sm:w-[400px] xm:w-[100%]'>
+                      <div key={i} className='font-whyte mx-auto sm:w-[302px] xm:w-[80%]'>
+                        <Image src={imageCard.img} width={296} height={297} alt='mentor image' className='object-cover '/>
+                        <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] '>{imageCard.name}</h4>
+                        <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{imageCard.position}</h5>
+                        <p className='font-regular w-[296px] xm:w-[100%] text-[16px] leading-[20.8px] text-[#667085]'>{imageCard.formerPosition}</p>
+                      </div>
+                        )})}
+            </Slider>
+          </div> */}
+          <div className=' hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
+            <Slider ref={slider => {sliderRef = slider}} {...mentorSettings} className=''>
+                  {listOfMentors.map((imageCard, i) => {
+                    return(
                       <div key={i} className='font-whyte mx-auto sm:w-[302px] xm:w-[80%]'>
                         <Image src={imageCard.img} width={296} height={297} alt='mentor image' className='object-cover '/>
                         <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] '>{imageCard.name}</h4>
