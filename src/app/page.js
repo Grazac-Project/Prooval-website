@@ -704,9 +704,9 @@ const Landing = () => {
               listOfMentors.map((listOfMentor, i) => {
                 return (
                   <div key={i} className='font-whyte w-[23%] lg:w-[29%] '>
-                    <div className='h-[296px] overflow-hidden'>
+                    <div className='h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden'>
 
-                    <Image src={listOfMentor.image} width={296} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
+                      <Image src={listOfMentor.image} width={296} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
                     </div>
                     <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{listOfMentor?.firstName} {listOfMentor?.lastName}</h4>
                     <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{listOfMentor?.role}</h5>
@@ -730,13 +730,12 @@ const Landing = () => {
                         )})}
             </Slider>
           </div> */}
-          <div className=' hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
+          <div className='font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
             <Slider ref={slider => {sliderRef = slider}} {...mentorSettings} className=''>
                   {listOfMentors.map((listOfMentor, i) => {
                     return(
                       <div key={i} className='font-whyte mx-auto sm:w-[302px] xm:w-[80%]'>
-                        <div className='h-[296px] overflow-hidden'>
-
+                        <div className='h-[296px] sm:h-[258px] overflow-hidden'>
                           <Image src={listOfMentor.image} width={296} height={297} alt='mentor image' className='object-cover '/>
                         </div>
                         <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] '>{listOfMentor.firstName} {listOfMentor.lastName}</h4>
