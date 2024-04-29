@@ -497,9 +497,11 @@ const Landing = () => {
   useEffect(() => {
     fetchMentors('')
       .then((res) => {
-        console.log(res);
-        console.log(res.data.data.mentors[0].firstName);
-        setListOfMentors(res.data.data.mentors)
+        // console.log(res);
+        // console.log(res.data.data.mentors[0].firstName);
+        const mentors = res.data.data.mentors;
+        const mentorsSlice = mentors.slice(0, 8);
+        setListOfMentors(mentorsSlice)
       })
   }, [])
 
@@ -681,32 +683,22 @@ const Landing = () => {
               Connect with extraordinary mentors from diverse backgrounds with a simple click and share all your career struggles with him/her. 
             </p>
           </div>
-          <button className='w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden'>
-              Connect to a mentor
-          </button>
+          <Link href='/mentors'>
+            <button className='w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden'>
+              View More Mentors
+            </button>
+          </Link>
             
         </section>
         <section className='pb-[96px] sm:pb-[52px] '>
           <div className='sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]'>
-            {/* {
-              imageCards.map((imageCard, i) => {
-                return (
-                  <div key={i} className='font-whyte w-[23%] lg:w-[29%] '>
-                    <Image src={imageCard.img} width={296} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
-                    <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{imageCard.name}</h4>
-                    <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{imageCard.position}</h5>
-                    <p className='font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]'>{imageCard.formerPosition}</p>
-                  </div>
-                )
-              })
-            } */}
             {
               listOfMentors.map((listOfMentor, i) => {
                 return (
                   <div key={i} className='font-whyte w-[23%] lg:w-[29%] '>
-                    <div className='h-[296px] overflow-hidden'>
+                    <div className='h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden'>
 
-                    <Image src={listOfMentor.image} width={296} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
+                      <Image src={listOfMentor.image} width={296} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
                     </div>
                     <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{listOfMentor?.firstName} {listOfMentor?.lastName}</h4>
                     <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{listOfMentor?.role}</h5>
@@ -730,13 +722,12 @@ const Landing = () => {
                         )})}
             </Slider>
           </div> */}
-          <div className=' hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
+          <div className='font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
             <Slider ref={slider => {sliderRef = slider}} {...mentorSettings} className=''>
                   {listOfMentors.map((listOfMentor, i) => {
                     return(
                       <div key={i} className='font-whyte mx-auto sm:w-[302px] xm:w-[80%]'>
-                        <div className='h-[296px] overflow-hidden'>
-
+                        <div className='h-[296px] sm:h-[258px] overflow-hidden'>
                           <Image src={listOfMentor.image} width={296} height={297} alt='mentor image' className='object-cover '/>
                         </div>
                         <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] '>{listOfMentor.firstName} {listOfMentor.lastName}</h4>
@@ -746,9 +737,11 @@ const Landing = () => {
                         )})}
             </Slider>
           </div>
-          <button className=' w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden'>
-              Connect to a mentor
-          </button> 
+          <Link href='/mentors'>
+            <button className=' w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden'>
+              View More Mentors
+            </button>
+          </Link> 
         </section>
         <section className='flex sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]'>
           <div>
