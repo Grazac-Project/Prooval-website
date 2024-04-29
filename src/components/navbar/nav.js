@@ -4,26 +4,13 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Classes from "./nav.module.css";
 import Image from "next/image";
-import { useRouter, usePathname } from "next/navigation";
+import {  usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [isActive, setIsActive] = useState("");
 
-  const router = useRouter();
   const pathname = usePathname();
-
-  // const setActive = () => {
-  //   useEffect((pathname) => {
-      
-  //     setIsActive(pathname);
-  //   }, []);
-
-
-  // }
-  // console.log(pathname);
-  // console.log(isActive);
-
   return (
     <>
       <header className={Classes.header} suppressHydrationWarning>
@@ -34,23 +21,27 @@ const Navbar = () => {
           <nav className={Classes.nav}>
             <ul>
               <li>
-                <Link href="/" className={isActive === "/" ? "active" : ""}>
+                <Link href="/" style={{color: pathname === "/" ? "#1453ff" : "#667085"}}>
                   Home
                 </Link>
               </li>
               <li>
                 <Link
                   href="/about-us"
-                  className={isActive === "/about-us" ? "active" : ""}
+                  style={{color: pathname === "/about-us" ? "#1453ff" : "#667085"}}
                 >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/faq">FAQ</Link>
+                <Link href="/faq" 
+                style={{color: pathname === "/faq" ? "#1453ff" : "#667085"}}
+                >FAQ</Link>
               </li>
               <li>
-                <Link href="/donation">Donation</Link>
+                <Link href="/donation"
+                style={{color: pathname === "/donation" ? "#1453ff" : "#667085"}}
+                >Donation</Link>
               </li>
             </ul>
             <div className={Classes.btnFlex}>
@@ -70,22 +61,22 @@ const Navbar = () => {
             <nav className={Classes.navMobile}>
               <ul>
                 <li>
-                  <Link href="/" onClick={() => setDropdown(false)}>
+                  <Link href="/" onClick={() => setDropdown(false)}  style={{color: pathname === "/" ? "#1453ff" : ""}} >
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about-us" onClick={() => setDropdown(false)}>
+                  <Link href="/about-us" onClick={() => setDropdown(false)}  style={{color: pathname === "/about-us" ? "#1453ff" : ""}}>
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/faq" onClick={() => setDropdown(false)}>
+                  <Link href="/faq" onClick={() => setDropdown(false)}  style={{color: pathname === "/faq" ? "#1453ff" : ""}}>
                     FAQ
                   </Link>
                 </li>
                 <li>
-                  <Link href="/donation" onClick={() => setDropdown(false)}>
+                  <Link href="/donation" onClick={() => setDropdown(false)}  style={{color: pathname === "/donation" ? "#1453ff" : ""}}>
                     Donation
                   </Link>
                 </li>

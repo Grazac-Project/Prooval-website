@@ -172,6 +172,11 @@
     width: 343px;
     margin: auto;
   }
+  .btnFlex button:last-child{
+    background: #1453ff;
+    color: #fff;
+
+  }
   .btnFlex button:hover {
     color: #fff;
     background: #1453ff;
