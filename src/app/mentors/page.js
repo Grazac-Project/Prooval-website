@@ -38,7 +38,7 @@ const Page = () => {
 
       })
       .catch((err) => {
-        console.log(err.response.status);
+        // console.log(err.response.status);
         if (err.response.status) {
             setListOfMentors(undefined)
             setShowMentor(false)
@@ -50,7 +50,7 @@ const Page = () => {
   const handleChange = (e) => {
     // e.preventDefault()
     const inputValue = e.target.value
-    console.log(inputValue);
+    // console.log(inputValue);
     setInputText(inputValue)
   }
   return (
