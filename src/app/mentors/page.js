@@ -6,6 +6,7 @@ import { IoIosSearch } from "react-icons/io";
 import Navbar from '@/components/navbar/nav';
 import { fetchMentors } from '@/api/authentication/auth';
 import Image from 'next/image';
+import Footer from '@/components/footer/footer';
 
 const Page = () => {
     const [listOfMentors, setListOfMentors] = useState([]);
@@ -25,12 +26,12 @@ const Page = () => {
     useEffect(() => {
     fetchMentors(inputText)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         const mentors = res.data.data.mentors
         if (mentors.length === 1 || mentors.length > 4) {
             setPositionStyle(true)
         }
-        console.log(res.data.data.mentors[0].firstName);
+        // console.log(res.data.data.mentors[0].firstName);
         setShowMentor(true)
         setNotFound(false)
         setListOfMentors(mentors)
@@ -71,7 +72,7 @@ const Page = () => {
           </div>
         </form>
         {
-            showMentor && (<div style={{justifyContent: positionStyle? 'start': 'center'}} className='flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center xm:justify-around lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]'>
+            showMentor && (<div style={{justifyContent: positionStyle? 'start': 'center'}} className='flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center xm:justify-around lg:justify-start flex-wrap gap-[22px] pb-[0px] sm:pb-[0px]'>
             {
               listOfMentors?.map((listOfMentor, i) => {
                 return (
@@ -98,8 +99,7 @@ const Page = () => {
                 </div>
             )
         }
-        
-        
+        <Footer />    
     </section>
   )
 }

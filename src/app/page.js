@@ -497,9 +497,11 @@ const Landing = () => {
   useEffect(() => {
     fetchMentors('')
       .then((res) => {
-        console.log(res);
-        console.log(res.data.data.mentors[0].firstName);
-        setListOfMentors(res.data.data.mentors)
+        // console.log(res);
+        // console.log(res.data.data.mentors[0].firstName);
+        const mentors = res.data.data.mentors;
+        const mentorsSlice = mentors.slice(0, 8);
+        setListOfMentors(mentorsSlice)
       })
   }, [])
 
