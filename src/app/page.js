@@ -672,36 +672,6 @@ const Landing = () => {
             }
           </div>
         </section>
-        {/* <section className='font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lgx:gap-[12px] lg:gap-[10px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]'>
-          <div className='w-[342px] 1xl:w-[300px] md:w-[250px] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] 1xl:pl-[14px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'>
-            <h4 className='w-[288px] md:w-[220px] sm:w-[70%] font-medium text-[48px] md:text-[40px] sm:text-[48px] sxm:text-[40px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
-              Get Onboarded in Four Easy Steps!
-            </h4>
-            <p className='w-[298px] 1xl:w-[262px] md:w-[220px] sm:w-[100%] font-regular text-[16px] leading-[22px] text-[#EDEDED]'>
-              Follow these simple steps to get onboarded into Hackthejobs right away! Our onboarding procedure is as basic as it gets!
-            </p>
-            <Image src='/easy-arrow.png' width={123} height={117} alt='arrow' className='absolute top-[9.32px] right-[14.18px] object-cover'/>
-          </div>
-          <div className='flex flex-wrap justify-center sm:justify-around gap-[16px] lgx:gap-[12px] lg:gap-[10px]'>
-            {
-              cardValues.map((cardValue, i) => {
-                return (
-                  <div className='font-whyte w-[407px] 1xl:w-[350px] xxl:w-[350px] xl:w-[320px] lgx:w-[260px] lg:w-[200px] md:w-[200px] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 py-5' key={i}>
-                    <h4 className='w-[44px] h-[44px] rounded-[50%] flex items-center justify-center text-[18px] leading-[20.31px] font-medium text-[#fff] bg-[#1453FF]'>
-                      {cardValue.number}
-                    </h4>
-                    <h5 className='pt-[40px] pb-[14px] font-medium text-[20px] leading-[30px] text-[#121927]'>
-                      {cardValue.heading}
-                    </h5>
-                    <p className='font-regular text-[14px] leading-[20px] text-[#4F4F4F]'>
-                      {cardValue.text}  
-                    </p>
-                  </div>
-                )
-              })
-            }
-          </div>
-        </section> */}
         <section className='font-whyte flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]'>
           <div>
             <h3 className='font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[580px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center'>
@@ -734,7 +704,10 @@ const Landing = () => {
               listOfMentors.map((listOfMentor, i) => {
                 return (
                   <div key={i} className='font-whyte w-[23%] lg:w-[29%] '>
+                    <div className='h-[296px] overflow-hidden'>
+
                     <Image src={listOfMentor.image} width={296} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
+                    </div>
                     <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{listOfMentor?.firstName} {listOfMentor?.lastName}</h4>
                     <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{listOfMentor?.role}</h5>
                     <p className='font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]'>{listOfMentor?.company}</p>
@@ -743,8 +716,7 @@ const Landing = () => {
               })
             }
           </div>
-          {/* <div className=' hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'> */}
-          <div className=' hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
+          {/* <div className=' hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
             <Slider ref={slider => {sliderRef = slider}} {...mentorSettings} className=''>
                   {imageCards.map((imageCard, i) => {
                     return(
@@ -757,35 +729,19 @@ const Landing = () => {
                       </div>
                         )})}
             </Slider>
-          </div>
-          <button className=' w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden'>
-              Connect to a mentor
-          </button> 
-        </section>
-        {/* <section className='pb-[96px] sm:pb-[52px]'>
-          <div className='sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center xl:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]'>
-            {
-              imageCards.map((imageCard, i) => {
-                return (
-                  <div key={i} className='font-whyte w-[296px] 1xl:w-[250px] xl:w-[200px]'>
-                    <Image src={imageCard.img} width={296} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
-                    <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{imageCard.name}</h4>
-                    <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{imageCard.position}</h5>
-                    <p className='font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]'>{imageCard.formerPosition}</p>
-                  </div>
-                )
-              })
-            }
-          </div>
-          <div className=' hidden sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
+          </div> */}
+          <div className=' hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
             <Slider ref={slider => {sliderRef = slider}} {...mentorSettings} className=''>
-                  {imageCards.map((imageCard, i) => {
+                  {listOfMentors.map((listOfMentor, i) => {
                     return(
-                      <div key={i} className='font-whyte mx-auto sm:w-[400px] xm:w-[100%]'>
-                        <Image src={imageCard.img} width={296} height={297} alt='mentor image' className='object-cover'/>
-                        <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{imageCard.name}</h4>
-                        <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{imageCard.position}</h5>
-                        <p className='font-regular w-[296px] xm:w-[100%]  text-[16px] leading-[20.8px] text-[#667085]'>{imageCard.formerPosition}</p>
+                      <div key={i} className='font-whyte mx-auto sm:w-[302px] xm:w-[80%]'>
+                        <div className='h-[296px] overflow-hidden'>
+
+                          <Image src={listOfMentor.image} width={296} height={297} alt='mentor image' className='object-cover '/>
+                        </div>
+                        <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] '>{listOfMentor.firstName} {listOfMentor.lastName}</h4>
+                        <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{listOfMentor.role}</h5>
+                        <p className='font-regular w-[296px] xm:w-[100%] text-[16px] leading-[20.8px] text-[#667085]'>{listOfMentor.company}</p>
                       </div>
                         )})}
             </Slider>
@@ -793,7 +749,7 @@ const Landing = () => {
           <button className=' w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden'>
               Connect to a mentor
           </button> 
-        </section> */}
+        </section>
         <section className='flex sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]'>
           <div>
             <Image src='/bootcamp.png' width={602} height={519} alt='several images merged into one' className='object-cover' />
