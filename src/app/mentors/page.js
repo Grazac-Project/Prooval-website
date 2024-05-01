@@ -9,6 +9,7 @@ import Image from 'next/image';
 import Footer from '@/components/footer/footer';
 import { FaArrowCircleUp } from "react-icons/fa";
 import Link from 'next/link';
+import Modal from '@/components/modal/modal';
 // import { FaCircleArrowUp } from "react-icons/fa6";
 
 const Page = () => {
@@ -17,6 +18,7 @@ const Page = () => {
     const [notFound, setNotFound] = useState(false);
     const [showMentor, setShowMentor] = useState(true);
     const [positionStyle, setPositionStyle] = useState(false)
+    const [showModal, setShowModal] = useState(false);
 
     
     useEffect(() => {
@@ -33,7 +35,7 @@ const Page = () => {
       .then((res) => {
         // console.log(res);
         const mentors = res.data.data.mentors
-        if (mentors.length === 1 || mentors.length > 4) {
+        if ((mentors.length === 1 || mentors.length > 4) && inputText.length > 1) {
             setPositionStyle(true)
         }
         // console.log(res.data.data.mentors[0].firstName);
@@ -60,17 +62,18 @@ const Page = () => {
   }
   return (
     <section className='font-whyte'>
+        { showModal && <Modal modalClose={(() => setShowModal(false))}/>}
         <Navbar />
         <div id='hero-section' className=" text-[#fff] text-center bg-[#121927] mx-auto">
             <div className="py-[96px] xm:py-[78px]" data-aos="fade-down">
                 <h1 className='font-medium w-[894px] lgx:w-[90%] sm:w-[90%] xm:w-[98%] text-[56px] sm:text-[40px] mx-auto leading-[56px] sm:leading-[48px] tracking-[-2%] text-[#fff] mb-[24px]'>World class mentorship at your finger tips</h1>
-                <p className='font-regular w-[768px] lgx:w-[75%] md:w-[85%] sm:w-[90%] xm:w-[98%] text-[20px] sm:text-[16px] mx-auto leading-[30px] sm:leading-[24px] text-[#EAECF0] mb-[24px]'>
+                <p className='font-regular px-[10px] w-[768px] lgx:w-[75%] md:w-[85%] sm:w-[90%] xm:w-[98%] text-[20px] sm:text-[16px] mx-auto leading-[30px] sm:leading-[24px] text-[#EAECF0] mb-[24px]'>
                     Easily connect with exceptional mentors from various backgrounds and openly discuss your career challenges with them.
                 </p>
                 <button className='font- w-[198px] px-[40px] py-[20px] font-medium text-[16px] leading-[24px] tracking-[3%] text-[#fff] bg-[#1453FF] rounded-[8px] '>Book a Mentor</button>
             </div>
         </div>
-        <form className='font-inter py-[56px] lg:py-[32px] xm:px-[16px] sticky top-[30px] z-10' >
+        <form className='font-inter py-[56px] lg:py-[32px] xm:px-[16px] sticky top-[30px] lg:top-[55px] md:top-[40.5px] z-10' >
           <div className='relative w-[800px] lgx:w-[70%] xm:w-[100%] mx-auto'>
             <IoIosSearch className='text-[20px] text-[#667085] absolute left-[16px] top-[12px] transform-translate-y-1/2'/>
             <input type='search' placeholder='Search by name, company, role' className=" font-regular flex items-center w-[100%] rounded-[8px] border-[1px] border-[#D0D5DD] pl-[44px] pr-[14px] py-[8px] text-[16px] text-[#667085] leading-[24px] shadow-footerInput" value={inputText} onChange={handleChange}/>
@@ -106,7 +109,7 @@ const Page = () => {
             )
         }
         <Link href='#hero-section'><Image src='/back-to-top.png' width={40} height={40} alt='back to top' className='cursor-pointer fixed bottom-[35px] right-[80px] sm:right-[16px]'/></Link>
-        <Footer />    
+        <Footer openModal={() => setShowModal(true)}/>    
     </section>
   )
 }
