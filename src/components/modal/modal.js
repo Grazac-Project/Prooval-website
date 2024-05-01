@@ -5,6 +5,7 @@ import { RiVerifiedBadgeFill } from "react-icons/ri";
 
 const Modal = ({modalClose}) => {
   const [topModalPosition, setTopModalPosition] = useState()
+  
   useEffect(() => {
     const modal = document.querySelector('.modal');
     const scrollPosition = window.scrollY;

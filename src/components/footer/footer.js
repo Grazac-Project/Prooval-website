@@ -71,7 +71,7 @@ const Footer = ({ openModal }) => {
     //   </div>
     // </footer>
     <footer className="font-whyte px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px]">
-      <div className="flex sm:flex-col justify-between sm:gap-[32px]">
+      <div className="flex md:flex-col justify-between sm:gap-[32px]">
         <div className="pb-[64px] xm:pb-[24px] sm:order-3">
           <Link href="/">
             <Image
@@ -82,7 +82,7 @@ const Footer = ({ openModal }) => {
             />
           </Link>
 
-          <ul className="flex xm:flex-col gap-[32px] xm:gap-[16px] pt-[32px]">
+          <ul className="flex xm:flex-col gap-[27px] xm:gap-[16px] pt-[32px]">
             <Link href="/">
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 Home
@@ -125,7 +125,7 @@ const Footer = ({ openModal }) => {
                 value={values.fullName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="font-inter w-[208px] h-[44px] placeholder:overflow-visible md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD]"
+                className="font-inter w-[208px] h-[44px] placeholder:overflow-visible lg:w-[150px] md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD]"
               />
               {errors.fullName && touched.fullName && <p className="text-[#fc8181]">{errors.fullName}</p>}
             </div>
@@ -137,7 +137,7 @@ const Footer = ({ openModal }) => {
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="font-inter overflow-visible w-[208px] h-[44px] placeholder:overflow-visible md:w-[150px] xm:w-[100%] p-[14px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
+                className="font-inter overflow-visible w-[208px] h-[44px] placeholder:overflow-visible lg:w-[150px] md:w-[150px] xm:w-[100%] p-[14px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
               />
               {errors.email && touched.email && <p className="text-[#fc8181]">{errors.email}</p>}
             </div>
