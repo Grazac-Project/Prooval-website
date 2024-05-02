@@ -185,3 +185,30 @@ export const CoreValue = [
     background: "#FFF3F1",
   },
 ];
+
+export const hireSteps = [
+  {
+    heading: 'Fill the requirement form',
+    text: 'Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ',
+    img: '/hire-1.png',
+    bg: '#F6FAFF'
+  },
+  {
+    heading: 'Get profiles',
+    text: 'Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ',
+    img: '/hire-2.png',
+    bg: '#FFFBF2'
+  },
+  {
+    heading: 'Evaluate Candidates',
+    text: 'Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ',
+    img: '/hire-3.png',
+    bg: '#F0FFF1'
+  },
+]
+
+export const hireSkills = [
+  'Back-end Engineer', 'Front-end engineer', 'Front-end engineer', 'Mobile Engineer', 'QA Engineer', 'React Developer',
+  'React Developer', 'IOS Developer', 'React Native Developer', 'Python Developer', 'Python Developer', 'Javascript Developer',
+  'Java Developer', 'C# Developer', 'C# Developer', 'UI/UX Designer'
+]
