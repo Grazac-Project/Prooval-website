@@ -81,7 +81,7 @@ const Hire = () => {
       setDotPosition(i);
   };
   return (
-    <section className='font-whyte '>
+    <section className='font-whyte max-w-[1440px] mx-auto'>
         { showModal && <Modal modalClose={(() => setShowModal(false))}/>}
         <Navbar />
         <div className='p-[80px] xl:px-[25px] xm:px-[16px] xm:py-[54px]' id='root'>
