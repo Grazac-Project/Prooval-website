@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import { useRouter } from 'next/navigation';
 import Footer from '@/components/footer/footer';
 import Navbar from '@/components/navbar/nav';
+import { PopupButton } from "react-calendly";
 
 
 
@@ -83,7 +84,7 @@ const Hire = () => {
     <section className='font-whyte '>
         { showModal && <Modal modalClose={(() => setShowModal(false))}/>}
         <Navbar />
-        <div className='p-[80px] xl:px-[25px] xm:px-[16px] xm:py-[54px]'>
+        <div className='p-[80px] xl:px-[25px] xm:px-[16px] xm:py-[54px]' id='root'>
             <h1 className='font-medium text-[52px] sm:text-[40px] text-[#121927] leading-[54px] sm:leading-[44px] text-center w-[607px] sm:w-[80%] xm:w-[100%] mx-auto mb-[8px]'>
                 Fuel Your Success: Hire Top Tech Talents
             </h1>
@@ -94,9 +95,15 @@ const Hire = () => {
                 <button className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#1453FF] text-[#FAFAFA]' onClick={handleHire}>
                     Hire Now
                 </button>
-                <button className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#FAFAFA] text-[#1453FF] border-[2px] border-[#1453FF]'>
+                {/* <button className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#FAFAFA] text-[#1453FF] border-[2px] border-[#1453FF]'>
                     Book a Call
-                </button>
+                </button> */}
+                <PopupButton
+                    url="https://calendly.com/grazacacademy/session-with-the-grazac-program-manager"
+                    rootElement={document.getElementById("root")}
+                    text="Book a Call"
+                    className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#FAFAFA] text-[#1453FF] border-[2px] border-[#1453FF]'
+                  />
             </div>
         </div>
         <div className='bg-[#F9F9F9] px-[80px] xl:px-[25px] xm:px-[16px] py-[40px]'>
