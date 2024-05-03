@@ -1,11 +1,12 @@
 'use client'
 import Image from 'next/image'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { testimonials, hireSteps, hireSkills } from '@/constants/constant';
 import Slider from "react-slick";
 import { useRouter } from 'next/navigation';
 import Footer from '@/components/footer/footer';
 import Navbar from '@/components/navbar/nav';
+// import { InlineWidget } from "react-calendly";
 import { PopupButton } from "react-calendly";
 
 
@@ -18,6 +19,7 @@ const Hire = () => {
     const [styleChange, setStyleChange] = useState(null);
     const [dotPosition, setDotPosition] = useState(1);
     const [showModal, setShowModal] = useState(false);
+    const [rootElement, setRootElement] = useState(null);
 
   
     const handleMouseOver = (i) => {
@@ -38,6 +40,10 @@ const Hire = () => {
     const handleHire = () => {
       router.push('/hire-form')
     }
+
+    useEffect(() => {
+      setRootElement(document.getElementById('root'));
+    }, []);
 
   const settings = {
     dots: false,
@@ -100,10 +106,13 @@ const Hire = () => {
                 </button> */}
                 <PopupButton
                     url="https://calendly.com/grazacacademy/session-with-the-grazac-program-manager"
-                    rootElement={document.getElementById("root")}
+                    rootElement={rootElement}
                     text="Book a Call"
                     className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#FAFAFA] text-[#1453FF] border-[2px] border-[#1453FF]'
                   />
+                  {/* <div className="">
+                    <InlineWidget url="https://calendly.com/your_scheduling_page" />
+                  </div> */}
             </div>
         </div>
         <div className='bg-[#F9F9F9] px-[80px] xl:px-[25px] xm:px-[16px] py-[40px]'>
