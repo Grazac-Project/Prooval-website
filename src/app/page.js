@@ -459,12 +459,14 @@ const Landing = () => {
   };
 
   const goToSlide = (index, i) => {
-    // if (index === i) {
-    //   sliderRef.slickGoTo(i);
-    //   setCurrentSlide(i);
-    // }
-    // sliderRef.slickGoTo(i);
-    //   setCurrentSlide(i);
+    if (index === i) {
+      sliderRef.slickGoTo(i);
+      // setCurrentSlide(i);
+      setDotPosition(i);
+    }
+    sliderRef.slickGoTo(i);
+      // setCurrentSlide(i);
+      setDotPosition(i);
   };
 
   const handleMouseOver = () => {
@@ -1051,41 +1053,19 @@ const Landing = () => {
                         )})}
             </Slider>
           </div> */}
-          <div className="font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
-            <Slider
-              ref={(slider) => {
-                sliderRef = slider;
-              }}
-              {...mentorSettings}
-              className=""
-            >
-              {listOfMentors.map((listOfMentor, i) => {
-                return (
-                  <div
-                    key={i}
-                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%]"
-                  >
-                    <div className="h-[296px] sm:h-[258px] overflow-hidden">
-                      <Image
-                        src={listOfMentor.image}
-                        width={296}
-                        height={297}
-                        alt="mentor image"
-                        className="object-cover "
-                      />
-                    </div>
-                    <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] ">
-                      {listOfMentor.firstName} {listOfMentor.lastName}
-                    </h4>
-                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
-                      {listOfMentor.role}
-                    </h5>
-                    <p className="font-regular w-[296px] xm:w-[100%] text-[16px] leading-[20.8px] text-[#667085]">
-                      {listOfMentor.company}
-                    </p>
-                  </div>
-                );
-              })}
+          <div className='font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
+            <Slider ref={slider => {sliderRef = slider}} {...mentorSettings} className=''>
+                  {listOfMentors.map((listOfMentor, i) => {
+                    return(
+                      <div key={i} className='font-whyte mx-auto sm:w-[302px] xm:w-[80%]'>
+                        <div className='h-[296px] sm:h-[258px] overflow-hidden'>
+                          <Image src={listOfMentor.image} width={363} height={297} alt='mentor image' className='object-cover px-[5px]'/>
+                        </div>
+                        <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] '>{listOfMentor.firstName} {listOfMentor.lastName}</h4>
+                        <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{listOfMentor.role}</h5>
+                        <p className='font-regular w-[296px] xm:w-[100%] text-[16px] leading-[20.8px] text-[#667085]'>{listOfMentor.company}</p>
+                      </div>
+                        )})}
             </Slider>
           </div>
           <Link href="/mentors">
@@ -1303,7 +1283,7 @@ const Landing = () => {
                 a smooth experience. Sign up to access invaluable resources that
                 will equip you on your journey to a successful career in tech.
               </p>
-              <Link href="/">
+              <Link href="/hire">
                 <button className="w-[247px] py-[20px] font-medium leading-[24px] text-[#fff] bg-[#1453FF] rounded-[8px]">
                   Hire Top Talents
                 </button>

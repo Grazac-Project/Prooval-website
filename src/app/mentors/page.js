@@ -46,7 +46,7 @@ const Page = () => {
       })
       .catch((err) => {
         // console.log(err.response.status);
-        if (err.response.status) {
+        if (err.response?.status) {
             setListOfMentors(undefined)
             setShowMentor(false)
             setNotFound(true)
