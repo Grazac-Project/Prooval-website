@@ -1,11 +1,13 @@
 'use client'
 import Image from 'next/image'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { testimonials, hireSteps, hireSkills } from '@/constants/constant';
 import Slider from "react-slick";
 import { useRouter } from 'next/navigation';
 import Footer from '@/components/footer/footer';
 import Navbar from '@/components/navbar/nav';
+// import { InlineWidget } from "react-calendly";
+import { PopupButton } from "react-calendly";
 
 
 
@@ -17,6 +19,7 @@ const Hire = () => {
     const [styleChange, setStyleChange] = useState(null);
     const [dotPosition, setDotPosition] = useState(1);
     const [showModal, setShowModal] = useState(false);
+    const [rootElement, setRootElement] = useState(null);
 
   
     const handleMouseOver = (i) => {
@@ -37,6 +40,10 @@ const Hire = () => {
     const handleHire = () => {
       router.push('/hire-form')
     }
+
+    useEffect(() => {
+      setRootElement(document.getElementById('root'));
+    }, []);
 
   const settings = {
     dots: false,
@@ -80,10 +87,10 @@ const Hire = () => {
       setDotPosition(i);
   };
   return (
-    <section className='font-whyte '>
+    <section className='font-whyte max-w-[1440px] mx-auto'>
         { showModal && <Modal modalClose={(() => setShowModal(false))}/>}
         <Navbar />
-        <div className='p-[80px] xl:px-[25px] xm:px-[16px] xm:py-[54px]'>
+        <div className='p-[80px] xl:px-[25px] xm:px-[16px] xm:py-[54px]' id='root'>
             <h1 className='font-medium text-[52px] sm:text-[40px] text-[#121927] leading-[54px] sm:leading-[44px] text-center w-[607px] sm:w-[80%] xm:w-[100%] mx-auto mb-[8px]'>
                 Fuel Your Success: Hire Top Tech Talents
             </h1>
@@ -94,9 +101,18 @@ const Hire = () => {
                 <button className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#1453FF] text-[#FAFAFA]' onClick={handleHire}>
                     Hire Now
                 </button>
-                <button className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#FAFAFA] text-[#1453FF] border-[2px] border-[#1453FF]'>
+                {/* <button className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#FAFAFA] text-[#1453FF] border-[2px] border-[#1453FF]'>
                     Book a Call
-                </button>
+                </button> */}
+                <PopupButton
+                    url="https://calendly.com/grazacacademy/session-with-the-grazac-program-manager"
+                    rootElement={rootElement}
+                    text="Book a Call"
+                    className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#FAFAFA] text-[#1453FF] border-[2px] border-[#1453FF]'
+                  />
+                  {/* <div className="">
+                    <InlineWidget url="https://calendly.com/your_scheduling_page" />
+                  </div> */}
             </div>
         </div>
         <div className='bg-[#F9F9F9] px-[80px] xl:px-[25px] xm:px-[16px] py-[40px]'>
@@ -175,9 +191,9 @@ const Hire = () => {
             <Slider ref={slider => {sliderRef = slider}} {...settings} className='w-[100%]'>
                   {testimonials.map((testimonial, index) => {
                     return(
-                        <div key={index} className='w-[100%] px-[5px]'>
+                        <div key={index} className='w-[100%] pl-[5px] sm:pl-[0px] border-[1px] border-[#EAEAEA] rounded-[16px] overflow-hidden'>
                           <div  className='bg-[#fff] flex sm:flex-col justify-between relative'>
-                            <div className='w-[800px] 1xl:w-[680px] xxl:w-[610px] lgx:w-[570px] lg:w-[470px] md:w-[390px] sm:w-[100%] py-[90px] sm:pt-[29.73px] sm:pb-[36.27px] pr-[56px] sm:pr-[0px] sm:order-2'>
+                            <div className='w-[800px] 1xl:w-[680px] xxl:w-[610px] lgx:w-[570px] lg:w-[470px] md:w-[390px] sm:w-[100%] py-[90px] sm:pt-[29.73px] sm:pb-[36.27px] pr-[56px] pl-[24px] sm:pl-[8px] sm:pr-[0px] sm:order-2'>
                               <h4 className='font-regular text-[18px] leading-[32px] tracking-[-2%] text-[#787676]  mb-[32px] sm:mb-[24px]'>
                                 {testimonial.text}
                               </h4>
@@ -189,7 +205,7 @@ const Hire = () => {
                                 {[...Array(testimonials.length).keys()].map((_, i) => (
                                   <div
                                     key={i}
-                                    className={`w-[10px] h-[10px] rounded-[6px] ${dotPosition === i ? 'bg-[#667085]': 'bg-[#668154]'}`}
+                                    className={`w-[10px] h-[10px] rounded-[6px] ${dotPosition === i ? 'bg-[#1453FF]': 'bg-[#667085]'}`}
                                     onClick={() => goToSlide(index, i)}
                                   ></div>
                                 ))}
