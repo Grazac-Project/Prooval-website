@@ -182,9 +182,9 @@ const Hire = () => {
             <Slider ref={slider => {sliderRef = slider}} {...settings} className='w-[100%]'>
                   {testimonials.map((testimonial, index) => {
                     return(
-                        <div key={index} className='w-[100%] px-[5px]'>
+                        <div key={index} className='w-[100%] pl-[5px] sm:pl-[0px] border-[1px] border-[#EAEAEA] rounded-[16px] overflow-hidden'>
                           <div  className='bg-[#fff] flex sm:flex-col justify-between relative'>
-                            <div className='w-[800px] 1xl:w-[680px] xxl:w-[610px] lgx:w-[570px] lg:w-[470px] md:w-[390px] sm:w-[100%] py-[90px] sm:pt-[29.73px] sm:pb-[36.27px] pr-[56px] sm:pr-[0px] sm:order-2'>
+                            <div className='w-[800px] 1xl:w-[680px] xxl:w-[610px] lgx:w-[570px] lg:w-[470px] md:w-[390px] sm:w-[100%] py-[90px] sm:pt-[29.73px] sm:pb-[36.27px] pr-[56px] pl-[24px] sm:pl-[8px] sm:pr-[0px] sm:order-2'>
                               <h4 className='font-regular text-[18px] leading-[32px] tracking-[-2%] text-[#787676]  mb-[32px] sm:mb-[24px]'>
                                 {testimonial.text}
                               </h4>
@@ -196,7 +196,7 @@ const Hire = () => {
                                 {[...Array(testimonials.length).keys()].map((_, i) => (
                                   <div
                                     key={i}
-                                    className={`w-[10px] h-[10px] rounded-[6px] ${dotPosition === i ? 'bg-[#667085]': 'bg-[#668154]'}`}
+                                    className={`w-[10px] h-[10px] rounded-[6px] ${dotPosition === i ? 'bg-[#1453FF]': 'bg-[#667085]'}`}
                                     onClick={() => goToSlide(index, i)}
                                   ></div>
                                 ))}
