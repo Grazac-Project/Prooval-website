@@ -38,3 +38,6 @@ export const faqForm = (data) => {
 export const fetchMentors = (data) => {
   return authKit.get(`api/v1/mentors/searchAll?query=${data}`)
 }
+export const hireTalent = (data) => {
+  return authKit.post('api/v1/hire/add', data)
+}

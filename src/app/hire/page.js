@@ -8,6 +8,7 @@ import Footer from '@/components/footer/footer';
 import Navbar from '@/components/navbar/nav';
 
 
+
 const Hire = () => {
     const router = useRouter();
     let sliderRef = useRef(null);
@@ -33,6 +34,9 @@ const Hire = () => {
     const handleContact = () => {
         router.push('/faq#contact-form')
       }
+    const handleHire = () => {
+      router.push('/hire-form')
+    }
 
   const settings = {
     dots: false,
@@ -87,7 +91,7 @@ const Hire = () => {
                 Attract top tech talent for your company's success. Connect with skilled professionals and drive innovation in your projects effortlessly.
             </p>
             <div className=' flex justify-center gap-[24px] sm:gap-[8px]'>
-                <button className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#1453FF] text-[#FAFAFA]'>
+                <button className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#1453FF] text-[#FAFAFA]' onClick={handleHire}>
                     Hire Now
                 </button>
                 <button className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#FAFAFA] text-[#1453FF] border-[2px] border-[#1453FF]'>
@@ -141,7 +145,7 @@ const Hire = () => {
             <div className='my-[64px] sm:my-[24px] rounded-[16px] border-[1px] border-[transparent] overflow-hidden'>
                 <div className=''>
                     <Image src='/hire-img.png' width={1280} height={432} alt='' className='sm:hidden'/>
-                    <Image src='/hire-mobile.png' width={343} height={294} alt='' className='hidden sm:block'/>
+                    <Image src='/hire-mobile.png' width={467} height={294} alt='' className='hidden sm:block'/>
                 </div>
                 {/* <div className='bg-[#1453FF] py-[20px] flex flex-wrap gap-[48px] px-[40px]'> */}
                 <div className='bg-[#1453FF] py-[20px] flex flex-wrap justify-between sm:justify-around px-[40px] xm:px-[16px]'>
@@ -171,7 +175,7 @@ const Hire = () => {
             <Slider ref={slider => {sliderRef = slider}} {...settings} className='w-[100%]'>
                   {testimonials.map((testimonial, index) => {
                     return(
-                        <div key={index} className='w-[100%]'>
+                        <div key={index} className='w-[100%] px-[5px]'>
                           <div  className='bg-[#fff] flex sm:flex-col justify-between relative'>
                             <div className='w-[800px] 1xl:w-[680px] xxl:w-[610px] lgx:w-[570px] lg:w-[470px] md:w-[390px] sm:w-[100%] py-[90px] sm:pt-[29.73px] sm:pb-[36.27px] pr-[56px] sm:pr-[0px] sm:order-2'>
                               <h4 className='font-regular text-[18px] leading-[32px] tracking-[-2%] text-[#787676]  mb-[32px] sm:mb-[24px]'>
@@ -229,7 +233,7 @@ const Hire = () => {
                     
                 }
             </div>
-            <button className='w-[315px] sm:hidden block bg-[#1453FF] rounded-[8px] px-[40px] py-[20px] text-[#fff] text-[16px] font-medium leading-[24px] tracking-[3%] mx-auto'>Hire Now</button>
+            <button onClick={handleHire} className='w-[315px] sm:hidden block bg-[#1453FF] rounded-[8px] px-[40px] py-[20px] text-[#fff] text-[16px] font-medium leading-[24px] tracking-[3%] mx-auto'>Hire Now</button>
         </div>
         <div className='px-[80px] xl:px-[25px] xm:px-[16px] py-[65px] sm:py-[50px] bg-[url(/skilled-tech.png)]'>
                 <h5 className='font-regular w-[567px] sm:w-[100%] text-[16px] sm:text-[12px] text-[#9FA2A0] text-center leading-[24px] tracking-[-0.5%]  mx-auto mb-[8px]'>
