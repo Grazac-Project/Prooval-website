@@ -6,7 +6,6 @@ import Slider from "react-slick";
 import { useRouter } from 'next/navigation';
 import Footer from '@/components/footer/footer';
 import Navbar from '@/components/navbar/nav';
-// import { InlineWidget } from "react-calendly";
 import { PopupButton } from "react-calendly";
 
 
