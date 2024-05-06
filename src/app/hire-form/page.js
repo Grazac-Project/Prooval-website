@@ -194,7 +194,7 @@ const Form = () => {
             </div>
           </div>
           <div className='flex flex-col w-[100%] gap-[6px] mb-[32px]'>
-              <label className={errors.roleDescription && touched.roleDescription?'font-medium text-[14px] leading-[20px] text-[#fc8181] mb-[6px]':'font-medium text-[14px] leading-[20px] text-[#344054] mb-[6px]'}>Role Description</label>
+              <label className={errors.roleDescription && touched.roleDescription?'font-medium text-[14px] leading-[20px] text-[#fc8181] mb-[6px]':'font-medium text-[14px] leading-[20px] text-[#344054] mb-[6px]'}>{errors.roleDescription && touched.roleDescription ? errors.roleDescription:'Role Description'}</label>
               <textarea id='roleDescription' value={values.roleDescription} onChange={handleChange} onBlur={handleBlur} rows='5' cols='7' placeholder='Enter other requirements' className='font-regular w-[100%] text-[16px] leading-[24px] border-[1px] border-[#D0D5DD] py-[10px] px-[14px] rounded-[8px]'></textarea>
           </div>
           <button type='submit' className='font-inter font-medium text-[16px] block leading-[24px] text-[#fff] w-[343px] xm:w-[100%] rounded-[8px] px-[20px] py-[12px] bg-[#1453FF] border-[1px] border-[#1453FF] shadow-footerInput mx-auto'>Hire Now</button>
