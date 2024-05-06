@@ -6,7 +6,6 @@ import Slider from "react-slick";
 import { useRouter } from 'next/navigation';
 import Footer from '@/components/footer/footer';
 import Navbar from '@/components/navbar/nav';
-// import { InlineWidget } from "react-calendly";
 import { PopupButton } from "react-calendly";
 
 
@@ -154,79 +153,78 @@ const Hire = () => {
             </Slider>
           </div>     
         </div>
-        <div className='px-[80px] lgx:px-[25px] sm:px-[16px] bg-[#FBFCFF] pt-[100px] sm:pt-[64px]'>
-            <h3 className='w-[768px] md:w-[100%] font-medium text-[48px] sm:text-[32px] text-[#101828] leading-[52.8px] sm:leading-[35.2px] '>
-                Why hire from us? a title for both testimonial and why
-            </h3>
-            <div className='my-[64px] sm:my-[24px] rounded-[16px] border-[1px] border-[transparent] overflow-hidden'>
-                <div className=''>
-                    <Image src='/hire-img.png' width={1280} height={432} alt='' className='sm:hidden'/>
-                    <Image src='/hire-mobile.png' width={467} height={294} alt='' className='hidden sm:block'/>
-                </div>
-                {/* <div className='bg-[#1453FF] py-[20px] flex flex-wrap gap-[48px] px-[40px]'> */}
-                <div className='bg-[#1453FF] py-[20px] flex flex-wrap justify-between sm:justify-around px-[40px] xm:px-[16px]'>
-                    {
-                        [1,2,3,4,5,6].map((ele, i) => 
+        <div className='bg-[bg-[#FBFCFF]]'>
+          <div className='px-[80px] lgx:px-[25px] sm:px-[16px] bg-[#FBFCFF] pt-[100px] sm:pt-[64px]'>
+              <h3 className='w-[768px] md:w-[100%] font-medium text-[48px] sm:text-[32px] text-[#101828] leading-[52.8px] sm:leading-[35.2px] '>
+                  Why hire from us? a title for both testimonial and why
+              </h3>
+              <div className='my-[64px] sm:my-[24px] rounded-[16px] border-[1px] border-[transparent] overflow-hidden'>
+                  <div className=''>
+                      <Image src='/hire-img.png' width={1280} height={432} alt='' className='sm:hidden'/>
+                      <Image src='/hire-mobile.png' width={467} height={294} alt='' className='hidden sm:block'/>
+                  </div>
+                  {/* <div className='bg-[#1453FF] py-[20px] flex flex-wrap gap-[48px] px-[40px]'> */}
+                  <div className='bg-[#1453FF] py-[20px] flex flex-wrap justify-between sm:justify-around px-[40px] xm:px-[16px]'>
+                      {
+                          [1,2,3,4,5,6].map((ele, i) => 
 
-                        // (<div key={i} style={{backgroundColor: changeStyle === i?'white':'#1453FF', dropShadow: changeStyle === i? '1px 1px 8px 0 rgba(255, 255, 255, 0.1)': '', borderRadius: changeStyle === i? '8px': ''}} className='w-[368px] p-[16px]' onMouseOver={() => handleMouseOver(i)} onMouseOut={() => handleMouseOut(i)}>
-                        (<div key={i} style={{backgroundColor: changeStyle === i?'white':'#1453FF', dropShadow: changeStyle === i? '1px 1px 8px 0 rgba(255, 255, 255, 0.1)': '', borderRadius: changeStyle === i? '8px': ''}} className='w-[33%] lg:w-[49%] sm:w-[100%] p-[16px] mb-[18px] align-center' onMouseOver={() => handleMouseOver(i)} onMouseOut={() => handleMouseOut(i)}>
-                            {changeStyle === i?<Image src='/diverse-active.png' width={48} height={48} alt='' />:<Image src='/diverse-main.png' width={48} height={48} alt='' />}
-                            <h4 style={{color: changeStyle === i?'#121927': '#fff'}} className='font-medium text-[24px] text-[#fff] leading-[11.71px] mt-[24px] mb-[8px]'>
-                                Diverse Expertise
-                            </h4>
-                            <p style={{color: changeStyle === i?"#787676":"#fff"}} className='font-regular text-[16px] text-[#fff] leading-[24px] '>
-                                A clean work environment makes all the difference and we worry about that on your behalf!
-                            </p>
-                        </div>)
-                    )}
-
-                </div>
-            </div>
-            
-        </div>
-        <section className='font-whyte bg-[#FBFCFF] px-[80px] xl:px-[25px] sm:px-[16px] pb-[100px] sm:pb-[64px] relative'>
-          
-          {/* <div className='w-[100%] rounded-[24px]'> */}
-          <div className='w-[100%]'>
-            <Slider ref={slider => {sliderRef = slider}} {...settings} className='w-[100%]'>
-                  {testimonials.map((testimonial, index) => {
-                    return(
-                        <div key={index} className='w-[100%] pl-[5px] sm:pl-[0px] border-[1px] border-[#EAEAEA] rounded-[16px] overflow-hidden'>
-                          <div  className='bg-[#fff] flex sm:flex-col justify-between relative'>
-                            <div className='w-[800px] 1xl:w-[680px] xxl:w-[610px] lgx:w-[570px] lg:w-[470px] md:w-[390px] sm:w-[100%] py-[90px] sm:pt-[29.73px] sm:pb-[36.27px] pr-[56px] pl-[24px] sm:pl-[8px] sm:pr-[0px] sm:order-2'>
-                              <h4 className='font-regular text-[18px] leading-[32px] tracking-[-2%] text-[#787676]  mb-[32px] sm:mb-[24px]'>
-                                {testimonial.text}
+                          // (<div key={i} style={{backgroundColor: changeStyle === i?'white':'#1453FF', dropShadow: changeStyle === i? '1px 1px 8px 0 rgba(255, 255, 255, 0.1)': '', borderRadius: changeStyle === i? '8px': ''}} className='w-[368px] p-[16px]' onMouseOver={() => handleMouseOver(i)} onMouseOut={() => handleMouseOut(i)}>
+                          (<div key={i} style={{backgroundColor: changeStyle === i?'white':'#1453FF', dropShadow: changeStyle === i? '1px 1px 8px 0 rgba(255, 255, 255, 0.1)': '', borderRadius: changeStyle === i? '8px': ''}} className='w-[33%] lg:w-[49%] sm:w-[100%] p-[16px] mb-[18px] align-center' onMouseOver={() => handleMouseOver(i)} onMouseOut={() => handleMouseOut(i)}>
+                              {changeStyle === i?<Image src='/diverse-active.png' width={48} height={48} alt='' />:<Image src='/diverse-main.png' width={48} height={48} alt='' />}
+                              <h4 style={{color: changeStyle === i?'#121927': '#fff'}} className='font-medium text-[24px] text-[#fff] leading-[11.71px] mt-[24px] mb-[8px]'>
+                                  Diverse Expertise
                               </h4>
-                              <h5 className='font-medium  sm:w-[100%] text-[18px] leading-[28px] text-[#787676]'>
-                                {testimonial.name}
-                              </h5>
-                              <p className='font-regular text-[16px] leading-[24px] text-[#BEBEBE] pb-[32px]'>{testimonial.position}</p>
-                              <div className='flex sm:justify-center gap-4'>
-                                {[...Array(testimonials.length).keys()].map((_, i) => (
-                                  <div
-                                    key={i}
-                                    className={`w-[10px] h-[10px] rounded-[6px] ${dotPosition === i ? 'bg-[#1453FF]': 'bg-[#667085]'}`}
-                                    onClick={() => goToSlide(index, i)}
-                                  ></div>
-                                ))}
+                              <p style={{color: changeStyle === i?"#787676":"#fff"}} className='font-regular text-[16px] text-[#fff] leading-[24px] '>
+                                  A clean work environment makes all the difference and we worry about that on your behalf!
+                              </p>
+                          </div>)
+                      )}
+
+                  </div>
+              </div>
+              
+          </div>
+          <section className='font-whyte bg-[#FBFCFF] px-[80px] xl:px-[25px] sm:px-[16px] pb-[100px] sm:pb-[64px] relative'>
+            
+            {/* <div className='w-[100%] rounded-[24px]'> */}
+            <div className='w-[100%]'>
+              <Slider ref={slider => {sliderRef = slider}} {...settings} className='w-[100%]'>
+                    {testimonials.map((testimonial, index) => {
+                      return(
+                          <div key={index} className='w-[100%] pl-[5px] sm:pl-[0px] border-[1px] border-[#EAEAEA] rounded-[16px] overflow-hidden'>
+                            <div  className='bg-[#fff] flex sm:flex-col justify-between relative'>
+                              <div className='w-[800px] 1xl:w-[680px] xxl:w-[610px] lgx:w-[570px] lg:w-[470px] md:w-[390px] sm:w-[100%] py-[90px] sm:pt-[29.73px] sm:pb-[36.27px] pr-[56px] pl-[24px] sm:pl-[8px] sm:pr-[0px] sm:order-2'>
+                                <h4 className='font-regular text-[18px] leading-[32px] tracking-[-2%] text-[#787676]  mb-[32px] sm:mb-[24px]'>
+                                  {testimonial.text}
+                                </h4>
+                                <h5 className='font-medium  sm:w-[100%] text-[18px] leading-[28px] text-[#787676]'>
+                                  {testimonial.name}
+                                </h5>
+                                <p className='font-regular text-[16px] leading-[24px] text-[#BEBEBE] pb-[32px]'>{testimonial.position}</p>
+                                <div className='flex sm:justify-center gap-4'>
+                                  {[...Array(testimonials.length).keys()].map((_, i) => (
+                                    <div
+                                      key={i}
+                                      className={`w-[10px] h-[10px] rounded-[6px] ${dotPosition === i ? 'bg-[#1453FF]': 'bg-[#667085]'}`}
+                                      onClick={() => goToSlide(index, i)}
+                                    ></div>
+                                  ))}
+                                </div>
+                                {/* <Image src='/quote.png' width={149} height={114} alt='quote' className=' absolute top-[0px]  left-[54.29px] 1xl:left-[40px] lg:left-[20px] sm:invisible visible' />
+                                <Image src='/quote-mobile.png' width={76} height={82} alt='quote' className='absolute top-[480px] xm:top-[350px] xxm:top-[270px] xxxm:top-[320px] xxxxm:top-[290px] sxm:top-[220px]  right-[15.23px] sm:visible invisible' /> */}
                               </div>
-                              {/* <Image src='/quote.png' width={149} height={114} alt='quote' className=' absolute top-[0px]  left-[54.29px] 1xl:left-[40px] lg:left-[20px] sm:invisible visible' />
-                              <Image src='/quote-mobile.png' width={76} height={82} alt='quote' className='absolute top-[480px] xm:top-[350px] xxm:top-[270px] xxxm:top-[320px] xxxxm:top-[290px] sxm:top-[220px]  right-[15.23px] sm:visible invisible' /> */}
-                            </div>
-                            <div>
-                              <Image src='/testimonial.png' width={480} height={465} alt='testimonial picture' className='sm:order-1 max-w-[100%] h-[100%] object-cover' />
+                              <div>
+                                <Image src='/testimonial.png' width={480} height={465} alt='testimonial picture' className='sm:order-1 max-w-[100%] h-[100%] object-cover' />
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        )})}
+                          )})}
 
-            </Slider>
-          </div>
-          {/* <Image src='/big-star.png' width={109} height={110} alt='big star' className='absolute top-[83px] lg:top-[40px] md:top-[20px] sm:hidden left-[107px] lg:left-[40px] md:left-[20px] '/>
-          <Image src='/medium-star.png' width={54} height={54} alt='medium star' className='absolute sm:top-[26px] sm:right-[14px] hidden sm:block'/>
-          <Image src='/small-star.png' width={43} height={44} alt='small star' className='absolute top-[174px] lg:top-[184px] right-[143px] lg:right-[103px] sm:hidden block'/>
-          <Image src='/smallest-star.png' width={21} height={21} alt='smallest star' className='absolute sm:top-[162px] sm:left-[23px] sm:block hidden' /> */}
-        </section>
+              </Slider>
+            </div>
+          </section>
+        </div>
+        
         <div className='px-[80px] xl:px-[25px] xm:px-[16px] py-[80px] sm:pt-[40px] sm:pb-[64px]'>
             <h4 className='font-medium w-[512px] sm:w-[60%] xm:w-[230px] text-[48px] text-center sm:text-[32px] text-[#101828] leading-[51.36px] sm:leading-[34.24px] tracking-[2%] mx-auto mb-[16px]'>
                 Get started in 3 steps
