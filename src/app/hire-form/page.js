@@ -35,19 +35,24 @@ const Form = () => {
   const [selectedRole, setSelectedRole] = useState([])
 
   const handleShowCheckbox = () => {
-    // setShowCheckbox(prev => !prev)
-    setShowCheckbox(true)
+    setShowCheckbox(prev => !prev)
   }
   const handleCloseCheckbox = () => {
-    setSelectedRole(values.role)
+    if (values.role.length === 0) {
+      setSelectedRole([])
+      setShowCheckbox(false);
+    } else {
+      setSelectedRole(values.role)
+      setShowCheckbox(false);
+    }
     console.log(values.role);
-    setShowCheckbox(false);
+    // setShowCheckbox(false);
   }
   const schema = yup.object({
     companyName: yup.string().required('Please enter the name of your company'),
     companyLocation: yup.string().required('Please enter the location of your company'),
     roleType: yup.string().required('Please select an option'),
-    role: yup.array().min(1, 'Please select at least one option'),
+    role: yup.array().min(1, 'Please select at least one option').required('Role needed is required'),
     roleMode: yup.string().required('Please select an option'),
     email: yup.string().email('Please enter a valid email').required('Email is required'),
     experienceLevel: yup.string().required('Please select an option'),
@@ -55,9 +60,11 @@ const Form = () => {
   });
 
   const onSubmit = async (values, actions) => {
-    console.log('values',values)
+    setLoader(true)
+    // console.log('values',values)
     hireTalent(values)
       .then(res => {
+        setLoader(false)
         if (res.status === 201) {
           setShowModal(true);
           setTimeout(() => {
@@ -68,6 +75,7 @@ const Form = () => {
       })
       .catch(err => {
         console.log(err);
+        setLoader(false)
       })
     actions.resetForm()
 }
@@ -103,11 +111,11 @@ const Form = () => {
               <input type='text' id='companyLocation' placeholder='Enter location' value={values.companyLocation} onChange={handleChange} onBlur={handleBlur} className='font-regular w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput'/>
             </div>
           </div>
-          <div className='relative'>
+          <div className='relative' >
             <div className='flex flex-col w-[100%] gap-[6px] mb-[24px]' onClick={handleShowCheckbox}>
                 <label className={errors.role && touched.role ? 'font-medium text-[14px] leading-[20px] text-[#fc8181] mb-[6px]':'font-medium text-[14px] leading-[20px] text-[#344054] mb-[6px]'}>{errors.role && touched.role ? errors.role:'Role needed'}</label>
-                <p className='font-regular w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput'>Product Manager</p>
-                {showCheckbox ? <IoIosArrowUp className='absolute right-[14px] top-[50px] transform-translate-y-1/2' />:<IoIosArrowDown className='absolute right-[14px] top-[50px] transform-translate-y-1/2'/> }
+                <p className='font-regular w-[100%] h-[48px] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput'>{selectedRole.length > 0 ? '':'Select Role'}</p>
+                {showCheckbox ? <IoIosArrowUp className='absolute right-[14px] top-[50px] text-[13.31px] text-[#909090] transform-translate-y-1/2' onClick={handleCloseCheckbox} />:<IoIosArrowDown className='absolute right-[14px] top-[50px] text-[13.31px] text-[#909090] transform-translate-y-1/2'/> }
             </div>
             {showCheckbox && <div className='z-10 w-[410px] sm:w-[90%] p-[24px] rounded-[8px] border-[1px] border-[#EAEAEA] shadow-footerInput bg-[#fff] absolute right-[0] top-[80px]'>
                 <div className='mb-[24px]'>
@@ -151,7 +159,7 @@ const Form = () => {
               <div className='flex flex-wrap gap-[5px] mb-[24px]'>
                 {
                   selectedRole.map((ele) => (
-                    <div className='flex items-center w-[24%] lgx:w-[32%] sm:w-[49%] mb-[5px] border-[1px] border-[#D0D5DD] rounded-[8px] shadow-footerInput px-[16px] md:px-[10px] py-[10px] xm:py-[4px]'>
+                    <div className='flex items-center w-[24%] lgx:w-[32%] sm:w-[49%] mb-[5px] border-[1px] border-[#D0D5DD] rounded-[8px] shadow-footerInput px-[16px] md:px-[10px] py-[5px] xm:py-[4px]'>
                       {/* <p className='font-inter font-regular w-[216.25px] rounded-[8px] text-[16px] text-[#667085] leading-[24px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput'>{ele}</p> */}
                       <p className='font-inter font-regular w-[100%]  text-[16px] sm:text-[14px] ssxm:text-[10px] text-[#667085] leading-[24px]  '>{ele}</p>
                       <span className=' text-[24px] sm:text-[20px] text-[#909090] '>&times;</span>
@@ -165,6 +173,7 @@ const Form = () => {
                 <div className='flex flex-col w-[48%] xm:w-[100%] gap-[6px] xm:mb-[16px]'>
                   <label className={errors.roleMode && touched.roleMode ? 'font-medium text-[14px] leading-[20px] text-[#fc8181]':'font-medium text-[14px] leading-[20px] text-[#344054]'}>{errors.roleMode && touched.roleMode ? errors.roleMode : 'Role Mode'}</label>
                   <select id='roleMode' onChange={handleChange} onBlur={handleBlur} className='font-regular w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput'>
+                    <option value=''>Select Role Mode</option>
                     <option value='hybrid'>Hybrid</option>
                     <option value='remote'>Remote</option>
                     <option value='onSite'>Onsite</option>
@@ -173,9 +182,10 @@ const Form = () => {
                 <div className='flex flex-col w-[48%] xm:w-[100%] gap-[6px] '>
                   <label className={errors.roleType && touched.roleType ? 'font-medium text-[14px] leading-[20px] text-[#fc8181]':'font-medium text-[14px] leading-[20px] text-[#344054]'}>{errors.roleType && touched.roleType?errors.roleType:'Role Type'}</label>
                   <select id='roleType' onChange={handleChange} onBlur={handleBlur} className='font-regular w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput'>
+                    <option value=''>Select Role Type</option>
                     <option value='contract'>Contract</option>
-                    <option value='fullTime'>Full-Time</option>
                     <option value='partTime'>Part-Time</option>
+                    <option value='fullTime'>Full-Time</option>
                   </select>
                 </div>
           </div>
@@ -187,6 +197,7 @@ const Form = () => {
             <div className='flex flex-col w-[48%] xm:w-[100%] gap-[6px] '>
               <label className={errors.experienceLevel && touched.experienceLevel?'font-medium text-[14px] leading-[20px] text-[#fc8181]':'font-medium text-[14px] leading-[20px] text-[#344054]'}>{errors.experienceLevel && touched.experienceLevel?errors.experienceLevel:'Experience Level'}</label>
               <select id='experienceLevel' onChange={handleChange} onBlur={handleBlur} className='font-regular w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput'>
+                <option value=''>Select Experience Level</option>
                 <option value='senior'>Senior</option>
                 <option value='mid'>Mid-Level</option>
                 <option value='junior'>Junior</option>
@@ -197,7 +208,7 @@ const Form = () => {
               <label className={errors.roleDescription && touched.roleDescription?'font-medium text-[14px] leading-[20px] text-[#fc8181] mb-[6px]':'font-medium text-[14px] leading-[20px] text-[#344054] mb-[6px]'}>{errors.roleDescription && touched.roleDescription ? errors.roleDescription:'Role Description'}</label>
               <textarea id='roleDescription' value={values.roleDescription} onChange={handleChange} onBlur={handleBlur} rows='5' cols='7' placeholder='Enter other requirements' className='font-regular w-[100%] text-[16px] leading-[24px] border-[1px] border-[#D0D5DD] py-[10px] px-[14px] rounded-[8px]'></textarea>
           </div>
-          <button type='submit' className='font-inter font-medium text-[16px] block leading-[24px] text-[#fff] w-[343px] xm:w-[100%] rounded-[8px] px-[20px] py-[12px] bg-[#1453FF] border-[1px] border-[#1453FF] shadow-footerInput mx-auto'>Hire Now</button>
+          <button type='submit' className='font-inter font-medium text-[16px] block leading-[24px] text-[#fff] w-[343px] xm:w-[100%] rounded-[8px] px-[20px] py-[12px] bg-[#1453FF] border-[1px] border-[#1453FF] shadow-footerInput mx-auto'>{loader ? <Image src='/loader.gif' width={16} height={16} alt='loader' className='mx-auto'/>:'Hire Now'}</button>
         </form>
         <Footer openModal={() => setShowModal(true)}/>
     </section>
