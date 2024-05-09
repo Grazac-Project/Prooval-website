@@ -1,26 +1,49 @@
 'use client'
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef, useCallback} from 'react'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { IoIosSearch } from "react-icons/io";
 import Navbar from '@/components/navbar/nav';
-import { fetchMentors } from '@/api/authentication/auth';
+import { fetchMentors, cancel } from '@/api/authentication/auth';
 import Image from 'next/image';
 import Footer from '@/components/footer/footer';
 import { FaArrowCircleUp } from "react-icons/fa";
 import Link from 'next/link';
 import Modal from '@/components/modal/modal';
+import axios from 'axios'
 // import { FaCircleArrowUp } from "react-icons/fa6";
 
 const Page = () => {
     const [listOfMentors, setListOfMentors] = useState([]);
     const [inputText, setInputText] = useState('');
+    const [page, setPage] = useState(1);
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
+    const [hasMorePages, setHasMorePages] = useState(false)
     const [notFound, setNotFound] = useState(false);
     const [showMentor, setShowMentor] = useState(true);
     const [positionStyle, setPositionStyle] = useState(false)
     const [showModal, setShowModal] = useState(false);
 
-    
+    const observer = useRef()
+    const lastMentorRef = useCallback(node => {
+      if(loading) return
+      if(observer.current) {
+        observer.current.disconnect()
+        
+      }
+      observer.current = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting && hasMorePages) {
+          setPage(prev => prev + 1)
+          // console.log('visible');
+        }
+      })
+      if(node) {
+        // console.log(node);
+        // console.log(observer.current);
+        observer.current?.observe(node)
+      }
+    }, [loading, hasMorePages])
     useEffect(() => {
         AOS.init({
           duration: 1000,
@@ -30,10 +53,20 @@ const Page = () => {
         });
       }, []);
 
+      useEffect(() =>{
+        setListOfMentors([])
+      }, [inputText])
+
     useEffect(() => {
-    fetchMentors(inputText)
+      setLoading(true)
+      setError(false)
+      let isMounted = true;
+    fetchMentors(inputText, page)
       .then((res) => {
         // console.log(res);
+        const remainingPages = res.data.data.remainingPages;
+       if(isMounted){
+        
         const mentors = res.data.data.mentors
         if ((mentors.length === 1 || mentors.length > 4) && inputText.length > 1) {
             setPositionStyle(true)
@@ -41,24 +74,45 @@ const Page = () => {
         // console.log(res.data.data.mentors[0].firstName);
         setShowMentor(true)
         setNotFound(false)
-        setListOfMentors(mentors)
+        // setListOfMentors(mentors)
+        setListOfMentors(prevMentors => {
+          // console.log(prevMentors);
+          return [...prevMentors, ...mentors]
+        })
+      }
+      console.log(remainingPages > 0);
+      setHasMorePages(remainingPages > 0)
+        setLoading(false)
 
       })
       .catch((err) => {
         // console.log(err.response.status);
-        if (err.response?.status) {
+       
+      
+        if(isMounted){
+          // if (axios.isCancel(err)) return
+          if (err.response?.status) {
+            console.log(err);
+            setLoading(false)
             setListOfMentors(undefined)
             setShowMentor(false)
             setNotFound(true)
         }
+        }
         // err.response.status === 404 && setListOfMentors(undefined)
       })
-  }, [inputText])
+      return () => {
+        isMounted = false; // Cleanup: Set isMounted to false when component unmounts
+        cancel()
+    };
+  }, [inputText, page])
+  
   const handleChange = (e) => {
     // e.preventDefault()
     const inputValue = e.target.value
     // console.log(inputValue);
     setInputText(inputValue)
+    setPage(1)
   }
   return (
     <section className='font-whyte'>
@@ -82,20 +136,49 @@ const Page = () => {
         {
             showMentor && (<div style={{justifyContent: positionStyle? 'start': 'center'}} className='flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center xm:justify-around lg:justify-start flex-wrap gap-[22px] pb-[0px] sm:pb-[0px]'>
             {
-              listOfMentors.map((listOfMentor, i) => {
-                return (
-                //   <div key={listOfMentor._id} className='font-whyte w-[23%] lg:w-[29%] '>
-                //   <div key={listOfMentor._id} className='font-whyte w-[23.6%] xxl:w-[23.4%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
-                  <div key={listOfMentor._id} className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
-                    <div className='h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden'>
+              listOfMentors?.map((listOfMentor, i) => {
+                if (listOfMentors.length === i+1) {
+                  return (
+                    //   <div key={listOfMentor._id} className='font-whyte w-[23%] lg:w-[29%] '>
+                    //   <div key={listOfMentor._id} className='font-whyte w-[23.6%] xxl:w-[23.4%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
+                      // <div key={listOfMentor._id} className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
+                      <div key={i} ref={lastMentorRef} className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
+                        <div className='h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden'>
+    
+                          <Image src={listOfMentor.image} width={343} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
+                        </div>
+                        <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{listOfMentor?.firstName} {listOfMentor?.lastName}</h4>
+                        <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{listOfMentor?.role}</h5>
+                        <p className='font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]'>{listOfMentor?.company}</p>
+                      </div>
+                    )
+                } else {
+                  return (
+                      <div key={listOfMentor._id}  className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
+                        <div className='h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden'>
+    
+                          <Image src={listOfMentor.image} width={343} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
+                        </div>
+                        <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{listOfMentor?.firstName} {listOfMentor?.lastName}</h4>
+                        <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{listOfMentor?.role}</h5>
+                        <p className='font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]'>{listOfMentor?.company}</p>
+                      </div>
+                    )
+                }
+                // return (
+                // //   <div key={listOfMentor._id} className='font-whyte w-[23%] lg:w-[29%] '>
+                // //   <div key={listOfMentor._id} className='font-whyte w-[23.6%] xxl:w-[23.4%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
+                //   // <div key={listOfMentor._id} className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
+                //   <div key={i} ref={lastMentorRef} className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
+                //     <div className='h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden'>
 
-                      <Image src={listOfMentor.image} width={343} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
-                    </div>
-                    <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{listOfMentor?.firstName} {listOfMentor?.lastName}</h4>
-                    <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{listOfMentor?.role}</h5>
-                    <p className='font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]'>{listOfMentor?.company}</p>
-                  </div>
-                )
+                //       <Image src={listOfMentor.image} width={343} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
+                //     </div>
+                //     <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{listOfMentor?.firstName} {listOfMentor?.lastName}</h4>
+                //     <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{listOfMentor?.role}</h5>
+                //     <p className='font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]'>{listOfMentor?.company}</p>
+                //   </div>
+                // )
               })
             }
         </div>)
@@ -108,6 +191,7 @@ const Page = () => {
                 </div>
             )
         }
+        {loading && <Image src='/spinner.gif' width={64} height={64} alt='loader' className='py-[5px] mx-auto'/>}
         <Link href='#hero-section'><Image src='/back-to-top.png' width={40} height={40} alt='back to top' className='cursor-pointer fixed bottom-[35px] right-[80px] sm:right-[16px]'/></Link>
         <Footer openModal={() => setShowModal(true)}/>    
     </section>

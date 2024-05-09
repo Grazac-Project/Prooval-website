@@ -171,7 +171,7 @@ const Form = () => {
                   selectedRole.map((ele, i) => (
                     <div key={i} className='flex items-center w-[24%] lgx:w-[32%] sm:w-[49%] mb-[5px] border-[1px] border-[#D0D5DD] rounded-[8px] shadow-footerInput px-[16px] md:px-[10px] py-[5px] xm:py-[4px]'>
                       {/* <p className='font-inter font-regular w-[216.25px] rounded-[8px] text-[16px] text-[#667085] leading-[24px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput'>{ele}</p> */}
-                      <p className='font-inter font-regular w-[100%]  text-[16px] sm:text-[14px] ssxm:text-[10px] text-[#667085] leading-[24px]  '>{ele}</p>
+                      <p className='font-inter font-regular w-[100%]  text-[16px] sm:text-[14px] ssxm:text-[10px] text-[#667085] leading-[24px] cursor-pointer '>{ele}</p>
                       <span className=' text-[24px] sm:text-[20px] text-[#909090] ' onClick={() => handleRemoveOption(i)}>&times;</span>
                     </div>
                   ))
