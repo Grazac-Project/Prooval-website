@@ -499,7 +499,8 @@ const Landing = () => {
       const mentors = res.data.data.mentors;
       const mentorsSlice = mentors.slice(0, 8);
       setListOfMentors(mentorsSlice);
-    });
+    })
+    .catch(err => console.log(err));
   }, []);
 
   useEffect(() => {

@@ -1,4 +1,5 @@
 import { authKit } from "./base";
+import axios from "axios";
 
 
 // let token = "";
@@ -10,6 +11,8 @@ import { authKit } from "./base";
 // } catch (err) {
 //   //err
 // }
+export let cancel;
+
 
 export const signupAction = (data) => {
     return authKit.post('api/v1/user/signup', data)
@@ -35,8 +38,10 @@ export const newsLetterSub = (data) => {
 export const faqForm = (data) => {
   return authKit.post('api/v1/user/faqform', data)
 }
-export const fetchMentors = (data) => {
-  return authKit.get(`api/v1/mentors/searchAll?query=${data}`)
+export const fetchMentors = (data, page) => {
+  return authKit.get(`api/v1/mentors/searchAll?query=${data}&page=${page}`, {
+    cancelToken: new axios.CancelToken(c => cancel = c)
+  })
 }
 export const hireTalent = (data) => {
   return authKit.post('api/v1/hire/add', data)
