@@ -1,5 +1,5 @@
 'use client'
-import React, {useEffect, useState, useRef, useCallback} from 'react'
+import React, {useEffect, useState, useRef, useCallback, useMemo} from 'react'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { IoIosSearch } from "react-icons/io";
@@ -12,6 +12,7 @@ import Link from 'next/link';
 import Modal from '@/components/modal/modal';
 import axios from 'axios'
 // import { FaCircleArrowUp } from "react-icons/fa6";
+
 
 const Page = () => {
     const [listOfMentors, setListOfMentors] = useState([]);
@@ -35,12 +36,9 @@ const Page = () => {
       observer.current = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting && hasMorePages) {
           setPage(prev => prev + 1)
-          // console.log('visible');
         }
       })
       if(node) {
-        // console.log(node);
-        // console.log(observer.current);
         observer.current?.observe(node)
       }
     }, [loading, hasMorePages])
@@ -76,7 +74,6 @@ const Page = () => {
         setNotFound(false)
         // setListOfMentors(mentors)
         setListOfMentors(prevMentors => {
-          // console.log(prevMentors);
           return [...prevMentors, ...mentors]
         })
       }
@@ -87,13 +84,12 @@ const Page = () => {
       })
       .catch((err) => {
         // console.log(err.response.status);
-       
+        setLoading(false)
       
         if(isMounted){
           // if (axios.isCancel(err)) return
           if (err.response?.status) {
             console.log(err);
-            setLoading(false)
             setListOfMentors(undefined)
             setShowMentor(false)
             setNotFound(true)
@@ -108,7 +104,6 @@ const Page = () => {
   }, [inputText, page])
   
   const handleChange = (e) => {
-    // e.preventDefault()
     const inputValue = e.target.value
     // console.log(inputValue);
     setInputText(inputValue)
@@ -139,9 +134,7 @@ const Page = () => {
               listOfMentors?.map((listOfMentor, i) => {
                 if (listOfMentors.length === i+1) {
                   return (
-                    //   <div key={listOfMentor._id} className='font-whyte w-[23%] lg:w-[29%] '>
-                    //   <div key={listOfMentor._id} className='font-whyte w-[23.6%] xxl:w-[23.4%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
-                      // <div key={listOfMentor._id} className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
+                   
                       <div key={i} ref={lastMentorRef} className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
                         <div className='h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden'>
     
@@ -165,20 +158,7 @@ const Page = () => {
                       </div>
                     )
                 }
-                // return (
-                // //   <div key={listOfMentor._id} className='font-whyte w-[23%] lg:w-[29%] '>
-                // //   <div key={listOfMentor._id} className='font-whyte w-[23.6%] xxl:w-[23.4%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
-                //   // <div key={listOfMentor._id} className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
-                //   <div key={i} ref={lastMentorRef} className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
-                //     <div className='h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden'>
-
-                //       <Image src={listOfMentor.image} width={343} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
-                //     </div>
-                //     <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]'>{listOfMentor?.firstName} {listOfMentor?.lastName}</h4>
-                //     <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{listOfMentor?.role}</h5>
-                //     <p className='font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]'>{listOfMentor?.company}</p>
-                //   </div>
-                // )
+               
               })
             }
         </div>)
