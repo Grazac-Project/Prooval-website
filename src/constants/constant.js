@@ -89,6 +89,23 @@ export const testimonials = [
     text: "Love the simplicity of the service and the prompt customer support. We can’t imagine working without it.",
   },
 ];
+export const hireTestimonials = [
+  {
+    name: "Renee Wells",
+    position: "Product Designer, Quotient",
+    text: "Our experience with HacktheJobs has been outstanding. Within a short span, they revolutionized our hiring process, enabling us to secure top-notch tech talent swiftly. Thanks to their expertise, we successfully onboarded [Name], who has seamlessly integrated into our team and is exceeding expectations, driving innovation, and elevating our projects to new heights.",
+  },
+  {
+    name: "Renee Wells 2",
+    position: "Product Designer, Quotient",
+    text: "Our experience with HacktheJobs has been outstanding. Within a short span, they revolutionized our hiring process, enabling us to secure top-notch tech talent swiftly. Thanks to their expertise, we successfully onboarded [Name], who has seamlessly integrated into our team and is exceeding expectations, driving innovation, and elevating our projects to new heights.",
+  },
+  {
+    name: "Renee Wells 3",
+    position: "Product Designer, Quotient",
+    text: "Our experience with HacktheJobs has been outstanding. Within a short span, they revolutionized our hiring process, enabling us to secure top-notch tech talent swiftly. Thanks to their expertise, we successfully onboarded [Name], who has seamlessly integrated into our team and is exceeding expectations, driving innovation, and elevating our projects to new heights.",
+  },
+];
 export const TeamCards = [
   {
     name: "Olivia Rhye",
@@ -186,22 +203,49 @@ export const CoreValue = [
   },
 ];
 
+export const hirePitch = [
+  {
+    heading: 'Access to Diverse Talents',
+    text: 'HacktheJobs offers access to a diverse talent pool, drawing from various backgrounds and skills, fostering creativity and innovation in teams through a range of perspectives.'
+  },
+  {
+    heading: 'Quality Candidates',
+    text: 'We rigorously screen and vet candidates to ensure they have the skills and qualifications for their roles.'
+  },
+  {
+    heading: 'Cost - Effective Hiring',
+    text: 'HacktheJobs provides a cost-effective hiring solution. No hefty fees or overhead costs; access top talent without overspending. Save time and resources in the hiring process.'
+  },
+  {
+    heading: 'Efficient Recruitment Process',
+    text: 'HacktheJobs streamlines recruitment, connecting companies with qualified candidates. Post listings, schedule interviews, and communicate seamlessly.'
+  },
+  {
+    heading: 'Flexibility & Scalability',
+    text: 'Accommodating diverse hiring needs, we offer flexibility to scale efforts, connecting efficiently with candidates for various roles and opportunities.'
+  },
+  {
+    heading: 'Supportive Community',
+    text: 'Employers joining HacktheJobs become part of a vibrant community valuing collaboration, mentorship, and continuous learning, fostering dynamic work environments.'
+  },
+]
+
 export const hireSteps = [
   {
-    heading: 'Fill the requirement form',
-    text: 'Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ',
+    heading: 'Fill Out the Form',
+    text: 'Fill out the form clearly, stating your company details and specific details about the role you are filling. The form is designed to help us match you with the perfect candidate ',
     img: '/hire-1.png',
     bg: '#F6FAFF'
   },
   {
-    heading: 'Get profiles',
-    text: 'Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ',
+    heading: 'Profile Matching',
+    text: "Once you've filled out the form, we'll match you with ideal tech talent, assessing portfolios and real-world project experience for suitability.",
     img: '/hire-2.png',
     bg: '#FFFBF2'
   },
   {
-    heading: 'Evaluate Candidates',
-    text: 'Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ',
+    heading: 'Interview and Hire',
+    text: 'Arrange calls with shortlisted candidates, schedule interviews, and manage hiring from a single platform. Utilize our tools for seamless onboarding.',
     img: '/hire-3.png',
     bg: '#F0FFF1'
   },

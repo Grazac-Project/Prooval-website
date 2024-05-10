@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import React, { useState, useRef, useEffect } from 'react'
-import { testimonials, hireSteps, hireSkills } from '@/constants/constant';
+import { hireTestimonials, hirePitch, hireSteps, hireSkills } from '@/constants/constant';
 import Slider from "react-slick";
 import { useRouter } from 'next/navigation';
 import Footer from '@/components/footer/footer';
@@ -91,10 +91,10 @@ const Hire = () => {
         <Navbar />
         <div className='p-[80px] xl:px-[25px] xm:px-[16px] xm:py-[54px]' id='root'>
             <h1 className='font-medium text-[52px] sm:text-[40px] text-[#121927] leading-[54px] sm:leading-[44px] text-center w-[607px] sm:w-[80%] xm:w-[100%] mx-auto mb-[8px]'>
-                Fuel Your Success: Hire Top Tech Talents
+                Discover Exceptional Talents for Your Team!
             </h1>
             <p className='w-[689px] md:w-[100%] text-[16px] text-[#4F5452] tracking-[-0.25%] leading-[24px] text-center mx-auto mb-[32px]'>
-                Attract top tech talent for your company's success. Connect with skilled professionals and drive innovation in your projects effortlessly.
+                Connect with skilled professionals and drive innovation in your projects effortlessly. Hire exceptional talents to build your competent and dynamic team today!
             </p>
             <div className=' flex justify-center gap-[24px] sm:gap-[8px]'>
                 <button className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#1453FF] text-[#FAFAFA]' onClick={handleHire}>
@@ -109,9 +109,6 @@ const Hire = () => {
                     text="Book a Call"
                     className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#FAFAFA] text-[#1453FF] border-[2px] border-[#1453FF]'
                   />
-                  {/* <div className="">
-                    <InlineWidget url="https://calendly.com/your_scheduling_page" />
-                  </div> */}
             </div>
         </div>
         <div className='bg-[#F9F9F9] px-[80px] xl:px-[25px] xm:px-[16px] py-[40px]'>
@@ -119,44 +116,38 @@ const Hire = () => {
                 Trusted by Top Brands
             </h2>
             <p className='w-[689px] sm:w-[100%] font-regular text-[16px] text-[#4F5452] text-center leading-[24px] tracking-[-0.5%] mt-[8px] mb-[32px] mx-auto'>
-                Attract top tech talent for your company's success. Connect with skilled professionals and drive innovation in your projects effortlessly.
+                Here are some of the brands that believe in our talents.
             </p>
             <div className='sm:hidden flex justify-between items-center'>
-                <Image src='/figma.png' alt='' width={40} height={60} /> 
-                <Image src='/stripe.png' alt='' width={124} height={60} /> 
-                <Image src='/slack.png' alt='' width={232} height={60} /> 
-                <Image src='/spotify.png' alt='' width={196} height={60} /> 
-                <Image src='/google.png' alt='' width={188} height={60} /> 
-                <Image src='/hire-apple.png' alt='' width={59} height={72} /> 
+                <Image src='/figma.png' alt='company logo' width={40} height={60} /> 
+                <Image src='/stripe.png' alt='company logo' width={124} height={60} /> 
+                <Image src='/slack.png' alt='company logo' width={232} height={60} /> 
+                <Image src='/spotify.png' alt='company logo' width={196} height={60} /> 
+                <Image src='/google.png' alt='company logo' width={188} height={60} /> 
+                <Image src='/hire-apple.png' alt='company logo' width={59} height={72} /> 
             </div>
-            <div className='hidden sm:block sm:pb-[40px] sm:w-[100%] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
+            <div className='hidden sm:block  w-[100%] mx-auto px-[16px]'>
             <Slider ref={slider => {sliderRef = slider}} {...logoSettings} className=''>
                 <div className='pl-[10px]'>
-                    <Image src='/figma.png' alt='' width={40} height={60} /> 
+                    <Image src='/stripe-mobile.png' alt='company logo' width={71} height={34} />  
                 </div>
                 <div className='pl-[10px]'>
-                    <Image src='/stripe.png' alt='' width={124} height={60} />  
+                    <Image src='/slack-mobile.png' alt='company logo' width={131} height={34} /> 
                 </div>
                 <div className='pl-[10px]'>
-                    <Image src='/slack.png' alt='' width={232} height={60} /> 
+                    <Image src='/spotify-mobile.png' alt='company logo' width={110} height={34} /> 
                 </div>
                 <div className='pl-[10px]'>
-                    <Image src='/spotify.png' alt='' width={196} height={60} /> 
-                </div>
-                <div className='pl-[10px]'>
-                    <Image src='/google.png' alt='' width={188} height={60} /> 
-                </div>
-                <div className='pl-[10px]'>
-                    <Image src='/hire-apple.png' alt='' width={59} height={72} /> 
+                    <Image src='/google-mobile.png' alt='company logo' width={107} height={34} /> 
                 </div>
                 
             </Slider>
           </div>     
         </div>
         <div className='bg-[bg-[#FBFCFF]]'>
-          <div className='px-[80px] lgx:px-[25px] sm:px-[16px] bg-[#FBFCFF] pt-[100px] sm:pt-[64px]'>
+          <div className='px-[80px] xl:px-[25px] lgx:px-[25px] sm:px-[16px] bg-[#FBFCFF] pt-[100px] sm:pt-[64px]'>
               <h3 className='w-[768px] md:w-[100%] font-medium text-[48px] sm:text-[32px] text-[#101828] leading-[52.8px] sm:leading-[35.2px] '>
-                  Why hire from us? a title for both testimonial and why
+                  Why hire at HacktheJobs?
               </h3>
               <div className='my-[64px] sm:my-[24px] rounded-[16px] border-[1px] border-[transparent] overflow-hidden'>
                   <div className=''>
@@ -164,18 +155,18 @@ const Hire = () => {
                       <Image src='/hire-mobile.png' width={467} height={294} alt='' className='hidden sm:block'/>
                   </div>
                   {/* <div className='bg-[#1453FF] py-[20px] flex flex-wrap gap-[48px] px-[40px]'> */}
-                  <div className='bg-[#1453FF] py-[20px] flex flex-wrap justify-between sm:justify-around px-[40px] xm:px-[16px]'>
+                  <div className='bg-[#1453FF] py-[20px] flex flex-wrap justify-between sm:justify-around px-[40px] xl:px-[16px] xxxm:px-[8px]'>
                       {
-                          [1,2,3,4,5,6].map((ele, i) => 
+                          hirePitch.map((element, i) => 
 
                           // (<div key={i} style={{backgroundColor: changeStyle === i?'white':'#1453FF', dropShadow: changeStyle === i? '1px 1px 8px 0 rgba(255, 255, 255, 0.1)': '', borderRadius: changeStyle === i? '8px': ''}} className='w-[368px] p-[16px]' onMouseOver={() => handleMouseOver(i)} onMouseOut={() => handleMouseOut(i)}>
-                          (<div key={i} style={{backgroundColor: changeStyle === i?'white':'#1453FF', dropShadow: changeStyle === i? '1px 1px 8px 0 rgba(255, 255, 255, 0.1)': '', borderRadius: changeStyle === i? '8px': ''}} className='w-[33%] lg:w-[49%] sm:w-[100%] p-[16px] mb-[18px] align-center' onMouseOver={() => handleMouseOver(i)} onMouseOut={() => handleMouseOut(i)}>
+                          (<div key={i} style={{backgroundColor: changeStyle === i?'white':'#1453FF', dropShadow: changeStyle === i? '1px 1px 8px 0 rgba(255, 255, 255, 0.1)': '', borderRadius: changeStyle === i? '8px': ''}} className='w-[33%] lg:w-[49%] sm:w-[100%] p-[16px] xl:px-[8px] mb-[18px] align-center' onMouseOver={() => handleMouseOver(i)} onMouseOut={() => handleMouseOut(i)}>
                               {changeStyle === i?<Image src='/diverse-active.png' width={48} height={48} alt='' />:<Image src='/diverse-main.png' width={48} height={48} alt='' />}
-                              <h4 style={{color: changeStyle === i?'#121927': '#fff'}} className='font-medium text-[24px] text-[#fff] leading-[11.71px] mt-[24px] mb-[8px]'>
-                                  Diverse Expertise
+                              <h4 style={{color: changeStyle === i?'#121927': '#fff'}} className='font-medium text-[24px] 1xl:text-[20px] text-[#fff] leading-[11.71px] xl:leading-[20px] mt-[24px] mb-[8px]'>
+                                  {element.heading}
                               </h4>
                               <p style={{color: changeStyle === i?"#787676":"#fff"}} className='font-regular text-[16px] text-[#fff] leading-[24px] '>
-                                  A clean work environment makes all the difference and we worry about that on your behalf!
+                                  {element.text}
                               </p>
                           </div>)
                       )}
@@ -189,11 +180,11 @@ const Hire = () => {
             {/* <div className='w-[100%] rounded-[24px]'> */}
             <div className='w-[100%]'>
               <Slider ref={slider => {sliderRef = slider}} {...settings} className='w-[100%]'>
-                    {testimonials.map((testimonial, index) => {
+                    {hireTestimonials.map((testimonial, index) => {
                       return(
                           <div key={index} className='w-[100%] pl-[5px] sm:pl-[0px] border-[1px] border-[#EAEAEA] rounded-[16px] overflow-hidden'>
                             <div  className='bg-[#fff] flex sm:flex-col justify-between relative'>
-                              <div className='w-[800px] 1xl:w-[680px] xxl:w-[610px] lgx:w-[570px] lg:w-[470px] md:w-[390px] sm:w-[100%] py-[90px] sm:pt-[29.73px] sm:pb-[36.27px] pr-[56px] pl-[24px] sm:pl-[8px] sm:pr-[0px] sm:order-2'>
+                              <div className=' w-[800px] 1xl:w-[680px] xxl:w-[610px] lgx:w-[570px] lg:w-[470px] md:w-[390px] sm:w-[100%] py-[90px] sm:pt-[29.73px] sm:pb-[36.27px] pr-[56px] pl-[24px] sm:pl-[8px] sm:pr-[0px] sm:order-2'>
                                 <h4 className='font-regular text-[18px] leading-[32px] tracking-[-2%] text-[#787676]  mb-[32px] sm:mb-[24px]'>
                                   {testimonial.text}
                                 </h4>
@@ -202,7 +193,7 @@ const Hire = () => {
                                 </h5>
                                 <p className='font-regular text-[16px] leading-[24px] text-[#BEBEBE] pb-[32px]'>{testimonial.position}</p>
                                 <div className='flex sm:justify-center gap-4'>
-                                  {[...Array(testimonials.length).keys()].map((_, i) => (
+                                  {[...Array(hireTestimonials.length).keys()].map((_, i) => (
                                     <div
                                       key={i}
                                       className={`w-[10px] h-[10px] rounded-[6px] ${dotPosition === i ? 'bg-[#1453FF]': 'bg-[#667085]'}`}
@@ -227,10 +218,10 @@ const Hire = () => {
         
         <div className='px-[80px] xl:px-[25px] xm:px-[16px] py-[80px] sm:pt-[40px] sm:pb-[64px]'>
             <h4 className='font-medium w-[512px] sm:w-[60%] xm:w-[230px] text-[48px] text-center sm:text-[32px] text-[#101828] leading-[51.36px] sm:leading-[34.24px] tracking-[2%] mx-auto mb-[16px]'>
-                Get started in 3 steps
+              Steps to Hiring Your Talent
             </h4>
             <p className='font-regular w-[430px] sm:w-[100%] text-[16px] text-[#667085] text-center leading-[24px] mx-auto mb-[48px]'>
-                Morbi sed imperdiet in ipsum, adipiscing elit dui lectus.  adipiscing elit dui lectus. 
+              Recruit  
             </p>
             <div className='flex flex-wrap justify-between sm:justify-around mb-[32px]'>
                 {
