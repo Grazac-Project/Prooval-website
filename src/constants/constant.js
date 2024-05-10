@@ -205,26 +205,38 @@ export const CoreValue = [
 
 export const hirePitch = [
   {
+    image: '/access.png',
+    imageHover: '/access-hover.png',
     heading: 'Access to Diverse Talents',
     text: 'HacktheJobs offers access to a diverse talent pool, drawing from various backgrounds and skills, fostering creativity and innovation in teams through a range of perspectives.'
   },
   {
+    image: '/quality.png',
+    imageHover: '/quality-hover.png',
     heading: 'Quality Candidates',
     text: 'We rigorously screen and vet candidates to ensure they have the skills and qualifications for their roles.'
   },
   {
+    image: '/cost.png',
+    imageHover: '/cost-hover.png',
     heading: 'Cost - Effective Hiring',
     text: 'HacktheJobs provides a cost-effective hiring solution. No hefty fees or overhead costs; access top talent without overspending. Save time and resources in the hiring process.'
   },
   {
+    image: '/efficient.png',
+    imageHover: '/efficient-hover.png',
     heading: 'Efficient Recruitment Process',
     text: 'HacktheJobs streamlines recruitment, connecting companies with qualified candidates. Post listings, schedule interviews, and communicate seamlessly.'
   },
   {
+    image: '/flexibility.png',
+    imageHover: '/flexibility-hover.png',
     heading: 'Flexibility & Scalability',
     text: 'Accommodating diverse hiring needs, we offer flexibility to scale efforts, connecting efficiently with candidates for various roles and opportunities.'
   },
   {
+    image: '/supportive.png',
+    imageHover: '/supportive-hover.png',
     heading: 'Supportive Community',
     text: 'Employers joining HacktheJobs become part of a vibrant community valuing collaboration, mentorship, and continuous learning, fostering dynamic work environments.'
   },
