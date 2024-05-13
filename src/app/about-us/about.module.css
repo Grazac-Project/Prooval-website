@@ -1,0 +1,378 @@
+.about {
+  width: 1280px;
+  margin: 0 auto;
+}
+.intro {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 24px;
+  margin-bottom: 48px;
+}
+.intro h1 {
+  font-family: var(--font-whyte);
+  font-size: 74px;
+  line-height: 87px;
+  width: 470px;
+}
+.intro p {
+  font-family: var(--font-whyte);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  width: 717px;
+  color: #414141;
+}
+.exc {
+  color: #1453ff;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 2s;
+}
+.for {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  animation-delay: 1s;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.mission {
+  width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  margin: 132px auto;
+  gap: 64px;
+}
+.mission h4 {
+  font-family: var(--font-whyte);
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 53px;
+  width: 768px;
+  color: #101828;
+}
+.mission p {
+  font-family: var(--font-whyte);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  width: 448px;
+  color: #667085;
+}
+.story {
+  width: 1280px;
+  margin: 0 auto;
+}
+.story h4 {
+  font-family: var(--font-whyte);
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 53px;
+  margin-bottom: 64px;
+  color: #101828;
+}
+.storyImg {
+  display: none;
+}
+.story p {
+  font-family: var(--font-whyte);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #667085;
+  width: 608px;
+}
+.storyFlex {
+  width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 64px;
+  gap: 64px;
+  margin-bottom: 132px;
+}
+.teamText {
+  width: 580px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+}
+.teamText h3 {
+  font-family: var(--font-whyte);
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 53px;
+  color: #101828;
+  margin-bottom: 20px;
+}
+.teamText p {
+  font-family: var(--font-whyte);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #667085;
+}
+.galleryFlex {
+  width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  margin: 64px auto;
+}
+
+.card h5 {
+  font-family: var(--font-whyte);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  color: #101828;
+  margin-top: 25px;
+}
+.card span {
+  font-family: var(--font-whyte);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #1453ff;
+}
+.social {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.donation {
+  width: 1440px;
+  margin: 0 auto;
+  background-color: #121927;
+  padding: 73px 80px;
+  /* border-radius: 16px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 179px; */
+
+  /* position: relative; */
+}
+.donateText {
+  width: 593px;
+  background-image: url("/kite.svg");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  /* text-align: center; */
+  /* margin: 0 auto; */
+}
+
+.donateText h3 {
+  font-family: var(--font-whyte);
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 58px;
+  color: white;
+}
+.donateText p {
+  font-family: var(--font-whyte);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #f8f8f8;
+  margin: 32px 0;
+  width: 546px;
+  text-align: none;
+}
+.donateText button {
+  padding: 20px 40px;
+  background-color: #1453ff;
+  font-family: var(--font-whyte);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: white;
+  border-radius: 8px;
+}
+
+.gallerySlide {
+  display: none;
+}
+@media screen and (max-width: 1440px) {
+  .about {
+    width: 100%;
+  }
+  .intro {
+    width: 90%;
+  }
+  .mission {
+    width: 90%;
+  }
+  .donation {
+    width: 100%;
+  }
+  .story {
+    width: 90%;
+  }
+  .storyFlex {
+    width: 100%;
+  }
+
+  .donationFlex {
+    width: 90%;
+  }
+  .galleryFlex {
+    width: 90%;
+  }
+  .storyFlex {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .mission h4 {
+    width: 50%;
+  }
+  .mission p {
+    width: 50%;
+  }
+  .donateText {
+    width: 50%;
+    background-position: bottom right;
+  }
+  .donateText h3 {
+    font-size: 42px;
+  }
+  .donateText p {
+    width: 100%;
+  }
+  .donation {
+    padding: 73px 60px;
+    gap: 50px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .donateText {
+    width: 90%;
+    text-align: center;
+    margin: auto;
+    background-image: none;
+  }
+  .donation {
+    padding: 75px 0;
+    display: block;
+    background-image: url(/stars1.svg);
+    background-position: top right;
+    background-repeat: no-repeat;
+  }
+  .donation p {
+    margin: 24px 0;
+  }
+  .donateImg {
+    display: none;
+  }
+  .star {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .intro {
+    display: block;
+    width: 95%;
+  }
+  .intro h1 {
+    line-height: 63.49px;
+    width: 100%;
+  }
+  .intro p {
+    width: 100%;
+    margin-top: 24px;
+  }
+  .mission {
+    display: block;
+    width: 95%;
+    margin: 54px auto;
+  }
+  .mission h4 {
+    width: 100%;
+    font-size: 40px;
+  }
+  .mission p {
+    width: 100%;
+    margin-top: 24px;
+    /* font-size: 16px; */
+  }
+  .story h4 {
+    font-size: 40px;
+  }
+  .storyFlex {
+    display: block;
+    width: 95%;
+  }
+  .storyFlex p {
+    width: 100%;
+  }
+  .galleryFlex {
+    display: none;
+  }
+  .gallerySlide {
+    display: block;
+    width: 95%;
+    margin: 32px auto;
+    gap: 12px;
+  }
+  .teamText h3 {
+    font-size: 40px;
+  }
+  .teamText {
+    width: 95%;
+  }
+
+  .teamText p {
+    width: 100%;
+  }
+
+  .card {
+    width: 310px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .intro h1 {
+    font-size: 54px;
+  }
+  .mission h4 {
+    font-size: 35px;
+    line-height: 35.2px;
+  }
+  .story h4 {
+    font-size: 35px;
+  }
+  .teamText h3 {
+    font-size: 35px;
+  }
+  .donation {
+    padding-top: 70px;
+    padding-bottom: 33px;
+    margin-top: 40px;
+  }
+  .donation h3 {
+    font-size: 32px;
+    line-height: 38.4px;
+  }
+  .donation p {
+    margin: 16px 0;
+  }
+  .storyImg {
+    display: block;
+  }
+  .storyImg1 {
+    display: none;
+  }
+}
+
+.slick-slide {
+  margin-right: 10px; /* Adjust as needed */
+}
