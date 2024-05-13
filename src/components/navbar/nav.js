@@ -25,14 +25,14 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/#"
                   style={{color: pathname === "/about-us" ? "#1453ff" : "#667085"}}
                 >
                   About Us
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/faq" 
                 style={{color: pathname === "/faq" ? "#1453ff" : "#667085"}}
@@ -67,11 +67,11 @@ const Navbar = () => {
                     Home
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link href="/#" onClick={() => setDropdown(false)}  style={{color: pathname === "/about-us" ? "#1453ff" : ""}}>
                     About Us
                   </Link>
-                </li>
+                </li> */}
                 <li>
                   <Link href="/faq" onClick={() => setDropdown(false)}  style={{color: pathname === "/faq" ? "#1453ff" : ""}}>
                     FAQ

@@ -62,7 +62,7 @@ const Donation = () => {
             their size or budget. We focus on the details of everything we do.
           </p>
         </div>
-        <button>Make donation</button>
+        <button>Coming soon...</button>
       </div>
       <div className={Classes.why}>
         <div className={Classes.whyFlex} >

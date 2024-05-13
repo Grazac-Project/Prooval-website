@@ -89,11 +89,11 @@ const Footer = ({ openModal }) => {
               </li>
             </Link>
             {/* <Link href="/about-us"> */}
-            <Link href="/#">
+            {/* <Link href="/#">
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 About
               </li>
-            </Link>
+            </Link> */}
             <Link href="/faq">
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 FAQ

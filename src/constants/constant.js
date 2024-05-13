@@ -74,19 +74,28 @@ export const imageCards = [
 
 export const testimonials = [
   {
-    name: "Renee Wells",
-    position: "Product Designer, Quotient",
-    text: "Love the simplicity of the service and the prompt customer support. We can’t imagine working without it.",
+    name: "Fred Abodunrin",
+    position: "Back-End Dev, Grazac",
+    text: "The atmosphere was incredibly conducive, and the mentors played a pivotal role in shaping my professional path.",
+    img: '/fred.png'
   },
   {
-    name: "Renee Wells 2",
-    position: "Product Designer, Quotient",
-    text: "Love the simplicity of the service and the prompt customer support. We can’t imagine working without it.",
+    name: "Aretola Joseph",
+    position: "Mobile Engineer at Zero Complex AI",
+    text: "The mentors didn't just teach, they encouraged me, fueled my passion and pushed me to exceed my expectations. ",
+    img: '/joseph.png'
   },
   {
-    name: "Renee Wells 3",
-    position: "Product Designer, Quotient",
-    text: "Love the simplicity of the service and the prompt customer support. We can’t imagine working without it.",
+    name: "Olugbemi Tobiloba",
+    position: "FrontEnd Engineer at Creditchek",
+    text: "They did an amazing job making sure everyone felt included and supported. I highly recommend their services!",
+    img: '/tobi.png'
+  },
+  {
+    name: "Olatunji Mansur",
+    position: "Product Manager at Grazac",
+    text: "Embarking on my journey into product management at HacktheJobs  was a game-changer for me. ",
+    img: '/mansur.png'
   },
 ];
 export const hireTestimonials = [
