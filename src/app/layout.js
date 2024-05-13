@@ -103,15 +103,17 @@ export const metadata = {
   title: "Hack the Jobs",
   description:
     "HacktheJobs - Gain real life working Experience Bridge the gap between the completion of your Bootcamp and landing your dream tech role by getting relevant working experience through HacktheJobs",
+  icons: {
+    icon: '/favicon.png'
+
+  }
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable} ${whyte.variable}`}
-      >
-        {children}
+      <body className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable} ${whyte.variable}`}>
+          {children}
       </body>
     </html>
   );

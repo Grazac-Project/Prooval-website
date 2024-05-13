@@ -10,6 +10,8 @@ import * as yup from "yup";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { faqForm } from "@/api/authentication/auth";
+import Modal from "@/components/modal/modal";
+import FaqModal from "@/components/modal/faqModal";
 
 const initialValues = {
   email: "",
@@ -22,10 +24,14 @@ const Faq = () => {
   const [show, setShow] = useState({});
   const [show2, setShow2] = useState({});
   const [question, setQuestion] = useState(false);
+  const [loading, setLoading] = useState(false)
+  const [showModal, setShowModal] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
+
+
 
   const handleToggle = (id) => {
     console.log(id);
-
     setShow((prevshow) => ({
       ...prevshow,
       [id]: !prevshow[id],
@@ -34,7 +40,6 @@ const Faq = () => {
   };
   const handleToggle2 = (id) => {
     console.log(id);
-
     setShow2((prevshow) => ({
       ...prevshow,
       [id]: !prevshow[id],
@@ -46,8 +51,8 @@ const Faq = () => {
       .string()
       .email("Please enter a valid email")
       .required("Email is required"),
-    firstName: yup.string().required("Firstname is required"),
-    lastName: yup.string().required("Lastname is required"),
+    firstName: yup.string().required("First name is required"),
+    lastName: yup.string().required("Last name is required"),
     msg: yup.string().required("Message is required"),
   });
   const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
@@ -55,12 +60,14 @@ const Faq = () => {
       initialValues,
       validationSchema: schema,
       onSubmit: async (values, actions) => {
+        setLoading(true)
         faqForm(values)
           .then((res) => {
             if (res.status === 200) {
-              console.log(res);
+              setLoading(false)
+              // console.log(res);
               actions.resetForm();
-              toast.success(res.data.message);
+             setShowModal2(true)
             }
           })
           .catch((error) => {
@@ -73,6 +80,9 @@ const Faq = () => {
   return (
     <>
       <Navbar />
+      { showModal && <Modal modalClose={(() => setShowModal(false))}/>}
+      { showModal2 && <FaqModal modalClose={(() => setShowModal2(false))}/>}
+
 
       <div className={Classes.Faq}>
         <div className={Classes.hero}>
@@ -96,9 +106,11 @@ const Faq = () => {
                   className={Classes.questionContainer}
                   // onClick={handleToggle}
                   key={index}
-                  onClick={() => handleToggle(index)}
                 >
-                  <div className={Classes.question}>
+                  <div
+                    className={Classes.question}
+                    onClick={() => handleToggle(index)}
+                  >
                     {item.question}
                     <>
                       {!show[index] ? (
@@ -107,7 +119,6 @@ const Faq = () => {
                           alt="img"
                           width={20}
                           height={20}
-                          onClick={() => handleToggle(index)}
                           key={index}
                           style={{ cursor: "pointer" }}
                         />
@@ -117,7 +128,6 @@ const Faq = () => {
                           alt="img"
                           width={20}
                           height={20}
-                          onClick={() => handleToggle(index)}
                           key={index}
                           style={{ cursor: "pointer" }}
                         />
@@ -132,21 +142,19 @@ const Faq = () => {
             </div>
             <div className={Classes.flex2}>
               {faq.slice(5, 10).map((item, index) => (
-                <div
-                  className={Classes.questionContainer}
-                  key={index}
-                  onClick={() => handleToggle2(index)}
-                >
-                  <div className={Classes.question}>
+                <div className={Classes.questionContainer} key={index}>
+                  <div
+                    className={Classes.question}
+                    onClick={() => handleToggle2(index)}
+                  >
                     {item.question}
-                    <>
+                    <div>
                       {!show2[index] ? (
                         <Image
                           src="/drop.svg"
                           alt="img"
                           width={20}
                           height={20}
-                          onClick={() => handleToggle2(index)}
                           key={index}
                           style={{ cursor: "pointer" }}
                         />
@@ -156,12 +164,11 @@ const Faq = () => {
                           alt="img"
                           width={20}
                           height={20}
-                          onClick={() => handleToggle2(index)}
                           key={index}
                           style={{ cursor: "pointer" }}
                         />
                       )}
-                    </>
+                    </div>
                   </div>
                   {show2[index] && (
                     <div className={Classes.answer}>{item.answer}</div>
@@ -176,9 +183,12 @@ const Faq = () => {
                     className={Classes.questionContainer}
                     click={handleToggle}
                     key={index}
-                    onClick={() => handleToggle2(index)}
+                   
                   >
-                    <div className={Classes.question}>
+                    <div
+                      className={Classes.question}
+                      onClick={() => handleToggle2(index)}
+                    >
                       {item.question}
                       <>
                         {!show2[index] ? (
@@ -187,7 +197,6 @@ const Faq = () => {
                             alt="img"
                             width={20}
                             height={20}
-                            onClick={() => handleToggle2(index)}
                             key={index}
                             style={{ cursor: "pointer" }}
                           />
@@ -197,7 +206,6 @@ const Faq = () => {
                             alt="img"
                             width={20}
                             height={20}
-                            onClick={() => handleToggle2(index)}
                             key={index}
                             style={{ cursor: "pointer" }}
                           />
@@ -220,10 +228,10 @@ const Faq = () => {
             </button>
           </div>
         </div>
-        <div className={Classes.formContainer}>
+        <div className={Classes.formContainer} id="contact-form">
           <h4>Get in touch</h4>
           <p>We’d love to hear from you. Please fill out this form.</p>
-          <form className={Classes.form} onSubmit={handleSubmit}>
+          <form className={Classes.form} onSubmit={handleSubmit} >
             <div className={Classes.inputFlex}>
               <div>
                 <h5>First name</h5>
@@ -236,24 +244,24 @@ const Faq = () => {
                   onBlur={handleBlur}
                 />
                 <div className={Classes.errorMsg}>
-                  {errors.lastName && touched.lastName && (
-                    <span>{errors.lastName}</span>
+                  {errors.firstName && touched.firstName && (
+                    <span>{errors.firstName}</span>
                   )}
                 </div>
               </div>
               <div>
-                <h5>First name</h5>
+                <h5>Last name</h5>
                 <input
                   type="text"
-                  placeholder="First name"
+                  placeholder="Last Name"
                   name="lastName"
                   value={values.lastName}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
                 <div className={Classes.errorMsg}>
-                  {errors.firstName && touched.firstName && (
-                    <span>{errors.firstName}</span>
+                  {errors.lastName && touched.lastName && (
+                    <span>{errors.lastName}</span>
                   )}
                 </div>
               </div>
@@ -285,11 +293,21 @@ const Faq = () => {
                 {errors.msg && touched.msg && <span>{errors.msg}</span>}
               </div>
             </div>
-            <button type="submit">Send message</button>
+            <button type="submit">{loading ? (
+                <Image
+                  src="/loader.gif"
+                  width={16}
+                  height={16}
+                  alt="loader"
+                  className="mx-auto"
+                />
+              ) : (
+                "Send message"
+              )}</button>
           </form>
         </div>
       </div>
-      <Footer />
+      <Footer  openModal={() => setShowModal(true)} />
     </>
   );
 };

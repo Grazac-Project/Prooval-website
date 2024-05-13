@@ -1,48 +1,43 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Classes from "./about.module.css";
 import Image from "next/image";
 import Navbar from "@/components/navbar/nav";
 import Footer from "@/components/footer/footer";
 import Link from "next/link";
-import Slider from "react-slick";
+import { CoreValue, TeamCards } from "@/constants/constant";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
+import Modal from "@/components/modal/modal";
 
 const AboutUs = () => {
-  var settings = {
-    className: "slider variable-width",
-    dots: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+  const [showModal, setShowModal] = useState(false);
+
+  var options = {
+    type: "loop",
+    gap: "16px",
     autoplay: true,
-    autoplaySpeed: 1500,
-    responsive: [
-      {
-        breakpoint: 768, // for screens between 768px and 1024px wide
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 1,
-        },
-      },
-      {
-        breakpoint: 425, // for screens less than 768px wide
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1,
-        },
-      },
-    ],
+    pauseOnHover: true,
+    resetProgess: false,
+    arrows: false,
+    dots: false,
+    fixedWidth: "310px",
+    pagination: 0,
+    speed: 1000,
+    easing: "cubic-bezier(0.5, 0, 0.5, 0.5)",
   };
+
   return (
     <>
       <Navbar />
       <div className={Classes.about}>
+        {showModal && <Modal modalClose={() => setShowModal(false)} />}
+
         <div className={Classes.intro}>
           <h1>
-            Known <span className={Classes.for}>for</span> <span className={Classes.exc}>Excellence</span>
+            Known <span className={Classes.for}>for</span>{" "}
+            <span className={Classes.exc}>Excellence</span>
           </h1>
           <p>
             Our mission is to provide recent bootcamp graduates and self-taught
@@ -113,6 +108,43 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
+      <div>
+        <div className="text-center mt-[48px] mb-[148px] md:mb-[48px] sm:[24px]">
+          <div className="w-[430px] sm:w-[95%] m-auto ">
+            <h3 className="text-[48px] sm:text-[32px] leading-[51.36px] sm:[41.6px] font-[500] text-[#101828] mb-[16px]">
+              Our Core Values
+            </h3>
+            <p className="text-[16px]  leading-[24px]  font-[400] text-[#667085] ">
+              Morbi sed imperdiet in ipsum, adipiscing elit dui lectus.
+              adipiscing elit dui lectus.{" "}
+            </p>
+          </div>
+
+          <div className="grid  grid-cols-3 lg:grid-cols-2 gap- sm:block gap-[27px]  w-[1281px] 2xl:w-[90%] sm:w-[95%] m-auto mt-[48px]">
+            {CoreValue.map((item, index) => (
+              <div
+                key={index}
+                className="w-auto h-[319px] rounded-lg px-[32px] py-[40px]  sm:mb-[24px] sm:m-auto "
+                style={{ backgroundColor: item.background }}
+              >
+                <Image
+                  src={item.img}
+                  alt="book-icon"
+                  width={33}
+                  height={33}
+                  className="mb-[50px]"
+                />
+                <h5 className="text-[24px]  leading-[26.4px] font-[500] text-[#101828] text-left mb-[16px]">
+                  {item.heading}
+                </h5>
+                <p className="text-[16px]  leading-[24px]  font-[400] text-[#545454] text-left">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
       <div className={Classes.team}>
         <div className={Classes.teamText}>
           <h3>Meet our team</h3>
@@ -123,223 +155,62 @@ const AboutUs = () => {
         </div>
 
         <div className={Classes.gallery}>
-          <div className={Classes.galleryFlex}>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
+          <div className="grid  grid-cols-4 xl:grid-cols-3 md:hidden gap-[32px] w-[1280px] 2xl:w-[90%] sm:w-[95%] my-[64px] mx-auto">
+            {TeamCards.map((item, index) => (
+              <div key={index} className={Classes.card}>
+                <Image src={item.img} alt="img" width={296} height={296} />
+                <h5>{item.name}</h5>
+                <span>{item.position}</span>
+                <div className={Classes.social}>
+                  <Link href="#">
+                    <Image
+                      src="/twitter.svg"
+                      alt="img"
+                      width={24}
+                      height={24}
+                    />
+                  </Link>
+                  <Link href="#">
+                    <Image
+                      src="/linkledn.svg"
+                      alt="img"
+                      width={24}
+                      height={24}
+                    />
+                  </Link>
+                </div>
               </div>
-            </div>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className={Classes.galleryFlex}>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         <div className={Classes.gallerySlide}>
-          <Slider {...settings}>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-            <div className={Classes.card}>
-              <Image src="/team.png" alt="img" width={296} height={296} />
-              <h5>Olivia Rhye</h5>
-              <span>Founder & CEO</span>
-              <div className={Classes.social}>
-                <Link href="#">
-                  <Image src="/twitter.svg" alt="img" width={24} height={24} />
-                </Link>
-                <Link href="#">
-                  <Image src="/linkledn.svg" alt="img" width={24} height={24} />
-                </Link>
-              </div>
-            </div>
-          </Slider>
+          <Splide options={options}>
+            {TeamCards.map((item, index) => (
+              <SplideSlide key={index} className={Classes.card}>
+                <Image src={item.img} alt="img" width={310} height={296} />
+                <h5>{item.name}</h5>
+                <span>{item.position}</span>
+                <div className={Classes.social}>
+                  <Link href="#">
+                    <Image
+                      src="/twitter.svg"
+                      alt="img"
+                      width={24}
+                      height={24}
+                    />
+                  </Link>
+                  <Link href="#">
+                    <Image
+                      src="/linkledn.svg"
+                      alt="img"
+                      width={24}
+                      height={24}
+                    />
+                  </Link>
+                </div>
+              </SplideSlide>
+            ))}
+          </Splide>
         </div>
       </div>
       {/* <div className={Classes.donation}>
@@ -387,7 +258,7 @@ const AboutUs = () => {
         </>
       </div>
 
-      <Footer />
+      <Footer openModal={() => setShowModal(true)} />
     </>
   );
 };

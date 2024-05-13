@@ -12,7 +12,7 @@ module.exports = {
         inter: ["var(--font-inter)"],
         whyte: ["var(--font-whyte)"],
         grotesk: ["var(--font-space-grotesk)"],
-        
+                
       },
       boxShadow: {
         'abc': '0 2px 8px 0 rgba(0, 0, 0, 0.15)',
@@ -45,6 +45,11 @@ module.exports = {
       'xm': {'max': '467px'},
       // => @media (max-width: 639px) { ... }
       'xxm': {'max': '420px'},
+      'xxxm': {'max': '415px'},
+      'xxxxm': {'max': '390px'},
+      'ssxm': {'max': '360px'},
+
+      
       // => @media (max-width: 639px) { ... }
       'sxm': {'max': '350px'},
       // => @media (max-width: 639px) { ... }

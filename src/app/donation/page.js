@@ -4,19 +4,28 @@ import Classes from "./donation.module.css";
 import Navbar from "@/components/navbar/nav";
 import Footer from "@/components/footer/footer";
 import Image from "next/image";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Modal from "@/components/modal/modal";
+import { useRouter } from 'next/navigation';
 
 
 const Donation = () => {
+  const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
 
+  
+  const handleContact = () => {
+    router.push('/faq#contact-form')
+  }
 
   useEffect(() => {
-    AOS.init({duration: 1000,
+    AOS.init({
+      duration: 1000,
       offset: 200,
-      easing: 'ease-in-sine',
-      delay: 100,});
+      easing: "ease-in-sine",
+      delay: 100,
+    });
   }, []);
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -43,6 +52,8 @@ const Donation = () => {
   return (
     <>
       <Navbar />
+      { showModal && <Modal modalClose={(() => setShowModal(false))}/>}
+      
       <div className={Classes.hero}>
         <div className={Classes.heroText} data-aos="fade-down">
           <h1>Support a Talent </h1>
@@ -54,7 +65,7 @@ const Donation = () => {
         <button>Make donation</button>
       </div>
       <div className={Classes.why}>
-        <div className={Classes.whyFlex} data-aos="zoom-in">
+        <div className={Classes.whyFlex} >
           <div className={Classes.whyText}>
             <h3>Why we start Hackthejob </h3>
             <p>
@@ -92,8 +103,8 @@ const Donation = () => {
           <button>Make donation</button>
         </div>
         <div className={Classes.vidCon}>
-          <video>
-            <source src="."/>
+          <video ref={videoRef} id="video" width="100%" height="489"  loop>
+            <source src="/landing-video.mp4" type="video/mp4" />
           </video>
           <div className={Classes.play} onClick={tooglePlay}>
             {isPlaying ? (
@@ -163,7 +174,7 @@ const Donation = () => {
         </div>
       </div>
       <div className={Classes.donate}>
-        <div className={Classes.donateFlex} data-aos="zoom-in">
+        <div className={Classes.donateFlex} >
           <div className={Classes.donateText}>
             <h4>
               Together we can <span>transform</span> next generation
@@ -188,7 +199,7 @@ const Donation = () => {
       <div className={Classes.logo}>
         <h4>Our partners samples</h4>
         <div className={Classes.logoSlide}>
-          <div className={Classes.grid} data-aos="zoom-in">
+          <div className={Classes.grid} >
             <div>
               <Image
                 src="/layers.png"
@@ -281,16 +292,16 @@ const Donation = () => {
         </div>
       </div>
       <div className={Classes.contact}>
-        <div className={Classes.contactText} data-aos="zoom-in">
+        <div className={Classes.contactText} >
           <h4>Have a Question ? </h4>
           <p>
             Our mission is to ensure teams can do their best work, no matter
             their size or budget. We focus on the details of everything we do.
           </p>
         </div>
-        <button>Contact Us</button>
+        <button onClick={handleContact}>Contact Us</button>
       </div>
-      <Footer />
+      <Footer  openModal={() => setShowModal(true)} />
     </>
   );
 };
