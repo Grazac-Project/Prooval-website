@@ -27,7 +27,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/about-us"
+                  href="/#"
                   style={{color: pathname === "/about-us" ? "#1453ff" : "#667085"}}
                 >
                   About Us
@@ -46,12 +46,14 @@ const Navbar = () => {
             </ul>
             <div className={Classes.btnFlex}>
               <button>
-                <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login">
+                {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
+                <Link href="https://waitlist.hackthejobs.com">
                   Log in
                 </Link>
               </button>
               <button>
-                <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup">
+                {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
+                <Link href="https://waitlist.hackthejobs.com">
                   Sign up
                 </Link>
               </button>
@@ -66,7 +68,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about-us" onClick={() => setDropdown(false)}  style={{color: pathname === "/about-us" ? "#1453ff" : ""}}>
+                  <Link href="/#" onClick={() => setDropdown(false)}  style={{color: pathname === "/about-us" ? "#1453ff" : ""}}>
                     About Us
                   </Link>
                 </li>
@@ -83,12 +85,14 @@ const Navbar = () => {
               </ul>
               <div className={Classes.btnFlex}>
                 <button>
-                  <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login">
+                  {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
+                  <Link href="https://waitlist.hackthejobs.com">
                     Log in
                   </Link>
                 </button>
                 <button>
-                  <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup">
+                  {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
+                  <Link href="https://waitlist.hackthejobs.com">
                     Sign up
                   </Link>
                 </button>
