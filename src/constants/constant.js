@@ -274,6 +274,5 @@ export const hireSteps = [
 
 export const hireSkills = [
   'Back-end Engineer', 'Front-end engineer', 'Front-end engineer', 'Mobile Engineer', 'QA Engineer', 'React Developer',
-  'React Developer', 'IOS Developer', 'React Native Developer', 'Python Developer', 'Python Developer', 'Javascript Developer',
-  'Java Developer', 'C# Developer', 'C# Developer', 'UI/UX Designer'
+  'React Developer', 'IOS Developer', 'React Native Developer', 'Python Developer', 'Python Developer', 'Javascript Developer'
 ]
