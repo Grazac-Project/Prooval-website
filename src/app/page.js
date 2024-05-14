@@ -708,11 +708,11 @@ const Landing = () => {
                         )})}
             </Slider>
           </div>
-          <Link href="/mentors">
+          {/* <Link href="/mentors"> */}
             <button className=" w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden">
               View More Mentors
             </button>
-          </Link>
+          {/* </Link> */}
         </section>
         <section className="flex sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]">
           <div>
