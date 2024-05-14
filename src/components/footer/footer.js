@@ -5,6 +5,9 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import { newsLetterSub } from "@/api/authentication/auth";
 import { useState } from "react";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
+
 
 const initialValues = {
   fullName: "",
@@ -104,6 +107,11 @@ const Footer = ({ openModal }) => {
                 Donation
               </li>
             </Link>
+          </ul>
+          <ul className="flex gap-[24.5px] mt-[16px]">
+            <a href="https://www.linkedin.com/company/hackthejobs"><li><FaLinkedin className="text-[24px]" /></li></a>
+            <a href="http://www.x.com/hackthejobs"><li><BsTwitterX className="text-[24px]" /></li></a>
+            <a href="http://www.instagram.com/hackthejobs"><li><FaInstagram className="text-[24px]" /></li></a>
           </ul>
         </div>
         <div className="order-1">
