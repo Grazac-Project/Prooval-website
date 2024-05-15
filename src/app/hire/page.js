@@ -104,7 +104,7 @@ const Hire = () => {
                     Book a Call
                 </button> */}
                 <PopupButton
-                    url="https://calendly.com/grazacacademy/session-with-the-grazac-program-manager"
+                    url="https://calendly.com/hackthejobsofficial/30min"
                     rootElement={rootElement}
                     text="Book a Call"
                     className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#FAFAFA] text-[#1453FF] border-[2px] border-[#1453FF]'

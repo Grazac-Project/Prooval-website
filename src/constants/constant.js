@@ -176,20 +176,20 @@ export const TeamCards = [
 export const CoreValue = [
   {
     img: "/book-icon1.svg",
-    heading: "Our Core Values",
-    text: "Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ",
+    heading: "Excellence",
+    text: "We believe in consistently striving for excellence in everything we do. Our commitment to excellence drives us to continuously innovate, refine, and improve, ensuring we always deliver our best work.",
     background: "#F6FAFF",
   },
   {
     img: "/book-icon2.svg",
-    heading: "Our Core Values",
-    text: "Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ",
+    heading: "Empathy",
+    text: "Our drive to create solutions that truly make a difference in people's lives is fueled by empathy. We are dedicated to empowering individuals to succeed and thrive in their professional journeys.",
     background: "#FFFBF2",
   },
   {
     img: "/book-icon3.svg",
-    heading: "Our Core Values",
-    text: "Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ",
+    heading: "Execution",
+    text: "We understand that ideas alone are not enough; it's consistent action and execution that drive our success. Therefore, we don't merely set ambitious goals, we actively pursue them with precision and determination.",
     background: "#F0FFF1",
   },
   {

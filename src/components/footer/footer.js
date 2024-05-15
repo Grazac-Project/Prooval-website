@@ -171,7 +171,7 @@ const Footer = ({ openModal }) => {
           </form>
         </div>
       </div>
-      <h6 className="font-regular text-[16px] leading-[20.8px] text-center xm:text-start text-[#333333] border-[#EAECF0] border-t-[1px] pt-[32px] pb-[48px] ">
+      <h6 className="font-regular text-[16px] leading-[20.8px] text-center xm:text-start text-[#333333] border-[#EAECF0] border-t-[1px] pt-[32px] pb-[48px] md:mt-[40px] sm:mt-[0px]">
         &copy; 2024 Hackthejobs. All rights reserved.
       </h6>
     </footer>

@@ -332,12 +332,12 @@ const Landing = () => {
 
           {/* right-[623px] 1xl:right-[520px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] sxm:right-[200px] */}
         </section>
-        <section className="h-[64px] bg-[#fff]"></section>
-        <section className="font-whyte px-[80px] xl:px-[25px] xm:px-[16px] py-[48px] bg-[#F9F9F9]">
+        <section className="h-[64px] sm:h-[40px] bg-[#fff]"></section>
+        <section className="font-whyte px-[80px] xl:px-[25px] xm:px-[16px] py-[48px] sm:py-[32px] bg-[#F9F9F9]">
           <h2 className="font-medium text-[24px] leading-[38px] text-[#121927] text-center mb-[32px]">
             As featured in
           </h2>
-          <div className="sm:hidden flex justify-between ">
+          <div className="sm:hidden flex justify-between items-center">
             <div
               className=""
               onMouseOver={handleLogoEvent}
@@ -345,17 +345,17 @@ const Landing = () => {
             >
               {logo ? (
                 <Image
-                  src="/layers1.png"
+                  src="/techcabal.png"
                   alt="group of pictures"
-                  width={127}
-                  height={45}
+                  width={164}
+                  height={39}
                 />
               ) : (
                 <Image
-                  src="/layers.png"
+                  src="/techcabal-initial.png"
                   alt="group of pictures"
-                  width={127}
-                  height={44}
+                  width={164}
+                  height={39}
                 />
               )}
             </div>
@@ -366,17 +366,17 @@ const Landing = () => {
             >
               {logo1 ? (
                 <Image
-                  src="/sisyphus1.png"
+                  src="/bendada.png"
                   alt="group of pictures"
-                  width={153}
-                  height={44}
+                  width={179}
+                  height={29}
                 />
               ) : (
                 <Image
-                  src="/sisyphus.png"
+                  src="/bendada-initial.png"
                   alt="group of pictures"
-                  width={153}
-                  height={44}
+                  width={179}
+                  height={29}
                 />
               )}
             </div>
@@ -387,17 +387,17 @@ const Landing = () => {
             >
               {logo2 ? (
                 <Image
-                  src="/circooles1.png"
+                  src="/techcrunch.png"
                   alt="group of pictures"
-                  width={165}
-                  height={44}
+                  width={74}
+                  height={37}
                 />
               ) : (
                 <Image
-                  src="/circooles.png"
+                  src="/techcrunch-initial.png"
                   alt="group of pictures"
-                  width={165}
-                  height={4}
+                  width={74}
+                  height={37}
                 />
               )}
             </div>
@@ -408,17 +408,17 @@ const Landing = () => {
             >
               {logo3 ? (
                 <Image
-                  src="/catalog1.png"
+                  src="/bi.png"
                   alt="group of pictures"
-                  width={145}
-                  height={44}
+                  width={165}
+                  height={15}
                 />
               ) : (
                 <Image
-                  src="/catalog.png"
+                  src="/bi-initial.png"
                   alt="group of pictures"
-                  width={145}
-                  height={44}
+                  width={165}
+                  height={15}
                 />
               )}
             </div>
@@ -429,22 +429,22 @@ const Landing = () => {
             >
               {logo4 ? (
                 <Image
-                  src="/quotient1.png"
+                  src="/techpoint.png"
                   alt="group of pictures"
-                  width={169}
-                  height={44}
+                  width={164}
+                  height={50}
                 />
               ) : (
                 <Image
-                  src="/quotient.png"
+                  src="/techpoint-initial.png"
                   alt="group of pictures"
-                  width={169}
-                  height={45}
+                  width={164}
+                  height={50}
                 />
               )}
             </div>
           </div>
-          <div className="hidden sm:block sm:pb-[40px] sm:w-[100%] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
+          <div className="hidden sm:block sm:pb-[0px] sm:w-[100%] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
             <Slider
               ref={(slider) => {
                 sliderRef = slider;
@@ -453,44 +453,44 @@ const Landing = () => {
               className=""
             >
               <div
-                className=""
+                className="pr-[30px]"
                 onMouseOver={handleLogoEvent}
                 onMouseOut={handleLogoEvent}
               >
                 {logo ? (
                   <Image
-                    src="/layers1.png"
+                    src="/techcabal-mobile.png"
                     alt="group of pictures"
-                    width={127}
-                    height={45}
+                    width={146}
+                    height={34}
                   />
                 ) : (
                   <Image
-                    src="/layers.png"
+                    src="/techcabal-mobile-initial.png"
                     alt="group of pictures"
-                    width={127}
-                    height={44}
+                    width={146}
+                    height={34}
                   />
                 )}
               </div>
               <div
-                className=""
+                className="pr-[30px]"
                 onMouseOver={handleLogoEvent1}
                 onMouseOut={handleLogoEvent1}
               >
                 {logo1 ? (
                   <Image
-                    src="/sisyphus1.png"
+                    src="/bendada-mobile.png"
                     alt="group of pictures"
-                    width={153}
-                    height={44}
+                    width={160}
+                    height={26}
                   />
                 ) : (
                   <Image
-                    src="/sisyphus.png"
+                    src="/bendada-mobile-initial.png"
                     alt="group of pictures"
-                    width={153}
-                    height={44}
+                    width={160}
+                    height={26}
                   />
                 )}
               </div>
@@ -501,58 +501,58 @@ const Landing = () => {
               >
                 {logo2 ? (
                   <Image
-                    src="/circooles1.png"
+                    src="/techcrunch-mobile.png"
                     alt="group of pictures"
-                    width={165}
-                    height={44}
+                    width={66}
+                    height={36}
                   />
                 ) : (
                   <Image
-                    src="/circooles.png"
+                    src="/techcrunch-mobile-initial.png"
                     alt="group of pictures"
-                    width={165}
-                    height={4}
+                    width={66}
+                    height={36}
                   />
                 )}
               </div>
               <div
-                className=""
+                className="pr-[30px]"
                 onMouseOver={handleLogoEvent3}
                 onMouseOut={handleLogoEvent3}
               >
                 {logo3 ? (
                   <Image
-                    src="/catalog1.png"
+                    src="/bi-mobile.png"
                     alt="group of pictures"
-                    width={145}
-                    height={44}
+                    width={147}
+                    height={14}
                   />
                 ) : (
                   <Image
-                    src="/catalog.png"
+                    src="/bi-mobile-initial.png"
                     alt="group of pictures"
-                    width={145}
-                    height={44}
+                    width={147}
+                    height={14}
                   />
                 )}
               </div>
               <div
-                className=""
+                className="pr-[30px]"
                 onMouseOver={handleLogoEvent4}
                 onMouseOut={handleLogoEvent4}
               >
                 {logo4 ? (
                   <Image
-                    src="/quotient1.png"
+                    src="/techpoint-mobile.png"
                     alt="group of pictures"
-                    width={169}
+                    width={146}
                     height={44}
                   />
                 ) : (
                   <Image
-                    src="/quotient.png"
+                    src="/techpoint-mobile-initial.png"
                     alt="group of pictures"
-                    width={169}
+                    width={146}
                     height={45}
                   />
                 )}

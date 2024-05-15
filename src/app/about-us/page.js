@@ -40,23 +40,16 @@ const AboutUs = () => {
             <span className={Classes.exc}>Excellence</span>
           </h1>
           <p>
-            Our mission is to provide recent bootcamp graduates and self-taught
-            tech talents with real world work experience, helping them land
-            their dream job in tech.
+            Success to us means bootcamp graduates and self-taught tech talents with real-world work experience, landing their dream job in tech.
           </p>
         </div>
         <Image src="/about.png" alt="img" width={1440} height={600} />
       </div>
       <div className={Classes.mission}>
-        <h4>Our mission is to equip people to be job READY!</h4>
+        <h4>Our mission is to equip you for jobs</h4>
         <p>
-          Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id
-          scelerisque est ultricies ultricies. Duis est sit sed leo nisl,
-          blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at
-          scelerisque amet nulla purus habitasse. Nunc sed faucibus bibendum
-          feugiat sed interdum. Ipsum egestas condimentum mi massa. In tincidunt
-          pharetra consectetur sed duis facilisis metus. Etiam egestas in nec
-          sed et. Quis lobortis at sit dictum eget nibh tortor commodo cursus
+          We recognize the problems talented techies go through before landing their dream role in tech. This birthed the desire to provide techies an opportunity to fulfill their dreams equipping them with essential work experience through world-class mentors. 
+          HacktheJobs also addresses the global tech talent shortage in the tech industry by bridging the gap between ambition and opportunity, equipping individuals to be job-ready by unlocking their full potential through innovative projects and mentorship with leading industry experts.
         </p>
       </div>
       <div className={Classes.story}>
@@ -78,33 +71,27 @@ const AboutUs = () => {
 
         <div className={Classes.storyFlex}>
           <p>
-            In a world filled with endless possibilities, countless talented
-            individuals still face barriers to landing their dream jobs due to
-            the constraint of lack of experience. At Hackthejobs, our journey
-            begins with a simple yet profound belief: that everyone, regardless
-            of their background or circumstances, deserves the chance to thrive
-            in the digital age and make a career for themselves.
-            <br /> Imagine a world where a young aspiring coder, filled with
-            dreams and potential, lacks the experiences required to land his
-            first tech role frustrated and held back by lack of projects in her
-            portfolio to convince a prospective employer that she can unleash
-            her creativity. It was these stories, these untapped reservoirs of
-            talent and ambition, that ignited a spark within us.
+            Our world is filled with endless possibilities however, 
+            countless tech talents today individuals are struggling to land their dream 
+            roles in the tech industry due to talents not having the required experience or portfolio. 
+            Our journey at HacktheJobs began with a simple yet profound belief: that everyone, 
+            regardless of their background or circumstances, deserves the chance to thrive in the digital age 
+            and rise to the limelight of their career.
+            <br /> Compared to the reality that we are in today where a young aspiring tech enthusiast or graduate, 
+            filled with dreams and potential, is denied a chance to achieve this due to inexperience or lack of projects in their portfolio to convince a prospective employer they are the next big thing. 
+            HacktheJobs is leveling the playing field in the tech industry by finding these gems in the job market, 
+            handing them a chance to compete with the best. The story of HacktheJob is the dream of every techie out there; 
+            the right platform to tap into reservoirs of talent and ambition.
           </p>
           <p>
-            We knew that we had to bridge the gap between ambition and
-            opportunity, to empower individuals to unlock their full potential.
-            That's why we created Hackthejobs – not just as a platform, but as a
-            beacon of hope and possibility. With each donation, you're not just
-            supporting a cause – you're changing lives.
-            <br /> You're giving someone the chance to learn, to grow, to
-            succeed in ways they never thought possible. Every penny contributed
-            goes towards providing the sort-after experience, environment
-            resources, and mentorship that open doors and shatter barriers for
-            every newbie in tech. It's about more than just helping them gain
-            experiences or putting their technical skills to use; it's about
-            empowering individuals to write their futures, to dream big and
-            achieve even bigger
+            We recognize this reality and as daunting as the task, we believe Hackthejobs is the bridge between ambition and opportunity, 
+            empowering techies to unlock their full potential. That's why we created Hackthejobs – not just as a platform, but as a beacon of hope and possibility. 
+            With each donation, you're not just supporting a cause – you're changing lives.
+            <br /> You're giving someone a chance to learn, to grow, to succeed in ways they never thought possible, 
+            providing the sort-after experience, environment resources, and mentorship that open doors and shatter 
+            barriers for every newbie in tech. It goes beyond techies gaining experiences or developing the right 
+            technical skills to use; it's about empowering individuals to write their futures, to dream big, 
+            and achieve even bigger.
           </p>
         </div>
       </div>
@@ -124,7 +111,7 @@ const AboutUs = () => {
             {CoreValue.map((item, index) => (
               <div
                 key={index}
-                className="w-auto h-[319px] rounded-lg px-[32px] py-[40px]  sm:mb-[24px] sm:m-auto "
+                className="w-auto h-[357px] rounded-lg px-[32px] py-[40px]  sm:mb-[24px] sm:m-auto "
                 style={{ backgroundColor: item.background }}
               >
                 <Image
@@ -132,12 +119,12 @@ const AboutUs = () => {
                   alt="book-icon"
                   width={33}
                   height={33}
-                  className="mb-[50px]"
+                  className="mb-[30px]"
                 />
                 <h5 className="text-[24px]  leading-[26.4px] font-[500] text-[#101828] text-left mb-[16px]">
                   {item.heading}
                 </h5>
-                <p className="text-[16px]  leading-[24px]  font-[400] text-[#545454] text-left">
+                <p className="text-[16px] leading-[24px] font-[400] text-[#545454] text-left">
                   {item.text}
                 </p>
               </div>
@@ -149,13 +136,12 @@ const AboutUs = () => {
         <div className={Classes.teamText}>
           <h3>Meet our team</h3>
           <p>
-            Nisl at scelerisque amet nulla purus habitasse.Nunc sed faucibus
-            bibendum feugiat sed interdum. Ip
+            We are a team of vibrant and dynamic individuals dedicated to changing the tech industry
           </p>
         </div>
 
         <div className={Classes.gallery}>
-          <div className="grid  grid-cols-4 xl:grid-cols-3 md:hidden gap-[32px] w-[1280px] 2xl:w-[90%] sm:w-[95%] my-[64px] mx-auto">
+          <div className="grid grid-cols-4 xl:grid-cols-3 md:hidden gap-[32px] w-[1280px] 2xl:w-[90%] sm:w-[95%] my-[64px] mx-auto">
             {TeamCards.map((item, index) => (
               <div key={index} className={Classes.card}>
                 <Image src={item.img} alt="img" width={296} height={296} />
