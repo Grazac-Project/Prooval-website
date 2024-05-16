@@ -108,7 +108,8 @@ const Form = () => {
   })
 
   return (
-    <section className='font-whyte px-[80px] xl:px-[25px] xm:px-[16px]' >
+    <section className='font-whyte' >
+      <div className='px-[80px] xl:px-[25px] xm:px-[16px]'>
         { showModal && <Modal modalClose={(() => setShowModal(false))}/>}
         <Link href='/'><div className='py-[22px]'>
                 <Image src='/footer-logo.png' width={165} height={36} alt='' />
@@ -232,6 +233,7 @@ const Form = () => {
           </div>
           <button type='submit' className='font-inter font-medium text-[16px] block leading-[24px] text-[#fff] w-[343px] xm:w-[100%] rounded-[8px] px-[20px] py-[12px] bg-[#1453FF] border-[1px] border-[#1453FF] shadow-footerInput mx-auto'>{loader ? <Image src='/loader.gif' width={16} height={16} alt='loader' className='mx-auto'/>:'Hire Now'}</button>
         </form>
+      </div>
         <Footer openModal={() => setShowModal(true)}/>
     </section>
   )
