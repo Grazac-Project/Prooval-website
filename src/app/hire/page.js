@@ -160,7 +160,7 @@ const Hire = () => {
                           hirePitch.map((element, i) => 
 
                           // (<div key={i} style={{backgroundColor: changeStyle === i?'white':'#1453FF', dropShadow: changeStyle === i? '1px 1px 8px 0 rgba(255, 255, 255, 0.1)': '', borderRadius: changeStyle === i? '8px': ''}} className='w-[368px] p-[16px]' onMouseOver={() => handleMouseOver(i)} onMouseOut={() => handleMouseOut(i)}>
-                          (<div key={i} style={{backgroundColor: changeStyle === i?'white':'#1453FF', dropShadow: changeStyle === i? '1px 1px 8px 0 rgba(255, 255, 255, 0.1)': '', borderRadius: changeStyle === i? '8px': ''}} className='w-[33%] lg:w-[49%] sm:w-[100%] p-[16px] xl:px-[8px] mb-[18px] align-center' onMouseOver={() => handleMouseOver(i)} onMouseOut={() => handleMouseOut(i)}>
+                          (<div key={i} style={{backgroundColor: changeStyle === i?'white':'#1453FF', dropShadow: changeStyle === i? '1px 1px 8px 0 rgba(255, 255, 255, 0.1)': '', borderRadius: changeStyle === i? '8px': ''}} className='w-[32%] lg:w-[48%] sm:w-[100%] p-[16px] xl:px-[8px] mb-[18px] align-center' onMouseOver={() => handleMouseOver(i)} onMouseOut={() => handleMouseOut(i)}>
                               {changeStyle === i?<Image src={element.imageHover} width={48} height={48} alt='' />:<Image src={element.image} width={48} height={48} alt='' />}
                               <h4 style={{color: changeStyle === i?'#121927': '#fff'}} className='font-medium text-[24px] 1xl:text-[20px] text-[#fff] leading-[11.71px] xl:leading-[20px] mt-[24px] mb-[8px]'>
                                   {element.heading}

@@ -36,8 +36,8 @@ const AboutUs = () => {
 
         <div className={Classes.intro}>
           <h1>
-            Known <span className={Classes.for}>for</span>{" "}
-            <span className={Classes.exc}>Excellence</span>
+          Positioning you for <span className={Classes.for}></span>{" "}
+            <span className={Classes.exc}>Success</span>
           </h1>
           <p>
             Success to us means bootcamp graduates and self-taught tech talents with real-world work experience, landing their dream job in tech.

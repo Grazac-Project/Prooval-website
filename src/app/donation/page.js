@@ -56,10 +56,10 @@ const Donation = () => {
       
       <div className={Classes.hero}>
         <div className={Classes.heroText} data-aos="fade-down">
-          <h1>Support a Talent </h1>
+          <h1>Donation</h1>
           <p>
-            Our mission is to ensure teams can do their best work, no matter
-            their size or budget. We focus on the details of everything we do.
+            We're one step closer to our mission with each contribution you make: enabling teams to perform at their best, 
+            regardless of their size or budget
           </p>
         </div>
         <button>Coming soon...</button>
@@ -67,16 +67,11 @@ const Donation = () => {
       <div className={Classes.why}>
         <div className={Classes.whyFlex} >
           <div className={Classes.whyText}>
-            <h3>Why we start Hackthejob </h3>
+            <h3>Why we started Hackthejob </h3>
             <p>
-              Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus
-              id scelerisque est ultricies ultricies. Duis est sit sed leo nisl,
-              blandit elit sagittis. Quisque tristique consequat quam sed. Nisl
-              at scelerisque amet nulla purus habitasse. <br />
-              <br /> Nunc sed faucibus bibendum feugiat sed interdum. Ipsum
-              egestas condimentum mi massa. In tincidunt pharetra consectetur
-              sed duis facilisis metus. Etiam egestas in nec sed et. Quis
-              lobortis at sit dictum eget nibh tortor commodo cursus
+              Our journey began with a simple yet powerful realization that the tech industry is bursting with 
+              opportunities and talents however, tech talents can’t seem to break into this industry or land their dream role, especially for recent graduates from tech bootcamps and self-taught tech talents. We realized there was a huge gap between the skills they acquired and the real-world experience employers demanded. That's why we founded HackTheJobs to bridge that gap. Our passion lies in empowering individuals with the hands-on experience and support they need to turn their aspirations into reality. We believe in the transformative power of practical learning and personalized mentorship. 
+              Join us in our mission to unlock the doors to the tech world for everyone, one opportunity at a time.
             </p>
           </div>
           <div className={Classes.whyStat}>
@@ -177,20 +172,16 @@ const Donation = () => {
         <div className={Classes.donateFlex} >
           <div className={Classes.donateText}>
             <h4>
-              Together we can <span>transform</span> next generation
+              Together We can The <span>transform</span> Next Generation
             </h4>
             <p>
-              Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus
-              id scelerisque est ultricies ultricies. Duis est sit sed leo nisl,
-              blandit elit sagittis. Quisque tristique consequat quam sed. Nisl
-              at scelerisque amet nulla purus habitasse. Nunc sed faucibus
-              bibendum feugiat sed interdum. IpsumEtiam egestas in nec sed et.
-              Quis lobortis at sit dictum eget nibh tortor commodo <br />
-              <br />
-              cursusNunc sed faucibus bibendum feugiat sed interdum. Ipsum
-              egestas condimentum mi massa. In tincidunt pharetra consectetur
-              sed duis facilisis metus. Etiam egestas in nec sed et.{" "}
+              Join us in shaping the future of tech by donating and sponsoring talents through HackTheJobs. 
+              By sponsoring us, you're not just investing in a program, you're investing in the future of tech innovation. 
+              Your support will enable us to provide essential resources, mentorship, and opportunities to aspiring tech 
+              professionals, empowering them to reach their full potential and make a meaningful impact in the world of 
+              technology.
             </p>
+            <p>Together, let's build a brighter future for the tech workforce.</p>
             <button>Make donation</button>
           </div>
           <Image src="/donateImg2.png" width={630} height={489} alt="img" />
@@ -232,62 +223,6 @@ const Donation = () => {
                 height={48}
               />
             </div>
-            <div>
-              <Image
-                src="/quotient.png"
-                alt="group of pictures"
-                width={164}
-                height={48}
-              />
-            </div>
-            <div>
-              <Image
-                src="/circooles.png"
-                alt="group of pictures"
-                width={164}
-                height={48}
-              />
-            </div>
-            <div>
-              <Image
-                src="/catalog.png"
-                alt="group of pictures"
-                width={164}
-                height={48}
-              />
-            </div>
-            <div>
-              <Image
-                src="/quotient.png"
-                alt="group of pictures"
-                width={164}
-                height={48}
-              />
-            </div>
-            <div>
-              <Image
-                src="/circooles.png"
-                alt="group of pictures"
-                width={164}
-                height={48}
-              />
-            </div>
-            <div>
-              <Image
-                src="/catalog.png"
-                alt="group of pictures"
-                width={164}
-                height={48}
-              />
-            </div>
-            <div>
-              <Image
-                src="/quotient.png"
-                alt="group of pictures"
-                width={164}
-                height={48}
-              />
-            </div>
           </div>
         </div>
       </div>
@@ -295,8 +230,7 @@ const Donation = () => {
         <div className={Classes.contactText} >
           <h4>Have a Question ? </h4>
           <p>
-            Our mission is to ensure teams can do their best work, no matter
-            their size or budget. We focus on the details of everything we do.
+            We would love to hear from you.
           </p>
         </div>
         <button onClick={handleContact}>Contact Us</button>

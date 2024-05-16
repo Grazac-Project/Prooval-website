@@ -15,7 +15,8 @@
   font-family: var(--font-whyte);
   font-size: 74px;
   line-height: 87px;
-  width: 470px;
+  /* width: 470px; */
+  width: 543px;
 }
 .intro p {
   font-family: var(--font-whyte);
@@ -202,6 +203,7 @@
 .gallerySlide {
   display: none;
 }
+
 @media screen and (max-width: 1440px) {
   .about {
     width: 100%;
