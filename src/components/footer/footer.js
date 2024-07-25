@@ -86,11 +86,11 @@ const Footer = ({ openModal }) => {
           </Link>
 
           <ul className="flex xm:flex-col gap-[27px] xm:gap-[16px] pt-[32px]">
-            <Link href="/">
+            {/* <Link href="/">
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 Home
               </li>
-            </Link>
+            </Link> */}
             {/* <Link href="/about-us"> */}
             {/* <Link href="/#">
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
@@ -105,6 +105,16 @@ const Footer = ({ openModal }) => {
             <Link href="/donation">
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 Donation
+              </li>
+            </Link>
+            <Link href="/terms">
+              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+                Terms
+              </li>
+            </Link>
+            <Link href="/privacy">
+              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+                Privacy
               </li>
             </Link>
           </ul>
