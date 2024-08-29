@@ -34,13 +34,22 @@ const AboutUs = () => {
       <div className={Classes.about}>
         {showModal && <Modal modalClose={() => setShowModal(false)} />}
 
-        <div className={Classes.intro}>
+        {/* <div className={Classes.intro}>
           <h1>
           Positioning you for <span className={Classes.for}></span>{" "}
             <span className={Classes.exc}>Success</span>
           </h1>
           <p>
-            Success to us means bootcamp graduates and self-taught tech talents with real-world work experience, landing their dream job in tech.
+          Success for us is when our fellows after building real-life projects land their dream job in tech.
+          </p>
+        </div> */}
+        <div className="w-[95%] ml-auto  ">
+          <h1 className="font-whyte text-[54px] sm:text-[40px] leading-[60px] sm:leading-12 font-500 mt-12">
+            Positioning you for success
+          </h1>
+          <p className=" font-whyte text-[16px] leading-[20.8px] font-400 my-6 ">
+            Success for us is when our fellows after building real-life projects
+            land their dream job in tech.
           </p>
         </div>
         <Image src="/about.png" alt="img" width={1440} height={600} />
@@ -48,8 +57,9 @@ const AboutUs = () => {
       <div className={Classes.mission}>
         <h4>Our mission is to equip you for jobs</h4>
         <p>
-          We recognize the problems talented techies go through before landing their dream role in tech. This birthed the desire to provide techies an opportunity to fulfill their dreams equipping them with essential work experience through world-class mentors. 
-          HacktheJobs also addresses the global tech talent shortage in the tech industry by bridging the gap between ambition and opportunity, equipping individuals to be job-ready by unlocking their full potential through innovative projects and mentorship with leading industry experts.
+          There are struggles that all the smart techies you see have to go
+          through till they land their dream role in tech. Our mission is to
+          help you through these hurdles and ease you to landing a job.
         </p>
       </div>
       <div className={Classes.story}>
@@ -71,27 +81,15 @@ const AboutUs = () => {
 
         <div className={Classes.storyFlex}>
           <p>
-            Our world is filled with endless possibilities however, 
-            countless tech talents today individuals are struggling to land their dream 
-            roles in the tech industry due to talents not having the required experience or portfolio. 
-            Our journey at HacktheJobs began with a simple yet profound belief: that everyone, 
-            regardless of their background or circumstances, deserves the chance to thrive in the digital age 
-            and rise to the limelight of their career.
-            <br /> Compared to the reality that we are in today where a young aspiring tech enthusiast or graduate, 
-            filled with dreams and potential, is denied a chance to achieve this due to inexperience or lack of projects in their portfolio to convince a prospective employer they are the next big thing. 
-            HacktheJobs is leveling the playing field in the tech industry by finding these gems in the job market, 
-            handing them a chance to compete with the best. The story of HacktheJob is the dream of every techie out there; 
-            the right platform to tap into reservoirs of talent and ambition.
-          </p>
-          <p>
-            We recognize this reality and as daunting as the task, we believe Hackthejobs is the bridge between ambition and opportunity, 
-            empowering techies to unlock their full potential. That's why we created Hackthejobs – not just as a platform, but as a beacon of hope and possibility. 
-            With each donation, you're not just supporting a cause – you're changing lives.
-            <br /> You're giving someone a chance to learn, to grow, to succeed in ways they never thought possible, 
-            providing the sort-after experience, environment resources, and mentorship that open doors and shatter 
-            barriers for every newbie in tech. It goes beyond techies gaining experiences or developing the right 
-            technical skills to use; it's about empowering individuals to write their futures, to dream big, 
-            and achieve even bigger.
+            For some years now, Bootcamps have been able to up-skill millions of
+            people across the continent of Africa. While many of them got
+            entry-level jobs in the tech sector, a large chunk of these
+            bootcamps didn’t. A critical gap emerged! It turns out that
+            bootcamps alone are not enough to equip the graduates with
+            everything they needed in the tech space. To fill this void, we
+            launched Hackthejobs—a free work experience accelerator that gives
+            bootcamp graduates real-world experience, communication skills, and
+            guidance to secure a tech job.
           </p>
         </div>
       </div>
@@ -102,8 +100,7 @@ const AboutUs = () => {
               Our Core Values
             </h3>
             <p className="text-[16px]  leading-[24px]  font-[400] text-[#667085] ">
-              Morbi sed imperdiet in ipsum, adipiscing elit dui lectus.
-              adipiscing elit dui lectus.{" "}
+            We hold the following in high regard
             </p>
           </div>
 
@@ -132,11 +129,12 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-      <div className={Classes.team}>
+      {/* <div className={Classes.team}>
         <div className={Classes.teamText}>
           <h3>Meet our team</h3>
           <p>
-            We are a team of vibrant and dynamic individuals dedicated to changing the tech industry
+            We are a team of vibrant and dynamic individuals dedicated to
+            changing the tech industry
           </p>
         </div>
 
@@ -198,7 +196,7 @@ const AboutUs = () => {
             ))}
           </Splide>
         </div>
-      </div>
+      </div> */}
       {/* <div className={Classes.donation}>
         <div className={Classes.donateText}>
           <h3>Do you want to support our vision by sponsoring a talent ?</h3>
