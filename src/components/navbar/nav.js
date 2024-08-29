@@ -84,7 +84,7 @@ const Navbar = () => {
               </button>
               <button className={Classes.btnFlex2}>
                 {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-                <Link href="/signUp">Sign up</Link>
+                <Link href="/signup">Sign up</Link>
               </button>
             </div>
           </nav>
@@ -153,7 +153,7 @@ const Navbar = () => {
                 </button>
                 <button >
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-                  <Link href="/signUp">Sign up</Link>
+                  <Link href="/signup">Sign up</Link>
                 </button>
               </div>
             </nav>

@@ -91,10 +91,7 @@
   font-weight: 500;
   animation: textDrop 1s ease-out;
 }
-.nav button:hover {
-  color: #1453ff;
-  
-}
+
 .navMobile ul {
   color: #fff;
   text-align: center;
