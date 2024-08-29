@@ -78,13 +78,13 @@ const Navbar = () => {
               </li>
             </ul>
             <div className={Classes.btnFlex}>
-              <button>
+              <button className={Classes.btnFlex1}>
                 {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
-                <Link href="https://waitlist.hackthejobs.com">Log in</Link>
+                <Link href="/login">Log in</Link>
               </button>
-              <button>
+              <button className={Classes.btnFlex2}>
                 {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-                <Link href="https://waitlist.hackthejobs.com">Sign up</Link>
+                <Link href="/signUp">Sign up</Link>
               </button>
             </div>
           </nav>
@@ -151,7 +151,7 @@ const Navbar = () => {
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
                   <Link href="/login">Log in</Link>
                 </button>
-                <button className={Classes.btnFlex2}>
+                <button >
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
                   <Link href="/signUp">Sign up</Link>
                 </button>
