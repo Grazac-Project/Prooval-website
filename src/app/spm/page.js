@@ -164,7 +164,7 @@ const spm = () => {
           </div>
           <div className="w-[598px] sm:w-[100%] pl-[40px] xxl:pl-[30px] pr-[37px] xxl:pr-[30px]">
             <Image
-              src="spm-hero.svg"
+              src="/spm-hero.png"
               alt="group of pictures"
               width={524}
               height={673}
