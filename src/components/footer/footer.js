@@ -107,6 +107,15 @@ const Footer = ({ openModal }) => {
                 Donation
               </li>
             </Link>
+            <Link href="/mentor">
+              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+              Mentor
+              </li>
+            </Link> <Link href="/spm">
+              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+              SPM
+              </li>
+            </Link>
             <Link href="/terms">
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 Terms
@@ -117,6 +126,7 @@ const Footer = ({ openModal }) => {
                 Privacy
               </li>
             </Link>
+            
           </ul>
           <ul className="flex gap-[24.5px] mt-[16px]">
             <a href="https://www.linkedin.com/company/hackthejobs"><li><FaLinkedin className="text-[24px]" /></li></a>

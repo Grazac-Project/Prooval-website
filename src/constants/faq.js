@@ -12,15 +12,15 @@ export const faq = [
     },
     {
       id: 3,
-      question: "How long is account approval? ",
+      question: "How long does it take for my account to be approved? ",
       answer:
-        "Upon completion of your registration, the onboarding team reviews to ensure you are qualified to get in for Hackthejobs. ",
+        "Upon completing your registration, your account is reviewed immediately to confirm if you are qualified for Hackthejobs.",
     },
     {
       id: 4,
       question: "I am a mentee, can I be a mentor? ",
       answer:
-        "No, a mentee can not become a mentor because our mentors are selected using strict prerequisites, and career achievements, so, as a mentee, it’s certain you are yet to attain that level of becoming a mentor on Hackthejobs. ",
+        "No, a mentee can not become a mentor because our mentors are selected using strict criteria like certain years of experience and career achievements, which you do not have as a mentee. ",
     },
     {
       id: 5,
@@ -31,9 +31,9 @@ export const faq = [
     },
     {
       id: 6,
-      question: "Can I work alone? ",
+      question: "Can I work alone on Hackthejobs? ",
       answer:
-        "No. The nature of Hackthejobs requires collaboration with a few team members and a senior product manager who monitors your progress while you work on different projects/products. ",
+        "No, Hackthejobs is structured so that each team member is assigned to a team supervised by a senior product manager, who tracks the team’s progress as the team works on various projects/products.",
     },
     {
       id: 7,

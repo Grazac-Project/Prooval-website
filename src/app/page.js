@@ -102,8 +102,8 @@ const Landing = () => {
       setDotPosition(i);
     }
     sliderRef.slickGoTo(i);
-      // setCurrentSlide(i);
-      setDotPosition(i);
+    // setCurrentSlide(i);
+    setDotPosition(i);
   };
 
   const handleMouseOver = () => {
@@ -130,14 +130,15 @@ const Landing = () => {
     router.push("/faq#contact-form");
   };
   useEffect(() => {
-    fetchMentors("").then((res) => {
-      // console.log(res);
-      // console.log(res.data.data.mentors[0].firstName);
-      const mentors = res.data.data.mentors;
-      const mentorsSlice = mentors.slice(0, 8);
-      setListOfMentors(mentorsSlice);
-    })
-    .catch(err => console.log(err));
+    fetchMentors("")
+      .then((res) => {
+        // console.log(res);
+        // console.log(res.data.data.mentors[0].firstName);
+        const mentors = res.data.data.mentors;
+        const mentorsSlice = mentors.slice(0, 8);
+        setListOfMentors(mentorsSlice);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
@@ -173,23 +174,23 @@ const Landing = () => {
                   over 14k students
                 </h3>
               </div>
-              <h1 className="font-bold w-[621px] xxl:w-[550px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[64px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] ">
-                Become workplace ready and{" "}
+              <h1 className="font-bold w-[621px] xxl:w-[550px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] ">
+                Go from bootcamp graduate to{" "}
                 <span
                   style={{
                     transform: `rotate(${angle})`,
                     background: color,
                     border: `4px solid ${border}`,
                   }}
-                  className={`text-[#fff] text-[54px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[279px] xl:w-auto rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block`}
+                  className={`text-[#fff] text-[54px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[266px] xl:w-auto rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block`}
                 >
-                  prepared
+                  tech pro
                 </span>
               </h1>
               <p className="font-regular text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8">
-                Bootcamps are never enough! Grab the opportunity to get
-                experience and jump the hurdles of hacking into the tech job
-                market after going through tech training or bootcamps.
+                Bootcamp is just step one. Real project experience is the real
+                deal! Hackthejobs set you up with the much necessary experience,
+                equipping you for your future in tech.
               </p>
               {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
               <Link href="https://waitlist.hackthejobs.com">
@@ -566,7 +567,7 @@ const Landing = () => {
             Why you should choose HackTheJob
           </h2>
           <h3 className="font-regular text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]">
-            Hackthejobs provides you with work-ready resources that accelerate your career from junior-level to mid-level
+            Get real project experience that lands you a job.
           </h3>
 
           <ValueCard />
@@ -592,12 +593,12 @@ const Landing = () => {
               Get Onboarded in Four Easy Steps!
             </h4> */}
             <h4 className="w-[288px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] xm:w-[231px] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] xm:text-[32px] leading-[52.8px] xm:leading-[35.2px] text-[#FBFCFD] pb-[17px]">
-              Your RoadMap to Being Workplace Ready
+              Get Onboarded in Four Easy Steps!
             </h4>
-            {/* <p className="w-[298px] 1xl:w-[262px] lg:w-[250px] md:w-[220px] sm:w-[100%] font-regular text-[16px] leading-[22px] text-[#EDEDED]">
+            <p className="w-[298px] 1xl:w-[262px] lg:w-[250px] md:w-[220px] sm:w-[100%] font-regular text-[16px] leading-[22px] text-[#EDEDED]">
               Follow these simple steps to get onboarded into Hackthejobs right
               away! Our onboarding procedure is as basic as it gets!
-            </p> */}
+            </p>
             <Image
               src="/easy-arrow.png"
               width={123}
@@ -640,17 +641,17 @@ const Landing = () => {
               We Have Outstanding Mentors to Guide you
             </h3>
             <p className="font-regular text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[580px] md:w-[510px] sm:hidden">
-              We are not leaving you alone on this journey, connect with exceptional mentors from various backgrounds and openly discuss your career challenges with them.
+              We are not leaving you alone on this journey, connect with
+              exceptional mentors from various backgrounds and openly discuss
+              your career challenges with them.
             </p>
           </div>
-          {/* <Link href="/mentors"> */}
-          {/* <Link href="/#"> */}
-            <button className="w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden">
-              View More Mentors
-            </button>
-          {/* </Link> */}
+
+          <button className="w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden">
+            View More Mentors
+          </button>
         </section>
-        <section className="pb-[96px] sm:pb-[52px] ">
+        {/* <section className="pb-[96px] sm:pb-[52px] ">
           <div className="sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
             {listOfMentors.map((listOfMentor, i) => {
               return (
@@ -677,27 +678,48 @@ const Landing = () => {
               );
             })}
           </div>
-          <div className='font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]'>
-            <Slider ref={slider => {sliderRef = slider}} {...mentorSettings} className=''>
-                  {listOfMentors.map((listOfMentor, i) => {
-                    return(
-                      <div key={i} className='font-whyte mx-auto sm:w-[302px] xm:w-[80%]'>
-                        <div className='h-[296px] sm:h-[258px] overflow-hidden'>
-                          <Image src={listOfMentor.image} width={363} height={297} alt='mentor image' className='object-cover px-[5px]'/>
-                        </div>
-                        <h4 className='font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] '>{listOfMentor.firstName} {listOfMentor.lastName}</h4>
-                        <h5 className='font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]'>{listOfMentor.role}</h5>
-                        <p className='font-regular w-[296px] xm:w-[100%] text-[16px] leading-[20.8px] text-[#667085]'>{listOfMentor.company}</p>
-                      </div>
-                        )})}
+          <div className="font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
+            <Slider
+              ref={(slider) => {
+                sliderRef = slider;
+              }}
+              {...mentorSettings}
+              className=""
+            >
+              {listOfMentors.map((listOfMentor, i) => {
+                return (
+                  <div
+                    key={i}
+                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%]"
+                  >
+                    <div className="h-[296px] sm:h-[258px] overflow-hidden">
+                      <Image
+                        src={listOfMentor.image}
+                        width={363}
+                        height={297}
+                        alt="mentor image"
+                        className="object-cover px-[5px]"
+                      />
+                    </div>
+                    <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] ">
+                      {listOfMentor.firstName} {listOfMentor.lastName}
+                    </h4>
+                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
+                      {listOfMentor.role}
+                    </h5>
+                    <p className="font-regular w-[296px] xm:w-[100%] text-[16px] leading-[20.8px] text-[#667085]">
+                      {listOfMentor.company}
+                    </p>
+                  </div>
+                );
+              })}
             </Slider>
           </div>
-          {/* <Link href="/mentors"> */}
-            <button className=" w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden">
-              View More Mentors
-            </button>
-          {/* </Link> */}
-        </section>
+
+          <button className=" w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden">
+            View More Mentors
+          </button>
+        </section> */}
         <section className="flex sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]">
           <div>
             <Image
@@ -710,15 +732,21 @@ const Landing = () => {
           </div>
           <div className="font-whyte ">
             <h4 className="font-medium text-[48px] xl:text-[44px] lgx:text-[40px] lg:text-[35px] md:text-[30px] leading-[52.8px] lgx:leading-[45px] lg:leading-[40px] text-[#121927] mb-[40px] w-[596px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] sm:text-center sm:mt-[16px]">
-              Accelerate Your Career With Us
+              Bootcamps are never enough!
             </h4>
             <p className="font-regular text-[18px] lgx:text-[16px] sm:text-center md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[16px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
-              HacktheJobs is your work experience accelerator and not a Bootcamp!  HacktheJobs goes beyond bootcamp providing you with a platform with work experience on sustainable projects positioning you for mid-level roles in the tech industry. 
-              We achieve this by matching you in a team led by a mentor and product managers from tech giants(Facebook, Apple, Amazon, Netflix, Google) building products and services that contribute to achieving Sustainable Development Goals.
+              At HacktheJobs, we're not a boot camp, we are your work experience
+              accelerator where you get matched with mentors and product
+              managers from FAANG to build Products and services that contribute
+              to achieving Sustainable Development Goals
             </p>
             <p className="font-regular text-[18px] sm:text-center lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
-              While offering you a unique solution tailored to your needs, HacktheJobs also provides you with prolific mentors and career resources needed to ensure you are successful in your chosen tech career.
-
+              HacktheJobs offers a unique solution tailored to your needs. We
+              provide comprehensive support to fast-track you getting experience
+              in the tech industry while ensuring you're primed for success in
+              your chosen tech career. We operate on just one goal; to give you
+              real life work experience, moving you from junior level to mid
+              level.
             </p>
             <div className="font-whyte text-[#1453FF] text-center flex sm:flex-col sm:items-center gap-[26px] lgx:gap-[16px] lg:gap-[10px] sm:gap-[32px]">
               <div className="w-[192px] 1xl:w-[170px] xl:w-[150px] lgx:w-[130px] lg:w-[110px]">
@@ -849,16 +877,18 @@ const Landing = () => {
             className="absolute sm:top-[162px] sm:left-[23px] sm:block hidden"
           />
         </section>
-        <section className="flex sm:flex-wrap gap-[60px] lgx:gap-[40px] lg:gap-[20px] md:gap-[10px] items-center px-[80px] xl:px-[25px] xm:px-[16px] py-[97px] sm:pt-[20px] sm:pb-[40px]">
+        {/* <section className="flex sm:flex-wrap gap-[60px] lgx:gap-[40px] lg:gap-[20px] md:gap-[10px] items-center px-[80px] xl:px-[25px] xm:px-[16px] py-[97px] sm:pt-[20px] sm:pb-[40px]">
           <div className="font-whyte sm:order-1">
             <h4 className="font-medium text-[48px] xxl:text-[40px] lgx:text-[36px] lg:text-[34px] sm:text-[32px] leading-[52.8px] xxl:leading-[46px] lgx:leading-[40px] sm:leading-[35.2px] text-[#121927] pb-[32px] sm:pb-[24px] sm:pt-[32px] w-[592px] xxl:w-[500px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
               Our Resources
             </h4>
             <p className="w-[589px] xxl:w-[500px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] font-regular text-[16px] lgx:text-[14px] leading-[24px] lgx:leading-[20px] text-[#333333] pb-[32px] sm:pb-[24px]">
-              We carefully curate vital resources to empower you with the latest information in the tech industry. 
-              Our resources are designed to get you prepped for your technical job interviews, ensuring a smooth experience. 
-              You can have access to invaluable resources that will equip you on your journey to a successful career in tech.
-
+              We carefully curate vital resources to empower you with the latest
+              information in the tech industry. Our resources are designed to
+              get you prepped for your technical job interviews, ensuring a
+              smooth experience. You can have access to invaluable resources
+              that will equip you on your journey to a successful career in
+              tech.
             </p>
             <Link href="https://waitlist.hackthejobs.com">
               <button className="w-[173px] h-[56px] font-medium leading-[24px] tracking-[3%] text-[#fff] bg-[#1453FF] rounded-[8px]">
@@ -884,15 +914,20 @@ const Landing = () => {
               height="444"
               alt="hire-image"
               className="lgx: w-[450px] lg:m-auto"
-            /> 
+            />
             <div className="w-[56%] lg:w-[95%] lg:m-auto lg:text-center lg:mt-[32px]">
               <h4 className=" font-medium text-[48px] lg:sm:text-[32px] leading-[52.8px] lgx:leading-[48px] sm:leading-[35.2px] text-[#121927]">
-                Recruit skilled tech professionals who rank among the top 10% in the world.
-
+                Recruit skilled tech professionals who rank among the top 10% in
+                the world.
               </h4>
               <p className="  xl:w-auto text-[16px] leading-[24px] text-[#787676] my-[32px] lgx:my-[26px] sm:my-[16px] ">
-                At HacktheJobs, our commitment is offering you talented tech professionals who have undergone strict assessment, building great portfolios. 
-                You don’t just hire talents from HacktheJobs, you hire the <span className="font-bold text-[#1453FF]">BEST</span> who possess the required skills and creativity to build your top-tier team.
+                At HacktheJobs, our commitment is offering you talented tech
+                professionals who have undergone strict assessment, building
+                great portfolios. You don’t just hire talents from HacktheJobs,
+                you hire the{" "}
+                <span className="font-bold text-[#1453FF]">BEST</span> who
+                possess the required skills and creativity to build your
+                top-tier team.
               </p>
               <Link href="/hire">
                 <button className="w-[247px] py-[20px] font-medium leading-[24px] text-[#fff] bg-[#1453FF] rounded-[8px]">
@@ -901,7 +936,7 @@ const Landing = () => {
               </Link>
             </div>
           </div>
-        </section>
+        </section> */}
         <section className="px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px] sm:mt-[40px]">
           <div className="font-whyte bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
             <div className="w-[710px] md:w-[100%] mx-auto px-[20px]">

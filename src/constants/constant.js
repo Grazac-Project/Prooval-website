@@ -20,6 +20,50 @@ export const cardValues = [
     text: "Showcase your completed project in your portfolio, demonstrating your ability to deliver real-world results.",
   },
 ];
+export const mentorCardValues = [
+  {
+    number: 1,
+    heading: "Application",
+    text: "Qualified Senior Software Engineers apply for the mentorship program",
+  },
+  {
+    number: 2,
+    heading: "Verification",
+    text: "We do a bit of check to verify if you’re fit for to be a mentor. Don't fret! It's just a little check.",
+  },
+  {
+    number: 3,
+    heading: "Profile",
+    text: "Complete your profile and you’re good to go",
+  },
+  {
+    number: 4,
+    heading: "Dashboard",
+    text: "Access the Hackthejobs dashboard for more setup",
+  },
+];
+export const spmCardValues = [
+  {
+    number: 1,
+    heading: "Application",
+    text: "Qualified Senior Software Engineers apply for the mentorship program",
+  },
+  {
+    number: 2,
+    heading: "Verification",
+    text: "We do a bit of check to verify if you’re fit for to be a mentor. Don't fret! It's just a little check.",
+  },
+  {
+    number: 3,
+    heading: "Profile",
+    text: "Complete your profile and you’re good to go",
+  },
+  {
+    number: 4,
+    heading: "Dashboard",
+    text: "Access the Hackthejobs dashboard for more setup",
+  },
+];
 
 export const imageCards = [
     {
@@ -192,24 +236,24 @@ export const CoreValue = [
     text: "We understand that ideas alone are not enough; it's consistent action and execution that drive our success. Therefore, we don't merely set ambitious goals, we actively pursue them with precision and determination.",
     background: "#F0FFF1",
   },
-  {
-    img: "/book-icon4.svg",
-    heading: "Our Core Values",
-    text: "Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ",
-    background: "#FCF0FF",
-  },
-  {
-    img: "/book-icon1.svg",
-    heading: "Our Core Values",
-    text: "Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ",
-    background: "#F8F7FF",
-  },
-  {
-    img: "/book-icon6.svg",
-    heading: "Our Core Values",
-    text: "Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ",
-    background: "#FFF3F1",
-  },
+  // {
+  //   img: "/book-icon4.svg",
+  //   heading: "Our Core Values",
+  //   text: "Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ",
+  //   background: "#FCF0FF",
+  // },
+  // {
+  //   img: "/book-icon1.svg",
+  //   heading: "Our Core Values",
+  //   text: "Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ",
+  //   background: "#F8F7FF",
+  // },
+  // {
+  //   img: "/book-icon6.svg",
+  //   heading: "Our Core Values",
+  //   text: "Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies. Duis est sit sed leo nisl, blandit elit sagittis. ",
+  //   background: "#FFF3F1",
+  // },
 ];
 
 export const hirePitch = [
