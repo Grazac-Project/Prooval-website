@@ -101,9 +101,9 @@ const spaceGrotesk = localFont({
 });
 
 export const metadata = {
-  title: "Hack the Jobs",
+  title: "HacktheJobs | Go from bootcamp graduate to tech pro",
   description:
-    "HacktheJobs - Gain real life working Experience Bridge the gap between the completion of your Bootcamp and landing your dream tech role by getting relevant working experience through HacktheJobs",
+    "Bridge the gap between the completion of your Bootcamp and landing your dream tech role by getting relevant working experience through HacktheJobs",
   icons: {
     icon: '/favicon.png'
 
