@@ -189,6 +189,7 @@
   align-items: center;
   gap: 56px;
   margin: auto;
+  /* flex-wrap: wrap; */
 }
 .donateText {
   width: 50%;

@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Classes from "./nav.module.css";
 import Image from "next/image";
-import {  usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
@@ -15,86 +15,145 @@ const Navbar = () => {
     <>
       <header className={Classes.header} suppressHydrationWarning>
         <div className={Classes.navbar}>
-          <Link href="/" className={Classes.logo} >
+          <Link href="/" className={Classes.logo}>
             <Image src="/navLogo.svg" alt="logo" width={164} height={36} />
           </Link>
           <nav className={Classes.nav}>
             <ul>
-              <li>
-                <Link href="/" style={{color: pathname === "/" ? "#1453ff" : "#667085"}}>
-                  Home
-                </Link>
-              </li>
               {/* <li>
                 <Link
-                  href="/#"
-                  style={{color: pathname === "/about-us" ? "#1453ff" : "#667085"}}
+                  href="/"
+                  style={{ color: pathname === "/" ? "#1453ff" : "#667085" }}
                 >
-                  About Us
+                  Home
                 </Link>
               </li> */}
               <li>
-                <Link href="/faq" 
-                style={{color: pathname === "/faq" ? "#1453ff" : "#667085"}}
-                >FAQ</Link>
+                <Link
+                  href="/about-us"
+                  style={{
+                    color: pathname === "/about-us" ? "#1453ff" : "#667085",
+                  }}
+                >
+                  About
+                </Link>
               </li>
               <li>
-                <Link href="/donation"
-                style={{color: pathname === "/donation" ? "#1453ff" : "#667085"}}
-                >Donation</Link>
+                <Link
+                  href="/faq"
+                  style={{ color: pathname === "/faq" ? "#1453ff" : "#667085" }}
+                >
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/donation"
+                  style={{
+                    color: pathname === "/donation" ? "#1453ff" : "#667085",
+                  }}
+                >
+                  Donation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/mentor"
+                  style={{
+                    color: pathname === "/mentor" ? "#1453ff" : "#667085",
+                  }}
+                >
+                  Mentor
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/spm"
+                  style={{
+                    color: pathname === "/spm" ? "#1453ff" : "#667085",
+                  }}
+                >
+                  SPM
+                </Link>
               </li>
             </ul>
             <div className={Classes.btnFlex}>
-              <button>
+              <button className={Classes.btnFlex1}>
                 {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
-                <Link href="https://waitlist.hackthejobs.com">
-                  Log in
-                </Link>
+                <Link href="/login">Log in</Link>
               </button>
-              <button>
+              <button className={Classes.btnFlex2}>
                 {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-                <Link href="https://waitlist.hackthejobs.com">
-                  Sign up
-                </Link>
+                <Link href="/signup">Sign up</Link>
               </button>
             </div>
           </nav>
           {dropdown ? (
             <nav className={Classes.navMobile}>
               <ul>
-                <li>
-                  <Link href="/" onClick={() => setDropdown(false)}  style={{color: pathname === "/" ? "#1453ff" : ""}} >
-                    Home
-                  </Link>
-                </li>
                 {/* <li>
-                  <Link href="/#" onClick={() => setDropdown(false)}  style={{color: pathname === "/about-us" ? "#1453ff" : ""}}>
-                    About Us
+                  <Link
+                    href="/"
+                    onClick={() => setDropdown(false)}
+                    style={{ color: pathname === "/" ? "#1453ff" : "" }}
+                  >
+                    Home
                   </Link>
                 </li> */}
                 <li>
-                  <Link href="/faq" onClick={() => setDropdown(false)}  style={{color: pathname === "/faq" ? "#1453ff" : ""}}>
+                  <Link
+                    href="/about-us"
+                    onClick={() => setDropdown(false)}
+                    style={{ color: pathname === "/about-us" ? "#1453ff" : "" }}
+                  >
+                    About 
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/faq"
+                    onClick={() => setDropdown(false)}
+                    style={{ color: pathname === "/faq" ? "#1453ff" : "" }}
+                  >
                     FAQ
                   </Link>
                 </li>
                 <li>
-                  <Link href="/donation" onClick={() => setDropdown(false)}  style={{color: pathname === "/donation" ? "#1453ff" : ""}}>
+                  <Link
+                    href="/donation"
+                    onClick={() => setDropdown(false)}
+                    style={{ color: pathname === "/donation" ? "#1453ff" : "" }}
+                  >
                     Donation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/mentor"
+                    onClick={() => setDropdown(false)}
+                    style={{ color: pathname === "/mentor" ? "#1453ff" : "" }}
+                  >
+                   Mentor
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/spm"
+                    onClick={() => setDropdown(false)}
+                    style={{ color: pathname === "/spm" ? "#1453ff" : "" }}
+                  >
+                    SPM
                   </Link>
                 </li>
               </ul>
               <div className={Classes.btnFlex}>
                 <button>
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
-                  <Link href="https://waitlist.hackthejobs.com">
-                    Log in
-                  </Link>
+                  <Link href="/login">Log in</Link>
                 </button>
-                <button>
+                <button >
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-                  <Link href="https://waitlist.hackthejobs.com">
-                    Sign up
-                  </Link>
+                  <Link href="/signup">Sign up</Link>
                 </button>
               </div>
             </nav>
