@@ -44,19 +44,19 @@ const Login = () => {
                 <a href="https://waitlist.hackthejobs.com">
                     <div style={{background: logo1 ? '#1453FF': '', color: logo1 ? '#fff' : ''}} className="bg-[#fff] px-[48px] py-[29px] mb-[28px] rounded-[8px] border-[1px]  border-[#EAEAEA] flex justify-center items-center gap-[12px]" onMouseOver={handleLogoEvent1} onMouseOut={handleLogoEvent1}>
                         {logo1 ? <Image src='/hover-fellow.png' width={20} height={20} alt="fellow icon" /> : <Image src='/fellow.png' width={20} height={20} alt="fellow icon" />}
-                        <p style={{ color: logo1 ? '#fff' : ''}} className="font-medium text-[16px] text-[#2A2A2A] leading-[24px] tracking-[3%]">Become a Fellow</p>
+                        <p style={{ color: logo1 ? '#fff' : ''}} className="font-medium text-[16px] text-[#2A2A2A] leading-[24px] tracking-[3%]">Login as a Fellow</p>
                     </div>
                 </a>
                 <a href="https://waitlist.hackthejobs.com">
                     <div style={{background: logo2 ? '#1453FF': '', color: logo2 ? '#fff' : ''}} className="bg-[#fff] px-[48px] py-[29px] mb-[28px] rounded-[8px] border-[1px] border-[#EAEAEA] flex justify-center items-center gap-[12px]" onMouseOver={handleLogoEvent2} onMouseOut={handleLogoEvent2}>
                         {logo2 ? <Image src='/hover-spm.png' width={20} height={20} alt="spm icon" /> : <Image src='/spm.png' width={20} height={20} alt="spm icon" />}
-                        <p style={{color: logo2 ? '#fff' : ''}} className="font-medium text-[16px] text-[#2A2A2A] leading-[24px] tracking-[3%]">Become a SPM</p>
+                        <p style={{color: logo2 ? '#fff' : ''}} className="font-medium text-[16px] text-[#2A2A2A] leading-[24px] tracking-[3%]">Login as SPM</p>
                     </div>
                 </a>
                 <a href="https://waitlist.hackthejobs.com">
                     <div style={{background: logo3 ? '#1453FF': '', color: logo3 ? '#fff' : ''}} className="bg-[#fff] px-[48px] py-[29px] rounded-[8px] border-[1px] border-[#EAEAEA] flex justify-center items-center gap-[12px]" onMouseOver={handleLogoEvent3} onMouseOut={handleLogoEvent3}>
                         {logo3 ? <Image src='/hover-mentor-icon.png' width={20} height={20} alt="mentor icon" /> : <Image src='/mentor-icon.png' width={20} height={20} alt="mentor icon" />}
-                        <p style={{ color: logo3 ? '#fff' : ''}} className="font-medium text-[16px] text-[#2A2A2A] leading-[24px] tracking-[3%]">Become a Mentor</p>
+                        <p style={{ color: logo3 ? '#fff' : ''}} className="font-medium text-[16px] text-[#2A2A2A] leading-[24px] tracking-[3%]">Login as a Mentor</p>
                     </div>
                 </a>
             </div>
