@@ -157,11 +157,14 @@ const spm = () => {
                 entry-level tech fellows.
               </p>
               {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-              <Link href="#">
+              {/* <Link href="#">
                 <button className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
                   Become a SPM
                 </button>
-              </Link>
+              </Link> */}
+                <a href="https://spm.hackthejobs.com/auth/signup" target="_blank" className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
+                  Become a SPM
+                </a>
             </div>
             <div className="w-[598px] sm:w-[100%] pl-[40px] xxl:pl-[30px] pr-[37px] xxl:pr-[30px]">
               <Image
@@ -629,9 +632,12 @@ const spm = () => {
               <p className="font-regular text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4">
                 Together, let's build a brighter future for the tech workforce.
               </p>
-              <button className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
+              {/* <button className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
                 Become a SPM
-              </button>
+              </button> */}
+              <a href="https://spm.hackthejobs.com/auth/signup" target="_blank" className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
+                Become a SPM
+              </a>
             </div>
             <Image src="/donateImg2.png" width={630} height={489} alt="img" />
           </div>

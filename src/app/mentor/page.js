@@ -185,11 +185,16 @@ const mentor = () => {
                 future of the tech industry.
               </p>
               {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-              <Link href="#">
+              {/* <Link href="https://mentor.hackthejobs.com/auth/signup">
                 <button className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
                   Become a Mentor
                 </button>
-              </Link>
+              </Link> */}
+              {/* <Link href="https://mentor.hackthejobs.com/auth/signup"> */}
+                <a href="https://mentor.hackthejobs.com/auth/signup" target="_blank" className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
+                  Become a Mentor
+                </a>
+              {/* </Link> */}
             </div>
             <div className=" mt-[64px] sm:mt-[45px]">
               <Image

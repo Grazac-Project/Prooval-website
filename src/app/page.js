@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Modal from "@/components/modal/modal";
 import { fetchMentors } from "@/api/authentication/auth";
+import useAnalytics from "@/components/useAnalytics";
 
 const Landing = () => {
   const router = useRouter();
@@ -195,9 +196,9 @@ const Landing = () => {
                 equipping you for your future in tech.
               </p>
               {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-              <Link href="https://waitlist.hackthejobs.com">
+              <Link href="/signup">
                 <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
-                  Join waitlist
+                  Get Started
                 </button>
               </Link>
               <Link href="/donation">
