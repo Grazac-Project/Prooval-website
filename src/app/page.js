@@ -158,6 +158,8 @@ const Landing = () => {
   }, []);
   // console.log(listOfMentors);
 
+  const GA_TRACKING_ID = 'G-JS3RNTYLD8';
+  useAnalytics(GA_TRACKING_ID);
   return (
     <div className="overflow-x-hidden">
       {showModal && <Modal modalClose={() => setShowModal(false)} />}

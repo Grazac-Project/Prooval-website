@@ -5,6 +5,7 @@ import "./globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Script from "next/script";
+import GoogleAnalytics from "@/components/googleAnalytics";
 
 // const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const whyte = localFont({
@@ -110,6 +111,8 @@ export const metadata = {
   }
 };
 
+const GA_TRACKING_ID = 'G-JS3RNTYLD8';
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -131,6 +134,7 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+        <GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID}/>
         {children}
       </body>
     </html>
