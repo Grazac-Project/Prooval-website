@@ -142,10 +142,10 @@ const spm = () => {
           <div className="  py-[48px] flex sm:flex-col gap-[58px] xl:gap-[25px] items-center ">
             <div className="">
               {/* <div className='flex gap-2 w-[256px] md:w-[200px] sm:w-[256px] py-2 px-3 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px] whitespace-pre'> */}
-              <div className="font-inter flex gap-2 w-[294px]   px-3 py-2 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px] whitespace-pre">
+              <div className="font-inter flex gap-2 w-fit   px-3 py-2 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px] whitespace-pre">
                 <MdVerified className="text-[#FFD700] text-[16px]" />
                 <h3 className="font-medium text-[14px] text-[#121927] leading-[15.4px] tracking-[4%] ">
-                  Become a Senior Product manager
+                  Senior Product Manager
                 </h3>
               </div>
               <h1 className="font-bold w-[621px] xxl:w-[550px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[64px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] ">
@@ -163,7 +163,7 @@ const spm = () => {
                 </button>
               </Link> */}
                 <a href="https://spm.hackthejobs.com/auth/signup" target="_blank" className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
-                  Become a SPM
+                  Join as a Senior PM
                 </a>
             </div>
             <div className="w-[598px] sm:w-[100%] pl-[40px] xxl:pl-[30px] pr-[37px] xxl:pr-[30px]">
@@ -525,7 +525,7 @@ const spm = () => {
         <section className="h-[64px] bg-[#fff]"></section>
         <section className="px-[80px] xl:px-[25px] xm:px-4 py-[137.5px] sm:py-[62px] font-whyte bg-[#121927] relative">
           <h2 className="font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3">
-            Why become a SPM
+            Why become a Senior PM
           </h2>
           <h3 className="font-regular text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]">
             Hackthejobs offers you a unique opportunity to make an impact on the
@@ -551,7 +551,7 @@ const spm = () => {
         <section className="w-[100%] font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]">
           <div className="w-[28.125%] xxl:w-[30%] lgx:w-[33%] lg:w-[35%] md:w-[38%] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[70px] pl-[30px] xl:pl-[15px] pr-[14px] pb-[72px] xxl:pb-[22px] relative">
             <h4 className="w-[245px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] xm:w-[231px] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] xm:text-[32px] leading-[52.8px] xm:leading-[35.2px] text-[#FBFCFD] pb-[17px]">
-              Become an SPM in four easy steps
+              Join as a Senior PM in four easy steps
             </h4>
             <Image
               src="/easy-arrow.png"
@@ -593,7 +593,7 @@ const spm = () => {
           <div className="flex items-center justify-center gap-[109px] xxl:gap-[50px] lg:flex-col-reverse">
             <div className=" w-[539px] font-whyte xxl:w-auto ">
               <h4 className="font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#101828] mx-auto mb-6 sm:text-center">
-                Your Key Responsibilities as an SPM
+                Your Key Responsibilities as an Senior PM
               </h4>
               <div className="flex gap-[2px] items-top">
                 <i>
@@ -636,7 +636,7 @@ const spm = () => {
                 Become a SPM
               </button> */}
               <a href="https://spm.hackthejobs.com/auth/signup" target="_blank" className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
-                Become a SPM
+                Join as a Senior PM
               </a>
             </div>
             <Image src="/donateImg2.png" width={630} height={489} alt="img" />

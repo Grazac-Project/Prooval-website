@@ -45,7 +45,7 @@ const ValueCard = () => {
         </h4>
         <p className="font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]">
           Get access to resources that will help you at every stage of your job
-          search. (job search strategies, cover letter templates, interview
+          search (job search strategies, cover letter templates, interview
           preparation materials, resume writing guides)
         </p>
         <Image
@@ -76,7 +76,7 @@ const ValueCard = () => {
         </h4>
         <p className="font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[56px]">
           Empower yourself with resources that will help you at every stage of
-          your job search. (job search strategies, cover letter templates,
+          your job search (job search strategies, cover letter templates,
           interview preparation materials, resume writing guides)
         </p>
         <Image

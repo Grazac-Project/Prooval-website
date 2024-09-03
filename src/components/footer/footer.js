@@ -113,7 +113,7 @@ const Footer = ({ openModal }) => {
               </li>
             </Link> <Link href="/spm">
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
-              SPM
+              PM
               </li>
             </Link>
             <Link href="/terms">
