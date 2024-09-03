@@ -73,7 +73,7 @@ const Navbar = () => {
                     color: pathname === "/spm" ? "#1453ff" : "#667085",
                   }}
                 >
-                  SPM
+                  PM
                 </Link>
               </li>
             </ul>
@@ -142,7 +142,7 @@ const Navbar = () => {
                     onClick={() => setDropdown(false)}
                     style={{ color: pathname === "/spm" ? "#1453ff" : "" }}
                   >
-                    SPM
+                    PM
                   </Link>
                 </li>
               </ul>
