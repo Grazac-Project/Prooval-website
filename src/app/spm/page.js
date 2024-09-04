@@ -593,7 +593,7 @@ const spm = () => {
           <div className="flex items-center justify-center gap-[109px] xxl:gap-[50px] lg:flex-col-reverse">
             <div className=" w-[539px] font-whyte xxl:w-auto ">
               <h4 className="font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#101828] mx-auto mb-6 sm:text-center">
-                Your Key Responsibilities as an Senior PM
+                Your Key Responsibilities as a Senior PM
               </h4>
               <div className="flex gap-[2px] items-top">
                 <i>
