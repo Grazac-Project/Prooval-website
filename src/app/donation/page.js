@@ -87,7 +87,7 @@ const Donation = () => {
                Donate with Flutterwave
               </div>
             </Link>
-            <Link href="#" >
+            <Link href="https://gofund.me/9d0eeec3" target="_blank" >
               <div className=" font-whyte flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] border border-[#ffff] rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto">
                 <Image
                   src="goFundme.svg"
