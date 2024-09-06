@@ -63,7 +63,7 @@ const Donation = () => {
         </div>
         <div className="flex  items-center justify-center">
           <div className="flex  items-center justify-center md:flex-col gap-6">
-            <Link href="#">
+            {/* <Link href="#">
               <div className=" font-whyte flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto">
                 <Image
                   src="stripe.svg"
@@ -74,8 +74,8 @@ const Donation = () => {
                 />
                 Donate with Stripe
               </div>
-            </Link>
-            <Link href="#">
+            </Link> */}
+            <Link href="https://flutterwave.com/donate/qp4tnnzbnn7g" target="_blank">
               <div className=" font-whyte flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto  border border-[#ffff]">
                 <Image
                   src="flutterwave.svg"
@@ -87,7 +87,7 @@ const Donation = () => {
                Donate with Flutterwave
               </div>
             </Link>
-            <Link href="#">
+            <Link href="https://gofund.me/9d0eeec3" target="_blank" >
               <div className=" font-whyte flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] border border-[#ffff] rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto">
                 <Image
                   src="goFundme.svg"
