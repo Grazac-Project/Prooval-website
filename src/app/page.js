@@ -209,7 +209,8 @@ const Landing = () => {
             </div>
             <div className="w-[598px] sm:w-[100%] pl-[40px] xxl:pl-[30px] pr-[37px] xxl:pr-[30px]">
               <Image
-                src="/hero-pic.png"
+                // src="/hero-pic.png"
+                src="/main-hero.png"
                 alt="group of pictures"
                 width={524}
                 height={673}
@@ -726,7 +727,8 @@ const Landing = () => {
         <section className="flex sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]">
           <div>
             <Image
-              src="/bootcamp.png"
+              // src="/bootcamp.png"
+              src="/bootcamp-img.png"
               width={602}
               height={519}
               alt="several images merged into one"

@@ -168,7 +168,8 @@ const spm = () => {
             </div>
             <div className="w-[598px] sm:w-[100%] pl-[40px] xxl:pl-[30px] pr-[37px] xxl:pr-[30px]">
               <Image
-                src="/spm-hero.png"
+                // src="/spm-hero.png"
+                src="/fred-hero.png"
                 alt="group of pictures"
                 width={524}
                 height={673}
@@ -639,7 +640,8 @@ const spm = () => {
                 Join as a Senior PM
               </a>
             </div>
-            <Image src="/donateImg2.png" width={630} height={489} alt="img" />
+            {/* <Image src="/donateImg2.png" width={630} height={489} alt="img" /> */}
+            <Image src="/mentor-key.png" width={630} height={489} alt="img" />
           </div>
         </section>
         <section className="px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px] sm:mt-[40px]">

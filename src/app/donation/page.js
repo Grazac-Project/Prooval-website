@@ -237,7 +237,8 @@ const Donation = () => {
               <button>Make donation</button>
             </Link>
           </div>
-          <Image src="/donateImg2.png" width={630} height={489} alt="img" />
+          {/* <Image src="/donateImg2.png" width={630} height={489} alt="img" /> */}
+          <Image src="/donation-main.png" width={630} height={489} alt="img" />
         </div>
       </div>
       {/* <div className={Classes.logo}>
