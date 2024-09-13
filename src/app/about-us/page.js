@@ -56,11 +56,12 @@ const AboutUs = () => {
         <Image src="/about-hero.png" alt="img" width={1440} height={600} />
       </div>
       <div className={Classes.mission}>
-        <h4>Our mission is to equip you for jobs</h4>
+        <h4>Our mission </h4>
         <p>
-          There are struggles that all the smart techies you see have to go
-          through till they land their dream role in tech. Our mission is to
-          help you through these hurdles and ease you to landing a job.
+          Our mission is to equip individuals with the right mentorship and
+          experience needed to scale their tech careers to the next level. We
+          are dedicated to building a supportive community that promotes growth
+          and encourages collaboration.
         </p>
       </div>
       <div className={Classes.story}>
@@ -83,15 +84,15 @@ const AboutUs = () => {
 
         <div className={Classes.storyFlex}>
           <p>
-            For some years now, Bootcamps have been able to up-skill millions of
-            people across the continent of Africa. While many of them got
-            entry-level jobs in the tech sector, a large chunk of these
-            bootcamps didn’t. A critical gap emerged! It turns out that
-            bootcamps alone are not enough to equip the graduates with
-            everything they needed in the tech space. To fill this void, we
-            launched Hackthejobs—a free work experience accelerator that gives
-            bootcamp graduates real-world experience, communication skills, and
-            guidance to secure a tech job.
+            The launch of bootcamps keep rising globally with the goal of
+            upskilling millions of young individuals but there is less attention
+            paid to the already upskilled talents in the job market. After we
+            launched a bootcamp in 2019, we strongly believe the workforce of
+            the future will be from Africa but bootcamps alone won’t prepare our
+            talents for this and to fill this void, we have built hackthejobs as
+            a free work experience accelerator to give entry level talents work
+            experience, build their soft skills and the right mentorship to
+            attract and retain global opportunities.
           </p>
         </div>
       </div>
@@ -102,7 +103,7 @@ const AboutUs = () => {
               Our Core Values
             </h3>
             <p className="text-[16px]  leading-[24px]  font-[400] text-[#667085] ">
-            We hold the following in high regard
+              We hold the following in high regard
             </p>
           </div>
 
@@ -225,9 +226,9 @@ const AboutUs = () => {
             Support our vision by empowering a talent to get work experience
           </h3>
           <p>
-            Your donation goes a long way in empowering tech talent to get
-            enough work experience building products that solve sustainable
-            developmental goal project
+            Your donation goes a long way in empowering entry level talent to
+            get real world experience while addressing sustainable development
+            focused goals.
           </p>
           <Link href="/donation">
             <button>Make donation</button>

@@ -41,12 +41,10 @@ const ValueCard = () => {
       >
         <Image src="/card1.png" width={56} height={57} alt="gvh" />
         <h4 className="font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 ">
-          Build Real Projects
+        Build Your Portfolio
         </h4>
         <p className="font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]">
-          Get access to resources that will help you at every stage of your job
-          search (job search strategies, cover letter templates, interview
-          preparation materials, resume writing guides)
+        Collaborate and work with other fellows to build real life projects that will help you for your job search.
         </p>
         <Image
           style={{ filter: changeHover ? "none" : "grayscale(100%)" }}
@@ -72,12 +70,10 @@ const ValueCard = () => {
       >
         <Image src="/card2.png" width={56} height={57} alt="gvh" />
         <h4 className="font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 ">
-          Career Resources
+        Community Networking
         </h4>
         <p className="font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[56px]">
-          Empower yourself with resources that will help you at every stage of
-          your job search (job search strategies, cover letter templates,
-          interview preparation materials, resume writing guides)
+        Join our community and get open access to people of like minds. Build connections that will last throughout your career. 
         </p>
         <Image
           style={{ filter: changeHover1 ? "none" : "grayscale(100%)" }}
@@ -133,11 +129,10 @@ const ValueCard = () => {
       >
         <Image src="/card4.png" width={56} height={57} alt="gvh" />
         <h4 className="font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 ">
-          Community Networking
+        Soft Skills & Career Tips
         </h4>
         <p className="font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]">
-          Join our community and get open access to people of like minds. Build
-          connections that will last throughout your career.
+        Equip yourself with essential soft skills to remain competitive on a global scale. You’ll gain expertise in problem-solving, communication, and professional work attitude. You’d also learn job search strategies, interview preparation material and professional ATS resume guide.
         </p>
         <Image
           style={{ filter: changeHover3 ? "none" : "grayscale(100%)" }}

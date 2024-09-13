@@ -1,67 +1,67 @@
 export const cardValues = [
   {
     number: 1,
-    heading: "Assessment",
-    text: "Your journey to a midlevel career starts here, determine your skills by taking our short assessment",
+    heading: "Create an Account",
+    text: "Sign up with your name, email, phone number and select a career path.",
   },
   {
     number: 2,
-    heading: "Get Matched",
-    text: "Get matched with mentors and product managers from FAANG to build Products and services that contribute to achieving Sustainable Development Goals",
+    heading: "Take Assessment",
+    text: "Our assessment is based on your selected career path to validate your skills.",
   },
   {
     number: 3,
-    heading: "Project",
-    text: "You have gotten the necessary training, here is an opportunity to put all that knowledge into good use by working on the projects chosen by your team under a senior product manager",
+    heading: "Get Matched",
+    text: "We matched you with other fellows who will work in your team and a senior product manager who will supervise your team and you’d be able to join our talent slack community at this point.",
   },
   {
     number: 4,
-    heading: "Build Portfolio",
-    text: "Showcase your completed project in your portfolio, demonstrating your ability to deliver real-world results.",
+    heading: "Project Assignment",
+    text: "After you get matched, your supervisor will walk you through the project to build and guide you till you complete your project.",
   },
 ];
 export const mentorCardValues = [
   {
     number: 1,
-    heading: "Application",
-    text: "Qualified Senior Software Engineers apply for the mentorship program",
+    heading: "Submit Application",
+    text: "Create an account with your name, email, current role, company name and Linkedin profile.",
   },
   {
     number: 2,
     heading: "Verification",
-    text: "We do a bit of check to verify if you’re fit for to be a mentor. Don't fret! It's just a little check.",
+    text: "To ensure we provide the best mentors for our fellows, our team will do a quick check on your profile to ensure it meets our requirements.",
   },
   {
     number: 3,
-    heading: "Profile",
-    text: "Complete your profile and you’re good to go",
+    heading: "Setup Bookings",
+    text: "Update your profile, booking information and set availability time in your calendar.",
   },
   {
     number: 4,
-    heading: "Dashboard",
-    text: "Access the Hackthejobs dashboard for more setup",
+    heading: "Start Mentoring",
+    text: "After completing your profile, you’d be visible to our fellows and they’d be able to book a mentorship session with you.",
   },
 ];
 export const spmCardValues = [
   {
     number: 1,
-    heading: "Application",
-    text: "Qualified Senior Software Engineers apply for the mentorship program",
+    heading: "Submit Application",
+    text: "Create an account with your name, email, current role, company name and Linkedin profile.",
   },
   {
     number: 2,
     heading: "Verification",
-    text: "We do a bit of check to verify if you’re fit for to be a mentor. Don't fret! It's just a little check.",
+    text: "To ensure we provide the best PMs for our fellows, our team will do a quick check on your profile to ensure it meets our requirements.",
   },
   {
     number: 3,
-    heading: "Profile",
-    text: "Complete your profile and you’re good to go",
+    heading: "Get Matched",
+    text: "We matched you with fellows you will supervise and you’d be able to join the slack community at this point.",
   },
   {
     number: 4,
-    heading: "Dashboard",
-    text: "Access the Hackthejobs dashboard for more setup",
+    heading: "Project Assignment",
+    text: "After you get matched, you will assign a project for the team to build and guide them till they complete the project.",
   },
 ];
 

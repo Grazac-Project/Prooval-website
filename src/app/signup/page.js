@@ -53,7 +53,7 @@ const Signup = () => {
                 <a href="https://spm.hackthejobs.com/auth/signup" target="_blank">
                     <div style={{background: logo2 ? '#1453FF': '', color: logo2 ? '#fff' : ''}} className="bg-[#fff] px-[48px] py-[29px] mb-[28px] rounded-[8px] border-[1px] border-[#EAEAEA] flex justify-center items-center gap-[12px]" onMouseOver={handleLogoEvent2} onMouseOut={handleLogoEvent2}>
                         {logo2 ? <Image src='/hover-spm.png' width={20} height={20} alt="spm icon" /> : <Image src='/spm.png' width={20} height={20} alt="spm icon" />}
-                        <p style={{color: logo2 ? '#fff' : ''}} className="font-medium text-[16px] text-[#2A2A2A] leading-[24px] tracking-[3%]">Senior Product Manager</p>
+                        <p style={{color: logo2 ? '#fff' : ''}} className="font-medium text-[16px] text-[#2A2A2A] leading-[24px] tracking-[3%]">Product Manager</p>
                     </div>
                 </a>
                 <a href="https://mentor.hackthejobs.com/auth/signup" target="_blank">
