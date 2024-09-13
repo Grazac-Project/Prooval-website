@@ -1,23 +1,23 @@
 export const cardValues = [
   {
     number: 1,
-    heading: "Assessment",
-    text: "Your journey to a midlevel career starts here, determine your skills by taking our short assessment",
+    heading: "Create an Account",
+    text: "Sign up with your name, email, phone number and select a career path.",
   },
   {
     number: 2,
-    heading: "Get Matched",
-    text: "Get matched with mentors and product managers from FAANG to build Products and services that contribute to achieving Sustainable Development Goals",
+    heading: "Take Assessment",
+    text: "Our assessment is based on your selected career path to validate your skills.",
   },
   {
     number: 3,
-    heading: "Project",
-    text: "You have gotten the necessary training, here is an opportunity to put all that knowledge into good use by working on the projects chosen by your team under a senior product manager",
+    heading: "Get Matched",
+    text: "We matched you with other fellows who will work in your team and a senior product manager who will supervise your team and you’d be able to join our talent slack community at this point.",
   },
   {
     number: 4,
-    heading: "Build Portfolio",
-    text: "Showcase your completed project in your portfolio, demonstrating your ability to deliver real-world results.",
+    heading: "Project Assignment",
+    text: "After you get matched, your supervisor will walk you through the project to build and guide you till you complete your project.",
   },
 ];
 export const mentorCardValues = [

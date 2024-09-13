@@ -171,26 +171,24 @@ const Landing = () => {
                 <MdVerified className="text-[#FFD700] text-[16px]" />
                 <h3 className="font-medium text-[14px] text-[#121927] leading-[15.4px] tracking-[4%] ">
                   <span className="text-[#4F4F4F] text-[14px]">Empowered</span>{" "}
-                  over 14k students
+                  over 5k students
                 </h3>
               </div>
               <h1 className="font-bold w-[621px] xxl:w-[550px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] ">
-                Go from bootcamp graduate to{" "}
+              Scale your tech career with
                 <span
                   style={{
                     transform: `rotate(${angle})`,
                     background: color,
                     border: `4px solid ${border}`,
                   }}
-                  className={`text-[#fff] text-[54px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[266px] xl:w-auto rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block`}
+                  className={`text-[#fff] text-[42px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[266px] xl:w-auto rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block`}
                 >
-                  tech pro
+                  {color === "#F2C003" ?  "mentorship" : "experience" }
                 </span>
               </h1>
               <p className="font-regular text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8">
-                Bootcamp is just step one. Real project experience is the real
-                deal! Hackthejobs set you up with the much necessary experience,
-                equipping you for your future in tech.
+              We understand the challenges every talents face due to their lack of work experience and we have built hackthejobs to give you real life work experience and the right mentorship to build your career.
               </p>
               {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
               <Link href="https://waitlist.hackthejobs.com">
@@ -200,7 +198,7 @@ const Landing = () => {
               </Link>
               <Link href="/donation">
                 <button className="w-[213px] lg:w-[170px] md:w-[150px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border-[1px] border-[#DADADA]">
-                  Make a donation
+                  Support a Talent
                 </button>
               </Link>
             </div>
@@ -237,7 +235,7 @@ const Landing = () => {
               className="mx-auto object-contain hidden sm:block"
             />
             <p className="font-regular text-[12px] text-[#414449] pt-[12px] sm:pt-[6px] sm:text-[6.87px] leading-[13px] sm:leading-[7.44px] w-[169px] sm:w-[96.72px] mx-auto text-center text-[#121927]">
-              More than +12,000 Satisfied students across the globe
+              More than +5,000 Satisfied students across the globe
             </p>
           </div>
           <div
@@ -262,7 +260,7 @@ const Landing = () => {
               className="object-contain hidden sm:block"
             />
             <p className="font-regular text-[14px] sm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 sm:leading-[11.54px] w-[54px] sm:w-[30.9px]">
-              +1000 <span className="text-[#8B8B8B]">Courses</span>
+              +30 <span className="text-[#8B8B8B]">Courses</span>
             </p>
           </div>
           <div
@@ -287,7 +285,7 @@ const Landing = () => {
               className="object-contain hidden sm:block"
             />
             <p className="font-regular w-[58px] sm:w-[33.19px] text-[14px] sm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 sm:leading-[11.93px]">
-              +2000 <span className="text-[#8B8B8B]">Mentors</span>
+              +250 <span className="text-[#8B8B8B]">Mentors</span>
             </p>
           </div>
           <div
@@ -312,7 +310,7 @@ const Landing = () => {
               className="object-contain hidden sm:block"
             />
             <p className="w-[84px] sm:w-[48.07px] font-regular text-[14px] sm:text-[8.01px] text-[#414449] leading-[18.96px] lgx:leading-4 sm:leading-[10.85px]">
-              +154
+              +50
               <br /> <span className="text-[#8B8B8B]">Live projects</span>
             </p>
           </div>
@@ -564,10 +562,10 @@ const Landing = () => {
         <section className="h-[64px] bg-[#fff]"></section>
         <section className="px-[80px] xl:px-[25px] xm:px-4 py-[137.5px] sm:py-[62px] font-whyte bg-[#121927] relative">
           <h2 className="font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3">
-            Why you should choose HackTheJob
+          What you get from Hackthejobs.
           </h2>
           <h3 className="font-regular text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]">
-            Get real project experience that lands you a job.
+            Get the experience you need to attract global opportunities.
           </h3>
 
           <ValueCard />
@@ -638,12 +636,10 @@ const Landing = () => {
         <section className="font-whyte flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
           <div>
             <h3 className="font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[580px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center">
-              We Have Outstanding Mentors to Guide you
+            We’ve got outstanding mentors to guide you.
             </h3>
             <p className="font-regular text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[580px] md:w-[510px] sm:hidden">
-              We are not leaving you alone on this journey, connect with
-              exceptional mentors from various backgrounds and openly discuss
-              your career challenges with them.
+            We are not leaving you alone on this journey, connect with exceptional mentors from various backgrounds and openly discuss your career challenges and blockers with them.
             </p>
           </div>
 

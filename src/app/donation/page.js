@@ -74,8 +74,11 @@ const Donation = () => {
                 />
                 Donate with Stripe
               </div>
-            </Link>
-            <Link href="#">
+            </Link> 
+            <Link
+              href="https://flutterwave.com/donate/qp4tnnzbnn7g"
+              target="_blank"
+            >
               <div className=" font-whyte flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto  border border-[#ffff]">
                 <Image
                   src="flutterwave.svg"
@@ -84,10 +87,10 @@ const Donation = () => {
                   height={24}
                   className=""
                 />
-               Donate with Flutterwave
+                Donate with Flutterwave
               </div>
             </Link>
-            <Link href="#">
+            <Link href="https://gofund.me/9d0eeec3" target="_blank">
               <div className=" font-whyte flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] border border-[#ffff] rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto">
                 <Image
                   src="goFundme.svg"
@@ -107,28 +110,25 @@ const Donation = () => {
           <div className={Classes.whyText}>
             <h3>Why we start Hackthejob </h3>
             <p>
-              We know that the tech space is full of opportunities and talents.
-              But fresh talents seem to find it difficult to crack this market
-              or get their desired job. We then came to understand that there
-              was a big difference between what they were taught and what
-              employers expected from them. That is why we created HackTheJobs
-              to fill that void and bring the employers and fresh talents
-              together. Our mission is to help people get the hands-on practice
-              and assistance they require in order to achieve their goals.
+              We understand the challenges talents face first hand in attracting
+              opportunities after acquiring tech skills either online or in a
+              physical bootcamp. The idea behind hackthejobs is simply to close
+              this gap between these entry level talents and the work experience
+              needed to land global opportunities and stay competitive.
             </p>
           </div>
           <div className={Classes.whyStat}>
             <div className={Classes.stat}>
-              <h3>100K +</h3>
-              <p>Bootcamp graduates</p>
+              <h3>500K</h3>
+              <p>Bootcamps</p>
             </div>
             <div className={Classes.statFLex}>
               <div className={Classes.stat}>
-                <h3>500K +</h3>
-                <p>Bootcamps</p>
+                <h3>50K +</h3>
+                <p>Bootcamps grads</p>
               </div>
               <div className={Classes.stat}>
-                <h3> &lt;50K +</h3>
+                <h3> &lt;3K +</h3>
                 <p>Junior opportunities </p>
               </div>
             </div>
@@ -220,21 +220,14 @@ const Donation = () => {
               Together Let’s <span>Scale</span> The Next Generation
             </h4>
             <p>
-              Join us in shaping the future of tech by donating to sponsor
-              talents through HackTheJobs. By supporting us, you're not just
-              investing in a program, you're investing in the future of tech
-              innovation. Your support will enable us to provide essential
-              resources, mentorship, and opportunities to aspiring tech
-              professionals, empowering them to reach their dreams in the world
-              of tech. Together, let's build a brighter future for the tech
-              workforce.
+            We invite you to join us to build the workforce of the future. Together we can help millions of talents lead their dream jobs.
             </p>
-            <p>
+            {/* <p>
               Together, let's build a brighter future for the tech workforce.
-            </p>
+            </p> */}
 
             <Link href="#hero">
-              <button>Make donation</button>
+              <button>Support a Talent</button>
             </Link>
           </div>
           <Image src="/donateImg2.png" width={630} height={489} alt="img" />
