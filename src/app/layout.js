@@ -4,6 +4,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Script from "next/script";
+import GoogleAnalytics from "@/components/googleAnalytics";
 
 // const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const whyte = localFont({
@@ -100,20 +102,40 @@ const spaceGrotesk = localFont({
 });
 
 export const metadata = {
-  title: "Hack the Jobs",
+  title: "Hackthejobs | Go from bootcamp graduate to tech pro",
   description:
-    "HacktheJobs - Gain real life working Experience Bridge the gap between the completion of your Bootcamp and landing your dream tech role by getting relevant working experience through HacktheJobs",
+    "Bridge the gap between the completion of your Bootcamp and landing your dream tech role by getting relevant working experience through Hackthejobs",
   icons: {
     icon: '/favicon.png'
 
   }
 };
 
+const GA_TRACKING_ID = 'G-JS3RNTYLD8';
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable} ${whyte.variable}`}>
-          {children}
+      <Script
+          id="tawk-to"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+              (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/66ceed2eea492f34bc0aec5a/1i6c4svqj';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+              })();
+            `,
+          }}
+        />
+        <GoogleAnalytics GA_TRACKING_ID={GA_TRACKING_ID}/>
+        {children}
       </body>
     </html>
   );

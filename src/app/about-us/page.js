@@ -43,7 +43,7 @@ const AboutUs = () => {
           Success for us is when our fellows after building real-life projects land their dream job in tech.
           </p>
         </div> */}
-        <div className="w-[95%] ml-auto  ">
+        <div className="w-[95%] mx-auto pl-5 md:pl-[1px] ">
           <h1 className="font-whyte text-[54px] sm:text-[40px] leading-[60px] sm:leading-12 font-500 mt-12">
             Positioning you for success
           </h1>
@@ -52,7 +52,8 @@ const AboutUs = () => {
             land their dream job in tech.
           </p>
         </div>
-        <Image src="/about.png" alt="img" width={1440} height={600} />
+        {/* <Image src="/about.png" alt="img" width={1440} height={600} /> */}
+        <Image src="/about-hero.png" alt="img" width={1440} height={600} />
       </div>
       <div className={Classes.mission}>
         <h4>Our mission </h4>
@@ -66,14 +67,15 @@ const AboutUs = () => {
       <div className={Classes.story}>
         <h4>Our story</h4>
         <Image
-          src="/story.png"
+          // src="/story.png"
+          src="/about-story.png"
           alt="img"
           width={1280}
           height={432}
           className={Classes.storyImg1}
         />
         <Image
-          src="/story2.png"
+          src="/about-story2.png"
           alt="img"
           width={1280}
           height={432}
@@ -234,7 +236,8 @@ const AboutUs = () => {
         </div>
         <>
           <Image
-            src="/donateImg.png"
+            // src="/donateImg.png"
+            src="/about-support.png"
             alt="img"
             width={509}
             height={477}

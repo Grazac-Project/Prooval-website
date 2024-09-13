@@ -73,18 +73,18 @@ const Navbar = () => {
                     color: pathname === "/spm" ? "#1453ff" : "#667085",
                   }}
                 >
-                  SPM
+                  PM
                 </Link>
               </li>
             </ul>
             <div className={Classes.btnFlex}>
-              <button>
+              <button className={Classes.btnFlex1}>
                 {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
-                <Link href="https://waitlist.hackthejobs.com">Log in</Link>
+                <Link href="/login">Log in</Link>
               </button>
-              <button>
+              <button className={Classes.btnFlex2}>
                 {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-                <Link href="https://waitlist.hackthejobs.com">Sign up</Link>
+                <Link href="/signup">Sign up</Link>
               </button>
             </div>
           </nav>
@@ -142,7 +142,7 @@ const Navbar = () => {
                     onClick={() => setDropdown(false)}
                     style={{ color: pathname === "/spm" ? "#1453ff" : "" }}
                   >
-                    SPM
+                    PM
                   </Link>
                 </li>
               </ul>
@@ -151,9 +151,9 @@ const Navbar = () => {
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
                   <Link href="/login">Log in</Link>
                 </button>
-                <button className={Classes.btnFlex2}>
+                <button >
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-                  <Link href="/signUp">Sign up</Link>
+                  <Link href="/signup">Sign up</Link>
                 </button>
               </div>
             </nav>

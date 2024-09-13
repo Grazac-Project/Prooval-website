@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Modal from "@/components/modal/modal";
 import { fetchMentors } from "@/api/authentication/auth";
+import useAnalytics from "@/components/useAnalytics";
 
 const Landing = () => {
   const router = useRouter();
@@ -158,6 +159,8 @@ const Landing = () => {
   }, []);
   // console.log(listOfMentors);
 
+  const GA_TRACKING_ID = 'G-JS3RNTYLD8';
+  useAnalytics(GA_TRACKING_ID);
   return (
     <div className="overflow-x-hidden">
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
@@ -191,9 +194,9 @@ const Landing = () => {
               We understand the challenges every talents face due to their lack of work experience and we have built hackthejobs to give you real life work experience and the right mentorship to build your career.
               </p>
               {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-              <Link href="https://waitlist.hackthejobs.com">
+              <Link href="/signup">
                 <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
-                  Join waitlist
+                  Get Started
                 </button>
               </Link>
               <Link href="/donation">
@@ -204,7 +207,8 @@ const Landing = () => {
             </div>
             <div className="w-[598px] sm:w-[100%] pl-[40px] xxl:pl-[30px] pr-[37px] xxl:pr-[30px]">
               <Image
-                src="/hero-pic.png"
+                // src="/hero-pic.png"
+                src="/main-hero.png"
                 alt="group of pictures"
                 width={524}
                 height={673}
@@ -719,7 +723,8 @@ const Landing = () => {
         <section className="flex sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]">
           <div>
             <Image
-              src="/bootcamp.png"
+              // src="/bootcamp.png"
+              src="/bootcamp-img.png"
               width={602}
               height={519}
               alt="several images merged into one"

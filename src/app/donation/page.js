@@ -63,7 +63,7 @@ const Donation = () => {
         </div>
         <div className="flex  items-center justify-center">
           <div className="flex  items-center justify-center md:flex-col gap-6">
-            <Link href="#">
+            {/* <Link href="#">
               <div className=" font-whyte flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto">
                 <Image
                   src="stripe.svg"
@@ -90,7 +90,7 @@ const Donation = () => {
                 Donate with Flutterwave
               </div>
             </Link>
-            <Link href="https://gofund.me/9d0eeec3" target="_blank">
+            <Link href="https://gofund.me/9d0eeec3" target="_blank" >
               <div className=" font-whyte flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] border border-[#ffff] rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto">
                 <Image
                   src="goFundme.svg"
@@ -230,7 +230,8 @@ const Donation = () => {
               <button>Support a Talent</button>
             </Link>
           </div>
-          <Image src="/donateImg2.png" width={630} height={489} alt="img" />
+          {/* <Image src="/donateImg2.png" width={630} height={489} alt="img" /> */}
+          {/* <Image src="/donation-main.png" width={630} height={489} alt="img" /> */}
         </div>
       </div>
       {/* <div className={Classes.logo}>
