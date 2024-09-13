@@ -594,45 +594,43 @@ const spm = () => {
           <div className="flex items-center justify-center gap-[109px] xxl:gap-[50px] lg:flex-col-reverse">
             <div className=" w-[539px] font-whyte xxl:w-auto ">
               <h4 className="font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#101828] mx-auto mb-6 sm:text-center">
-                Your Key Responsibilities as a Senior PM
+              What we expect from you as a senior product manager.
               </h4>
-              <div className="flex gap-[2px] items-top">
+              <div className="flex gap-[2px] ">
                 <i>
                   <LuDot className="text-[40px] font-whyte leading-[24px] text-[#4F4F4F]" />
                 </i>
                 <p className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
-                  Design and Implement a Growth-Focused Product Features.
+                Supervise a team of 5 fellows to build an SDG focused project.
                 </p>
               </div>
-              <div className="flex gap-[2px] items-top">
+              <div className="flex gap-[2px] ">
                 <i>
                   <LuDot className="text-[40px] font-whyte leading-[24px] text-[#4F4F4F]" />
                 </i>
                 <p className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
-                  Actively participate in the mentoring process by providing
-                  guidance for fellows
+                Manage end-to-end of the project development lifecycle.
                 </p>
               </div>
-              <div className="flex gap-[2px] items-top">
+              <div className="flex gap-[2px] ">
                 <i>
                   <LuDot className="text-[40px] font-whyte leading-[24px] text-[#4F4F4F]" />
                 </i>
                 <p className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
-                  Help fellows to gain Soft Skills.
+                Introduce the team to a project management tools e.g Jira, Clickup, Trello, etc.
                 </p>
               </div>
-              <div className="flex gap-[2px] items-top">
+              <div className="flex gap-[2px] mb-6 ">
                 <i>
                   <LuDot className="text-[40px] font-whyte leading-[24px] text-[#4F4F4F]" />
                 </i>
                 <p className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
-                  Serve as a voice for the fellows, ensuring that their needs
-                  and challenges are well communicated
+                Serve as a voice for the fellows, ensuring that their needs and challenges are well communicated.
                 </p>
               </div>
-              <p className="font-regular text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4">
+              {/* <p className="font-regular text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4">
                 Together, let's build a brighter future for the tech workforce.
-              </p>
+              </p> */}
               {/* <button className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
                 Become a SPM
               </button> */}

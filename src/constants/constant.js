@@ -23,45 +23,45 @@ export const cardValues = [
 export const mentorCardValues = [
   {
     number: 1,
-    heading: "Application",
-    text: "Qualified Senior Software Engineers apply for the mentorship program",
+    heading: "Submit Application",
+    text: "Create an account with your name, email, current role, company name and Linkedin profile.",
   },
   {
     number: 2,
     heading: "Verification",
-    text: "We do a bit of check to verify if you’re fit for to be a mentor. Don't fret! It's just a little check.",
+    text: "To ensure we provide the best mentors for our fellows, our team will do a quick check on your profile to ensure it meets our requirements.",
   },
   {
     number: 3,
-    heading: "Profile",
-    text: "Complete your profile and you’re good to go",
+    heading: "Setup Bookings",
+    text: "Update your profile, booking information and set availability time in your calendar.",
   },
   {
     number: 4,
-    heading: "Dashboard",
-    text: "Access the Hackthejobs dashboard for more setup",
+    heading: "Start Mentoring",
+    text: "After completing your profile, you’d be visible to our fellows and they’d be able to book a mentorship session with you.",
   },
 ];
 export const spmCardValues = [
   {
     number: 1,
-    heading: "Application",
-    text: "Qualified Senior Software Engineers apply for the mentorship program",
+    heading: "Submit Application",
+    text: "Create an account with your name, email, current role, company name and Linkedin profile.",
   },
   {
     number: 2,
     heading: "Verification",
-    text: "We do a bit of check to verify if you’re fit for to be a mentor. Don't fret! It's just a little check.",
+    text: "To ensure we provide the best PMs for our fellows, our team will do a quick check on your profile to ensure it meets our requirements.",
   },
   {
     number: 3,
-    heading: "Profile",
-    text: "Complete your profile and you’re good to go",
+    heading: "Get Matched",
+    text: "We matched you with fellows you will supervise and you’d be able to join the slack community at this point.",
   },
   {
     number: 4,
-    heading: "Dashboard",
-    text: "Access the Hackthejobs dashboard for more setup",
+    heading: "Project Assignment",
+    text: "After you get matched, you will assign a project for the team to build and guide them till they complete the project.",
   },
 ];
 

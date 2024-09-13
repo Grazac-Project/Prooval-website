@@ -74,7 +74,7 @@ const Donation = () => {
                 />
                 Donate with Stripe
               </div>
-            </Link> 
+            </Link> */}
             <Link
               href="https://flutterwave.com/donate/qp4tnnzbnn7g"
               target="_blank"
@@ -90,7 +90,7 @@ const Donation = () => {
                 Donate with Flutterwave
               </div>
             </Link>
-            <Link href="https://gofund.me/9d0eeec3" target="_blank" >
+            <Link href="https://gofund.me/9d0eeec3" target="_blank">
               <div className=" font-whyte flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] border border-[#ffff] rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto">
                 <Image
                   src="goFundme.svg"
@@ -117,7 +117,7 @@ const Donation = () => {
               needed to land global opportunities and stay competitive.
             </p>
           </div>
-          <div className={Classes.whyStat}>
+          {/* <div className={Classes.whyStat}>
             <div className={Classes.stat}>
               <h3>500K</h3>
               <p>Bootcamps</p>
@@ -132,14 +132,24 @@ const Donation = () => {
                 <p>Junior opportunities </p>
               </div>
             </div>
-          </div>
+          </div> */}
+          <>
+            <Image
+              // src="/donateImg.png"
+              src="/about-support.png"
+              alt="img"
+              width={509}
+              height={477}
+              className={Classes.donateImg}
+            />
+          </>
         </div>
       </div>
       <div className={Classes.video}>
         <div className={Classes.videoFlex}>
           <h4>We did not just start, we have a story</h4>
           <Link href="#hero">
-            <button>Make donation</button>
+            <button>Support a talent</button>
           </Link>
         </div>
         <div className={Classes.vidCon}>
@@ -177,11 +187,8 @@ const Donation = () => {
               alt="img"
               className={Classes.numbImg}
             />
-            <h2 data-aos="fade-down">67+</h2>
-            <span>
-              Connected to <br />
-              remote jobs
-            </span>
+            <h2 data-aos="fade-down">500+</h2>
+            <span>Bootcamps</span>
           </div>
           <div className={Classes.numbContent}>
             <Image
@@ -191,11 +198,8 @@ const Donation = () => {
               alt="img"
               className={Classes.numbImg}
             />
-            <h2 data-aos="fade-down">67+</h2>
-            <span>
-              Connected to <br />
-              remote jobs
-            </span>
+            <h2 data-aos="fade-down">50k</h2>
+            <span>Bootcamp Grads</span>
           </div>
           <div className={Classes.numbContent}>
             <Image
@@ -205,11 +209,8 @@ const Donation = () => {
               alt="img"
               className={Classes.numbImg}
             />
-            <h2 data-aos="fade-down">67+</h2>
-            <span>
-              Connected to <br />
-              remote jobs
-            </span>
+            <h2 data-aos="fade-down">&lt;3K +</h2>
+            <span>Junior opportunities</span>
           </div>
         </div>
       </div>
@@ -220,18 +221,19 @@ const Donation = () => {
               Together Let’s <span>Scale</span> The Next Generation
             </h4>
             <p>
-            We invite you to join us to build the workforce of the future. Together we can help millions of talents lead their dream jobs.
+              We invite you to join us to build the workforce of the future.
+              Together we can help millions of talents lead their dream jobs.
             </p>
             {/* <p>
               Together, let's build a brighter future for the tech workforce.
-            </p> */}
+            </p>  */}
 
             <Link href="#hero">
               <button>Support a Talent</button>
             </Link>
           </div>
-          {/* <Image src="/donateImg2.png" width={630} height={489} alt="img" /> */}
-          {/* <Image src="/donation-main.png" width={630} height={489} alt="img" /> */}
+          {/* <Image src="/donateImg2.png" width={630} height={489} alt="img" />  */}
+          <Image src="/donation-main.png" width={630} height={489} alt="img" />
         </div>
       </div>
       {/* <div className={Classes.logo}>
