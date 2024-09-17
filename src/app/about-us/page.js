@@ -56,7 +56,7 @@ const AboutUs = () => {
         <Image src="/about-hero.png" alt="img" width={1440} height={600} />
       </div>
       <div className={Classes.mission}>
-        <h4>Our mission </h4>
+        <h4>Our Mission </h4>
         <p>
           Our mission is to equip individuals with the right mentorship and
           experience needed to scale their tech careers to the next level. We
@@ -65,7 +65,7 @@ const AboutUs = () => {
         </p>
       </div>
       <div className={Classes.story}>
-        <h4>Our story</h4>
+        <h4>Our Story</h4>
         <Image
           // src="/story.png"
           src="/about-story.png"
