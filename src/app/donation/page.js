@@ -149,7 +149,7 @@ const Donation = () => {
         <div className={Classes.videoFlex}>
           <h4>We did not just start, we have a story</h4>
           <Link href="#hero">
-            <button>Support a talent</button>
+            <button>Support a Talent</button>
           </Link>
         </div>
         <div className={Classes.vidCon}>

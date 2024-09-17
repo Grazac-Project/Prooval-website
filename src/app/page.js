@@ -159,7 +159,7 @@ const Landing = () => {
   }, []);
   // console.log(listOfMentors);
 
-  const GA_TRACKING_ID = 'G-JS3RNTYLD8';
+  const GA_TRACKING_ID = "G-JS3RNTYLD8";
   useAnalytics(GA_TRACKING_ID);
   return (
     <div className="overflow-x-hidden">
@@ -178,7 +178,7 @@ const Landing = () => {
                 </h3>
               </div>
               <h1 className="font-bold w-[621px] xxl:w-[550px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] ">
-              Scale your tech career with
+                Scale your tech career with
                 <span
                   style={{
                     transform: `rotate(${angle})`,
@@ -187,11 +187,14 @@ const Landing = () => {
                   }}
                   className={`text-[#fff] text-[42px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[266px] xl:w-auto rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block`}
                 >
-                  {color === "#F2C003" ?  "mentorship" : "experience" }
+                  {color === "#F2C003" ? "mentorship" : "experience"}
                 </span>
               </h1>
               <p className="font-regular text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8">
-              We understand the challenges every talents face due to their lack of work experience and we have built hackthejobs to give you real life work experience and the right mentorship to build your career.
+                We understand the challenges every talents face due to their
+                lack of work experience and we have built hackthejobs to give
+                you real life work experience and the right mentorship to build
+                your career.
               </p>
               {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
               <Link href="/signup">
@@ -566,7 +569,7 @@ const Landing = () => {
         <section className="h-[64px] bg-[#fff]"></section>
         <section className="px-[80px] xl:px-[25px] xm:px-4 py-[137.5px] sm:py-[62px] font-whyte bg-[#121927] relative">
           <h2 className="font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3">
-          What you get from Hackthejobs.
+            What you get from Hackthejobs.
           </h2>
           <h3 className="font-regular text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]">
             Get the experience you need to attract global opportunities.
@@ -598,8 +601,7 @@ const Landing = () => {
               Get Onboarded in Four Easy Steps!
             </h4>
             <p className="w-[298px] 1xl:w-[262px] lg:w-[250px] md:w-[220px] sm:w-[100%] font-regular text-[16px] leading-[22px] text-[#EDEDED]">
-              Follow these simple steps to get onboarded into Hackthejobs right
-              away! Our onboarding procedure is as basic as it gets!
+            Follow these simple steps to join our fellows on hackthejobs right away.
             </p>
             <Image
               src="/easy-arrow.png"
@@ -640,16 +642,19 @@ const Landing = () => {
         <section className="font-whyte flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
           <div>
             <h3 className="font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[580px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center">
-            We’ve got outstanding mentors to guide you.
+              We’ve got outstanding mentors to guide you.
             </h3>
             <p className="font-regular text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[580px] md:w-[510px] sm:hidden">
-            We are not leaving you alone on this journey, connect with exceptional mentors from various backgrounds and openly discuss your career challenges and blockers with them.
+              We are not leaving you alone on this journey, connect with
+              exceptional mentors from various backgrounds and openly discuss
+              your career challenges and blockers with them.
             </p>
           </div>
-
-          <button className="w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden">
-            View More Mentors
-          </button>
+          <Link href="/mentor">
+            <button className="w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden">
+              View More Mentors
+            </button>
+          </Link>
         </section>
         {/* <section className="pb-[96px] sm:pb-[52px] ">
           <div className="sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
@@ -720,7 +725,66 @@ const Landing = () => {
             View More Mentors
           </button>
         </section> */}
-        <section className="flex sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]">
+        <section className="pb-[96px] sm:pb-[52px] ">
+          <div className="sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
+            {imageCards.map((listOfMentor, i) => {
+              return (
+                <div key={i} className="font-whyte w-[23%] lg:w-[29%] ">
+                  <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
+                    <Image
+                      src={listOfMentor.img}
+                      width={296}
+                      height={296}
+                      alt="mentor image"
+                      className="object-cover filter grayscale hover:filter-none"
+                    />
+                  </div>
+                  <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
+                    {listOfMentor.name}
+                  </h4>
+                  <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
+                    {listOfMentor?.position},{listOfMentor?.formerPosition}
+                  </h5>
+                </div>
+              );
+            })}
+          </div>
+          <div className="font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
+            <Slider
+              ref={(slider) => {
+                sliderRef = slider;
+              }}
+              {...mentorSettings}
+              className=""
+            >
+              {imageCards.map((listOfMentor, i) => {
+                return (
+                  <div
+                    key={i}
+                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%]"
+                  >
+                    <div className="h-[296px] sm:h-[258px] overflow-hidden">
+                      <Image
+                        src={listOfMentor.img}
+                        width={363}
+                        height={297}
+                        alt="mentor image"
+                        className="object-cover px-[5px]"
+                      />
+                    </div>
+                    <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] ">
+                      {listOfMentor.name}
+                    </h4>
+                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
+                      {listOfMentor?.position},{listOfMentor?.formerPosition}
+                    </h5>
+                  </div>
+                );
+              })}
+            </Slider>
+          </div>
+        </section>
+        <section className="flex items-center sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]">
           <div>
             <Image
               // src="/bootcamp.png"
@@ -735,22 +799,22 @@ const Landing = () => {
             <h4 className="font-medium text-[48px] xl:text-[44px] lgx:text-[40px] lg:text-[35px] md:text-[30px] leading-[52.8px] lgx:leading-[45px] lg:leading-[40px] text-[#121927] mb-[40px] w-[596px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] sm:text-center sm:mt-[16px]">
               Bootcamps are never enough!
             </h4>
-            <p className="font-regular text-[18px] lgx:text-[16px] sm:text-center md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[16px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
-              At HacktheJobs, we're not a boot camp, we are your work experience
-              accelerator where you get matched with mentors and product
-              managers from FAANG to build Products and services that contribute
-              to achieving Sustainable Development Goals
-            </p>
             <p className="font-regular text-[18px] sm:text-center lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
+              Our mission is to equip individuals with the right mentorship and
+              experience needed to advance their tech careers. We are dedicated
+              to building a supportive community that promotes growth and
+              encourages collaboration.
+            </p>
+            {/* <p className="font-regular text-[18px] sm:text-center lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
               HacktheJobs offers a unique solution tailored to your needs. We
               provide comprehensive support to fast-track you getting experience
               in the tech industry while ensuring you're primed for success in
               your chosen tech career. We operate on just one goal; to give you
               real life work experience, moving you from junior level to mid
               level.
-            </p>
+            </p> */}
             <div className="font-whyte text-[#1453FF] text-center flex sm:flex-col sm:items-center gap-[26px] lgx:gap-[16px] lg:gap-[10px] sm:gap-[32px]">
-              <div className="w-[192px] 1xl:w-[170px] xl:w-[150px] lgx:w-[130px] lg:w-[110px]">
+              {/* <div className="w-[192px] 1xl:w-[170px] xl:w-[150px] lgx:w-[130px] lg:w-[110px]">
                 <h5 className="font-medium text-[43.64px] xl:text-[38px] lgx:text-[34px] leading-[52.36px] xl:leading-[48px] lgx:leading-[40px] tracking-[-2%]">
                   400+
                 </h5>
@@ -773,7 +837,17 @@ const Landing = () => {
                 <p className="font-regular text-[18px] lgx:text-[14px] lg:text-[12px] leading-[28px] text-[#121927]">
                   Trained
                 </p>
-              </div>
+              </div> */}
+              <Link href="/signup">
+                <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
+                  Get Started
+                </button>
+              </Link>
+              <Link href="/donation">
+                <button className="w-[213px] lg:w-[170px] md:w-[150px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border-[1px] border-[#DADADA]">
+                  Support a Talent
+                </button>
+              </Link>
             </div>
           </div>
         </section>
