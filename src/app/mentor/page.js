@@ -548,12 +548,73 @@ const mentor = () => {
               and openly discuss your career challenges with them.
             </p>
           </div>
-          {/* <Link href="/mentors"> */}
-          {/* <Link href="/#"> */}
+          <Link href="/mentors">
+          
           <button className="w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden">
             View More Mentors
           </button>
-          {/* </Link> */}
+          </Link>
+
+          
+        </section>
+        <section className="pb-[96px] sm:pb-[52px] ">
+          <div className="sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
+            {imageCards.map((listOfMentor, i) => {
+              return (
+                <div key={i} className="font-whyte w-[23%] lg:w-[29%] ">
+                  <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
+                    <Image
+                      src={listOfMentor.img}
+                      width={296}
+                      height={296}
+                      alt="mentor image"
+                      className="object-cover filter grayscale hover:filter-none"
+                    />
+                  </div>
+                  <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
+                    {listOfMentor.name}
+                  </h4>
+                  <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
+                    {listOfMentor?.position},{listOfMentor?.formerPosition}
+                  </h5>
+                </div>
+              );
+            })}
+          </div>
+          <div className="font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
+            <Slider
+              ref={(slider) => {
+                sliderRef = slider;
+              }}
+              {...mentorSettings}
+              className=""
+            >
+              {imageCards.map((listOfMentor, i) => {
+                return (
+                  <div
+                    key={i}
+                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%]"
+                  >
+                    <div className="h-[296px] sm:h-[258px] overflow-hidden">
+                      <Image
+                        src={listOfMentor.img}
+                        width={363}
+                        height={297}
+                        alt="mentor image"
+                        className="object-cover px-[5px]"
+                      />
+                    </div>
+                    <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] ">
+                      {listOfMentor.name}
+                    </h4>
+                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
+                      {listOfMentor?.position},{listOfMentor?.formerPosition}
+                    </h5>
+                  </div>
+                );
+              })}
+            </Slider>
+          </div>
         </section>
         {/* <section className="pb-[96px] sm:pb-[52px] ">
         <div className="sm:hidden px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
@@ -625,11 +686,13 @@ const mentor = () => {
         </button>
         
       </section> */}
-        <section className="font-whyte px-[80px] xl:px-[25px] sm:px-[16px] py-[84px] sm:py-[78.95px] relative">
+
+        {/* <section className="font-whyte px-[80px] xl:px-[25px] sm:px-[16px] py-[84px] sm:py-[78.95px] relative">
+      
           <h4 className="font-medium text-[#121927] text-[48px] lgx:text-[38px] sm:text-[36px] leading-[52.8px] sm:leading-[39.6px] w-[696px] lgx:w-[550px] sm:w-[93%] mb-[62px] mx-auto text-center">
             What Mentors have to say about us
           </h4>
-          {/* <div className='w-[100%] rounded-[24px]'> */}
+          
           <div className="w-[100%] rounded-[24px]">
             <Slider
               ref={(slider) => {
@@ -725,7 +788,7 @@ const mentor = () => {
             alt="smallest star"
             className="absolute sm:top-[162px] sm:left-[23px] sm:block hidden"
           />
-        </section>
+        </section> */}
 
         <section className="px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px] sm:mt-[40px]">
           <div className="font-whyte bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">

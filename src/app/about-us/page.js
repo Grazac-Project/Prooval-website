@@ -97,7 +97,7 @@ const AboutUs = () => {
         </div>
       </div>
       <div>
-        <div className="text-center mt-[48px] mb-[148px] md:mb-[48px] sm:[24px]">
+        <div className="text-center mt-[48px] mb-[148px] md:mb-[48px] sm:[24px] font-whyte">
           <div className="w-[430px] sm:w-[95%] m-auto ">
             <h3 className="text-[48px] sm:text-[32px] leading-[51.36px] sm:[41.6px] font-[500] text-[#101828] mb-[16px]">
               Our Core Values
@@ -231,7 +231,7 @@ const AboutUs = () => {
             focused goals.
           </p>
           <Link href="/donation">
-            <button>Make donation</button>
+            <button>Support a Talent</button>
           </Link>
         </div>
         <>

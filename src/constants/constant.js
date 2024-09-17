@@ -70,50 +70,50 @@ export const imageCards = [
         name: 'Deborah Dada',
         position: 'Product Design Lead',
         formerPosition: 'Storelab UK',
-        img: '/mentor.png'
+        img: '/deborah.png'
     },
     {
         name: 'Jeremiah Ogunyemi',
         position: 'Senior Software Engineer',
         formerPosition: 'Apollo.io',
-        img: '/mentor.png'
+        img: '/jeremiah.png'
     },
     {
         name: 'Dansteve Adekanbi',
-        position: 'Machine Learning Software Engineer, ',
+        position: 'ML Software Engineer, ',
         formerPosition: 'Scale AI',
-        img: '/mentor.png'
+        img: '/dansteve.png'
     },
     {
         name: 'Daniel Fayemi',
         position: 'Ex-Software Engineer,',
         formerPosition: 'Binance',
-        img: '/mentor.png'
+        img: '/daniel.png'
     },
-    {
-        name: 'Ibiniyi Obikoya',
-        position: 'Software Engineer',
-        formerPosition: 'Paystack',
-        img: '/mentor.png'
-    },
-    {
-        name: 'Adedamola Adeleye',
-        position: 'Lead of Payment Tech',
-        formerPosition: 'Traction',
-        img: '/mentor.png'
-    },
-    {
-        name: 'Franklin Oladipo',
-        position: 'Mobile Engineer (Flutter Specialist)',
-        formerPosition: 'BT Group',
-        img: '/mentor.png'
-    },
-    {
-        name: 'Ayotunde Lanwo',
-        position: 'Senior Product Manager',
-        formerPosition: 'London (UK)',
-        img: '/mentor.png'
-    },
+    // {
+    //     name: 'Ibiniyi Obikoya',
+    //     position: 'Software Engineer',
+    //     formerPosition: 'Paystack',
+    //     img: '/mentor.png'
+    // },
+    // {
+    //     name: 'Adedamola Adeleye',
+    //     position: 'Lead of Payment Tech',
+    //     formerPosition: 'Traction',
+    //     img: '/mentor.png'
+    // },
+    // {
+    //     name: 'Franklin Oladipo',
+    //     position: 'Mobile Engineer (Flutter Specialist)',
+    //     formerPosition: 'BT Group',
+    //     img: '/mentor.png'
+    // },
+    // {
+    //     name: 'Ayotunde Lanwo',
+    //     position: 'Senior Product Manager',
+    //     formerPosition: 'London (UK)',
+    //     img: '/mentor.png'
+    // },
 ]
 
 export const testimonials = [
