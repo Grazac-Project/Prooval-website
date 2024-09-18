@@ -574,8 +574,8 @@ const mentor = () => {
                   <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                     {listOfMentor.name}
                   </h4>
-                  <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
-                    {listOfMentor?.position},{listOfMentor?.formerPosition}
+                  <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
+                    {listOfMentor?.position} {listOfMentor?.formerPosition}
                   </h5>
                 </div>
               );

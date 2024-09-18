@@ -68,13 +68,13 @@ export const spmCardValues = [
 export const imageCards = [
     {
         name: 'Deborah Dada',
-        position: 'Product Design Lead',
+        position: 'Product Design Lead,',
         formerPosition: 'Storelab UK',
         img: '/deborah.png'
     },
     {
         name: 'Jeremiah Ogunyemi',
-        position: 'Senior Software Engineer',
+        position: 'Senior Software Engineer,',
         formerPosition: 'Apollo.io',
         img: '/jeremiah.png'
     },

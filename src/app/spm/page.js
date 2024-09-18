@@ -162,9 +162,13 @@ const spm = () => {
                   Become a SPM
                 </button>
               </Link> */}
-                <a href="https://spm.hackthejobs.com/auth/signup" target="_blank" className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
-                  Join as a Senior PM
-                </a>
+              <a
+                href="https://spm.hackthejobs.com/auth/signup"
+                target="_blank"
+                className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]"
+              >
+                Join as a Senior PM
+              </a>
             </div>
             <div className="w-[598px] sm:w-[100%] pl-[40px] xxl:pl-[30px] pr-[37px] xxl:pr-[30px]">
               <Image
@@ -185,7 +189,7 @@ const spm = () => {
                 : "top-[81px] 1xl:top-[60px] xxl:top-[70px] sm:top-[510px] xm:top-[560px] xxm:top-[570px] xxxm:top-[520px] xxxxm:top-[570px] sxm:top-[630px] right-[623px] 1xl:right-[520px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] xxxm:right-[280px] xxxxm:right-[250px] sxm:right-[200px]"
             }`}
           >
-             <Image
+            <Image
               src="product.svg"
               alt="students"
               width={32}
@@ -594,47 +598,55 @@ const spm = () => {
           <div className="flex items-center justify-center gap-[109px] xxl:gap-[50px] lg:flex-col-reverse">
             <div className=" w-[539px] font-whyte xxl:w-auto ">
               <h4 className="font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#101828] mx-auto mb-6 sm:text-center">
-              What we expect from you as a senior product manager.
+                What we expect from you as a senior product manager.
               </h4>
-              <div className="flex gap-[2px] ">
-                <i>
+              <ul className="custom-list list-disc list-outside pl-6">
+                {/* <div className="flex gap-[2px] "> */}
+                {/* <i>
                   <LuDot className="text-[40px] font-whyte leading-[24px] text-[#4F4F4F]" />
-                </i>
-                <p className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
-                Supervise a team of 5 fellows to build an SDG focused project.
-                </p>
-              </div>
-              <div className="flex gap-[2px] ">
-                <i>
+                </i> */}
+                <li className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
+                  Supervise a team of 5 fellows to build an SDG focused project.
+                </li>
+                {/* </div> */}
+                {/* <div className="flex gap-[2px] "> */}
+                {/* <i>
                   <LuDot className="text-[40px] font-whyte leading-[24px] text-[#4F4F4F]" />
-                </i>
-                <p className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
-                Manage end-to-end of the project development lifecycle.
-                </p>
-              </div>
-              <div className="flex gap-[2px] ">
-                <i>
+                </i> */}
+                <li className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
+                  Manage end-to-end of the project development lifecycle.
+                </li>
+                {/* </div> */}
+                {/* <div className="flex gap-[2px] "> */}
+                {/* <i>
                   <LuDot className="text-[40px] font-whyte leading-[24px] text-[#4F4F4F]" />
-                </i>
-                <p className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
-                Introduce the team to a project management tools e.g Jira, Clickup, Trello, etc.
-                </p>
-              </div>
-              <div className="flex gap-[2px] mb-6 ">
-                <i>
+                </i> */}
+                <li className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
+                  Introduce the team to a project management tools e.g Jira,
+                  Clickup, Trello, etc.
+                </li>
+                {/* </div> */}
+                {/* <div className="flex gap-[2px] mb-6 "> */}
+                {/* <i>
                   <LuDot className="text-[40px] font-whyte leading-[24px] text-[#4F4F4F]" />
-                </i>
-                <p className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
-                Serve as a voice for the fellows, ensuring that their needs and challenges are well communicated.
-                </p>
-              </div>
+                </i> */}
+                <li className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F] mb-6">
+                  Serve as a voice for the fellows, ensuring that their needs
+                  and challenges are well communicated.
+                </li>
+                {/* </div> */}
+              </ul>
               {/* <p className="font-regular text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4">
                 Together, let's build a brighter future for the tech workforce.
               </p> */}
               {/* <button className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
                 Become a SPM
               </button> */}
-              <a href="https://spm.hackthejobs.com/auth/signup" target="_blank" className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
+              <a
+                href="https://spm.hackthejobs.com/auth/signup"
+                target="_blank"
+                className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]"
+              >
                 Join as a Senior PM
               </a>
             </div>
