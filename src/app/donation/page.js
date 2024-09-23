@@ -108,7 +108,7 @@ const Donation = () => {
       <div className={Classes.why}>
         <div className={Classes.whyFlex}>
           <div className={Classes.whyText}>
-            <h3>Why we start Hackthejob </h3>
+            <h3>Why we started Hackthejobs </h3>
             <p>
               We understand the challenges talents face first hand in attracting
               opportunities after acquiring tech skills either online or in a
