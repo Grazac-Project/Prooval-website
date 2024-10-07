@@ -63,8 +63,7 @@ const Signup = () => {
                     </div>
                 </a>
             </div>
-            {/* <p className="font-regular leading-[20.8px] text-4 text-[#828282] text-center mt-[32px] ">Already have an account? <Link href="/login" className="text-[#1453FF] cursor-pointer">Login</Link></p> */}
-            <p className="font-regular leading-[20.8px] text-4 text-[#828282] text-center mt-[32px] ">Already have an account? <a href="https://dashboard.hackthejobs.com/auth/login" className="text-[#1453FF] cursor-pointer">Login</a></p>
+            <p className="font-regular leading-[20.8px] text-4 text-[#828282] text-center mt-[32px] ">Already have an account? <Link href="/login" className="text-[#1453FF] cursor-pointer">Login</Link></p>
           </div>
         </section>
       </div>

@@ -62,8 +62,7 @@ const Login = () => {
                     </div>
                 </a>
             </div>
-            {/* <p className="font-regular leading-[20.8px] text-4 text-[#828282] text-center mt-[32px] ">Don't have an account? <Link href="/signup" className="text-[#1453FF] cursor-pointer">Sign Up</Link></p> */}
-            <p className="font-regular leading-[20.8px] text-4 text-[#828282] text-center mt-[32px] ">Don't have an account? <a href="https://dashboard.hackthejobs.com/auth/signup" className="text-[#1453FF] cursor-pointer">Sign Up</a></p>
+            <p className="font-regular leading-[20.8px] text-4 text-[#828282] text-center mt-[32px] ">Don't have an account? <Link href="/signup" className="text-[#1453FF] cursor-pointer">Sign Up</Link></p>
           </div>
         </section>
       </div>
