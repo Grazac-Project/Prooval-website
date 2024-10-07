@@ -42,7 +42,7 @@ const Login = () => {
             </p>
             <div>
                 {/* <a href="https://dashboard.hackthejobs.com/auth/login" target="_blank"> */}
-                <a href="https://waitlist.hackthejobs.com" target="_blank">
+                <a href="https://dashboard.hackthejobs.com/auth/login" target="_blank">
 
                     <div style={{background: logo1 ? '#1453FF': '', color: logo1 ? '#fff' : ''}} className="bg-[#fff] px-[48px] py-[29px] mb-[28px] rounded-[8px] border-[1px]  border-[#EAEAEA] flex justify-center items-center gap-[12px]" onMouseOver={handleLogoEvent1} onMouseOut={handleLogoEvent1}>
                         {logo1 ? <Image src='/hover-fellow.png' width={20} height={20} alt="fellow icon" /> : <Image src='/fellow.png' width={20} height={20} alt="fellow icon" />}
@@ -62,7 +62,8 @@ const Login = () => {
                     </div>
                 </a>
             </div>
-            <p className="font-regular leading-[20.8px] text-4 text-[#828282] text-center mt-[32px] ">Don't have an account? <Link href="/signup" className="text-[#1453FF] cursor-pointer">Sign Up</Link></p>
+            {/* <p className="font-regular leading-[20.8px] text-4 text-[#828282] text-center mt-[32px] ">Don't have an account? <Link href="/signup" className="text-[#1453FF] cursor-pointer">Sign Up</Link></p> */}
+            <p className="font-regular leading-[20.8px] text-4 text-[#828282] text-center mt-[32px] ">Don't have an account? <a href="https://dashboard.hackthejobs.com/auth/signup" className="text-[#1453FF] cursor-pointer">Sign Up</a></p>
           </div>
         </section>
       </div>
