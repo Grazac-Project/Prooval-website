@@ -177,7 +177,7 @@ const Landing = () => {
                   over 5k students
                 </h3>
               </div>
-              <h1 className="font-bold w-[621px] xxl:w-[550px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] ">
+              <h1 className="font-bold w-[621px]  xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] ">
                 Scale your tech career with
                 <span
                   style={{
@@ -185,7 +185,7 @@ const Landing = () => {
                     background: color,
                     border: `4px solid ${border}`,
                   }}
-                  className={`text-[#fff] text-[42px] xxl:text-[50px] xl:text-[45px] lg:text-[40px] md:text-[25px] sm:text-[30px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[266px] xl:w-auto rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block`}
+                  className={`text-[#fff] text-[42px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[266px]  rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block`}
                 >
                   {color === "#F2C003" ? "mentorship" : "experience"}
                 </span>
@@ -742,8 +742,8 @@ const Landing = () => {
                   <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                     {listOfMentor.name}
                   </h4>
-                  <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
-                    {listOfMentor?.position},{listOfMentor?.formerPosition}
+                  <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
+                    {listOfMentor?.position} {listOfMentor?.formerPosition}
                   </h5>
                 </div>
               );
