@@ -191,11 +191,11 @@
     background: #1453ff;
     color: #fff;
   }
-  .btnFlex button:hover {
+  /* .btnFlex button:hover {
     color: #fff;
     background: #1453ff;
     animation: textDrop 1s ease-out;
-  }
+  } */
   .btnFlex {
     flex-direction: column;
     justify-content: center;
