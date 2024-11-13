@@ -64,7 +64,7 @@ const Form = () => {
     values.role = newSelect
     console.log(values.role);
     console.log(newSelect);
-    setSelectedRole(newSelect.join(', '))
+    setSelectedRole(newSelect)
 
   }
   const schema = yup.object({
