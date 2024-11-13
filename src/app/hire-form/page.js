@@ -64,7 +64,7 @@ const Form = () => {
     values.role = newSelect
     console.log(values.role);
     console.log(newSelect);
-    setSelectedRole(newSelect)
+    setSelectedRole(newSelect.join(', '))
 
   }
   const schema = yup.object({
@@ -80,7 +80,7 @@ const Form = () => {
 
   const onSubmit = async (values, actions) => {
     setLoader(true)
-    values.role = selectedRole
+    // values.role = selectedRole
     console.log(values);
     console.log('values',values)
     hireTalent(values)
@@ -154,11 +154,11 @@ const Form = () => {
                     <label htmlFor='MobileAppDeveloper' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Mobile App Developer</label>
                   </div>
                   <div className='flex items-center gap-[8px] py-[10px] border-b-[1px] border-b-[#EAEAEA]'>
-                    <input id='ProductManager' type='checkbox' name='role' value='ProductManager' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
+                    <input id='ProductManager' type='checkbox' name='role' value='Product manager' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
                     <label htmlFor='ProductManager' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Product Manager</label>
                   </div>
                   <div className='flex items-center gap-[8px] py-[10px] border-b-[1px] border-b-[#EAEAEA]'>
-                    <input id='ProductDesigner' type='checkbox' name='role' value='Product Designer' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
+                    <input id='ProductDesigner' type='checkbox' name='role' value='Product designer' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
                     <label htmlFor='ProductDesigner' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Product Designer</label>
                   </div>
                  
