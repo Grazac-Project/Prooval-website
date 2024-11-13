@@ -143,36 +143,25 @@ const Form = () => {
                 <div className='mb-[24px]'>
                   <div className='flex items-center gap-[8px] py-[10px] border-b-[1px] border-b-[#EAEAEA]'>
                     <input type='checkbox' id='backend' name='role' value='Backend engineer' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
-                    <label htmlFor='backend' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Back-end engineer</label>
+                    <label htmlFor='backend' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Back-end Developer</label>
                   </div>
                   <div className='flex items-center gap-[8px] py-[10px] border-b-[1px] border-b-[#EAEAEA]'>
                     <input id='frontend' type='checkbox' name='role' value='Frontend engineer' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
-                    <label htmlFor='frontend' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Front-end Engineer</label>
+                    <label htmlFor='frontend' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Front-end Developer</label>
                   </div>
                   <div className='flex items-center gap-[8px] py-[10px] border-b-[1px] border-b-[#EAEAEA]'>
-                    <input id='qa' type='checkbox' name='role' value='QA Engineer' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
-                    <label htmlFor='qa' className='font-regular text-[16px] leading-[20px] text-[#334155]'>QA Engineer</label>
+                    <input id='MobileAppDeveloper' type='checkbox' name='role' value='MobileAppDeveloper' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
+                    <label htmlFor='MobileAppDeveloper' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Mobile App Developer</label>
                   </div>
                   <div className='flex items-center gap-[8px] py-[10px] border-b-[1px] border-b-[#EAEAEA]'>
-                    <input id='csharp' type='checkbox' name='role' value='C# Engineer' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
-                    <label htmlFor='csharp' className='font-regular text-[16px] leading-[20px] text-[#334155]'>C# Developer</label>
+                    <input id='ProductManager' type='checkbox' name='role' value='ProductManager' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
+                    <label htmlFor='ProductManager' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Product Manager</label>
                   </div>
                   <div className='flex items-center gap-[8px] py-[10px] border-b-[1px] border-b-[#EAEAEA]'>
-                    <input id='backend2' type='checkbox' name='role' value='Backend engineer2' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
-                    <label htmlFor='backend2' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Back-end engineer2</label>
+                    <input id='ProductDesigner' type='checkbox' name='role' value='Product Designer' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
+                    <label htmlFor='ProductDesigner' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Product Designer</label>
                   </div>
-                  <div className='flex items-center gap-[8px] py-[10px] border-b-[1px] border-b-[#EAEAEA]'>
-                    <input id='backend3' type='checkbox' name='role' value='Backend engineer3' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
-                    <label htmlFor='backend3' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Back-end engineer3</label>
-                  </div>
-                  <div className='flex items-center gap-[8px] py-[10px] border-b-[1px] border-b-[#EAEAEA]'>
-                    <input id='backend4' type='checkbox' name='role' value='Backend engineer4' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
-                    <label htmlFor='backend4' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Back-end engineer4</label>
-                  </div>
-                  <div className='flex items-center gap-[8px] py-[10px] border-b-[1px] border-b-[#EAEAEA]'>
-                    <input id='backend5' type='checkbox' name='role' value='Backend engineer5' onChange={handleChange} onBlur={handleBlur} className='w-[20px] h-[20px] text-[#1453FF]'/>
-                    <label htmlFor='backend5' className='font-regular text-[16px] leading-[20px] text-[#334155]'>Back-end engineer5</label>
-                  </div>
+                 
                 </div>
                 {/* <button type='submit' onClick={handleCloseCheckbox} className='w-[142px] border-[1px] border-[#1453FF] bg-[#1453FF] text-[#fff] px-[20px] py-[12px] rounded-[8px]'>
                   Save
