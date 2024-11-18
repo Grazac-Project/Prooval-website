@@ -104,21 +104,21 @@ const Hire = () => {
           projects effortlessly. Hire exceptional talents to build your
           competent and dynamic team today!
         </p>
-        <div className=" flex justify-center gap-[24px] sm:gap-[8px]">
+        <div className=" flex justify-center xm:flex-col  gap-[24px] sm:gap-[8px]">
           <button
-            className="w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#1453FF] text-[#FAFAFA]"
+            className="w-[173px] xm:w-full h-[56px] rounded-[8px] bg-[#1453FF] text-[#FAFAFA]"
             onClick={handleHire}
           >
             Hire Now
           </button>
-          {/* <button className='w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px] bg-[#FAFAFA] text-[#1453FF] border-[2px] border-[#1453FF]'>
+          {/* <button className='w-[173px] xm:w-full h-[56px] rounded-[8px] bg-[#FAFAFA] text-[#1453FF] border-[2px] border-[#1453FF]'>
                     Book a Call
                 </button> */}
           <PopupButton
             url="https://calendly.com/hackthejobsofficial/30min"
             rootElement={rootElement}
             text="Book a Call"
-            className="w-[173px] xm:w-[167.5px] h-[56px] rounded-[8px]  text-[#FAFAFA] border-[2px]"
+            className="w-[173px] xm:w-full h-[56px] rounded-[8px]  text-[#FAFAFA] border-[2px]"
           />
         </div>
       </div>
@@ -206,7 +206,7 @@ const Hire = () => {
               />
               <Image
                 src="/about-story2.png"
-                width={467}
+                width={768}
                 height={294}
                 alt=""
                 className="hidden sm:block"
@@ -352,7 +352,7 @@ const Hire = () => {
         </div>
         <button
           onClick={handleHire}
-          className="w-[315px] sm:hidden block bg-[#1453FF] rounded-[8px] px-[40px] py-[20px] text-[#fff] text-[16px] font-medium leading-[24px] tracking-[3%] mx-auto"
+          className="w-[315px] xm:w-full  block bg-[#1453FF] rounded-[8px] px-[40px] py-[20px] text-[#fff] text-[16px] font-medium leading-[24px] tracking-[3%] mx-auto"
         >
           Hire Now
         </button>
@@ -364,7 +364,7 @@ const Hire = () => {
         <h6 className="font-medium text-[48px] sm:text-[32px] text-[#fff] leading-[57.6px] sm:leading-[38.4px] tracking-[-1%] text-center mb-[40px] sm:mb-[24px]">
           Skilled in technologies you need
         </h6>
-        <div className="flex flex-wrap justify-center gap-12">
+        <div className="flex flex-wrap justify-center gap-12 md:gap-6">
           {hireSkills.map((hireSkill, i) => (
             // <p key={i} className='flex justify-center items-center font-inter font-medium w-[300px] h-[49.93]  text-[21.85px] text-[#FFFFFF] bg-[#131815] leading-[37.45px] tracking-[-0.5%] border-[1.56px] border-[#fff] rounded-[156.05px] mb-[24.97px]'>{hireSkill}</p>
             <p
