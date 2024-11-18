@@ -359,7 +359,7 @@ const Hire = () => {
       </div>
       <div className="px-[80px] xl:px-[25px] xm:px-[16px] py-[65px] sm:py-[50px] bg-[url(/skilled-tech.png)]">
         <h5 className="font-regular w-[567px] sm:w-[100%] text-[16px] sm:text-[12px] text-[#9FA2A0] text-center leading-[24px] tracking-[-0.5%]  mx-auto mb-[8px]">
-          Access a pool of skilled engineers to match your requirement
+          Access a pool of skilled talents that match your requirement
         </h5>
         <h6 className="font-medium text-[48px] sm:text-[32px] text-[#fff] leading-[57.6px] sm:leading-[38.4px] tracking-[-1%] text-center mb-[40px] sm:mb-[24px]">
           Skilled in technologies you need
@@ -378,7 +378,7 @@ const Hire = () => {
               }}
               onMouseOver={() => handleSkillMouseOver(i)}
               onMouseOut={() => handleSkillMouseOut(i)}
-              className="flex justify-center items-center font-inter font-medium w-[23.4%] xl:w-[32%] sm:w-[48%] ssxm:w-[100%] h-[49.93]  text-[21.85px] lg:text-[18px] md:text-[16px] xm:text-[14px] text-[#FFFFFF] bg-[#131815] leading-[37.45px] tracking-[-0.5%] border-[1.56px] border-[#fff] rounded-[156.05px] mb-[24.97px]"
+              className="flex justify-center items-center font-inter font-medium w-[23.4%] xl:w-[32%] sm:w-[48%] ssxm:w-[100%] h-[49.93]  text-[21.85px] lg:text-[18px] md:text-[16px] xm:text-[14px] text-[#FFFFFF] bg-[#131815] leading-[37.45px] tracking-[-0.5%] border-[1.56px] border-[#fff] rounded-[156.05px] mb-[24.97px] sm:mb-0"
             >
               {hireSkill}
             </p>
