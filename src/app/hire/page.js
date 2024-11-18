@@ -97,7 +97,7 @@ const Hire = () => {
         id="root"
       >
         <h1 className="font-medium text-[50px] sm:text-[40px] font-whyte text-[#FFFFFF] leading-[60px] sm:leading-[44px] text-center w-[742px] sm:w-[80%] xm:w-[100%] mx-auto mb-[8px]">
-          Discover Exceptional Talents for Your Team!
+          Discover Exceptional Talents for Your Team
         </h1>
         <p className="w-[768px] md:w-[100%] text-[20px] text-[#EAECF0] tracking-[-0.25%] leading-[24px] text-center mx-auto mb-[32px]">
           Connect with skilled professionals and drive innovation in your
@@ -193,7 +193,7 @@ const Hire = () => {
       <div className="bg-[bg-[#FBFCFF]]">
         <div className="px-[80px] xl:px-[25px] lgx:px-[25px] sm:px-[16px] bg-[#FBFCFF] pt-[100px] sm:pt-[64px]">
           <h3 className="w-[768px] md:w-[100%] font-medium text-[48px] sm:text-[32px] text-[#101828] leading-[52.8px] sm:leading-[35.2px] ">
-            Why hire at HacktheJobs?
+            Why hire at Hackthejobs?
           </h3>
           <div className="my-[64px] sm:my-[24px] rounded-[16px] border-[1px] border-[transparent] overflow-hidden">
             <div className="">

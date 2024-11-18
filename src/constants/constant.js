@@ -138,7 +138,7 @@ export const testimonials = [
   {
     name: "Olatunji Mansur",
     position: "Product Manager at Grazac",
-    text: "Embarking on my journey into product management at HacktheJobs  was a game-changer for me. ",
+    text: "Embarking on my journey into product management at Hackthejobs  was a game-changer for me. ",
     img: '/mansur.png'
   },
 ];
@@ -146,17 +146,17 @@ export const hireTestimonials = [
   {
     name: "Renee Wells",
     position: "Product Designer, Quotient",
-    text: "Our experience with HacktheJobs has been outstanding. Within a short span, they revolutionized our hiring process, enabling us to secure top-notch tech talent swiftly. Thanks to their expertise, we successfully onboarded [Name], who has seamlessly integrated into our team and is exceeding expectations, driving innovation, and elevating our projects to new heights.",
+    text: "Our experience with Hackthejobs has been outstanding. Within a short span, they revolutionized our hiring process, enabling us to secure top-notch tech talent swiftly. Thanks to their expertise, we successfully onboarded [Name], who has seamlessly integrated into our team and is exceeding expectations, driving innovation, and elevating our projects to new heights.",
   },
   {
     name: "Renee Wells 2",
     position: "Product Designer, Quotient",
-    text: "Our experience with HacktheJobs has been outstanding. Within a short span, they revolutionized our hiring process, enabling us to secure top-notch tech talent swiftly. Thanks to their expertise, we successfully onboarded [Name], who has seamlessly integrated into our team and is exceeding expectations, driving innovation, and elevating our projects to new heights.",
+    text: "Our experience with Hackthejobs has been outstanding. Within a short span, they revolutionized our hiring process, enabling us to secure top-notch tech talent swiftly. Thanks to their expertise, we successfully onboarded [Name], who has seamlessly integrated into our team and is exceeding expectations, driving innovation, and elevating our projects to new heights.",
   },
   {
     name: "Renee Wells 3",
     position: "Product Designer, Quotient",
-    text: "Our experience with HacktheJobs has been outstanding. Within a short span, they revolutionized our hiring process, enabling us to secure top-notch tech talent swiftly. Thanks to their expertise, we successfully onboarded [Name], who has seamlessly integrated into our team and is exceeding expectations, driving innovation, and elevating our projects to new heights.",
+    text: "Our experience with Hackthejobs has been outstanding. Within a short span, they revolutionized our hiring process, enabling us to secure top-notch tech talent swiftly. Thanks to their expertise, we successfully onboarded [Name], who has seamlessly integrated into our team and is exceeding expectations, driving innovation, and elevating our projects to new heights.",
   },
 ];
 export const TeamCards = [
@@ -261,7 +261,7 @@ export const hirePitch = [
     image: '/access.png',
     imageHover: '/access-hover.png',
     heading: 'Access to Diverse Talents',
-    text: 'HacktheJobs offers access to a diverse talent pool, drawing from various backgrounds and skills, fostering creativity and innovation in teams through a range of perspectives.'
+    text: 'Hackthejobs offers access to a diverse talent pool, drawing from various backgrounds and skills, fostering creativity and innovation in teams through a range of perspectives.'
   },
   {
     image: '/quality.png',
@@ -273,13 +273,13 @@ export const hirePitch = [
     image: '/cost.png',
     imageHover: '/cost-hover.png',
     heading: 'Cost - Effective Hiring',
-    text: 'HacktheJobs provides a cost-effective hiring solution. No hefty fees or overhead costs; access top talent without overspending. Save time and resources in the hiring process.'
+    text: 'Hackthejobs provides a cost-effective hiring solution. No hefty fees or overhead costs; access top talent without overspending. Save time and resources in the hiring process.'
   },
   {
     image: '/efficient.png',
     imageHover: '/efficient-hover.png',
     heading: 'Efficient Recruitment Process',
-    text: 'HacktheJobs streamlines recruitment, connecting companies with qualified candidates. Post listings, schedule interviews, and communicate seamlessly.'
+    text: 'Hackthejobs streamlines recruitment, connecting companies with qualified candidates. Post listings, schedule interviews, and communicate seamlessly.'
   },
   {
     image: '/flexibility.png',
@@ -291,14 +291,14 @@ export const hirePitch = [
     image: '/supportive.png',
     imageHover: '/supportive-hover.png',
     heading: 'Supportive Community',
-    text: 'Employers joining HacktheJobs become part of a vibrant community valuing collaboration, mentorship, and continuous learning, fostering dynamic work environments.'
+    text: 'Employers joining Hackthejobs become part of a vibrant community valuing collaboration, mentorship, and continuous learning, fostering dynamic work environments.'
   },
 ]
 
 export const hireSteps = [
   {
     heading: 'Fill Out the Form',
-    text: 'Fill out the form clearly, stating your company details and specific details about the role you are filling. The form is designed to help us match you with the perfect candidate ',
+    text: 'Fill out the form clearly, stating your company details and specific details about the role you are filling. The form is designed to help us match you with the perfect candidate.',
     img: '/hire-1.png',
     bg: '#F6FAFF'
   },
@@ -310,7 +310,7 @@ export const hireSteps = [
   },
   {
     heading: 'Interview and Hire',
-    text: 'Arrange calls with shortlisted candidates, schedule interviews, and manage hiring from a single platform. Utilize our tools for seamless onboarding.',
+    text: 'Arrange calls with shortlisted candidates, schedule interviews, and simplify the hiring process from start to finish for a smooth onboarding experience.',
     img: '/hire-3.png',
     bg: '#F0FFF1'
   },

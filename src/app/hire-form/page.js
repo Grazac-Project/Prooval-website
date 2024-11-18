@@ -122,7 +122,7 @@ const Form = () => {
             Ready to hire? Fill this form
         </h1>
         <p className='font-regular w-[92%] sm:w-[100%]  text-[20px] text-[#667085] text-center leading-[30px] mb-[64px] sm:mb-[24px] mx-auto'>
-            Your input will help us understand your qualifications better. Once submitted, 
+            Your input will help us understand your needs better. Once submitted, 
             our team will review your details and reach out if there's a potential match for your required positions. 
         </p>
         <form className='font-inter w-[80%] md:w-[90%] xm:w-[100%] mx-auto' onSubmit={handleSubmit}>
