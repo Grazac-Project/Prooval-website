@@ -10,6 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Modal from '@/components/modal/modal';
 import { useRouter } from 'next/navigation';
+import Navbar from '@/components/navbar/nav';
 
 
 
@@ -109,12 +110,14 @@ const Form = () => {
 
   return (
     <section className='font-whyte' >
+      <Navbar />
+
       <div className='px-[80px] xl:px-[25px] xm:px-[16px]'>
         { showModal && <Modal modalClose={(() => setShowModal(false))}/>}
-        <Link href='/'><div className='py-[22px]'>
+        {/* <Link href='/'><div className='py-[22px]'>
                 <Image src="/navLogo.svg" alt="logo" width={164} height={36} />
               </div>
-        </Link>
+        </Link> */}
         <h1 className='font-medium text-[48px] text-[#101828] leading-[44px] tracking-[-2%] text-center mt-[64px] mb-[20px]'>
             Ready to hire? Fill this form
         </h1>
