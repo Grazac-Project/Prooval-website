@@ -28,7 +28,7 @@ const FaqModal = ({ modalClose }) => {
         <div className="flex justify-center items-center gap-[2px] mb-[8px]">
           <RiVerifiedBadgeFill className="text-[#13AD61] text-[24px]" />
           <h4 className=" font-bold text-[24px] leading-[36px] text-[#1C1C1C] text-center">
-            Success
+            
           </h4>
         </div>
         <p className="font-regular text-[20px] sm:text-[16px] leading-[30px] sm:leading-[19.2px] text-[#667085] text-center">

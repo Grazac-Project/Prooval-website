@@ -113,7 +113,7 @@ const Form = () => {
       <Navbar />
 
       <div className='px-[80px] xl:px-[25px] xm:px-[16px]'>
-        { showModal && <Modal modalClose={(() => setShowModal(false))}/>}
+        { !showModal && <Modal modalClose={(() => setShowModal(false))}/>}
          
         {/* <Link href='/'><div className='py-[22px]'>
                 <Image src="/navLogo.svg" alt="logo" width={164} height={36} />
