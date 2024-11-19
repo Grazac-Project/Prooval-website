@@ -7,16 +7,21 @@ import { newsLetterSub } from "@/api/authentication/auth";
 import { useState } from "react";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
+import Modal from "../modal/subscribeModal";
 
 
 const initialValues = {
   fullName: "",
   email: "",
 };
-const Footer = ({ openModal }) => {
+const Footer = () => {
   const [loader, setLoader] = useState(false);
   const [errorResponse, setErrorResponse] = useState(null);
+  const [open, setOpen] = useState()
 
+  const close = () => {
+    setOpen(false); 
+  };
   const schema = yup.object({
     fullName: yup.string().required("Full name is required"),
     email: yup
@@ -31,9 +36,9 @@ const Footer = ({ openModal }) => {
       .then((res) => {
         setLoader(false);
         console.log(res);
-        if (res.status === 200) {
+        if (res.status === 201) {
           // console.log(openModal);
-          openModal();
+          setOpen(!open);
         }
       })
       .catch((err) => {
@@ -74,6 +79,7 @@ const Footer = ({ openModal }) => {
     //   </div>
     // </footer>
     <footer className="font-whyte px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px]">
+      {open && <Modal close={close} />}
       <div className="flex md:flex-col justify-between sm:gap-[32px]">
         <div className="pb-[64px] xm:pb-[24px] sm:order-3">
           <Link href="/">
