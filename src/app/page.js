@@ -980,7 +980,7 @@ const Landing = () => {
               className="object-cover sm:order-3"
             />
           </div>
-        </section>
+        </section> */}
         <section className="bg-[url(/bg-stroke.svg)] bg-no-repeat bg-cover w-[100%] py-[39px] ">
           <div className="font-whyte flex flew-wrap items-center gap-[24px] justify-center w-[1274px]   m-auto 1xl:w-[95%] lg:block">
             <Image
@@ -1006,12 +1006,12 @@ const Landing = () => {
               </p>
               <Link href="/hire">
                 <button className="w-[247px] py-[20px] font-medium leading-[24px] text-[#fff] bg-[#1453FF] rounded-[8px]">
-                  Hire Your Ace
+                  Hire Top Talents
                 </button>
               </Link>
             </div>
           </div>
-        </section> */}
+        </section>
         <section className="px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px] sm:mt-[40px]">
           <div className="font-whyte bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
             <div className="w-[710px] md:w-[100%] mx-auto px-[20px]">

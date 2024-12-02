@@ -76,6 +76,16 @@ const Navbar = () => {
                   PM
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/hire"
+                  style={{
+                    color: pathname === "/hire" ? "#1453ff" : "#667085",
+                  }}
+                >
+                  Hire
+                </Link>
+              </li>
             </ul>
             <div className={Classes.btnFlex}>
               <button className={Classes.btnFlex1}>
@@ -106,7 +116,7 @@ const Navbar = () => {
                     onClick={() => setDropdown(false)}
                     style={{ color: pathname === "/about-us" ? "#1453ff" : "" }}
                   >
-                    About 
+                    About
                   </Link>
                 </li>
                 <li>
@@ -133,16 +143,16 @@ const Navbar = () => {
                     onClick={() => setDropdown(false)}
                     style={{ color: pathname === "/mentor" ? "#1453ff" : "" }}
                   >
-                   Mentor
+                    Mentor
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/spm"
+                    href="/hire"
                     onClick={() => setDropdown(false)}
-                    style={{ color: pathname === "/spm" ? "#1453ff" : "" }}
+                    style={{ color: pathname === "/hire" ? "#1453ff" : "" }}
                   >
-                    PM
+                    Hire
                   </Link>
                 </li>
               </ul>
@@ -151,7 +161,7 @@ const Navbar = () => {
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
                   <Link href="/login">Log in</Link>
                 </button>
-                <button >
+                <button>
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
                   <Link href="/signup">Sign up</Link>
                 </button>
