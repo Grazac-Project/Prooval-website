@@ -19,7 +19,7 @@ const initialValues = {
   lastName: "",
   msg: "",
 };
-
+  
 const Faq = () => {
   const [show, setShow] = useState({});
   const [show2, setShow2] = useState({});

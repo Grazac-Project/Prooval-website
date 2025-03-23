@@ -110,7 +110,7 @@ const Page = () => {
     setPage(1)
   }
   return (
-    <section className='font-whyte'>
+    <section className='font-whyte '>
         { showModal && <Modal modalClose={(() => setShowModal(false))}/>}
         <Navbar />
         <div id='hero-section' className=" text-[#fff] text-center bg-[#121927] mx-auto">
@@ -122,20 +122,21 @@ const Page = () => {
                 <button className='font- w-[198px] px-[40px] py-[20px] font-medium text-[16px] leading-[24px] tracking-[3%] text-[#fff] bg-[#1453FF] rounded-[8px] '>Book a Mentor</button>
             </div>
         </div>
-        <form className='font-inter py-[56px] lg:py-[32px] xm:px-[16px] sticky top-[30px] lg:top-[55px] md:top-[40.5px] z-10' >
+        <form className='font-inter py-[56px] lg:py-[32px] xm:px-[16px] sticky top-[50px] lg:top-[75px] md:top-[50.5px] z-10' >
           <div className='relative w-[800px] lgx:w-[70%] xm:w-[100%] mx-auto'>
             <IoIosSearch className='text-[20px] text-[#667085] absolute left-[16px] top-[12px] transform-translate-y-1/2'/>
             <input type='search' placeholder='Search by name, company, role' className=" font-regular flex items-center w-[100%] rounded-[8px] border-[1px] border-[#D0D5DD] pl-[44px] pr-[14px] py-[8px] text-[16px] text-[#667085] leading-[24px] shadow-footerInput" value={inputText} onChange={handleChange}/>
           </div>
         </form>
+        <div className='bg-[#FAFCFF] py-20'>
         {
-            showMentor && (<div style={{justifyContent: positionStyle? 'start': 'center'}} className='flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center xm:justify-around lg:justify-start flex-wrap gap-[22px] pb-[0px] sm:pb-[0px]'>
+            showMentor && (<div style={{justifyContent: positionStyle? 'start': 'center'}} className='flex px-[80px] lgx:px-[25px] sm:px-[16px] justify-center xm:justify-around lg:justify-start flex-wrap gap-[22px] pb-[0px] sm:pb-[0px]'>
             {
               listOfMentors?.map((listOfMentor, i) => {
                 if (listOfMentors.length === i+1) {
                   return (
                    
-                      <div key={i} ref={lastMentorRef} className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
+                      <div key={i} ref={lastMentorRef} className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] '>
                         <div className='h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden'>
     
                           <Image src={listOfMentor.image} width={343} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
@@ -147,7 +148,7 @@ const Page = () => {
                     )
                 } else {
                   return (
-                      <div key={listOfMentor._id}  className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] '>
+                      <div key={listOfMentor._id}  className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] '>
                         <div className='h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden'>
     
                           <Image src={listOfMentor.image} width={343} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
@@ -174,6 +175,8 @@ const Page = () => {
         {loading && <Image src='/spinner.gif' width={64} height={64} alt='loader' className='py-[5px] mx-auto'/>}
         <Link href='#hero-section'><Image src='/back-to-top.png' width={40} height={40} alt='back to top' className='cursor-pointer fixed bottom-[35px] right-[80px] sm:right-[16px]'/></Link>
         <Footer openModal={() => setShowModal(true)}/>    
+            
+          </div>
     </section>
   )
 }

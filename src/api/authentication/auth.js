@@ -46,3 +46,24 @@ export const fetchMentors = (data, page) => {
 export const hireTalent = (data) => {
   return authKit.post('api/v1/hire/add', data)
 }
+export const preferredMentors = (userId, mentorId) => {
+  return authKit.patch(`api/v1/user/preferred/${userId}/${mentorId}`);
+};
+export const removePreferredMentors = (userId, mentorId) => {
+  return authKit.patch(`api/v1/user/nonPreferred/${userId}/${mentorId}`);
+};
+export const getPreferredMentors = (userId) => {
+  return authKit.get(`api/v1/user/mentor/${userId}`);
+};
+
+export const bookMentorSession = (userId) => {
+  return authKit.put(`/api/v1/user/mentorSession/${userId}`)
+}
+export const getAvailableBookings = (userId) => {
+  return authKit.get(`api/v1/mentors/available/${userId}`)
+}
+export const BookingsSubmitAction = (data) => {
+  return authKit.post(`api/v1/book/book-session`, data)
+}
+
+
