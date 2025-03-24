@@ -1,346 +1,3 @@
-// "use client";
-// import Image from "next/image";
-// import React, { useEffect, useState } from "react";
-// import { CiLinkedin } from "react-icons/ci";
-// import { BsTwitterX } from "react-icons/bs";
-// import { IoArrowBackOutline } from "react-icons/io5";
-// import Checkbox from "@mui/material/Checkbox";
-// import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-// import Favorite from "@mui/icons-material/Favorite";
-// import {
-//   bookMentorSession,
-//   preferredMentors,
-//   removePreferredMentors,
-// } from "@/api/authentication/auth";
-// import { useGlobalContext } from "@/app/Context/store";
-// import { useRouter } from "next/navigation";
-// import BookSession from "@/components/book-session";
-// import BookingModal from "@/components/booking-modal";
-
-// const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
-// const MentorDetails = ({ data, setMentorActive, setMentorsTab, userId }) => {
-//   const router = useRouter();
-//   const [mentorDetails, setMentorDetails] = useState("about");
-//   const [checked, setChecked] = useState(false);
-//   const [showBookSession, setShowBookSession] = useState(false);
-//   const [showBookingModal, setShowBookingModal] = useState(false);
-//   const [modalData, setModalData] = useState({});
-//   const [loading, setLoading] = useState(false);
-
-//   const { prefMentList } = useGlobalContext();
-//   // console.log(prefMentList);
-//   console.log(data);
-
-//   useEffect(() => {
-//     if (prefMentList) {
-//       const isPreferred = prefMentList.some((ele) => ele._id === data._id);
-//       setChecked(isPreferred);
-//     }
-//   }, [prefMentList, data?._id]);
-//   const handleChange = (e) => {
-//     const newChecked = e.target.checked;
-//     // console.log(newChecked);
-//     setChecked(newChecked);
-//     if (newChecked) {
-//       preferredMentors(userId, data?._id)
-//         .then()
-//         .catch((error) => {
-//           // console.log(error)
-//         });
-//     } else {
-//       removePreferredMentors(userId, data?._id)
-//         .then()
-//         .catch((error) => {
-//           // console.log(error)
-//         });
-//     }
-//   };
-//   const openBookSessionModal = () => {
-//     setLoading(true);
-//     setShowBookSession(true);
-//     setLoading(false);
-//   };
-//   const handleBookSession = () => {
-//     setLoading(true);
-//     // console.log(userId);
-//     bookMentorSession(userId)
-//       .then((res) => {
-//         // console.log(res)
-//         setLoading(false);
-//         // console.log(data?.calendarLink);
-//         if (data?.calendarLink) {
-//           // console.log(data.calendarLink);
-//           window.open(data.calendarLink, "_blank");
-//         } else {
-//           console.error("Calendar link not found in data");
-//         }
-//       })
-//       .catch((err) => {
-//         // console.log(err)
-//       });
-//   };
-//   // console.log(data);
-//   // console.log(data.experience);
-//   return (
-//     // <section className='font-whyte w-[1160px] pt-[16px] px-[24px] sm:px-[16px]'>
-//     <section className="font-whyte w-[100%] pt-[16px] sm:pt-[0px] px-[0px] sm:px-[0px]">
-//       <div className="flex items-center gap-[16px]">
-//         <div
-//           className=" w-[36px] border-[1px] border-[#EAEAEA] rounded-[8px] bg-[#FFFFFF] p-[10px] hidden sm:block"
-//           onClick={() => setMentorActive("main")}
-//         >
-//           <IoArrowBackOutline className="text-[16px] text-[#292D32] border-[#292D32] " />
-//         </div>
-//         <p
-//           className="font-medium text-[18px] text-[#121927] leading-[27px] tracking-[3%]"
-//           style={{ paddingBottom: data?.hasCreatedBooking ? "0px" : "0px" }}
-//         >
-//           Mentor
-//         </p>
-//       </div>
-//       <div className="flex justify-between items-center mb-[16px] sm:hidden">
-//         <div className="flex gap-[12px]">
-//           <p
-//             className="font-regular text-[14px] leading-[16.8px] text-[#667085] cursor-pointer"
-//             onClick={() => {
-//               setMentorActive("main");
-//               setMentorsTab("all-mentors");
-//             }}
-//           >
-//             Mentors
-//           </p>
-//           <p className="font-regular text-[14px] leading-[16.8px] text-[#667085]">
-//             /
-//           </p>
-//           <p className="font-regular text-[14px] leading-[16.8px] text-[#1453FF]">
-//             Mentor's Details
-//           </p>
-//         </div>
-//         {data?.hasCreatedBooking && data?.calendarConnected && (
-//           <button
-//             className="font-medium w-[150px] flex justify-center items-center text-[14px] leading-[19.6px] tracking-[2%] text-[#fff] bg-[#1453FF] border-[1px] border-[#1453FF] py-[12px] px-[20px] rounded-[8px]"
-//             onClick={openBookSessionModal}
-//           >
-//             {loading ? (
-//               <Image src="/loader.gif" width={16} height={16} alt="loader" />
-//             ) : (
-//               "Book Session"
-//             )}{" "}
-//           </button>
-//         )}
-//       </div>
-//       <div className="mb-[64px] flex gap-[16px]">
-//         <div className="border-[1px] border-[#EAEAEA] sm:border-none rounded-[8px] w-[30%] lgx:w-[35%] sm:w-[100%]">
-//           <div className="px-[16px] sm:px-[0] py-[32px] sm:py-0 sm:pt-[8px] border-b-[1px] border-[#EAEAEA] sm:border-none ">
-//             <Image
-//               src={data?.image}
-//               width={127}
-//               height={127}
-//               alt=""
-//               className="w-[127px] h-[127px] object-contain rounded-[50%] mx-auto border-[1.13px] border-[#EAEAEA]"
-//             />
-//             <h2 className="font-medium text-[18px] leading-[25.62px] text-[#101828] text-center mt-[24px] mb-[8px]">
-//               {data?.firstName} {data?.lastName}
-//             </h2>
-//             <h3 className="font-regular text-[14px] leading-[18.2px] text-[#1453FF] mb-[33px] sm:mb-[16px] text-center">
-//               {data?.role}
-//             </h3>
-//             {data?.hasCreatedBooking && data?.calendarConnected && (
-//               <button
-//                 className="font-medium w-[150px] flex justify-center items-center text-[14px] leading-[19.6px] tracking-[2%] text-[#fff] bg-[#1453FF] border-[1px] border-[#1453FF] py-[12px] px-[20px] rounded-[8px] hidden sm:flex mx-auto mb-[16px]"
-//                 onClick={openBookSessionModal}
-//               >
-//                 {loading ? (
-//                   <Image
-//                     src="/loader.gif"
-//                     width={16}
-//                     height={16}
-//                     alt="loader"
-//                   />
-//                 ) : (
-//                   ""
-//                 )}{" "}
-//                 Book Session
-//               </button>
-//             )}
-//             <div className="sm:w-[100%] sm:px-[8px] flex justify-between items-center sm:border-[1px] sm:border-[#EAEAEA] sm:rounded-tl-[8px] sm:rounded-tr-[8px] sm:py-[16px]">
-//               <p className="font-medium text-[14px] text-[#121927] leading-[18.2px]">
-//                 Add as Preferred Mentor
-//               </p>
-//               <div className="cursor-pointer">
-//                 <Checkbox
-//                   {...label}
-//                   icon={<FavoriteBorder />}
-//                   checkedIcon={<Favorite sx={{ color: "green" }} />}
-//                   onChange={handleChange}
-//                   id="fav"
-//                   checked={checked}
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//           <div className="font-whyte pt-[44px] sm:pt-[16px] border-[1px] border-[#EAEAEA] w-[100%] hidden sm:block">
-//             <div className="pl-[18px] border-b-[1px] border-b-[#D9D9D9] flex">
-//               <p
-//                 style={{
-//                   color: mentorDetails === "about" ? "#1453FF" : "",
-//                   borderBottom:
-//                     mentorDetails === "about" ? "1px solid #1453FF" : "",
-//                 }}
-//                 className="font-medium text-[14px] text-[#9A9A9A] leading-[16.8px] p-[8px]"
-//                 onClick={() => setMentorDetails("about")}
-//               >
-//                 About
-//               </p>
-//             </div>
-//             {mentorDetails === "about" && (
-//               <div className="min-h-[400px] font-regular text-[14px] text-[#4F4F4F] leading-[19.6px] p-[24px] sm:px-[8px] sm:py-[16px]">
-//                 {data?.about.map((element, i) => (
-//                   <p key={i} className="w-[100%] mb-[16px]">
-//                     {element}
-//                   </p>
-//                 ))}
-//               </div>
-//             )}
-//             {mentorDetails === "experience" && (
-//               <div className="font-regular min-h-[400px] text-[14px] text-[#4F4F4F] leading-[19.6px] p-[24px] sm:px-[8px] sm:py-[16px]">
-//                 {data?.experience.map((element, i) => {
-//                   return (
-//                     <div key={i}>
-//                       <div className="font-medium text-[16px] text-[#121927] leading-[19.2px] flex justify-between  mb-[8px]">
-//                         <h4>{element.company}</h4>
-//                         <p className="font-regular text-[#4F4F4F]">
-//                           {element.role}
-//                         </p>
-//                       </div>
-//                       <p className="font-regular text-[14px] text-[#4F4F4F] leading-[16.8px] mb-[16px] ">
-//                         {element.startDate} - {element.endDate}
-//                       </p>
-//                       <ul className="list-disc px-[20px]">
-//                         {element.achievements.map((achievement, i) => (
-//                           <li
-//                             key={i}
-//                             className="font-regular text-[14px] text-[#4F4F4F] leading-[19.6px] mb-[12px]"
-//                           >
-//                             {achievement}
-//                           </li>
-//                         ))}
-//                       </ul>
-//                     </div>
-//                   );
-//                 })}
-//               </div>
-//             )}
-//           </div>
-//           {data?.skills.length === 0 ? (
-//             ""
-//           ) : (
-//             <div
-//               className={`px-[16px] py-[32px] border-b-[1px] sm:border-[1px] border-[#EAEAEA] sm:${
-//                 mentorDetails === "experience" ? "hidden" : ""
-//               }`}
-//             >
-//               <div className="flex gap-[2px] mb-[12px]">
-//                 <p className="font-medium text-[14px] leading-[19.6px] text-[#121927]">
-//                   Skills
-//                 </p>
-//                 <p className="font-medium text-[14px] leading-[19.6px] text-[#121927]">
-//                   /
-//                 </p>
-//                 <p className="font-medium text-[14px] leading-[19.6px] text-[#121927]">
-//                   Expertise
-//                 </p>
-//               </div>
-//               <div className=" flex flex-wrap gap-[12px]">
-//                 {data?.skills.map((element, i) => (
-//                   <p
-//                     key={i}
-//                     className="w-[fit-content] font-regular rounded-[16px] px-[8px] py-[6px] bg-[#F2F4F7] text-[12px] text-[#344054] text-center leading-[18px]"
-//                   >
-//                     {element}
-//                   </p>
-//                 ))}
-//               </div>
-//             </div>
-//           )}
-//           {data?.linkedinLink || data?.twitterLink ? (
-//             <div
-//               className={`px-[16px] pt-[32px] pb-[178px] sm:pb-[13px] sm:border-[1px] border-[#EAEAEA] sm:${
-//                 mentorDetails === "experience" ? "hidden" : ""
-//               }`}
-//             >
-//               <h3 className="font-medium text-[14px] text-[#121927] leading-[19.6px] tracking-[2%] mb-[16px]">
-//                 Connect
-//               </h3>
-//               {data?.linkedinLink && (
-//                 <a href={data?.linkedinLink} target="_blank">
-//                   <div className="flex items-center gap-[12.5px] mb-[12px]">
-//                     <CiLinkedin className="text-[24px] text-[#2867B2]" />
-//                     Linkedin
-//                   </div>
-//                 </a>
-//               )}
-//               {data?.twitterLink && (
-//                 <a href={data?.twitterLink} target="_blank">
-//                   <div className="flex items-center gap-[12.5px]">
-//                     <BsTwitterX className="text-[24px] text-[#121927]" />
-//                     Twitter
-//                   </div>
-//                 </a>
-//               )}
-//             </div>
-//           ) : (
-//             ""
-//           )}
-//         </div>
-//         <div className="font-whyte pt-[44px] border-[1px] border-[#EAEAEA] rounded-[8px] w-[69%] lgx:w-[64%] sm:hidden">
-//           <div className="pl-[18px] border-b-[1px] border-b-[#D9D9D9] flex">
-//             <p
-//               style={{
-//                 color: mentorDetails === "about" ? "#1453FF" : "",
-//                 borderBottom:
-//                   mentorDetails === "about" ? "1px solid #1453FF" : "",
-//               }}
-//               className="font-medium text-[14px] text-[#9A9A9A] leading-[16.8px] p-[8px] cursor-pointer"
-//               onClick={() => setMentorDetails("about")}
-//             >
-//               About
-//             </p>
-//             {/* <p style={{color: mentorDetails === 'experience' ? '#1453FF': '', borderBottom: mentorDetails === 'experience' ?'1px solid #1453FF': ''}} className='font-regular text-[14px] text-[#9A9A9A] leading-[16.8px] p-[8px] cursor-pointer' onClick={() => setMentorDetails('experience')}>Work Experience</p> */}
-//           </div>
-//           {mentorDetails === "about" && (
-//             <div className="font-regular text-[14px] text-[#4F4F4F] leading-[19.6px] p-[24px]">
-//               {data?.about?.map((element, i) => (
-//                 <p key={i} className="w-[100%] mb-[16px]">
-//                   {element}
-//                 </p>
-//               ))}
-//             </div>
-//           )}
-//         </div>
-//       </div>
-//       {showBookSession && (
-//         <BookSession
-//           closeModal={() => setShowBookSession(false)}
-//           mentorId={data?._id}
-//           mentorImage={data?.image}
-//           setShowBookingModal={setShowBookingModal}
-//         />
-//       )}
-//       {showBookingModal && (
-//         <BookingModal
-//           closeModal={() => setShowBookingModal(false)}
-//           firstName={data?.firstName}
-//           lastName={data?.lastName}
-//         />
-//       )}
-//     </section>
-//   );
-// };
-
-// export default MentorDetails;
-
 "use client";
 
 import BookSession from "@/components/book-session";
@@ -351,17 +8,21 @@ import React, { useEffect, useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
-import { useRouter } from "next/router";
 import { getMentorsBySlug } from "@/api/authentication/auth";
+import { useParams } from "next/navigation";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
+import { usePathname, useSearchParams } from "next/navigation";
+
 const MentorDetails = () => {
-  // const router = useRouter();
   const [mentorDetails, setMentorDetails] = useState("about");
   const [checked, setChecked] = useState(false);
   const [showBookSession, setShowBookSession] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [mentorData, setMentorData] = useState({});
   const [loading, setLoading] = useState(false);
+  const { username } = useParams();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const handleChange = (e) => {
     const newChecked = e.target.checked;
@@ -384,7 +45,7 @@ const MentorDetails = () => {
   const getMentorsDetails = () => {
     setLoading(true);
     // console.log(userId);
-    getMentorsBySlug("fayemi-daniel")
+    getMentorsBySlug(username)
       .then((res) => {
         setMentorData(res.data.data.data);
         console.log(mentorData);
@@ -405,7 +66,24 @@ const MentorDetails = () => {
   useEffect(() => {
     getMentorsDetails();
   }, []);
-
+  const shareMentorProfile = () => {
+    const shareUrl = `${pathname}${searchParams.toString() ? "?" + searchParams.toString() : ""}`;
+  
+    if (navigator.share) {
+      navigator
+        .share({
+          title: "Check out this mentor profile!",
+          url: shareUrl,
+        })
+        .then(() => console.log("Profile shared successfully!"))
+        .catch((error) => console.error("Error sharing profile:", error));
+    } else {
+      navigator.clipboard
+        .writeText(shareUrl)
+        .then(() => alert("Profile URL copied to clipboard!"))
+        .catch((error) => console.error("Error copying URL:", error));
+    }
+  };
   return (
     <>
       <Navbar />
@@ -449,7 +127,7 @@ const MentorDetails = () => {
                       </div>
                       Preferred Mentor
                     </button>
-                    <button className=" text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] sxm:max-w-[50%] h-[35.6px] flex justify-center items-center gap-1">
+                    <button className=" text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] sxm:max-w-[50%] h-[35.6px] flex justify-center items-center gap-1" onClick={shareMentorProfile}>
                       <Image
                         src="/share.svg"
                         alt="linkedin"
@@ -580,27 +258,27 @@ const MentorDetails = () => {
                         height={27}
                         className=""
                       />
-                      <Image
-                        src="/rate.svg"
-                        alt="avatar"
-                        width={27}
-                        height={27}
-                        className=""
-                      />
-                      <Image
-                        src="/rate.svg"
-                        alt="avatar"
-                        width={27}
-                        height={27}
-                        className=""
-                      />
-                      <Image
-                        src="/rate.svg"
-                        alt="avatar"
-                        width={27}
-                        height={27}
-                        className=""
-                      />
+                      {Array.from({ length: 4 }).map((_, i) =>
+                        i < mentorData.rating ? (
+                          <Image
+                            key={i}
+                            src="/rate.svg"
+                            alt="star"
+                            width={27}
+                            height={27}
+                            className=""
+                          />
+                        ) : (
+                          <Image
+                            key={i}
+                            src="/rate2.svg"
+                            alt="star"
+                            width={27}
+                            height={27}
+                            className=""
+                          />
+                        )
+                      )}
                     </div>
                     <div className="flex items-center gap-2">
                       <h4 className="text-[14px] leading-[140%] font-medium text-[#333333] ">
@@ -725,38 +403,31 @@ const MentorDetails = () => {
                             </div>
                             <div className="flex items-center gap-2 ">
                               <div className="flex items-center ">
-                                <Image
-                                  src="/rate.svg"
-                                  alt="avatar"
-                                  width={14}
-                                  height={14}
-                                  className=""
-                                />
-                                <Image
-                                  src="/rate.svg"
-                                  alt="avatar"
-                                  width={14}
-                                  height={14}
-                                  className=""
-                                />
-                                <Image
-                                  src="/rate.svg"
-                                  alt="avatar"
-                                  width={14}
-                                  height={14}
-                                  className=""
-                                />
-                                <Image
-                                  src="/rate.svg"
-                                  alt="avatar"
-                                  width={14}
-                                  height={14}
-                                  className=""
-                                />
+                                {Array.from({ length: 5 }).map((_, i) =>
+                                  i < element.rating ? (
+                                    <Image
+                                      key={i}
+                                      src="/rate.svg"
+                                      alt="star"
+                                      width={14}
+                                      height={14}
+                                      className=""
+                                    />
+                                  ) : (
+                                    <Image
+                                      key={i}
+                                      src="/rate2.svg"
+                                      alt="star"
+                                      width={14}
+                                      height={14}
+                                      className=""
+                                    />
+                                  )
+                                )}
                               </div>
                               <div className="flex items-center gap-2">
                                 <h4 className="text-[10px] leading-[140%] font-medium text-[#333333] ">
-                                {element.rating + "." + "0" || 0} 
+                                  {element.rating + "." + "0" || 0}
                                 </h4>
                               </div>
                             </div>
