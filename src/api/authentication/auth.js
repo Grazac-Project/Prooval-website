@@ -1,4 +1,4 @@
-import { authKit } from "./base";
+import { authKit, authKit2 } from "./base";
 import axios from "axios";
 
 
@@ -65,5 +65,7 @@ export const getAvailableBookings = (userId) => {
 export const BookingsSubmitAction = (data) => {
   return authKit.post(`api/v1/book/book-session`, data)
 }
-
+export const getMentorsBySlug = (slug) => {
+  return authKit2.get(`api/v1/mentors/slug/${slug}`)
+}
 

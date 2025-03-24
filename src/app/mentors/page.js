@@ -122,7 +122,7 @@ const Page = () => {
                 <button className='font- w-[198px] px-[40px] py-[20px] font-medium text-[16px] leading-[24px] tracking-[3%] text-[#fff] bg-[#1453FF] rounded-[8px] '>Book a Mentor</button>
             </div>
         </div>
-        <form className='font-inter py-[56px] lg:py-[32px] xm:px-[16px] sticky top-[50px] lg:top-[75px] md:top-[50.5px] z-10' >
+        <form className='font-inter py-[56px] lg:py-[32px] xm:px-[16px] sticky top-[50px] lg:top-[75px] md:top-[50.5px] z-10 bg-[#fff]' >
           <div className='relative w-[800px] lgx:w-[70%] xm:w-[100%] mx-auto'>
             <IoIosSearch className='text-[20px] text-[#667085] absolute left-[16px] top-[12px] transform-translate-y-1/2'/>
             <input type='search' placeholder='Search by name, company, role' className=" font-regular flex items-center w-[100%] rounded-[8px] border-[1px] border-[#D0D5DD] pl-[44px] pr-[14px] py-[8px] text-[16px] text-[#667085] leading-[24px] shadow-footerInput" value={inputText} onChange={handleChange}/>
@@ -136,7 +136,7 @@ const Page = () => {
                 if (listOfMentors.length === i+1) {
                   return (
                    
-                      <div key={i} ref={lastMentorRef} className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] '>
+                      <div key={i} ref={lastMentorRef} className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg '>
                         <div className='h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden'>
     
                           <Image src={listOfMentor.image} width={343} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>
@@ -148,7 +148,7 @@ const Page = () => {
                     )
                 } else {
                   return (
-                      <div key={listOfMentor._id}  className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] '>
+                      <div key={listOfMentor._id}  className='font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg '>
                         <div className='h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden'>
     
                           <Image src={listOfMentor.image} width={343} height={296} alt='mentor image' className='object-cover filter grayscale hover:filter-none'/>

@@ -340,15 +340,72 @@
 // };
 
 // export default MentorDetails;
-"use client"
+
+"use client";
 
 import BookSession from "@/components/book-session";
-import BookingModal from "@/components/booking-modal"
+import BookingModal from "@/components/booking-modal";
 import Navbar from "@/components/navbar/nav";
 import Image from "next/image";
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import Checkbox from "@mui/material/Checkbox";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
+import { useRouter } from "next/router";
+import { getMentorsBySlug } from "@/api/authentication/auth";
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const MentorDetails = () => {
+  // const router = useRouter();
+  const [mentorDetails, setMentorDetails] = useState("about");
+  const [checked, setChecked] = useState(false);
+  const [showBookSession, setShowBookSession] = useState(false);
+  const [showBookingModal, setShowBookingModal] = useState(false);
+  const [mentorData, setMentorData] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const newChecked = e.target.checked;
+    // console.log(newChecked);
+    setChecked(newChecked);
+    if (newChecked) {
+      preferredMentors(userId, data?._id)
+        .then()
+        .catch((error) => {
+          // console.log(error)
+        });
+    } else {
+      removePreferredMentors(userId, data?._id)
+        .then()
+        .catch((error) => {
+          // console.log(error)
+        });
+    }
+  };
+  const getMentorsDetails = () => {
+    setLoading(true);
+    // console.log(userId);
+    getMentorsBySlug("fayemi-daniel")
+      .then((res) => {
+        setMentorData(res.data.data.data);
+        console.log(mentorData);
+        setLoading(false);
+        // console.log(data?.calendarLink);
+        if (data?.calendarLink) {
+          // console.log(data.calendarLink);
+          window.open(data.calendarLink, "_blank");
+        } else {
+          console.error("Calendar link not found in data");
+        }
+      })
+      .catch((err) => {
+        // console.log(err)
+      });
+  };
+
+  useEffect(() => {
+    getMentorsDetails();
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -358,7 +415,7 @@ const MentorDetails = () => {
             <div className="flex md:flex-col justify-between items-center gap-3 ">
               <div className="flex sm:flex-col  gap-3 items-center justify-center">
                 <Image
-                  src="/dummyPic.svg"
+                  src={mentorData.image}
                   alt="avatar"
                   width={164}
                   height={164}
@@ -366,22 +423,30 @@ const MentorDetails = () => {
                 />
                 <div className="flex flex-col md:justify-center md:text-center md:items-center gap-2">
                   <h2 className="font-medium text-[18px] text-[#101828] leading-[25.62px] ">
-                    Olivia Rhye
+                    {mentorData.firstName} {mentorData.lastName}
                   </h2>
                   <p className="font-medium text-[14px] text-[#1453FF] leading-[130%]">
-                    Founder & CEO, Grazac
+                    {mentorData.role}, {mentorData.company}
                   </p>
-                  <button className="hidden md:block w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] ">
+                  <button
+                    className="hidden md:block w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] "
+                    onClick={getMentorsDetails}
+                  >
                     Book Mentor
                   </button>
                   <div className="flex justify-start md:justify-center gap-2 align-center">
                     <button className=" text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] sxm:max-w-[50%] h-[35.6px] flex justify-center items-center gap-1">
-                      <Image
-                        src="/love.svg"
-                        alt="linkedin"
-                        width={20}
-                        height={17.22}
-                      />
+                      <div className="cursor-pointer">
+                        {" "}
+                        <Checkbox
+                          {...label}
+                          icon={<FavoriteBorder />}
+                          checkedIcon={<Favorite sx={{ color: "green" }} />}
+                          onChange={handleChange}
+                          id="fav"
+                          checked={checked}
+                        />
+                      </div>
                       Preferred Mentor
                     </button>
                     <button className=" text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] sxm:max-w-[50%] h-[35.6px] flex justify-center items-center gap-1">
@@ -396,7 +461,10 @@ const MentorDetails = () => {
                   </div>
                 </div>
               </div>
-              <button className="md:hidden w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] ">
+              <button
+                className="md:hidden w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] "
+                onClick={getMentorsDetails}
+              >
                 Book Mentor
               </button>
             </div>
@@ -413,10 +481,10 @@ const MentorDetails = () => {
                     className="w-[27px] h-[27px] rounded-[50%]"
                   />
                   <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
-                    Total Mentees
+                    TotalMentees
                   </h5>
                   <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                    100
+                    {mentorData.totalMentees}
                   </h3>
                 </div>
                 <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[122.33px] lg:max-w-[122.33px]  h-[122px] rounded-lg px-4 text-center ">
@@ -431,7 +499,7 @@ const MentorDetails = () => {
                     Total Sessions Booked
                   </h5>
                   <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                    100
+                    {mentorData.totalMentees}
                   </h3>
                 </div>{" "}
                 <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[122.33px] lg:max-w-[122.33px] h-[122px] rounded-lg px-4 text-center ">
@@ -443,10 +511,10 @@ const MentorDetails = () => {
                     className="w-[27px] h-[27px] rounded-[50%]"
                   />
                   <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
-                    Total Mentees
+                    Total Page Views
                   </h5>
                   <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                    100
+                    {mentorData.totalPageViews}
                   </h3>
                 </div>
               </div>
@@ -455,24 +523,14 @@ const MentorDetails = () => {
                   Skills / Expertise
                 </h4>
                 <div className="flex justify-start flex-wrap gap-3 mb-2">
-                  <div className="h-6 min-w-[83px] bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px]">
-                    <span>User Research</span>
-                  </div>
-                  <div className="h-6 min-w-[83px] bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px]">
-                    <span>User Research</span>
-                  </div>
-                  <div className="h-6 min-w-[83px] bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px]">
-                    <span>User Research</span>
-                  </div>
-                  <div className="h-6 min-w-[83px] bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px]">
-                    <span>User Research</span>
-                  </div>
-                  <div className="h-6 min-w-[83px] bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px]">
-                    <span>User Research</span>
-                  </div>
-                  <div className="h-6 min-w-[83px] bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px]">
-                    <span>User Research</span>
-                  </div>
+                  {mentorData?.skills?.map((element, i) => (
+                    <div
+                      key={i}
+                      className="h-6 min-w-[83px] bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px]"
+                    >
+                      <span>{element}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
               <div className=" border border-[#ffff]  border-b-[#EAEAEA]  p-8 md:px-4 ">
@@ -495,21 +553,17 @@ const MentorDetails = () => {
                   Available Slots
                 </h4>
                 <div className="flex justify-start flex-wrap gap-6 md:gap-2">
-                  <div className="h-10 max:w-[112px]  text-[#344054] border border-[#EAEAEA] flex justify-center items-center text-[10px] leading-[18px] px-6">
-                    <span>Tuesdays</span>
-                  </div>
-                  <div className="h-10 max:w-[112px]  text-[#344054] border border-[#EAEAEA] flex justify-center items-center text-[10px] leading-[18px] px-6">
-                    <span>Mondays</span>
-                  </div>
-                  <div className="h-10 max:w-[112px]  text-[#344054] border border-[#EAEAEA] flex justify-center items-center text-[10px] leading-[18px] px-6">
-                    <span>Friday</span>
-                  </div>
+                  {mentorData?.availability?.map((element, i) => (
+                    <div
+                      key={i}
+                      className="h-10 max:w-[112px]  text-[#344054] border border-[#EAEAEA] flex justify-center items-center text-[10px] leading-[18px] px-6"
+                    >
+                      <span>{element}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="block md:hidden h-[10%] border  border-[#fff] border-r-[#EAEAEA]   p-8 md:px-4 ">
-
-              </div>
-              
+              <div className="block md:hidden h-[5%] border  border-[#fff] border-r-[#EAEAEA]   p-8 md:px-4 "></div>
             </div>
             <div className="w-[55%] md:w-full ">
               <div className=" border border-[#F2F2F7] border-b-[#EAEAEA]  py-6 md:py-4 ">
@@ -553,22 +607,14 @@ const MentorDetails = () => {
                         5.0
                       </h4>
                       <p className=" text-[10px] leading-[140%] font-medium text-[#888888] ">
-                        25 reviews
+                        {mentorData?.reviews?.length || "No"} reviews
                       </p>
                     </div>
                   </div>
                 </div>
                 <div>
                   <p className="text-[#4F4F4F] leading-[140%] text-[14px] mx-12 md:mx-4 py-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse varius enim in eros elementum tristique. Duis
-                    cursus, mi quis viverra ornare.Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit. Suspendisse varius enim in eros
-                    elementum tristique. Duis cursus, mi quis viverra
-                    ornare.Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Suspendisse varius enim in eros elementum tristique.
-                    Duis cursus, mi quis viverra ornare.Lorem ipsum dolor sit
-                    amet, consectetur adipiscing elit.{" "}
+                    {mentorData?.about}
                   </p>
                 </div>
               </div>
@@ -579,94 +625,55 @@ const MentorDetails = () => {
                       Experience
                     </h4>
                     <div className="border border-primary w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] flex justify-center items-center text-center">
-                      7 years
+                      {mentorData.yearsOfExperience + " " + "years" || ""}
                     </div>
                   </div>
                   <div className="flex flex-col gap-4">
-                    <div className="min-h-[78px] border border-[#EAEAEA] p-3 flex items-center gap-4">
-                      <Image
-                        src="/exp.svg"
-                        alt="avatar"
-                        width={40}
-                        height={40}
-                        className=""
-                      />
-                      <div className="flex flex-col gap-2">
-                        <h4 className="text-[12px] leading-[120%] font-medium ">
-                          Chief Executive Officer
-                        </h4>
-                        <div className="flex items-center gap-2">
-                          <p className="text-[12px] text-[#474747] leading-[120%] font-[350px] ">
+                    {mentorData?.experience?.length === 0 ? (
+                      <div className="min-h-[78px] border border-[#EAEAEA] p-6   flex flex-col justify-center items-center gap-4">
+                        <Image
+                          src="/exp.svg"
+                          alt="avatar"
+                          width={40}
+                          height={40}
+                          className=""
+                        />
+                        <div className="flex flex-col justify-center">
+                          <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
+                            No Experience Added
+                          </p>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="min-h-[78px] border border-[#EAEAEA] p-3 flex items-center gap-4">
+                        <Image
+                          src="/exp.svg"
+                          alt="avatar"
+                          width={40}
+                          height={40}
+                          className=""
+                        />
+                        <div className="flex flex-col gap-2">
+                          <h4 className="text-[12px] leading-[120%] font-medium ">
+                            Chief Executive Officer
+                          </h4>
+                          <div className="flex items-center gap-2">
+                            <p className="text-[12px] text-[#474747] leading-[120%] font-[350px] ">
+                              Grazac Limited
+                            </p>
+                            <ul
+                              type="disc"
+                              className=" text-[#8B8B8B] text-[12px]  leading-[140%] font-[350px]"
+                            >
+                              <li>Lagos, Nigeria</li>
+                            </ul>
+                          </div>
+                          <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
                             Grazac Limited
                           </p>
-                          <ul
-                            type="disc"
-                            className=" text-[#8B8B8B] text-[12px]  leading-[140%] font-[350px]"
-                          >
-                            <li>Lagos, Nigeria</li>
-                          </ul>
                         </div>
-                        <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                          Grazac Limited
-                        </p>
                       </div>
-                    </div>
-                    <div className="min-h-[78px] border border-[#EAEAEA] p-3 flex items-center gap-4">
-                      <Image
-                        src="/exp.svg"
-                        alt="avatar"
-                        width={40}
-                        height={40}
-                        className=""
-                      />
-                      <div className="flex flex-col gap-2">
-                        <h4 className="text-[12px] leading-[120%] font-medium ">
-                          Chief Executive Officer
-                        </h4>
-                        <div className="flex items-center gap-2">
-                          <p className="text-[12px] text-[#474747] leading-[120%] font-[350px] ">
-                            Grazac Limited
-                          </p>
-                          <ul
-                            type="disc"
-                            className=" text-[#8B8B8B] text-[12px]  leading-[140%] font-[350px]"
-                          >
-                            <li>Lagos, Nigeria</li>
-                          </ul>
-                        </div>
-                        <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                          Grazac Limited
-                        </p>
-                      </div>
-                    </div>
-                    <div className="min-h-[78px] border border-[#EAEAEA] p-3 flex items-center gap-4">
-                      <Image
-                        src="/exp.svg"
-                        alt="avatar"
-                        width={40}
-                        height={40}
-                        className=""
-                      />
-                      <div className="flex flex-col gap-2">
-                        <h4 className="text-[12px] leading-[120%] font-medium ">
-                          Chief Executive Officer
-                        </h4>
-                        <div className="flex items-center gap-2">
-                          <p className="text-[12px] text-[#474747] leading-[120%] font-[350px] ">
-                            Grazac Limited
-                          </p>
-                          <ul
-                            type="disc"
-                            className=" text-[#8B8B8B] text-[12px]  leading-[140%] font-[350px]"
-                          >
-                            <li>Lagos, Nigeria</li>
-                          </ul>
-                        </div>
-                        <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                          Grazac Limited
-                        </p>
-                      </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -679,68 +686,91 @@ const MentorDetails = () => {
                     View All
                   </p>
                 </div>
-                <div className="min-h-[132px] border border-[#EAEAEA] p-3 flex items-center gap-4 bg-[#F2F2F7] rounded-lg flex-col ">
-                  <div className="   py-4 ">
-                    <div className="flex justify-between items-center     ">
-                      <div className="flex gap-2 items-center">
-                        <Image
-                          src="/dummyPic.svg"
-                          alt="avatar"
-                          width={32}
-                          height={32}
-                          className="rounded-[50%]"
-                        />
-                        <h4 className="text-[12px] leading-[140%] font-medium ">
-                          Joy Omowaye
-                        </h4>
-                      </div>
-                      <div className="flex items-center gap-2 ">
-                        <div className="flex items-center ">
-                          <Image
-                            src="/rate.svg"
-                            alt="avatar"
-                            width={14}
-                            height={14}
-                            className=""
-                          />
-                          <Image
-                            src="/rate.svg"
-                            alt="avatar"
-                            width={14}
-                            height={14}
-                            className=""
-                          />
-                          <Image
-                            src="/rate.svg"
-                            alt="avatar"
-                            width={14}
-                            height={14}
-                            className=""
-                          />
-                          <Image
-                            src="/rate.svg"
-                            alt="avatar"
-                            width={14}
-                            height={14}
-                            className=""
-                          />
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <h4 className="text-[10px] leading-[140%] font-medium text-[#333333] ">
-                            5.0
-                          </h4>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-[#4F4F4F] leading-[140%] text-[14px] pt-4">
-                        Olivia Rhye is really a professional! i was able to fix
-                        my code just after 5 minutes of booking him. Thank you
-                        very much for this awesome access to top professionals.
+
+                {mentorData?.reviews?.length === 0 ? (
+                  <div className="min-h-[78px] border border-[#EAEAEA] p-6   flex flex-col justify-center items-center gap-4">
+                    <Image
+                      src="/exp.svg"
+                      alt="avatar"
+                      width={40}
+                      height={40}
+                      className=""
+                    />
+                    <div className="flex flex-col justify-center">
+                      <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
+                        No Experience Added
                       </p>
                     </div>
                   </div>
-                </div>
+                ) : (
+                  <>
+                    {mentorData?.reviews?.map((element, i) => (
+                      <div
+                        key={i}
+                        className="min-h-[132px] border border-[#EAEAEA] p-3 flex items-center gap-4 bg-[#F2F2F7] rounded-lg flex-col "
+                      >
+                        <div className="   py-4 ">
+                          <div className="flex justify-between items-center     ">
+                            <div className="flex gap-2 items-center">
+                              <Image
+                                src={element.image}
+                                alt="avatar"
+                                width={32}
+                                height={32}
+                                className="rounded-[50%]"
+                              />
+                              <h4 className="text-[12px] leading-[140%] font-medium ">
+                                Joy Omowaye
+                              </h4>
+                            </div>
+                            <div className="flex items-center gap-2 ">
+                              <div className="flex items-center ">
+                                <Image
+                                  src="/rate.svg"
+                                  alt="avatar"
+                                  width={14}
+                                  height={14}
+                                  className=""
+                                />
+                                <Image
+                                  src="/rate.svg"
+                                  alt="avatar"
+                                  width={14}
+                                  height={14}
+                                  className=""
+                                />
+                                <Image
+                                  src="/rate.svg"
+                                  alt="avatar"
+                                  width={14}
+                                  height={14}
+                                  className=""
+                                />
+                                <Image
+                                  src="/rate.svg"
+                                  alt="avatar"
+                                  width={14}
+                                  height={14}
+                                  className=""
+                                />
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <h4 className="text-[10px] leading-[140%] font-medium text-[#333333] ">
+                                {element.rating + "." + "0" || 0} 
+                                </h4>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <p className="text-[#4F4F4F] leading-[140%] text-[14px] pt-4">
+                              {element.comment}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </>
+                )}
               </div>
             </div>
           </div>
