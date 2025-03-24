@@ -16,12 +16,12 @@ const Expertise = () => {
           Manager, your experience can make a huge difference.
         </p>
         <div>
-          <a href="https://mentor.hackthejobs.com/auth/signup" target="_blank">
+          <a href="https://hackthejobs-mentors-dashboard.onrender.com/auth/signup" target="_blank">
             <button className="mr-[16px] sm:mr-0 sm:mb-4 w-[214px] md:w-[180px] sm:w-[100%] h-[56px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-[150%] tracking-[3%]">
               Become a Mentor
             </button>
           </a>
-          <a href="https://spm.hackthejobs.com/auth/signup" target="_blank">
+          <a href="https://spm-dashboard.onrender.com/auth/signup" target="_blank">
             <button className=" w-[214px] md:w-[180px] sm:w-[100%] h-[56px] border-[1px] border-[#DADADA] rounded-[8px] bg-[#fff] text-[#1453FF] font-medium text-[16px] leading-[150%] tracking-[3%]">
               Join as Senior PM
             </button>

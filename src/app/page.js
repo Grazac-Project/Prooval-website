@@ -197,7 +197,7 @@ const Landing = () => {
                 career.
               </p>
               {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-              <a href="https://dashboard.hackthejobs.com/auth/signup" target="_blank">
+              <a href="https://hackthejobs-web-dashoard.onrender.com/auth/signup" target="_blank">
                 <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
                   Get Started
                 </button>
@@ -652,17 +652,17 @@ const Landing = () => {
         </section>
         <section className="font-whyte flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
           <div>
-            <h3 className="font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[580px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center">
+            <h3 className="font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[560px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center">
               We’ve got outstanding mentors to guide you.
             </h3>
-            <p className="font-regular text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[580px] md:w-[510px] sm:hidden">
+            <p className="font-regular text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[560px] md:w-[510px] sm:hidden">
               We are not leaving you alone on this journey, connect with
               exceptional mentors from various backgrounds and openly discuss
               your career challenges and blockers with them.
             </p>
           </div>
           <Link href="/mentors">
-            <button className="w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden">
+            <button className="w-[239px] lg:w-[200px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden">
               View More Mentors
             </button>
           </Link>
@@ -848,7 +848,7 @@ const Landing = () => {
                   Trained
                 </p>
               </div> */}
-              <a href="https://dashboard.hackthejobs.com/auth/signup" target="_blank">
+              <a href="https://hackthejobs-web-dashoard.onrender.com/auth/signup" target="_blank">
                 <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4">
                   Get Started
                 </button>
