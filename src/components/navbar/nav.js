@@ -5,12 +5,23 @@ import React, { useEffect, useState } from "react";
 import Classes from "./nav.module.css";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Cookies from "js-cookie";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [isActive, setIsActive] = useState("");
+  const [token, setToken] = useState("");
 
   const pathname = usePathname();
+  const data = Cookies.get("user_details");
+  if (data) {
+    try {
+      const parsedData = JSON.parse(data);
+      setToken(parsedData?.token);
+    } catch (error) {
+      console.error("Failed to parse token:", error);
+    }
+  }
   return (
     <>
       <header className={Classes.header} suppressHydrationWarning>
@@ -87,16 +98,32 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            <div className={Classes.btnFlex}>
-              <button className={Classes.btnFlex1}>
-                {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
-                <Link href="/login">Log in</Link>
-              </button>
-              <button className={Classes.btnFlex2}>
-                {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-                <Link href="/signup">Sign up</Link>
-              </button>
-            </div>
+            {!token ? (
+              <div className="flex items-center space-x-4">
+                <button className=" border border-[#1453FF] rounded-[8px] px-[18px] py-[10px] font-medium text-[#1453FF] text-[12px] bg-[#fff] leading-[150%] tracking-[3%]">
+                  {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
+                  <Link href="/login">View Dashboard</Link>
+                </button>
+                <Image
+                  src="/dummyPic.svg"
+                  alt="avatar"
+                  width={40}
+                  height={40}
+                  className="w-[40px] h-[40px] rounded-[50%]"
+                />
+              </div>
+            ) : (
+              <div className={Classes.btnFlex}>
+                <button className={Classes.btnFlex1}>
+                  {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
+                  <Link href="/login">Log in</Link>
+                </button>
+                <button className={Classes.btnFlex2}>
+                  {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
+                  <Link href="/signup">Sign up</Link>
+                </button>
+              </div>
+            )}
           </nav>
           {dropdown ? (
             <nav className={Classes.navMobile}>
@@ -181,6 +208,10 @@ const Navbar = () => {
             </div>
           )}
         </div>
+        <div>
+          
+        </div>
+
       </header>
     </>
   );
