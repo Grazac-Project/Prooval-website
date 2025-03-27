@@ -341,7 +341,7 @@ const BookSession = ({
       <ToastContainer />
       <div className="font-whyte">
         <div
-          className="bg-[#344054B2] opacity-[0.7] w-[100%] h-full fixed top-0 left-[0]"
+          className="bg-[#344054B2] opacity-[0.9] w-[100%] h-full fixed top-0 left-[0]"
           onClick={closeModal}
         ></div>
         <div className="h-full bg-[#fff] w-full max-w-[629px] md:max-w-full p-8 sm:p-3 pb-[277px] sm:pb-[41px] overflow-y-auto flex flex-col fixed top-0 right-0 z-50">
