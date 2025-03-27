@@ -200,10 +200,16 @@ const Navbar = () => {
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
                   <Link href="/login">Log in</Link>
                 </button>
-                <button>
-                  {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-                  <Link href="/signup">Sign up</Link>
-                </button>
+                <a
+                  href="https://hackthejobs-web-dashoard.onrender.com/auth/signup"
+                  target="_blank"
+                >
+                  <button>
+                    {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
+                    {/* <Link href="/signup">Sign up</Link> */}
+                    Sign up
+                  </button>
+                </a>
               </div>
             </nav>
           ) : null}

@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import Modal from "@/components/modal/modal";
 import { fetchMentors } from "@/api/authentication/auth";
 import useAnalytics from "@/components/useAnalytics";
+import Expertise from "@/components/expertise/page";
 
 const Landing = () => {
   const router = useRouter();
@@ -169,7 +170,6 @@ const Landing = () => {
         <section className="font-whyte px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative bg-[#F9FBFF]">
           <div className="  py-[48px] flex sm:flex-col gap-[58px] xl:gap-[25px] items-center ">
             <div className="">
-              
               <div className="font-inter flex gap-2 w-[256px] md:w-[200px] sm:w-[256px] px-3 py-2 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px] whitespace-pre">
                 <MdVerified className="text-[#FFD700] text-[16px]" />
                 <h3 className="font-medium text-[14px] text-[#121927] leading-[15.4px] tracking-[4%] ">
@@ -192,16 +192,16 @@ const Landing = () => {
               </h1>
               <p className="font-regular text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8">
                 We understand the challenges every talents face due to their
-                lack of work experience and we have built hackthejobs to give
-                you real life work experience and the right mentorship to build
-                your career.
+                lack of quality mentorship and we have built hackthejobs to give
+                you the right mentorship and work experience to build your
+                career.
               </p>
               {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-              <Link href="/signup">
+              <a href="https://hackthejobs-web-dashoard.onrender.com/auth/signup" target="_blank">
                 <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
                   Get Started
                 </button>
-              </Link>
+              </a>
               <Link href="/donation">
                 <button className="w-[213px] lg:w-[170px] md:w-[150px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border-[1px] border-[#DADADA]">
                   Support a Talent
@@ -242,7 +242,7 @@ const Landing = () => {
               className="mx-auto object-contain hidden sm:block"
             />
             <p className="font-regular text-[12px] text-[#414449] pt-[12px] sm:pt-[6px] sm:text-[6.87px] leading-[13px] sm:leading-[7.44px] w-[169px] sm:w-[96.72px] mx-auto text-center text-[#121927]">
-              More than +5,000 Satisfied students across the globe
+              More than +5,000 Satisfied users across the globe
             </p>
           </div>
           <div
@@ -267,7 +267,7 @@ const Landing = () => {
               className="object-contain hidden sm:block"
             />
             <p className="font-regular text-[14px] sm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 sm:leading-[11.54px] w-[54px] sm:w-[30.9px]">
-              +30 <span className="text-[#8B8B8B]">Courses</span>
+              +50 <span className="text-[#8B8B8B]">Teams</span>
             </p>
           </div>
           <div
@@ -335,8 +335,6 @@ const Landing = () => {
             alt="big star"
             className="absolute top-[112.38px] 1xl:top-[70px]  sm:top-[10px] right-[753px] 1xl:right-[650px] xxl:right-[620px] lgx:right-[520px] lg:right-[500px] md:right-[400px] sm:right-[20px] z-[0]"
           />
-
-         
         </section>
         <section className="h-[64px] sm:h-[40px] bg-[#fff]"></section>
         <section className="font-whyte px-[80px] xl:px-[25px] xm:px-[16px] py-[48px] sm:py-[32px] bg-[#F9F9F9]">
@@ -572,7 +570,8 @@ const Landing = () => {
             What you get from Hackthejobs.
           </h2>
           <h3 className="font-regular text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]">
-            Get the experience you need to attract global opportunities.
+            Access industry experts in your field you need to attract global
+            opportunities.
           </h3>
 
           <ValueCard />
@@ -601,7 +600,8 @@ const Landing = () => {
               Get Onboarded in Four Easy Steps!
             </h4>
             <p className="w-[298px] 1xl:w-[262px] lg:w-[250px] md:w-[220px] sm:w-[100%] font-regular text-[16px] leading-[22px] text-[#EDEDED]">
-            Follow these simple steps to join our fellows on hackthejobs right away.
+              Follow these simple steps to join our talents on hackthejobs right
+              away.
             </p>
             <Image
               src="/easy-arrow.png"
@@ -619,7 +619,7 @@ const Landing = () => {
             />
           </div>
           <div className="w-[69.90%] xxl:w-[70%] lgx:w-[67%] lg:w-[65%] md:w-[62%] sm:w-[100%] flex flex-wrap sm:justify-around gap-[16px] lgx:gap-[12px] lg:gap-[10px]">
-            {cardValues.map((cardValue, i) => {
+            {cardValues.map((cardValue, i, arr) => {
               return (
                 <div
                   className="font-whyte w-[48%] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 md:px-2 sm:px-5 py-4"
@@ -628,9 +628,20 @@ const Landing = () => {
                   <h4 className="border-[2px] border-[#D0DDFF] w-[44px] h-[44px] rounded-[50%] flex items-center justify-center text-[18px] leading-[20.31px] font-medium text-[#fff] bg-[#1453FF]">
                     {cardValue.number}
                   </h4>
-                  <h5 className="pt-[25px] pb-[14px] font-medium text-[20px] leading-[30px] text-[#121927]">
+                  <div className="pt-[25px] pb-[14px]">
+                    <span className="font-medium text-[20px] leading-[30px] text-[#121927] leading-[150%] tracking-[0%]">
+                      {cardValue.heading}
+                    </span>
+                    {arr.length - 1 === i ? (
+                      <span className="text-[14px] text-[#888888] font-[350] leading-[150%] tracking-[0%]">{` ${cardValue.headingSpan}`}</span>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  {/* <h5 className="pt-[25px] pb-[14px] font-medium text-[20px] leading-[30px] text-[#121927] leading-[150%] tracking-[0%]">
                     {cardValue.heading}
-                  </h5>
+                    {arr.length - 1 === i? <span className="text-[!12px] text-[#888888] font-[350] leading-[150%] tracking-[0%]">{cardValue.headingSpan}</span>: ''}
+                  </h5> */}
                   <p className="font-regular text-[14px] leading-[20px] text-[#4F4F4F]">
                     {cardValue.text}
                   </p>
@@ -641,17 +652,17 @@ const Landing = () => {
         </section>
         <section className="font-whyte flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
           <div>
-            <h3 className="font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[580px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center">
+            <h3 className="font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[560px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center">
               We’ve got outstanding mentors to guide you.
             </h3>
-            <p className="font-regular text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[580px] md:w-[510px] sm:hidden">
+            <p className="font-regular text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[560px] md:w-[510px] sm:hidden">
               We are not leaving you alone on this journey, connect with
               exceptional mentors from various backgrounds and openly discuss
               your career challenges and blockers with them.
             </p>
           </div>
-          <Link href="/mentor">
-            <button className="w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden">
+          <Link href="/mentors">
+            <button className="w-[239px] lg:w-[200px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden">
               View More Mentors
             </button>
           </Link>
@@ -725,11 +736,11 @@ const Landing = () => {
             View More Mentors
           </button>
         </section> */}
-        <section className="pb-[96px] sm:pb-[52px] ">
+        <section className="pb-[96px] sm:pb-0 ">
           <div className="sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
             {imageCards.map((listOfMentor, i) => {
               return (
-                <div key={i} className="font-whyte w-[23%] lg:w-[29%] ">
+                <div key={i} className="font-whyte w-[23%] lg:w-[29%] border-[1px] border-[#EAEAEA] p-2 rounded-[8px]">
                   <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
                     <Image
                       src={listOfMentor.img}
@@ -745,6 +756,7 @@ const Landing = () => {
                   <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
                     {listOfMentor?.position} {listOfMentor?.formerPosition}
                   </h5>
+                  {/* <h6 className="font-regular text-4 text-[#667085] leading-[130%] tracking-[0%]">{listOfMentor?.formerPosition}</h6> */}
                 </div>
               );
             })}
@@ -763,26 +775,32 @@ const Landing = () => {
                     key={i}
                     className="font-whyte mx-auto sm:w-[302px] xm:w-[80%]"
                   >
-                    <div className="h-[296px] sm:h-[258px] overflow-hidden">
+                    <div className="h-[296px] sm:h-[258px] overflow-hidden ">
                       <Image
                         src={listOfMentor.img}
                         width={363}
                         height={297}
                         alt="mentor image"
-                        className="object-cover px-[5px]"
+                        className="object-cover px-[5px] filter grayscale hover:filter-none"
                       />
                     </div>
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] ">
                       {listOfMentor.name}
                     </h4>
                     <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
-                      {listOfMentor?.position},{listOfMentor?.formerPosition}
+                      {listOfMentor?.position}, {listOfMentor?.formerPosition}
                     </h5>
                   </div>
                 );
               })}
             </Slider>
           </div>
+          <Link href='/mentors'>
+          <button className=" w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden">
+            View More Mentors
+          </button>
+          </Link>
+          <Expertise />
         </section>
         <section className="flex items-center sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]">
           <div>
@@ -796,8 +814,8 @@ const Landing = () => {
             />
           </div>
           <div className="font-whyte ">
-            <h4 className="font-medium text-[48px] xl:text-[44px] lgx:text-[40px] lg:text-[35px] md:text-[30px] leading-[52.8px] lgx:leading-[45px] lg:leading-[40px] text-[#121927] mb-[40px] w-[596px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] sm:text-center sm:mt-[16px]">
-              Bootcamps are never enough!
+            <h4 className="font-medium text-[48px] xl:text-[44px] lgx:text-[40px] lg:text-[35px] md:text-[30px] leading-[52.8px] lgx:leading-[45px] lg:leading-[40px] text-[#121927] mb-[40px] sm:mb-[16px] w-[596px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] sm:text-center sm:mt-[16px]">
+              Bootcamps alone are never enough!
             </h4>
             <p className="font-regular text-[18px] sm:text-center lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
               Our mission is to equip individuals with the right mentorship and
@@ -805,15 +823,7 @@ const Landing = () => {
               to building a supportive community that promotes growth and
               encourages collaboration.
             </p>
-            {/* <p className="font-regular text-[18px] sm:text-center lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
-              HacktheJobs offers a unique solution tailored to your needs. We
-              provide comprehensive support to fast-track you getting experience
-              in the tech industry while ensuring you're primed for success in
-              your chosen tech career. We operate on just one goal; to give you
-              real life work experience, moving you from junior level to mid
-              level.
-            </p> */}
-            <div className="font-whyte text-[#1453FF] text-center flex sm:flex-col sm:items-center gap-[26px] lgx:gap-[16px] lg:gap-[10px] sm:gap-[32px]">
+            <div className="font-whyte text-[#1453FF] text-center flex  sm:items-center gap-[16px]">
               {/* <div className="w-[192px] 1xl:w-[170px] xl:w-[150px] lgx:w-[130px] lg:w-[110px]">
                 <h5 className="font-medium text-[43.64px] xl:text-[38px] lgx:text-[34px] leading-[52.36px] xl:leading-[48px] lgx:leading-[40px] tracking-[-2%]">
                   400+
@@ -838,11 +848,11 @@ const Landing = () => {
                   Trained
                 </p>
               </div> */}
-              <Link href="/signup">
-                <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
+              <a href="https://hackthejobs-web-dashoard.onrender.com/auth/signup" target="_blank">
+                <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4">
                   Get Started
                 </button>
-              </Link>
+              </a>
               <Link href="/donation">
                 <button className="w-[213px] lg:w-[170px] md:w-[150px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border-[1px] border-[#DADADA]">
                   Support a Talent
@@ -992,17 +1002,14 @@ const Landing = () => {
             />
             <div className="w-[56%] lg:w-[95%] lg:m-auto lg:text-center lg:mt-[32px]">
               <h4 className=" font-medium text-[48px] lg:sm:text-[32px] leading-[52.8px] lgx:leading-[48px] sm:leading-[35.2px] text-[#121927]">
-                Recruit skilled tech professionals who rank among the top 10% in
-                the world.
+                Hire from the top 10% most proficient techie in the world
               </h4>
               <p className="  xl:w-auto text-[16px] leading-[24px] text-[#787676] my-[32px] lgx:my-[26px] sm:my-[16px] ">
-                At HacktheJobs, our commitment is offering you talented tech
-                professionals who have undergone strict assessment, building
-                great portfolios. You don’t just hire talents from HacktheJobs,
-                you hire the{" "}
-                <span className="font-bold text-[#1453FF]">BEST</span> who
-                possess the required skills and creativity to build your
-                top-tier team.
+                Hackthejobs offers you access to these resources, empowering you
+                with up-to-date information in the tech industry. We also
+                provide tools suited for your technical job interviews, ensuring
+                a smooth experience. Sign up to access invaluable resources that
+                will equip you on your journey to a successful career in tech.
               </p>
               <Link href="/hire">
                 <button className="w-[247px] py-[20px] font-medium leading-[24px] text-[#fff] bg-[#1453FF] rounded-[8px]">
