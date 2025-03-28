@@ -22,19 +22,25 @@ const Navbar = () => {
     setShowModal(false); // Hide modal when hover ends
   };
   const pathname = usePathname();
-  const data = Cookies.get("user_details");
-  if (data) {
-    try {
-      const parsedData = JSON.parse(data);
-      setToken(parsedData?.token);
-      setDetails(parsedData);
-    } catch (error) {
-      console.error("Failed to parse token:", error);
+  useEffect(() => {
+    const data = Cookies.get("user_details");
+    if (data) {
+      try {
+        const parsedData = JSON.parse(data);
+        setToken(parsedData?.token);
+        setDetails(parsedData);
+      } catch (error) {
+        console.error("Failed to parse token:", error);
+      }
     }
-  }
+  }, []);
   return (
     <>
-      <header className={Classes.header} suppressHydrationWarning>
+      <header
+        className={Classes.header}
+        suppressHydrationWarning
+        
+      >
         <div className={Classes.navbar}>
           <Link href="/" className={Classes.logo}>
             <Image src="/navLogo.svg" alt="logo" width={164} height={36} />
@@ -108,21 +114,90 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            {!token ? (
-              <div className="flex items-center space-x-4">
+            {token ? (
+              <div className="flex items-center space-x-4 relative">
                 <button className=" border border-[#1453FF] rounded-[8px] px-[18px] py-[10px] font-medium text-[#1453FF] text-[12px] bg-[#fff] leading-[150%] tracking-[3%]">
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
                   <Link href="/login">View Dashboard</Link>
                 </button>
                 <Image
-                  src="/dummyPic.svg"
+                  src={details?.profilePic}
                   alt="avatar"
                   width={40}
                   height={40}
                   className="w-[40px] h-[40px] rounded-[50%]"
                   onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
+                  // onMouseLeave={handleMouseLeave}
                 />
+                {showModal && (
+                  <div
+                    className="Drop w-[242px]   bg-[#ffffff] py-8 px-4   rounded-[8px] absolute top-[60px] right-0 z-50 border border-[#EAEAEA]"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <div className="w-full flex flex-col justify-between items-center gap-8   ">
+                      <div className=" w-full flex flex-col    gap-3  ">
+                        <Image
+                          src={details?.profilePic}
+                          alt="avatar"
+                          width={80}
+                          height={80}
+                          className="w-[80px] h-[80px] mx-auto rounded-[50%]"
+                        />
+                        <div className="flex flex-col justify-center text-center items-center gap-2">
+                          <h2 className="font-medium text-[18px] text-[#101828] leading-[25.62px] ">
+                            {details?.name} {details?.lastName}
+                          </h2>
+                          <p className="font-medium text-[14px] text-[#888888] leading-[130%]">
+                            {/* {mentorData?.mentor?.role}, {mentorData?.mentor?.company} */}{" "}
+                            {details?.email}
+                          </p>
+                          <button className=" w-[100%]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] ">
+                            Edit Profile
+                          </button>
+                        </div>
+                      </div>
+                      <div className="flex flex-col  gap-2">
+                        <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
+                          <Link
+                            href="/about-us"
+                            // onClick={() => setDropdown(false)}
+                          >
+                            View my bookings
+                          </Link>
+                        </div>
+
+                        <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
+                          <Link
+                            href="/about-us"
+                            // onClick={() => setDropdown(false)}
+                          >
+                            Gain Experience{" "}
+                            <span className="font-[350px] text-[10px] text-[#888888] leading-[120%]">
+                              (become a fellow)
+                            </span>
+                          </Link>
+                        </div>
+                        <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
+                          <Link
+                            href="/about-us"
+                            // onClick={() => setDropdown(false)}
+                          >
+                            View profile
+                          </Link>
+                        </div>
+                        <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
+                          <Link
+                            href="/about-us"
+                            // onClick={() => setDropdown(false)}
+                          >
+                            Sign out
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <div className={Classes.btnFlex}>
@@ -226,79 +301,7 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        <div>
-          {showModal && (
-            <div
-              className=" w-[242px]   bg-[#ffffff] py-8 px-4   rounded-[8px] absolute top-[60px] right-8 z-50 border border-[#EAEAEA]"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="w-full flex flex-col justify-between items-center gap-8   ">
-                <div className=" w-full flex flex-col    gap-3  ">
-                  <Image
-                    // src={mentorData?.mentor?.image}
-                    src="/dummyPic.svg"
-                    alt="avatar"
-                    width={80}
-                    height={80}
-                    className="w-[80px] h-[80px] mx-auto rounded-[50%]"
-                  />
-                  <div className="flex flex-col justify-center text-center items-center gap-2">
-                    <h2 className="font-medium text-[18px] text-[#101828] leading-[25.62px] ">
-                      {details?.firstName}
-                      {details?.lastName}
-                    </h2>
-                    <p className="font-medium text-[14px] text-[#888888] leading-[130%]">
-                      {/* {mentorData?.mentor?.role}, {mentorData?.mentor?.company} */}{" "}
-                      {details?.email}
-                    </p>
-                    <button className=" w-[100%]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] ">
-                      Edit Profile
-                    </button>
-                  </div>
-                </div>
-                <ul className="flex flex-col  gap-2">
-                  <li className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
-                    <Link
-                      href="/about-us"
-                      // onClick={() => setDropdown(false)}
-                    >
-                      View my bookings
-                    </Link>
-                  </li>
-                  
-                  <li className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
-                    <Link
-                      href="/about-us"
-                      // onClick={() => setDropdown(false)}
-                    >
-                      Gain Experience{" "}
-                      <span className="font-[350px] text-[10px] text-[#888888] leading-[120%]">
-                        (become a fellow)
-                      </span>
-                    </Link>
-                  </li>
-                  <li className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
-                    <Link
-                      href="/about-us"
-                      // onClick={() => setDropdown(false)}
-                    >
-                      View profile
-                    </Link>
-                  </li>
-                  <li className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
-                    <Link
-                      href="/about-us"
-                      // onClick={() => setDropdown(false)}
-                    >
-                      Sign out
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          )}
-        </div>
+        <div></div>
       </header>
     </>
   );
