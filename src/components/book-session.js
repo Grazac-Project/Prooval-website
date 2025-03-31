@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import Image from "next/image";
@@ -21,7 +19,7 @@ const BookSession = ({
   closeModal,
   mentorId,
   mentorImage,
-  setShowBookingModal,
+successModal,
 }) => {
   const [activeDates, setActiveDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -67,18 +65,21 @@ const BookSession = ({
 
   const handleDayClick = (date) => {
     const formattedDate = dayjs(date).format("YYYY-MM-DD");
+    console.log("Clicked Date:", formattedDate);
+    console.log("Active Dates:", activeDates);
+
     if (activeDates.includes(formattedDate)) {
-      console.log(date);
+      console.log("Valid Date Selected:", date);
       setSelectedDate(date);
-      fetchAvailableTimes(date); // Fetch available times when a valid date is selected
+      fetchAvailableTimes(date);
     } else {
+      console.log("Invalid Date Selected");
       setAvailableTimes([]);
       setShowButton(false);
     }
   };
-
   const fetchAvailableTimes = (date) => {
-    console.log(date);
+    console.log("Selected Date:", date);
 
     const newDate = new Date(date);
     const year = newDate.getFullYear();
@@ -86,54 +87,41 @@ const BookSession = ({
     const day = String(newDate.getDate()).padStart(2, "0");
     const formattedDate = `${year}-${month}-${day}`;
 
-    // const formattedDate = date.toISOString().split('T')[0];
-    console.log(formattedDate);
-    console.log(availableSessions);
+    console.log("Formatted Date:", formattedDate);
+    console.log("Available Sessions:", availableSessions);
 
-    // const times = availableSessions.filter(session => session.date === formattedDate)
-    const filterArr = availableSessions
-      .filter((item) => {
-        return item.date === formattedDate;
-      })
-      .map((value) => {
-        console.log(value);
+    const filterArr = availableSessions.filter((item) => {
+      console.log("Session Date:", item.date);
+      return item.date === formattedDate;
+    });
 
-        return value;
-      });
-    const times = availableSessions
-      .filter((item) => {
-        return item.date === formattedDate;
-      })
-      .map((value) => {
-        console.log(value);
+    const times = filterArr.map((value) => value.startTime);
 
-        return value.startTime;
-      });
+    console.log("Filtered Times:", times);
 
-    // console.log(result);
-    // console.log(times);
-
-    // Mocked time slots
-    // const times = [
-    //   '5:30 AM', '5:45 AM', '6:00 AM', '6:15 AM',
-    //   '6:30 AM', '6:45 AM', '7:00 PM', '7:30 PM'
-    // ];
     setFilteredData(filterArr);
     setAvailableTimes(times);
   };
-
+  // const tileClassName = ({ date, view }) => {
+  //   if (view === "month") {
+  //     const formattedDate = dayjs(date).format("YYYY-MM-DD");
+  //     if (activeDates.includes(formattedDate)) {
+  //       return "bg-[#1453FF] text-[#101828] rounded-[8px] w-[45px] h-[45px] border-[1px]"; // Active dates styling
+  //     } else {
+  //       return "text-[#7D7D7D]"; // Faded styling for non-active dates
+  //     }
+  //   }
+  //   return "";
+  // };
   const tileClassName = ({ date, view }) => {
     if (view === "month") {
-      const formattedDate = dayjs(date).format("YYYY-MM-DD");
+      const formattedDate = dayjs(date).format("YYYY-MM-DD"); // Format the date to match activeDates
       if (activeDates.includes(formattedDate)) {
-        return "bg-[#1453FF] text-[#101828] rounded-[8px] w-[45px] h-[45px] border-[1px]"; // Active dates styling
-      } else {
-        return "text-[#7D7D7D]"; // Faded styling for non-active dates
+        return "highlighted-date"; // Add a custom class for active dates
       }
     }
-    return "";
+    return ""; // Return an empty string for non-active dates
   };
-
   const handleTimeSelected = (time, index) => {
     setSelectedTimeIndex(index);
     setShowButton(true);
@@ -155,11 +143,11 @@ const BookSession = ({
         console.log(res);
         setLoading(false);
         closeModal();
-        setShowBookingModal(true);
+        successModal()
       })
       .catch((err) => {
         console.log(err);
-        toast.error(err.response.data.error);
+        toast.error(err);
         setLoading(false);
       });
   };
@@ -186,7 +174,7 @@ const BookSession = ({
           </div>
           <div>
             <Image
-              src={mentorImage || "/dummyPic.svg" }
+              src={mentorImage || "/dummyPic.svg"}
               width={152}
               height={152}
               alt="profile photo"
@@ -234,20 +222,23 @@ const BookSession = ({
               />
               {selectedDate && (
                 <div className="mt-6 grid grid-cols-4 gap-4">
-                  {availableTimes.map((time, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        background:
-                          selectedTimeIndex === index ? "#1453FF" : "",
-                        color: selectedTimeIndex === index ? "#fff" : "",
-                      }}
-                      onClick={() => handleTimeSelected(time, index)}
-                      className="bg-[#fff] text-[16px] xm:text-[12px] text-[#7D7D7D] hover:text-[#fff] text-center leading-[16px] py-[18.5px] px-6 sm:px-[14px] xm:px-[8px] sxm:px-[5px] border-[1px] border-[#D0D5DD] rounded-[8px] cursor-pointer hover:bg-[#1453FF]"
-                    >
-                      {time }
-                    </div>
-                  ))}
+                  {availableTimes.map((time, index) => {
+                    console.log("Rendering Time:", time);
+                    return (
+                      <div
+                        key={index}
+                        style={{
+                          background:
+                            selectedTimeIndex === index ? "#1453FF" : "",
+                          color: selectedTimeIndex === index ? "#fff" : "",
+                        }}
+                        onClick={() => handleTimeSelected(time, index)}
+                        className="bg-[#fff] text-[16px] xm:text-[12px] text-[#7D7D7D] hover:text-[#fff] text-center leading-[16px] py-[18.5px] px-6 sm:px-[14px] xm:px-[8px] sxm:px-[5px] border-[1px] border-[#D0D5DD] rounded-[8px] cursor-pointer hover:bg-[#1453FF]"
+                      >
+                        {time}
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>

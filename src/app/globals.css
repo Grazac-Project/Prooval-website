@@ -2,44 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap'); */
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .custom-list li::marker {
-    font-size: 24px; /* Increase the size of the dots */
-    color: #4F4F4F;  /* Optional: change the color of the dots */
-    
-  }
-  
+  font-size: 24px; /* Increase the size of the dots */
+  color: #4f4f4f; /* Optional: change the color of the dots */
+}
 
 /* .slick-track{
     display: flex!important;
     gap: 24px;
 } */
 
-.slick-arrow, .slick-prev{
-    display: none;
+.slick-arrow,
+.slick-prev {
+  display: none;
 }
-.slick-arrow, .slick-prev::before{
-    display: none;
+.slick-arrow,
+.slick-prev::before {
+  display: none;
 }
-.slick-arrow, .slick-next{
-    display: none;
+.slick-arrow,
+.slick-next {
+  display: none;
 }
-.slick-arrow, .slick-next::before{
-    display: none;
+.slick-arrow,
+.slick-next::before {
+  display: none;
 }
-button.slick-arrow.slick-prev{
-    display: none;
+button.slick-arrow.slick-prev {
+  display: none;
 }
-button.slick-arrow.slick-next{
-    display: none;
+button.slick-arrow.slick-next {
+  display: none;
+}
+.react-calendar__tile.highlighted-date {
+  background-color: #1453FF0D; 
+  color: #101828; 
+  /* border-radius: 8px; */
+  
+  font-weight: bold;
 }
