@@ -132,12 +132,13 @@ const MentorDetails = () => {
   };
   //rounte to book session page if the token is true
   const bookSession = () => {
-    const isLogin = true;
-    if (isLogin) {
+    
+    if (token) {
       setShowBookSession(true);
       // setShowBookingModal(false);
     } else {
-      return null;
+      window.location.href =
+        "https://hackthejobs-web-dashoard.onrender.com/auth/signup";
     }
   };
 
@@ -187,16 +188,14 @@ const MentorDetails = () => {
                       <button
                         className="hidden md:block w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] "
                         onClick={bookSession}
-                        disabled={!token}
+                        
                       >
                         Book Mentor
                       </button>
                       <div className="flex justify-start md:justify-center gap-2 align-center">
                         <button
-                          disabled={!token}
-                          className={` text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] sxm:max-w-[50%] h-[35.6px] flex justify-center items-center gap-1 ${
-                            token ? "" : "opacity-20 cursor-not-allowed"
-                          }`}
+                          
+                          className={` text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] sxm:max-w-[50%] h-[35.6px] flex justify-center items-center gap-1 `}
                         >
                           <div className="cursor-pointer">
                             <Checkbox
@@ -234,11 +233,9 @@ const MentorDetails = () => {
                     </div>
                   </div>
                   <button
-                    className={`md:hidden w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff] bg-primary  rounded-[6.29px] ${
-                      token ? "" : "opacity-50 cursor-not-allowed"
-                    }`}
+                    className={`md:hidden w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff] bg-primary  rounded-[6.29px] `}
                     onClick={bookSession}
-                    disabled={!token}
+                    
                   >
                     Book Mentor
                   </button>
