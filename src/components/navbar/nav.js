@@ -203,11 +203,11 @@ const Navbar = () => {
               <div className={Classes.btnFlex}>
                 <button className={Classes.btnFlex1}>
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
-                  <Link href="/login">Log in</Link>
+                  <a href="https://hackthejobs-web-dashoard.onrender.com/auth/login" target="_blank">Log in</a>
                 </button>
                 <button className={Classes.btnFlex2}>
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-                  <Link href="/signup">Sign up</Link>
+                  <a href="https://hackthejobs-web-dashoard.onrender.com/auth/signup" target="_blank">Sign up</a>
                 </button>
               </div>
             )}
@@ -273,7 +273,7 @@ const Navbar = () => {
               <div className={Classes.btnFlex}>
                 <button>
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
-                  <Link href="/login">Log in</Link>
+                  <a href="https://hackthejobs-web-dashoard.onrender.com/auth/login" target="_blank">Log in</a>
                 </button>
                 <a
                   href="https://hackthejobs-web-dashoard.onrender.com/auth/signup"
