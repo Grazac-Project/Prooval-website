@@ -305,7 +305,7 @@ const MentorDetails = () => {
                       ))}
                     </div>
                   </div>
-                  <div className=" border border-[#ffff]  border-b-[#EAEAEA]  p-8 md:px-4 ">
+                  <div className=" border border-[#ffff]  border-b-[#EAEAEA] border-r-[#EAEAEA]  p-8 md:px-4 ">
                     <h4 className="text-[12px] leading-[140%] font-medium text-[#333333] mb-2">
                       Mentorship Session
                     </h4>

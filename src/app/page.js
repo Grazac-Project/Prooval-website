@@ -15,6 +15,7 @@ import Modal from "@/components/modal/modal";
 import { fetchMentors } from "@/api/authentication/auth";
 import useAnalytics from "@/components/useAnalytics";
 import Expertise from "@/components/expertise/page";
+import Cookies from "js-cookie";
 
 const Landing = () => {
   const router = useRouter();
@@ -162,6 +163,10 @@ const Landing = () => {
 
   const GA_TRACKING_ID = "G-JS3RNTYLD8";
   useAnalytics(GA_TRACKING_ID);
+  const handleMentorClick = (mentorSlug) => {
+      Cookies.set("mentorSlug", mentorSlug, { expires: 7 });
+      router.push(`/mentors/${mentorSlug}`);
+    };
   return (
     <div className="overflow-x-hidden">
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
@@ -197,7 +202,10 @@ const Landing = () => {
                 career.
               </p>
               {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-              <a href="https://hackthejobs-web-dashoard.onrender.com/auth/signup" target="_blank">
+              <a
+                href="https://hackthejobs-web-dashoard.onrender.com/auth/signup"
+                target="_blank"
+              >
                 <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
                   Get Started
                 </button>
@@ -738,12 +746,16 @@ const Landing = () => {
         </section> */}
         <section className="pb-[96px] sm:pb-0 ">
           <div className="sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
-            {imageCards.map((listOfMentor, i) => {
+            {listOfMentors.map((listOfMentor, i) => {
               return (
-                <div key={i} className="font-whyte w-[23%] lg:w-[29%] border-[1px] border-[#EAEAEA] p-2 rounded-[8px]">
+                <div
+                  key={i}
+                  className="font-whyte w-[23%] lg:w-[29%] cursor-pointer "
+                  onClick={() => handleMentorClick(listOfMentor?.slug)}
+                >
                   <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
                     <Image
-                      src={listOfMentor.img}
+                      src={listOfMentor.image}
                       width={296}
                       height={296}
                       alt="mentor image"
@@ -751,12 +763,11 @@ const Landing = () => {
                     />
                   </div>
                   <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
-                    {listOfMentor.name}
+                    {listOfMentor?.firstName} {listOfMentor?.lastName}
                   </h4>
                   <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
-                    {listOfMentor?.position} {listOfMentor?.formerPosition}
+                    {listOfMentor?.role}
                   </h5>
-                  {/* <h6 className="font-regular text-4 text-[#667085] leading-[130%] tracking-[0%]">{listOfMentor?.formerPosition}</h6> */}
                 </div>
               );
             })}
@@ -769,36 +780,39 @@ const Landing = () => {
               {...mentorSettings}
               className=""
             >
-              {imageCards.map((listOfMentor, i) => {
+              {listOfMentors.map((listOfMentor, i) => {
                 return (
                   <div
                     key={i}
                     className="font-whyte mx-auto sm:w-[302px] xm:w-[80%]"
                   >
-                    <div className="h-[296px] sm:h-[258px] overflow-hidden ">
+                    <div
+                      className="h-[296px] sm:h-[258px] overflow-hidden"
+                      onClick={() => handleMentorClick(listOfMentor.slug)}
+                    >
                       <Image
                         src={listOfMentor.img}
-                        width={363}
+                        width={296}
                         height={297}
                         alt="mentor image"
-                        className="object-cover px-[5px] filter grayscale hover:filter-none"
+                        className="object-cover px-[5px]"
                       />
                     </div>
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] ">
                       {listOfMentor.name}
                     </h4>
                     <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
-                      {listOfMentor?.position}, {listOfMentor?.formerPosition}
+                      {listOfMentor?.position},{listOfMentor?.formerPosition}
                     </h5>
                   </div>
                 );
               })}
             </Slider>
           </div>
-          <Link href='/mentors'>
-          <button className=" w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden">
-            View More Mentors
-          </button>
+          <Link href="/mentors">
+            <button className=" w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden">
+              View More Mentors
+            </button>
           </Link>
           <Expertise />
         </section>
@@ -848,7 +862,10 @@ const Landing = () => {
                   Trained
                 </p>
               </div> */}
-              <a href="https://hackthejobs-web-dashoard.onrender.com/auth/signup" target="_blank">
+              <a
+                href="https://hackthejobs-web-dashoard.onrender.com/auth/signup"
+                target="_blank"
+              >
                 <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4">
                   Get Started
                 </button>
