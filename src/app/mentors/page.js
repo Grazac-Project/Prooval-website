@@ -145,7 +145,7 @@ const Page = () => {
           </button> */}
         </div>
       </div>
-      <form className="font-inter py-[56px] lg:py-[32px] xm:px-[16px] sticky top-[50px] lg:top-[75px] md:top-[50.5px] z-10 bg-[#fff]">
+      <form className="font-inter py-[56px] lg:py-[32px] xm:px-[16px] sticky top-[80px] lg:top-[75px] md:top-[50.5px] z-10 bg-[#fff]">
         <div className="relative w-[800px] lgx:w-[70%] xm:w-[100%] mx-auto">
           <IoIosSearch className="text-[20px] text-[#667085] absolute left-[16px] top-[12px] transform-translate-y-1/2" />
           <input
