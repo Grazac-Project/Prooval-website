@@ -203,7 +203,7 @@ const Landing = () => {
               </p>
               {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
               <a
-                href="https://hackthejobs-web-dashoard.onrender.com/auth/signup"
+                href="https://dashboard.hackthejobs.com/auth/signup"
                 target="_blank"
               >
                 <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
@@ -863,7 +863,7 @@ const Landing = () => {
                 </p>
               </div> */}
               <a
-                href="https://hackthejobs-web-dashoard.onrender.com/auth/signup"
+                href="https://dashboard.hackthejobs.com/auth/signup"
                 target="_blank"
               >
                 <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4">

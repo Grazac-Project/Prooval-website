@@ -127,7 +127,7 @@ const Navbar = () => {
               <div className="flex items-center space-x-4 relative">
                 <button className=" border border-[#1453FF] rounded-[8px] px-[18px] py-[10px] font-medium text-[#1453FF] text-[12px] bg-[#fff] leading-[150%] tracking-[3%]">
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
-                  <Link href="https://hackthejobs-web-dashoard.onrender.com/dashboard">
+                  <Link href="https://dashboard.hackthejobs.com/dashboard">
                     View Dashboard
                   </Link>
                 </button>
@@ -171,7 +171,7 @@ const Navbar = () => {
                       <div className="flex flex-col  gap-2">
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                           <Link
-                            href="https://hackthejobs-web-dashoard.onrender.com/bookings"
+                            href="https://dashboard.hackthejobs.com/bookings"
                             // onClick={() => setDropdown(false)}
                           >
                             View my bookings
@@ -180,7 +180,7 @@ const Navbar = () => {
 
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                           <Link
-                            href="https://hackthejobs-web-dashoard.onrender.com/auth/expertise"
+                            href="https://dashboard.hackthejobs.com/auth/expertise"
                             // onClick={() => setDropdown(false)}
                           >
                             Gain Experience{" "}
@@ -191,7 +191,7 @@ const Navbar = () => {
                         </div>
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                           <Link
-                            href="https://hackthejobs-web-dashoard.onrender.com/settings"
+                            href="https://dashboard.hackthejobs.com/settings"
                             // onClick={() => setDropdown(false)}
                           >
                             View profile
@@ -209,11 +209,11 @@ const Navbar = () => {
               <div className={Classes.btnFlex}>
                 <button className={Classes.btnFlex1}>
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
-                  <a href="https://hackthejobs-web-dashoard.onrender.com/auth/login" target="_blank">Log in</a>
+                  <a href="https://dashboard.hackthejobs.com/auth/login" target="_blank">Log in</a>
                 </button>
                 <button className={Classes.btnFlex2}>
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-                  <a href="https://hackthejobs-web-dashoard.onrender.com/auth/signup" target="_blank">Sign up</a>
+                  <a href="https://dashboard.hackthejobs.com/auth/signup" target="_blank">Sign up</a>
                 </button>
               </div>
             )}
@@ -241,7 +241,7 @@ const Navbar = () => {
                             {details?.email}
                           </p>
                           <Link
-                            href="https://hackthejobs-web-dashoard.onrender.com"
+                            href="https://dashboard.hackthejobs.com"
                             onClick={() => setDropdown(false)}
                           >
                             <button className=" w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] ">
@@ -253,7 +253,7 @@ const Navbar = () => {
                       <div className="flex flex-col  gap-2 text-left">
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                           <Link
-                            href="https://hackthejobs-web-dashoard.onrender.com/bookings"
+                            href="https://dashboard.hackthejobs.com/bookings"
                             onClick={() => setDropdown(false)}
                           >
                             View my bookings
@@ -262,7 +262,7 @@ const Navbar = () => {
 
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                           <Link
-                            href="https://hackthejobs-web-dashoard.onrender.com/auth/expertise"
+                            href="https://dashboard.hackthejobs.com/auth/expertise"
                             onClick={() => setDropdown(false)}
                           >
                             Gain Experience{" "}
@@ -273,7 +273,7 @@ const Navbar = () => {
                         </div>
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%] border border-[#ffff] border-b-[#EAEAEA]">
                           <Link
-                            href="https://hackthejobs-web-dashoard.onrender.com/settings"
+                            href="https://dashboard.hackthejobs.com/settings"
                             onClick={() => setDropdown(false)}
                           >
                             View profile
@@ -342,7 +342,7 @@ const Navbar = () => {
                     <Link href="/login">Log in</Link>
                   </button>
                   <a
-                    href="https://hackthejobs-web-dashoard.onrender.com/auth/signup"
+                    href="https://dashboard.hackthejobs.com/auth/signup"
                     target="_blank"
                   >
                     <button>
