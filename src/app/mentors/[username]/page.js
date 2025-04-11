@@ -70,7 +70,7 @@ const MentorDetails = () => {
         });
     } else {
       window.location.href =
-        "https://hackthejobs-web-dashoard.onrender.com/auth/signup";
+        "https://dashboard.hackthejobs.com/auth/signup";
     }
   };
   const getMentorsDetails = () => {
@@ -138,7 +138,7 @@ const MentorDetails = () => {
       // setShowBookingModal(false);
     } else {
       window.location.href =
-        "https://hackthejobs-web-dashoard.onrender.com/auth/signup";
+        "https://dashboard.hackthejobs.com/auth/signup";
     }
   };
 
