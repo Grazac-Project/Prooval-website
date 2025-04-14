@@ -6,18 +6,19 @@ export const cardValues = [
   },
   {
     number: 2,
-    heading: "Take Assessment",
-    text: "Our assessment is based on your selected career path to validate your skills.",
+    heading: "Access our Mentors",
+    text: "Search through our list of vetted industry experts ready to share their knowledge with you.",
   },
   {
     number: 3,
-    heading: "Get Matched",
-    text: "We matched you with other fellows who will work in your team and a senior product manager who will supervise your team and you’d be able to join our talent slack community at this point.",
+    heading: "Book a session",
+    text: "Check mentors availability and book a session",
   },
   {
     number: 4,
-    heading: "Project Assignment",
-    text: "After you get matched, your supervisor will walk you through the project to build and guide you till you complete your project.",
+    heading: "Get work experience",
+    headingSpan:'(Assessment Required)',
+    text: "We match interested talents with other fellows who will work in your team and a senior product manager who will supervise your team. You’d be able to join our talent slack community.",
   },
 ];
 export const mentorCardValues = [
@@ -68,52 +69,52 @@ export const spmCardValues = [
 export const imageCards = [
     {
         name: 'Deborah Dada',
-        position: 'Product Design Lead,',
+        position: 'Product Design Lead',
         formerPosition: 'Storelab UK',
         img: '/deborah.png'
     },
     {
         name: 'Jeremiah Ogunyemi',
-        position: 'Senior Software Engineer,',
+        position: 'Senior Software Engineer',
         formerPosition: 'Apollo.io',
         img: '/jeremiah.png'
     },
     {
         name: 'Dansteve Adekanbi',
-        position: 'ML Software Engineer, ',
+        position: 'ML Software Engineer',
         formerPosition: 'Scale AI',
         img: '/dansteve.png'
     },
     {
         name: 'Daniel Fayemi',
-        position: 'Ex-Software Engineer,',
+        position: 'Ex-Software Engineer',
         formerPosition: 'Binance',
         img: '/daniel.png'
     },
-    // {
-    //     name: 'Ibiniyi Obikoya',
-    //     position: 'Software Engineer',
-    //     formerPosition: 'Paystack',
-    //     img: '/mentor.png'
-    // },
-    // {
-    //     name: 'Adedamola Adeleye',
-    //     position: 'Lead of Payment Tech',
-    //     formerPosition: 'Traction',
-    //     img: '/mentor.png'
-    // },
-    // {
-    //     name: 'Franklin Oladipo',
-    //     position: 'Mobile Engineer (Flutter Specialist)',
-    //     formerPosition: 'BT Group',
-    //     img: '/mentor.png'
-    // },
-    // {
-    //     name: 'Ayotunde Lanwo',
-    //     position: 'Senior Product Manager',
-    //     formerPosition: 'London (UK)',
-    //     img: '/mentor.png'
-    // },
+    {
+        name: 'Ibiniyi Obikoya',
+        position: 'Software Engineer',
+        formerPosition: 'Paystack',
+        img: '/joseph.png'
+    },
+    {
+        name: 'Adedamola Adeleye',
+        position: 'Lead of Payment Tech',
+        formerPosition: 'Traction',
+        img: '/mansur.png'
+    },
+    {
+        name: 'Franklin Oladipo',
+        position: 'Mobile Engineer (Flutter Specialist)',
+        formerPosition: 'BT Group',
+        img: '/tobi.png'
+    },
+    {
+        name: 'Ayotunde Lanwo',
+        position: 'Senior Product Manager',
+        formerPosition: 'London (UK)',
+        img: '/mentor.png'
+    },
 ]
 
 export const testimonials = [

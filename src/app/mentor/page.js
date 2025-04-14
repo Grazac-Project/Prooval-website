@@ -20,6 +20,7 @@ import Modal from "@/components/modal/modal";
 import { fetchMentors } from "@/api/authentication/auth";
 import ValueCard from "@/components/valueCard/MentorValueCard copy 2";
 import { LuDot } from "react-icons/lu";
+import Cookies from "js-cookie";
 
 const mentor = () => {
   const router = useRouter();
@@ -139,7 +140,9 @@ const mentor = () => {
         // console.log(res.data.data.mentors[0].firstName);
         const mentors = res.data.data.mentors;
         const mentorsSlice = mentors.slice(0, 8);
+        console.log(mentorsSlice);
         setListOfMentors(mentorsSlice);
+        console.log(listOfMentors.slug)
       })
       .catch((err) => console.log(err));
   }, []);
@@ -162,7 +165,10 @@ const mentor = () => {
     return () => clearInterval(interval);
   }, []);
   // console.log(listOfMentors);
-
+  const handleMentorClick = (mentorSlug) => {
+    Cookies.set("mentorSlug", mentorSlug, { expires: 7 });
+    router.push(`/mentors/${mentorSlug}`);
+  };
   return (
     <div>
       <Navbar />
@@ -191,9 +197,13 @@ const mentor = () => {
                 </button>
               </Link> */}
               {/* <Link href="https://mentor.hackthejobs.com/auth/signup"> */}
-                <a href="https://mentor.hackthejobs.com/auth/signup" target="_blank" className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
-                  Become a Mentor
-                </a>
+              <a
+                href="https://mentor.hackthejobs.com/auth/signup"
+                target="_blank"
+                className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]"
+              >
+                Become a Mentor
+              </a>
               {/* </Link> */}
             </div>
             <div className=" mt-[64px] sm:mt-[45px]">
@@ -549,22 +559,24 @@ const mentor = () => {
             </p>
           </div>
           <Link href="/mentors">
-          
-          <button className="w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden">
-            View More Mentors
-          </button>
+            <button className="w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] sm:hidden">
+              View More Mentors
+            </button>
           </Link>
-
-          
         </section>
         <section className="pb-[96px] sm:pb-[52px] ">
           <div className="sm:hidden  px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
-            {imageCards.map((listOfMentor, i) => {
+            {listOfMentors.map((listOfMentor, i) => {
               return (
-                <div key={i} className="font-whyte w-[23%] lg:w-[29%] ">
+                <div
+                  key={i}
+                  className="font-whyte w-[23%] lg:w-[29%] cursor-pointer "
+                  onClick={() => handleMentorClick(listOfMentor?.slug)}
+
+                >
                   <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
                     <Image
-                      src={listOfMentor.img}
+                      src={listOfMentor.image}
                       width={296}
                       height={296}
                       alt="mentor image"
@@ -572,10 +584,10 @@ const mentor = () => {
                     />
                   </div>
                   <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
-                    {listOfMentor.name}
+                  {listOfMentor?.firstName} {listOfMentor?.lastName}
                   </h4>
                   <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
-                    {listOfMentor?.position} {listOfMentor?.formerPosition}
+                   {listOfMentor?.role}
                   </h5>
                 </div>
               );
@@ -589,13 +601,16 @@ const mentor = () => {
               {...mentorSettings}
               className=""
             >
-              {imageCards.map((listOfMentor, i) => {
+              {listOfMentors.map((listOfMentor, i) => {
                 return (
                   <div
                     key={i}
                     className="font-whyte mx-auto sm:w-[302px] xm:w-[80%]"
                   >
-                    <div className="h-[296px] sm:h-[258px] overflow-hidden">
+                    <div
+                      className="h-[296px] sm:h-[258px] overflow-hidden"
+                      onClick={() => handleMentorClick(listOfMentor.slug)}
+                    >
                       <Image
                         src={listOfMentor.img}
                         width={363}

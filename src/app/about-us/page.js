@@ -48,8 +48,8 @@ const AboutUs = () => {
             Positioning you for success
           </h1>
           <p className=" font-whyte text-[16px] leading-[20.8px] font-400 my-6 ">
-            Success for us is when our fellows after building real-life projects
-            land their dream job in tech.
+            We strongly believe mentorship is the hidden gem required to build
+            highly competitive talents.
           </p>
         </div>
         {/* <Image src="/about.png" alt="img" width={1440} height={600} /> */}
@@ -89,10 +89,10 @@ const AboutUs = () => {
             paid to the already upskilled talents in the job market. After we
             launched a bootcamp in 2019, we strongly believe the workforce of
             the future will be from Africa but bootcamps alone won’t prepare our
-            talents for this and to fill this void, we have built hackthejobs as
-            a free work experience accelerator to give entry level talents work
-            experience, build their soft skills and the right mentorship to
-            attract and retain global opportunities.
+            talents for this and to fill this void, we have built hackthejobs to
+            build their soft skills, give them work experience, and most
+            importantly the right mentorship to attract and retain global
+            opportunities.
           </p>
         </div>
       </div>
@@ -132,103 +132,16 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-      {/* <div className={Classes.team}>
-        <div className={Classes.teamText}>
-          <h3>Meet our team</h3>
-          <p>
-            We are a team of vibrant and dynamic individuals dedicated to
-            changing the tech industry
-          </p>
-        </div>
-
-        <div className={Classes.gallery}>
-          <div className="grid grid-cols-4 xl:grid-cols-3 md:hidden gap-[32px] w-[1280px] 2xl:w-[90%] sm:w-[95%] my-[64px] mx-auto">
-            {TeamCards.map((item, index) => (
-              <div key={index} className={Classes.card}>
-                <Image src={item.img} alt="img" width={296} height={296} />
-                <h5>{item.name}</h5>
-                <span>{item.position}</span>
-                <div className={Classes.social}>
-                  <Link href="#">
-                    <Image
-                      src="/twitter.svg"
-                      alt="img"
-                      width={24}
-                      height={24}
-                    />
-                  </Link>
-                  <Link href="#">
-                    <Image
-                      src="/linkledn.svg"
-                      alt="img"
-                      width={24}
-                      height={24}
-                    />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className={Classes.gallerySlide}>
-          <Splide options={options}>
-            {TeamCards.map((item, index) => (
-              <SplideSlide key={index} className={Classes.card}>
-                <Image src={item.img} alt="img" width={310} height={296} />
-                <h5>{item.name}</h5>
-                <span>{item.position}</span>
-                <div className={Classes.social}>
-                  <Link href="#">
-                    <Image
-                      src="/twitter.svg"
-                      alt="img"
-                      width={24}
-                      height={24}
-                    />
-                  </Link>
-                  <Link href="#">
-                    <Image
-                      src="/linkledn.svg"
-                      alt="img"
-                      width={24}
-                      height={24}
-                    />
-                  </Link>
-                </div>
-              </SplideSlide>
-            ))}
-          </Splide>
-        </div>
-      </div> */}
-      {/* <div className={Classes.donation}>
-        <div className={Classes.donateText}>
-          <h3>Do you want to support our vision by sponsoring a talent ?</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            varius enim in eros elementum tristique. Duis cursus, mi quis
-            viverra .
-          </p>
-          <button>Make donation</button>
-        </div>
-
-        <Image
-          src="/stars1.svg"
-          alt="img"
-          width={96}
-          height={96}
-          className={Classes.star}
-          style={{ position: "absolute", bottom: "186px", left: "80px" }}
-        />
-      </div> */}
       <div className={Classes.donation}>
         <div className={Classes.donateText}>
           <h3>
-            Support our vision by empowering a talent to get work experience
+            Support our vision by empowering a talent to get mentorship and work
+            experience
           </h3>
           <p>
             Your donation goes a long way in empowering entry level talent to
-            get real world experience while addressing sustainable development
-            focused goals.
+            get mentorship and real world experience while addressing
+            sustainable development focused goals.
           </p>
           <Link href="/donation">
             <button>Support a Talent</button>

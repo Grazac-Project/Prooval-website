@@ -100,6 +100,9 @@
   color: #4f4f4f;
   animation: textDrop 0.5s ease-out;
 }
+.link{
+  color: #1453ff;
+}
 
 @keyframes textDrop {
   from {

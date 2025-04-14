@@ -113,7 +113,7 @@ const Donation = () => {
               We understand the challenges talents face first hand in attracting
               opportunities after acquiring tech skills either online or in a
               physical bootcamp. The idea behind hackthejobs is simply to close
-              this gap between these entry level talents and the work experience
+              this gap between these entry level talents and the mentorship & work experience
               needed to land global opportunities and stay competitive.
             </p>
           </div>

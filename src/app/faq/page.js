@@ -19,7 +19,7 @@ const initialValues = {
   lastName: "",
   msg: "",
 };
-
+  
 const Faq = () => {
   const [show, setShow] = useState({});
   const [show2, setShow2] = useState({});
@@ -135,13 +135,13 @@ const Faq = () => {
                     </>
                   </div>
                   {show[index] && (
-                    <div className={Classes.answer}>{item.answer}</div>
+                    <div className={Classes.answer}>{item.answer} {item.link1 && <a href="#"><span className={Classes.link}>{item.link1}</span></a>} {item.link2 && <a href="mailto:hello@hackthejobs.com"><span className={Classes.link}>{item.link2}</span></a>}</div>
                   )}
                 </div>
               ))}
             </div>
             <div className={Classes.flex2}>
-              {faq.slice(5, 10).map((item, index) => (
+              {faq.slice(5).map((item, index) => (
                 <div className={Classes.questionContainer} key={index}>
                   <div
                     className={Classes.question}
