@@ -345,14 +345,8 @@ const MentorDetails = () => {
                       </h4>
                       <div className="flex items-center gap-2 ">
                         <div className="flex items-center ">
-                          <Image
-                            src="/rate.svg"
-                            alt="avatar"
-                            width={27}
-                            height={27}
-                            className=""
-                          />
-                          {Array.from({ length: 4 }).map((_, i) =>
+                          
+                          {Array.from({ length: 5}).map((_, i) =>
                             i < mentorData.averageRating ? (
                               <Image
                                 key={i}
@@ -390,7 +384,7 @@ const MentorDetails = () => {
                       </p>
                     </div>
                   </div>
-                  <div className=" border border-[#fff] border-b-[#EAEAEA] py-6">
+                  <div className=" border border-[#fff] border-b-[#EAEAEA] border-l-[#EAEAEA] py-6">
                     <div className="mx-12 md:mx-4">
                       <div className="flex gap-2 items-center  mb-6   ">
                         <h4 className="text-[12px] leading-[120%] font-medium ">
@@ -419,34 +413,44 @@ const MentorDetails = () => {
                             </div>
                           </div>
                         ) : (
-                          <div className="min-h-[78px] border border-[#EAEAEA] p-3 flex items-center gap-4">
-                            <Image
-                              src="/exp.svg"
-                              alt="avatar"
-                              width={40}
-                              height={40}
-                              className=""
-                            />
-                            <div className="flex flex-col gap-2">
-                              <h4 className="text-[12px] leading-[120%] font-medium ">
-                                Chief Executive Officer
-                              </h4>
-                              <div className="flex items-center gap-2">
-                                <p className="text-[12px] text-[#474747] leading-[120%] font-[350px] ">
-                                  Grazac Limited
-                                </p>
-                                <ul
-                                  type="disc"
-                                  className=" text-[#8B8B8B] text-[12px]  leading-[140%] font-[350px]"
+                          <>
+                            {mentorData?.mentor?.experience?.map((exp, index) => (
+                              <>
+                                <div
+                                  key={index}
+                                  className="min-h-[78px] border border-[#EAEAEA] p-3 flex items-center gap-4"
                                 >
-                                  <li>Lagos, Nigeria</li>
-                                </ul>
-                              </div>
-                              <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                                Grazac Limited
-                              </p>
-                            </div>
-                          </div>
+                                  <Image
+                                    src="/exp.svg"
+                                    alt="avatar"
+                                    width={40}
+                                    height={40}
+                                    className=""
+                                  />
+                                  <div className="flex flex-col gap-2">
+                                    <h4 className="text-[12px] leading-[120%] font-medium ">
+                                      {exp.jobTitle}
+                                    </h4>
+                                    <div className="flex items-center gap-2">
+                                      <p className="text-[12px] text-[#474747] leading-[120%] font-[350px] ">
+                                        {exp.company}
+                                      </p>
+                                      <ul
+                                        type="disc"
+                                        className=" text-[#8B8B8B] text-[12px]  leading-[140%] font-[350px]"
+                                      >
+                                        <li> {exp.location}</li>
+                                      </ul>
+                                    </div>
+                                    <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
+                                      {exp.startDate} -{" "}
+                                      {exp.endDate ? exp.endDate : "Present"}
+                                    </p>
+                                  </div>
+                                </div>
+                              </>
+                            ))}
+                          </>
                         )}
                       </div>
                     </div>
