@@ -161,7 +161,7 @@ const Page = () => {
         {showMentor && (
           <div
             style={{ justifyContent: positionStyle ? "start" : "start" }}
-            className="flex px-[80px] lgx:px-[25px] sm:px-[16px]  xm:justify-around lg:justify-start flex-wrap gap-[22px] pb-[0px] sm:pb-[0px]"
+            className="flex   xm:justify-around lg:justify-start flex-wrap gap-[22px] pb-[0px] sm:pb-[0px] w-[1280px]  xl:w-[95%]  m-auto "
           >
             {listOfMentors?.map((listOfMentor, i) => {
               if (listOfMentors.length === i + 1) {
