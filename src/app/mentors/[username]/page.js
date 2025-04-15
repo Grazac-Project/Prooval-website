@@ -345,14 +345,8 @@ const MentorDetails = () => {
                       </h4>
                       <div className="flex items-center gap-2 ">
                         <div className="flex items-center ">
-                          <Image
-                            src="/rate.svg"
-                            alt="avatar"
-                            width={27}
-                            height={27}
-                            className=""
-                          />
-                          {Array.from({ length: 4 }).map((_, i) =>
+                          
+                          {Array.from({ length: 5}).map((_, i) =>
                             i < mentorData.averageRating ? (
                               <Image
                                 key={i}
