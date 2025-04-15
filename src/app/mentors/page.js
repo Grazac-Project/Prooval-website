@@ -160,8 +160,8 @@ const Page = () => {
       <div className="bg-[#FAFCFF] py-20">
         {showMentor && (
           <div
-            style={{ justifyContent: positionStyle ? "start" : "center" }}
-            className="flex px-[80px] lgx:px-[25px] sm:px-[16px] justify-center xm:justify-around lg:justify-start flex-wrap gap-[22px] pb-[0px] sm:pb-[0px]"
+            style={{ justifyContent: positionStyle ? "start" : "start" }}
+            className="flex px-[80px] lgx:px-[25px] sm:px-[16px]  xm:justify-around lg:justify-start flex-wrap gap-[22px] pb-[0px] sm:pb-[0px]"
           >
             {listOfMentors?.map((listOfMentor, i) => {
               if (listOfMentors.length === i + 1) {

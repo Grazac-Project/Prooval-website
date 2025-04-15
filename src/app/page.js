@@ -745,7 +745,7 @@ const Landing = () => {
           </button>
         </section> */}
         <section className="pb-[96px] sm:pb-0 ">
-          <div className="sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
+          <div className="sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
             {listOfMentors.map((listOfMentor, i) => {
               return (
                 <div
