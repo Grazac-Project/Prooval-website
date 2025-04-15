@@ -164,9 +164,9 @@ const Landing = () => {
   const GA_TRACKING_ID = "G-JS3RNTYLD8";
   useAnalytics(GA_TRACKING_ID);
   const handleMentorClick = (mentorSlug) => {
-      Cookies.set("mentorSlug", mentorSlug, { expires: 7 });
-      router.push(`/mentors/${mentorSlug}`);
-    };
+    Cookies.set("mentorSlug", mentorSlug, { expires: 7 });
+    router.push(`/mentors/${mentorSlug}`);
+  };
   return (
     <div className="overflow-x-hidden">
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
@@ -745,18 +745,22 @@ const Landing = () => {
           </button>
         </section> */}
         <section className="pb-[96px] sm:pb-0 ">
-          <div className="sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
-            {listOfMentors.map((listOfMentor, i) => {
+          <div
+           
+            className="flex   xm:justify-around lg:justify-start flex-wrap gap-[22px] pb-[0px] sm:pb-[0px] w-[1280px]  xl:w-[95%]  m-auto "
+          >
+            {listOfMentors?.map((listOfMentor, i) => {
               return (
                 <div
                   key={i}
-                  className="font-whyte w-[23%] lg:w-[29%] cursor-pointer "
-                  onClick={() => handleMentorClick(listOfMentor?.slug)}
+                  
+                  className="font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
+                  onClick={() => handleMentorClick(listOfMentor.slug)}
                 >
-                  <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
+                  <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden">
                     <Image
                       src={listOfMentor.image}
-                      width={296}
+                      width={343}
                       height={296}
                       alt="mentor image"
                       className="object-cover filter grayscale hover:filter-none"
@@ -765,9 +769,12 @@ const Landing = () => {
                   <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                     {listOfMentor?.firstName} {listOfMentor?.lastName}
                   </h4>
-                  <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
+                  <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
                     {listOfMentor?.role}
                   </h5>
+                  <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
+                    {listOfMentor?.company}
+                  </p>
                 </div>
               );
             })}
