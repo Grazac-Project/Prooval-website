@@ -312,10 +312,10 @@ const MentorDetails = () => {
                     <div className="flex justify-start flex-wrap gap-3">
                       <div className="h-[45px] px-3 w-full bg-[#ffff] border border-[#EAEAEA]  text-[#344054] rounded-lg flex justify-between items-center text-[10px] leading-[18px]">
                         <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F]">
-                          Let’s talk about negotiations
+                          {mentorData?.availability?.bookingDetails.title}
                         </h5>
                         <span className="text-[#4F4F4F] text-[12px] leading-[140%] font-medium  ">
-                          30 Mins
+                        {mentorData?.availability?.bookingDetails.sessionDuration} Mins
                         </span>
                       </div>
                     </div>
@@ -325,12 +325,12 @@ const MentorDetails = () => {
                       Available Slots
                     </h4>
                     <div className="flex justify-start flex-wrap gap-6 md:gap-2">
-                      {mentorData?.availability?.map((element, i) => (
+                      {mentorData?.availability?.availableDays.map((element, i) => (
                         <div
                           key={i}
                           className="h-10 max:w-[112px]  text-[#344054] border border-[#EAEAEA] flex justify-center items-center text-[10px] leading-[18px] px-6"
                         >
-                          <span>{element}</span>
+                          <span>{element.day}</span>
                         </div>
                       ))}
                     </div>
