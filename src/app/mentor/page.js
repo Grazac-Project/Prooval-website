@@ -565,16 +565,16 @@ const mentor = () => {
           </Link>
         </section>
         <section className="pb-[96px] sm:pb-[52px] ">
-          <div className="sm:hidden  px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
+          <div className="sm:hidden  px-[80px]  lgx:px-[25px] sm:px-[16px] flex justify-start flex-wrap gap-[32px] pb-[96px] sm:pb-[52px]">
             {listOfMentors.map((listOfMentor, i) => {
               return (
                 <div
                   key={i}
-                  className="font-whyte w-[23%] lg:w-[29%] cursor-pointer "
+                  className="font-whyte w-[25%] lg:w-[29%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer "
                   onClick={() => handleMentorClick(listOfMentor?.slug)}
 
                 >
-                  <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
+                  <div className="h-[296px]  1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
                     <Image
                       src={listOfMentor.image}
                       width={296}
