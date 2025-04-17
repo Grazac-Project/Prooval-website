@@ -747,14 +747,14 @@ const Landing = () => {
         <section className="pb-[96px] sm:pb-0 ">
           <div
            
-            className="flex   xm:justify-around lg:justify-start flex-wrap gap-[22px] pb-[0px] sm:pb-[0px] w-[1280px]  xl:w-[95%]  m-auto "
+            className="flex   xm:justify-around lg:justify-start flex-wrap gap-[32px] pb-[0px] sm:pb-[0px] w-[1280px]  1xl:w-[90%] mb-20 md:mb-10  mx-auto "
           >
             {listOfMentors?.map((listOfMentor, i) => {
               return (
                 <div
                   key={i}
                   
-                  className="font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
+                  className="font-whyte w-[25%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
                   onClick={() => handleMentorClick(listOfMentor.slug)}
                 >
                   <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden">

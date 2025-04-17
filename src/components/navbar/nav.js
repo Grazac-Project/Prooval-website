@@ -30,7 +30,7 @@ const Navbar = () => {
       try {
         const parsedData = JSON.parse(data);
         setToken(parsedData?.token);
-        setRole(parsedData?.role)
+        setRole(parsedData?.role);
         setDetails(parsedData);
       } catch (error) {
         console.error("Failed to parse token:", error);
@@ -39,13 +39,14 @@ const Navbar = () => {
   }, []);
   const handleLogOut = () => {
     // console.log('remove');
-
+    setDropdown(false);
     setIsActive("Dashboard");
     Cookies.remove("user_details");
     Cookies.remove("remaining_students");
     Cookies.remove("badge");
     Cookies.remove("score");
     router.push("/");
+    window.location.reload();
   };
   return (
     <>
@@ -209,11 +210,21 @@ const Navbar = () => {
               <div className={Classes.btnFlex}>
                 <button className={Classes.btnFlex1}>
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
-                  <a href="https://dashboard.hackthejobs.com/auth/login" target="_blank">Log in</a>
+                  <a
+                    href="https://dashboard.hackthejobs.com/auth/login"
+                    target="_blank"
+                  >
+                    Log in
+                  </a>
                 </button>
                 <button className={Classes.btnFlex2}>
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-                  <a href="https://dashboard.hackthejobs.com/auth/signup" target="_blank">Sign up</a>
+                  <a
+                    href="https://dashboard.hackthejobs.com/auth/signup"
+                    target="_blank"
+                  >
+                    Sign up
+                  </a>
                 </button>
               </div>
             )}
