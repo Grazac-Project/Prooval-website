@@ -570,7 +570,7 @@ const mentor = () => {
               return (
                 <div
                   key={i}
-                  className="font-whyte w-[25%] lg:w-[29%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer "
+                  className="font-whyte w-[23%] lg:w-[29%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer "
                   onClick={() => handleMentorClick(listOfMentor?.slug)}
 
                 >

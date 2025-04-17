@@ -168,7 +168,7 @@ const Navbar = () => {
                           </button>
                         </div>
                       </div>
-                      <div className="flex flex-col  gap-2">
+                      <div className="w-full flex flex-col  gap-2 justify-start text-left">
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                           <Link
                             href="https://dashboard.hackthejobs.com/bookings"
@@ -178,7 +178,7 @@ const Navbar = () => {
                           </Link>
                         </div>
 
-                        <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
+                        {/* <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                           <Link
                             href="https://dashboard.hackthejobs.com/auth/expertise"
                             // onClick={() => setDropdown(false)}
@@ -188,7 +188,7 @@ const Navbar = () => {
                               (become a fellow)
                             </span>
                           </Link>
-                        </div>
+                        </div> */}
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                           <Link
                             href="https://dashboard.hackthejobs.com/settings"
@@ -270,7 +270,7 @@ const Navbar = () => {
                           </Link>
                         </div>
 
-                        <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
+                        {/* <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                           <Link
                             href="https://dashboard.hackthejobs.com/auth/expertise"
                             onClick={() => setDropdown(false)}
@@ -280,7 +280,7 @@ const Navbar = () => {
                               (become a fellow)
                             </span>
                           </Link>
-                        </div>
+                        </div> */}
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%] border border-[#ffff] border-b-[#EAEAEA]">
                           <Link
                             href="https://dashboard.hackthejobs.com/settings"
