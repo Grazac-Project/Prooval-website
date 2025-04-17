@@ -580,7 +580,8 @@ const mentor = () => {
                       width={296}
                       height={296}
                       alt="mentor image"
-                      className="object-cover filter grayscale hover:filter-none"
+                      className="w-full h-full object-cover filter grayscale hover:filter-none"
+
                     />
                   </div>
                   <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">

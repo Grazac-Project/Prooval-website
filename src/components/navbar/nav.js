@@ -40,11 +40,10 @@ const Navbar = () => {
   const handleLogOut = () => {
     // console.log('remove');
     setDropdown(false);
-    setIsActive("Dashboard");
-    Cookies.remove("user_details");
-    Cookies.remove("remaining_students");
-    Cookies.remove("badge");
-    Cookies.remove("score");
+    Cookies.remove("user_details", {
+      path: "/",
+      domain: ".hackthejobs.com",
+    });
     router.push("/");
     window.location.reload();
   };
