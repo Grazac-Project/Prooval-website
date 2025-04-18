@@ -169,7 +169,7 @@ const Page = () => {
                   <div
                     key={i}
                     ref={lastMentorRef}
-                    className="font-whyte w-[25%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
+                    className="font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
                     onClick={() => handleMentorClick(listOfMentor.slug)}
                   >
                     <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden">
@@ -197,7 +197,7 @@ const Page = () => {
                 return (
                   <div
                     key={listOfMentor._id}
-                    className="font-whyte w-[25%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
+                    className="font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
                     onClick={() => handleMentorClick(listOfMentor.slug)}
 
                   >
