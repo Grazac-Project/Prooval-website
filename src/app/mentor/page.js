@@ -590,6 +590,9 @@ const mentor = () => {
                   <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
                    {listOfMentor?.role}
                   </h5>
+                  <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
+                    {listOfMentor?.company}
+                  </p>
                 </div>
               );
             })}
@@ -613,19 +616,22 @@ const mentor = () => {
                       onClick={() => handleMentorClick(listOfMentor.slug)}
                     >
                       <Image
-                        src={listOfMentor.img}
+                        src={listOfMentor.image}
                         width={363}
                         height={297}
                         alt="mentor image"
                         className="object-cover px-[5px]"
                       />
                     </div>
-                    <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] ">
-                      {listOfMentor.name}
-                    </h4>
-                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
-                      {listOfMentor?.position},{listOfMentor?.formerPosition}
-                    </h5>
+                    <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
+                  {listOfMentor?.firstName} {listOfMentor?.lastName}
+                  </h4>
+                  <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
+                   {listOfMentor?.role}
+                  </h5>
+                  <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
+                    {listOfMentor?.company}
+                  </p>
                   </div>
                 );
               })}

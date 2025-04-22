@@ -174,7 +174,7 @@ const MentorDetails = () => {
                       alt="avatar"
                       width={164}
                       height={164}
-                      className="w-[164px] h-[164px] rounded-[50%]"
+                      className="w-[164px] object-fit  h-[164px] rounded-[50%]"
                     />
                     <div className="flex flex-col md:justify-center md:text-center md:items-center gap-2">
                       <h2 className="font-medium text-[18px] text-[#101828] leading-[25.62px] ">

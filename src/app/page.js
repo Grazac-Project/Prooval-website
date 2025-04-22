@@ -747,9 +747,9 @@ const Landing = () => {
         <section className="pb-[96px] sm:pb-0 ">
           <div
            
-            className="flex   xm:justify-around lg:justify-start flex-wrap gap-[32px] pb-[0px] sm:pb-[0px] w-[1280px]  1xl:w-[90%] mb-20 md:mb-10  mx-auto "
+            className="flex sm:hidden  xm:justify-around lg:justify-start flex-wrap gap-[32px] pb-[0px] sm:pb-[0px] w-[1280px]  1xl:w-[90%] mb-20 md:mb-10  mx-auto "
           >
-            {listOfMentors?.map((listOfMentor, i) => {
+            {listOfMentors?.slice(0, 8).map((listOfMentor, i) => {
               return (
                 <div
                   key={i}
@@ -779,7 +779,7 @@ const Landing = () => {
               );
             })}
           </div>
-          <div className="font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
+          <div className="font-inter hidden justify-center sm:block sm:pb-[40px] sm:w-[95%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
             <Slider
               ref={(slider) => {
                 sliderRef = slider;
@@ -787,7 +787,7 @@ const Landing = () => {
               {...mentorSettings}
               className=""
             >
-              {listOfMentors.map((listOfMentor, i) => {
+              {listOfMentors.slice(0, 8).map((listOfMentor, i) => {
                 return (
                   <div
                     key={i}
@@ -798,19 +798,23 @@ const Landing = () => {
                       onClick={() => handleMentorClick(listOfMentor.slug)}
                     >
                       <Image
-                        src={listOfMentor.img}
+                        src={listOfMentor.image}
                         width={296}
                         height={297}
                         alt="mentor image"
-                        className="object-cover px-[5px]"
+                        className="w-full h-full object-cover px-[5px]"
                       />
                     </div>
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] ">
-                      {listOfMentor.name}
+                    {listOfMentor?.firstName} {listOfMentor?.lastName}
+
                     </h4>
                     <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
-                      {listOfMentor?.position},{listOfMentor?.formerPosition}
-                    </h5>
+                    {listOfMentor?.role}
+                  </h5>
+                  <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
+                    {listOfMentor?.company}
+                  </p>
                   </div>
                 );
               })}
@@ -838,7 +842,7 @@ const Landing = () => {
             <h4 className="font-medium text-[48px] xl:text-[44px] lgx:text-[40px] lg:text-[35px] md:text-[30px] leading-[52.8px] lgx:leading-[45px] lg:leading-[40px] text-[#121927] mb-[40px] sm:mb-[16px] w-[596px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] sm:text-center sm:mt-[16px]">
               Bootcamps alone are never enough!
             </h4>
-            <p className="font-regular text-[18px] sm:text-center lgx:text-[16px] md:text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
+            <p className="font-regular text-[18px] sm:text-center lgx:text-[16px] md  :text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
               Our mission is to equip individuals with the right mentorship and
               experience needed to advance their tech careers. We are dedicated
               to building a supportive community that promotes growth and
