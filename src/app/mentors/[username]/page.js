@@ -17,7 +17,7 @@ import { Load } from "@/components/loading";
 import Cookies from "js-cookie";
 
 const MentorDetails = () => {
-  const [mentorDetails, setMentorDetails] = useState("about");
+  const [view, setView] = useState(3);
   const [checked, setChecked] = useState(false);
   const [showBookSession, setShowBookSession] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
@@ -145,6 +145,7 @@ const MentorDetails = () => {
     if (!text) return ""; 
     return text.charAt(0).toUpperCase() + text.slice(1);
   };
+  
   return (
     <>
       <div>
@@ -259,7 +260,7 @@ const MentorDetails = () => {
                         TotalMentees
                       </h5>
                       <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                        {mentorData?.mentor?.totalMentees}
+                        {mentorData?.mentor?.totalMentees || 0}
                       </h3>
                     </div>
                     <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[122.33px] lg:max-w-[122.33px]  h-[122px] rounded-lg px-4 text-center ">
@@ -274,7 +275,7 @@ const MentorDetails = () => {
                         Total Sessions Booked
                       </h5>
                       <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                        {mentorData?.mentor?.totalMentees}
+                        {mentorData?.mentor?.totalSessionBooked || 0}
                       </h3>
                     </div>{" "}
                     <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[122.33px] lg:max-w-[122.33px] h-[122px] rounded-lg px-4 text-center ">
@@ -463,7 +464,7 @@ const MentorDetails = () => {
                       <h4 className="text-[12px] leading-[120%] font-medium ">
                         Reviews
                       </h4>
-                      <p className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center">
+                      <p className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center cursor-pointer"  onClick={() => setView(mentorData?.reviews?.length)}>
                         View All
                       </p>
                     </div>
@@ -485,27 +486,27 @@ const MentorDetails = () => {
                       </div>
                     ) : (
                       <>
-                        {mentorData?.reviews?.map((element, i) => (
+                        {mentorData?.reviews?.slice(0,view).map((element, i) => (
                           <div
                             key={i}
-                            className="min-h-[132px] border border-[#EAEAEA] p-3 flex items-center gap-4 bg-[#F2F2F7] rounded-lg flex-col "
+                            className="min-h-[132px] border border-[#EAEAEA] p-3 flex  gap-4 bg-[#F2F2F7] rounded-lg flex-col mb-2 "
                           >
                             <div className="   py-4 ">
-                              <div className="flex justify-between items-center     ">
+                              <div className="flex justify-between items-center ">
                                 <div className="flex gap-2 items-center">
                                   <Image
                                     src={element.user.profilePic}
                                     alt="avatar"
                                     width={32}
                                     height={32}
-                                    className="rounded-[50%]"
+                                    className="h-full w-full object-cover rounded-[50%]"
                                   />
                                   <h4 className="text-[12px] leading-[140%] font-medium ">
                                     {element.user.firstName}{" "}
                                     {element.user.laststName}
                                   </h4>
                                 </div>
-                                <div className="flex items-center gap-2 ">
+                                <div className="flex  items-center gap-2 ">
                                   <div className="flex items-center ">
                                     {Array.from({ length: 5 }).map((_, i) =>
                                       i < element.rating ? (
