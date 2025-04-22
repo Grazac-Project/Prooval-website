@@ -141,7 +141,10 @@ const MentorDetails = () => {
         "https://dashboard.hackthejobs.com/auth/signup";
     }
   };
-
+  const capitalizeFirstLetter = (text) => {
+    if (!text) return ""; 
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  };
   return (
     <>
       <div>
@@ -174,7 +177,7 @@ const MentorDetails = () => {
                       alt="avatar"
                       width={164}
                       height={164}
-                      className="w-[164px] h-[164px] rounded-[50%]"
+                      className="w-[164px] object-fit  h-[164px] rounded-[50%]"
                     />
                     <div className="flex flex-col md:justify-center md:text-center md:items-center gap-2">
                       <h2 className="font-medium text-[18px] text-[#101828] leading-[25.62px] ">
@@ -298,7 +301,7 @@ const MentorDetails = () => {
                       {mentorData?.mentor?.skills?.map((element, i) => (
                         <div
                           key={i}
-                          className="h-6 min-w-[83px] bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px]"
+                          className="h-6 min-w-[83px] bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px] px-1"
                         >
                           <span>{element}</span>
                         </div>
@@ -330,7 +333,7 @@ const MentorDetails = () => {
                           key={i}
                           className="h-10 max:w-[112px]  text-[#344054] border border-[#EAEAEA] flex justify-center items-center text-[10px] leading-[18px] px-6"
                         >
-                          <span>{element.day}</span>
+                          <span>{capitalizeFirstLetter(element.day)}</span>
                         </div>
                       ))}
                     </div>
