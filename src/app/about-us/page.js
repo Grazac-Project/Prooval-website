@@ -44,7 +44,7 @@ const AboutUs = () => {
           </p>
         </div> */}
         <div className="w-[95%] mx-auto pl-5 md:pl-[1px] ">
-          <h1 className="font-whyte text-[54px] sm:text-[40px] leading-[60px] sm:leading-12 font-500 mt-12">
+          <h1 className="font-whyte text-[54px] sm:text-[40px] leading-[60px] sm:leading-12 font-500">
             Positioning you for success
           </h1>
           <p className=" font-whyte text-[16px] leading-[20.8px] font-400 my-6 ">
