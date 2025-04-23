@@ -333,6 +333,15 @@ const Navbar = () => {
                 </div>
                 <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                   <Link
+                    href="/spm"
+                    onClick={() => setDropdown(false)}
+                    style={{ color: pathname === "/spm" ? "#1453ff" : "" }}
+                  >
+                    PM
+                  </Link>
+                </div>
+                <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
+                  <Link
                     href="/hire"
                     onClick={() => setDropdown(false)}
                     style={{ color: pathname === "/hire" ? "#1453ff" : "" }}
