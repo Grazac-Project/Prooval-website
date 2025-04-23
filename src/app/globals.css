@@ -49,3 +49,6 @@ button.slick-arrow.slick-next {
   
   font-weight: bold;
 }
+.z-5 {
+  z-index: 5;
+}

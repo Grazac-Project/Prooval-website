@@ -178,7 +178,7 @@ successModal,
               width={152}
               height={152}
               alt="profile photo"
-              className="object-cover rounded-[50%] w-[152px] sm:w-[112px] h-[152px] sm:h-[112px]"
+              className="object-fit rounded-[50%] w-[152px] sm:w-[112px] h-[152px] sm:h-[112px]"
             />
             <h2 className="font-medium text-[24px] text-[#101828] leading-[25.62px] text-[#101828] pt-[24px] pb-[8px]">
               {bookingData.title || "Let’s talk about negotiations"}

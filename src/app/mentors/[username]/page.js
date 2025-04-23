@@ -17,7 +17,7 @@ import { Load } from "@/components/loading";
 import Cookies from "js-cookie";
 
 const MentorDetails = () => {
-  const [mentorDetails, setMentorDetails] = useState("about");
+  const [view, setView] = useState(3);
   const [checked, setChecked] = useState(false);
   const [showBookSession, setShowBookSession] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
@@ -141,7 +141,11 @@ const MentorDetails = () => {
         "https://dashboard.hackthejobs.com/auth/signup";
     }
   };
-
+  const capitalizeFirstLetter = (text) => {
+    if (!text) return ""; 
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  };
+  
   return (
     <>
       <div>
@@ -174,7 +178,7 @@ const MentorDetails = () => {
                       alt="avatar"
                       width={164}
                       height={164}
-                      className="w-[164px] h-[164px] rounded-[50%]"
+                      className="w-[164px] object-fit  h-[164px] rounded-[50%]"
                     />
                     <div className="flex flex-col md:justify-center md:text-center md:items-center gap-2">
                       <h2 className="font-medium text-[18px] text-[#101828] leading-[25.62px] ">
@@ -256,7 +260,7 @@ const MentorDetails = () => {
                         TotalMentees
                       </h5>
                       <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                        {mentorData?.mentor?.totalMentees}
+                        {mentorData?.mentor?.totalMentees || 0}
                       </h3>
                     </div>
                     <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[122.33px] lg:max-w-[122.33px]  h-[122px] rounded-lg px-4 text-center ">
@@ -271,7 +275,7 @@ const MentorDetails = () => {
                         Total Sessions Booked
                       </h5>
                       <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                        {mentorData?.mentor?.totalMentees}
+                        {mentorData?.mentor?.totalSessionBooked || 0}
                       </h3>
                     </div>{" "}
                     <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[122.33px] lg:max-w-[122.33px] h-[122px] rounded-lg px-4 text-center ">
@@ -298,7 +302,7 @@ const MentorDetails = () => {
                       {mentorData?.mentor?.skills?.map((element, i) => (
                         <div
                           key={i}
-                          className="h-6 min-w-[83px] bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px]"
+                          className="h-6 min-w-[83px] bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px] px-1"
                         >
                           <span>{element}</span>
                         </div>
@@ -330,7 +334,7 @@ const MentorDetails = () => {
                           key={i}
                           className="h-10 max:w-[112px]  text-[#344054] border border-[#EAEAEA] flex justify-center items-center text-[10px] leading-[18px] px-6"
                         >
-                          <span>{element.day}</span>
+                          <span>{capitalizeFirstLetter(element.day)}</span>
                         </div>
                       ))}
                     </div>
@@ -460,7 +464,7 @@ const MentorDetails = () => {
                       <h4 className="text-[12px] leading-[120%] font-medium ">
                         Reviews
                       </h4>
-                      <p className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center">
+                      <p className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center cursor-pointer"  onClick={() => setView(mentorData?.reviews?.length)}>
                         View All
                       </p>
                     </div>
@@ -482,27 +486,27 @@ const MentorDetails = () => {
                       </div>
                     ) : (
                       <>
-                        {mentorData?.reviews?.map((element, i) => (
+                        {mentorData?.reviews?.slice(0,view).map((element, i) => (
                           <div
                             key={i}
-                            className="min-h-[132px] border border-[#EAEAEA] p-3 flex items-center gap-4 bg-[#F2F2F7] rounded-lg flex-col "
+                            className="min-h-[132px] border border-[#EAEAEA] p-3 flex  gap-4 bg-[#F2F2F7] rounded-lg flex-col mb-2 "
                           >
                             <div className="   py-4 ">
-                              <div className="flex justify-between items-center     ">
+                              <div className="flex justify-between items-center ">
                                 <div className="flex gap-2 items-center">
                                   <Image
                                     src={element.user.profilePic}
                                     alt="avatar"
                                     width={32}
                                     height={32}
-                                    className="rounded-[50%]"
+                                    className="h-full w-full object-cover rounded-[50%]"
                                   />
                                   <h4 className="text-[12px] leading-[140%] font-medium ">
                                     {element.user.firstName}{" "}
                                     {element.user.laststName}
                                   </h4>
                                 </div>
-                                <div className="flex items-center gap-2 ">
+                                <div className="flex  items-center gap-2 ">
                                   <div className="flex items-center ">
                                     {Array.from({ length: 5 }).map((_, i) =>
                                       i < element.rating ? (
