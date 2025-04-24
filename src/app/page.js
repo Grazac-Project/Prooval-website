@@ -791,7 +791,7 @@ const Landing = () => {
                 return (
                   <div
                     key={i}
-                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%]"
+                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
                   >
                     <div
                       className="h-[296px] sm:h-[258px] overflow-hidden"
