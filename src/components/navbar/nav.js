@@ -49,8 +49,8 @@ const Navbar = () => {
   };
   return (
     <>
-      <header className={Classes.header} suppressHydrationWarning>
-        <div className={Classes.navbar}>
+      <header  className={`${dropdown ? Classes.fixed  : Classes.header}`} suppressHydrationWarning>
+        <div className={Classes.navbar} >
           <Link href="/" className={Classes.logo}>
             <Image src="/navLogo.svg" alt="logo" width={164} height={36} />
           </Link>
