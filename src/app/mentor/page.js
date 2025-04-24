@@ -87,6 +87,7 @@ const mentor = () => {
   const mentorSettings = {
     dots: false,
     infinite: true,
+    
     speed: 900,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -597,7 +598,7 @@ const mentor = () => {
               );
             })}
           </div>
-          <div className="font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
+          <div className="font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] gap-2 mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
             <Slider
               ref={(slider) => {
                 sliderRef = slider;
@@ -609,10 +610,10 @@ const mentor = () => {
                 return (
                   <div
                     key={i}
-                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%]"
+                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
                   >
                     <div
-                      className="h-[296px] sm:h-[258px] overflow-hidden"
+                      className="h-[296px] sm:h-[258px]  overflow-hidden"
                       onClick={() => handleMentorClick(listOfMentor.slug)}
                     >
                       <Image
