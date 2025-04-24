@@ -169,9 +169,9 @@ const Landing = () => {
   };
   return (
     <div className="overflow-x-hidden ">
+      <Navbar />
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
       <div className="max-w-[1440px] mx-auto">
-      <Navbar />
         <section className="font-whyte px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative bg-[#F9FBFF]">
           <div className="  py-[48px] flex sm:flex-col gap-[58px] xl:gap-[25px] items-center ">
             <div className="">
