@@ -638,6 +638,11 @@ const mentor = () => {
               })}
             </Slider>
           </div>
+          <Link href="/mentors">
+            <button className="w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] hidden sm:block mx-auto">
+              View More Mentors
+            </button>
+          </Link>
         </section>
         {/* <section className="pb-[96px] sm:pb-[52px] ">
         <div className="sm:hidden px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
