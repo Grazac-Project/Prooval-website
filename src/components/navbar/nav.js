@@ -49,8 +49,11 @@ const Navbar = () => {
   };
   return (
     <>
-      <header  className={`${dropdown ? Classes.fixed  : Classes.header}`} suppressHydrationWarning>
-        <div className={Classes.navbar} >
+      <header
+        className={`${dropdown ? Classes.fixed : Classes.header}`}
+        suppressHydrationWarning
+      >
+        <div className={Classes.navbar}>
           <Link href="/" className={Classes.logo}>
             <Image src="/navLogo.svg" alt="logo" width={164} height={36} />
           </Link>
@@ -356,10 +359,16 @@ const Navbar = () => {
                 </div>
               ) : (
                 <div className={Classes.btnFlex}>
-                  <button>
-                    {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
-                    <Link href="/login">Log in</Link>
-                  </button>
+                  <a
+                    href="https://dashboard.hackthejobs.com/auth/login"
+                    target="_blank"
+                  >
+                    <button>
+                      {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
+                      {/* <Link href="/login">Log in</Link> */}
+                      Log in
+                    </button>
+                  </a>
                   <a
                     href="https://dashboard.hackthejobs.com/auth/signup"
                     target="_blank"
