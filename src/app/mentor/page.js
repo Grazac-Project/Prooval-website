@@ -87,7 +87,6 @@ const mentor = () => {
   const mentorSettings = {
     dots: false,
     infinite: true,
-    
     speed: 900,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -143,7 +142,7 @@ const mentor = () => {
         const mentorsSlice = mentors.slice(0, 8);
         console.log(mentorsSlice);
         setListOfMentors(mentorsSlice);
-        console.log(listOfMentors.slug)
+        console.log(listOfMentors.slug);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -573,7 +572,6 @@ const mentor = () => {
                   key={i}
                   className="font-whyte w-[23%] lg:w-[29%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer "
                   onClick={() => handleMentorClick(listOfMentor?.slug)}
-
                 >
                   <div className="h-[296px]  1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
                     <Image
@@ -582,14 +580,13 @@ const mentor = () => {
                       height={296}
                       alt="mentor image"
                       className="w-full h-full object-cover filter grayscale hover:filter-none"
-
                     />
                   </div>
                   <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
-                  {listOfMentor?.firstName} {listOfMentor?.lastName}
+                    {listOfMentor?.firstName} {listOfMentor?.lastName}
                   </h4>
                   <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
-                   {listOfMentor?.role}
+                    {listOfMentor?.role}
                   </h5>
                   <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
                     {listOfMentor?.company}
@@ -598,22 +595,22 @@ const mentor = () => {
               );
             })}
           </div>
-          <div className="font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] gap-2 mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
+          <div className="custom-slider font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] gap-4 mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
             <Slider
               ref={(slider) => {
                 sliderRef = slider;
               }}
               {...mentorSettings}
-              className=""
+             className=""
             >
               {listOfMentors.map((listOfMentor, i) => {
                 return (
                   <div
                     key={i}
-                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
+                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%] p-4 border border-[#EAEAEA] mx-3 rounded-lg cursor-pointer"
                   >
                     <div
-                      className="h-[296px] sm:h-[258px]  overflow-hidden"
+                      className="h-[296px] sm:h-[258px] overflow-hidden"
                       onClick={() => handleMentorClick(listOfMentor.slug)}
                     >
                       <Image
@@ -625,14 +622,14 @@ const mentor = () => {
                       />
                     </div>
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
-                  {listOfMentor?.firstName} {listOfMentor?.lastName}
-                  </h4>
-                  <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
-                   {listOfMentor?.role}
-                  </h5>
-                  <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
-                    {listOfMentor?.company}
-                  </p>
+                      {listOfMentor?.firstName} {listOfMentor?.lastName}
+                    </h4>
+                    <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
+                      {listOfMentor?.role}
+                    </h5>
+                    <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
+                      {listOfMentor?.company}
+                    </p>
                   </div>
                 );
               })}
