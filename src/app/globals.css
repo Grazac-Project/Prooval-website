@@ -52,7 +52,8 @@ button.slick-arrow.slick-next {
 .z-5 {
   z-index: 5;
 }
-.custom-slider .slick-slide {
-  margin: 0 15px; /* Adjust the value to control the gap */
-}
 
+.slick-track {
+  display: flex !important;
+  gap: 15px; /* Match the margin value */
+}
