@@ -373,10 +373,10 @@ const MentorDetails = () => {
                           )}
                         </div>
                         <div className="flex items-center gap-2">
-                          <h4 className="text-[14px] leading-[140%] font-medium text-[#333333] ">
+                          <h4 className="text-[14px] leading-[140%] font-inter font-bold text-[#333333] ">
                             {mentorData.averageRating || 0}
                           </h4>
-                          <p className=" text-[10px] leading-[140%] font-medium text-[#888888] ">
+                          <p className=" text-[10px] leading-[140%] font-inter font-bold text-[#888888] ">
                             {mentorData?.reviews?.length || "No"} reviews
                           </p>
                         </div>
@@ -489,7 +489,7 @@ const MentorDetails = () => {
                         {mentorData?.reviews?.slice(0,view).map((element, i) => (
                           <div
                             key={i}
-                            className="min-h-[132px] border border-[#EAEAEA] p-3 flex  gap-4 bg-[#F2F2F7] rounded-lg flex-col mb-2 "
+                            className="min-h-[132px] border border-[#EAEAEA] p-3 flex  gap-4 bg-[#F7F7F7] rounded-lg flex-col mb-2 "
                           >
                             <div className="   py-4 ">
                               <div className="flex justify-between items-center ">
@@ -499,7 +499,7 @@ const MentorDetails = () => {
                                     alt="avatar"
                                     width={32}
                                     height={32}
-                                    className="h-full w-full object-cover rounded-[50%]"
+                                    className="h-[32px] w-[32px] object-cover rounded-[50%]"
                                   />
                                   <h4 className="text-[12px] leading-[140%] font-medium ">
                                     {element.user.firstName}{" "}
@@ -531,7 +531,7 @@ const MentorDetails = () => {
                                     )}
                                   </div>
                                   <div className="flex items-center gap-2">
-                                    <h4 className="text-[10px] leading-[140%] font-medium text-[#333333] ">
+                                    <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
                                       {element.rating + "." + "0" || 0}
                                     </h4>
                                   </div>
