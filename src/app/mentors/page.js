@@ -185,10 +185,10 @@ const Page = () => {
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                       {listOfMentor?.firstName} {listOfMentor?.lastName}
                     </h4>
-                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
+                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
-                    <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
+                    <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>
                   </div>
@@ -214,10 +214,10 @@ const Page = () => {
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                       {listOfMentor?.firstName} {listOfMentor?.lastName}
                     </h4>
-                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
+                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
-                    <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
+                    <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>
                   </div>
