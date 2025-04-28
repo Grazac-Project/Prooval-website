@@ -15,12 +15,7 @@ import {
 import Cookies from "js-cookie";
 import BookingModal from "./booking-modal";
 
-const BookSession = ({
-  closeModal,
-  mentorId,
-  mentorImage,
-successModal,
-}) => {
+const BookSession = ({ closeModal, mentorId, mentorImage, successModal }) => {
   const [activeDates, setActiveDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTimeIndex, setSelectedTimeIndex] = useState(null);
@@ -31,7 +26,11 @@ successModal,
   const [bookingValues, setBookingValues] = useState({});
   const [loading, setLoading] = useState(false);
   const [showButton, setShowButton] = useState(false);
+  const [values, setValues] = useState({ firstName: "" });
 
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
   let userId;
   try {
     let details = Cookies.get("user_details");
@@ -143,7 +142,7 @@ successModal,
         console.log(res);
         setLoading(false);
         closeModal();
-        successModal()
+        successModal();
       })
       .catch((err) => {
         console.log(err);
@@ -221,25 +220,41 @@ successModal,
                 className="!w-full max-w-xs mx-auto"
               />
               {selectedDate && (
-                <div className="mt-6 grid grid-cols-4 gap-4">
-                  {availableTimes.map((time, index) => {
-                    console.log("Rendering Time:", time);
-                    return (
-                      <div
-                        key={index}
-                        style={{
-                          background:
-                            selectedTimeIndex === index ? "#1453FF" : "",
-                          color: selectedTimeIndex === index ? "#fff" : "",
-                        }}
-                        onClick={() => handleTimeSelected(time, index)}
-                        className="bg-[#fff] text-[16px] xm:text-[12px] text-[#7D7D7D] hover:text-[#fff] text-center leading-[16px] py-[18.5px] px-6 sm:px-[14px] xm:px-[8px] sxm:px-[5px] border-[1px] border-[#D0D5DD] rounded-[8px] cursor-pointer hover:bg-[#1453FF]"
-                      >
-                        {time}
-                      </div>
-                    );
-                  })}
-                </div>
+                <>
+                  <div className="mt-6 grid grid-cols-4 gap-4">
+                    {availableTimes.map((time, index) => {
+                      console.log("Rendering Time:", time);
+                      return (
+                        <div
+                          key={index}
+                          style={{
+                            background:
+                              selectedTimeIndex === index ? "#1453FF" : "",
+                            color: selectedTimeIndex === index ? "#fff" : "",
+                          }}
+                          onClick={() => handleTimeSelected(time, index)}
+                          className="bg-[#fff] text-[16px] xm:text-[12px] text-[#7D7D7D] hover:text-[#fff] text-center leading-[16px] py-[18.5px] px-6 sm:px-[14px] xm:px-[8px] sxm:px-[5px] border-[1px] border-[#D0D5DD] rounded-[8px] cursor-pointer hover:bg-[#1453FF]"
+                        >
+                          {time}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="w-[100%] mt-[40px]">
+                    <h4 className="text-[14px] leading-[17px] font-[400] text-[#4F4F4F] mb-[8px] sm:mt-[12px]">
+                      Do you have anything you'd like to share ahead of our
+                      session ? <span className="text-[#7D7D7D]">(Optional)</span>
+                    </h4>
+                    <textarea
+                      type="text"
+                      placeholder="Type here"
+                      name="suggestion"
+                      value={values.suggestion}
+                      onChange={handleChange}
+                      className="min-h-[70px] w-[100%] rounded-lg border text-[14px] leading-[17px] font-[400] font-inter border-[#EAEAEA] p-[16px] disabled:cursor-not-allowed"
+                    />
+                  </div>
+                </>
               )}
             </div>
             {showButton && (

@@ -115,7 +115,7 @@ const Navbar = () => {
                   PM
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/hire"
                   style={{
@@ -124,7 +124,7 @@ const Navbar = () => {
                 >
                   Hire
                 </Link>
-              </li>
+              </li> */}
             </ul>
             {token ? (
               <div className="flex items-center space-x-4 relative">
@@ -343,7 +343,7 @@ const Navbar = () => {
                     PM
                   </Link>
                 </div>
-                <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
+                {/* <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                   <Link
                     href="/hire"
                     onClick={() => setDropdown(false)}
@@ -351,7 +351,7 @@ const Navbar = () => {
                   >
                     Hire
                   </Link>
-                </div>
+                </div> */}
               </ul>
               {token ? (
                 <div className="p-2  w-full font-medium text-[14px] text-[#EA4335] leading-[120%] cursor-pointer border border-[#ffff] border-t-[#EAEAEA] mb-3">

@@ -12,8 +12,8 @@ const Expertise = () => {
         <p className="font-regular text-[18px] md:text-[16px] text-[#333] leading-[150%] tracking-[0%] py-[40px] md:py-[30px] sm:py-10 sm:text-center">
           Join us on the journey to eliminate mediocrity and build global
           talents. Whether you're here to mentor aspiring professionals or lead
-          a team to acquire real life work experience as a senior Product
-          Manager, your experience can make a huge difference.
+          a team to acquire real life work experience as a senior product
+          manager, your experience can make a huge difference.
         </p>
         <div>
           <Link href="/mentor" target="_blank">

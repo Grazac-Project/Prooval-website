@@ -251,7 +251,7 @@ const MentorDetails = () => {
                         className="w-[27px] h-[27px] rounded-[50%]"
                       />
                       <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
-                        TotalMentees
+                        Total Mentees
                       </h5>
                       <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
                         {mentorData?.mentor?.totalMentees || 0}
@@ -484,7 +484,7 @@ const MentorDetails = () => {
                         />
                         <div className="flex flex-col justify-center">
                           <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                            No Review Added
+                            No Reviews Added
                           </p>
                         </div>
                       </div>
