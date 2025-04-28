@@ -69,8 +69,7 @@ const MentorDetails = () => {
           console.error("Error updating mentor preference:", error);
         });
     } else {
-      window.location.href =
-        "https://dashboard.hackthejobs.com/auth/signup";
+      window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
     }
   };
   const getMentorsDetails = () => {
@@ -132,24 +131,22 @@ const MentorDetails = () => {
   };
   //rounte to book session page if the token is true
   const bookSession = () => {
-    
     if (token) {
       setShowBookSession(true);
       // setShowBookingModal(false);
     } else {
-      window.location.href =
-        "https://dashboard.hackthejobs.com/auth/signup";
+      window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
     }
   };
   const capitalizeFirstLetter = (text) => {
-    if (!text) return ""; 
+    if (!text) return "";
     return text.charAt(0).toUpperCase() + text.slice(1);
   };
-  
+
   return (
     <>
       <div>
-      {showBookingModal && (
+        {showBookingModal && (
           <BookingModal
             mentorId={mentorData?.mentor._id}
             mentor={mentorData?.mentor}
@@ -161,7 +158,7 @@ const MentorDetails = () => {
             mentorId={mentorData?.mentor._id}
             mentorImage={mentorData?.mentor.image}
             closeModal={() => setShowBookSession(false)}
-            successModal= {() => setShowBookingModal(true)}
+            successModal={() => setShowBookingModal(true)}
           />
         )}
         <Navbar />
@@ -178,7 +175,7 @@ const MentorDetails = () => {
                       alt="avatar"
                       width={164}
                       height={164}
-                      className="w-[164px] object-fit  h-[164px] rounded-[50%]"
+                      className="w-[164px] h-[164px] object-cover rounded-[50%]"
                     />
                     <div className="flex flex-col md:justify-center md:text-center md:items-center gap-2">
                       <h2 className="font-medium text-[18px] text-[#101828] leading-[25.62px] ">
@@ -192,13 +189,11 @@ const MentorDetails = () => {
                       <button
                         className="hidden md:block w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] "
                         onClick={bookSession}
-                        
                       >
                         Book Mentor
                       </button>
                       <div className="flex justify-start md:justify-center gap-2 align-center">
                         <button
-                          
                           className={` text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] sxm:max-w-[50%] h-[35.6px] flex justify-center items-center gap-1 `}
                         >
                           <div className="cursor-pointer">
@@ -239,7 +234,6 @@ const MentorDetails = () => {
                   <button
                     className={`md:hidden w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff] bg-primary  rounded-[6.29px] `}
                     onClick={bookSession}
-                    
                   >
                     Book Mentor
                   </button>
@@ -319,7 +313,11 @@ const MentorDetails = () => {
                           {mentorData?.availability?.bookingDetails.title}
                         </h5>
                         <span className="text-[#4F4F4F] text-[12px] leading-[140%] font-medium  ">
-                        {mentorData?.availability?.bookingDetails.sessionDuration} Mins
+                          {
+                            mentorData?.availability?.bookingDetails
+                              .sessionDuration
+                          }{" "}
+                          Mins
                         </span>
                       </div>
                     </div>
@@ -329,14 +327,16 @@ const MentorDetails = () => {
                       Available Slots
                     </h4>
                     <div className="flex justify-start flex-wrap gap-6 md:gap-2">
-                      {mentorData?.availability?.availableDays.map((element, i) => (
-                        <div
-                          key={i}
-                          className="h-10 max:w-[112px]  text-[#344054] border border-[#EAEAEA] flex justify-center items-center text-[10px] leading-[18px] px-6"
-                        >
-                          <span>{capitalizeFirstLetter(element.day)}</span>
-                        </div>
-                      ))}
+                      {mentorData?.availability?.availableDays.map(
+                        (element, i) => (
+                          <div
+                            key={i}
+                            className="h-10 max:w-[112px]  text-[#344054] border border-[#EAEAEA] flex justify-center items-center text-[10px] leading-[18px] px-6"
+                          >
+                            <span>{capitalizeFirstLetter(element.day)}</span>
+                          </div>
+                        )
+                      )}
                     </div>
                   </div>
                   <div className="block md:hidden h-[5%] border  border-[#fff] border-r-[#EAEAEA]   p-8 md:px-4 "></div>
@@ -349,8 +349,7 @@ const MentorDetails = () => {
                       </h4>
                       <div className="flex items-center gap-2 ">
                         <div className="flex items-center ">
-                          
-                          {Array.from({ length: 5}).map((_, i) =>
+                          {Array.from({ length: 5 }).map((_, i) =>
                             i < mentorData.averageRating ? (
                               <Image
                                 key={i}
@@ -418,42 +417,44 @@ const MentorDetails = () => {
                           </div>
                         ) : (
                           <>
-                            {mentorData?.mentor?.experience?.map((exp, index) => (
-                              <>
-                                <div
-                                  key={index}
-                                  className="min-h-[78px] border border-[#EAEAEA] p-3 flex items-center gap-4"
-                                >
-                                  <Image
-                                    src="/exp.svg"
-                                    alt="avatar"
-                                    width={40}
-                                    height={40}
-                                    className=""
-                                  />
-                                  <div className="flex flex-col gap-2">
-                                    <h4 className="text-[12px] leading-[120%] font-medium ">
-                                      {exp.jobTitle}
-                                    </h4>
-                                    <div className="flex items-center gap-2">
-                                      <p className="text-[12px] text-[#474747] leading-[120%] font-[350px] ">
-                                        {exp.company}
+                            {mentorData?.mentor?.experience?.map(
+                              (exp, index) => (
+                                <>
+                                  <div
+                                    key={index}
+                                    className="min-h-[78px] border border-[#EAEAEA] p-3 flex items-center gap-4"
+                                  >
+                                    <Image
+                                      src="/exp.svg"
+                                      alt="avatar"
+                                      width={40}
+                                      height={40}
+                                      className=""
+                                    />
+                                    <div className="flex flex-col gap-2">
+                                      <h4 className="text-[12px] leading-[120%] font-medium ">
+                                        {exp.jobTitle}
+                                      </h4>
+                                      <div className="flex items-center gap-2">
+                                        <p className="text-[12px] text-[#474747] leading-[120%] font-[350px] ">
+                                          {exp.company}
+                                        </p>
+                                        <ul
+                                          type="disc"
+                                          className=" text-[#8B8B8B] text-[12px]  leading-[140%] font-[350px]"
+                                        >
+                                          <li> {exp.location}</li>
+                                        </ul>
+                                      </div>
+                                      <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
+                                        {exp.startDate} -{" "}
+                                        {exp.endDate ? exp.endDate : "Present"}
                                       </p>
-                                      <ul
-                                        type="disc"
-                                        className=" text-[#8B8B8B] text-[12px]  leading-[140%] font-[350px]"
-                                      >
-                                        <li> {exp.location}</li>
-                                      </ul>
                                     </div>
-                                    <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                                      {exp.startDate} -{" "}
-                                      {exp.endDate ? exp.endDate : "Present"}
-                                    </p>
                                   </div>
-                                </div>
-                              </>
-                            ))}
+                                </>
+                              )
+                            )}
                           </>
                         )}
                       </div>
@@ -464,7 +465,10 @@ const MentorDetails = () => {
                       <h4 className="text-[12px] leading-[120%] font-medium ">
                         Reviews
                       </h4>
-                      <p className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center cursor-pointer"  onClick={() => setView(mentorData?.reviews?.length)}>
+                      <p
+                        className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center cursor-pointer"
+                        onClick={() => setView(mentorData?.reviews?.length)}
+                      >
                         View All
                       </p>
                     </div>
@@ -480,71 +484,73 @@ const MentorDetails = () => {
                         />
                         <div className="flex flex-col justify-center">
                           <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                            No Experience Added
+                            No Review Added
                           </p>
                         </div>
                       </div>
                     ) : (
                       <>
-                        {mentorData?.reviews?.slice(0,view).map((element, i) => (
-                          <div
-                            key={i}
-                            className="min-h-[132px] border border-[#EAEAEA] p-3 flex  gap-4 bg-[#F7F7F7] rounded-lg flex-col mb-2 "
-                          >
-                            <div className="   py-4 ">
-                              <div className="flex justify-between items-center ">
-                                <div className="flex gap-2 items-center">
-                                  <Image
-                                    src={element.user.profilePic}
-                                    alt="avatar"
-                                    width={32}
-                                    height={32}
-                                    className="h-[32px] w-[32px] object-cover rounded-[50%]"
-                                  />
-                                  <h4 className="text-[12px] leading-[140%] font-medium ">
-                                    {element.user.firstName}{" "}
-                                    {element.user.laststName}
-                                  </h4>
-                                </div>
-                                <div className="flex  items-center gap-2 ">
-                                  <div className="flex items-center ">
-                                    {Array.from({ length: 5 }).map((_, i) =>
-                                      i < element.rating ? (
-                                        <Image
-                                          key={i}
-                                          src="/rate.svg"
-                                          alt="star"
-                                          width={14}
-                                          height={14}
-                                          className=""
-                                        />
-                                      ) : (
-                                        <Image
-                                          key={i}
-                                          src="/rate2.svg"
-                                          alt="star"
-                                          width={14}
-                                          height={14}
-                                          className=""
-                                        />
-                                      )
-                                    )}
-                                  </div>
-                                  <div className="flex items-center gap-2">
-                                    <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
-                                      {element.rating + "." + "0" || 0}
+                        {mentorData?.reviews
+                          ?.slice(0, view)
+                          .map((element, i) => (
+                            <div
+                              key={i}
+                              className="min-h-[132px] border border-[#EAEAEA] p-3 flex  gap-4 bg-[#F7F7F7] rounded-lg flex-col mb-2 "
+                            >
+                              <div className="   py-4 ">
+                                <div className="flex justify-between items-center ">
+                                  <div className="flex gap-2 items-center">
+                                    <Image
+                                      src={element.user.profilePic}
+                                      alt="avatar"
+                                      width={32}
+                                      height={32}
+                                      className="h-[32px] w-[32px] object-cover rounded-[50%]"
+                                    />
+                                    <h4 className="text-[12px] leading-[140%] font-medium ">
+                                      {element.user.firstName}{" "}
+                                      {element.user.laststName}
                                     </h4>
                                   </div>
+                                  <div className="flex  items-center gap-2 ">
+                                    <div className="flex items-center ">
+                                      {Array.from({ length: 5 }).map((_, i) =>
+                                        i < element.rating ? (
+                                          <Image
+                                            key={i}
+                                            src="/rate.svg"
+                                            alt="star"
+                                            width={14}
+                                            height={14}
+                                            className=""
+                                          />
+                                        ) : (
+                                          <Image
+                                            key={i}
+                                            src="/rate2.svg"
+                                            alt="star"
+                                            width={14}
+                                            height={14}
+                                            className=""
+                                          />
+                                        )
+                                      )}
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                      <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
+                                        {element.rating + "." + "0" || 0}
+                                      </h4>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div>
+                                  <p className="text-[#4F4F4F] leading-[140%] text-[14px] pt-4">
+                                    {element.comment}
+                                  </p>
                                 </div>
                               </div>
-                              <div>
-                                <p className="text-[#4F4F4F] leading-[140%] text-[14px] pt-4">
-                                  {element.comment}
-                                </p>
-                              </div>
                             </div>
-                          </div>
-                        ))}
+                          ))}
                       </>
                     )}
                   </div>
