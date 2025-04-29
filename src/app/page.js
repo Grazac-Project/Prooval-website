@@ -179,11 +179,11 @@ const Landing = () => {
                 <MdVerified className="text-[#FFD700] text-[16px]" />
                 <h3 className="font-medium text-[14px] text-[#121927] leading-[15.4px] tracking-[4%] ">
                   <span className="text-[#4F4F4F] text-[14px]">Empowered</span>{" "}
-                  over 5k students
+                  over 5k talents
                 </h3>
               </div>
               <h1 className="font-bold w-[621px]  xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] ">
-                Scale your tech career with
+                Scale your career with
                 <span
                   style={{
                     transform: `rotate(${angle})`,
@@ -202,17 +202,19 @@ const Landing = () => {
                 career.
               </p>
               {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-              <a
+              {/* <a
                 href="https://dashboard.hackthejobs.com/auth/signup"
                 target="_blank"
-              >
+              > */}
+              <Link href="/mentors">
                 <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
                   Get Started
                 </button>
-              </a>
-              <Link href="/donation">
+              </Link>
+              {/* </a> */}
+              <Link href="/mentor">
                 <button className="w-[213px] lg:w-[170px] md:w-[150px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border-[1px] border-[#DADADA]">
-                  Support a Talent
+                  For Experts
                 </button>
               </Link>
             </div>
@@ -745,15 +747,11 @@ const Landing = () => {
           </button>
         </section> */}
         <section className="pb-[96px] sm:pb-0 ">
-          <div
-           
-            className="flex sm:hidden  xm:justify-around lg:justify-start flex-wrap gap-[32px] pb-[0px] sm:pb-[0px] w-[1280px]  1xl:w-[90%] mb-20 md:mb-10  mx-auto "
-          >
+          <div className="flex sm:hidden  xm:justify-around lg:justify-start flex-wrap gap-[32px] pb-[0px] sm:pb-[0px] w-[1280px]  1xl:w-[90%] mb-20 md:mb-10  mx-auto ">
             {listOfMentors?.slice(0, 8).map((listOfMentor, i) => {
               return (
                 <div
                   key={i}
-                  
                   className="font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
                   onClick={() => handleMentorClick(listOfMentor.slug)}
                 >
@@ -763,7 +761,7 @@ const Landing = () => {
                       width={343}
                       height={296}
                       alt="mentor image"
-                       className="w-full h-full object-cover filter grayscale hover:filter-none"
+                      className="w-full h-full object-cover filter grayscale hover:filter-none"
                     />
                   </div>
                   <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
@@ -806,15 +804,14 @@ const Landing = () => {
                       />
                     </div>
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] ">
-                    {listOfMentor?.firstName} {listOfMentor?.lastName}
-
+                      {listOfMentor?.firstName} {listOfMentor?.lastName}
                     </h4>
                     <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
-                    {listOfMentor?.role}
-                  </h5>
-                  <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
-                    {listOfMentor?.company}
-                  </p>
+                      {listOfMentor?.role}
+                    </h5>
+                    <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
+                      {listOfMentor?.company}
+                    </p>
                   </div>
                 );
               })}
@@ -1030,20 +1027,24 @@ const Landing = () => {
             />
             <div className="w-[56%] lg:w-[95%] lg:m-auto lg:text-center lg:mt-[32px]">
               <h4 className=" font-medium text-[48px] lg:sm:text-[32px] leading-[52.8px] lgx:leading-[48px] sm:leading-[35.2px] text-[#121927]">
-                Hire from the top 10% most proficient techie in the world
+                Hire from the top 10% most proficient talents in the world
               </h4>
               <p className="  xl:w-auto text-[16px] leading-[24px] text-[#787676] my-[32px] lgx:my-[26px] sm:my-[16px] ">
-                Hackthejobs offers you access to these resources, empowering you
-                with up-to-date information in the tech industry. We also
-                provide tools suited for your technical job interviews, ensuring
-                a smooth experience. Sign up to access invaluable resources that
-                will equip you on your journey to a successful career in tech.
+                Hackthejobs offers you access to experienced talents with
+                exceptional soft skills, empowering you with up-to-date
+                information. We also provide tools suited for your technical job
+                interviews, ensuring a smooth experience.
               </p>
-              <Link href="/hire">
+              {/* <Link href="/hire">
                 <button className="w-[247px] py-[20px] font-medium leading-[24px] text-[#fff] bg-[#1453FF] rounded-[8px]">
                   Hire Top Talents
                 </button>
-              </Link>
+              </Link> */}
+              
+                <button className="w-[247px] py-[20px] font-medium leading-[24px] text-[#fff] bg-[#1453FF] rounded-[8px]">
+                  Coming soon ...
+                </button>
+              
             </div>
           </div>
         </section>
