@@ -26,7 +26,7 @@ const BookSession = ({ closeModal, mentorId, mentorImage, successModal }) => {
   const [bookingValues, setBookingValues] = useState({});
   const [loading, setLoading] = useState(false);
   const [showButton, setShowButton] = useState(false);
-  const [values, setValues] = useState({ firstName: "" });
+  const [values, setValues] = useState({ suggestion: "" });
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -135,6 +135,7 @@ const BookSession = ({ closeModal, mentorId, mentorImage, successModal }) => {
       bookingId: bookingValues?.bookingId,
       slotId: bookingValues?.slotId,
       userId: userId,
+      suggestion: values.suggestion,
     };
     console.log(data);
     BookingsSubmitAction(data)
