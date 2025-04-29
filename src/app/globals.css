@@ -43,8 +43,8 @@ button.slick-arrow.slick-next {
   display: none;
 }
 .react-calendar__tile.highlighted-date {
-  background-color: #1453FF0D; 
-  color: #101828; 
+  background-color: #1453FF26; 
+  color: #1453FF; 
   /* border-radius: 8px; */
   
   font-weight: bold;

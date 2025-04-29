@@ -136,12 +136,12 @@ export const testimonials = [
     text: "They did an amazing job making sure everyone felt included and supported. I highly recommend their services!",
     img: '/tobi.png'
   },
-  {
-    name: "Olatunji Mansur",
-    position: "Product Manager at Grazac",
-    text: "Embarking on my journey into product management at Hackthejobs  was a game-changer for me. ",
-    img: '/mansur.png'
-  },
+  // {
+  //   name: "Olatunji Mansur",
+  //   position: "Product Manager at Grazac",
+  //   text: "Embarking on my journey into product management at Hackthejobs  was a game-changer for me. ",
+  //   img: '/mansur.png'
+  // },
 ];
 export const hireTestimonials = [
   {

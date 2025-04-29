@@ -122,11 +122,11 @@ const Footer = () => {
               PM
               </li>
             </Link>
-            <Link href="/hire">
+            {/* <Link href="/hire">
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
             Hire
               </li>
-            </Link>
+            </Link> */}
             <Link href="/terms">
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 Terms
