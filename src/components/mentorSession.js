@@ -1,0 +1,182 @@
+"use client";
+
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
+import { IoIosArrowRoundBack } from "react-icons/io";
+import { ToastContainer } from "react-toastify";
+import BookingModal from "./booking-modal";
+import BookSession from "./book-session";
+import Cookies from "js-cookie";
+import { getAllBookings} from "@/api/authentication/auth";
+
+
+const MentorSession = ({ closeModal, mentorId, mentorImage }) => {
+  const [loading, setLoading] = useState(false);
+  const [showBookSession, setShowBookSession] = useState(false);
+  const [showBookingModal, setShowBookingModal] = useState(false);
+  const [token, setToken] = useState();
+  const [mentorData, setMentorData] = useState([]);
+    const [bookingId, setBookingId] = useState(mentorId);
+
+  useEffect(() => {
+    const data = Cookies.get("user_details");
+    if (data) {
+      try {
+        const parsedData = JSON.parse(data);
+        setToken(parsedData?.token);
+      } catch (error) {
+        console.error("Failed to parse token:", error);
+      }
+    }
+  }, []);
+
+  const bookSession = (id) => {
+    if (token) {
+      setBookingId(id); 
+      setShowBookSession(true);
+    } else {
+      window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
+    }
+  };
+  useEffect(() => {
+    setLoading(true);
+    console.log({ token });
+    getAllBookings(mentorId)
+      .then((res) => {
+        console.log(res);
+        setMentorData(res.data.data.bookings);
+        // console.log(mentorData);
+        setLoading(false);
+      })
+      .catch((err) => {
+        // console.log(err)
+      });
+  }, []);
+
+  return (
+    <div>
+      <ToastContainer />
+      {showBookingModal && (
+        <BookingModal
+          mentorId={bookingId}
+          mentor={mentorData?.mentor}
+          closeModal={() => setShowBookingModal(false)}
+        />
+      )}
+      <>
+        {showBookSession ? (
+          <BookSession
+            mentorId={bookingId}
+            image={mentorImage}
+            closeModal={() => setShowBookSession(false)}
+            successModal={() => setShowBookingModal(true)}
+            type={mentorData?.type}
+          />
+        ) : (
+          <div className="font-whyte">
+            <div
+              className="bg-[#344054] opacity-[0.7] w-[100%] h-full fixed z-50 top-0 left-[0]"
+              onClick={closeModal}
+            ></div>
+            <div className="h-full bg-[#F2F2F7] w-full max-w-[629px] md:max-w-full p-8 sm:p-3 pb-[277px] sm:pb-[41px] overflow-y-auto flex flex-col fixed top-0 right-0 z-50">
+              <div className="pb-[40px] flex gap-[16px] items-center">
+                <div
+                  className="border-[1px] border-[#EAEAEA] rounded-[8px] p-[10px] cursor-pointer"
+                  onClick={closeModal}
+                >
+                  <IoIosArrowRoundBack className="text-[16px] text-[#292D32]" />
+                </div>
+                <h1 className="font-medium text-[18px] leading-[27px] tracking-[3%] text-[#121927]">
+                  Book Session
+                </h1>
+              </div>
+              {loading ? (
+                <>
+                  <Image
+                    src="/loader.gif"
+                    width={24}
+                    height={24}
+                    alt="loading..."
+                    unoptimized
+                    className="  w-auto m-auto flex justify-center items-center "
+                  />
+                </>
+              ) : (
+                <div className="flex flex-col items-center gap-6">
+                  {mentorData.map((bookings) => (
+                    <div  key={bookings.bookingId} className="flex flex-col gap-[10px] w-full h-[211px] py-[24px] px-[12px] bg-[white] rounded-[8px] ]">
+                      <div className="flex gap-[16px] justify-between items-center ">
+                        <div
+                          className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
+                            bookings?.type === "Paid"
+                              ? " bg-[#DEA8061A]"
+                              : " bg-[#3333331A]"
+                          }`}
+                        >
+                          {bookings?.type === "Paid" && (
+                            <Image
+                              src="/paid.svg"
+                              alt="mentor"
+                              width={12}
+                              height={12}
+                              className="w-[12px] h-[12px] rounded-full"
+                            />
+                          )}
+                          <span
+                            className={` text-[12px] font-medium leading-[18px] font-inter ${
+                              bookings?.type === "Paid"
+                                ? "text-[#F3B704]"
+                                : "text-[#333333]"
+                            } `}
+                          >
+                            {bookings?.type}
+                          </span>
+                        </div>
+                        {bookings?.type === "Paid" && (
+                          <div className=" flex items-center gap-1 justify-center">
+                            <Image
+                              src="/wallet.svg"
+                              alt="mentor"
+                              width={12}
+                              height={12}
+                              className="w-[12px] h-[12px] "
+                            />
+
+                            <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
+                              &#8358;{bookings?.amount}
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                      <h4 className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter">
+                        {bookings?.title}
+                      </h4>
+                      <p className="text-[#4F4F4F] text-[14px] font-normal leading-[140%] font-inter line-clamp-2">
+                        {bookings?.description}
+                      </p>
+                      <div className=" flex justify-between items-center">
+                        <p className="text-[#4F4F4F] text-[14px] font-normal leading-[140%] font-inter">
+                          {bookings?.sessionDuration} mins
+                        </p>
+                        <button
+                          className=" w-[130px]  h-[50.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] "
+                          onClick={() => bookSession(bookings.bookingId)}
+                        >
+                          Book Mentor
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+      </>
+
+      {/* <BookingModal/> */}
+    </div>
+  );
+};
+
+export default MentorSession;
