@@ -71,8 +71,11 @@ export const PreferredMentor = (mentorId, token) => {
 export const bookMentorSession = (userId) => {
   return authKit.put(`/api/v1/user/mentorSession/${userId}`);
 };
-export const getAvailableBookings = (userId) => {
-  return authKit.get(`api/v1/mentors/available/${userId}`);
+export const getAvailableBookings = (bookingId) => {
+  return authKit.get(`api/v1/mentors/available/${bookingId}`);
+};
+export const getAllBookings = (mentorId) => {
+  return authKit.get(`api/v1/mentors/bookings/${mentorId}`);
 };
 export const BookingsSubmitAction = (data) => {
   return authKit.post(`api/v1/book/book-session`, data);

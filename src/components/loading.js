@@ -9,6 +9,7 @@ export const Load = () => {
             width={64}
             height={64}
             alt="loading..."
+            unoptimized
           />
         </div>
       </>

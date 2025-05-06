@@ -15,7 +15,7 @@ import {
 import Cookies from "js-cookie";
 import BookingModal from "./booking-modal";
 
-const BookSession = ({ closeModal, mentorId, mentorImage, successModal }) => {
+const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
   const [activeDates, setActiveDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTimeIndex, setSelectedTimeIndex] = useState(null);
@@ -27,6 +27,7 @@ const BookSession = ({ closeModal, mentorId, mentorImage, successModal }) => {
   const [loading, setLoading] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [values, setValues] = useState({ suggestion: "" });
+  const [buttonText, setButtonText] = useState("Book Session");
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -41,7 +42,11 @@ const BookSession = ({ closeModal, mentorId, mentorImage, successModal }) => {
   }
 
   useEffect(() => {
-    console.log(mentorId);
+    
+    console.log(type);
+    if (type === "Paid") {
+      setButtonText("Proceed to payment");
+    }
 
     getAvailableBookings(mentorId)
       .then((res) => {
@@ -174,13 +179,13 @@ const BookSession = ({ closeModal, mentorId, mentorImage, successModal }) => {
           </div>
           <div>
             <Image
-              src={mentorImage || "/dummyPic.svg"}
+              src={image || "/dummyPic.svg"}
               width={152}
               height={152}
               alt="profile photo"
               className="object-fit rounded-[50%] w-[152px] sm:w-[112px] h-[152px] sm:h-[112px]"
             />
-            <h2 className="font-medium text-[24px] text-[#101828] leading-[25.62px] text-[#101828] pt-[24px] pb-[8px]">
+            <h2 className="font-medium text-[24px] text-[#101828] leading-[25.62px]  pt-[24px] pb-[8px]">
               {bookingData.title || "Let’s talk about negotiations"}
             </h2>
             <p className="font-regular text-[16px] leading-[20.8px] text-[#7D7D7D] pb-[24px]">
@@ -261,7 +266,7 @@ const BookSession = ({ closeModal, mentorId, mentorImage, successModal }) => {
             {showButton && (
               <button
                 onClick={handleBookingSubmit}
-                className="font-medium w-[100%] flex justify-center items-center text-[14px] leading-[19.6px] tracking-[2%] text-[#fff] bg-[#1453FF] border-[1px] border-[#1453FF] py-[12px] px-[20px] rounded-[8px] sm:flex mb-[16px] mt-[24px]"
+                className="font-medium w-[100%] flex justify-center items-center gap-1 text-[14px] leading-[19.6px] tracking-[2%] text-[#fff] bg-[#1453FF] border-[1px] border-[#1453FF] py-[12px] px-[20px] rounded-[8px] sm:flex mb-[16px] mt-[24px]"
               >
                 {loading ? (
                   <Image
@@ -273,7 +278,7 @@ const BookSession = ({ closeModal, mentorId, mentorImage, successModal }) => {
                 ) : (
                   ""
                 )}
-                Book Session
+                {buttonText}
               </button>
             )}
           </div>

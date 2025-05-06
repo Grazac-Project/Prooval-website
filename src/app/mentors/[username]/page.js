@@ -15,6 +15,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 
 import { Load } from "@/components/loading";
 import Cookies from "js-cookie";
+import MentorSession from "@/components/mentorSession";
 
 const MentorDetails = () => {
   const [view, setView] = useState(3);
@@ -131,12 +132,8 @@ const MentorDetails = () => {
   };
   //rounte to book session page if the token is true
   const bookSession = () => {
-    if (token) {
-      setShowBookSession(true);
-      // setShowBookingModal(false);
-    } else {
-      window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
-    }
+    setShowBookSession(true);
+    // setShowBookingModal(false);
   };
   const capitalizeFirstLetter = (text) => {
     if (!text) return "";
@@ -146,15 +143,8 @@ const MentorDetails = () => {
   return (
     <>
       <div>
-        {showBookingModal && (
-          <BookingModal
-            mentorId={mentorData?.mentor._id}
-            mentor={mentorData?.mentor}
-            closeModal={() => setShowBookingModal(false)}
-          />
-        )}
         {showBookSession && (
-          <BookSession
+          <MentorSession
             mentorId={mentorData?.mentor._id}
             mentorImage={mentorData?.mentor.image}
             closeModal={() => setShowBookSession(false)}
@@ -307,18 +297,47 @@ const MentorDetails = () => {
                     <h4 className="text-[12px] leading-[140%] font-medium text-[#333333] mb-2">
                       Mentorship Session
                     </h4>
-                    <div className="flex justify-start flex-wrap gap-3">
-                      <div className="h-[45px] px-3 w-full bg-[#ffff] border border-[#EAEAEA]  text-[#344054] rounded-lg flex justify-between items-center text-[10px] leading-[18px]">
-                        <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F]">
-                          {mentorData?.availability?.bookingDetails.title}
-                        </h5>
-                        <span className="text-[#4F4F4F] text-[12px] leading-[140%] font-medium  ">
-                          {
-                            mentorData?.availability?.bookingDetails
-                              .sessionDuration
-                          }{" "}
-                          Mins
-                        </span>
+                    <div className="flex flex-col items-center gap-2">
+                      <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA]  ">
+                        <div className="flex gap-[16px] justify-between items-center mb-[11px] ">
+                          <div className="w-[61px] h-[22px] rounded-full bg-[#DEA8061A] flex items-center justify-center">
+                            <Image
+                              src="/paid.svg"
+                              alt="mentor"
+                              width={12}
+                              height={12}
+                              className="w-[12px] h-[12px] rounded-full"
+                            />
+                            <span className="text-[#F3B704] text-[12px] font-medium leading-[18px] font-inter ">
+                              Paid
+                            </span>
+                          </div>
+                          <div className=" flex items-center gap-1 justify-center">
+                            <Image
+                              src="/wallet.svg"
+                              alt="mentor"
+                              width={12}
+                              height={12}
+                              className="w-[12px] h-[12px] "
+                            />
+                            <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
+                              &#8358;100000
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="text-[#344054] rounded-lg flex justify-between items-center text-[10px] leading-[18px]">
+                          <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F]">
+                            {mentorData?.availability?.bookingDetails.title}
+                          </h5>
+                          <span className="text-[#4F4F4F] text-[12px] leading-[140%] font-medium  ">
+                            {
+                              mentorData?.availability?.bookingDetails
+                                .sessionDuration
+                            }{" "}
+                            Mins
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
