@@ -40,10 +40,34 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
   } catch (err) {
     //err
   }
+  // useEffect(() => {
+  //   const script = document.createElement("script");
+  //   script.src = "https://widget.fincra.com/js/v1/fincra.js";
+  //   script.async = true;
+  //   document.body.appendChild(script);
+  // }, []);
 
+  // const handlePay = () => {
+  //   window.Fincra.initialize({
+  //     key: "YOUR_PUBLIC_KEY",
+  //     amount: 5000, // Amount in minor units (e.g. kobo if NGN)
+  //     currency: "NGN",
+  //     customer: {
+  //       name: "John Doe",
+  //       email: "john@example.com",
+  //     },
+  //     onClose: function () {
+  //       console.log("Modal closed");
+  //     },
+  //     onSuccess: function (response) {
+  //       console.log("Payment successful:", response);
+  //       // send to backend for verification
+  //     },
+  //   });
+  // };
   useEffect(() => {
     
-    console.log(type);
+    console.log({type});
     if (type === "Paid") {
       setButtonText("Proceed to payment");
     }
@@ -65,7 +89,7 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [type]);
 
   const handleDayClick = (date) => {
     const formattedDate = dayjs(date).format("YYYY-MM-DD");
@@ -135,7 +159,6 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
     // setBookingData(prev => ({ ...prev, time }));
   };
   const handleBookingSubmit = () => {
-    setLoading(true);
     const data = {
       bookingId: bookingValues?.bookingId,
       slotId: bookingValues?.slotId,
@@ -156,7 +179,18 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
         setLoading(false);
       });
   };
+  const handleclick = () => {
+    setLoading(true);
 
+    if (type === "Paid") {
+      // handlePay();
+      console.log("Proceed to payment clicked");
+    } else {
+      handleBookingSubmit();
+    }
+
+
+  }
   return (
     <div>
       <ToastContainer />
@@ -265,7 +299,8 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
             </div>
             {showButton && (
               <button
-                onClick={handleBookingSubmit}
+                // onClick={handleBookingSubmit}
+                onClick={handleclick}
                 className="font-medium w-[100%] flex justify-center items-center gap-1 text-[14px] leading-[19.6px] tracking-[2%] text-[#fff] bg-[#1453FF] border-[1px] border-[#1453FF] py-[12px] px-[20px] rounded-[8px] sm:flex mb-[16px] mt-[24px]"
               >
                 {loading ? (

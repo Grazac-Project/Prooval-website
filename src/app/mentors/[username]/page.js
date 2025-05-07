@@ -12,7 +12,8 @@ import { getMentorsBySlug, PreferredMentor } from "@/api/authentication/auth";
 import { useParams, useRouter } from "next/navigation";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 import { usePathname, useSearchParams } from "next/navigation";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Load } from "@/components/loading";
 import Cookies from "js-cookie";
 import MentorSession from "@/components/mentorSession";
@@ -20,7 +21,7 @@ import MentorSession from "@/components/mentorSession";
 const MentorDetails = () => {
   const [view, setView] = useState(3);
   const [checked, setChecked] = useState(false);
-  const [showBookSession, setShowBookSession] = useState(false);
+  const [showMentorSession, setShowMentorSession] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [mentorData, setMentorData] = useState({});
   const [loading, setLoading] = useState(false);
@@ -94,7 +95,11 @@ const MentorDetails = () => {
         }
       })
       .catch((err) => {
-        // console.log(err)
+        toast.error(err.response?.data?.message)
+        setLoading(false);
+        // const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV
+        // window.location.href = isProduction === "development" ? "https://hackthejobs-website-main.onrender.com/mentors" : "https://www.hackthejobs.com/mentors"
+
       });
   };
 
@@ -132,7 +137,7 @@ const MentorDetails = () => {
   };
   //rounte to book session page if the token is true
   const bookSession = () => {
-    setShowBookSession(true);
+    setShowMentorSession(true);
     // setShowBookingModal(false);
   };
   const capitalizeFirstLetter = (text) => {
@@ -143,11 +148,13 @@ const MentorDetails = () => {
   return (
     <>
       <div>
-        {showBookSession && (
+        <ToastContainer />
+        {showMentorSession && (
           <MentorSession
             mentorId={mentorData?.mentor._id}
             mentorImage={mentorData?.mentor.image}
-            closeModal={() => setShowBookSession(false)}
+            MentorDetails={mentorData?.mentor}
+            closeSessionModal={() => setShowMentorSession(false)}
             successModal={() => setShowBookingModal(true)}
           />
         )}
@@ -298,47 +305,62 @@ const MentorDetails = () => {
                       Mentorship Session
                     </h4>
                     <div className="flex flex-col items-center gap-2">
-                      <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA]  ">
-                        <div className="flex gap-[16px] justify-between items-center mb-[11px] ">
-                          <div className="w-[61px] h-[22px] rounded-full bg-[#DEA8061A] flex items-center justify-center">
-                            <Image
-                              src="/paid.svg"
-                              alt="mentor"
-                              width={12}
-                              height={12}
-                              className="w-[12px] h-[12px] rounded-full"
-                            />
-                            <span className="text-[#F3B704] text-[12px] font-medium leading-[18px] font-inter ">
-                              Paid
-                            </span>
-                          </div>
-                          <div className=" flex items-center gap-1 justify-center">
-                            <Image
-                              src="/wallet.svg"
-                              alt="mentor"
-                              width={12}
-                              height={12}
-                              className="w-[12px] h-[12px] "
-                            />
-                            <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                              &#8358;100000
-                            </span>
-                          </div>
-                        </div>
+                      {mentorData?.bookings?.map((book) => (
+                        <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA]  ">
+                          <div className="flex gap-[16px] justify-between items-center mb-[10px] ">
+                            <div
+                              className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
+                                book?.bookingType === "Paid"
+                                  ? " bg-[#DEA8061A]"
+                                  : " bg-[#3333331A]"
+                              }`}
+                            >
+                              {book?.bookingType === "Paid" && (
+                                <Image
+                                  src="/paid.svg"
+                                  alt="mentor"
+                                  width={12}
+                                  height={12}
+                                  className="w-[12px] h-[12px] rounded-full"
+                                />
+                              )}
+                              <span
+                                className={` text-[12px] font-medium leading-[18px] font-inter ${
+                                  book?.bookingType === "Paid"
+                                    ? "text-[#F3B704]"
+                                    : "text-[#333333]"
+                                } `}
+                              >
+                                {book?.bookingType}
+                              </span>
+                            </div>
+                            {book?.bookingType === "Paid" && (
+                              <div className=" flex items-center gap-1 justify-center">
+                                <Image
+                                  src="/wallet.svg"
+                                  alt="mentor"
+                                  width={12}
+                                  height={12}
+                                  className="w-[12px] h-[12px] "
+                                />
 
-                        <div className="text-[#344054] rounded-lg flex justify-between items-center text-[10px] leading-[18px]">
-                          <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F]">
-                            {mentorData?.availability?.bookingDetails.title}
-                          </h5>
-                          <span className="text-[#4F4F4F] text-[12px] leading-[140%] font-medium  ">
-                            {
-                              mentorData?.availability?.bookingDetails
-                                .sessionDuration
-                            }{" "}
-                            Mins
-                          </span>
+                                <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
+                                  &#8358;{book?.amount}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="text-[#344054] rounded-lg flex justify-between items-center text-[10px] leading-[18px]">
+                            <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F]">
+                              {book?.title}
+                            </h5>
+                            <span className="text-[#4F4F4F] text-[12px] leading-[140%] font-medium  ">
+                              {book?.sessionDuration} Mins
+                            </span>
+                          </div>
                         </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
                   <div className=" border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 md:px-4 ">
@@ -459,7 +481,7 @@ const MentorDetails = () => {
                                           {exp.company}
                                         </p>
                                         <ul
-                                          type="disc"
+                                          bookingType="disc"
                                           className=" text-[#8B8B8B] text-[12px]  leading-[140%] font-[350px]"
                                         >
                                           <li> {exp.location}</li>
