@@ -10,13 +10,16 @@ import Cookies from "js-cookie";
 import { getAllBookings} from "@/api/authentication/auth";
 
 
-const MentorSession = ({ closeModal, mentorId, mentorImage }) => {
+
+const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails }) => {
   const [loading, setLoading] = useState(false);
   const [showBookSession, setShowBookSession] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [token, setToken] = useState();
   const [mentorData, setMentorData] = useState([]);
+  const [bookingData, setBookingData] = useState([]);
     const [bookingId, setBookingId] = useState(mentorId);
+  const [bookType, setBookType] = useState("");
 
   useEffect(() => {
     const data = Cookies.get("user_details");
@@ -30,10 +33,15 @@ const MentorSession = ({ closeModal, mentorId, mentorImage }) => {
     }
   }, []);
 
-  const bookSession = (id) => {
+  const bookSession = (id, type) => {
     if (token) {
       setBookingId(id); 
+      setBookType(type)
+      console.log({bookType})
+      
       setShowBookSession(true);
+
+      
     } else {
       window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
     }
@@ -44,7 +52,8 @@ const MentorSession = ({ closeModal, mentorId, mentorImage }) => {
     getAllBookings(mentorId)
       .then((res) => {
         console.log(res);
-        setMentorData(res.data.data.bookings);
+        setMentorData(res.data.data.mentor);
+        setBookingData(res.data.data.bookings);
         // console.log(mentorData);
         setLoading(false);
       })
@@ -53,14 +62,16 @@ const MentorSession = ({ closeModal, mentorId, mentorImage }) => {
       });
   }, []);
 
+  
   return (
     <div>
       <ToastContainer />
       {showBookingModal && (
         <BookingModal
           mentorId={bookingId}
-          mentor={mentorData?.mentor}
+          mentor={mentorDetails}
           closeModal={() => setShowBookingModal(false)}
+          
         />
       )}
       <>
@@ -69,20 +80,20 @@ const MentorSession = ({ closeModal, mentorId, mentorImage }) => {
             mentorId={bookingId}
             image={mentorImage}
             closeModal={() => setShowBookSession(false)}
-            successModal={() => setShowBookingModal(true)}
-            type={mentorData?.type}
+            successModal={() => setShowBookingModal(true) }
+            type={bookType}
           />
         ) : (
           <div className="font-whyte">
             <div
               className="bg-[#344054] opacity-[0.7] w-[100%] h-full fixed z-50 top-0 left-[0]"
-              onClick={closeModal}
+              onClick={closeSessionModal}
             ></div>
             <div className="h-full bg-[#F2F2F7] w-full max-w-[629px] md:max-w-full p-8 sm:p-3 pb-[277px] sm:pb-[41px] overflow-y-auto flex flex-col fixed top-0 right-0 z-50">
               <div className="pb-[40px] flex gap-[16px] items-center">
                 <div
                   className="border-[1px] border-[#EAEAEA] rounded-[8px] p-[10px] cursor-pointer"
-                  onClick={closeModal}
+                  onClick={closeSessionModal}
                 >
                   <IoIosArrowRoundBack className="text-[16px] text-[#292D32]" />
                 </div>
@@ -103,7 +114,7 @@ const MentorSession = ({ closeModal, mentorId, mentorImage }) => {
                 </>
               ) : (
                 <div className="flex flex-col items-center gap-6">
-                  {mentorData.map((bookings) => (
+                  {bookingData.map((bookings) => (
                     <div  key={bookings.bookingId} className="flex flex-col gap-[10px] w-full h-[211px] py-[24px] px-[12px] bg-[white] rounded-[8px] ]">
                       <div className="flex gap-[16px] justify-between items-center ">
                         <div
@@ -160,7 +171,7 @@ const MentorSession = ({ closeModal, mentorId, mentorImage }) => {
                         </p>
                         <button
                           className=" w-[130px]  h-[50.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] "
-                          onClick={() => bookSession(bookings.bookingId)}
+                          onClick={() => bookSession(bookings.bookingId, bookings?.type)}
                         >
                           Book Mentor
                         </button>
