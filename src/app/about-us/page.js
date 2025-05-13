@@ -14,6 +14,8 @@ import Modal from "@/components/modal/modal";
 const AboutUs = () => {
   const [showModal, setShowModal] = useState(false);
 
+
+  
   var options = {
     type: "loop",
     gap: "16px",
