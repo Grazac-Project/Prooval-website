@@ -140,9 +140,9 @@ const mentor = () => {
         // console.log(res.data.data.mentors[0].firstName);
         const mentors = res.data.data.mentors;
         const mentorsSlice = mentors.slice(0, 8);
-        console.log(mentorsSlice);
+        // console.log(mentorsSlice);
         setListOfMentors(mentorsSlice);
-        console.log(listOfMentors.slug);
+        // console.log(listOfMentors.slug);
       })
       .catch((err) => console.log(err));
   }, []);
