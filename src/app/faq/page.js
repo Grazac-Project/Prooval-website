@@ -31,7 +31,7 @@ const Faq = () => {
 
 
   const handleToggle = (id) => {
-    console.log(id);
+    // console.log(id);
     setShow((prevshow) => ({
       ...prevshow,
       [id]: !prevshow[id],
@@ -39,7 +39,7 @@ const Faq = () => {
     // setShow(false);
   };
   const handleToggle2 = (id) => {
-    console.log(id);
+    // console.log(id);
     setShow2((prevshow) => ({
       ...prevshow,
       [id]: !prevshow[id],
@@ -71,7 +71,7 @@ const Faq = () => {
             }
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
             toast.warn(error.response.data.message);
           });
       },

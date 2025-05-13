@@ -44,7 +44,7 @@ const Form = () => {
     // }
   }
   const handleCloseCheckbox = () => {
-    console.log(values.role);
+    // console.log(values.role);
     setShowCheckbox(false)
     // if (values.role.length === 0) {
     //   // setSelectedRole([])
@@ -53,7 +53,7 @@ const Form = () => {
     //   // setSelectedRole(values.role)
     //   setShowCheckbox(false);
     // }
-    console.log(values.role);
+    // console.log(values.role);
   }
   const handleRemoveOption = (i) => {
     setShowCheckbox(false)
@@ -63,8 +63,8 @@ const Form = () => {
       }
     })
     values.role = newSelect
-    console.log(values.role);
-    console.log(newSelect);
+    // console.log(values.role);
+    // console.log(newSelect);
     setSelectedRole(newSelect)
 
   }
@@ -82,8 +82,8 @@ const Form = () => {
   const onSubmit = async (values, actions) => {
     setLoader(true)
     // values.role = selectedRole
-    console.log(values);
-    console.log('values',values)
+    // console.log(values);
+    // console.log('values',values)
     hireTalent(values)
       .then(res => {
         setLoader(false)
@@ -93,10 +93,10 @@ const Form = () => {
             router.push('/hire');
           },5000)
         }
-        console.log(res);
+        // console.log(res);
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
         setLoader(false)
       })
     actions.resetForm()

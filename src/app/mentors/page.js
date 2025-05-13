@@ -71,7 +71,7 @@ const Page = () => {
     let isMounted = true;
     fetchMentors(inputText, page)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         const remainingPages = res.data.data.remainingPages;
         if (isMounted) {
           const mentors = res.data.data.mentors;
@@ -89,7 +89,7 @@ const Page = () => {
             return [...prevMentors, ...mentors];
           });
         }
-        console.log(remainingPages > 0);
+        // console.log(remainingPages > 0);
         setHasMorePages(remainingPages > 0);
         setLoading(false);
       })
@@ -100,7 +100,7 @@ const Page = () => {
         if (isMounted) {
           // if (axios.isCancel(err)) return
           if (err.response?.status) {
-            console.log(err);
+            // console.log(err);
             setListOfMentors(undefined);
             setShowMentor(false);
             setNotFound(true);
@@ -164,7 +164,7 @@ const Page = () => {
             className="flex   xm:justify-around lg:justify-start flex-wrap gap-[32px] pb-[0px] sm:pb-[0px] w-[1280px]  1xl:w-[90%]  m-auto "
           >
             {listOfMentors?.map((listOfMentor, i) => {
-              console.log(listOfMentor)
+              // console.log(listOfMentor)
               if (listOfMentors.length === i + 1) {
                 return (
                   <div
