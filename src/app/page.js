@@ -277,7 +277,7 @@ const Landing = () => {
               className="object-contain hidden sm:block"
             />
             <p className="font-regular text-[14px] sm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 sm:leading-[11.54px] w-[54px] sm:w-[30.9px]">
-              +50 <span className="text-[#8B8B8B]">Teams</span>
+              +46 <span className="text-[#8B8B8B]">Teams</span>
             </p>
           </div>
           <div
