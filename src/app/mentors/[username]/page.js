@@ -143,8 +143,10 @@ const MentorDetails = () => {
     return text.charAt(0).toUpperCase() + text.slice(1);
   };
   function truncateString(str) {
-  if (str.length > 40) {
-    return str.slice(0, 40) + '...';
+  if(!str){
+    return
+  } else if(str?.length > 40) {
+    return str?.slice(0, 40) + '...';
   }
   return str;
 }

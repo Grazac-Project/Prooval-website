@@ -164,6 +164,7 @@ const Page = () => {
             className="flex   xm:justify-around lg:justify-start flex-wrap gap-[32px] pb-[0px] sm:pb-[0px] w-[1280px]  1xl:w-[90%]  m-auto "
           >
             {listOfMentors?.map((listOfMentor, i) => {
+              console.log(listOfMentor)
               if (listOfMentors.length === i + 1) {
                 return (
                   <div
