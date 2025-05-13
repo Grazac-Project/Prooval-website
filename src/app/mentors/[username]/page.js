@@ -44,7 +44,7 @@ const MentorDetails = () => {
   }, []);
   useEffect(() => {
     Cookies.set("mentorSlug", username, { expires: 7 });
-    console.log("Mentor Slug set in Cookies:", username);
+    // console.log("Mentor Slug set in Cookies:", username);
   }, [username]);
 
   const handleChange = (e) => {
@@ -59,29 +59,29 @@ const MentorDetails = () => {
       },
     }));
 
-    console.log("Calling PreferredMentor with:", { mentorId, token });
+    // console.log("Calling PreferredMentor with:", { mentorId, token });
     if (token) {
       PreferredMentor(mentorId, token)
         .then(() => {
-          console.log("Mentor preference updated successfully.");
+          // console.log("Mentor preference updated successfully.");
         })
         .catch((error) => {
-          console.error("Error updating mentor preference:", error);
+          // console.error("Error updating mentor preference:", error);
         });
     } else {
       window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
     }
   };
   const getMentorsDetails = () => {
-    console.log({ token });
+    // console.log({ token });
     getMentorsBySlug(username, token || "")
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setMentorData(res.data.data.data);
         setMentorId(res.data.data.data.mentor._id);
 
-        console.log(mentorData);
-        console.log(reviews);
+        // console.log(mentorData);
+        // console.log(reviews);
 
         setLoading(false);
         // console.log(data?.calendarLink);
@@ -102,7 +102,7 @@ const MentorDetails = () => {
     try {
       const mentorSlug = Cookies.get("mentorSlug");
       setSlug(mentorSlug);
-      console.log("Mentor Slug from Cookies:", slug);
+      // console.log("Mentor Slug from Cookies:", slug);
     } catch (err) {
       //err
     }
@@ -120,8 +120,12 @@ const MentorDetails = () => {
           title: "Check out this mentor profile!",
           url: shareUrl,
         })
-        .then(() => console.log("Profile shared successfully!"))
-        .catch((error) => console.error("Error sharing profile:", error));
+        .then(() => {
+          // console.log("Profile shared successfully!")
+        })
+        .catch((error) => {
+          // console.error("Error sharing profile:", error)
+        });
     } else {
       navigator.clipboard
         .writeText(shareUrl)
@@ -143,8 +147,10 @@ const MentorDetails = () => {
     return text.charAt(0).toUpperCase() + text.slice(1);
   };
   function truncateString(str) {
-  if (str.length > 40) {
-    return str.slice(0, 40) + '...';
+  if(!str){
+    return
+  } else if(str?.length > 40) {
+    return str?.slice(0, 40) + '...';
   }
   return str;
 }

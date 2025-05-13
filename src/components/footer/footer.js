@@ -35,7 +35,7 @@ const Footer = () => {
     await newsLetterSub(values)
       .then((res) => {
         setLoader(false);
-        console.log(res);
+        // console.log(res);
         if (res.status === 201) {
           // console.log(openModal);
           setOpen(!open);
