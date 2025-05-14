@@ -38,6 +38,8 @@ const mentor = () => {
   const [logo4, setLogo4] = useState(false);
   const [listOfMentors, setListOfMentors] = useState([]);
 
+  const baseUrl = process.env.NEXT_PUBLIC_MENTOR_BASE_URL;
+
   const sliderDotChange = setInterval((index) => {
     if (index === 0) {
       setDotPosition(index);
@@ -140,9 +142,9 @@ const mentor = () => {
         // console.log(res.data.data.mentors[0].firstName);
         const mentors = res.data.data.mentors;
         const mentorsSlice = mentors.slice(0, 8);
-        console.log(mentorsSlice);
+        // console.log(mentorsSlice);
         setListOfMentors(mentorsSlice);
-        console.log(listOfMentors.slug);
+        // console.log(listOfMentors.slug);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -198,7 +200,8 @@ const mentor = () => {
               </Link> */}
               {/* <Link href="https://mentor.hackthejobs.com/auth/signup"> */}
               <a
-                href="https://mentor.hackthejobs.com/auth/signup"
+                // href="https://mentor.hackthejobs.com/auth/signup"
+                href={`${baseUrl}/auth/signup`}
                 target="_blank"
                 className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]"
               >

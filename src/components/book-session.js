@@ -74,7 +74,7 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
 
     getAvailableBookings(mentorId)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setAvailableSessions(res.data.data.allAvailableSessions);
         setBookingData(res.data.data);
         const dateData = res.data.data.allAvailableSessions.map(
@@ -82,32 +82,32 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
         );
         // const dateData = res.data.data.allAvailableSessions.map((session => session.date ))
         const uniqueDateData = [...new Set(dateData)];
-        console.log(uniqueDateData);
+        // console.log(uniqueDateData);
 
         setActiveDates(uniqueDateData);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, [type]);
 
   const handleDayClick = (date) => {
     const formattedDate = dayjs(date).format("YYYY-MM-DD");
-    console.log("Clicked Date:", formattedDate);
-    console.log("Active Dates:", activeDates);
+    // console.log("Clicked Date:", formattedDate);
+    // console.log("Active Dates:", activeDates);
 
     if (activeDates.includes(formattedDate)) {
-      console.log("Valid Date Selected:", date);
+      // console.log("Valid Date Selected:", date);
       setSelectedDate(date);
       fetchAvailableTimes(date);
     } else {
-      console.log("Invalid Date Selected");
+      // console.log("Invalid Date Selected");
       setAvailableTimes([]);
       setShowButton(false);
     }
   };
   const fetchAvailableTimes = (date) => {
-    console.log("Selected Date:", date);
+    // console.log("Selected Date:", date);
 
     const newDate = new Date(date);
     const year = newDate.getFullYear();
@@ -115,17 +115,17 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
     const day = String(newDate.getDate()).padStart(2, "0");
     const formattedDate = `${year}-${month}-${day}`;
 
-    console.log("Formatted Date:", formattedDate);
-    console.log("Available Sessions:", availableSessions);
+    // console.log("Formatted Date:", formattedDate);
+    // console.log("Available Sessions:", availableSessions);
 
     const filterArr = availableSessions.filter((item) => {
-      console.log("Session Date:", item.date);
+      // console.log("Session Date:", item.date);
       return item.date === formattedDate;
     });
 
     const times = filterArr.map((value) => value.startTime);
 
-    console.log("Filtered Times:", times);
+    // console.log("Filtered Times:", times);
 
     setFilteredData(filterArr);
     setAvailableTimes(times);
@@ -165,16 +165,16 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
       userId: userId,
       suggestion: values.suggestion,
     };
-    console.log(data);
+    // console.log(data);
     BookingsSubmitAction(data)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setLoading(false);
         closeModal();
         successModal();
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         toast.error(err);
         setLoading(false);
       });

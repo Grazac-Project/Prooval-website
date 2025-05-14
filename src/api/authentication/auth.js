@@ -91,6 +91,6 @@ export const getMentorsBySlug = (slug, token) => {
   });
 };
 authKit.interceptors.request.use((config) => {
-  console.log("Request Config:", config);
+  // console.log("Request Config:", config);
   return config;
 });
