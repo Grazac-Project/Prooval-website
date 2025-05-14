@@ -392,10 +392,18 @@ const MentorDetails = () => {
                         </div>
                       </div>
                     </div>
-                    <div>
+                    {/* <div>
                       <p className="text-[#4F4F4F] leading-[140%] text-[14px] mx-12 md:mx-4 py-4">
                         {mentorData?.mentor?.about}
                       </p>
+                    </div> */}
+                    <div>
+                      <div
+                        className="text-[#4F4F4F] leading-[150%] text-[14px] mx-12 md:mx-4 py-4 [&>*]:my-[10px]"
+                        dangerouslySetInnerHTML={{
+                          __html: mentorData?.mentor?.about,
+                        }}
+                      />
                     </div>
                   </div>
                   <div className=" border border-[#fff] border-b-[#EAEAEA] border-l-[#EAEAEA] py-6">
