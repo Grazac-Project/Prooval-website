@@ -82,7 +82,7 @@ const MentorDetails = () => {
     // console.log({ token });
     getMentorsBySlug(username, token || "")
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setMentorData(res.data.data.data);
         setMentorId(res.data.data.data.mentor._id);
 
