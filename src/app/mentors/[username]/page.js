@@ -82,7 +82,7 @@ const MentorDetails = () => {
     // console.log({ token });
     getMentorsBySlug(username, token || "")
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setMentorData(res.data.data.data);
         setMentorId(res.data.data.data.mentor._id);
 
@@ -99,11 +99,10 @@ const MentorDetails = () => {
         }
       })
       .catch((err) => {
-        toast.error(err.response?.data?.message)
+        toast.error(err.response?.data?.message);
         setLoading(false);
         // const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV
         // window.location.href = isProduction === "development" ? "https://hackthejobs-website-main.onrender.com/mentors" : "https://www.hackthejobs.com/mentors"
-
       });
   };
 
@@ -158,13 +157,13 @@ const MentorDetails = () => {
     return text.charAt(0).toUpperCase() + text.slice(1);
   };
   function truncateString(str) {
-  if(!str){
-    return
-  } else if(str?.length > 40) {
-    return str?.slice(0, 40) + '...';
+    if (!str) {
+      return;
+    } else if (str?.length > 40) {
+      return str?.slice(0, 40) + "...";
+    }
+    return str;
   }
-  return str;
-}
   return (
     <>
       <div>
@@ -441,11 +440,14 @@ const MentorDetails = () => {
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </div>{" "}
                     <div>
-                      <p className="text-[#4F4F4F] leading-[140%] text-[14px] mx-12 md:mx-4 py-4">
-                        {mentorData?.mentor?.about}
-                      </p>
+                      <div
+                        className="text-[#4F4F4F] leading-[150%] text-[14px] mx-12 md:mx-4 py-4 [&>*]:my-[10px]"
+                        dangerouslySetInnerHTML={{
+                          __html: mentorData?.mentor?.about,
+                        }}
+                      />
                     </div>
                   </div>
                   <div className=" border border-[#fff] border-b-[#EAEAEA] border-l-[#EAEAEA] py-6">
