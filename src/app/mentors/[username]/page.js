@@ -31,6 +31,9 @@ const MentorDetails = () => {
   const [mentorId, setMentorId] = useState();
   const [token, setToken] = useState();
   const router = useRouter();
+
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
   useEffect(() => {
     const data = Cookies.get("user_details");
     if (data) {
@@ -69,7 +72,8 @@ const MentorDetails = () => {
           // console.error("Error updating mentor preference:", error);
         });
     } else {
-      window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
+      // window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
+      window.location.href = `${baseUrl}/auth/signup`;
     }
   };
   const getMentorsDetails = () => {
@@ -139,7 +143,8 @@ const MentorDetails = () => {
       setShowBookSession(true);
       // setShowBookingModal(false);
     } else {
-      window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
+      // window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
+      window.location.href = `${baseUrl}/auth/signup`;
     }
   };
   const capitalizeFirstLetter = (text) => {

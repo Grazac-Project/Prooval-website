@@ -16,6 +16,8 @@ const Navbar = () => {
   const [role, setRole] = useState();
   const router = useRouter();
 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
   const handleMouseEnter = () => {
     setShowModal(true); // Show modal on hover
   };
@@ -129,8 +131,8 @@ const Navbar = () => {
             {token ? (
               <div className="flex items-center space-x-4 relative">
                 <button className=" border border-[#1453FF] rounded-[8px] px-[18px] py-[10px] font-medium text-[#1453FF] text-[12px] bg-[#fff] leading-[150%] tracking-[3%]">
-                  {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
-                  <Link href="https://dashboard.hackthejobs.com/dashboard">
+                  {/* <Link href="https://dashboard.hackthejobs.com/dashboard"> */}
+                  <Link href={`${baseUrl}/dashboard`}>
                     View Dashboard
                   </Link>
                 </button>
@@ -174,7 +176,8 @@ const Navbar = () => {
                       <div className="w-full flex flex-col  gap-2 justify-start text-left">
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                           <Link
-                            href="https://dashboard.hackthejobs.com/bookings"
+                            // href="https://dashboard.hackthejobs.com/bookings"
+                            href={`${baseUrl}/bookings`}
                             // onClick={() => setDropdown(false)}
                           >
                             View my bookings
@@ -194,7 +197,8 @@ const Navbar = () => {
                         </div> */}
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                           <Link
-                            href="https://dashboard.hackthejobs.com/settings"
+                            // href="https://dashboard.hackthejobs.com/settings"
+                            href={`${baseUrl}/settings`}
                             // onClick={() => setDropdown(false)}
                           >
                             View profile
@@ -213,7 +217,8 @@ const Navbar = () => {
                 <button className={Classes.btnFlex1}>
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
                   <a
-                    href="https://dashboard.hackthejobs.com/auth/login"
+                    // href="https://dashboard.hackthejobs.com/auth/login"
+                    href={`${baseUrl}/auth/login`}
                     target="_blank"
                   >
                     Log in
@@ -222,7 +227,8 @@ const Navbar = () => {
                 <button className={Classes.btnFlex2}>
                   {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
                   <a
-                    href="https://dashboard.hackthejobs.com/auth/signup"
+                    // href="https://dashboard.hackthejobs.com/auth/signup"
+                    href={`${baseUrl}/auth/signup`}
                     target="_blank"
                   >
                     Sign up
@@ -254,7 +260,8 @@ const Navbar = () => {
                             {details?.email}
                           </p>
                           <Link
-                            href="https://dashboard.hackthejobs.com"
+                            // href="https://dashboard.hackthejobs.com"
+                            href={`${baseUrl}`}
                             onClick={() => setDropdown(false)}
                           >
                             <button className=" w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] ">
@@ -266,7 +273,8 @@ const Navbar = () => {
                       <div className="flex flex-col  gap-2 text-left">
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                           <Link
-                            href="https://dashboard.hackthejobs.com/bookings"
+                            // href="https://dashboard.hackthejobs.com/bookings"
+                            href={`${baseUrl}/bookings`}
                             onClick={() => setDropdown(false)}
                           >
                             View my bookings
@@ -286,7 +294,8 @@ const Navbar = () => {
                         </div> */}
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%] border border-[#ffff] border-b-[#EAEAEA]">
                           <Link
-                            href="https://dashboard.hackthejobs.com/settings"
+                            // href="https://dashboard.hackthejobs.com/settings"
+                            href={`${baseUrl}/settings`}
                             onClick={() => setDropdown(false)}
                           >
                             View profile
@@ -360,7 +369,8 @@ const Navbar = () => {
               ) : (
                 <div className={Classes.btnFlex}>
                   <a
-                    href="https://dashboard.hackthejobs.com/auth/login"
+                    // href="https://dashboard.hackthejobs.com/auth/login"
+                    href={`${baseUrl}/auth/login`}
                     target="_blank"
                   >
                     <button>
@@ -370,7 +380,8 @@ const Navbar = () => {
                     </button>
                   </a>
                   <a
-                    href="https://dashboard.hackthejobs.com/auth/signup"
+                    // href="https://dashboard.hackthejobs.com/auth/signup"
+                    href={`${baseUrl}/auth/signup`}
                     target="_blank"
                   >
                     <button>
