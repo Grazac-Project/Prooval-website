@@ -151,7 +151,7 @@ const spm = () => {
               <h1 className="font-bold w-[621px] xxl:w-[550px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[64px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] ">
                 Manage the next Top-Talents
               </h1>
-              <p className="font-regular text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8">
+              <p className="font-normal text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8">
                 Lead and shape the next generation of tech talent for the
                 future. Showcase your in-depth knowledge by scaling a team of
                 entry-level tech fellows.
@@ -203,7 +203,7 @@ const spm = () => {
               height={32}
               className="mx-auto object-contain hidden sm:block"
             />
-            <p className="font-regular text-[12px] text-[#414449]  sm:text-[6.87px] leading-[13px] sm:leading-[7.44px] gap-2 mx-auto text-center text-[#121927]">
+            <p className="font-normal text-[12px] text-[#414449]  sm:text-[6.87px] leading-[13px] sm:leading-[7.44px] gap-2 mx-auto text-center text-[#121927]">
               Product Designer
             </p>
           </div>
@@ -228,7 +228,7 @@ const spm = () => {
               height={32}
               className="mx-auto object-contain hidden sm:block"
             />
-            <p className="font-regular text-[14px] sm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 sm:leading-[11.54px]">
+            <p className="font-normal text-[14px] sm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 sm:leading-[11.54px]">
               Product Manager
             </p>
           </div>
@@ -253,7 +253,7 @@ const spm = () => {
               height={32}
               className="mx-auto object-contain hidden sm:block"
             />
-            <p className="font-regular  text-[14px] sm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 sm:leading-[11.93px]">
+            <p className="font-normal  text-[14px] sm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 sm:leading-[11.93px]">
               Back-End Developer
             </p>
           </div>
@@ -279,7 +279,7 @@ const spm = () => {
               height={32}
               className="mx-auto object-contain hidden sm:block"
             />
-            <p className="font-regular  text-[14px] sm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 sm:leading-[11.93px]">
+            <p className="font-normal  text-[14px] sm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 sm:leading-[11.93px]">
               Front-End Developer
             </p>
           </div>
@@ -532,7 +532,7 @@ const spm = () => {
           <h2 className="font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3">
             Why become a Senior PM
           </h2>
-          <h3 className="font-regular text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]">
+          <h3 className="font-normal text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]">
             Hackthejobs offers you a unique opportunity to make an impact on the
             future of tech in Africa.
           </h3>
@@ -586,7 +586,7 @@ const spm = () => {
                   <h5 className="pt-[25px] pb-[14px] font-medium text-[20px] leading-[30px] text-[#121927]">
                     {cardValue.heading}
                   </h5>
-                  <p className="font-regular text-[14px] leading-[20px] text-[#4F4F4F]">
+                  <p className="font-normal text-[14px] leading-[20px] text-[#4F4F4F]">
                     {cardValue.text}
                   </p>
                 </div>
@@ -636,7 +636,7 @@ const spm = () => {
                 </li>
                 {/* </div> */}
               </ul>
-              {/* <p className="font-regular text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4">
+              {/* <p className="font-normal text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4">
                 Together, let's build a brighter future for the tech workforce.
               </p> */}
               {/* <button className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
@@ -660,7 +660,7 @@ const spm = () => {
               <h4 className="font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#fff] mx-auto text-center">
                 Have a Question?
               </h4>
-              <p className="font-regular text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4">
+              <p className="font-normal text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4">
                 Do you have any enquiries or feedback for the team?
               </p>
               <button

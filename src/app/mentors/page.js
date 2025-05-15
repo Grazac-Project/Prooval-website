@@ -136,7 +136,7 @@ const Page = () => {
           <h1 className="font-medium w-[894px] lgx:w-[90%] sm:w-[90%] xm:w-[98%] text-[56px] sm:text-[40px] mx-auto leading-[56px] sm:leading-[48px] tracking-[-2%] text-[#fff] mb-[24px]">
             World class mentorship at your finger tips
           </h1>
-          <p className="font-regular px-[10px] w-[768px] lgx:w-[75%] md:w-[85%] sm:w-[90%] xm:w-[98%] text-[20px] sm:text-[16px] mx-auto leading-[30px] sm:leading-[24px] text-[#EAECF0] mb-[24px]">
+          <p className="font-normal px-[10px] w-[768px] lgx:w-[75%] md:w-[85%] sm:w-[90%] xm:w-[98%] text-[20px] sm:text-[16px] mx-auto leading-[30px] sm:leading-[24px] text-[#EAECF0] mb-[24px]">
             Easily connect with exceptional mentors from various backgrounds and
             openly discuss your career challenges with them.
           </p>
@@ -151,7 +151,7 @@ const Page = () => {
           <input
             type="search"
             placeholder="Search by name, company, role"
-            className=" font-regular flex items-center w-[100%] rounded-[8px] border-[1px] border-[#D0D5DD] pl-[44px] pr-[14px] py-[8px] text-[16px] text-[#667085] leading-[24px] shadow-footerInput"
+            className=" font-normal flex items-center w-[100%] rounded-[8px] border-[1px] border-[#D0D5DD] pl-[44px] pr-[14px] py-[8px] text-[16px] text-[#667085] leading-[24px] shadow-footerInput"
             value={inputText}
             onChange={handleChange}
           />
@@ -185,10 +185,10 @@ const Page = () => {
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                       {listOfMentor?.firstName} {listOfMentor?.lastName}
                     </h4>
-                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
+                    <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
-                    <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
+                    <p className="font-normal w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>
                   </div>
@@ -212,10 +212,10 @@ const Page = () => {
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                       {listOfMentor?.firstName} {listOfMentor?.lastName}
                     </h4>
-                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
+                    <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
-                    <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
+                    <p className="font-normal w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>
                   </div>
@@ -233,7 +233,7 @@ const Page = () => {
               height={313}
               className="mx-auto "
             />
-            <p className="font-regular text-[20px] text-[#787676] leading-[30px] text-center">
+            <p className="font-normal text-[20px] text-[#787676] leading-[30px] text-center">
               Search not found
             </p>
           </div>

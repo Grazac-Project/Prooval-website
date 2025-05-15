@@ -29,7 +29,7 @@ const FaqModal = ({ modalClose }) => {
           <RiVerifiedBadgeFill className="text-[#13AD61] text-[24px]" />
           <h4 className=" font-bold text-[24px] leading-[36px] text-[#1C1C1C] text-center"></h4>
         </div>
-        <p className="font-regular text-[20px] sm:text-[16px] leading-[30px] sm:leading-[19.2px] text-[#667085] text-center">
+        <p className="font-normal text-[20px] sm:text-[16px] leading-[30px] sm:leading-[19.2px] text-[#667085] text-center">
           Your message has been sent
         </p>
         <span

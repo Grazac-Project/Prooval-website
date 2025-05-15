@@ -19,7 +19,7 @@ const AuthSide = () => {
       <h2 className="w-[608px] text-[60px] leading-[72px] font-medium pb-[24px] pt-[468px] z-100 tracking-tighter">
         Skill Up, Connect, and Hack Your Success!
       </h2>
-      <p className="text-[20px] w-[618px] leading-[28px] font-regular">
+      <p className="text-[20px] w-[618px] leading-[28px] font-normal">
         Embark on a transformative journey with Hackthejobs, where you can
         unlock your full potential through curated learning paths.
       </p>

@@ -38,7 +38,7 @@ const Signup = () => {
             <h1 className="text-[32px] font-medium leading-[41.6px] text-[#2A2A2A] mb-2 xm:mt-6 text-center">
               Sign up
             </h1>
-            <p className="font-regular text-[16px] leading-[20.8px] text-[#828282] mb-[32px] text-center">
+            <p className="font-normal text-[16px] leading-[20.8px] text-[#828282] mb-[32px] text-center">
               We are happy to have you. Select your account type
             </p>
             <div>
@@ -149,7 +149,7 @@ const Signup = () => {
                 </div>
               </a>
             </div>
-            <p className="font-regular leading-[20.8px] text-4 text-[#828282] text-center mt-[32px] ">
+            <p className="font-normal leading-[20.8px] text-4 text-[#828282] text-center mt-[32px] ">
               Already have an account?{" "}
               <Link href="/login" className="text-[#1453FF] cursor-pointer">
                 Login

@@ -186,7 +186,7 @@ const mentor = () => {
               <h1 className="font-bold text-[64px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[32px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[41px]  text-[#121927] ">
                 Make Impact on the Next Generation
               </h1>
-              <p className="font-regular text-[16px] lg:text-[16px] leading-6 text-[#727272]  pt-8 sm:pt-4 pb-8">
+              <p className="font-normal text-[16px] lg:text-[16px] leading-6 text-[#727272]  pt-8 sm:pt-4 pb-8">
                 Share your expertise, guide aspiring talents, and help shape the
                 future of the tech industry.
               </p>
@@ -478,7 +478,7 @@ const mentor = () => {
           <h2 className="font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3">
             Why Mentor at Hackthejobs
           </h2>
-          <h3 className="font-regular text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]">
+          <h3 className="font-normal text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]">
             Hackthejobs offers you a unique opportunity to make an impact on the
             future of tech in Africa.
           </h3>
@@ -508,7 +508,7 @@ const mentor = () => {
             <h4 className="w-[288px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] xm:w-[231px] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] xm:text-[32px] leading-[52.8px] xm:leading-[35.2px] text-[#FBFCFD] pb-[17px]">
               Become a mentor with these four easy steps
             </h4>
-            {/* <p className="w-[298px] 1xl:w-[262px] lg:w-[250px] md:w-[220px] sm:w-[100%] font-regular text-[16px] leading-[22px] text-[#EDEDED]">
+            {/* <p className="w-[298px] 1xl:w-[262px] lg:w-[250px] md:w-[220px] sm:w-[100%] font-normal text-[16px] leading-[22px] text-[#EDEDED]">
               Follow these simple steps to get onboarded into Hackthejobs right
               away! Our onboarding procedure is as basic as it gets!
             </p> */}
@@ -540,7 +540,7 @@ const mentor = () => {
                   <h5 className="pt-[25px] pb-[14px] font-medium text-[20px] leading-[30px] text-[#121927]">
                     {cardValue.heading}
                   </h5>
-                  <p className="font-regular text-[14px] leading-[20px] text-[#4F4F4F]">
+                  <p className="font-normal text-[14px] leading-[20px] text-[#4F4F4F]">
                     {cardValue.text}
                   </p>
                 </div>
@@ -553,7 +553,7 @@ const mentor = () => {
             <h3 className="font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[580px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center">
               We have a team of Top-Rated Mentors
             </h3>
-            <p className="font-regular text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[580px] md:w-[510px] sm:hidden">
+            <p className="font-normal text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[580px] md:w-[510px] sm:hidden">
               Easily connect with exceptional mentors from various backgrounds
               and openly discuss your career challenges with them.
             </p>
@@ -585,10 +585,10 @@ const mentor = () => {
                   <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                     {listOfMentor?.firstName} {listOfMentor?.lastName}
                   </h4>
-                  <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
+                  <h5 className="font-normal text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
                     {listOfMentor?.role}
                   </h5>
-                  <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
+                  <p className="font-normal w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
                     {listOfMentor?.company}
                   </p>
                 </div>
@@ -624,10 +624,10 @@ const mentor = () => {
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                       {listOfMentor?.firstName} {listOfMentor?.lastName}
                     </h4>
-                    <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap ">
+                    <h5 className="font-normal text-[16px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap ">
                       {listOfMentor?.role}
                     </h5>
-                    <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
+                    <p className="font-normal w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>
                   </div>
@@ -658,10 +658,10 @@ const mentor = () => {
                 <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                   {listOfMentor?.firstName} {listOfMentor?.lastName}
                 </h4>
-                <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
+                <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
                   {listOfMentor?.role}
                 </h5>
-                <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
+                <p className="font-normal w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
                   {listOfMentor?.company}
                 </p>
               </div>
@@ -694,10 +694,10 @@ const mentor = () => {
                   <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] ">
                     {listOfMentor.firstName} {listOfMentor.lastName}
                   </h4>
-                  <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
+                  <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
                     {listOfMentor.role}
                   </h5>
-                  <p className="font-regular w-[296px] xm:w-[100%] text-[16px] leading-[20.8px] text-[#667085]">
+                  <p className="font-normal w-[296px] xm:w-[100%] text-[16px] leading-[20.8px] text-[#667085]">
                     {listOfMentor.company}
                   </p>
                 </div>
@@ -731,13 +731,13 @@ const mentor = () => {
                   <div key={index} className="w-[100%] rounded-[24px]">
                     <div className="bg-[#121927] flex sm:flex-col justify-between relative rounded-[24px] ">
                       <div className="w-[800px] 1xl:w-[680px] xxl:w-[610px] lgx:w-[570px] lg:w-[470px] md:w-[390px] sm:w-[100%] px-[64px] 1xl:px-[40px] lg:px-[20px] sm:px-[16px] py-[108px] sm:pt-[29.73px] sm:pb-[36.27px] sm:order-2">
-                        <h4 className="font-regular text-[32px] xxl:text-[30px] lgx:text-[26px] md:text-[24px] leading-[44px] xxl:leading-[40px] md:leading-[36px] tracking-[-2%] text-[#fff] w-[672px] 1xl:w-[640px] xxl:w-[600px] xl:w-[560px] lgx:w-[480px] lg:w-[450px] md:w-[350px] sm:w-[100%] mb-[32px] sm:mb-[24px]">
+                        <h4 className="font-normal text-[32px] xxl:text-[30px] lgx:text-[26px] md:text-[24px] leading-[44px] xxl:leading-[40px] md:leading-[36px] tracking-[-2%] text-[#fff] w-[672px] 1xl:w-[640px] xxl:w-[600px] xl:w-[560px] lgx:w-[480px] lg:w-[450px] md:w-[350px] sm:w-[100%] mb-[32px] sm:mb-[24px]">
                           {testimonial.text}
                         </h4>
                         <h5 className="font-medium  sm:w-[100%] text-[18px] leading-[28px] text-[#fff]">
                           {testimonial.name}
                         </h5>
-                        <p className="font-regular text-[16px] leading-[24px] text-[#BEBEBE] pb-[32px]">
+                        <p className="font-normal text-[16px] leading-[24px] text-[#BEBEBE] pb-[32px]">
                           {testimonial.position}
                         </p>
                         <div className="flex sm:justify-center gap-4">
@@ -821,7 +821,7 @@ const mentor = () => {
               <h4 className="font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#fff] mx-auto text-center">
                 Have a Question?
               </h4>
-              <p className="font-regular text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4">
+              <p className="font-normal text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4">
                 Do you have any enquiries or feedback for the team?
               </p>
               <button

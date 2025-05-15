@@ -43,7 +43,7 @@ const Modal = ({ modalClose }) => {
             We Received Your Request!
           </h4>
         </div>
-        <p className="font-regular text-[20px] sm:text-[16px] leading-[30px] sm:leading-[19.2px] text-[#667085] text-center">
+        <p className="font-normal text-[20px] sm:text-[16px] leading-[30px] sm:leading-[19.2px] text-[#667085] text-center">
           Thank you for filling out the "Hire a Talent" form on Hackthejobs! Our
           team will review your details and get back to you within 7-10 working
           days.

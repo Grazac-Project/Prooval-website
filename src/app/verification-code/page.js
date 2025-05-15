@@ -35,7 +35,7 @@ const Verification = () => {
         <h1 className="font-medium text-8 leading-[41.6px] text-[#2A2A2A] mt-[94px] md:mt-[25px] mb-2">
           Enter the code
         </h1>
-        <p className="font-regular text-4 leading-[20.8px] text-[#828282] mb-12 md:mb-8">
+        <p className="font-normal text-4 leading-[20.8px] text-[#828282] mb-12 md:mb-8">
           Enter verification code that was sent to{" "}
           <span className="text-[#2A2A2A]">olalekandaramola@gmail.com</span>{" "}
         </p>
@@ -52,7 +52,7 @@ const Verification = () => {
         <button className="bg-[#1453FF] text-[#fff] w-[100%] rounded-[4px] h-[48px] mt-[423px] md:mt-[260px] ">
           Verify email
         </button>
-        <p className="font-regular text-4 text-[#828282] leading-[20.8px] mt-4 text-center">
+        <p className="font-normal text-4 text-[#828282] leading-[20.8px] mt-4 text-center">
           Already have an account?{" "}
           <span className="text-[#1453FF] cursor-pointer">Login</span>
         </p>

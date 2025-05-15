@@ -132,7 +132,7 @@ const Form = () => {
         <h1 className="font-medium text-[48px] text-[#101828] leading-[44px] tracking-[-2%] text-center mt-[64px] mb-[20px]">
           Ready to hire? Fill this form
         </h1>
-        <p className="font-regular w-[92%] sm:w-[100%]  text-[20px] text-[#667085] text-center leading-[30px] mb-[64px] sm:mb-[24px] mx-auto">
+        <p className="font-normal w-[92%] sm:w-[100%]  text-[20px] text-[#667085] text-center leading-[30px] mb-[64px] sm:mb-[24px] mx-auto">
           Your input will help us understand your needs better. Once submitted,
           our team will review your details and reach out if there's a potential
           match for your required positions.
@@ -164,7 +164,7 @@ const Form = () => {
                 value={values.companyName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="font-regular w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput"
+                className="font-normal w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput"
               />
             </div>
             <div
@@ -189,7 +189,7 @@ const Form = () => {
                 value={values.companyLocation}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="font-regular w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput"
+                className="font-normal w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput"
               />
             </div>
           </div>
@@ -207,7 +207,7 @@ const Form = () => {
               >
                 {errors.role && touched.role ? errors.role : "Role needed"}
               </label>
-              <p className="font-regular w-[100%] h-[48px] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput">
+              <p className="font-normal w-[100%] h-[48px] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput">
                 {selectedRole.length > 0 ? "" : "Select Role"}
               </p>
               {showCheckbox ? (
@@ -231,7 +231,7 @@ const Form = () => {
                     />
                     <label
                       htmlFor="backend"
-                      className="font-regular text-[16px] leading-[20px] text-[#334155]"
+                      className="font-normal text-[16px] leading-[20px] text-[#334155]"
                     >
                       Back-end Developer
                     </label>
@@ -248,7 +248,7 @@ const Form = () => {
                     />
                     <label
                       htmlFor="frontend"
-                      className="font-regular text-[16px] leading-[20px] text-[#334155]"
+                      className="font-normal text-[16px] leading-[20px] text-[#334155]"
                     >
                       Front-end Developer
                     </label>
@@ -265,7 +265,7 @@ const Form = () => {
                     />
                     <label
                       htmlFor="MobileAppDeveloper"
-                      className="font-regular text-[16px] leading-[20px] text-[#334155]"
+                      className="font-normal text-[16px] leading-[20px] text-[#334155]"
                     >
                       Mobile App Developer
                     </label>
@@ -282,7 +282,7 @@ const Form = () => {
                     />
                     <label
                       htmlFor="ProductManager"
-                      className="font-regular text-[16px] leading-[20px] text-[#334155]"
+                      className="font-normal text-[16px] leading-[20px] text-[#334155]"
                     >
                       Product Manager
                     </label>
@@ -299,7 +299,7 @@ const Form = () => {
                     />
                     <label
                       htmlFor="ProductDesigner"
-                      className="font-regular text-[16px] leading-[20px] text-[#334155]"
+                      className="font-normal text-[16px] leading-[20px] text-[#334155]"
                     >
                       Product Designer
                     </label>
@@ -316,8 +316,8 @@ const Form = () => {
                   key={i}
                   className="flex items-center w-[24%] lgx:w-[32%] sm:w-[49%] mb-[5px] border-[1px] border-[#D0D5DD] rounded-[8px] shadow-footerInput px-[16px] md:px-[10px] py-[5px] xm:py-[4px]"
                 >
-                  {/* <p className='font-inter font-regular w-[216.25px] rounded-[8px] text-[16px] text-[#667085] leading-[24px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput'>{ele}</p> */}
-                  <p className="font-inter font-regular w-[100%]  text-[16px] sm:text-[14px] ssxm:text-[10px] text-[#667085] leading-[24px]">
+                  {/* <p className='font-inter font-normal w-[216.25px] rounded-[8px] text-[16px] text-[#667085] leading-[24px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput'>{ele}</p> */}
+                  <p className="font-inter font-normal w-[100%]  text-[16px] sm:text-[14px] ssxm:text-[10px] text-[#667085] leading-[24px]">
                     {ele}
                   </p>
                   <span
@@ -350,7 +350,7 @@ const Form = () => {
                 id="roleMode"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="font-regular w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput"
+                className="font-normal w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput"
               >
                 <option value="">Select Role Mode</option>
                 <option value="hybrid">Hybrid</option>
@@ -377,7 +377,7 @@ const Form = () => {
                 id="roleType"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="font-regular w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput"
+                className="font-normal w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput"
               >
                 <option value="">Select Role Type</option>
                 <option value="contract">Contract</option>
@@ -407,7 +407,7 @@ const Form = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="you@company.com"
-                className="font-regular w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput"
+                className="font-normal w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput"
               />
             </div>
             <div className="flex flex-col w-[48%] xm:w-[100%] gap-[6px] ">
@@ -426,7 +426,7 @@ const Form = () => {
                 id="experienceLevel"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="font-regular w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput"
+                className="font-normal w-[100%] text-[16px] leading-[24px] text-[#667085] rounded-[8px] px-[16px] py-[12px] border-[1px] border-[#D0D5DD] shadow-footerInput"
               >
                 <option value="">Select Experience Level</option>
                 <option value="senior">Senior</option>
@@ -458,7 +458,7 @@ const Form = () => {
               rows="5"
               cols="7"
               placeholder="Enter other requirements"
-              className="font-regular w-[100%] text-[16px] leading-[24px] border-[1px] border-[#D0D5DD] py-[10px] px-[14px] rounded-[8px]"
+              className="font-normal w-[100%] text-[16px] leading-[24px] border-[1px] border-[#D0D5DD] py-[10px] px-[14px] rounded-[8px]"
             ></textarea>
           </div>
           <button

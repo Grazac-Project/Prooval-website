@@ -85,7 +85,7 @@ const Landing = () => {
     speed: 900,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2000,
     centerMode: true,
     centerPadding: "15px",
@@ -195,7 +195,7 @@ const Landing = () => {
                   {color === "#F2C003" ? "mentorship" : "experience"}
                 </span>
               </h1>
-              <p className="font-regular text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8">
+              <p className="font-normal text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8">
                 We understand the challenges every talents face due to their
                 lack of quality mentorship and we have built hackthejobs to give
                 you the right mentorship and work experience to build your
@@ -231,10 +231,10 @@ const Landing = () => {
             </div>
           </div>
           <div
-            className={`z-[1] absolute w-[205px] lgx:w-[189px] sm:w-[117.32px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${
+            className={`z-[1] absolute w-[195px] lgx:w-[180px] sm:w-[117.32px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${
               load
-                ? "top-[120px] xxl:top-[120px] sm:top-[540px] xxm:top-[560px] sxm:top-[650px] right-[463px] xxl:right-[400px] xl:right-[390px] lgx:right-[350px] lg:right-[330px] md:right-[250px] sm:right-[350px] xm:right-[240px] xxm:right-[220px] sxm:right-[150px]"
-                : "top-[81px] 1xl:top-[60px] xxl:top-[70px] sm:top-[510px] xm:top-[560px] xxm:top-[570px] xxxm:top-[520px] xxxxm:top-[570px] sxm:top-[630px] right-[623px] 1xl:right-[520px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] xxxm:right-[280px] xxxxm:right-[250px] sxm:right-[200px]"
+                ? "top-[120px] xxl:top-[120px] sm:top-[540px] xxm:top-[560px] sxm:top-[650px] right-[463px] xxl:right-[400px] xl:right-[370px] lgx:right-[320px] lg:right-[330px] md:right-[250px] sm:right-[350px] xm:right-[240px] xxm:right-[220px] sxm:right-[150px]"
+                : "top-[81px] 1xl:top-[60px] xxl:top-[70px] sm:top-[510px] xm:top-[560px] xxm:top-[570px] xxxm:top-[520px] xxxxm:top-[570px] sxm:top-[630px] right-[623px] 1xl:right-[520px] xxl:right-[470px] xl:right-[440px] lgx:right-[370px] lg:right-[380px] md:right-[280px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] xxxm:right-[280px] xxxxm:right-[250px] sxm:right-[200px]"
             }`}
           >
             <Image
@@ -251,7 +251,7 @@ const Landing = () => {
               height={13}
               className="mx-auto object-contain hidden sm:block"
             />
-            <p className="font-regular text-[12px] text-[#414449] pt-[12px] sm:pt-[6px] sm:text-[6.87px] leading-[13px] sm:leading-[7.44px] w-[169px] sm:w-[96.72px] mx-auto text-center text-[#121927]">
+            <p className="font-normal text-[12px] text-[#414449] pt-[12px] sm:pt-[6px] sm:text-[6.87px] leading-[13px] sm:leading-[7.44px] w-[169px] sm:w-[96.72px] mx-auto text-center text-[#121927]">
               More than +5,000 Satisfied users across the globe
             </p>
           </div>
@@ -276,7 +276,7 @@ const Landing = () => {
               alt="course"
               className="object-contain hidden sm:block"
             />
-            <p className="font-regular text-[14px] sm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 sm:leading-[11.54px] w-[54px] sm:w-[30.9px]">
+            <p className="font-normal text-[14px] sm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 sm:leading-[11.54px] w-[54px] sm:w-[30.9px]">
               +46 <span className="text-[#8B8B8B]">Teams</span>
             </p>
           </div>
@@ -284,7 +284,7 @@ const Landing = () => {
             className={` absolute bg-[#fff] flex justify-center gap-[16px] lg:gap-[8px] sm:gap-[1.72px] sm:items-center rounded-[4px] w-[146px] lgx:w-[126px] sm:w-[83.55px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${
               load
                 ? "bottom-[232px] xxl:bottom-[200px] lgx:bottom-[140px] md:bottom-[170px] sm:bottom-[310px] xm:bottom-[210px] sxm:bottom-[150px] right-[513px] xxl:right-[450px] xl:right-[470px] lgx:right-[370px] lg:right-[340px] md:right-[290px] sm:right-[440px] xm:right-[290px] xxm:right-[260px] xxxm:right-[270px] xxxxm:right-[260px] ssxm:right-[240px] sxm:right-[200px]"
-                : "bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[280px] xm:bottom-[180px] sxm:bottom-[120px] right-[613px] 1xl:right-[540px] xxl:right-[520px] xl:right-[500px] lgx:right-[400px] lg:right-[390px] md:right-[320px] sm:right-[470px] xm:right-[320px] xxm:right-[280px] xxxm:right-[300px] xxxxm:right-[280px] ssxm:right-[260px] sxm:right-[220px]"
+                : "bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[280px] xm:bottom-[180px] sxm:bottom-[120px] right-[613px] 1xl:right-[540px] xxl:right-[480px] xl:right-[500px] lgx:right-[400px] lg:right-[390px] md:right-[320px] sm:right-[470px] xm:right-[320px] xxm:right-[280px] xxxm:right-[300px] xxxxm:right-[280px] ssxm:right-[260px] sxm:right-[220px]"
             }`}
           >
             <Image
@@ -301,7 +301,7 @@ const Landing = () => {
               alt="mentors"
               className="object-contain hidden sm:block"
             />
-            <p className="font-regular w-[58px] sm:w-[33.19px] text-[14px] sm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 sm:leading-[11.93px]">
+            <p className="font-normal w-[58px] sm:w-[33.19px] text-[14px] sm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 sm:leading-[11.93px]">
               +250 <span className="text-[#8B8B8B]">Mentors</span>
             </p>
           </div>
@@ -326,7 +326,7 @@ const Landing = () => {
               alt="live"
               className="object-contain hidden sm:block"
             />
-            <p className="w-[84px] sm:w-[48.07px] font-regular text-[14px] sm:text-[8.01px] text-[#414449] leading-[18.96px] lgx:leading-4 sm:leading-[10.85px]">
+            <p className="w-[84px] sm:w-[48.07px] font-normal text-[14px] sm:text-[8.01px] text-[#414449] leading-[18.96px] lgx:leading-4 sm:leading-[10.85px]">
               +50
               <br /> <span className="text-[#8B8B8B]">Live projects</span>
             </p>
@@ -579,7 +579,7 @@ const Landing = () => {
           <h2 className="font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3">
             What you get from Hackthejobs.
           </h2>
-          <h3 className="font-regular text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]">
+          <h3 className="font-normal text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]">
             Access industry experts in your field you need to attract global
             opportunities.
           </h3>
@@ -609,7 +609,7 @@ const Landing = () => {
             <h4 className="w-[288px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] xm:w-[231px] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] xm:text-[32px] leading-[52.8px] xm:leading-[35.2px] text-[#FBFCFD] pb-[17px]">
               Get Onboarded in Four Easy Steps!
             </h4>
-            <p className="w-[298px] 1xl:w-[262px] lg:w-[250px] md:w-[220px] sm:w-[100%] font-regular text-[16px] leading-[22px] text-[#EDEDED]">
+            <p className="w-[298px] 1xl:w-[262px] lg:w-[250px] md:w-[220px] sm:w-[100%] font-normal text-[16px] leading-[22px] text-[#EDEDED]">
               Follow these simple steps to join our talents on hackthejobs right
               away.
             </p>
@@ -652,7 +652,7 @@ const Landing = () => {
                     {cardValue.heading}
                     {arr.length - 1 === i? <span className="text-[!12px] text-[#888888] font-[350] leading-[150%] tracking-[0%]">{cardValue.headingSpan}</span>: ''}
                   </h5> */}
-                  <p className="font-regular text-[14px] leading-[20px] text-[#4F4F4F]">
+                  <p className="font-normal text-[14px] leading-[20px] text-[#4F4F4F]">
                     {cardValue.text}
                   </p>
                 </div>
@@ -662,10 +662,10 @@ const Landing = () => {
         </section>
         <section className="font-onest flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
           <div>
-            <h3 className="font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[560px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center">
+            <h3 className="font-semibold w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[560px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center">
               We’ve got outstanding mentors to guide you.
             </h3>
-            <p className="font-regular text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[560px] md:w-[510px] sm:hidden">
+            <p className="font-normal text-[20px] leading-[30px] text-[#4f4f4f] w-[768px] lgx:w-[670px] lg:w-[560px] md:w-[510px] sm:hidden">
               We are not leaving you alone on this journey, connect with
               exceptional mentors from various backgrounds and openly discuss
               your career challenges and blockers with them.
@@ -694,10 +694,10 @@ const Landing = () => {
                   <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                     {listOfMentor?.firstName} {listOfMentor?.lastName}
                   </h4>
-                  <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
+                  <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
                     {listOfMentor?.role}
                   </h5>
-                  <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
+                  <p className="font-normal w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
                     {listOfMentor?.company}
                   </p>
                 </div>
@@ -730,10 +730,10 @@ const Landing = () => {
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] ">
                       {listOfMentor.firstName} {listOfMentor.lastName}
                     </h4>
-                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
+                    <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
                       {listOfMentor.role}
                     </h5>
-                    <p className="font-regular w-[296px] xm:w-[100%] text-[16px] leading-[20.8px] text-[#667085]">
+                    <p className="font-normal w-[296px] xm:w-[100%] text-[16px] leading-[20.8px] text-[#667085]">
                       {listOfMentor.company}
                     </p>
                   </div>
@@ -767,10 +767,10 @@ const Landing = () => {
                   <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                     {listOfMentor?.firstName} {listOfMentor?.lastName}
                   </h4>
-                  <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
+                  <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                     {listOfMentor?.role}
                   </h5>
-                  <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
+                  <p className="font-normal w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                     {listOfMentor?.company}
                   </p>
                 </div>
@@ -806,10 +806,10 @@ const Landing = () => {
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] ">
                       {listOfMentor?.firstName} {listOfMentor?.lastName}
                     </h4>
-                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
+                    <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
-                    <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
+                    <p className="font-normal w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>
                   </div>
@@ -836,21 +836,21 @@ const Landing = () => {
             />
           </div>
           <div className="font-onest ">
-            <h4 className="font-medium text-[48px] xl:text-[44px] lgx:text-[40px] lg:text-[35px] md:text-[30px] leading-[52.8px] lgx:leading-[45px] lg:leading-[40px] text-[#121927] mb-[40px] sm:mb-[16px] w-[596px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] sm:text-center sm:mt-[16px]">
+            <h4 className="font-semibold text-[48px] xl:text-[44px] lgx:text-[40px] lg:text-[35px] md:text-[30px] leading-[52.8px] lgx:leading-[45px] lg:leading-[40px] text-[#121927] mb-[40px] sm:mb-[16px] w-[596px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] sm:text-center sm:mt-[16px]">
               Bootcamps alone are never enough!
             </h4>
-            <p className="font-regular text-[18px] sm:text-center lgx:text-[16px] md  :text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
+            <p className="font-normal text-[18px] sm:text-center lgx:text-[16px] md  :text-[14px] leading-[27px] lgx:leading-[24px] text-[#4f4f4f] mb-[40px] sm:mb-[32px] w-[629px] 1xl:w-[580px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
               Our mission is to equip individuals with the right mentorship and
               experience needed to advance their tech careers. We are dedicated
               to building a supportive community that promotes growth and
               encourages collaboration.
             </p>
-            <div className="font-onest text-[#1453FF] text-center flex  sm:items-center gap-[16px]">
+            <div className="font-onest text-[#1453FF] text-center flex sm:justify-center  sm:items-center gap-[16px]">
               {/* <div className="w-[192px] 1xl:w-[170px] xl:w-[150px] lgx:w-[130px] lg:w-[110px]">
                 <h5 className="font-medium text-[43.64px] xl:text-[38px] lgx:text-[34px] leading-[52.36px] xl:leading-[48px] lgx:leading-[40px] tracking-[-2%]">
                   400+
                 </h5>
-                <p className="font-regular text-[18px] xl:text-[16px] lgx:text-[14px] lg:text-[12px] leading-[28px] text-[#121927]">
+                <p className="font-normal text-[18px] xl:text-[16px] lgx:text-[14px] lg:text-[12px] leading-[28px] text-[#121927]">
                   Projects completed
                 </p>
               </div>
@@ -858,7 +858,7 @@ const Landing = () => {
                 <h5 className="font-medium text-[43.64px] xl:text-[38px] lgx:text-[34px] leading-[52.36px] xl:leading-[48px] lgx:leading-[40px] tracking-[-2%]">
                   70%
                 </h5>
-                <p className="font-regular text-[18px] lgx:text-[14px] lg:text-[12px] leading-[28px] text-[#121927]">
+                <p className="font-normal text-[18px] lgx:text-[14px] lg:text-[12px] leading-[28px] text-[#121927]">
                   Employment rate
                 </p>
               </div>
@@ -866,7 +866,7 @@ const Landing = () => {
                 <h5 className="font-medium text-[43.64px] xl:text-[38px] lgx:text-[34px] leading-[52.36px] xl:leading-[48px] lgx:leading-[40px] tracking-[-2%]">
                   3000+
                 </h5>
-                <p className="font-regular text-[18px] lgx:text-[14px] lg:text-[12px] leading-[28px] text-[#121927]">
+                <p className="font-normal text-[18px] lgx:text-[14px] lg:text-[12px] leading-[28px] text-[#121927]">
                   Trained
                 </p>
               </div> */}
@@ -887,7 +887,7 @@ const Landing = () => {
           </div>
         </section>
         <section className="font-onest px-[80px] xl:px-[25px] sm:px-[16px] py-[84px] sm:py-[78.95px] relative">
-          <h4 className="font-medium text-[#121927] text-[48px] lgx:text-[38px] sm:text-[36px] leading-[52.8px] sm:leading-[39.6px] w-[696px] lgx:w-[550px] sm:w-[93%] mb-[62px] mx-auto text-center">
+          <h4 className="font-semibold text-[#121927] text-[48px] lgx:text-[38px] sm:text-[36px] leading-[52.8px] sm:leading-[39.6px] w-[696px] lgx:w-[550px] sm:w-[93%] mb-[62px] mx-auto text-center">
             Let our reviews do the talking
           </h4>
           {/* <div className='w-[100%] rounded-[24px]'> */}
@@ -904,13 +904,13 @@ const Landing = () => {
                   <div key={index} className="w-[100%] rounded-[24px]">
                     <div className="bg-[#121927] flex sm:flex-col justify-between relative rounded-[24px] ">
                       <div className="w-[800px] 1xl:w-[680px] xxl:w-[610px] lgx:w-[570px] lg:w-[470px] md:w-[390px] sm:w-[100%] px-[64px] 1xl:px-[40px] lg:px-[20px] sm:px-[16px] py-[108px] sm:pt-[29.73px] sm:pb-[36.27px] sm:order-2">
-                        <h4 className="font-regular text-[32px] xxl:text-[30px] lgx:text-[26px] md:text-[24px] leading-[44px] xxl:leading-[40px] md:leading-[36px] tracking-[-2%] text-[#fff] w-[672px] 1xl:w-[640px] xxl:w-[600px] xl:w-[560px] lgx:w-[480px] lg:w-[450px] md:w-[350px] sm:w-[100%] mb-[32px] sm:mb-[24px]">
+                        <h4 className="font-normal text-[32px] xxl:text-[30px] lgx:text-[26px] md:text-[24px] leading-[44px] xxl:leading-[40px] md:leading-[36px] tracking-[-2%] text-[#fff] w-[672px] 1xl:w-[640px] xxl:w-[600px] xl:w-[560px] lgx:w-[480px] lg:w-[450px] md:w-[350px] sm:w-[100%] mb-[32px] sm:mb-[24px]">
                           {testimonial.text}
                         </h4>
                         <h5 className="font-medium  sm:w-[100%] text-[18px] leading-[28px] text-[#fff]">
                           {testimonial.name}
                         </h5>
-                        <p className="font-regular text-[16px] leading-[24px] text-[#BEBEBE] pb-[32px]">
+                        <p className="font-normal text-[16px] leading-[24px] text-[#BEBEBE] pb-[32px]">
                           {testimonial.position}
                         </p>
                         <div className="flex sm:justify-center gap-4">
@@ -992,7 +992,7 @@ const Landing = () => {
             <h4 className="font-medium text-[48px] xxl:text-[40px] lgx:text-[36px] lg:text-[34px] sm:text-[32px] leading-[52.8px] xxl:leading-[46px] lgx:leading-[40px] sm:leading-[35.2px] text-[#121927] pb-[32px] sm:pb-[24px] sm:pt-[32px] w-[592px] xxl:w-[500px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
               Our Resources
             </h4>
-            <p className="w-[589px] xxl:w-[500px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] font-regular text-[16px] lgx:text-[14px] leading-[24px] lgx:leading-[20px] text-[#333333] pb-[32px] sm:pb-[24px]">
+            <p className="w-[589px] xxl:w-[500px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] font-normal text-[16px] lgx:text-[14px] leading-[24px] lgx:leading-[20px] text-[#333333] pb-[32px] sm:pb-[24px]">
               We carefully curate vital resources to empower you with the latest
               information in the tech industry. Our resources are designed to
               get you prepped for your technical job interviews, ensuring a
@@ -1026,7 +1026,7 @@ const Landing = () => {
               className="lgx: w-[450px] lg:m-auto"
             />
             <div className="w-[56%] lg:w-[95%] lg:m-auto lg:text-center lg:mt-[32px]">
-              <h4 className=" font-medium text-[48px] lg:sm:text-[32px] leading-[52.8px] lgx:leading-[48px] sm:leading-[35.2px] text-[#121927]">
+              <h4 className=" font-semibold text-[48px] lg:sm:text-[32px] leading-[52.8px] lgx:leading-[48px] sm:leading-[35.2px] text-[#121927]">
                 Hire from the top 10% most proficient talents in the world
               </h4>
               <p className="  xl:w-auto text-[16px] leading-[24px] text-[#787676] my-[32px] lgx:my-[26px] sm:my-[16px] ">
@@ -1053,7 +1053,7 @@ const Landing = () => {
               <h4 className="font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#fff] mx-auto text-center">
                 Have a Question?
               </h4>
-              <p className="font-regular text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4">
+              <p className="font-normal text-[16px] leading-[24px] sm:leading-[19.2px] text-center text-[#FAFAFA] py-2 sm:py-4">
                 Do you have any enquiries or feedback for the team?
               </p>
               <button

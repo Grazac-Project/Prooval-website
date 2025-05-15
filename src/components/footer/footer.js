@@ -92,48 +92,48 @@ const Footer = () => {
 
           <ul className="flex xm:flex-col gap-[27px] xm:gap-[16px] pt-[32px]">
             {/* <Link href="/">
-              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 Home
               </li>
             </Link> */}
             {/* <Link href="/about-us"> */}
             <Link href="/about-us">
-              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 About
               </li>
             </Link>
             <Link href="/faq">
-              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 FAQ
               </li>
             </Link>
             <Link href="/donation">
-              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 Donation
               </li>
             </Link>
             <Link href="/mentor">
-              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 Mentor
               </li>
             </Link>{" "}
             <Link href="/spm">
-              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 PM
               </li>
             </Link>
             {/* <Link href="/hire">
-              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
             Hire
               </li>
             </Link> */}
             <Link href="/terms">
-              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 Terms
               </li>
             </Link>
             <Link href="/privacy">
-              <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
+              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
                 Privacy
               </li>
             </Link>
@@ -161,8 +161,8 @@ const Footer = () => {
             Stay updated
           </h5>
           {/* <form className="flex xm:block gap-[6px]" onSubmit={handleSubmit}>
-            <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" />
-            <input type="text" id='email' placeholder="Enter your email" value={values.email} onChange={handleChange} onBlur={handleBlur} className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-[footerInput]" />
+            <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] py-[10px] md:py-[6px] font-normal text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" />
+            <input type="text" id='email' placeholder="Enter your email" value={values.email} onChange={handleChange} onBlur={handleBlur} className="w-[208px] md:w-[150px] xm:w-[100%] xm:mb-[8px] px-[14px] py-[10px] md:py-[6px] font-normal text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-[footerInput]" />
             <button type="submit" disabled={isSubmitting} className="disabled:opacity-[35%] w-[135.93px] xm:w-[100%] h-[44px] rounded-[6.29px] px-[31.43px] py-[15.71px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center">Subscribe</button>
           </form> */}
           {errorResponse && <p className="text-[#fc8181]">{errorResponse}</p>}
@@ -171,7 +171,7 @@ const Footer = () => {
             onSubmit={handleSubmit}
           >
             <div className=" xm:mb-[8px] py-[0px]">
-              {/* <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[100%] md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" /> */}
+              {/* <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[100%] md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-normal text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" /> */}
               <input
                 type="text"
                 id="fullName"
@@ -179,7 +179,7 @@ const Footer = () => {
                 value={values.fullName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="font-inter w-[208px] h-[44px] placeholder:overflow-visible lg:w-[150px] md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD]"
+                className="font-inter w-[208px] h-[44px] placeholder:overflow-visible lg:w-[150px] md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-normal text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD]"
               />
               {errors.fullName && touched.fullName && (
                 <p className="text-[#fc8181]">{errors.fullName}</p>
@@ -193,7 +193,7 @@ const Footer = () => {
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className="font-inter overflow-visible w-[208px] h-[44px] placeholder:overflow-visible lg:w-[150px] md:w-[150px] xm:w-[100%] p-[14px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
+                className="font-inter overflow-visible w-[208px] h-[44px] placeholder:overflow-visible lg:w-[150px] md:w-[150px] xm:w-[100%] p-[14px] font-normal text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
               />
               {errors.email && touched.email && (
                 <p className="text-[#fc8181]">{errors.email}</p>
@@ -220,7 +220,7 @@ const Footer = () => {
           </form>
         </div>
       </div>
-      <h6 className="font-regular text-[16px] leading-[20.8px] text-center xm:text-start text-[#333333] border-[#EAECF0] border-t-[1px] pt-[32px] pb-[48px] md:mt-[40px] sm:mt-[0px]">
+      <h6 className="font-normal text-[16px] leading-[20.8px] text-center xm:text-start text-[#333333] border-[#EAECF0] border-t-[1px] pt-[32px] pb-[48px] md:mt-[40px] sm:mt-[0px]">
         &copy; 2024 Hackthejobs. All rights reserved.
       </h6>
     </footer>

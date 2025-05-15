@@ -189,7 +189,7 @@ const MentorDetails = () => {
                       className="w-[164px] h-[164px] object-cover rounded-[50%]"
                     />
                     <div className="flex flex-col md:justify-center md:text-center md:items-center gap-2">
-                      <h2 className="font-medium text-[18px] text-[#101828] leading-[25.62px] ">
+                      <h2 className="font-medium text-[18px] text-[#101828] leading-[25.62px]">
                         {mentorData?.mentor?.firstName}{" "}
                         {mentorData?.mentor?.lastName}
                       </h2>
@@ -203,7 +203,7 @@ const MentorDetails = () => {
                       >
                         Book Mentor
                       </button>
-                      <div className="flex justify-start md:justify-center gap-2 align-center">
+                      <div className="flex justify-start md:justify-center gap-2 align-center mt-0 sm:mt-6">
                         <button
                           className={` text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] sxm:max-w-[50%] h-[35.6px] flex justify-center items-center gap-1 `}
                         >
@@ -307,7 +307,7 @@ const MentorDetails = () => {
                       {mentorData?.mentor?.skills?.map((element, i) => (
                         <div
                           key={i}
-                          className="h-6 min-w-[83px] bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px] px-1"
+                          className="h-6 w-fit bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px] p-3"
                         >
                           <span>{element}</span>
                         </div>
@@ -322,13 +322,13 @@ const MentorDetails = () => {
                       <div className="h-[45px] px-3 w-full bg-[#ffff] border border-[#EAEAEA]  text-[#344054] rounded-lg flex justify-between items-center text-[10px] leading-[18px]">
                         <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F]">
                           {truncateString(
-                            mentorData?.availability?.bookingDetails.title
+                            mentorData?.availability?.bookingDetails?.title
                           )}
                         </h5>
                         <span className="text-[#4F4F4F] text-[12px] leading-[140%] font-medium  ">
                           {
                             mentorData?.availability?.bookingDetails
-                              .sessionDuration
+                              ?.sessionDuration
                           }{" "}
                           Mins
                         </span>
@@ -357,7 +357,7 @@ const MentorDetails = () => {
                 <div className="w-[55%] md:w-full ">
                   <div className=" border border-[#F2F2F7] border-b-[#EAEAEA]  py-6 md:py-4 ">
                     <div className="flex justify-between items-center border border-[#fff] border-b-[#EAEAEA] mx-12 md:mx-4 py-[8.5px]  ">
-                      <h4 className="text-[12px] leading-[140%] font-medium mb-2">
+                      <h4 className="text-[12px] leading-[140%] font-medium">
                         About
                       </h4>
                       <div className="flex items-center gap-2 ">
@@ -368,8 +368,8 @@ const MentorDetails = () => {
                                 key={i}
                                 src="/rate.svg"
                                 alt="star"
-                                width={27}
-                                height={27}
+                                width={16}
+                                height={16}
                                 className=""
                               />
                             ) : (
@@ -377,18 +377,18 @@ const MentorDetails = () => {
                                 key={i}
                                 src="/rate2.svg"
                                 alt="star"
-                                width={27}
-                                height={27}
+                                width={16}
+                                height={16}
                                 className=""
                               />
                             )
                           )}
                         </div>
                         <div className="flex items-center gap-2">
-                          <h4 className="text-[14px] leading-[140%] font-inter font-bold text-[#333333] ">
+                          <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
                             {mentorData.averageRating || 0}
                           </h4>
-                          <p className=" text-[10px] leading-[140%] font-inter font-bold text-[#888888] ">
+                          <p className=" text-[10px] leading-[140%] font-inter font-normal text-[#888888] ">
                             {mentorData?.reviews?.length || "No"} reviews
                           </p>
                         </div>

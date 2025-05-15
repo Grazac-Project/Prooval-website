@@ -42,7 +42,7 @@ const Modal = ({ close }) => {
             Thank you!
           </h4>
         </div>
-        <p className="font-regular text-[20px] sm:text-[16px] leading-[30px] sm:leading-[19.2px] text-[#667085] text-center">
+        <p className="font-normal text-[20px] sm:text-[16px] leading-[30px] sm:leading-[19.2px] text-[#667085] text-center">
           We've added you to our mailing list.
         </p>
         <span
