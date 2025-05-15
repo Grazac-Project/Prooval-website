@@ -138,7 +138,7 @@ const spm = () => {
     <div>
       <Navbar />
       <div className="max-w-[1440px] mx-auto">
-        <section className="font-whyte px-[80px] mx-aut xl:px-[25px] sm:px-[25px] xm:px-[16px] relative bg-[#F9FBFF]">
+        <section className="font-onest px-[80px] mx-aut xl:px-[25px] sm:px-[25px] xm:px-[16px] relative bg-[#F9FBFF]">
           <div className="  py-[48px] flex sm:flex-col gap-[58px] xl:gap-[25px] items-center ">
             <div className="">
               {/* <div className='flex gap-2 w-[256px] md:w-[200px] sm:w-[256px] py-2 px-3 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px] whitespace-pre'> */}
@@ -300,7 +300,7 @@ const spm = () => {
 
           {/* right-[623px] 1xl:right-[520px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] sxm:right-[200px] */}
         </section>
-        <section className="font-whyte px-[80px] xl:px-[25px] xm:px-[16px] py-[48px] sm:py-[32px] bg-[#F9F9F9]">
+        <section className="font-onest px-[80px] xl:px-[25px] xm:px-[16px] py-[48px] sm:py-[32px] bg-[#F9F9F9]">
           <h2 className="font-medium text-[24px] leading-[38px] text-[#121927] text-center mb-[32px]">
             As featured in
           </h2>
@@ -528,7 +528,7 @@ const spm = () => {
           </div>
         </section>
         <section className="h-[64px] bg-[#fff]"></section>
-        <section className="px-[80px] xl:px-[25px] xm:px-4 py-[137.5px] sm:py-[62px] font-whyte bg-[#121927] relative">
+        <section className="px-[80px] xl:px-[25px] xm:px-4 py-[137.5px] sm:py-[62px] font-onest bg-[#121927] relative">
           <h2 className="font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3">
             Why become a Senior PM
           </h2>
@@ -553,7 +553,7 @@ const spm = () => {
             className="absolute top-[0] right-[16px] lgx:block hidden"
           />
         </section>
-        <section className="w-[100%] font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]">
+        <section className="w-[100%] font-onest flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]">
           <div className="w-[28.125%] xxl:w-[30%] lgx:w-[33%] lg:w-[35%] md:w-[38%] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[70px] pl-[30px] xl:pl-[15px] pr-[14px] pb-[72px] xxl:pb-[22px] relative">
             <h4 className="w-[245px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] xm:w-[231px] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] xm:text-[32px] leading-[52.8px] xm:leading-[35.2px] text-[#FBFCFD] pb-[17px]">
               Join as a Senior PM in four easy steps
@@ -577,7 +577,7 @@ const spm = () => {
             {spmCardValues.map((cardValue, i) => {
               return (
                 <div
-                  className="font-whyte w-[48%] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 md:px-2 sm:px-5 py-4"
+                  className="font-onest w-[48%] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 md:px-2 sm:px-5 py-4"
                   key={i}
                 >
                   <h4 className="border-[2px] border-[#D0DDFF] w-[44px] h-[44px] rounded-[50%] flex items-center justify-center text-[18px] leading-[20.31px] font-medium text-[#fff] bg-[#1453FF]">
@@ -596,41 +596,41 @@ const spm = () => {
         </section>
         <section className=" p-20 md:p-5 ">
           <div className="flex items-center justify-center gap-[109px] xxl:gap-[50px] lg:flex-col-reverse">
-            <div className=" w-[539px] font-whyte xxl:w-auto ">
+            <div className=" w-[539px] font-onest xxl:w-auto ">
               <h4 className="font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#101828] mx-auto mb-6 sm:text-center">
                 What we expect from you as a senior product manager.
               </h4>
               <ul className="custom-list list-disc list-outside pl-6">
                 {/* <div className="flex gap-[2px] "> */}
                 {/* <i>
-                  <LuDot className="text-[40px] font-whyte leading-[24px] text-[#4F4F4F]" />
+                  <LuDot className="text-[40px] font-onest leading-[24px] text-[#4F4F4F]" />
                 </i> */}
-                <li className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
+                <li className="text-[16px] font-500  font-onest leading-[25.75px] text-[#4F4F4F]">
                   Supervise a team of 5 fellows to build an SDG focused project.
                 </li>
                 {/* </div> */}
                 {/* <div className="flex gap-[2px] "> */}
                 {/* <i>
-                  <LuDot className="text-[40px] font-whyte leading-[24px] text-[#4F4F4F]" />
+                  <LuDot className="text-[40px] font-onest leading-[24px] text-[#4F4F4F]" />
                 </i> */}
-                <li className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
+                <li className="text-[16px] font-500  font-onest leading-[25.75px] text-[#4F4F4F]">
                   Manage end-to-end of the project development lifecycle.
                 </li>
                 {/* </div> */}
                 {/* <div className="flex gap-[2px] "> */}
                 {/* <i>
-                  <LuDot className="text-[40px] font-whyte leading-[24px] text-[#4F4F4F]" />
+                  <LuDot className="text-[40px] font-onest leading-[24px] text-[#4F4F4F]" />
                 </i> */}
-                <li className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F]">
+                <li className="text-[16px] font-500  font-onest leading-[25.75px] text-[#4F4F4F]">
                   Introduce the team to a project management tools e.g Jira,
                   Clickup, Trello, etc.
                 </li>
                 {/* </div> */}
                 {/* <div className="flex gap-[2px] mb-6 "> */}
                 {/* <i>
-                  <LuDot className="text-[40px] font-whyte leading-[24px] text-[#4F4F4F]" />
+                  <LuDot className="text-[40px] font-onest leading-[24px] text-[#4F4F4F]" />
                 </i> */}
-                <li className="text-[16px] font-500  font-whyte leading-[25.75px] text-[#4F4F4F] mb-6">
+                <li className="text-[16px] font-500  font-onest leading-[25.75px] text-[#4F4F4F] mb-6">
                   Serve as a voice for the fellows, ensuring that their needs
                   and challenges are well communicated.
                 </li>
@@ -655,7 +655,7 @@ const spm = () => {
           </div>
         </section>
         <section className="px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px] sm:mt-[40px]">
-          <div className="font-whyte bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
+          <div className="font-onest bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
             <div className="w-[710px] md:w-[100%] mx-auto px-[20px]">
               <h4 className="font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#fff] mx-auto text-center">
                 Have a Question?

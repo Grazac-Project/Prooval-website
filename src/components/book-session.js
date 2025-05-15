@@ -155,7 +155,7 @@ const BookSession = ({ closeModal, mentorId, mentorImage, successModal }) => {
   return (
     <div>
       <ToastContainer />
-      <div className="font-whyte">
+      <div className="font-onest">
         <div
           className="bg-[#344054] opacity-[0.7] w-[100%] h-full fixed z-50 top-0 left-[0]"
           onClick={closeModal}
@@ -244,7 +244,8 @@ const BookSession = ({ closeModal, mentorId, mentorImage, successModal }) => {
                   <div className="w-[100%] mt-[40px]">
                     <h4 className="text-[14px] leading-[17px] font-[400] text-[#4F4F4F] mb-[8px] sm:mt-[12px]">
                       Do you have anything you'd like to share ahead of our
-                      session ? <span className="text-[#7D7D7D]">(Optional)</span>
+                      session ?{" "}
+                      <span className="text-[#7D7D7D]">(Optional)</span>
                     </h4>
                     <textarea
                       type="text"

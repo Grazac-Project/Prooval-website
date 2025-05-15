@@ -4,7 +4,7 @@ import React from "react";
 
 const Expertise = () => {
   return (
-    <section className=" font-whyte px-[80px] lgx:px-[25px] xm:px-[16px] sm:py-[48px] flex sm:flex-col justify-between sm:justify-around items-center">
+    <section className=" font-onest px-[80px] lgx:px-[25px] xm:px-[16px] sm:py-[48px] flex sm:flex-col justify-between sm:justify-around items-center">
       <div className="w-[49%] lg:w-[56%] sm:w-full sm:order-2">
         <h2 className="font-medium text-[48px] lg:text-[40px] md:text-[32px] text-[#121927] leading-[110%] tracking-[0%] sm:text-center">
           Take your expertise to the next level

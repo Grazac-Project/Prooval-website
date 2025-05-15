@@ -9,7 +9,6 @@ import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import Modal from "../modal/subscribeModal";
 
-
 const initialValues = {
   fullName: "",
   email: "",
@@ -17,10 +16,10 @@ const initialValues = {
 const Footer = () => {
   const [loader, setLoader] = useState(false);
   const [errorResponse, setErrorResponse] = useState(null);
-  const [open, setOpen] = useState()
+  const [open, setOpen] = useState();
 
   const close = () => {
-    setOpen(false); 
+    setOpen(false);
   };
   const schema = yup.object({
     fullName: yup.string().required("Full name is required"),
@@ -78,7 +77,7 @@ const Footer = () => {
     //     </div>
     //   </div>
     // </footer>
-    <footer className="font-whyte px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px]">
+    <footer className="font-onest px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px]">
       {open && <Modal close={close} />}
       <div className="flex md:flex-col justify-between sm:gap-[32px]">
         <div className="pb-[64px] xm:pb-[24px] sm:order-3">
@@ -115,11 +114,12 @@ const Footer = () => {
             </Link>
             <Link href="/mentor">
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
-              Mentor
+                Mentor
               </li>
-            </Link> <Link href="/spm">
+            </Link>{" "}
+            <Link href="/spm">
               <li className="font-regular text-[16px] leading-[20.8px] text-[#4F4F4F]">
-              PM
+                PM
               </li>
             </Link>
             {/* <Link href="/hire">
@@ -137,12 +137,23 @@ const Footer = () => {
                 Privacy
               </li>
             </Link>
-            
           </ul>
           <ul className="flex gap-[24.5px] mt-[16px]">
-            <a href="https://www.linkedin.com/company/hackthejobs"><li><FaLinkedin className="text-[24px]" /></li></a>
-            <a href="http://www.x.com/hackthejobs"><li><BsTwitterX className="text-[24px]" /></li></a>
-            <a href="http://www.instagram.com/hackthejobs"><li><FaInstagram className="text-[24px]" /></li></a>
+            <a href="https://www.linkedin.com/company/hackthejobs">
+              <li>
+                <FaLinkedin className="text-[24px]" />
+              </li>
+            </a>
+            <a href="http://www.x.com/hackthejobs">
+              <li>
+                <BsTwitterX className="text-[24px]" />
+              </li>
+            </a>
+            <a href="http://www.instagram.com/hackthejobs">
+              <li>
+                <FaInstagram className="text-[24px]" />
+              </li>
+            </a>
           </ul>
         </div>
         <div className="order-1">
@@ -155,7 +166,10 @@ const Footer = () => {
             <button type="submit" disabled={isSubmitting} className="disabled:opacity-[35%] w-[135.93px] xm:w-[100%] h-[44px] rounded-[6.29px] px-[31.43px] py-[15.71px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center">Subscribe</button>
           </form> */}
           {errorResponse && <p className="text-[#fc8181]">{errorResponse}</p>}
-          <form className="flex flex-wrap xm:block gap-[6px]" onSubmit={handleSubmit}>
+          <form
+            className="flex flex-wrap xm:block gap-[6px]"
+            onSubmit={handleSubmit}
+          >
             <div className=" xm:mb-[8px] py-[0px]">
               {/* <input type="text" id='fullName' placeholder="Enter your full name" value={values.fullName} onChange={handleChange} onBlur={handleBlur} className="w-[208px] h-[100%] md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] shadow-footerInput" /> */}
               <input
@@ -167,7 +181,9 @@ const Footer = () => {
                 onBlur={handleBlur}
                 className="font-inter w-[208px] h-[44px] placeholder:overflow-visible lg:w-[150px] md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD]"
               />
-              {errors.fullName && touched.fullName && <p className="text-[#fc8181]">{errors.fullName}</p>}
+              {errors.fullName && touched.fullName && (
+                <p className="text-[#fc8181]">{errors.fullName}</p>
+              )}
             </div>
             <div className="xm:mb-[8px]">
               <input
@@ -179,7 +195,9 @@ const Footer = () => {
                 onBlur={handleBlur}
                 className="font-inter overflow-visible w-[208px] h-[44px] placeholder:overflow-visible lg:w-[150px] md:w-[150px] xm:w-[100%] p-[14px] font-regular text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
               />
-              {errors.email && touched.email && <p className="text-[#fc8181]">{errors.email}</p>}
+              {errors.email && touched.email && (
+                <p className="text-[#fc8181]">{errors.email}</p>
+              )}
             </div>
             <div className="h-[44px]">
               <button

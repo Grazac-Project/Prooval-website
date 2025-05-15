@@ -89,14 +89,14 @@ const Hire = () => {
     setDotPosition(i);
   };
   return (
-    <section className="font-whyte max-w-[1440px] mx-auto">
+    <section className="font-onest max-w-[1440px] mx-auto">
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
       <Navbar />
       <div
         className="p-[80px] xl:px-[25px] xm:px-[16px] xm:py-[54px] bg-[#121927]"
         id="root"
       >
-        <h1 className="font-medium text-[50px] sm:text-[40px] font-whyte text-[#FFFFFF] leading-[60px] sm:leading-[44px] text-center w-[742px] sm:w-[80%] xm:w-[100%] mx-auto mb-[8px]">
+        <h1 className="font-medium text-[50px] sm:text-[40px] font-onest text-[#FFFFFF] leading-[60px] sm:leading-[44px] text-center w-[742px] sm:w-[80%] xm:w-[100%] mx-auto mb-[8px]">
           Discover Exceptional Talents for Your Team
         </h1>
         <p className="w-[768px] md:w-[100%] text-[20px] text-[#EAECF0] tracking-[-0.25%] leading-[24px] text-center mx-auto mb-[32px]">
@@ -257,7 +257,7 @@ const Hire = () => {
             </div>
           </div>
         </div>
-        {/* <section className="font-whyte bg-[#FBFCFF] px-[80px] xl:px-[25px] sm:px-[16px] pb-[100px] sm:pb-[64px] relative">
+        {/* <section className="font-onest bg-[#FBFCFF] px-[80px] xl:px-[25px] sm:px-[16px] pb-[100px] sm:pb-[64px] relative">
         
           <div className="w-[100%]">
             <Slider
@@ -321,10 +321,11 @@ const Hire = () => {
 
       <div className="px-[80px] xl:px-[25px] xm:px-[16px] py-[80px] sm:pt-[40px] sm:pb-[64px]">
         <h4 className="font-medium w-[512px] sm:w-[60%] xm:w-[230px] text-[48px] text-center sm:text-[32px] text-[#101828] leading-[51.36px] sm:leading-[34.24px] tracking-[2%] mx-auto mb-[16px]">
-        Get Started in 3 Steps
+          Get Started in 3 Steps
         </h4>
         <p className="font-regular w-[430px] sm:w-[100%] text-[16px] text-[#667085] text-center leading-[24px] mx-auto mb-[48px]">
-          Follow these steps to attract, evaluate, and hire the right talent for your team.
+          Follow these steps to attract, evaluate, and hire the right talent for
+          your team.
         </p>
         <div className="flex flex-wrap justify-between sm:justify-around mb-[32px]">
           {hireSteps.map((hireStep, i) => (
@@ -386,7 +387,7 @@ const Hire = () => {
         </div>
       </div>
       <section className="px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px] sm:pt-[40px]">
-        <div className="font-whyte bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
+        <div className="font-onest bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
           <div className="w-[710px] md:w-[100%] mx-auto px-[20px]">
             <h4 className="font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#fff] mx-auto text-center">
               Have a Question?

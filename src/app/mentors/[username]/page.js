@@ -147,13 +147,13 @@ const MentorDetails = () => {
     return text.charAt(0).toUpperCase() + text.slice(1);
   };
   function truncateString(str) {
-  if(!str){
-    return
-  } else if(str?.length > 40) {
-    return str?.slice(0, 40) + '...';
+    if (!str) {
+      return;
+    } else if (str?.length > 40) {
+      return str?.slice(0, 40) + "...";
+    }
+    return str;
   }
-  return str;
-}
   return (
     <>
       <div>
@@ -176,7 +176,7 @@ const MentorDetails = () => {
         {loading ? (
           <Load />
         ) : (
-          <div className="bg-[#F2F2F7] py-[50px] md:py-8 font-whyte ">
+          <div className="bg-[#F2F2F7] py-[50px] md:py-8 font-onest ">
             <div className=" w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
               <div className="min-h-[212px]  mx-auto bg-[#ffffff] py-6 px-20 lg:px-10 md:px-4 mb-[10px]  rounded-[8px] ">
                 <div className="flex md:flex-col justify-between items-center gap-3 ">
@@ -321,7 +321,9 @@ const MentorDetails = () => {
                     <div className="flex justify-start flex-wrap gap-3">
                       <div className="h-[45px] px-3 w-full bg-[#ffff] border border-[#EAEAEA]  text-[#344054] rounded-lg flex justify-between items-center text-[10px] leading-[18px]">
                         <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F]">
-                          {truncateString(mentorData?.availability?.bookingDetails.title)}
+                          {truncateString(
+                            mentorData?.availability?.bookingDetails.title
+                          )}
                         </h5>
                         <span className="text-[#4F4F4F] text-[12px] leading-[140%] font-medium  ">
                           {

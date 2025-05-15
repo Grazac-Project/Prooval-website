@@ -121,11 +121,11 @@ const Page = () => {
     setPage(1);
   };
   const handleMentorClick = (mentorSlug) => {
-    Cookies.set("mentorSlug", mentorSlug, { expires: 7 }); 
-    router.push(`/mentors/${mentorSlug}`); 
+    Cookies.set("mentorSlug", mentorSlug, { expires: 7 });
+    router.push(`/mentors/${mentorSlug}`);
   };
   return (
-    <section className="font-whyte ">
+    <section className="font-onest ">
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
       <Navbar />
       <div
@@ -161,7 +161,7 @@ const Page = () => {
         {showMentor && (
           <div
             style={{ justifyContent: positionStyle ? "start" : "start" }}
-            className="flex   xm:justify-around lg:justify-start flex-wrap gap-[32px] pb-[0px] sm:pb-[0px] w-[1280px]  1xl:w-[90%]  m-auto "
+            className="flex xm:justify-around lg:justify-start flex-wrap lg:gap-[12px] gap-[32px] pb-[0px] sm:pb-[0px] w-[1280px]  1xl:w-[90%]  m-auto "
           >
             {listOfMentors?.map((listOfMentor, i) => {
               // console.log(listOfMentor)
@@ -170,17 +170,16 @@ const Page = () => {
                   <div
                     key={i}
                     ref={lastMentorRef}
-                    className="font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
+                    className="font-onest w-[23%] lgx:w-[30.5%] xm:w-[100%] sm:w-[48%]  p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
                     onClick={() => handleMentorClick(listOfMentor.slug)}
                   >
-                    <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden">
+                    <div className="w-full h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden">
                       <Image
                         src={listOfMentor.image}
                         width={343}
                         height={296}
                         alt="mentor image"
-                        className="w-full h-full object-cover filter grayscale hover:filter-none"
-
+                        className="w-full h-full object-cover sm:filter-none filter grayscale hover:filter-none"
                       />
                     </div>
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
@@ -198,18 +197,16 @@ const Page = () => {
                 return (
                   <div
                     key={listOfMentor._id}
-                    className="font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
+                    className="font-onest w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[100%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
                     onClick={() => handleMentorClick(listOfMentor.slug)}
-
                   >
-                    <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden">
+                    <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] w-full overflow-hidden">
                       <Image
                         src={listOfMentor.image}
                         width={343}
                         height={296}
                         alt="mentor image"
-                        className="w-full h-full object-cover filter grayscale hover:filter-none"
-
+                        className="w-full h-full object-cover sm:filter-none filter grayscale hover:filter-none"
                       />
                     </div>
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">

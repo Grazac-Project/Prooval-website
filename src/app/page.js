@@ -172,7 +172,7 @@ const Landing = () => {
       <Navbar />
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
       <div className="max-w-[1440px] mx-auto">
-        <section className="font-whyte px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative bg-[#F9FBFF]">
+        <section className="font-onest px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative bg-[#F9FBFF]">
           <div className="  py-[48px] flex sm:flex-col gap-[58px] xl:gap-[25px] items-center ">
             <div className="">
               <div className="font-inter flex gap-2 w-[256px] md:w-[200px] sm:w-[256px] px-3 py-2 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px] whitespace-pre">
@@ -347,7 +347,7 @@ const Landing = () => {
           />
         </section>
         <section className="h-[64px] sm:h-[40px] bg-[#fff]"></section>
-        <section className="font-whyte px-[80px] xl:px-[25px] xm:px-[16px] py-[48px] sm:py-[32px] bg-[#F9F9F9]">
+        <section className="font-onest px-[80px] xl:px-[25px] xm:px-[16px] py-[48px] sm:py-[32px] bg-[#F9F9F9]">
           <h2 className="font-medium text-[24px] leading-[38px] text-[#121927] text-center mb-[32px]">
             As featured in
           </h2>
@@ -575,7 +575,7 @@ const Landing = () => {
           </div>
         </section>
         <section className="h-[64px] bg-[#fff]"></section>
-        <section className="px-[80px] xl:px-[25px] xm:px-4 py-[137.5px] sm:py-[62px] font-whyte bg-[#121927] relative">
+        <section className="px-[80px] xl:px-[25px] xm:px-4 py-[137.5px] sm:py-[62px] font-onest bg-[#121927] relative">
           <h2 className="font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3">
             What you get from Hackthejobs.
           </h2>
@@ -600,7 +600,7 @@ const Landing = () => {
             className="absolute top-[0] right-[16px] lgx:block hidden"
           />
         </section>
-        <section className="w-[100%] font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]">
+        <section className="w-[100%] font-onest flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]">
           {/* <div className='w-[28.125%] xxl:w-[30%] lgx:w-[33%] lg:w-[35%] md:w-[38%] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xl:pl-[15px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'> */}
           <div className="w-[28.125%] xxl:w-[30%] lgx:w-[33%] lg:w-[35%] md:w-[38%] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[70px] pl-[30px] xl:pl-[15px] pr-[14px] pb-[72px] xxl:pb-[22px] relative">
             {/* <h4 className='w-[288px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] sxm:text-[40px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
@@ -632,7 +632,7 @@ const Landing = () => {
             {cardValues.map((cardValue, i, arr) => {
               return (
                 <div
-                  className="font-whyte w-[48%] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 md:px-2 sm:px-5 py-4"
+                  className="font-onest w-[48%] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 md:px-2 sm:px-5 py-4"
                   key={i}
                 >
                   <h4 className="border-[2px] border-[#D0DDFF] w-[44px] h-[44px] rounded-[50%] flex items-center justify-center text-[18px] leading-[20.31px] font-medium text-[#fff] bg-[#1453FF]">
@@ -660,7 +660,7 @@ const Landing = () => {
             })}
           </div>
         </section>
-        <section className="font-whyte flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
+        <section className="font-onest flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
           <div>
             <h3 className="font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[560px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center">
               We’ve got outstanding mentors to guide you.
@@ -681,7 +681,7 @@ const Landing = () => {
           <div className="sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
             {listOfMentors.map((listOfMentor, i) => {
               return (
-                <div key={i} className="font-whyte w-[23%] lg:w-[29%] ">
+                <div key={i} className="font-onest w-[23%] lg:w-[29%] ">
                   <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
                     <Image
                       src={listOfMentor.image}
@@ -716,7 +716,7 @@ const Landing = () => {
                 return (
                   <div
                     key={i}
-                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%]"
+                    className="font-onest mx-auto sm:w-[302px] xm:w-[80%]"
                   >
                     <div className="h-[296px] sm:h-[258px] overflow-hidden">
                       <Image
@@ -752,7 +752,7 @@ const Landing = () => {
               return (
                 <div
                   key={i}
-                  className="font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
+                  className="font-onest w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
                   onClick={() => handleMentorClick(listOfMentor.slug)}
                 >
                   <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden">
@@ -789,7 +789,7 @@ const Landing = () => {
                 return (
                   <div
                     key={i}
-                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
+                    className="font-onest mx-auto sm:w-[302px] xm:w-[80%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
                   >
                     <div
                       className="h-[296px] sm:h-[258px] overflow-hidden"
@@ -835,7 +835,7 @@ const Landing = () => {
               className="object-cover"
             />
           </div>
-          <div className="font-whyte ">
+          <div className="font-onest ">
             <h4 className="font-medium text-[48px] xl:text-[44px] lgx:text-[40px] lg:text-[35px] md:text-[30px] leading-[52.8px] lgx:leading-[45px] lg:leading-[40px] text-[#121927] mb-[40px] sm:mb-[16px] w-[596px] xl:w-[580px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%] sm:text-center sm:mt-[16px]">
               Bootcamps alone are never enough!
             </h4>
@@ -845,7 +845,7 @@ const Landing = () => {
               to building a supportive community that promotes growth and
               encourages collaboration.
             </p>
-            <div className="font-whyte text-[#1453FF] text-center flex  sm:items-center gap-[16px]">
+            <div className="font-onest text-[#1453FF] text-center flex  sm:items-center gap-[16px]">
               {/* <div className="w-[192px] 1xl:w-[170px] xl:w-[150px] lgx:w-[130px] lg:w-[110px]">
                 <h5 className="font-medium text-[43.64px] xl:text-[38px] lgx:text-[34px] leading-[52.36px] xl:leading-[48px] lgx:leading-[40px] tracking-[-2%]">
                   400+
@@ -886,7 +886,7 @@ const Landing = () => {
             </div>
           </div>
         </section>
-        <section className="font-whyte px-[80px] xl:px-[25px] sm:px-[16px] py-[84px] sm:py-[78.95px] relative">
+        <section className="font-onest px-[80px] xl:px-[25px] sm:px-[16px] py-[84px] sm:py-[78.95px] relative">
           <h4 className="font-medium text-[#121927] text-[48px] lgx:text-[38px] sm:text-[36px] leading-[52.8px] sm:leading-[39.6px] w-[696px] lgx:w-[550px] sm:w-[93%] mb-[62px] mx-auto text-center">
             Let our reviews do the talking
           </h4>
@@ -988,7 +988,7 @@ const Landing = () => {
           />
         </section>
         {/* <section className="flex sm:flex-wrap gap-[60px] lgx:gap-[40px] lg:gap-[20px] md:gap-[10px] items-center px-[80px] xl:px-[25px] xm:px-[16px] py-[97px] sm:pt-[20px] sm:pb-[40px]">
-          <div className="font-whyte sm:order-1">
+          <div className="font-onest sm:order-1">
             <h4 className="font-medium text-[48px] xxl:text-[40px] lgx:text-[36px] lg:text-[34px] sm:text-[32px] leading-[52.8px] xxl:leading-[46px] lgx:leading-[40px] sm:leading-[35.2px] text-[#121927] pb-[32px] sm:pb-[24px] sm:pt-[32px] w-[592px] xxl:w-[500px] lgx:w-[450px] lg:w-[400px] md:w-[350px] sm:w-[100%]">
               Our Resources
             </h4>
@@ -1017,7 +1017,7 @@ const Landing = () => {
           </div>
         </section> */}
         <section className="bg-[url(/bg-stroke.svg)] bg-no-repeat bg-cover w-[100%] py-[39px] ">
-          <div className="font-whyte flex flew-wrap items-center gap-[24px] justify-center w-[1274px]   m-auto 1xl:w-[95%] lg:block">
+          <div className="font-onest flex flew-wrap items-center gap-[24px] justify-center w-[1274px]   m-auto 1xl:w-[95%] lg:block">
             <Image
               src="/hire-image.svg"
               width="536"
@@ -1040,16 +1040,15 @@ const Landing = () => {
                   Hire Top Talents
                 </button>
               </Link> */}
-              
-                <button className="w-[247px] py-[20px] font-medium leading-[24px] text-[#fff] bg-[#1453FF] rounded-[8px]">
-                  Coming soon ...
-                </button>
-              
+
+              <button className="w-[247px] py-[20px] font-medium leading-[24px] text-[#fff] bg-[#1453FF] rounded-[8px]">
+                Coming soon ...
+              </button>
             </div>
           </div>
         </section>
         <section className="px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px] sm:mt-[40px]">
-          <div className="font-whyte bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
+          <div className="font-onest bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
             <div className="w-[710px] md:w-[100%] mx-auto px-[20px]">
               <h4 className="font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#fff] mx-auto text-center">
                 Have a Question?

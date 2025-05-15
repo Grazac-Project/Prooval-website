@@ -173,7 +173,7 @@ const mentor = () => {
     <div>
       <Navbar />
       <div className="max-w-[1440px] mx-auto">
-        <section className="font-whyte px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative bg-[#F9FBFF]">
+        <section className="font-onest px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative bg-[#F9FBFF]">
           <div className="  py-[48px] px-20 md:px-[0]  ">
             <div className="w-[722px] md:w-[60%] sm:w-auto mx-auto text-center ">
               {/* <div className='flex gap-2 w-[256px] md:w-[200px] sm:w-[256px] py-2 px-3 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px] whitespace-pre'> */}
@@ -246,7 +246,7 @@ const mentor = () => {
           />
           {/* right-[623px] 1xl:right-[520px] xxl:right-[520px] xl:right-[480px] lgx:right-[400px] lg:right-[400px] md:right-[300px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] sxm:right-[200px] */}
         </section>
-        <section className="font-whyte px-[80px] xl:px-[25px] xm:px-[16px] py-[48px] sm:py-[32px] bg-[#F9F9F9]">
+        <section className="font-onest px-[80px] xl:px-[25px] xm:px-[16px] py-[48px] sm:py-[32px] bg-[#F9F9F9]">
           <h2 className="font-medium text-[24px] leading-[38px] text-[#121927] text-center mb-[32px]">
             As featured in
           </h2>
@@ -474,7 +474,7 @@ const mentor = () => {
           </div>
         </section>
         <section className="h-[64px] bg-[#fff]"></section>
-        <section className="px-[80px] xl:px-[25px] xm:px-4 py-[137.5px] sm:py-[62px] font-whyte bg-[#121927] relative">
+        <section className="px-[80px] xl:px-[25px] xm:px-4 py-[137.5px] sm:py-[62px] font-onest bg-[#121927] relative">
           <h2 className="font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3">
             Why Mentor at Hackthejobs
           </h2>
@@ -499,7 +499,7 @@ const mentor = () => {
             className="absolute top-[0] right-[16px] lgx:block hidden"
           />
         </section>
-        <section className="w-[100%] font-whyte flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]">
+        <section className="w-[100%] font-onest flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]">
           {/* <div className='w-[28.125%] xxl:w-[30%] lgx:w-[33%] lg:w-[35%] md:w-[38%] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xl:pl-[15px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'> */}
           <div className="w-[28.125%] xxl:w-[30%] lgx:w-[33%] lg:w-[35%] md:w-[38%] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[70px] pl-[30px] xl:pl-[15px] pr-[14px] pb-[72px] xxl:pb-[22px] relative">
             {/* <h4 className='w-[288px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] sxm:text-[40px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
@@ -531,7 +531,7 @@ const mentor = () => {
             {mentorCardValues.map((cardValue, i) => {
               return (
                 <div
-                  className="font-whyte w-[48%] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 md:px-2 sm:px-5 py-4"
+                  className="font-onest w-[48%] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 md:px-2 sm:px-5 py-4"
                   key={i}
                 >
                   <h4 className="border-[2px] border-[#D0DDFF] w-[44px] h-[44px] rounded-[50%] flex items-center justify-center text-[18px] leading-[20.31px] font-medium text-[#fff] bg-[#1453FF]">
@@ -548,7 +548,7 @@ const mentor = () => {
             })}
           </div>
         </section>
-        <section className="font-whyte flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
+        <section className="font-onest flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
           <div>
             <h3 className="font-medium w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[580px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center">
               We have a team of Top-Rated Mentors
@@ -570,7 +570,7 @@ const mentor = () => {
               return (
                 <div
                   key={i}
-                  className="font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
+                  className="font-onest w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
                   onClick={() => handleMentorClick(listOfMentor?.slug)}
                 >
                   <div className="h-[296px]  1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
@@ -607,7 +607,7 @@ const mentor = () => {
                 return (
                   <div
                     key={i}
-                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%] p-4 border border-[#EAEAEA] mx-3 rounded-lg cursor-pointer"
+                    className="font-onest mx-auto sm:w-[302px] xm:w-[80%] p-4 border border-[#EAEAEA] mx-3 rounded-lg cursor-pointer"
                   >
                     <div
                       className="h-[296px] sm:h-[258px] overflow-hidden"
@@ -645,7 +645,7 @@ const mentor = () => {
         <div className="sm:hidden px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
           {listOfMentors.map((listOfMentor, i) => {
             return (
-              <div key={i} className="font-whyte w-[23%] lg:w-[29%] ">
+              <div key={i} className="font-onest w-[23%] lg:w-[29%] ">
                 <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
                   <Image
                     src={listOfMentor.image}
@@ -680,7 +680,7 @@ const mentor = () => {
               return (
                 <div
                   key={i}
-                  className="font-whyte mx-auto sm:w-[302px] xm:w-[80%]"
+                  className="font-onest mx-auto sm:w-[302px] xm:w-[80%]"
                 >
                   <div className="h-[296px] sm:h-[258px] overflow-hidden">
                     <Image
@@ -712,7 +712,7 @@ const mentor = () => {
         
       </section> */}
 
-        {/* <section className="font-whyte px-[80px] xl:px-[25px] sm:px-[16px] py-[84px] sm:py-[78.95px] relative">
+        {/* <section className="font-onest px-[80px] xl:px-[25px] sm:px-[16px] py-[84px] sm:py-[78.95px] relative">
       
           <h4 className="font-medium text-[#121927] text-[48px] lgx:text-[38px] sm:text-[36px] leading-[52.8px] sm:leading-[39.6px] w-[696px] lgx:w-[550px] sm:w-[93%] mb-[62px] mx-auto text-center">
             What Mentors have to say about us
@@ -816,7 +816,7 @@ const mentor = () => {
         </section> */}
 
         <section className="px-[80px] xl:px-[25px] xm:px-[16px] pt-[80px] sm:mt-[40px]">
-          <div className="font-whyte bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
+          <div className="font-onest bg-[#121927] pt-[122px] pb-[99px] rounded-[16px] bg-[url(/stroke.svg)]">
             <div className="w-[710px] md:w-[100%] mx-auto px-[20px]">
               <h4 className="font-medium text-[48px] md:text-[40px] sm:text-[32px] leading-[52.8px] md:leading-[40px] sm:leading-[35.2px] text-[#fff] mx-auto text-center">
                 Have a Question?
