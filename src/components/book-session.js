@@ -309,6 +309,7 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
                     width={16}
                     height={16}
                     alt="loader"
+                    unoptimized={true}
                   />
                 ) : (
                   ""

@@ -300,6 +300,7 @@ const Faq = () => {
                   height={16}
                   alt="loader"
                   className="mx-auto"
+                  unoptimized={true}
                 />
               ) : (
                 "Send message"
