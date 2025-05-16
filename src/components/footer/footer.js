@@ -193,6 +193,7 @@ const Footer = () => {
                     height={16}
                     alt="loader"
                     className="mx-auto"
+                    unoptimized={true}
                   />
                 ) : (
                   "Subscribe"
