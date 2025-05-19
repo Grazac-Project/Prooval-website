@@ -43,7 +43,7 @@ const AboutUs = () => {
           Success for us is when our fellows after building real-life projects land their dream job in tech.
           </p>
         </div> */}
-        <div className="w-[95%] mx-auto pl-5 md:pl-[1px] ">
+        <div className="w-[95%] mx-auto pl-5 md:pl-[1px] mt-[48px] sm:mt-[24px] ">
           <h1 className="font-whyte text-[54px] sm:text-[40px] leading-[60px] sm:leading-12 font-500">
             Positioning you for success
           </h1>

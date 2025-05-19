@@ -21,6 +21,7 @@ import { fetchMentors } from "@/api/authentication/auth";
 import ValueCard from "@/components/valueCard/MentorValueCard copy 2";
 import { LuDot } from "react-icons/lu";
 import Cookies from "js-cookie";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const mentor = () => {
   const router = useRouter();
@@ -481,7 +482,7 @@ const mentor = () => {
           <h2 className="font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3">
             Why Mentor at Hackthejobs
           </h2>
-          <h3 className="font-regular text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]">
+          <h3 className="font-regular text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center  w-[690px] md:w-[100%] mx-auto pb-[42px]">
             Hackthejobs offers you a unique opportunity to make an impact on the
             future of tech in Africa.
           </h3>
@@ -569,29 +570,36 @@ const mentor = () => {
         </section>
         <section className="pb-[96px] sm:pb-[52px] ">
           <div className="sm:hidden  w-[1280px]  1xl:w-[90%] mx-auto flex justify-start flex-wrap gap-[32px] pb-[96px]  sm:pb-[52px]">
-            {listOfMentors.map((listOfMentor, i) => {
+            {listOfMentors?.slice(0, 8).map((listOfMentor, i) => {
               return (
                 <div
-                  key={i}
-                  className="font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer"
-                  onClick={() => handleMentorClick(listOfMentor?.slug)}
+                  key={listOfMentor._id}
+                  className="font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer group hover:border-b-[3px] hover:border-b-[#1453FF] transition-all duration-300"
+                  onClick={() => handleMentorClick(listOfMentor.slug)}
                 >
-                  <div className="h-[296px]  1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
+                  <div className="relative h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden">
                     <Image
                       src={listOfMentor.image}
-                      width={296}
+                      width={343}
                       height={296}
                       alt="mentor image"
-                      className="w-full h-full object-cover filter grayscale hover:filter-none"
+                      className="w-full h-full object-cover filter grayscale group-hover:filter-none transition-all duration-300"
                     />
+                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-[rgba(0,0,0,0.3)] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end px-4 pb-3">
+                      <span className="text-[white] text-[14px] leading-[24px] font-medium flex justify-center items-center gap-[10px] mx-auto text-center">
+                        View Details
+                        <FaArrowRightLong className="w-4 h-4" />
+                      </span>
+                    </div>
                   </div>
+
                   <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                     {listOfMentor?.firstName} {listOfMentor?.lastName}
                   </h4>
-                  <h5 className="font-regular text-[16px] leading-[28px] text-[#1453FF] mb-[16px]">
+                  <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                     {listOfMentor?.role}
                   </h5>
-                  <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085]">
+                  <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                     {listOfMentor?.company}
                   </p>
                 </div>
@@ -610,19 +618,25 @@ const mentor = () => {
                 return (
                   <div
                     key={i}
-                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%] p-4 border border-[#EAEAEA] mx-3 rounded-lg cursor-pointer"
+                    className="font-whyte mx-auto sm:w-[302px] xm:w-[80%] p-4 border border-[#EAEAEA]   rounded-lg cursor-pointer"
                   >
                     <div
-                      className="h-[296px] sm:h-[258px] overflow-hidden"
+                      className="relative h-[296px] sm:h-[258px] w-full overflow-hidden"
                       onClick={() => handleMentorClick(listOfMentor.slug)}
                     >
                       <Image
                         src={listOfMentor.image}
                         width={363}
                         height={297}
-                        alt="mentor image"
-                        className="object-cover px-[5px]"
+                        alt="mentorimage"
+                        className="object-cover "
                       />
+                      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-[rgba(0,0,0,0.3)] to-transparent opacity-100 transition-all duration-300 flex items-end px-4 pb-3">
+                        <span className="text-[white] text-[14px] leading-[24px] font-medium flex justify-center items-center gap-[10px] mx-auto text-center">
+                          View Details
+                          <FaArrowRightLong className="w-4 h-4" />
+                        </span>
+                      </div>
                     </div>
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                       {listOfMentor?.firstName} {listOfMentor?.lastName}
