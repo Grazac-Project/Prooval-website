@@ -90,6 +90,14 @@ export const getMentorsBySlug = (slug, token) => {
     headers, // Use the headers object
   });
 };
+export const fincraPayment = (data, token) => {
+  return authKit.post(`api/v1/payment/generate-payment-link`, data, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 authKit.interceptors.request.use((config) => {
   // console.log("Request Config:", config);
   return config;

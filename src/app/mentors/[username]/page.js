@@ -145,7 +145,7 @@ const MentorDetails = () => {
   //rounte to book session page if the token is true
   const bookSession = () => {
     if (token) {
-      setShowBookSession(true);
+      setShowMentorSession(true);
       // setShowBookingModal(false);
     } else {
       // window.location.href = "https://dashboard.hackthejobs.com/auth/signup";

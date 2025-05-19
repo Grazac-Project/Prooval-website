@@ -10,12 +10,20 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   BookingsSubmitAction,
+  fincraPayment,
   getAvailableBookings,
 } from "@/api/authentication/auth";
 import Cookies from "js-cookie";
 import BookingModal from "./booking-modal";
 
-const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
+const BookSession = ({
+  closeModal,
+  mentorId,
+  image,
+  type,
+  successModal,
+  price,
+}) => {
   const [activeDates, setActiveDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTimeIndex, setSelectedTimeIndex] = useState(null);
@@ -28,6 +36,11 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
   const [showButton, setShowButton] = useState(false);
   const [values, setValues] = useState({ suggestion: "" });
   const [buttonText, setButtonText] = useState("Book Session");
+  const [token, setToken] = useState("");
+
+
+
+
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -40,38 +53,27 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
   } catch (err) {
     //err
   }
-  // useEffect(() => {
-  //   const script = document.createElement("script");
-  //   script.src = "https://widget.fincra.com/js/v1/fincra.js";
-  //   script.async = true;
-  //   document.body.appendChild(script);
-  // }, []);
-
-  // const handlePay = () => {
-  //   window.Fincra.initialize({
-  //     key: "YOUR_PUBLIC_KEY",
-  //     amount: 5000, // Amount in minor units (e.g. kobo if NGN)
-  //     currency: "NGN",
-  //     customer: {
-  //       name: "John Doe",
-  //       email: "john@example.com",
-  //     },
-  //     onClose: function () {
-  //       console.log("Modal closed");
-  //     },
-  //     onSuccess: function (response) {
-  //       console.log("Payment successful:", response);
-  //       // send to backend for verification
-  //     },
-  //   });
-  // };
   useEffect(() => {
-    
-    console.log({type});
+    const details = Cookies.get("user_details");
+    if (details) {
+      try {
+        const parsed = JSON.parse(details);
+        if (parsed?.token) {
+          setToken(parsed.token);
+        }
+      } catch (err) {
+        console.error("Error parsing user_details:", err);
+      }
+    }
+  }, []);
+  
+  
+  useEffect(() => {
+    console.log({ type });
     if (type === "Paid") {
       setButtonText("Proceed to payment");
     }
-
+    console.log({ mentorId });
     getAvailableBookings(mentorId)
       .then((res) => {
         // console.log(res);
@@ -130,17 +132,7 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
     setFilteredData(filterArr);
     setAvailableTimes(times);
   };
-  // const tileClassName = ({ date, view }) => {
-  //   if (view === "month") {
-  //     const formattedDate = dayjs(date).format("YYYY-MM-DD");
-  //     if (activeDates.includes(formattedDate)) {
-  //       return "bg-[#1453FF] text-[#101828] rounded-[8px] w-[45px] h-[45px] border-[1px]"; // Active dates styling
-  //     } else {
-  //       return "text-[#7D7D7D]"; // Faded styling for non-active dates
-  //     }
-  //   }
-  //   return "";
-  // };
+  
   const tileClassName = ({ date, view }) => {
     if (view === "month") {
       const formattedDate = dayjs(date).format("YYYY-MM-DD"); // Format the date to match activeDates
@@ -179,18 +171,37 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
         setLoading(false);
       });
   };
+  const handlePayment = () => {
+    const data = {
+      bookingId: bookingValues?.bookingId,
+      slotId: bookingValues?.slotId,
+      userId: userId,
+      suggestion: values.suggestion,
+      amount: price,
+    };
+    console.log(data);
+    fincraPayment(data, token)
+      .then((res) => {
+        console.log(res);
+        setLoading(false);
+        // setShowBookingModal(true);
+        const url = res.data.data.checkoutUrl;
+        window.location.href = url;
+      })
+      .catch((err) => {
+        toast.error(err.response?.data?.error);
+        setLoading(false);
+      });
+  };
   const handleclick = () => {
     setLoading(true);
 
     if (type === "Paid") {
-      // handlePay();
-      console.log("Proceed to payment clicked");
+      handlePayment();
     } else {
       handleBookingSubmit();
     }
-
-
-  }
+  };
   return (
     <div>
       <ToastContainer />
@@ -283,7 +294,8 @@ const BookSession = ({ closeModal, mentorId, image, type, successModal }) => {
                   <div className="w-[100%] mt-[40px]">
                     <h4 className="text-[14px] leading-[17px] font-[400] text-[#4F4F4F] mb-[8px] sm:mt-[12px]">
                       Do you have anything you'd like to share ahead of our
-                      session ? <span className="text-[#7D7D7D]">(Optional)</span>
+                      session ?{" "}
+                      <span className="text-[#7D7D7D]">(Optional)</span>
                     </h4>
                     <textarea
                       type="text"
