@@ -20,6 +20,7 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
   const [bookingData, setBookingData] = useState([]);
     const [bookingId, setBookingId] = useState(mentorId);
   const [bookType, setBookType] = useState("");
+  const [mentorPrice, setMentorPrice] = useState("")
 
   useEffect(() => {
     const data = Cookies.get("user_details");
@@ -33,10 +34,11 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
     }
   }, []);
 
-  const bookSession = (id, type) => {
+  const bookSession = (id, type, amount) => {
     if (token) {
       setBookingId(id); 
       setBookType(type)
+      setMentorPrice(amount)
       console.log({bookType})
       
       setShowBookSession(true);
@@ -58,6 +60,7 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
         setLoading(false);
       })
       .catch((err) => {
+        toast.error(err.response?.data?.message || "Network error !!!");
         // console.log(err)
       });
   }, []);
@@ -68,7 +71,7 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
       <ToastContainer />
       {showBookingModal && (
         <BookingModal
-          mentorId={bookingId}
+          // mentorId={bookingId}
           mentor={mentorDetails}
           closeModal={() => setShowBookingModal(false)}
           
@@ -81,6 +84,8 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
             image={mentorImage}
             closeModal={() => setShowBookSession(false)}
             successModal={() => setShowBookingModal(true) }
+            price={mentorPrice}
+            bookType={bookType}
             type={bookType}
           />
         ) : (
@@ -171,7 +176,7 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
                         </p>
                         <button
                           className=" w-[130px]  h-[50.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] "
-                          onClick={() => bookSession(bookings.bookingId, bookings?.type)}
+                          onClick={() => bookSession(mentorId, bookings?.type, bookings?.amount)}
                         >
                           Book Mentor
                         </button>
