@@ -43,7 +43,7 @@ const ValueCard = () => {
         <h4 className="font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 ">
           Make Your Mark in the Tech Industry
         </h4>
-        <p className="font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]">
+        <p className="font-normal text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]">
           As a Senior Product Manager, you’ll have the chance to leave a lasting
           legacy on the future of tech talent development in the continent.
         </p>
@@ -73,7 +73,7 @@ const ValueCard = () => {
         <h4 className="font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 ">
           Drive Social Impact
         </h4>
-        <p className="font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[56px]">
+        <p className="font-normal text-[16px] text-[#D1D1D1] leading-[24px] pb-[56px]">
           Your work will directly contribute to creating opportunities for
           bootcamp graduates, helping them gain experience and skills needed to
           land a job in the tech industry.
@@ -104,7 +104,7 @@ const ValueCard = () => {
         <h4 className="font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 ">
           Collaborate with Passionate Professionals
         </h4>
-        <p className="font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[51px]">
+        <p className="font-normal text-[16px] text-[#D1D1D1] leading-[24px] pb-[51px]">
           Be part of a team of like-minded individuals who are passionate about
           education, technology, and making a difference.
         </p>
@@ -134,7 +134,7 @@ const ValueCard = () => {
         <h4 className="font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 ">
           Shape the Future of Workforce Development
         </h4>
-        <p className="font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]">
+        <p className="font-normal text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]">
           You’ll be part of those developing innovative solutions that address
           the challenges faced by entry-level talents in Africa.
         </p>

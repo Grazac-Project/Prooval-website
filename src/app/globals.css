@@ -52,6 +52,9 @@ button.slick-arrow.slick-next {
 .z-5 {
   z-index: 5;
 }
+.z-100 {
+  z-index: 99999;
+}
 
 .slick-track {
   display: flex !important;

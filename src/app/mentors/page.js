@@ -126,7 +126,7 @@ const Page = () => {
     router.push(`/mentors/${mentorSlug}`);
   };
   return (
-    <section className="font-whyte ">
+    <section className="font-onest ">
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
       <Navbar />
       <div
@@ -137,7 +137,7 @@ const Page = () => {
           <h1 className="font-medium w-[894px] lgx:w-[90%] sm:w-[90%] xm:w-[98%] text-[56px] sm:text-[40px] mx-auto leading-[56px] sm:leading-[48px] tracking-[-2%] text-[#fff] mb-[24px]">
             World class mentorship at your finger tips
           </h1>
-          <p className="font-regular px-[10px] w-[768px] lgx:w-[75%] md:w-[85%] sm:w-[90%] xm:w-[98%] text-[20px] sm:text-[16px] mx-auto leading-[30px] sm:leading-[24px] text-[#EAECF0] mb-[24px]">
+          <p className="font-normal px-[10px] w-[768px] lgx:w-[75%] md:w-[85%] sm:w-[90%] xm:w-[98%] text-[20px] sm:text-[16px] mx-auto leading-[30px] sm:leading-[24px] text-[#EAECF0] mb-[24px]">
             Easily connect with exceptional mentors from various backgrounds and
             openly discuss your career challenges with them.
           </p>
@@ -152,7 +152,7 @@ const Page = () => {
           <input
             type="search"
             placeholder="Search by name, company, role"
-            className=" font-regular flex items-center w-[100%] rounded-[8px] border-[1px] border-[#D0D5DD] pl-[44px] pr-[14px] py-[8px] text-[16px] text-[#667085] leading-[24px] shadow-footerInput"
+            className=" font-normal flex items-center w-[100%] rounded-[8px] border-[1px] border-[#D0D5DD] pl-[44px] pr-[14px] py-[8px] text-[16px] text-[#667085] leading-[24px] shadow-footerInput"
             value={inputText}
             onChange={handleChange}
           />
@@ -162,7 +162,7 @@ const Page = () => {
         {showMentor && (
           <div
             style={{ justifyContent: positionStyle ? "start" : "start" }}
-            className="flex   xm:justify-around lg:justify-start flex-wrap gap-[32px] pb-[0px] sm:pb-[0px] w-[1280px]  1xl:w-[90%]  m-auto "
+            className="flex xm:justify-around lg:justify-start flex-wrap lg:gap-[12px] gap-[32px] pb-[0px] sm:pb-[0px] w-[1280px]  1xl:w-[90%]  m-auto "
           >
             {listOfMentors?.map((listOfMentor, i) => {
               // console.log(listOfMentor)
@@ -171,7 +171,7 @@ const Page = () => {
                   <div
                     key={i}
                     ref={lastMentorRef}
-                    className="font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer group hover:border-b-[3px] hover:border-b-[#1453FF] transition-all duration-300"
+                    className="font-onest w-[23%] lgx:w-[30.5%] xm:w-[100%] sm:w-[48%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer group hover:border-b-[3px] hover:border-b-[#1453FF] transition-all duration-300"
                     onClick={() => handleMentorClick(listOfMentor.slug)}
                   >
                     <div className="relative h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden">
@@ -184,18 +184,18 @@ const Page = () => {
                       />
                       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-[rgba(0,0,0,0.3)] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end px-4 pb-3">
                         <span className="text-[white] text-[14px] leading-[24px] font-medium flex items-center gap-[10px] mx-auto text-center">
-                          View Details
-                          <FaArrowRightLong className="w-4 h-4"/>
+                          View Profile
+                          <FaArrowRightLong className="w-4 h-4 xm:hidden "/>
                         </span>
                       </div>
                     </div>
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                       {listOfMentor?.firstName} {listOfMentor?.lastName}
                     </h4>
-                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
+                    <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
-                    <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
+                    <p className="font-normal w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>
                   </div>
@@ -204,7 +204,7 @@ const Page = () => {
                 return (
                   <div
                     key={listOfMentor._id}
-                    className="font-whyte w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[343px] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer group hover:border-b-[3px] hover:border-b-[#1453FF] transition-all duration-300"
+                    className="ffont-onest w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[100%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer group xm:border-b-[3px] xm:border-b-[#1453FF] hover:border-b-[3px] hover:border-b-[#1453FF] transition-all duration-300"
                     onClick={() => handleMentorClick(listOfMentor.slug)}
                   >
                     <div className="relative h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden">
@@ -215,10 +215,10 @@ const Page = () => {
                         alt="mentor image"
                         className="w-full h-full object-cover filter grayscale group-hover:filter-none transition-all duration-300"
                       />
-                      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-[rgba(0,0,0,0.3)] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end px-4 pb-3">
+                      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-[rgba(0,0,0,0.3)] to-transparent xm:opacity-100 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end px-4 pb-3">
                         <span className="text-[white] text-[14px] leading-[24px] font-medium flex justify-center items-center gap-[10px] mx-auto text-center">
-                          View Details
-                          <FaArrowRightLong className="w-4 h-4"/>
+                          View Profile
+                          <FaArrowRightLong className="w-4 h-4 xm:hidden"/>
                         </span>
                       </div>
                     </div>
@@ -226,10 +226,10 @@ const Page = () => {
                     <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
                       {listOfMentor?.firstName} {listOfMentor?.lastName}
                     </h4>
-                    <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
+                    <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
-                    <p className="font-regular w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
+                    <p className="font-normal w-[296px] 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>
                   </div>
@@ -247,7 +247,7 @@ const Page = () => {
               height={313}
               className="mx-auto "
             />
-            <p className="font-regular text-[20px] text-[#787676] leading-[30px] text-center">
+            <p className="font-normal text-[20px] text-[#787676] leading-[30px] text-center">
               Search not found
             </p>
           </div>

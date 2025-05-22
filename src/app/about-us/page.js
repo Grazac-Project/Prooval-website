@@ -47,7 +47,7 @@ const AboutUs = () => {
           <h1 className="font-whyte text-[54px] sm:text-[40px] leading-[60px] sm:leading-12 font-500">
             Positioning you for success
           </h1>
-          <p className=" font-whyte text-[16px] leading-[20.8px] font-400 my-6 ">
+          <p className=" font-onest text-[16px] leading-[20.8px] font-400 my-6 ">
             We strongly believe mentorship is the hidden gem required to build
             highly competitive talents.
           </p>
@@ -97,7 +97,7 @@ const AboutUs = () => {
         </div>
       </div>
       <div>
-        <div className="text-center mt-[48px] mb-[148px] md:mb-[48px] sm:[24px] font-whyte">
+        <div className="text-center mt-[48px] mb-[148px] md:mb-[48px] sm:[24px] font-onest">
           <div className="w-[430px] sm:w-[95%] m-auto ">
             <h3 className="text-[48px] sm:text-[32px] leading-[51.36px] sm:[41.6px] font-[500] text-[#101828] mb-[16px]">
               Our Core Values

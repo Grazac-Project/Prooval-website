@@ -12,14 +12,14 @@
   margin-bottom: 48px;
 }
 .intro h1 {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 74px;
   line-height: 87px;
   /* width: 470px; */
   width: 543px;
 }
 .intro p {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 20px;
   font-weight: 400;
   line-height: 25px;
@@ -53,7 +53,7 @@
   gap: 64px;
 }
 .mission h4 {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 48px;
   font-weight: 500;
   line-height: 53px;
@@ -61,7 +61,7 @@
   color: #101828;
 }
 .mission p {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -73,7 +73,7 @@
   margin: 0 auto;
 }
 .story h4 {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 48px;
   font-weight: 500;
   line-height: 53px;
@@ -84,7 +84,7 @@
   display: none;
 }
 .story p {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -107,7 +107,7 @@
   text-align: center;
 }
 .teamText h3 {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 48px;
   font-weight: 500;
   line-height: 53px;
@@ -115,7 +115,7 @@
   margin-bottom: 20px;
 }
 .teamText p {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -130,7 +130,7 @@
 }
 
 .card h5 {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -138,7 +138,7 @@
   margin-top: 25px;
 }
 .card span {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
@@ -173,14 +173,14 @@
 }
 
 .donateText h3 {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 48px;
   font-weight: 500;
   line-height: 58px;
   color: white;
 }
 .donateText p {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -192,7 +192,7 @@
 .donateText button {
   padding: 20px 40px;
   background-color: #1453ff;
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;

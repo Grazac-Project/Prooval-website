@@ -1,6 +1,7 @@
 // import { Space_Grotesk, Montserrat, Inter } from 'next/font/google'
 
 import localFont from "next/font/local";
+import { Onest } from "next/font/google";
 import "./globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -9,6 +10,12 @@ import GoogleAnalytics from "@/components/googleAnalytics";
 import RouteTracker from '@/components/RouteTracker'
 
 // const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const onest = Onest({
+  subsets: ['latin'],
+  variable: '--font-onest',
+  display: 'swap',
+});
+
 const whyte = localFont({
   src: [
     {
@@ -116,7 +123,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable} ${whyte.variable}`}>
+      <body className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable} ${whyte.variable} ${onest.variable}`}>
       <Script
           id="tawk-to"
           strategy="afterInteractive"

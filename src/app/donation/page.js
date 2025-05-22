@@ -64,7 +64,7 @@ const Donation = () => {
         <div className="flex  items-center justify-center">
           <div className="flex  items-center justify-center md:flex-col gap-6">
             {/* <Link href="#">
-              <div className=" font-whyte flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto">
+              <div className=" font-onest flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto">
                 <Image
                   src="stripe.svg"
                   alt="icon"
@@ -79,7 +79,7 @@ const Donation = () => {
               href="https://flutterwave.com/donate/qp4tnnzbnn7g"
               target="_blank"
             >
-              <div className=" font-whyte flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto  border border-[#ffff]">
+              <div className=" font-onest flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto  border border-[#ffff]">
                 <Image
                   src="flutterwave.svg"
                   alt="icon"
@@ -91,7 +91,7 @@ const Donation = () => {
               </div>
             </Link>
             <Link href="https://gofund.me/9d0eeec3" target="_blank">
-              <div className=" font-whyte flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] border border-[#ffff] rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto">
+              <div className=" font-onest flex gap-2 justify-center items-center  font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] border border-[#ffff] rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px] md:w-[310px] ssxm:w-auto">
                 <Image
                   src="goFundme.svg"
                   alt="icon"
@@ -113,8 +113,9 @@ const Donation = () => {
               We understand the challenges talents face first hand in attracting
               opportunities after acquiring tech skills either online or in a
               physical bootcamp. The idea behind hackthejobs is simply to close
-              this gap between these entry level talents and the mentorship & work experience
-              needed to land global opportunities and stay competitive.
+              this gap between these entry level talents and the mentorship &
+              work experience needed to land global opportunities and stay
+              competitive.
             </p>
           </div>
           {/* <div className={Classes.whyStat}>

@@ -16,7 +16,7 @@ const FaqModal = ({ modalClose }) => {
     // modal.style.top = modalTopPosition + 'px'
   }, []);
   return (
-    <section className="font-whyte">
+    <section className="font-onest">
       <div
         className="bg-[black] opacity-[0.7] h-full w-[100%] z-[1000] fixed top-0 left-0"
         onClick={modalClose}
@@ -27,11 +27,9 @@ const FaqModal = ({ modalClose }) => {
       >
         <div className="flex justify-center items-center gap-[2px] mb-[8px]">
           <RiVerifiedBadgeFill className="text-[#13AD61] text-[24px]" />
-          <h4 className=" font-bold text-[24px] leading-[36px] text-[#1C1C1C] text-center">
-            
-          </h4>
+          <h4 className=" font-bold text-[24px] leading-[36px] text-[#1C1C1C] text-center"></h4>
         </div>
-        <p className="font-regular text-[20px] sm:text-[16px] leading-[30px] sm:leading-[19.2px] text-[#667085] text-center">
+        <p className="font-normal text-[20px] sm:text-[16px] leading-[30px] sm:leading-[19.2px] text-[#667085] text-center">
           Your message has been sent
         </p>
         <span
