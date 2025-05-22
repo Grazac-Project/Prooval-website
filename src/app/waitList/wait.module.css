@@ -5,7 +5,7 @@
   justify-content: space-between;
   justify-items: center;
   align-items: center;
-    padding-bottom: 68px;
+  padding-bottom: 68px;
 }
 
 .heroText {
@@ -15,25 +15,23 @@
 
 .heroText span {
   /* font-size: 56px; */
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   color: #9c7d00;
 }
 .heroText h3 {
   font-size: 56px;
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   color: #333;
   font-weight: 700;
-line-height: 72px;
-  
+  line-height: 72px;
 }
 .heroText p {
   color: #858585;
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 20px;
   font-weight: 500;
-margin-top: 24px ;
+  margin-top: 24px;
   line-height: 30px;
-
 }
 .formFlex {
   display: flex;
@@ -43,8 +41,8 @@ margin-top: 24px ;
   margin-top: 32px;
   margin-bottom: 8px;
 }
-.errorMsg span{
-  font-family: var(--font-whyte);
+.errorMsg span {
+  font-family: var(--font-onest);
   font-size: 12px;
   color: red;
 }
@@ -75,7 +73,7 @@ margin-top: 24px ;
   border-radius: 8px;
   border: 1px solid var(--Stroke, #d9dce1);
   outline: none;
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 14px;
   color: #828282;
 }
@@ -86,7 +84,7 @@ margin-top: 24px ;
   border-radius: 8px;
   border: 1px solid var(--Stroke, #d9dce1);
   outline: none;
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 14px;
   color: #828282;
 }
@@ -101,7 +99,6 @@ margin-top: 24px ;
   font-size: 14px;
   color: #828282;
   margin-bottom: 8px;
-
 }
 .button {
   display: flex;
@@ -114,47 +111,46 @@ margin-top: 24px ;
   border-radius: 8px;
   background: #1453ff;
   color: #fff;
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-cursor: pointer;
+  cursor: pointer;
 }
 .talents {
   background-color: #fbfbfb;
   padding: 45px 0;
 }
 .talents h4 {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 32px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 48px;
 }
-.slider{
+.slider {
   /* display: flex; */
   /* gap: 24px; */
 }
 .card {
-/* width: 410px; */
+  /* width: 410px; */
   padding: 24px;
   border: 1px solid #dddd;
   border-radius: 16px;
   text-align: center;
   /* margin-right: 24px; */
-
 }
 .card h5 {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 24px;
   font-weight: 600;
   color: #333;
   margin-top: 16px;
-line-height: 29.05px;
+  line-height: 29.05px;
 }
 .card span {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 18px;
   font-weight: 400;
   color: #a5a5a5;
@@ -163,7 +159,7 @@ line-height: 29.05px;
   padding-bottom: 16px;
 }
 .card p {
-  font-family: var(--font-whyte);
+  font-family: var(--font-onest);
   font-size: 18px;
   font-weight: 400;
   color: #4f4f4f;
@@ -173,73 +169,65 @@ line-height: 29.05px;
   width: 1275px;
   align-items: center;
   margin: auto;
-  
-
 }
 
-@media screen and (max-width: 1440px){
-  .hero{
+@media screen and (max-width: 1440px) {
+  .hero {
     width: 90%;
   }
-  .slider{
+  .slider {
     width: 90%;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .heroText{
+  .heroText {
     width: 50%;
   }
   .form input {
     width: 100%;
-   
   }
-.form2 select{
+  .form2 select {
     width: 100%;
   }
-  .form2 input{
+  .form2 input {
     width: 100%;
   }
   .button {
     width: 100%;
   }
-  .heroText h3{
+  .heroText h3 {
     /* font-size: 40px; */
     line-height: 50px;
-
-
   }
-  .heroText span{
+  .heroText span {
     /* font-size: 40px; */
     line-height: 50px;
-
   }
-  .heroText p{
+  .heroText p {
     font-size: 16px;
-line-height: 25px;
-
+    line-height: 25px;
   }
 }
 @media screen and (max-width: 768px) {
-.hero{
-  width: 95%;
-}
-.heroText{
-  width: 577px;
-}
-.formFlex{
-  width: 577px;
-}
-.form input {
-  width: 181px;
- 
-}
-.form2 input{
-  width: 388px;
-}
-.button {
-  width: 577px;
-}
+  .hero {
+    width: 95%;
+  }
+  .heroText {
+    width: 577px;
+  }
+  .formFlex {
+    width: 577px;
+  }
+  .form input {
+    width: 181px;
+  }
+  .form2 input {
+    width: 388px;
+  }
+  .button {
+    width: 577px;
+  }
 }
 @media screen and (max-width: 600px) {
   .button {
@@ -253,40 +241,35 @@ line-height: 25px;
     width: 100%;
     margin-bottom: 8px;
   }
-  .form2 input{
+  .form2 input {
     width: 100%;
   }
   .heroText {
     width: 100%;
   }
-  .hero{
+  .hero {
     padding-bottom: 45px;
   }
- .card{
-  padding: 12px;
- }
+  .card {
+    padding: 12px;
+  }
 }
 @media screen and (max-width: 425px) {
-  .heroText h3{
+  .heroText h3 {
     font-size: 32px;
-line-height: 41.6px;
+    line-height: 41.6px;
   }
-  .heroText span{
+  .heroText span {
     font-size: 32px;
-line-height: 41.6px;
-
-    
+    line-height: 41.6px;
   }
-  .heroText p{
+  .heroText p {
     font-size: 14px;
-line-height: 21px;
-
+    line-height: 21px;
   }
-  .talents h4{
+  .talents h4 {
     font-size: 28px;
     margin-bottom: 24px;
     width: 95%;
   }
 }
-
-

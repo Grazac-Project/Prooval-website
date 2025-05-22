@@ -43,7 +43,7 @@ const ValueCard = () => {
         <h4 className="font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 ">
           Develop real mentorship skills
         </h4>
-        <p className="font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]">
+        <p className="font-normal text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]">
           Develop and showcase your mentorship skills by guiding aspiring tech
           talents
         </p>
@@ -73,7 +73,7 @@ const ValueCard = () => {
         <h4 className="font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 ">
           Make Real Impact
         </h4>
-        <p className="font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[56px]">
+        <p className="font-normal text-[16px] text-[#D1D1D1] leading-[24px] pb-[56px]">
           As an Industry expert, you’ll have the chance to leave a lasting
           legacy on the future of tech talent development.{" "}
         </p>
@@ -101,10 +101,11 @@ const ValueCard = () => {
       >
         <Image src="mentor-icon3.svg" width={56} height={57} alt="gvh" />
         <h4 className="font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 ">
-        Grow your network
+          Grow your network
         </h4>
-        <p className="font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[51px]">
-        Meet other senior tech professionals and expand your reach and network.
+        <p className="font-normal text-[16px] text-[#D1D1D1] leading-[24px] pb-[51px]">
+          Meet other senior tech professionals and expand your reach and
+          network.
         </p>
         <Image
           style={{ filter: changeHover2 ? "none" : "grayscale(100%)" }}
@@ -130,10 +131,10 @@ const ValueCard = () => {
       >
         <Image src="mentor-icon4.svg" width={56} height={57} alt="gvh" />
         <h4 className="font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 ">
-        Incentives
+          Incentives
         </h4>
-        <p className="font-regular text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]">
-        Get free access to our upcoming programs and merch.
+        <p className="font-normal text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]">
+          Get free access to our upcoming programs and merch.
         </p>
         <Image
           style={{ filter: changeHover3 ? "none" : "grayscale(100%)" }}

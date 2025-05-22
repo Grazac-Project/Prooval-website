@@ -12,6 +12,7 @@ module.exports = {
         inter: ["var(--font-inter)"],
         whyte: ["var(--font-whyte)"],
         grotesk: ["var(--font-space-grotesk)"],
+        onest: ["var(--font-onest)"]
       },
       boxShadow: {
         abc: "0 2px 8px 0 rgba(0, 0, 0, 0.15)",

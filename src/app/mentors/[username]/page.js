@@ -86,8 +86,7 @@ const MentorDetails = () => {
         setMentorData(res.data.data.data);
         setMentorId(res.data.data.data.mentor._id);
 
-        // console.log(mentorData);
-        // console.log(reviews);
+
 
         setLoading(false);
         // console.log(data?.calendarLink);
@@ -146,7 +145,7 @@ const MentorDetails = () => {
   const bookSession = () => {
     if (token) {
       setShowMentorSession(true);
-      // setShowBookingModal(false);
+      
     } else {
       // window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
       window.location.href = `${baseUrl}/auth/signup`;
@@ -181,7 +180,7 @@ const MentorDetails = () => {
         {loading ? (
           <Load />
         ) : (
-          <div className="bg-[#F2F2F7] py-[50px] md:py-8 font-whyte ">
+          <div className="bg-[#F2F2F7] py-[50px] md:py-8 font-onest ">
             <div className=" w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
               <div className="min-h-[212px]  mx-auto bg-[#ffffff] py-6 px-20 lg:px-10 md:px-4 mb-[10px]  rounded-[8px] ">
                 <div className="flex md:flex-col justify-between items-center gap-3 ">
@@ -194,7 +193,7 @@ const MentorDetails = () => {
                       className="w-[164px] h-[164px] object-cover rounded-[50%]"
                     />
                     <div className="flex flex-col md:justify-center md:text-center md:items-center gap-2">
-                      <h2 className="font-medium text-[18px] text-[#101828] leading-[25.62px] ">
+                      <h2 className="font-medium text-[18px] text-[#101828] leading-[25.62px]">
                         {mentorData?.mentor?.firstName}{" "}
                         {mentorData?.mentor?.lastName}
                       </h2>
@@ -208,7 +207,7 @@ const MentorDetails = () => {
                       >
                         Book Mentor
                       </button>
-                      <div className="flex justify-start md:justify-center gap-2 align-center">
+                      <div className="flex justify-start md:justify-center gap-2 align-center mt-0 sm:mt-6">
                         <button
                           className={` text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] sxm:max-w-[50%] h-[35.6px] flex justify-center items-center gap-1 `}
                         >
@@ -312,7 +311,7 @@ const MentorDetails = () => {
                       {mentorData?.mentor?.skills?.map((element, i) => (
                         <div
                           key={i}
-                          className="h-6 min-w-[83px] bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px] px-1"
+                          className="h-6 w-fit bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px] p-3"
                         >
                           <span>{element}</span>
                         </div>
@@ -404,7 +403,7 @@ const MentorDetails = () => {
                 <div className="w-[55%] md:w-full ">
                   <div className=" border border-[#F2F2F7] border-b-[#EAEAEA]  py-6 md:py-4 ">
                     <div className="flex justify-between items-center border border-[#fff] border-b-[#EAEAEA] mx-12 md:mx-4 py-[8.5px]  ">
-                      <h4 className="text-[12px] leading-[140%] font-medium mb-2">
+                      <h4 className="text-[12px] leading-[140%] font-medium">
                         About
                       </h4>
                       <div className="flex items-center gap-2 ">
@@ -415,8 +414,8 @@ const MentorDetails = () => {
                                 key={i}
                                 src="/rate.svg"
                                 alt="star"
-                                width={27}
-                                height={27}
+                                width={16}
+                                height={16}
                                 className=""
                               />
                             ) : (
@@ -424,23 +423,28 @@ const MentorDetails = () => {
                                 key={i}
                                 src="/rate2.svg"
                                 alt="star"
-                                width={27}
-                                height={27}
+                                width={16}
+                                height={16}
                                 className=""
                               />
                             )
                           )}
                         </div>
                         <div className="flex items-center gap-2">
-                          <h4 className="text-[14px] leading-[140%] font-inter font-bold text-[#333333] ">
+                          <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
                             {mentorData.averageRating || 0}
                           </h4>
-                          <p className=" text-[10px] leading-[140%] font-inter font-bold text-[#888888] ">
+                          <p className=" text-[10px] leading-[140%] font-inter font-normal text-[#888888] ">
                             {mentorData?.reviews?.length || "No"} reviews
                           </p>
                         </div>
                       </div>
-                    </div>{" "}
+                    </div>
+                    {/* <div>
+                      <p className="text-[#4F4F4F] leading-[140%] text-[14px] mx-12 md:mx-4 py-4">
+                        {mentorData?.mentor?.about}
+                      </p>
+                    </div> */}
                     <div>
                       <div
                         className="text-[#4F4F4F] leading-[150%] text-[14px] mx-12 md:mx-4 py-4 [&>*]:my-[10px]"

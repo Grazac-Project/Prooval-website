@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import BookingModal from "./booking-modal";
 import BookSession from "./book-session";
 import Cookies from "js-cookie";
@@ -61,19 +61,28 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
       })
       .catch((err) => {
         toast.error(err.response?.data?.message || "Network error !!!");
+        closeSessionModal();
         // console.log(err)
       });
   }, []);
-
+const openModal = () => {
+    setShowBookingModal(true);
+    // closeSessionModal();
+  };
+  const closeSesModal = () => {
+    setShowBookSession(false);
+    closeSessionModal();
+  };
   
   return (
     <div>
       <ToastContainer />
       {showBookingModal && (
         <BookingModal
-          // mentorId={bookingId}
+          mentorId={bookingId}
           mentor={mentorDetails}
-          closeModal={() => setShowBookingModal(false)}
+          closeModal={closeSesModal}
+          
           
         />
       )}
@@ -81,12 +90,12 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
         {showBookSession ? (
           <BookSession
             mentorId={bookingId}
-            image={mentorImage}
-            closeModal={() => setShowBookSession(false)}
-            successModal={() => setShowBookingModal(true) }
-            price={mentorPrice}
-            bookType={bookType}
-            type={bookType}
+              image={mentorImage}
+              closeModal={() => setShowBookSession(false)}
+              successModal={openModal}
+              type={bookType}
+              price={mentorPrice}
+              mentor={mentorDetails}
           />
         ) : (
           <div className="font-whyte">
