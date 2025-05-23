@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Load } from "@/components/loading";
 import Cookies from "js-cookie";
 import MentorSession from "@/components/mentorSession";
+import { formatPrice } from "@/Utils/price-formater";
 
 const MentorDetails = () => {
   const [view, setView] = useState(3);
@@ -324,7 +325,7 @@ const MentorDetails = () => {
                     </h4>
                     <div className="flex flex-col items-center gap-2">
                       {mentorData?.bookings?.map((book) => (
-                        <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA]  ">
+                        <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
                           <div className="flex gap-[16px] justify-between items-center mb-[10px] ">
                             <div
                               className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
@@ -363,7 +364,7 @@ const MentorDetails = () => {
                                 />
 
                                 <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                                  &#8358;{book?.amount}
+                                  &#8358;{formatPrice(book?.amount)}
                                 </span>
                               </div>
                             )}

@@ -8,6 +8,7 @@ import BookingModal from "./booking-modal";
 import BookSession from "./book-session";
 import Cookies from "js-cookie";
 import { getAllBookings} from "@/api/authentication/auth";
+import { formatPrice } from "@/Utils/price-formater";
 
 
 
@@ -168,7 +169,7 @@ const openModal = () => {
                             />
 
                             <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                              &#8358;{bookings?.amount}
+                              &#8358;{formatPrice(bookings?.amount)}
                             </span>
                           </div>
                         )}
