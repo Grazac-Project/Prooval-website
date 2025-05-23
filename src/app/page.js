@@ -16,6 +16,7 @@ import { fetchMentors } from "@/api/authentication/auth";
 import useAnalytics from "@/components/useAnalytics";
 import Expertise from "@/components/expertise/page";
 import Cookies from "js-cookie";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const Landing = () => {
   const router = useRouter();

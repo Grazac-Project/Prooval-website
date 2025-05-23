@@ -21,6 +21,7 @@ import { fetchMentors } from "@/api/authentication/auth";
 import ValueCard from "@/components/valueCard/MentorValueCard copy 2";
 import { LuDot } from "react-icons/lu";
 import Cookies from "js-cookie";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const mentor = () => {
   const router = useRouter();
