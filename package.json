@@ -14,6 +14,7 @@
     "@mui/icons-material": "^6.4.8",
     "@mui/material": "^6.4.8",
     "@splidejs/react-splide": "^0.7.12",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "aos": "^2.3.4",
     "axios": "^1.6.7",
     "dayjs": "^1.11.13",
@@ -32,6 +33,7 @@
     "react-otp-input": "^3.1.1",
     "react-slick": "^0.30.1",
     "react-toastify": "^9.1.3",
+    "sharp": "^0.34.1",
     "slick-carousel": "^1.8.1",
     "yup": "^1.3.2"
   },

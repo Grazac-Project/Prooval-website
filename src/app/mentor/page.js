@@ -39,6 +39,8 @@ const mentor = () => {
   const [logo4, setLogo4] = useState(false);
   const [listOfMentors, setListOfMentors] = useState([]);
 
+  const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
+
   const sliderDotChange = setInterval((index) => {
     if (index === 0) {
       setDotPosition(index);
@@ -199,7 +201,12 @@ const mentor = () => {
               </Link> */}
               {/* <Link href="https://mentor.hackthejobs.com/auth/signup"> */}
               <a
-                href="https://mentor.hackthejobs.com/auth/signup"
+                // href="https://mentor.hackthejobs.com/auth/signup"
+                href={
+                  isProduction === "development"
+                    ? `${process.env.NEXT_PUBLIC_STAGING_MENTOR_URL}/auth/signup`
+                    : `${process.env.NEXT_PUBLIC_MENTOR_URL}/auth/signup`
+                }
                 target="_blank"
                 className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]"
               >
@@ -479,7 +486,7 @@ const mentor = () => {
           <h2 className="font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3">
             Why Mentor at Hackthejobs
           </h2>
-          <h3 className="font-normal text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center text-[#333] w-[690px] md:w-[100%] mx-auto pb-[42px]">
+          <h3 className="font-normal text-[18px] text-[#FCFCFC] lg:text-[16px] leading-6 lg:leading-[20.8px] text-center  w-[690px] md:w-[100%] mx-auto pb-[42px]">
             Hackthejobs offers you a unique opportunity to make an impact on the
             future of tech in Africa.
           </h3>

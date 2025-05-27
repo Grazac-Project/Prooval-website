@@ -180,7 +180,7 @@ const Page = () => {
                         width={343}
                         height={296}
                         alt="mentor image"
-                        className="w-full h-full object-cover filter grayscale group-hover:filter-none sm:filter-none transition-all duration-300"
+                        className="w-full h-full object-cover filter grayscale group-hover:filter-none transition-all duration-300"
                       />
                       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-[rgba(0,0,0,0.3)] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end px-4 pb-3">
                         <span className="text-[white] text-[14px] leading-[24px] font-medium flex items-center gap-[10px] mx-auto text-center">

@@ -34,6 +34,8 @@ const Landing = () => {
   const [logo4, setLogo4] = useState(false);
   const [listOfMentors, setListOfMentors] = useState([]);
 
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
   const sliderDotChange = setInterval((index) => {
     if (index === 0) {
       setDotPosition(index);
@@ -885,7 +887,8 @@ const Landing = () => {
                 </p>
               </div> */}
               <a
-                href="https://dashboard.hackthejobs.com/auth/signup"
+                // href="https://dashboard.hackthejobs.com/auth/signup"
+                href={`${baseUrl}/auth/signup`}
                 target="_blank"
               >
                 <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4">
