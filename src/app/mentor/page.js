@@ -572,7 +572,7 @@ const mentor = () => {
             </button>
           </Link>
         </section>
-        <section className="pb-[96px] sm:pb-[52px] ">
+       <section className="pb-[96px] sm:pb-[52px] ">
           <div className="sm:hidden  w-[1280px]  1xl:w-[90%] mx-auto flex justify-start flex-wrap gap-[32px] pb-[96px]  sm:pb-[52px]">
             {listOfMentors?.slice(0, 8).map((listOfMentor, i) => {
               return (
