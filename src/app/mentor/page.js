@@ -39,7 +39,7 @@ const mentor = () => {
   const [logo4, setLogo4] = useState(false);
   const [listOfMentors, setListOfMentors] = useState([]);
 
-  const baseUrl = process.env.NEXT_PUBLIC_MENTOR_BASE_URL;
+  const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
 
   const sliderDotChange = setInterval((index) => {
     if (index === 0) {
@@ -202,7 +202,11 @@ const mentor = () => {
               {/* <Link href="https://mentor.hackthejobs.com/auth/signup"> */}
               <a
                 // href="https://mentor.hackthejobs.com/auth/signup"
-                href={`${baseUrl}/auth/signup`}
+                href={
+                  isProduction === "development"
+                    ? `${process.env.NEXT_PUBLIC_STAGING_MENTOR_URL}/auth/signup`
+                    : `${process.env.NEXT_PUBLIC_MENTOR_URL}/auth/signup`
+                }
                 target="_blank"
                 className="font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]"
               >
