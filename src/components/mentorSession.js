@@ -113,7 +113,7 @@ const openModal = () => {
                   <IoIosArrowRoundBack className="text-[16px] text-[#292D32]" />
                 </div>
                 <h1 className="font-medium text-[18px] leading-[27px] tracking-[3%] text-[#121927]">
-                  Book Session
+                  Available Session(s)
                 </h1>
               </div>
               {loading ? (
