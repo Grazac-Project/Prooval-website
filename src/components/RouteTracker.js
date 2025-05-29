@@ -1,4 +1,4 @@
-'use client'
+      'use client'
 import React, { useEffect } from 'react'
 import { usePathname } from 'next/navigation';
 import * as gtag from '@/lib/gtag';
@@ -12,9 +12,9 @@ const RouteTracker = () => {
     if (typeof window.gtag !== 'undefined') {
       gtag.pageview(pathname);
     }
-  }, [pathname]);
+  }, [pathname]     );
 
   return null;
 }
 
-export default RouteTracker
+export default RouteTracker     
