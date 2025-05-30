@@ -144,7 +144,7 @@ export default function RootLayout({ children }) {
         /> */}
         <RouteTracker />
         <GoogleAnalytics />
-        <ErrorBoundary fallback={<Error />}>{children}</ErrorBoundary>
+        {children}
       </body>
     </html>
   );
