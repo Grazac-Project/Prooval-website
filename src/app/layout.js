@@ -124,7 +124,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable} ${whyte.variable} ${onest.variable}`}>
-      <Script
+      {/* <Script
           id="tawk-to"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -140,7 +140,7 @@ export default function RootLayout({ children }) {
               })();
             `,
           }}
-        />
+        /> */}
         <RouteTracker />
         <GoogleAnalytics />
         {children}

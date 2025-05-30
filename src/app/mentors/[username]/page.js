@@ -321,7 +321,7 @@ const MentorDetails = () => {
                   </div>
                   <div className=" border border-[#ffff]  border-b-[#EAEAEA] border-r-[#EAEAEA]  p-8 md:px-4 ">
                     <h4 className="text-[12px] leading-[140%] font-medium text-[#333333] mb-2">
-                      Mentorship Session
+                      Available Session(s)
                     </h4>
                     <div className="flex flex-col items-center gap-2">
                       {mentorData?.bookings?.map((book) => (
