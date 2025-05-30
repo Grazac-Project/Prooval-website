@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Script from "next/script";
 import GoogleAnalytics from "@/components/googleAnalytics";
 import RouteTracker from '@/components/RouteTracker'
+import Error from "./error";
 
 // const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const onest = Onest({
@@ -143,7 +144,9 @@ export default function RootLayout({ children }) {
         /> */}
         <RouteTracker />
         <GoogleAnalytics />
-        {children}
+        <errorBoundary fallback={<Error />}>
+          {children}
+          </errorBoundary>
       </body>
     </html>
   );
