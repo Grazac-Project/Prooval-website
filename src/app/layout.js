@@ -7,13 +7,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Script from "next/script";
 import GoogleAnalytics from "@/components/googleAnalytics";
-import RouteTracker from '@/components/RouteTracker'
+import RouteTracker from "@/components/RouteTracker";
+import Error from "./error";
 
 // const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const onest = Onest({
-  subsets: ['latin'],
-  variable: '--font-onest',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-onest",
+  display: "swap",
 });
 
 const whyte = localFont({
@@ -114,17 +115,17 @@ export const metadata = {
   description:
     "Bridge the gap between the completion of your Bootcamp and landing your dream tech role by getting relevant working experience through Hackthejobs",
   icons: {
-    icon: '/favicon.png'
-
-  }
+    icon: "/favicon.png",
+  },
 };
-
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable} ${whyte.variable} ${onest.variable}`}>
-      {/* <Script
+      <body
+        className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable} ${whyte.variable} ${onest.variable}`}
+      >
+        {/* <Script
           id="tawk-to"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -143,7 +144,7 @@ export default function RootLayout({ children }) {
         /> */}
         <RouteTracker />
         <GoogleAnalytics />
-        {children}
+        <ErrorBoundary fallback={<Error />}>{children}</ErrorBoundary>
       </body>
     </html>
   );
