@@ -304,7 +304,7 @@ const MentorDetails = () => {
                             className="w-[27px] h-[27px] rounded-[50%]"
                           />
                           <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
-                            Total Page Views
+                            Total Profile Views
                           </h5>
                           <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
                             {mentorData?.mentor?.totalPageViews}
