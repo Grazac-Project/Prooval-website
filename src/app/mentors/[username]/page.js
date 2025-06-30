@@ -36,6 +36,7 @@ const MentorDetails = () => {
   const [token, setToken] = useState();
   const router = useRouter();
   const [error, setError] = useState("");
+  const [currency , setCurrency] = useState("")
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -371,7 +372,7 @@ const MentorDetails = () => {
                                     />
 
                                     <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                                      &#8358;{formatPrice(book?.amount)}
+                                    {book.currency === "NGN" ? "₦" : "$"}{formatPrice(book?.amount)}
                                     </span>
                                   </div>
                                 )}

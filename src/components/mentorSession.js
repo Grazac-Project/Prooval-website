@@ -22,6 +22,7 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
     const [bookingId, setBookingId] = useState(mentorId);
   const [bookType, setBookType] = useState("");
   const [mentorPrice, setMentorPrice] = useState("")
+  const [currency , setCurrency] = useState("")
 
   useEffect(() => {
     const data = Cookies.get("user_details");
@@ -35,11 +36,12 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
     }
   }, []);
 
-  const bookSession = (id, type, amount) => {
+  const bookSession = (id, type, amount, bookingCurrency) => {
     if (token) {
-      setBookingId(id); 
-      setBookType(type)
-      setMentorPrice(amount)
+      setBookingId(id);
+      setBookType(type);
+      setMentorPrice(amount);
+      setCurrency(bookingCurrency);
       console.log({bookType})
       
       setShowBookSession(true);
@@ -57,6 +59,7 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
         console.log(res);
         setMentorData(res.data.data.mentor);
         setBookingData(res.data.data.bookings);
+
         // console.log(mentorData);
         setLoading(false);
       })
@@ -97,6 +100,7 @@ const openModal = () => {
               type={bookType}
               price={mentorPrice}
               mentor={mentorDetails}
+              bookingCurrency={currency}
           />
         ) : (
           <div className="font-whyte">
@@ -169,7 +173,7 @@ const openModal = () => {
                             />
 
                             <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                              &#8358;{formatPrice(bookings?.amount)}
+                             {bookings.currency === "NGN" ? "₦" : "$"}{formatPrice(bookings?.amount)}
                             </span>
                           </div>
                         )}
@@ -186,7 +190,7 @@ const openModal = () => {
                         </p>
                         <button
                           className=" w-[130px]  h-[50.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] "
-                          onClick={() => bookSession(mentorId, bookings?.type, bookings?.amount)}
+                          onClick={() => bookSession(mentorId, bookings?.type, bookings?.amount, bookings.currency)}
                         >
                           Book Mentor
                         </button>
