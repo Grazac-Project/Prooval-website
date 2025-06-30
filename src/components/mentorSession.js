@@ -190,7 +190,7 @@ const openModal = () => {
                         </p>
                         <button
                           className=" w-[130px]  h-[50.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] "
-                          onClick={() => bookSession(bookings?.id, bookings?.type, bookings?.amount, bookings.currency)}
+                          onClick={() => bookSession(bookings?.bookingId, bookings?.type, bookings?.amount, bookings.currency)}
                         >
                           Book Mentor
                         </button>
