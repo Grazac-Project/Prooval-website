@@ -53,7 +53,7 @@ const MentorDetails = () => {
   }, []);
   useEffect(() => {
     Cookies.set("mentorSlug", username, { expires: 7 });
-    // console.log("Mentor Slug set in Cookies:", username);
+    
   }, [username]);
 
   const handleChange = (e) => {
