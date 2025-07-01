@@ -21,6 +21,7 @@ const BookSession = ({
   mentorId,
   image,
   type,
+  bookingCurrency,
   price,
   successModal,
   mentor,
@@ -187,7 +188,8 @@ useEffect(() => {
       slotId: bookingValues?.slotId,
       userId: userId,
       suggestion: values.suggestion,
-      amount: price
+      amount: price,
+      currency: bookingCurrency
     };
     console.log(data);
     fincraPayment(data, token)
