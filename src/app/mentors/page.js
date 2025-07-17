@@ -123,7 +123,13 @@ const Page = () => {
   };
   const handleMentorClick = (mentorSlug) => {
     Cookies.set("mentorSlug", mentorSlug, { expires: 7 });
+    const isAuthenticated = !!Cookies.get("token");
+    const mentorProfilePath = `/mentors/${mentorSlug}`;
+    if (!isAuthenticated) {
     router.push(`/mentors/${mentorSlug}`);
+    } else{
+      router.push(`/auth/login?redirectTo=${encodeURIComponent(mentorProfilePath)}`)
+    }
   };
   return (
     <section className="font-onest ">
