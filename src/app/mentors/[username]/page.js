@@ -79,7 +79,9 @@ const MentorDetails = () => {
         });
     } else {
       // window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
-      window.location.href = `${baseUrl}/auth/signup`;
+       const redirectTo = encodeURIComponent(window.location.pathname + window.location.search);
+    window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+      // window.location.href = `${baseUrl}/auth/signup`;
     }
   };
   const getMentorsDetails = () => {
@@ -150,7 +152,9 @@ const MentorDetails = () => {
       setShowMentorSession(true);
     } else {
       // window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
-      window.location.href = `${baseUrl}/auth/signup`;
+      const redirectTo = encodeURIComponent(window.location.pathname + window.location.search);
+       window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+      // window.location.href = `${baseUrl}/auth/signup`;
     }
   };
   const capitalizeFirstLetter = (text) => {
