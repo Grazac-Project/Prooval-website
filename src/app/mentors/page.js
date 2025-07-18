@@ -123,7 +123,14 @@ const Page = () => {
   };
   const handleMentorClick = (mentorSlug) => {
     Cookies.set("mentorSlug", mentorSlug, { expires: 7 });
-    router.push(`/mentors/${mentorSlug}`);
+     const isAuthenticated = !!Cookies.get("token");
+  const mentorProfilePath = `/mentors/${mentorSlug}`;
+  if (isAuthenticated) {
+    router.push(mentorProfilePath);
+  } else {
+    router.push(`/auth/login?redirectTo=${encodeURIComponent(mentorProfilePath)}`);
+  }
+    // router.push(`/mentors/${mentorSlug}`);
   };
   return (
     <section className="font-onest ">
