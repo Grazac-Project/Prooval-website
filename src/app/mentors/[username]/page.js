@@ -7,6 +7,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Favorite from "@mui/icons-material/Favorite";
 import { getMentorsBySlug, PreferredMentor } from "@/api/authentication/auth";
 import { useParams, useRouter } from "next/navigation";
@@ -19,6 +20,7 @@ import Cookies from "js-cookie";
 import MentorSession from "@/components/mentorSession";
 import { formatPrice } from "@/Utils/price-formater";
 import Error from "@/components/error";
+
 
 const MentorDetails = () => {
   const [view, setView] = useState(3);
@@ -36,7 +38,7 @@ const MentorDetails = () => {
   const [token, setToken] = useState();
   const router = useRouter();
   const [error, setError] = useState("");
-  const [currency , setCurrency] = useState("")
+  const [currency, setCurrency] = useState("");
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -53,7 +55,6 @@ const MentorDetails = () => {
   }, []);
   useEffect(() => {
     Cookies.set("mentorSlug", username, { expires: 7 });
-    
   }, [username]);
 
   const handleChange = (e) => {
@@ -86,7 +87,7 @@ const MentorDetails = () => {
     // console.log({ token });
     getMentorsBySlug(username, token || "")
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setMentorData(res.data.data.data);
         setMentorId(res.data.data.data.mentor._id);
 
@@ -165,6 +166,7 @@ const MentorDetails = () => {
     }
     return str;
   }
+
   return (
     <>
       <div>
@@ -214,14 +216,12 @@ const MentorDetails = () => {
                           >
                             Book Mentor
                           </button>
-                          <div className="flex justify-start md:justify-center gap-2 align-center mt-0 sm:mt-6">
-                            <button
-                              className={` text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] sxm:max-w-[50%] h-[35.6px] flex justify-center items-center gap-1 `}
-                            >
-                              <div className="cursor-pointer">
+                          <div className="flex flex-row justify-start md:justify-center gap-2 align-center mt-0 sm:mt-6">
+                            <button className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] h-[35.6px] flex items-center  xxxxm:w-[100px] sxm:w-[70px]">
+                              <div className="cursor-pointer sxm:scale-[0.7]">
                                 <Checkbox
                                   {...label}
-                                  icon={<FavoriteBorder />}
+                                  icon={<FavoriteBorder style={{ width: 20 }} />}
                                   checkedIcon={
                                     <Favorite
                                       sx={{
@@ -241,17 +241,26 @@ const MentorDetails = () => {
                               Preferred Mentor
                             </button>
                             <button
-                              className=" text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] sxm:max-w-[50%] h-[35.6px] flex justify-center items-center gap-1"
+                              className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[90px] h-[35.6px] flex justify-center items-center gap-1 sxm:[80px]"
                               onClick={shareMentorProfile}
                             >
                               <Image
                                 src="/share.svg"
                                 alt="linkedin"
-                                width={24}
-                                height={24}
+                                width={20}
+                                height={20}
                               />
                               Share Link
                             </button>
+                            <a
+                              className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[35.6px] flex justify-center items-center gap-1 sxm:w-[80px]"
+                              href={mentorData?.mentor?.linkedinLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <LinkedInIcon style={{ fontSize: 20 }} />
+                             View LinkedIn
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -372,7 +381,8 @@ const MentorDetails = () => {
                                     />
 
                                     <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                                    {book.currency === "NGN" ? "₦" : "$"}{formatPrice(book?.amount)}
+                                      {book.currency === "NGN" ? "₦" : "$"}
+                                      {formatPrice(book?.amount)}
                                     </span>
                                   </div>
                                 )}
