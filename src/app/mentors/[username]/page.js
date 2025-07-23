@@ -213,6 +213,17 @@ const MentorDetails = () => {
                             {mentorData?.mentor?.role},{" "}
                             {mentorData?.mentor?.company}
                           </p>
+
+                          <div className="flex items-center gap-2 mb-[16px]">
+                            <img
+                              src={mentorData.flag}
+                              alt={mentorData?.mentor?.country + " flag"}
+                              className="w-6 h-6"
+                            />
+                            <span className="text-[16px] text-[#292D32] font-normal truncate">
+                              {mentorData?.mentor?.country}
+                            </span>
+                          </div>
                           <button
                             className="hidden md:block w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] "
                             onClick={bookSession}
