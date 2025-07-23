@@ -780,6 +780,16 @@ const Landing = () => {
                   <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                     {listOfMentor?.role}
                   </h5>
+                  <div className="flex items-center gap-2 mb-[16px]">
+                    <img
+                      src={listOfMentor.flag}
+                      alt={listOfMentor.country + " flag"}
+                      className="w-6 h-6"
+                    />
+                    <span className="text-[16px] text-[#292D32] font-normal truncate">
+                      {listOfMentor.country}
+                    </span>
+                  </div>
                   <p className="font-regular  text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                     {listOfMentor?.company}
                   </p>
@@ -825,6 +835,16 @@ const Landing = () => {
                     <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
+                    <div className="flex items-center gap-2 mb-[16px]">
+                      <img
+                        src={listOfMentor.flag}
+                        alt={listOfMentor.country + " flag"}
+                        className="w-6 h-6"
+                      />
+                      <span className="text-[16px] text-[#292D32] font-normal truncate">
+                        {listOfMentor.country}
+                      </span>
+                    </div>
                     <p className="font-normal  text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>

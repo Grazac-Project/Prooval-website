@@ -185,7 +185,7 @@ const Page = () => {
                       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-[rgba(0,0,0,0.3)] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end px-4 pb-3">
                         <span className="text-[white] text-[14px] leading-[24px] font-medium flex items-center gap-[10px] mx-auto text-center">
                           View Profile
-                          <FaArrowRightLong className="w-4 h-4 xm:hidden "/>
+                          <FaArrowRightLong className="w-4 h-4 xm:hidden " />
                         </span>
                       </div>
                     </div>
@@ -195,6 +195,17 @@ const Page = () => {
                     <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
+                      <div className="flex items-center gap-2 mb-[16px]">
+                        <img
+                          src={listOfMentor.flag}
+                          alt={listOfMentor.country + " flag"}
+                          className="w-6 h-6"
+                        />
+                        <span className="text-[16px] text-[#292D32] font-normal truncate">
+                          {listOfMentor.country}
+                        </span>
+                      </div>
+                    
                     <p className="font-normal 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>
@@ -218,7 +229,7 @@ const Page = () => {
                       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-[rgba(0,0,0,0.3)] to-transparent xm:opacity-100 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end px-4 pb-3">
                         <span className="text-[white] text-[14px] leading-[24px] font-medium flex justify-center items-center gap-[10px] mx-auto text-center">
                           View Profile
-                          <FaArrowRightLong className="w-4 h-4 xm:hidden"/>
+                          <FaArrowRightLong className="w-4 h-4 xm:hidden" />
                         </span>
                       </div>
                     </div>
@@ -229,6 +240,16 @@ const Page = () => {
                     <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
+                     <div className="flex items-center gap-2 mb-[16px]">
+                        <img
+                          src={listOfMentor.flag}
+                          alt={listOfMentor.country + " flag"}
+                          className="w-6 h-6"
+                        />
+                        <span className="text-[16px] text-[#292D32] font-normal truncate">
+                          {listOfMentor.country}
+                        </span>
+                      </div>
                     <p className="font-normal 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>

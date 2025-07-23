@@ -36,7 +36,7 @@ const MentorDetails = () => {
   const [token, setToken] = useState();
   const router = useRouter();
   const [error, setError] = useState("");
-  const [currency , setCurrency] = useState("")
+  const [currency, setCurrency] = useState("");
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -53,7 +53,6 @@ const MentorDetails = () => {
   }, []);
   useEffect(() => {
     Cookies.set("mentorSlug", username, { expires: 7 });
-    
   }, [username]);
 
   const handleChange = (e) => {
@@ -208,6 +207,17 @@ const MentorDetails = () => {
                             {mentorData?.mentor?.role},{" "}
                             {mentorData?.mentor?.company}
                           </p>
+
+                          <div className="flex items-center gap-2 mb-[16px]">
+                            <img
+                              src={mentorData.flag}
+                              alt={mentorData?.mentor?.country + " flag"}
+                              className="w-6 h-6"
+                            />
+                            <span className="text-[16px] text-[#292D32] font-normal truncate">
+                              {mentorData?.mentor?.country}
+                            </span>
+                          </div>
                           <button
                             className="hidden md:block w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] "
                             onClick={bookSession}
@@ -372,7 +382,8 @@ const MentorDetails = () => {
                                     />
 
                                     <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                                    {book.currency === "NGN" ? "₦" : "$"}{formatPrice(book?.amount)}
+                                      {book.currency === "NGN" ? "₦" : "$"}
+                                      {formatPrice(book?.amount)}
                                     </span>
                                   </div>
                                 )}
