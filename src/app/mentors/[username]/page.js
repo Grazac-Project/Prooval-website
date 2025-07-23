@@ -87,7 +87,7 @@ const MentorDetails = () => {
     // console.log({ token });
     getMentorsBySlug(username, token || "")
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setMentorData(res.data.data.data);
         setMentorId(res.data.data.data.mentor._id);
 
@@ -123,8 +123,7 @@ const MentorDetails = () => {
 
   const shareMentorProfile = () => {
     const shareUrl = `${pathname}${
-      searchParams.toString() ? "?" + searchParams.toString() : ""
-    }`;
+      searchParams.toString() ? "?" + searchParams.toString() : "" }`;
 
     if (navigator.share) {
       navigator
@@ -217,11 +216,11 @@ const MentorDetails = () => {
                             Book Mentor
                           </button>
                           <div className="flex flex-row justify-start md:justify-center gap-2 align-center mt-0 sm:mt-6">
-                            <button className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] h-[35.6px] flex items-center  xxxxm:w-[100px] sxm:w-[70px]">
-                              <div className="cursor-pointer sxm:scale-[0.7]">
+                            <button className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] h-[35.6px] flex items-center xxxxm:w-[117px] xxxxm:text-[8px]">
+                              <div className="cursor-pointer">
                                 <Checkbox
                                   {...label}
-                                  icon={<FavoriteBorder style={{ width: 20 }} />}
+                                  icon={<FavoriteBorder />}
                                   checkedIcon={
                                     <Favorite
                                       sx={{
@@ -241,7 +240,7 @@ const MentorDetails = () => {
                               Preferred Mentor
                             </button>
                             <button
-                              className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[90px] h-[35.6px] flex justify-center items-center gap-1 sxm:[80px]"
+                              className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[90px] h-[35.6px] flex justify-center items-center gap-1 sxm:[80px] xxxxm:text-[8px]"
                               onClick={shareMentorProfile}
                             >
                               <Image
@@ -253,12 +252,12 @@ const MentorDetails = () => {
                               Share Link
                             </button>
                             <a
-                              className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[35.6px] flex justify-center items-center gap-1 sxm:w-[80px]"
+                              className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[35.6px] flex justify-center items-center gap-1 sxm:w-[80px] xxxxm:text-[8px]"
                               href={mentorData?.mentor?.linkedinLink}
                               target="_blank"
                               rel="noopener noreferrer"
                             >
-                              <LinkedInIcon style={{ fontSize: 20 }} />
+                              <LinkedInIcon style={{ fontSize: 17 }} />
                              View LinkedIn
                             </a>
                           </div>
