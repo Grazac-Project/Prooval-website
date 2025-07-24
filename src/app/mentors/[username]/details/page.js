@@ -3,12 +3,39 @@ import Navbar from "@/components/navbar/nav";
 import Image from "next/image";
 import React, { useState } from "react";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
-
+import Payment from "./components/payment";
+const groupColors = [
+  "#F48025",
+  "#008753",
+  "#FF3535",
+  "#DEA806",
+  "#1E90FF",
+  "#32CD32",
+  "#FF69B4",
+  "#8A2BE2",
+  "#FFD700",
+  "#DC143C",
+  "#00CED1",
+  "#FF7F50",
+  "#6A5ACD",
+  "#20B2AA",
+  "#FF6347",
+  "#40E0D0",
+  "#A0522D",
+  "#7FFF00",
+  "#FF4500",
+  "#2E8B57",
+];
 const MentorshipPackages = () => {
   const [mode, setmode] = useState("Paid");
   const [type, setType] = useState("NGN");
+  const [showModal, setShowModal] = useState(false);
+  const handlePaymentModal = () => {
+    setShowModal(!showModal);
+  };
   return (
     <div className="bg-[#F2F2F7] pb-10 h-fit ">
+      {showModal && <Payment onClick={handlePaymentModal} />}
       <Navbar />
       <div className="max-w-6xl mx-auto mt-10 p-6 space-y-8 bg-[white] rounded-2xl">
         <div className=" flex items-center text-sm leading-[150%] font-medium text-[#292D32] ">
@@ -26,7 +53,10 @@ const MentorshipPackages = () => {
         {/* Digital Products */}
         <div>
           <h3 className="text-lg font-semibold mb-4 ">Digital products</h3>
-          <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
+          <div
+            className="grid md:grid-cols-1 grid-cols-3 gap-6"
+            onClick={handlePaymentModal}
+          >
             {[1, 2].map((id) => (
               <div
                 key={id}
@@ -141,8 +171,21 @@ const MentorshipPackages = () => {
               { duration: "1 Month", price: "₦250,000" },
             ].map((pkg, idx) => (
               <div key={idx}>
-                <div className="border border-[#EDEDED] border-t-4 border-t-[#F48025] shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer py-7 px-4 space-y-2">
-                  <span className="text-xs bg-[#F480251A] text-[#F48025] px-2 py-1 rounded-[32px] font-medium">
+                <div
+                  className="border border-[#EDEDED] border-t-4 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer py-7 px-4 space-y-2"
+                  style={{
+                    borderTopColor: groupColors[idx % groupColors.length],
+                  }}
+                >
+                  <span
+                    className="text-xs px-2 py-1 rounded-[32px] font-medium"
+                    style={{
+                      backgroundColor: `${
+                        groupColors[idx % groupColors.length]
+                      }1A`,
+                      color: groupColors[idx % groupColors.length],
+                    }}
+                  >
                     {pkg.duration}
                   </span>
                   <div className="text-right text-sm font-semibold">

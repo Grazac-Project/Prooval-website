@@ -414,7 +414,7 @@ const MentorDetails = () => {
                           ))}
                         </div>
                       </div>
-                      <div className=" border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 md:px-4 ">
+                      <div className=" border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 md:px-4 ">``
                         <h4 className="text-[12px] leading-[140%] font-medium mb-2">
                           Available Slots
                         </h4>
