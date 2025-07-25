@@ -199,7 +199,15 @@ const MentorshipPackages = () => {
                     Suspendisse varius enim in eros...
                   </p>
                   <div className="flex justify-between items-center">
-                    <div className="text-xs">45 Mins • Once a week</div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
+                        45 Mins{" "}
+                      </span>
+                      <span className=" w-2 h-2 bg-[#D9D9D9] rounded-full"></span>
+                      <span className="text-[12px] leading-[140%] text-[#4F4F4F] ">
+                        Once a week
+                      </span>
+                    </div>
                     <a
                       href="#"
                       className="text-sm text-primary font-medium flex items-center"

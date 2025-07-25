@@ -21,7 +21,6 @@ import MentorSession from "@/components/mentorSession";
 import { formatPrice } from "@/Utils/price-formater";
 import Error from "@/components/error";
 
-
 const MentorDetails = () => {
   const [view, setView] = useState(3);
   const [checked, setChecked] = useState(false);
@@ -80,8 +79,10 @@ const MentorDetails = () => {
         });
     } else {
       // window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
-       const redirectTo = encodeURIComponent(window.location.pathname + window.location.search);
-    window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+      const redirectTo = encodeURIComponent(
+        window.location.pathname + window.location.search
+      );
+      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
       // window.location.href = `${baseUrl}/auth/signup`;
     }
   };
@@ -125,7 +126,8 @@ const MentorDetails = () => {
 
   const shareMentorProfile = () => {
     const shareUrl = `${pathname}${
-      searchParams.toString() ? "?" + searchParams.toString() : "" }`;
+      searchParams.toString() ? "?" + searchParams.toString() : ""
+    }`;
 
     if (navigator.share) {
       navigator
@@ -152,8 +154,10 @@ const MentorDetails = () => {
       setShowMentorSession(true);
     } else {
       // window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
-      const redirectTo = encodeURIComponent(window.location.pathname + window.location.search);
-       window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+      const redirectTo = encodeURIComponent(
+        window.location.pathname + window.location.search
+      );
+      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
       // window.location.href = `${baseUrl}/auth/signup`;
     }
   };
@@ -273,7 +277,7 @@ const MentorDetails = () => {
                               rel="noopener noreferrer"
                             >
                               <LinkedInIcon style={{ fontSize: 17 }} />
-                             View LinkedIn
+                              View LinkedIn
                             </a>
                           </div>
                         </div>
@@ -350,71 +354,150 @@ const MentorDetails = () => {
                           ))}
                         </div>
                       </div>
-                      <div className=" border border-[#ffff]  border-b-[#EAEAEA] border-r-[#EAEAEA]  p-8 md:px-4 ">
-                        <h4 className="text-[12px] leading-[140%] font-medium text-[#333333] mb-2">
-                          Available Session(s)
-                        </h4>
-                        <div className="flex flex-col items-center gap-2">
-                          {mentorData?.bookings?.map((book) => (
-                            <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
-                              <div className="flex gap-[16px] justify-between items-center mb-[10px] ">
-                                <div
-                                  className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
-                                    book?.bookingType === "Paid"
-                                      ? " bg-[#DEA8061A]"
-                                      : " bg-[#3333331A]"
-                                  }`}
-                                >
-                                  {book?.bookingType === "Paid" && (
-                                    <Image
-                                      src="/paid.svg"
-                                      alt="mentor"
-                                      width={12}
-                                      height={12}
-                                      className="w-[12px] h-[12px] rounded-full"
-                                    />
-                                  )}
-                                  <span
-                                    className={` text-[12px] font-medium leading-[18px] font-inter ${
+                      <div className="flex flex-col gap-2  bg-[#ffff] border border-[#EAEAEA]  p-8 md:px-4">
+                      <div className="flex justify-between gap-2 items-center  mb-3   ">
+                          <h4 className="text-[12px] leading-[120%] font-medium ">
+                            Available packages
+                          </h4>
+                          <p
+                            className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center cursor-pointer"
+                            // onClick={() => setView(mentorData?.reviews?.length)}
+                          >
+                            View All
+                          </p>
+                        </div>
+                        <div className=" border border-[#ffff]    ">
+                          <div className="flex flex-col items-center gap-2">
+                            {mentorData?.bookings?.map((book) => (
+                              <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
+                                <div className="flex justify-between items-center mb-[10px]">
+                                  <h4 className="text-[10px] leading-[140%] font-medium text-[#667085] ">
+                                    Digital Product
+                                  </h4>
+                                  <div
+                                    className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
                                       book?.bookingType === "Paid"
-                                        ? "text-[#F3B704]"
-                                        : "text-[#333333]"
-                                    } `}
+                                        ? " bg-[#DEA8061A]"
+                                        : " bg-[#3333331A]"
+                                    }`}
                                   >
-                                    {book?.bookingType}
-                                  </span>
-                                </div>
-                                {book?.bookingType === "Paid" && (
-                                  <div className=" flex items-center gap-1 justify-center">
-                                    <Image
-                                      src="/wallet.svg"
-                                      alt="mentor"
-                                      width={12}
-                                      height={12}
-                                      className="w-[12px] h-[12px] "
-                                    />
-
-                                    <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                                      {book.currency === "NGN" ? "₦" : "$"}
-                                      {formatPrice(book?.amount)}
+                                    {book?.bookingType === "Paid" && (
+                                      <Image
+                                        src="/paid.svg"
+                                        alt="mentor"
+                                        width={12}
+                                        height={12}
+                                        className="w-[12px] h-[12px] rounded-full"
+                                      />
+                                    )}
+                                    <span
+                                      className={` text-[12px] font-medium leading-[18px] font-inter ${
+                                        book?.bookingType === "Paid"
+                                          ? "text-[#F3B704]"
+                                          : "text-[#333333]"
+                                      } `}
+                                    >
+                                      {book?.bookingType}
                                     </span>
                                   </div>
-                                )}
+                                </div>
+                                {/* <div className="flex gap-[16px] justify-between  mb-[10px] "></div> */}
+                                <div className="flex justify items-start gap-5">
+                                  <div
+                                    className={`h-[56px] w-[72px] rounded-lg  bg-cover bg-center `}
+                                    style={{
+                                      backgroundImage: `url('/about-hero.png')`,
+                                      backgroundColor: "#FF353599",
+                                      backgroundBlendMode: "multiply",
+                                    }}
+                                  />
+                                  <div className="text-[#344054] rounded-lg  text-[10px] leading-[18px] flex flex-col gap-[10px]">
+                                    <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F] ">
+                                      {book?.title}
+                                    </h5>
+                                    <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
+                                      {book?.sessionDuration} Mins
+                                    </span>
+                                  </div>
+                                </div>
                               </div>
-
-                              <div className="text-[#344054] rounded-lg flex justify-between items-center text-[10px] leading-[18px]">
-                                <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F] w-[70%]">
-                                  {book?.title}
-                                </h5>
-                                <span className="text-[#4F4F4F] text-[12px] leading-[140%] font-medium  ">
-                                  {book?.sessionDuration} Mins
-                                </span>
+                            ))}
+                          </div>
+                        </div>
+                        <div className=" border border-[#ffff]    ">
+                          <div className="flex flex-col items-center gap-2">
+                            {mentorData?.bookings?.map((book) => (
+                              <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
+                                <div className="flex justify-between items-center mb-[10px]">
+                                  <h4 className="text-[10px] leading-[140%] font-medium text-[#667085] ">
+                                    1-on-1 session
+                                  </h4>
+                                  {book?.bookingType === "Paid" && (
+                                    <div className=" flex items-center gap-1 justify-center">
+                                      <span className="text-[#333333] text-[12px] font-semibold leading-[140%] font-inter ">
+                                        {book.currency === "NGN" ? "₦" : "$"}
+                                        {formatPrice(book?.amount)}
+                                      </span>
+                                    </div>
+                                  )}
+                                </div>
+                                {/* <div className="flex gap-[16px] justify-between  mb-[10px] "></div> */}
+                                <div className="flex justify items-start gap-5">
+                                  <div className="text-[#344054] rounded-lg  text-[10px] leading-[18px] flex flex-col gap-[10px]">
+                                    <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F] ">
+                                      {book?.title}
+                                    </h5>
+                                    <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
+                                      {book?.sessionDuration} Mins
+                                    </span>
+                                  </div>
+                                </div>
                               </div>
-                            </div>
-                          ))}
+                            ))}
+                          </div>
+                        </div>
+                        <div className=" border border-[#ffff]    ">
+                          <div className="flex flex-col items-center gap-2">
+                            {mentorData?.bookings?.map((book) => (
+                              <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
+                                <div className="flex justify-between items-center mb-[10px]">
+                                  <h4 className="text-[10px] leading-[140%] font-medium text-[#667085] ">
+                                    Mentorship Package
+                                  </h4>
+                                  {book?.bookingType === "Paid" && (
+                                    <div className=" flex items-center gap-1 justify-center">
+                                      <span className="text-[#333333] text-[12px] font-semibold leading-[140%] font-inter ">
+                                        {book.currency === "NGN" ? "₦" : "$"}
+                                        {formatPrice(book?.amount)}
+                                      </span>
+                                    </div>
+                                  )}
+                                </div>
+                                {/* <div className="flex gap-[16px] justify-between  mb-[10px] "></div> */}
+                                <div className="flex justify items-start gap-5">
+                                  <div className="text-[#344054] rounded-lg  text-[10px] leading-[18px] flex flex-col gap-[10px]">
+                                    <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F] ">
+                                      {book?.title}
+                                    </h5>
+                                    <div className="flex items-center gap-2">
+                                      <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
+                                        {book?.sessionDuration} Mins{" "}
+                                      </span>
+                                      <span className=" w-2 h-2 bg-[#D9D9D9] rounded-full"></span>
+                                      <span className="text-[12px] leading-[140%] text-[#4F4F4F] ">
+                                        Once a week
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                      <div className=" border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 md:px-4 ">``
+
+                      <div className=" border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 md:px-4 ">
+                        ``
                         <h4 className="text-[12px] leading-[140%] font-medium mb-2">
                           Available Slots
                         </h4>
