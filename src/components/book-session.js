@@ -14,6 +14,8 @@ import {
   getAvailableBookings,
 } from "@/api/authentication/auth";
 import Cookies from "js-cookie";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowLeft } from "react-icons/md";
 
 
 const BookSession = ({
@@ -283,6 +285,8 @@ useEffect(() => {
                   tileClassName={tileClassName}
                   value={selectedDate}
                   className="!w-full max-w-xs mx-auto"
+                  prevLabel={<MdKeyboardArrowLeft className="nav-icon" />}
+                  nextLabel={<MdKeyboardArrowRight className="nav-icon" />}
                 />
                 {selectedDate && (
                   <>
