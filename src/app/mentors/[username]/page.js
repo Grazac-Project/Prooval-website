@@ -27,7 +27,7 @@ const MentorDetails = () => {
   const [showMentorSession, setShowMentorSession] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [mentorData, setMentorData] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { username } = useParams();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -161,6 +161,17 @@ const MentorDetails = () => {
       // window.location.href = `${baseUrl}/auth/signup`;
     }
   };
+  const handleNextPage = () => {
+    const id = mentorId;
+    // window.location.href = `${baseUrl}/mentors?id=${id}`;
+    if(id){
+
+      window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`;
+    }
+
+
+  };
+
   const capitalizeFirstLetter = (text) => {
     if (!text) return "";
     return text.charAt(0).toUpperCase() + text.slice(1);
@@ -284,7 +295,8 @@ const MentorDetails = () => {
                       </div>
                       <button
                         className={`md:hidden w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff] bg-primary  rounded-[6.29px] `}
-                        onClick={bookSession}
+                        // onClick={bookSession}
+                        onClick={handleNextPage}
                       >
                         Book Mentor
                       </button>
@@ -355,20 +367,21 @@ const MentorDetails = () => {
                         </div>
                       </div>
                       <div className="flex flex-col gap-2  bg-[#ffff] border border-[#EAEAEA]  p-8 md:px-4">
-                      <div className="flex justify-between gap-2 items-center  mb-3   ">
+                        <div className="flex justify-between gap-2 items-center  mb-3   ">
                           <h4 className="text-[12px] leading-[120%] font-medium ">
                             Available packages
                           </h4>
                           <p
                             className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center cursor-pointer"
                             // onClick={() => setView(mentorData?.reviews?.length)}
+                            onClick={handleNextPage}
                           >
                             View All
                           </p>
                         </div>
                         <div className=" border border-[#ffff]    ">
                           <div className="flex flex-col items-center gap-2">
-                            {mentorData?.bookings?.map((book) => (
+                            {mentorData?.digitalProducts?.map((book) => (
                               <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
                                 <div className="flex justify-between items-center mb-[10px]">
                                   <h4 className="text-[10px] leading-[140%] font-medium text-[#667085] ">
@@ -497,7 +510,6 @@ const MentorDetails = () => {
                       </div>
 
                       <div className=" border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 md:px-4 ">
-                        ``
                         <h4 className="text-[12px] leading-[140%] font-medium mb-2">
                           Available Slots
                         </h4>

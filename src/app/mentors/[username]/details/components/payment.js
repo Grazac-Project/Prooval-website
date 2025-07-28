@@ -1,8 +1,49 @@
 "use client";
-import React from "react";
+import { getSingleDigitalProduct } from "@/api/authentication/auth";
+import Cookies from "js-cookie";
+import { useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 
 const Payment = ({ onClick }) => {
+  const [loading, setLoading] = useState();
+  const [mentorData, setMentorData] = useState([]);
+  const [error, setError] = useState("");
+  const [token, setToken] = useState("");
+
+  const searchParams = useSearchParams();
+  const mentorId = searchParams.get("id");
+  const getMentorsDetails = (access) => {
+    setLoading(true);
+    getSingleDigitalProduct(mentorId, access)
+    .then((res) => {
+      // console.log(res);
+      console.log(res.data.data.data);
+      setLoading(false);
+    })
+    .catch((err) => {
+      setError(err.response?.data?.message);
+      setLoading(false);
+      });
+  };
+ 
+  useEffect(() => {
+    setLoading(true);
+    const data = Cookies.get("user_details");
+    let access
+    try {
+      const parsedData = JSON.parse(data);
+      
+      access = parsedData?.token
+      console.log("token id:", token);
+    } catch (error) {
+      console.error("Failed to parse token:", error);
+    }
+
+    if (mentorId && access ) {
+      getMentorsDetails(access);
+    }
+  }, [token, mentorId]);
   return (
     <div>
       <div
@@ -14,7 +55,7 @@ const Payment = ({ onClick }) => {
         <div className=" flex items-center text-sm leading-[150%] font-medium text-[#292D32] ">
           <button
             className="border-[1px] border-[#EAEAEA] rounded-[8px] p-[10px] cursor-pointer"
-              onClick={onClick}
+            onClick={onClick}
           >
             <IoIosArrowRoundBack className="text-[16px] text-[#292D32]" />
           </button>
@@ -24,9 +65,11 @@ const Payment = ({ onClick }) => {
         {/* Digital Products */}
         <div>
           <div className="flex gap-3 items-center mb-[35px] justify-between ">
-            <h3 className="text-[28px] font-semibold mb-4 ">How to land a remote job in 2025</h3>
+            <h3 className="text-[28px] font-semibold mb-4 ">
+              How to land a remote job in 2025
+            </h3>
             <button className="text-sm bg-primary text-[white] px-3 py-4 w-[182px] rounded-[6.29px] font-medium">
-                Make Payment
+              Make Payment
             </button>
           </div>
           <div className="">
