@@ -5,8 +5,12 @@ import React, { useEffect, useState } from "react";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import Payment from "./components/payment";
 import { getBookings } from "@/api/authentication/auth";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import DetailsLoading from "@/components/skeletonLoader";
+import { formatPrice } from "@/Utils/price-formater";
+import BookingModal from "@/components/booking-modal";
+import Cookies from "js-cookie";
+import BookSession from "@/components/book-session";
 const groupColors = [
   "#F48025",
   "#008753",
@@ -30,14 +34,41 @@ const groupColors = [
   "#2E8B57",
 ];
 const MentorshipPackages = () => {
-  const [mode, setmode] = useState("Paid");
-  const [type, setType] = useState("NGN");
   const [showModal, setShowModal] = useState(false);
   const [mentorData, setMentorData] = useState([]);
   const [loading, setLoading] = useState(true);
- 
+  const [showBookingModal, setShowBookingModal] = useState(false);
+  const [token, setToken] = useState();
+  const [bookingData, setBookingData] = useState([]);
+  const [bookingId, setBookingId] = useState();
+  const [bookType, setBookType] = useState("");
+  const [mentorPrice, setMentorPrice] = useState("");
+  const [currency, setCurrency] = useState("");
+  const [productId, setProductId] = useState();
+  const [productType, setProductType] = useState("");
+  const [productPrice, setProductPrice] = useState("");
+  const [productCurrency, setProductCurrency] = useState("");
+  const [productThumbnail, setProductThumbnail] = useState("");
+  const [productTitle, setProductTitle] = useState("");
+  const [productDescription, setProductDescription] = useState("");
+  const [category, setCategory] = useState("");
+
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+  const data = Cookies.get("user_details");
+  useEffect(() => {
+    try {
+      if (data) {
+        const parsedData = JSON.parse(data);
+        setToken(parsedData.token);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
   const searchParams = useSearchParams();
   const mentorId = searchParams.get("id");
+  const router = useRouter();
   const getMentorsDetails = () => {
     setLoading(true);
     getBookings(mentorId)
@@ -51,14 +82,7 @@ const MentorshipPackages = () => {
         setLoading(false);
       });
   };
-   const handlePaymentModal = () => {
-    const id = mentorId;
-    if (id) {
-      // window.location.href = `${baseUrl}/mentors/${slug}/details?id=${id}`;
-      // window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`;
-      setShowModal(!showModal);
-    }
-  };
+ 
 
   useEffect(() => {
     setLoading(true);
@@ -67,16 +91,98 @@ const MentorshipPackages = () => {
       getMentorsDetails();
     }
   }, []);
+  const bookSession = (id, type, amount, bookingCurrency) => {
+    if (token) {
+      setBookingId(id);
+      setBookType(type);
+      setMentorPrice(amount);
+      setCurrency(bookingCurrency);
+      console.log({ id });
+
+      setShowBookingModal(true);
+    } else {
+      // window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
+      const redirectTo = encodeURIComponent(
+        window.location.pathname + window.location.search
+      );
+      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+      // window.location.href = `${baseUrl}/auth/signup`;
+    }
+  };
+  const BuyDigitalProduct = (
+    id,
+    type,
+    amount,
+    currency,
+    title,
+    description,
+    thumbnail,
+    category
+  ) => {
+    if (token) {
+      setProductId(id);
+      setProductType(type);
+      setProductPrice(amount);
+      setProductCurrency(currency);
+      setProductThumbnail(thumbnail);
+      setProductTitle(title);
+      setProductDescription(description);
+      setCategory(category);
+
+      console.log({ id });
+      setShowModal(!showModal);
+    } else {
+      // window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
+      const redirectTo = encodeURIComponent(
+        window.location.pathname + window.location.search
+      );
+      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+      // window.location.href = `${baseUrl}/auth/signup`;
+    }
+  };
+
   return (
     <div className="bg-[#F2F2F7] pb-10 h-fit ">
-      {showModal && <Payment onClick={handlePaymentModal} />}
+      {showModal && <Payment
+        onClick={() => setShowModal(false)}
+        productId={productId}
+        productType={productType}
+        productPrice={productPrice}
+        productCurrency={productCurrency}
+        productThumbnail={productThumbnail}
+        productTitle={productTitle}
+        productDescription={productDescription}
+        category={category}
+
+
+      />}
+      {/* {showBookingModal && (
+        <BookingModal
+          mentorId={bookingId}
+          mentor={mentorDetails}
+          closeModal={closeSesModal}
+        />
+      )} */}
+
+      {showBookingModal && (
+        <BookSession
+          closeModal={() => setShowBookingModal(false)}
+          mentorId={bookingId}
+          // image={mentorImage}// successModal={openModal}
+          type={bookType}
+          price={mentorPrice}
+          // mentor={mentorDetails}
+          bookingCurrency={currency}
+        />
+      )}
+
       <Navbar />
       {!loading ? (
         <div className="max-w-6xl mx-auto mt-10 p-6 space-y-8 bg-[white] rounded-2xl">
           <div className=" flex items-center text-sm leading-[150%] font-medium text-[#292D32] ">
             <button
               className="border-[1px] border-[#EAEAEA] rounded-[8px] p-[10px] cursor-pointer"
-              // onClick={closeModal}
+              onClick={() => router.back()}
             >
               <IoIosArrowRoundBack className="text-[16px] text-[#292D32]" />
             </button>
@@ -90,32 +196,47 @@ const MentorshipPackages = () => {
             <h3 className="text-lg font-semibold mb-4 ">Digital products</h3>
             <div
               className="grid md:grid-cols-1 grid-cols-3 gap-6"
-              onClick={handlePaymentModal}
+              
             >
-              {[1, 2].map((id) => (
+              {mentorData?.packages.map((book, id) => (
                 <div
                   key={id}
                   className="border p-4 border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer "
+                  onClick={() =>
+                    BuyDigitalProduct(
+                      book?._id,
+                      book?.type,
+                      book?.amount,
+                      book?.currency,
+                      book?.title,
+                      book?.description,
+                      book?.thumbnail,
+                      book?.category
+                    )
+                  }
                 >
                   <div
                     className={`h-36 rounded-lg mb-2 bg-cover bg-center `}
                     style={{
-                      backgroundImage: `url('/about-hero.png')`,
-                      backgroundColor: id === 1 ? "#FF353599" : "#00875399",
+                      backgroundImage: `url(${book?.thumbnail})`,
+                      // backgroundColor: id === 1 ? "#FF353599" : "#00875399",
                       backgroundBlendMode: "multiply",
                     }}
                   />
                   <div className="py-4">
                     <div className="flex justify-between items-center">
                       <span className="text-xs bg-[#DEA8061A] text-[#DEA806] px-3 py-1 rounded-[32px] font-medium">
-                        eBook
+                        {book?.category}
                       </span>
-                      <div className=" text-sm font-semibold font-inter ">
-                        ₦25,000
-                      </div>
+                      {book?.type === "paid" && (
+                        <div className=" text-sm font-semibold font-inter ">
+                          {book.currency === "NGN" ? "₦" : "$"}
+                          {formatPrice(book?.amount)}
+                        </div>
+                      )}
                     </div>
-                    <div className="text-sm font-medium mt-4">
-                      How to land a remote job in 2025
+                    <div className="text-sm font-medium mt-4 truncate">
+                      {book?.title}
                     </div>
                     <a
                       href="#"
@@ -132,28 +253,40 @@ const MentorshipPackages = () => {
 
           {/* 1-on-1 Sessions */}
           <div>
-            <h3 className="text-lg font-semibold leading-[140%] mb-4">1-on-1 Sessions</h3>
+            <h3 className="text-lg font-semibold leading-[140%] mb-4">
+              1-on-1 Sessions
+            </h3>
             <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
               {mentorData?.bookings.map((details, i) => (
                 <div key={i}>
-                  <div className="border border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer h-[205px] py-7 px-4 space-y-2">
+                  <div
+                    className="border border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer h-[205px] py-7 px-4 space-y-2"
+                    onClick={() =>
+                      bookSession(
+                        details?._id,
+                        details?.amount,
+                        details?.bookingType,
+                        details?.currency
+                      )
+                    }
+                  >
                     <div className="flex gap-[16px] justify-between items-center mb-[10px] ">
                       <div
                         className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
-                         details.bookingType === "Paid"
+                          details.bookingType === "Paid"
                             ? " bg-[#DEA8061A]"
                             : " bg-[#3333331A]"
                         }`}
                       >
                         {details.bookingType === "Paid" && (
-                        <Image
-                          src="/paid.svg"
-                          alt="mentor"
-                          width={12}
-                          height={12}
-                          className="w-[12px] h-[12px] rounded-full"
-                        />
-                         )} 
+                          <Image
+                            src="/paid.svg"
+                            alt="mentor"
+                            width={12}
+                            height={12}
+                            className="w-[12px] h-[12px] rounded-full"
+                          />
+                        )}
                         <span
                           className={` text-[12px] font-medium leading-[18px] font-inter ${
                             details?.bookingType === "Paid"
@@ -167,7 +300,7 @@ const MentorshipPackages = () => {
                       {details.bookingType === "Paid" && (
                         <div className=" flex items-center gap-1 justify-center">
                           <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                            {type === "NGN" ? "₦" : "$"}
+                            {details?.currency === "NGN" ? "₦" : "$"}
                             {details?.amount}
                           </span>
                         </div>
@@ -175,22 +308,17 @@ const MentorshipPackages = () => {
                     </div>
 
                     <div className="font-bold font-inter text-[#333333] text-sm truncate">
-                      {details?.title }
+                      {details?.title}
                     </div>
                     <p className="text-xs text-[#878787] leading=[140%] line-clamp-3">
-                      {details?.description }
+                      {details?.description}
                     </p>
                     <div className="flex justify-between items-center">
-                      <div className="text-xs">
-                        {details?.duration} Mins
-                      </div>
-                      <a
-                        href="#"
-                        className="text-sm text-primary font-medium flex items-center"
-                      >
+                      <div className="text-xs">{details?.duration} Mins</div>
+                      <p className="text-sm text-primary font-medium flex items-center">
                         Book Session{" "}
                         <IoIosArrowRoundForward className="text-[16px] text-primary" />
-                      </a>
+                      </p>
                     </div>
                   </div>
                 </div>

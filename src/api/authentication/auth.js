@@ -112,6 +112,14 @@ export const fincraPayment = (data, token) => {
     },
   });
 };
+export const initializeDigitalProductPayment = (data, token) => {
+  return authKit.post(`api/v1/payment/digital-product/purchase`, data, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 authKit.interceptors.request.use((config) => {
   // console.log("Request Config:", config);
   return config;

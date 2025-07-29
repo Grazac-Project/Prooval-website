@@ -381,7 +381,7 @@ const MentorDetails = () => {
                         </div>
                         <div className=" border border-[#ffff]    ">
                           <div className="flex flex-col items-center gap-2">
-                            {mentorData?.digitalProducts?.map((book) => (
+                            {mentorData?.digitalProducts?.slice(0, 1).map((book) => (
                               <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
                                 <div className="flex justify-between items-center mb-[10px]">
                                   <h4 className="text-[10px] leading-[140%] font-medium text-[#667085] ">
@@ -389,12 +389,12 @@ const MentorDetails = () => {
                                   </h4>
                                   <div
                                     className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
-                                      book?.bookingType === "Paid"
+                                      book?.type === "Paid"
                                         ? " bg-[#DEA8061A]"
                                         : " bg-[#3333331A]"
                                     }`}
                                   >
-                                    {book?.bookingType === "Paid" && (
+                                    {book?.type === "Paid" && (
                                       <Image
                                         src="/paid.svg"
                                         alt="mentor"
@@ -405,12 +405,12 @@ const MentorDetails = () => {
                                     )}
                                     <span
                                       className={` text-[12px] font-medium leading-[18px] font-inter ${
-                                        book?.bookingType === "Paid"
+                                        book?.type === "Paid"
                                           ? "text-[#F3B704]"
                                           : "text-[#333333]"
                                       } `}
                                     >
-                                      {book?.bookingType}
+                                      {book?.type}
                                     </span>
                                   </div>
                                 </div>
@@ -419,9 +419,9 @@ const MentorDetails = () => {
                                   <div
                                     className={`h-[56px] w-[72px] rounded-lg  bg-cover bg-center `}
                                     style={{
-                                      backgroundImage: `url('/about-hero.png')`,
-                                      backgroundColor: "#FF353599",
-                                      backgroundBlendMode: "multiply",
+                                      backgroundImage: `url('${book?.thumbnail}')`,
+                                      // backgroundColor: "#FF353599",
+                                      // backgroundBlendMode: "multiply",
                                     }}
                                   />
                                   <div className="text-[#344054] rounded-lg  text-[10px] leading-[18px] flex flex-col gap-[10px]">
@@ -429,7 +429,7 @@ const MentorDetails = () => {
                                       {book?.title}
                                     </h5>
                                     <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
-                                      {book?.sessionDuration} Mins
+                                      {book?.category}
                                     </span>
                                   </div>
                                 </div>
@@ -439,7 +439,7 @@ const MentorDetails = () => {
                         </div>
                         <div className=" border border-[#ffff]    ">
                           <div className="flex flex-col items-center gap-2">
-                            {mentorData?.bookings?.map((book) => (
+                            {mentorData?.bookings?.slice(0, 2).map((book) => (
                               <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
                                 <div className="flex justify-between items-center mb-[10px]">
                                   <h4 className="text-[10px] leading-[140%] font-medium text-[#667085] ">
@@ -471,7 +471,7 @@ const MentorDetails = () => {
                         </div>
                         <div className=" border border-[#ffff]    ">
                           <div className="flex flex-col items-center gap-2">
-                            {mentorData?.bookings?.map((book) => (
+                            {mentorData?.bookings?.slice(0, 1).map((book) => (
                               <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
                                 <div className="flex justify-between items-center mb-[10px]">
                                   <h4 className="text-[10px] leading-[140%] font-medium text-[#667085] ">
