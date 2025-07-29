@@ -165,8 +165,8 @@ const MentorDetails = () => {
     const id = mentorId;
     if(id){
       window.location.href = `${baseUrl}/mentors/${slug}/details?id=${id}`;
-
-      // window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`;
+      window.location.href = isProduction === "development" ? `https://test.hackthejobs.com/mentors/${slug}/details?id=${id}` : `https://www.hackthejobs.com/mentors/${slug}/details?id=${id}`;
+      // window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`; 
     }
 
 
