@@ -163,13 +163,14 @@ const MentorDetails = () => {
   };
   const handleNextPage = () => {
     const id = mentorId;
-    if(id){
+    if (id) {
       window.location.href = `${baseUrl}/mentors/${slug}/details?id=${id}`;
-
+      window.location.href =
+        isProduction === "development"
+          ? `https://test.hackthejobs.com/mentors/${slug}/details?id=${id}`
+          : `https://www.hackthejobs.com/mentors/${slug}/details?id=${id}`;
       // window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`;
     }
-
-
   };
 
   const capitalizeFirstLetter = (text) => {
@@ -371,60 +372,62 @@ const MentorDetails = () => {
                         </div>
                         <div className=" border border-[#ffff]    ">
                           <div className="flex flex-col items-center gap-2">
-                            {mentorData?.digitalProducts?.slice(0, 1).map((book) => (
-                              <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
-                                <div className="flex justify-between items-center mb-[10px]">
-                                  <h4 className="text-[10px] leading-[140%] font-medium text-[#667085] ">
-                                    Digital Product
-                                  </h4>
-                                  <div
-                                    className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
-                                      book?.type === "Paid"
-                                        ? " bg-[#DEA8061A]"
-                                        : " bg-[#3333331A]"
-                                    }`}
-                                  >
-                                    {book?.type === "Paid" && (
-                                      <Image
-                                        src="/paid.svg"
-                                        alt="mentor"
-                                        width={12}
-                                        height={12}
-                                        className="w-[12px] h-[12px] rounded-full"
-                                      />
-                                    )}
-                                    <span
-                                      className={` text-[12px] font-medium leading-[18px] font-inter ${
+                            {mentorData?.digitalProducts
+                              ?.slice(0, 1)
+                              .map((book) => (
+                                <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
+                                  <div className="flex justify-between items-center mb-[10px]">
+                                    <h4 className="text-[10px] leading-[140%] font-medium text-[#667085] ">
+                                      Digital Product
+                                    </h4>
+                                    <div
+                                      className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
                                         book?.type === "Paid"
-                                          ? "text-[#F3B704]"
-                                          : "text-[#333333]"
-                                      } `}
+                                          ? " bg-[#DEA8061A]"
+                                          : " bg-[#3333331A]"
+                                      }`}
                                     >
-                                      {book?.type}
-                                    </span>
+                                      {book?.type === "Paid" && (
+                                        <Image
+                                          src="/paid.svg"
+                                          alt="mentor"
+                                          width={12}
+                                          height={12}
+                                          className="w-[12px] h-[12px] rounded-full"
+                                        />
+                                      )}
+                                      <span
+                                        className={` text-[12px] font-medium leading-[18px] font-inter ${
+                                          book?.type === "Paid"
+                                            ? "text-[#F3B704]"
+                                            : "text-[#333333]"
+                                        } `}
+                                      >
+                                        {book?.type}
+                                      </span>
+                                    </div>
+                                  </div>
+                                  {/* <div className="flex gap-[16px] justify-between  mb-[10px] "></div> */}
+                                  <div className="flex justify items-start gap-5">
+                                    <div
+                                      className={`h-[56px] w-[72px] rounded-lg  bg-cover bg-center `}
+                                      style={{
+                                        backgroundImage: `url('${book?.thumbnail}')`,
+                                        // backgroundColor: "#FF353599",
+                                        // backgroundBlendMode: "multiply",
+                                      }}
+                                    />
+                                    <div className="text-[#344054] rounded-lg  text-[10px] leading-[18px] flex flex-col gap-[10px]">
+                                      <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F] ">
+                                        {book?.title}
+                                      </h5>
+                                      <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
+                                        {book?.category}
+                                      </span>
+                                    </div>
                                   </div>
                                 </div>
-                                {/* <div className="flex gap-[16px] justify-between  mb-[10px] "></div> */}
-                                <div className="flex justify items-start gap-5">
-                                  <div
-                                    className={`h-[56px] w-[72px] rounded-lg  bg-cover bg-center `}
-                                    style={{
-                                      backgroundImage: `url('${book?.thumbnail}')`,
-                                      // backgroundColor: "#FF353599",
-                                      // backgroundBlendMode: "multiply",
-                                    }}
-                                  />
-                                  <div className="text-[#344054] rounded-lg  text-[10px] leading-[18px] flex flex-col gap-[10px]">
-                                    <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F] ">
-                                      {book?.title}
-                                    </h5>
-                                    <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
-                                      {book?.category}
-                                    </span>
-                                  </div>
-                                </div>
-                              </div>
-                            ))}
+                              ))}
                           </div>
                         </div>
                         <div className=" border border-[#ffff]    ">
