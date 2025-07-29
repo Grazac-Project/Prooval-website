@@ -91,7 +91,7 @@ useEffect(() => {
         setActiveDates(uniqueDateData);
       })
       .catch((err) => {
-        toast.error(err.response?.data?.error );
+        toast.error(err.response?.data?.error || "An error occurred");
         console.log(err);
       });
   }, [type]);
