@@ -52,6 +52,7 @@ const MentorshipPackages = () => {
   const [productTitle, setProductTitle] = useState("");
   const [productDescription, setProductDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [mentorImage, setMentorImage] = useState("");
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -73,9 +74,10 @@ const MentorshipPackages = () => {
     setLoading(true);
     getBookings(mentorId)
       .then((res) => {
-        // console.log(res);
-        setMentorData(res.data.data.data);
-        setLoading(false);
+        console.log(res);
+        setMentorData(res.data?.data?.data);
+        setLoading(false)
+       
       })
       .catch((err) => {
         setError(err.response?.data?.message);
@@ -97,6 +99,10 @@ const MentorshipPackages = () => {
       setBookType(type);
       setMentorPrice(amount);
       setCurrency(bookingCurrency);
+      // setMentorImage(mentorData.mentor.image);
+      
+      setLoading(false);
+      
       console.log({ id });
 
       setShowBookingModal(true);
@@ -168,7 +174,7 @@ const MentorshipPackages = () => {
         <BookSession
           closeModal={() => setShowBookingModal(false)}
           mentorId={bookingId}
-          // image={mentorImage}// successModal={openModal}
+          image={mentorData?.mentor?.image}
           type={bookType}
           price={mentorPrice}
           // mentor={mentorDetails}
@@ -267,6 +273,7 @@ const MentorshipPackages = () => {
                         details?.amount,
                         details?.bookingType,
                         details?.currency
+                        
                       )
                     }
                   >

@@ -189,16 +189,6 @@ const MentorDetails = () => {
     <>
       <div>
         <ToastContainer />
-
-        {showMentorSession && (
-          <MentorSession
-            mentorId={mentorData?.mentor._id}
-            mentorImage={mentorData?.mentor.image}
-            MentorDetails={mentorData?.mentor}
-            closeSessionModal={() => setShowMentorSession(false)}
-            successModal={() => setShowBookingModal(true)}
-          />
-        )}
         <Navbar />
         {error ? (
           <Error text={error} />
