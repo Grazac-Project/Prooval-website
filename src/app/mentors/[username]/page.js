@@ -163,10 +163,10 @@ const MentorDetails = () => {
   };
   const handleNextPage = () => {
     const id = mentorId;
-    // window.location.href = `${baseUrl}/mentors?id=${id}`;
     if(id){
+      window.location.href = `${baseUrl}/mentors/${slug}/details?id=${id}`;
 
-      window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`;
+      // window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`;
     }
 
 
