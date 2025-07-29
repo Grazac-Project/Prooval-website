@@ -112,8 +112,8 @@ export const fincraPayment = (data, token) => {
     },
   });
 };
-export const initializeDigitalProductPayment = (data, token) => {
-  return authKit.post(`api/v1/payment/digital-product/purchase`, data, {
+export const initializeDigitalProductPayment = (id, token) => {
+  return authKit.post(`api/v1/payment/digital-product/purchase/${id}`, {}, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,

@@ -76,15 +76,13 @@ const MentorshipPackages = () => {
       .then((res) => {
         console.log(res);
         setMentorData(res.data?.data?.data);
-        setLoading(false)
-       
+        setLoading(false);
       })
       .catch((err) => {
         setError(err.response?.data?.message);
         setLoading(false);
       });
   };
- 
 
   useEffect(() => {
     setLoading(true);
@@ -100,9 +98,9 @@ const MentorshipPackages = () => {
       setMentorPrice(amount);
       setCurrency(bookingCurrency);
       // setMentorImage(mentorData.mentor.image);
-      
+
       setLoading(false);
-      
+
       console.log({ id });
 
       setShowBookingModal(true);
@@ -149,19 +147,19 @@ const MentorshipPackages = () => {
 
   return (
     <div className="bg-[#F2F2F7] pb-10 h-fit ">
-      {showModal && <Payment
-        onClick={() => setShowModal(false)}
-        productId={productId}
-        productType={productType}
-        productPrice={productPrice}
-        productCurrency={productCurrency}
-        productThumbnail={productThumbnail}
-        productTitle={productTitle}
-        productDescription={productDescription}
-        category={category}
-
-
-      />}
+      {showModal && (
+        <Payment
+          onClick={() => setShowModal(false)}
+          productId={productId}
+          productType={productType}
+          productPrice={productPrice}
+          productCurrency={productCurrency}
+          productThumbnail={productThumbnail}
+          productTitle={productTitle}
+          productDescription={productDescription}
+          category={category}
+        />
+      )}
       {/* {showBookingModal && (
         <BookingModal
           mentorId={bookingId}
@@ -200,10 +198,7 @@ const MentorshipPackages = () => {
           {/* Digital Products */}
           <div>
             <h3 className="text-lg font-semibold mb-4 ">Digital products</h3>
-            <div
-              className="grid md:grid-cols-1 grid-cols-3 gap-6"
-              
-            >
+            <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
               {mentorData?.packages.map((book, id) => (
                 <div
                   key={id}
@@ -273,7 +268,6 @@ const MentorshipPackages = () => {
                         details?.amount,
                         details?.bookingType,
                         details?.currency
-                        
                       )
                     }
                   >

@@ -40,11 +40,11 @@ const Payment = ({
   const handlePayment = () => {
     console.log(token)
     setLoading("Initiating payment");
-    const data = {
-      bookingId: productId,
-    };
+
+    const bookingId = productId;
+
     console.log(data);
-    initializeDigitalProductPayment(data, token)
+    initializeDigitalProductPayment(bookingId, token)
       .then((res) => {
         console.log(res);
         // setLoading(false);
