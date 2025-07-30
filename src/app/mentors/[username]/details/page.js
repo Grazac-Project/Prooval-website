@@ -123,7 +123,7 @@ const MentorshipPackages = () => {
     thumbnail,
     category
   ) => {
-    if (token) {
+    if (!token) {
       setProductId(id);
       setProductType(type);
       setProductPrice(amount);
@@ -239,13 +239,12 @@ const MentorshipPackages = () => {
                     <div className="text-sm font-medium mt-4 truncate">
                       {book?.title}
                     </div>
-                    <a
-                      href="#"
+                    <div
                       className="text-sm text-primary mt-2 font-medium inline-flex items-center"
                     >
                       Get product{" "}
                       <IoIosArrowRoundForward className="text-[16px] text-primary" />
-                    </a>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -373,13 +372,12 @@ const MentorshipPackages = () => {
                           Once a week
                         </span>
                       </div>
-                      <a
-                        href="#"
+                      <p
                         className="text-sm text-primary font-medium flex items-center"
                       >
                         Book Session{" "}
                         <IoIosArrowRoundForward className="text-[16px] text-primary" />
-                      </a>
+                      </p>
                     </div>
                   </div>
                 </div>

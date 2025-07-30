@@ -161,6 +161,7 @@ const MentorDetails = () => {
       // window.location.href = `${baseUrl}/auth/signup`;
     }
   };
+  const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
   const handleNextPage = () => {
     const id = mentorId;
     if (id) {
