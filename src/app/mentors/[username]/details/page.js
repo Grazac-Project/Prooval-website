@@ -38,7 +38,6 @@ const MentorshipPackages = () => {
   const [mentorData, setMentorData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showBookingModal, setShowBookingModal] = useState(false);
-  const [token, setToken] = useState();
   const [bookingData, setBookingData] = useState([]);
   const [bookingId, setBookingId] = useState();
   const [bookType, setBookType] = useState("");
@@ -53,15 +52,18 @@ const MentorshipPackages = () => {
   const [productDescription, setProductDescription] = useState("");
   const [category, setCategory] = useState("");
   const [mentorImage, setMentorImage] = useState("");
-
+  
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  // const [token, setToken] = useState();
+  let token = "";
 
   const data = Cookies.get("user_details");
   useEffect(() => {
     try {
       if (data) {
         const parsedData = JSON.parse(data);
-        setToken(parsedData.token);
+        token = parsedData.token;
+        console.log({token})
       }
     } catch (error) {
       console.log(error);
