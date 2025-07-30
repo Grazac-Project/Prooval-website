@@ -39,12 +39,15 @@ const Payment = ({
 
   const handlePayment = () => {
     console.log(token)
-    setLoading("Initiating payment");
+    setLoading("Initiating payment ...");
 
-    const bookingId = productId;
+    // const bookingId = productId;
+    const data={
+      productId : productId
+    }
 
     console.log(data);
-    initializeDigitalProductPayment(bookingId, token)
+    initializeDigitalProductPayment(data, token)
       .then((res) => {
         console.log(res);
         // setLoading(false);
@@ -53,8 +56,8 @@ const Payment = ({
         window.location.href = url;
       })
       .catch((err) => {
-        // toast.error(err.response?.data?.error );
-        // setLoading(false);
+        // toast.error(err.response?.data?.error || "Something went wrong");
+        setLoading("Make Payment");
       });
   };
 
