@@ -321,3 +321,54 @@ export const hireSkills = [
   'Back-end Developer', 'Front-end Developer', 'Product Manager', 'Mobile App Developer', 'Product Designer',
   
 ]
+
+export const mentorCategoryList = [
+  {
+    role: 'Software',
+    img: '/software-dev.png'
+  },
+  {
+    role: 'Sartup',
+    img: '/startup.png'
+
+  },
+  {
+    role: 'Finance',
+    img: '/finance-legal.png'
+  },
+  {
+    role: 'Content',
+    img: '/content-writing.png'
+  },
+  {
+    role: 'Mental',
+    img: '/ai-brain-01.png'
+
+  },
+  {
+    role: 'Design',
+    img: '/web-design.png',
+    
+  },
+  {
+    role: 'Fitness',
+    img: '/body-part-muscle.png'
+
+  },
+  {
+    role: 'Data',
+    img: '/artificial-intelligence-04.png'
+  },
+  {
+    role: 'HR',
+    img: '/user-group.png'
+  },
+  {
+    role: 'Product',
+    img: '/product-01.png'
+  },
+  {
+    role: 'Leadership',
+    img: '/leadership.png'
+  }
+]

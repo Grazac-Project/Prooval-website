@@ -102,3 +102,7 @@ authKit.interceptors.request.use((config) => {
   // console.log("Request Config:", config);
   return config;
 });
+
+export const fetchMentorsByRole = (role) => {
+  return authKit.get(`/api/v1/mentors/by-role?role=${role}`);
+};

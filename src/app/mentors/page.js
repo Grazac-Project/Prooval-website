@@ -21,6 +21,8 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { FaArrowRightLong } from "react-icons/fa6";
 // import { FaCircleArrowUp } from "react-icons/fa6";
+import { fetchMentorsByRole } from "@/api/authentication/auth";
+import { mentorCategoryList } from "@/constants/constant";
 
 const Page = () => {
   const [listOfMentors, setListOfMentors] = useState([]);
@@ -33,6 +35,7 @@ const Page = () => {
   const [showMentor, setShowMentor] = useState(true);
   const [positionStyle, setPositionStyle] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [selectedRole, setSelectedRole] = useState("");
 
   const observer = useRef();
   const router = useRouter();
@@ -125,6 +128,73 @@ const Page = () => {
     Cookies.set("mentorSlug", mentorSlug, { expires: 7 });
     router.push(`/mentors/${mentorSlug}`);
   };
+
+  // useEffect(() => {
+  //   fetchMentorsByRole(role)
+  //     .then((res) => {
+  //       console.log("Available Roles:", res);
+  //       setRole(res);
+  //     })
+  //     .catch((err) => {
+  //       console.error("Error fetching roles", err);
+  //     });
+  // }, []);
+
+  const handleRoleClick = (selectedRole) => {
+    setInputText(""); // Reset search input
+    setListOfMentors([]); // Clear current mentors
+    setLoading(true);
+    setNotFound(false);
+    setShowMentor(false);
+
+    fetchMentorsByRole(selectedRole)
+      .then((res) => {
+        const mentors = res.data?.data?.mentors || [];
+
+        if (mentors.length > 0) {
+          setListOfMentors(mentors);
+          setShowMentor(true);
+          setNotFound(false);
+        } else {
+          setNotFound(true);
+        }
+
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching mentors by role:", err);
+        setListOfMentors([]);
+        setNotFound(true);
+        setLoading(false);
+      });
+       setSelectedRole(selectedRole);
+  };
+
+   const scrollRef = useRef(null);
+
+  // Manual scroll with drag
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  const onMouseDown = (e) => {
+    isDragging.current = true;
+    startX.current = e.pageX - scrollRef.current.offsetLeft;
+    scrollLeft.current = scrollRef.current.scrollLeft;
+  };
+
+  const onMouseLeaveOrUp = () => {
+    isDragging.current = false;
+  };
+
+  const onMouseMove = (e) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5; // speed
+    scrollRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
   return (
     <section className="font-onest ">
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
@@ -158,6 +228,44 @@ const Page = () => {
           />
         </div>
       </form>
+      <div
+      ref={scrollRef}
+      className="overflow-x-auto whitespace-nowrap px-[80px] py-[24px] sm:px-[16px] sm:py-[16px]"
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseLeaveOrUp}
+      onMouseLeave={onMouseLeaveOrUp}
+      onMouseMove={onMouseMove}
+      style={{
+        scrollbarWidth: "none", // Firefox
+        msOverflowStyle: "none", // IE 10+
+      }}
+    >
+      {/* Hides the scrollbar in Webkit browsers */}
+      <style jsx>{`
+        div::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+        <div className="inline-flex gap-4">
+          {mentorCategoryList.map((category, index) => (
+            <button
+              key={index}
+              onClick={() => handleRoleClick(category.role)}
+              className={`flex items-center justify-center w-[139px] sm:w-[102.52px] sm:py-[8.13px] sm:px-[17.6px] sm:gap-[7.77px] sm:text-[10.83px] px-[24px] gap-[10px] py-[12px] rounded-full border-[1px] transition-all duration-200 font-onest font-normal
+      ${
+        selectedRole === category.role
+          ? "bg-[#1453FF] text-[#FFFFFF] border-[#1453FF]"
+          : "bg-white text-[#333333] border-[#909090]"
+      }
+    `}
+            >
+              <img src={category.img} alt={category.name}   className={`w-5 h-5 ${selectedRole === category.role ? "invert" : ""}`} />
+              <span>{category.role}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="bg-[#FAFCFF] py-20">
         {showMentor && (
           <div
@@ -195,17 +303,17 @@ const Page = () => {
                     <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
-                      <div className="flex items-center gap-2 mb-[16px]">
-                        <img
-                          src={listOfMentor.flag}
-                          alt={listOfMentor.country + " flag"}
-                          className="w-6 h-6"
-                        />
-                        <span className="text-[16px] text-[#292D32] font-normal truncate">
-                          {listOfMentor.country}
-                        </span>
-                      </div>
-                    
+                    <div className="flex items-center gap-2 mb-[16px]">
+                      <img
+                        src={listOfMentor.flag}
+                        alt={listOfMentor.country + " flag"}
+                        className="w-6 h-6"
+                      />
+                      <span className="text-[16px] text-[#292D32] font-normal truncate">
+                        {listOfMentor.country}
+                      </span>
+                    </div>
+
                     <p className="font-normal 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>
@@ -240,16 +348,16 @@ const Page = () => {
                     <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
-                     <div className="flex items-center gap-2 mb-[16px]">
-                        <img
-                          src={listOfMentor.flag}
-                          alt={listOfMentor.country + " flag"}
-                          className="w-6 h-6"
-                        />
-                        <span className="text-[16px] text-[#292D32] font-normal truncate">
-                          {listOfMentor.country}
-                        </span>
-                      </div>
+                    <div className="flex items-center gap-2 mb-[16px]">
+                      <img
+                        src={listOfMentor.flag}
+                        alt={listOfMentor.country + " flag"}
+                        className="w-6 h-6"
+                      />
+                      <span className="text-[16px] text-[#292D32] font-normal truncate">
+                        {listOfMentor.country}
+                      </span>
+                    </div>
                     <p className="font-normal 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>
