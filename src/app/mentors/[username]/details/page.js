@@ -52,6 +52,7 @@ const MentorshipPackages = () => {
   const [productDescription, setProductDescription] = useState("");
   const [category, setCategory] = useState("");
   const [mentorImage, setMentorImage] = useState("");
+  const [error, setError] = useState("");
   
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   // const [token, setToken] = useState();
@@ -111,6 +112,17 @@ const MentorshipPackages = () => {
       const redirectTo = encodeURIComponent(
         window.location.pathname + window.location.search
       );
+       Cookies.set(
+            "redirectTo", redirectTo,
+            {
+              secure: true,
+              sameSite: "Lax",
+              domain: ".hackthejobs.com",
+              path: "/",
+              expires: 1, // Expires in 1 day  
+
+            }
+          );
       window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
       // window.location.href = `${baseUrl}/auth/signup`;
     }
