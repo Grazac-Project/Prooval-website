@@ -22,13 +22,13 @@ const Payment = ({
   const [loading, setLoading] = useState("Make Payment");
   const [mentorData, setMentorData] = useState([]);
   const [error, setError] = useState("");
-  
-let token = "";
+
+  let token = "";
   const data = Cookies.get("user_details");
   useEffect(() => {
     try {
       const parsedData = JSON.parse(data);
-      console.log(parsedData)
+      console.log(parsedData);
       if (data) {
         token = parsedData.token;
         console.log("Token:", token);
@@ -38,25 +38,25 @@ let token = "";
     }
   }, []);
 
- const handlePayment = () => {
-  console.log(token);
-  setLoading("Initiating payment ...");
- const data = {
-  productId : productId
- }
+  const handlePayment = () => {
+    console.log(token);
+    setLoading("Initiating payment ...");
+    const data = {
+      productId: productId,
+    };
 
-  initializeDigitalProductPayment(data, token)
-    .then((res) => {
-      console.log(res);
-      const url = res.data.data.checkoutUrl;
-      console.log({ url });
-      window.location.href = url; // Redirect to payment page
-    })
-    .catch((err) => {
-      // toast.error(err.response?.data?.error || "Something went wrong");
-      setLoading("Make Payment");
-    });
-};
+    initializeDigitalProductPayment(data, token)
+      .then((res) => {
+        console.log(res);
+        const url = res.data.data.payment.paymentUrl;
+        console.log(url);
+        window.location.href = url; // Redirect to payment page
+      })
+      .catch((err) => {
+        // toast.error(err.response?.data?.error || "Something went wrong");
+        setLoading("Make Payment");
+      });
+  };
   return (
     <div>
       <div

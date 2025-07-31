@@ -55,20 +55,20 @@ const MentorshipPackages = () => {
   
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   // const [token, setToken] = useState();
-  let token = "";
+  const [token, setToken] = useState(""); // use state for token
 
+useEffect(() => {
   const data = Cookies.get("user_details");
-  useEffect(() => {
-    try {
-      if (data) {
-        const parsedData = JSON.parse(data);
-        token = parsedData.token;
-        console.log({token})
-      }
-    } catch (error) {
-      console.log(error);
+  try {
+    if (data) {
+      const parsedData = JSON.parse(data);
+      setToken(parsedData.token); // set token in state
+      console.log({ token: parsedData.token });
     }
-  }, []);
+  } catch (error) {
+    console.log(error);
+  }
+}, []);
   const searchParams = useSearchParams();
   const mentorId = searchParams.get("id");
   const router = useRouter();
@@ -94,58 +94,50 @@ const MentorshipPackages = () => {
     }
   }, []);
   const bookSession = (id, type, amount, bookingCurrency) => {
-    if (token) {
-      setBookingId(id);
-      setBookType(type);
-      setMentorPrice(amount);
-      setCurrency(bookingCurrency);
-      // setMentorImage(mentorData.mentor.image);
+  if (token) {
+    setBookingId(id);
+    setBookType(type);
+    setMentorPrice(amount);
+    setCurrency(bookingCurrency);
+    setLoading(false);
+    console.log({ id });
+    setShowBookingModal(true);
+  } else {
+    const redirectTo = encodeURIComponent(
+      window.location.pathname + window.location.search
+    );
+    window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+  }
+};
 
-      setLoading(false);
-
-      console.log({ id });
-
-      setShowBookingModal(true);
-    } else {
-      // window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
-      const redirectTo = encodeURIComponent(
-        window.location.pathname + window.location.search
-      );
-      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-      // window.location.href = `${baseUrl}/auth/signup`;
-    }
-  };
-  const BuyDigitalProduct = (
-    id,
-    type,
-    amount,
-    currency,
-    title,
-    description,
-    thumbnail,
-    category
-  ) => {
-    if (!token) {
-      setProductId(id);
-      setProductType(type);
-      setProductPrice(amount);
-      setProductCurrency(currency);
-      setProductThumbnail(thumbnail);
-      setProductTitle(title);
-      setProductDescription(description);
-      setCategory(category);
-
-      console.log({ id });
-      setShowModal(!showModal);
-    } else {
-      // window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
-      const redirectTo = encodeURIComponent(
-        window.location.pathname + window.location.search
-      );
-      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-      // window.location.href = `${baseUrl}/auth/signup`;
-    }
-  };
+const BuyDigitalProduct = (
+  id,
+  type,
+  amount,
+  currency,
+  title,
+  description,
+  thumbnail,
+  category
+) => {
+  if (token) {
+    setProductId(id);
+    setProductType(type);
+    setProductPrice(amount);
+    setProductCurrency(currency);
+    setProductThumbnail(thumbnail);
+    setProductTitle(title);
+    setProductDescription(description);
+    setCategory(category);
+    console.log({ id });
+    setShowModal(!showModal);
+  } else {
+    const redirectTo = encodeURIComponent(
+      window.location.pathname + window.location.search
+    );
+    window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+  }
+};
 
   return (
     <div className="bg-[#F2F2F7] pb-10 h-fit ">
