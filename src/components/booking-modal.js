@@ -63,7 +63,7 @@ const BookingModal = ({ closeModal, mentor }) => {
             Session Booked
           </h3>
           <p className="font-normal text-[16px] text-[#555555] leading-[24px] mb-[20px]">
-            Your booking with {mentorData?.firstName} {mentorData?.lastName} was
+            Your booking with {mentor} was
             successful. A confirmation email has been sent to your inbox.
           </p>
           <button

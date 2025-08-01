@@ -52,6 +52,8 @@ const MentorshipPackages = () => {
   const [productDescription, setProductDescription] = useState("");
   const [category, setCategory] = useState("");
   const [mentorImage, setMentorImage] = useState("");
+  const [successModal, setSuccessModal] = useState(false);
+  
   
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   // const [token, setToken] = useState();
@@ -154,13 +156,13 @@ const BuyDigitalProduct = (
           category={category}
         />
       )}
-      {/* {showBookingModal && (
+     {successModal && (
         <BookingModal
           mentorId={bookingId}
-          mentor={mentorDetails}
-          closeModal={closeSesModal}
+          mentor={`${mentorData?.mentor?.firstName + " " + mentorData?.mentor?.lastName}`}
+          closeModal={() => setSuccessModal(false)}
         />
-      )} */}
+      )} 
 
       {showBookingModal && (
         <BookSession
@@ -169,7 +171,8 @@ const BuyDigitalProduct = (
           image={mentorData?.mentor?.image}
           type={bookType}
           price={mentorPrice}
-          // mentor={mentorDetails}
+          // mentor={mentor}
+          successModal={() => setSuccessModal(true)}
           bookingCurrency={currency}
         />
       )}

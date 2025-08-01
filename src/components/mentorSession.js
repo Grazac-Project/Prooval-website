@@ -23,6 +23,7 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
   const [bookType, setBookType] = useState("");
   const [mentorPrice, setMentorPrice] = useState("")
   const [currency , setCurrency] = useState("")
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   useEffect(() => {
     const data = Cookies.get("user_details");
@@ -81,7 +82,7 @@ const openModal = () => {
   return (
     <div>
       <ToastContainer />
-      {showBookingModal && (
+      {showSuccessModal && (
         <BookingModal
           mentorId={bookingId}
           mentor={mentorDetails}
