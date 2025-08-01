@@ -162,3 +162,13 @@ button.slick-arrow.slick-next {
   font-family: --font-whyte;
   color: #7d7d7d;
 }
+
+.scroll-snap-drag {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  cursor: grab;
+}
+
+.scroll-snap-drag:active {
+  cursor: grabbing;
+}
