@@ -91,7 +91,7 @@ useEffect(() => {
         setActiveDates(uniqueDateData);
       })
       .catch((err) => {
-        toast.error(err.response?.data?.error );
+        toast.error(err.response?.data?.error || "An error occurred");
         console.log(err);
       });
   }, [type]);
@@ -146,15 +146,33 @@ useEffect(() => {
   //   }
   //   return "";
   // };
+
+  // const tileClassName = ({ date, view }) => {
+  //   if (view === "month") {
+  //     const formattedDate = dayjs(date).format("YYYY-MM-DD");
+  //     if (activeDates.includes(formattedDate)) {
+  //       return "highlighted-date"; 
+  //     }
+  //   }
+  //   return "";
+  // };
+
   const tileClassName = ({ date, view }) => {
-    if (view === "month") {
-      const formattedDate = dayjs(date).format("YYYY-MM-DD"); // Format the date to match activeDates
-      if (activeDates.includes(formattedDate)) {
-        return "highlighted-date"; // Add a custom class for active dates
-      }
-    }
-    return ""; // Return an empty string for non-active dates
-  };
+  if (view === "month") {
+    const formattedDate = dayjs(date).format("YYYY-MM-DD");
+
+    const isActive = activeDates.includes(formattedDate);
+    const isSelected =
+      selectedDate &&
+      dayjs(date).isSame(selectedDate, "date"); // compare only the date part
+
+    if (isSelected) return "selected-date";
+    if (isActive) return "highlighted-date";
+  }
+
+  return "";
+};
+
   const handleTimeSelected = (time, index) => {
     setSelectedTimeIndex(index);
     setShowButton(true);
