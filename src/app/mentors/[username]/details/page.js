@@ -52,6 +52,7 @@ const MentorshipPackages = () => {
   const [productDescription, setProductDescription] = useState("");
   const [category, setCategory] = useState("");
   const [mentorImage, setMentorImage] = useState("");
+  const [error, setError] = useState("");
   
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   // const [token, setToken] = useState();
@@ -76,7 +77,7 @@ useEffect(() => {
     setLoading(true);
     getBookings(mentorId)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setMentorData(res.data?.data?.data);
         setLoading(false);
       })
@@ -103,11 +104,21 @@ useEffect(() => {
     console.log({ id });
     setShowBookingModal(true);
   } else {
-    const redirectTo = encodeURIComponent(
-      window.location.pathname + window.location.search
-    );
-    window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-  }
+  const redirectTo = encodeURIComponent(
+    window.location.pathname + window.location.search
+  );
+
+  Cookies.set("redirectTo", redirectTo, {
+    secure: true,
+    sameSite: "Lax",
+    domain: ".hackthejobs.com",
+    path: "/",
+    expires: 1,
+  });
+
+  window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+}
+
 };
 
 const BuyDigitalProduct = (
@@ -132,11 +143,21 @@ const BuyDigitalProduct = (
     console.log({ id });
     setShowModal(!showModal);
   } else {
-    const redirectTo = encodeURIComponent(
-      window.location.pathname + window.location.search
-    );
-    window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-  }
+  const redirectTo = encodeURIComponent(
+    window.location.pathname + window.location.search
+  );
+
+  Cookies.set("redirectTo", redirectTo, {
+    secure: true,
+    sameSite: "Lax",
+    domain: ".hackthejobs.com",
+    path: "/",
+    expires: 1,
+  });
+
+  window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+}
+
 };
 
   return (
