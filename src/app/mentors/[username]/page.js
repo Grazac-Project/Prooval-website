@@ -233,7 +233,7 @@ const MentorDetails = () => {
                           </div>
                           <button
                             className="hidden md:block w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] "
-                            onClick={bookSession}
+                            onClick={handleNextPage}
                           >
                             Book Mentor
                           </button>
