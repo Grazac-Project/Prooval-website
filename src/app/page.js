@@ -784,9 +784,9 @@ const Landing = () => {
                     <img
                       src={listOfMentor.flag}
                       alt={listOfMentor.country + " flag"}
-                      className="w-6 h-6"
+                      className="w-[22px] h-[17.5px]"
                     />
-                    <span className="text-[16px] text-[#292D32] font-normal truncate">
+                    <span className="text-[16px] text-[#667085] font-normal truncate">
                       {listOfMentor.country}
                     </span>
                   </div>
@@ -839,9 +839,9 @@ const Landing = () => {
                       <img
                         src={listOfMentor.flag}
                         alt={listOfMentor.country + " flag"}
-                        className="w-6 h-6"
+                        className="w-[22px] h-[17.5px]"
                       />
-                      <span className="text-[16px] text-[#292D32] font-normal truncate">
+                      <span className="text-[16px] text-[#667085] font-normal truncate">
                         {listOfMentor.country}
                       </span>
                     </div>
