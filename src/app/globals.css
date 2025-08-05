@@ -59,7 +59,6 @@ button.slick-arrow.slick-next {
   padding: 24px 32px !important;
   background-color: white;
   border: 1px solid #d0d5dd;
-  /* font-family: 'Inter', sans-serif; */
 }
 
 .react-calendar__tile.highlighted-date {
@@ -72,12 +71,18 @@ button.slick-arrow.slick-next {
   height:45px;
   padding:6px;
 }
+.react-calendar__tile.selected-date{
+  background-color: #1453ff;
+  color:#fff;
+  font-size: 24px;
+  border-radius: 4px;
+  font-weight: 400;
+}
 .react-calendar__navigation {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
   margin-bottom: 24px;
-  /* padding:24px 32px */
 }
 
 .react-calendar__navigation__label {
@@ -88,6 +93,7 @@ button.slick-arrow.slick-next {
   font-size: 20px;
   color: #101828;
   pointer-events: none;
+  font-family: --font-onest;
 }
 
 .react-calendar__navigation__prev2-button,
@@ -157,9 +163,12 @@ button.slick-arrow.slick-next {
   color: #7d7d7d;
 }
 
+.scroll-snap-drag {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  cursor: grab;
+}
 
-
-/* .react-calendar__tile--now{
-  background:#141414;
-  color: #ffffff;
-} */
+.scroll-snap-drag:active {
+  cursor: grabbing;
+}

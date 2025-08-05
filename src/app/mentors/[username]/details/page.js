@@ -78,7 +78,7 @@ const MentorshipPackages = () => {
     setLoading(true);
     getBookings(mentorId)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setMentorData(res.data?.data?.data);
         setLoading(false);
       })
