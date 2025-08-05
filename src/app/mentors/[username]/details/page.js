@@ -53,24 +53,24 @@ const MentorshipPackages = () => {
   const [category, setCategory] = useState("");
   const [mentorImage, setMentorImage] = useState("");
   const [successModal, setSuccessModal] = useState(false);
-  
-  
+
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   // const [token, setToken] = useState();
   const [token, setToken] = useState(""); // use state for token
 
-useEffect(() => {
-  const data = Cookies.get("user_details");
-  try {
-    if (data) {
-      const parsedData = JSON.parse(data);
-      setToken(parsedData.token); // set token in state
-      console.log({ token: parsedData.token });
+  useEffect(() => {
+    Cookies.remove("redirectTo");
+    const data = Cookies.get("user_details");
+    try {
+      if (data) {
+        const parsedData = JSON.parse(data);
+        setToken(parsedData.token); // set token in state
+        console.log({ token: parsedData.token });
+      }
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-  }
-}, []);
+  }, []);
   const searchParams = useSearchParams();
   const mentorId = searchParams.get("id");
   const router = useRouter();
@@ -96,50 +96,70 @@ useEffect(() => {
     }
   }, []);
   const bookSession = (id, type, amount, bookingCurrency) => {
-  if (token) {
-    setBookingId(id);
-    setBookType(type);
-    setMentorPrice(amount);
-    setCurrency(bookingCurrency);
-    setLoading(false);
-    console.log({ id });
-    setShowBookingModal(true);
-  } else {
-    const redirectTo = encodeURIComponent(
-      window.location.pathname + window.location.search
-    );
-    window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-  }
-};
+    if (token) {
+      setBookingId(id);
+      setBookType(type);
+      setMentorPrice(amount);
+      setCurrency(bookingCurrency);
+      setLoading(false);
+      console.log({ id });
+      setShowBookingModal(true);
+    } else {
+      const redirectTo = encodeURIComponent(
+        window.location.pathname + window.location.search
+      );
+      console.log({ redirectTo });
+      Cookies.set("redirectTo", redirectTo, {
+        secure: true,
+        sameSite: "Lax",
+        domain: ".hackthejobs.com",
+        path: "/",
+        expires: 1,
+      });
 
-const BuyDigitalProduct = (
-  id,
-  type,
-  amount,
-  currency,
-  title,
-  description,
-  thumbnail,
-  category
-) => {
-  if (token) {
-    setProductId(id);
-    setProductType(type);
-    setProductPrice(amount);
-    setProductCurrency(currency);
-    setProductThumbnail(thumbnail);
-    setProductTitle(title);
-    setProductDescription(description);
-    setCategory(category);
-    console.log({ id });
-    setShowModal(!showModal);
-  } else {
-    const redirectTo = encodeURIComponent(
-      window.location.pathname + window.location.search
-    );
-    window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-  }
-};
+      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+      // window.location.href = `http://localhost:3001/auth/signup?redirectTo=${redirectTo}`;
+    }
+  };
+
+  const BuyDigitalProduct = (
+    id,
+    type,
+    amount,
+    currency,
+    title,
+    description,
+    thumbnail,
+    category
+  ) => {
+    if (token) {
+      setProductId(id);
+      setProductType(type);
+      setProductPrice(amount);
+      setProductCurrency(currency);
+      setProductThumbnail(thumbnail);
+      setProductTitle(title);
+      setProductDescription(description);
+      setCategory(category);
+      console.log({ id });
+      setShowModal(!showModal);
+    } else {
+      const redirectTo = encodeURIComponent(
+        window.location.pathname + window.location.search
+      );
+      console.log({ redirectTo });
+      Cookies.set("redirectTo", redirectTo, {
+        secure: true,
+        sameSite: "Lax",
+        domain: ".hackthejobs.com",
+        path: "/",
+        expires: 1,
+      });
+
+      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+      // window.location.href = `http://localhost:3001/auth/signup?redirectTo=${redirectTo}`;
+    }
+  };
 
   return (
     <div className="bg-[#F2F2F7] pb-10 h-fit ">
@@ -156,13 +176,15 @@ const BuyDigitalProduct = (
           category={category}
         />
       )}
-     {successModal && (
+      {successModal && (
         <BookingModal
           mentorId={bookingId}
-          mentor={`${mentorData?.mentor?.firstName + " " + mentorData?.mentor?.lastName}`}
+          mentor={`${
+            mentorData?.mentor?.firstName + " " + mentorData?.mentor?.lastName
+          }`}
           closeModal={() => setSuccessModal(false)}
         />
-      )} 
+      )}
 
       {showBookingModal && (
         <BookSession
@@ -236,9 +258,7 @@ const BuyDigitalProduct = (
                     <div className="text-sm font-medium mt-4 truncate">
                       {book?.title}
                     </div>
-                    <div
-                      className="text-sm text-primary mt-2 font-medium inline-flex items-center"
-                    >
+                    <div className="text-sm text-primary mt-2 font-medium inline-flex items-center">
                       Get product{" "}
                       <IoIosArrowRoundForward className="text-[16px] text-primary" />
                     </div>
@@ -369,9 +389,7 @@ const BuyDigitalProduct = (
                           Once a week
                         </span>
                       </div>
-                      <p
-                        className="text-sm text-primary font-medium flex items-center"
-                      >
+                      <p className="text-sm text-primary font-medium flex items-center">
                         Book Session{" "}
                         <IoIosArrowRoundForward className="text-[16px] text-primary" />
                       </p>
