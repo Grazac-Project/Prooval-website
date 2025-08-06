@@ -36,6 +36,8 @@ const Page = () => {
   const [positionStyle, setPositionStyle] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [selectedRole, setSelectedRole] = useState("");
+  const [categories, setCategories] = useState([]);
+
 
   const observer = useRef();
   const router = useRouter();
@@ -70,6 +72,7 @@ const Page = () => {
   }, [inputText]);
 
   useEffect(() => {
+    if (selectedRole && selectedRole !== "All") return;
     setLoading(true);
     setError(false);
     let isMounted = true;
@@ -116,7 +119,7 @@ const Page = () => {
       isMounted = false; // Cleanup: Set isMounted to false when component unmounts
       cancel();
     };
-  }, [inputText, page]);
+  }, [inputText, page, selectedRole]);
 
   const handleChange = (e) => {
     const inputValue = e.target.value;
@@ -129,46 +132,36 @@ const Page = () => {
     router.push(`/mentors/${mentorSlug}`);
   };
 
-  // useEffect(() => {
-  //   fetchMentorsByRole(role)
-  //     .then((res) => {
-  //       console.log("Available Roles:", res);
-  //       setRole(res);
-  //     })
-  //     .catch((err) => {
-  //       console.error("Error fetching roles", err);
-  //     });
-  // }, []);
+const handleRoleClick = (selectedRole) => {
+  setInputText(""); 
+  setSelectedRole(selectedRole);
+  setListOfMentors([]); 
+  setNotFound(false);
+  setShowMentor(false);
+  setPage(1); 
+  setHasMorePages(false); 
+  setLoading(true);
 
-  const handleRoleClick = (selectedRole) => {
-    setInputText(""); // Reset search input
-    setListOfMentors([]); // Clear current mentors
-    setLoading(true);
-    setNotFound(false);
-    setShowMentor(false);
+  fetchMentorsByRole(selectedRole === "All" ? "all" : selectedRole)
+    .then((res) => {
+      // console.log(res);
+      const mentors = res.data?.data?.mentors || [];
+      const mentorCategories = res.data?.data?.categories || [];
 
-    fetchMentorsByRole(selectedRole)
-      .then((res) => {
-        const mentors = res.data?.data?.mentors || [];
-
-        if (mentors.length > 0) {
-          setListOfMentors(mentors);
-          setShowMentor(true);
-          setNotFound(false);
-        } else {
-          setNotFound(true);
-        }
-
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching mentors by role:", err);
-        setListOfMentors([]);
-        setNotFound(true);
-        setLoading(false);
-      });
-       setSelectedRole(selectedRole);
-  };
+      setListOfMentors(mentors);
+      setCategories(mentorCategories);
+      setShowMentor(true);
+      setNotFound(mentors.length === 0);
+      setHasMorePages(res.data?.data?.remainingPages > 0);
+      setLoading(false);
+    })
+    .catch((err) => {
+      console.error("Error fetching mentors:", err);
+      setListOfMentors([]);
+      setNotFound(true);
+      setLoading(false);
+    });
+};
 
    const scrollRef = useRef(null);
 
@@ -216,7 +209,7 @@ const Page = () => {
           </button> */}
         </div>
       </div>
-      <form className="font-inter py-[32px] xm:px-[16px] sticky top-[80px] lg:top-[75px] md:top-[50.5px] z-5 bg-[#fff]">
+      <form className="font-inter py-[32px] px-[80px] xm:px-[16px] sticky top-[80px] lg:top-[75px] md:top-[50.5px] z-5 bg-[#fff]">
         <div className="relative w-[800px] lgx:w-[70%] xm:w-[100%] mx-auto">
           <IoIosSearch className="text-[20px] text-[#667085] absolute left-[16px] top-[12px] transform-translate-y-1/2" />
           <input
@@ -227,10 +220,9 @@ const Page = () => {
             onChange={handleChange}
           />
         </div>
-      </form>
       <div
       ref={scrollRef}
-      className="overflow-x-auto whitespace-nowrap px-[80px] py-[24px] sm:px-[16px] sm:py-[16px]"
+      className="overflow-x-auto whitespace-nowrap py-[24px]"
       onMouseDown={onMouseDown}
       onMouseUp={onMouseLeaveOrUp}
       onMouseLeave={onMouseLeaveOrUp}
@@ -249,6 +241,7 @@ const Page = () => {
         <div className="inline-flex gap-4">
           {mentorCategoryList.map((category, index) => (
             <button
+            type="button"
               key={index}
               onClick={() => handleRoleClick(category.role)}
               className={`flex items-center justify-center w-[139px] sm:w-[102.52px] sm:py-[8.13px] sm:px-[17.6px] sm:gap-[7.77px] sm:text-[10.83px] px-[24px] gap-[10px] py-[12px] rounded-full border-[1px] transition-all duration-200 font-onest font-normal
@@ -265,6 +258,7 @@ const Page = () => {
           ))}
         </div>
       </div>
+      </form>
 
       <div className="bg-[#FAFCFF] py-20">
         {showMentor && (
