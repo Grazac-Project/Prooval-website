@@ -324,6 +324,10 @@ export const hireSkills = [
 
 export const mentorCategoryList = [
   {
+    role: "All",
+    img: '/menu-square2.png'
+  },
+  {
     role: 'Software',
     img: '/software-dev.png'
   },

@@ -125,6 +125,6 @@ authKit.interceptors.request.use((config) => {
   return config;
 });
 
-export const fetchMentorsByRole = (role) => {
+export const fetchMentorsByRole = (role = "all") => {
   return authKit.get(`/api/v1/mentors/by-role?role=${role}`);
 };
