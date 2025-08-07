@@ -721,11 +721,11 @@ const Landing = () => {
                   <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                     {listOfMentor?.role}
                   </h5>
-                  <div className="flex items-center gap-2 mb-[16px]">
+                  <div className="flex items-center gap-1 mb-[16px]">
                     <img
                       src={listOfMentor.flag}
                       alt={listOfMentor.country + " flag"}
-                      className="w-[22px] h-[17.5px]"
+                      className="w-[12px] h-[12px]"
                     />
                     <span className="text-[16px] text-[#667085] font-normal truncate">
                       {listOfMentor.country}
@@ -776,11 +776,11 @@ const Landing = () => {
                     <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
-                    <div className="flex items-center gap-2 mb-[16px]">
+                    <div className="flex items-center gap-1 mb-[16px]">
                       <img
                         src={listOfMentor.flag}
                         alt={listOfMentor.country + " flag"}
-                        className="w-[22px] h-[17.5px]"
+                        className="w-[12px] h-[12px]"
                       />
                       <span className="text-[16px] text-[#667085] font-normal truncate">
                         {listOfMentor.country}
