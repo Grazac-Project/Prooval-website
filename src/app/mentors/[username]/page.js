@@ -223,11 +223,11 @@ const MentorDetails = () => {
 
                           <div className="flex items-center gap-2 mb-[16px]">
                             <img
-                              src={mentorData.flag}
+                              src={mentorData?.flag.flag}
                               alt={mentorData?.mentor?.country + " flag"}
-                              className="w-6 h-6"
+                              className="w-[22px] h-[17.5px]"
                             />
-                            <span className="text-[16px] text-[#292D32] font-normal truncate">
+                            <span className="text-[16px] text-[#667085] font-normal truncate">
                               {mentorData?.mentor?.country}
                             </span>
                           </div>
