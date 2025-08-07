@@ -35,7 +35,7 @@ const Page = () => {
   const [showMentor, setShowMentor] = useState(true);
   const [positionStyle, setPositionStyle] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [selectedRole, setSelectedRole] = useState("");
+  const [selectedRole, setSelectedRole] = useState("All");
   const [categories, setCategories] = useState([]);
 
 
@@ -72,7 +72,7 @@ const Page = () => {
   }, [inputText]);
 
   useEffect(() => {
-    if (selectedRole && selectedRole !== "All") return;
+    if (selectedRole !== "All") return;
     setLoading(true);
     setError(false);
     let isMounted = true;
@@ -142,7 +142,7 @@ const handleRoleClick = (selectedRole) => {
   setHasMorePages(false); 
   setLoading(true);
 
-  fetchMentorsByRole(selectedRole === "All" ? "all" : selectedRole)
+  fetchMentorsByRole(selectedRole === "All" ? "" : selectedRole, 1)
     .then((res) => {
       // console.log(res);
       const mentors = res.data?.data?.mentors || [];
@@ -162,6 +162,9 @@ const handleRoleClick = (selectedRole) => {
       setLoading(false);
     });
 };
+useEffect(() => {
+  handleRoleClick("All");
+}, []);
 
    const scrollRef = useRef(null);
 
