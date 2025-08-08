@@ -638,15 +638,17 @@ const MentorDetails = () => {
                                             </ul>
                                           </div>
                                           <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                                            {new Date(exp.startDate)
-                                              .toISOString()
-                                              .slice(0, 7)}{" "}
-                                            -{" "}
-                                            {exp.endDate
-                                              ? new Date(exp.endDate)
-                                                  .toISOString()
-                                                  .slice(0, 7)
-                                              : "Present"}
+                                            {new Date(exp.startDate).toLocaleDateString("en-US", {
+                                                year: "numeric",
+                                                month: "short",
+                                              })}{" "}
+                                              -{" "}
+                                              {exp.endDate
+                                                ? new Date(exp.endDate).toLocaleDateString("en-US", {
+                                                    year: "numeric",
+                                                    month: "short",
+                                                  })
+                                                : "Present"}
                                           </p>
                                         </div>
                                       </div>
