@@ -607,7 +607,7 @@ const mentor = () => {
                     <img
                       src={listOfMentor.flag}
                       alt={listOfMentor.country + " flag"}
-                      className="w-6 h-6"
+                      className="w-[12px] h-[12px]"
                     />
                     <span className="text-[16px] text-[#292D32] font-normal truncate">
                       {listOfMentor.country}
@@ -662,7 +662,7 @@ const mentor = () => {
                       <img
                         src={listOfMentor.flag}
                         alt={listOfMentor.country + " flag"}
-                        className="w-6 h-6"
+                        className="w-[12px] h-[12px]"
                       />
                       <span className="text-[16px] text-[#292D32] font-normal truncate">
                         {listOfMentor.country}
