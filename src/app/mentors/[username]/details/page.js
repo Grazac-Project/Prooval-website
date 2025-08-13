@@ -215,60 +215,62 @@ const MentorshipPackages = () => {
           <h2 className="text-[28px] font-semibold">Available packages</h2>
 
           {/* Digital Products */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 ">Digital products</h3>
-            <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-              {mentorData?.packages.map((book, id) => (
-                <div
-                  key={id}
-                  className="border p-4 border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer "
-                  onClick={() =>
-                    BuyDigitalProduct(
-                      book?._id,
-                      book?.type,
-                      book?.amount,
-                      book?.currency,
-                      book?.title,
-                      book?.description,
-                      book?.thumbnail,
-                      book?.category
-                    )
-                  }
-                >
+          {mentorData?.packages.length > 0 && (
+            <div>
+              <h3 className="text-lg font-semibold mb-4 ">Digital products</h3>
+              <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
+                {mentorData?.packages.map((book, id) => (
                   <div
-                    className={`h-36 rounded-lg mb-2 bg-cover bg-center `}
-                    style={{
-                      backgroundImage: `url(${book?.thumbnail})`,
-                      // backgroundColor: id === 1 ? "#FF353599" : "#00875399",
-                      backgroundBlendMode: "multiply",
-                    }}
-                  />
-                  <div className="py-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs bg-[#DEA8061A] text-[#DEA806] px-3 py-1 rounded-[32px] font-medium">
-                        {book?.category}
-                      </span>
-                      {book?.type === "paid" && (
-                        <div className=" text-sm font-semibold font-inter ">
-                          {book.currency === "NGN" ? "₦" : "$"}
-                          {formatPrice(book?.amount)}
-                        </div>
-                      )}
-                    </div>
-                    <div className="text-sm font-medium mt-4 truncate">
-                      {book?.title}
-                    </div>
-                    <div className="text-sm text-primary mt-2 font-medium inline-flex items-center">
-                      Get product{" "}
-                      <IoIosArrowRoundForward className="text-[16px] text-primary" />
+                    key={id}
+                    className="border p-4 border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer "
+                    onClick={() =>
+                      BuyDigitalProduct(
+                        book?._id,
+                        book?.type,
+                        book?.amount,
+                        book?.currency,
+                        book?.title,
+                        book?.description,
+                        book?.thumbnail,
+                        book?.category
+                      )
+                    }
+                  >
+                    <div
+                      className={`h-36 rounded-lg mb-2 bg-cover bg-center `}
+                      style={{
+                        backgroundImage: `url(${book?.thumbnail})`,
+                        // backgroundColor: id === 1 ? "#FF353599" : "#00875399",
+                        backgroundBlendMode: "multiply",
+                      }}
+                    />
+                    <div className="py-4">
+                      <div className="flex justify-between items-center">
+                        <span className="text-xs bg-[#DEA8061A] text-[#DEA806] px-3 py-1 rounded-[32px] font-medium">
+                          {book?.category}
+                        </span>
+                        {book?.type === "paid" && (
+                          <div className=" text-sm font-semibold font-inter ">
+                            {book.currency === "NGN" ? "₦" : "$"}
+                            {formatPrice(book?.amount)}
+                          </div>
+                        )}
+                      </div>
+                      <div className="text-sm font-medium mt-4 truncate">
+                        {book?.title}
+                      </div>
+                      <div className="text-sm text-primary mt-2 font-medium inline-flex items-center">
+                        Get product{" "}
+                        <IoIosArrowRoundForward className="text-[16px] text-primary" />
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-
+          )}
           {/* 1-on-1 Sessions */}
+          {mentorData?.bookings.length > 0 && (
           <div>
             <h3 className="text-lg font-semibold leading-[140%] mb-4">
               1-on-1 Sessions
@@ -342,9 +344,10 @@ const MentorshipPackages = () => {
               ))}
             </div>
           </div>
+          )}
 
           {/* Group Package */}
-          <div>
+          <div className="hidden">
             <h3 className="text-lg font-semibold mb-4">Group Package</h3>
             <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
               {[
