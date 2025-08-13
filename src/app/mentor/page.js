@@ -572,7 +572,7 @@ const mentor = () => {
             </button>
           </Link>
         </section>
-       <section className="pb-[96px] sm:pb-[52px] ">
+        <section className="pb-[96px] sm:pb-[52px] ">
           <div className="sm:hidden  w-[1280px]  1xl:w-[90%] mx-auto flex justify-start flex-wrap gap-[32px] pb-[96px]  sm:pb-[52px]">
             {listOfMentors?.slice(0, 8).map((listOfMentor, i) => {
               return (
@@ -603,6 +603,16 @@ const mentor = () => {
                   <h5 className="font-normal text-[16px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                     {listOfMentor?.role}
                   </h5>
+                  <div className="flex items-center gap-2 mb-[16px]">
+                    <img
+                      src={listOfMentor.flag}
+                      alt={listOfMentor.country + " flag"}
+                      className="w-[12px] h-[12px]"
+                    />
+                    <span className="text-[16px] text-[#292D32] font-normal truncate">
+                      {listOfMentor.country}
+                    </span>
+                  </div>
                   <p className="font-normal  text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                     {listOfMentor?.company}
                   </p>
@@ -648,6 +658,16 @@ const mentor = () => {
                     <h5 className="font-normal text-[16px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap ">
                       {listOfMentor?.role}
                     </h5>
+                    <div className="flex items-center gap-2 mb-[16px]">
+                      <img
+                        src={listOfMentor.flag}
+                        alt={listOfMentor.country + " flag"}
+                        className="w-[12px] h-[12px]"
+                      />
+                      <span className="text-[16px] text-[#292D32] font-normal truncate">
+                        {listOfMentor.country}
+                      </span>
+                    </div>
                     <p className="font-normal  text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>

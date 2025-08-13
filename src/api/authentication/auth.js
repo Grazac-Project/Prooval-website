@@ -74,6 +74,19 @@ export const bookMentorSession = (userId) => {
 export const getAvailableBookings = (bookingId) => {
   return authKit.get(`api/v1/mentors/available/${bookingId}`);
 };
+export const getBookings = (mentorId) => {
+  return authKit.get(`api/v1/mentors/${mentorId}/bookings-and-packages`,
+    
+  );
+};
+
+export const getSingleDigitalProduct = (Id, token) => {
+  return authKit.get(`api/v1/mentors/digital-products/${Id}`, {}, {
+      headers: {
+        Authorization: `Bearer ${token}`, 
+      },
+    });
+};
 export const getAllBookings = (mentorId) => {
   return authKit.get(`api/v1/mentors/bookings/${mentorId}`);
 };
@@ -90,8 +103,17 @@ export const getMentorsBySlug = (slug, token) => {
     headers, // Use the headers object
   });
 };
+
 export const fincraPayment = (data, token) => {
   return authKit.post(`api/v1/payment/generate-payment-link`, data, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+export const initializeDigitalProductPayment = (id, token) => {
+  return authKit.post(`api/v1/payment/digital-product/purchase`, id, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
@@ -102,3 +124,7 @@ authKit.interceptors.request.use((config) => {
   // console.log("Request Config:", config);
   return config;
 });
+
+export const fetchMentorsByRole = (role = "all") => {
+  return authKit.get(`/api/v1/mentors/by-role?role=${role}`);
+};

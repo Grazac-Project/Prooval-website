@@ -21,6 +21,8 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { FaArrowRightLong } from "react-icons/fa6";
 // import { FaCircleArrowUp } from "react-icons/fa6";
+import { fetchMentorsByRole } from "@/api/authentication/auth";
+import { mentorCategoryList } from "@/constants/constant";
 
 const Page = () => {
   const [listOfMentors, setListOfMentors] = useState([]);
@@ -33,6 +35,9 @@ const Page = () => {
   const [showMentor, setShowMentor] = useState(true);
   const [positionStyle, setPositionStyle] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [selectedRole, setSelectedRole] = useState("All");
+  const [categories, setCategories] = useState([]);
+
 
   const observer = useRef();
   const router = useRouter();
@@ -67,6 +72,7 @@ const Page = () => {
   }, [inputText]);
 
   useEffect(() => {
+    if (selectedRole !== "All") return;
     setLoading(true);
     setError(false);
     let isMounted = true;
@@ -113,7 +119,7 @@ const Page = () => {
       isMounted = false; // Cleanup: Set isMounted to false when component unmounts
       cancel();
     };
-  }, [inputText, page]);
+  }, [inputText, page, selectedRole]);
 
   const handleChange = (e) => {
     const inputValue = e.target.value;
@@ -125,6 +131,66 @@ const Page = () => {
     Cookies.set("mentorSlug", mentorSlug, { expires: 7 });
     router.push(`/mentors/${mentorSlug}`);
   };
+
+const handleRoleClick = (selectedRole) => {
+  setInputText(""); 
+  setSelectedRole(selectedRole);
+  setListOfMentors([]); 
+  setNotFound(false);
+  setShowMentor(false);
+  setPage(1); 
+  setHasMorePages(false); 
+  setLoading(true);
+
+  fetchMentorsByRole(selectedRole === "All" ? "" : selectedRole, 1)
+    .then((res) => {
+      // console.log(res);
+      const mentors = res.data?.data?.mentors || [];
+      const mentorCategories = res.data?.data?.categories || [];
+
+      setListOfMentors(mentors);
+      setCategories(mentorCategories);
+      setShowMentor(true);
+      setNotFound(mentors.length === 0);
+      setHasMorePages(res.data?.data?.remainingPages > 0);
+      setLoading(false);
+    })
+    .catch((err) => {
+      console.error("Error fetching mentors:", err);
+      setListOfMentors([]);
+      setNotFound(true);
+      setLoading(false);
+    });
+};
+useEffect(() => {
+  handleRoleClick("All");
+}, []);
+
+   const scrollRef = useRef(null);
+
+  // Manual scroll with drag
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  const onMouseDown = (e) => {
+    isDragging.current = true;
+    startX.current = e.pageX - scrollRef.current.offsetLeft;
+    scrollLeft.current = scrollRef.current.scrollLeft;
+  };
+
+  const onMouseLeaveOrUp = () => {
+    isDragging.current = false;
+  };
+
+  const onMouseMove = (e) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5; // speed
+    scrollRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
   return (
     <section className="font-onest ">
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
@@ -146,7 +212,7 @@ const Page = () => {
           </button> */}
         </div>
       </div>
-      <form className="font-inter py-[32px] xm:px-[16px] sticky top-[80px] lg:top-[75px] md:top-[50.5px] z-5 bg-[#fff]">
+      <form className="font-inter py-[32px] px-[80px] xm:px-[16px] sticky top-[80px] lg:top-[75px] md:top-[50.5px] z-5 bg-[#fff]">
         <div className="relative w-[800px] lgx:w-[70%] xm:w-[100%] mx-auto">
           <IoIosSearch className="text-[20px] text-[#667085] absolute left-[16px] top-[12px] transform-translate-y-1/2" />
           <input
@@ -157,7 +223,46 @@ const Page = () => {
             onChange={handleChange}
           />
         </div>
+      <div
+      ref={scrollRef}
+      className="overflow-x-auto whitespace-nowrap py-[24px]"
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseLeaveOrUp}
+      onMouseLeave={onMouseLeaveOrUp}
+      onMouseMove={onMouseMove}
+      style={{
+        scrollbarWidth: "none", // Firefox
+        msOverflowStyle: "none", // IE 10+
+      }}
+    >
+      {/* Hides the scrollbar in Webkit browsers */}
+      <style jsx>{`
+        div::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+        <div className="inline-flex gap-4">
+          {mentorCategoryList.map((category, index) => (
+            <button
+            type="button"
+              key={index}
+              onClick={() => handleRoleClick(category.role)}
+              className={`flex items-center justify-center w-[139px] sm:w-[102.52px] sm:py-[8.13px] sm:px-[17.6px] sm:gap-[7.77px] sm:text-[10.83px] px-[24px] gap-[10px] py-[12px] rounded-full border-[1px] transition-all duration-200 font-onest font-normal
+      ${
+        selectedRole === category.role
+          ? "bg-[#1453FF] text-[#FFFFFF] border-[#1453FF]"
+          : "bg-white text-[#333333] border-[#909090]"
+      }
+    `}
+            >
+              <img src={category.img} alt={category.name}   className={`w-5 h-5 ${selectedRole === category.role ? "invert" : ""}`} />
+              <span>{category.role}</span>
+            </button>
+          ))}
+        </div>
+      </div>
       </form>
+
       <div className="bg-[#FAFCFF] py-20">
         {showMentor && (
           <div
@@ -185,7 +290,7 @@ const Page = () => {
                       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-[rgba(0,0,0,0.3)] to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end px-4 pb-3">
                         <span className="text-[white] text-[14px] leading-[24px] font-medium flex items-center gap-[10px] mx-auto text-center">
                           View Profile
-                          <FaArrowRightLong className="w-4 h-4 xm:hidden "/>
+                          <FaArrowRightLong className="w-4 h-4 xm:hidden " />
                         </span>
                       </div>
                     </div>
@@ -195,6 +300,17 @@ const Page = () => {
                     <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
+                    <div className="flex items-center gap-1 mb-[16px]">
+                      <img
+                        src={listOfMentor.flag}
+                        alt={listOfMentor.country + " flag"}
+                        className="w-[12px] h-[12px]"
+                      />
+                      <span className="text-[16px] text-[#667085] font-normal truncate">
+                        {listOfMentor.country}
+                      </span>
+                    </div>
+
                     <p className="font-normal 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>
@@ -218,7 +334,7 @@ const Page = () => {
                       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[rgba(0,0,0,0.7)] via-[rgba(0,0,0,0.3)] to-transparent xm:opacity-100 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end px-4 pb-3">
                         <span className="text-[white] text-[14px] leading-[24px] font-medium flex justify-center items-center gap-[10px] mx-auto text-center">
                           View Profile
-                          <FaArrowRightLong className="w-4 h-4 xm:hidden"/>
+                          <FaArrowRightLong className="w-4 h-4 xm:hidden" />
                         </span>
                       </div>
                     </div>
@@ -229,6 +345,16 @@ const Page = () => {
                     <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
+                    <div className="flex items-center gap-1 mb-[16px]">
+                      <img
+                        src={listOfMentor.flag}
+                        alt={listOfMentor.country + " flag"}
+                        className="w-[12px] h-[12px]"
+                      />
+                      <span className="text-[16px] text-[#667085] font-normal truncate">
+                        {listOfMentor.country}
+                      </span>
+                    </div>
                     <p className="font-normal 1xl:w-[250px] xl:w-[200px] text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>

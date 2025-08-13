@@ -603,66 +603,7 @@ const Landing = () => {
             className="absolute top-[0] right-[16px] lgx:block hidden"
           />
         </section>
-        <section className="w-[100%] font-onest flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[64px] sm:py-[52px]">
-          {/* <div className='w-[28.125%] xxl:w-[30%] lgx:w-[33%] lg:w-[35%] md:w-[38%] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xl:pl-[15px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'> */}
-          <div className="w-[28.125%] xxl:w-[30%] lgx:w-[33%] lg:w-[35%] md:w-[38%] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[70px] pl-[30px] xl:pl-[15px] pr-[14px] pb-[72px] xxl:pb-[22px] relative">
-            {/* <h4 className='w-[288px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] sxm:text-[40px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
-              Get Onboarded in Four Easy Steps!
-            </h4> */}
-            <h4 className="w-[288px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] xm:w-[231px] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] xm:text-[32px] leading-[52.8px] xm:leading-[35.2px] text-[#FBFCFD] pb-[17px]">
-              Get Onboarded in Four Easy Steps!
-            </h4>
-            <p className="w-[298px] 1xl:w-[262px] lg:w-[250px] md:w-[220px] sm:w-[100%] font-normal text-[16px] leading-[22px] text-[#EDEDED]">
-              Follow these simple steps to join our talents on hackthejobs right
-              away.
-            </p>
-            <Image
-              src="/easy-arrow.png"
-              width={123}
-              height={117}
-              alt="arrow"
-              className="absolute top-[9.32px] right-[14.18px] object-cover sm:hidden"
-            />
-            <Image
-              src="/easy-arrow-mobile.png"
-              width={126}
-              height={123}
-              alt="arrow"
-              className="absolute top-[59.6px] right-[0px] ssxm:right-[-15px] object-cover hidden sm:block"
-            />
-          </div>
-          <div className="w-[69.90%] xxl:w-[70%] lgx:w-[67%] lg:w-[65%] md:w-[62%] sm:w-[100%] flex flex-wrap sm:justify-around gap-[16px] lgx:gap-[12px] lg:gap-[10px]">
-            {cardValues.map((cardValue, i, arr) => {
-              return (
-                <div
-                  className="font-onest w-[48%] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 md:px-2 sm:px-5 py-4"
-                  key={i}
-                >
-                  <h4 className="border-[2px] border-[#D0DDFF] w-[44px] h-[44px] rounded-[50%] flex items-center justify-center text-[18px] leading-[20.31px] font-medium text-[#fff] bg-[#1453FF]">
-                    {cardValue.number}
-                  </h4>
-                  <div className="pt-[25px] pb-[14px]">
-                    <span className="font-medium text-[20px] leading-[30px] text-[#121927] leading-[150%] tracking-[0%]">
-                      {cardValue.heading}
-                    </span>
-                    {arr.length - 1 === i ? (
-                      <span className="text-[14px] text-[#888888] font-[350] leading-[150%] tracking-[0%]">{` ${cardValue.headingSpan}`}</span>
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                  {/* <h5 className="pt-[25px] pb-[14px] font-medium text-[20px] leading-[30px] text-[#121927] leading-[150%] tracking-[0%]">
-                    {cardValue.heading}
-                    {arr.length - 1 === i? <span className="text-[!12px] text-[#888888] font-[350] leading-[150%] tracking-[0%]">{cardValue.headingSpan}</span>: ''}
-                  </h5> */}
-                  <p className="font-normal text-[14px] leading-[20px] text-[#4F4F4F]">
-                    {cardValue.text}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+        
         <section className="font-onest flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
           <div>
             <h3 className="font-semibold w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[560px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center">
@@ -780,6 +721,16 @@ const Landing = () => {
                   <h5 className="font-regular text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                     {listOfMentor?.role}
                   </h5>
+                  <div className="flex items-center gap-1 mb-[16px]">
+                    <img
+                      src={listOfMentor.flag}
+                      alt={listOfMentor.country + " flag"}
+                      className="w-[12px] h-[12px]"
+                    />
+                    <span className="text-[16px] text-[#667085] font-normal truncate">
+                      {listOfMentor.country}
+                    </span>
+                  </div>
                   <p className="font-regular  text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                     {listOfMentor?.company}
                   </p>
@@ -825,6 +776,16 @@ const Landing = () => {
                     <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.role}
                     </h5>
+                    <div className="flex items-center gap-1 mb-[16px]">
+                      <img
+                        src={listOfMentor.flag}
+                        alt={listOfMentor.country + " flag"}
+                        className="w-[12px] h-[12px]"
+                      />
+                      <span className="text-[16px] text-[#667085] font-normal truncate">
+                        {listOfMentor.country}
+                      </span>
+                    </div>
                     <p className="font-normal  text-[16px] leading-[20.8px] text-[#667085] truncate overflow-hidden whitespace-nowrap">
                       {listOfMentor?.company}
                     </p>
@@ -838,8 +799,74 @@ const Landing = () => {
               View More Mentors
             </button>
           </Link>
-          <Expertise />
         </section>
+
+        <section className="w-[100%] font-onest flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] xxl:px-[80px] xl:px-[25px] xm:px-[16px] py-[80px] sm:py-[52px]">
+          {/* <div className='w-[28.125%] xxl:w-[30%] lgx:w-[33%] lg:w-[35%] md:w-[38%] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[47px] pl-[30px] xl:pl-[15px] pr-[14px] pb-[72px] xxl:pb-[22px] relative'> */}
+          <div className="w-[28.125%] xxl:w-[30%] lgx:w-[33%] lg:w-[35%] md:w-[38%] sm:w-[100%] bg-[#1453FF] rounded-[16px] pt-[70px] pl-[30px] xl:pl-[15px] pr-[14px] pb-[72px] xxl:pb-[22px] relative">
+            {/* <h4 className='w-[288px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] sxm:text-[40px] leading-[52.8px] text-[#FBFCFD] pb-[17px]'>
+              Get Onboarded in Four Easy Steps!
+            </h4> */}
+            <h4 className="w-[288px] xl:w-[275px] lg:w-[250px] md:w-[220px] sm:w-[70%] xm:w-[231px] font-medium text-[48px] xl:text-[45px] lg:text-[40px] md:text-[40px] sm:text-[48px] xm:text-[32px] leading-[52.8px] xm:leading-[35.2px] text-[#FBFCFD] pb-[17px]">
+              Get Onboarded in Four Easy Steps!
+            </h4>
+            <p className="w-[298px] 1xl:w-[262px] lg:w-[250px] md:w-[220px] sm:w-[100%] font-normal text-[16px] leading-[22px] text-[#EDEDED]">
+              Follow these simple steps to join our talents on hackthejobs right
+              away.
+            </p>
+            <Image
+              src="/easy-arrow.png"
+              width={123}
+              height={117}
+              alt="arrow"
+              className="absolute top-[9.32px] right-[14.18px] object-cover sm:hidden"
+            />
+            <Image
+              src="/easy-arrow-mobile.png"
+              width={126}
+              height={123}
+              alt="arrow"
+              className="absolute top-[59.6px] right-[0px] ssxm:right-[-15px] object-cover hidden sm:block"
+            />
+          </div>
+          <div className="w-[69.90%] xxl:w-[70%] lgx:w-[67%] lg:w-[65%] md:w-[62%] sm:w-[100%] flex flex-wrap sm:justify-around gap-[16px] lgx:gap-[12px] lg:gap-[10px]">
+            {cardValues.map((cardValue, i, arr) => {
+              return (
+                <div
+                  className="font-onest w-[48%] sm:w-[100%] border-[1px] border-[#EAEAEA] rounded-[8px] px-5 md:px-2 sm:px-5 py-4"
+                  key={i}
+                >
+                  <h4 className="border-[2px] border-[#D0DDFF] w-[44px] h-[44px] rounded-[50%] flex items-center justify-center text-[18px] leading-[20.31px] font-medium text-[#fff] bg-[#1453FF]">
+                    {cardValue.number}
+                  </h4>
+                  <div className="pt-[25px] pb-[14px]">
+                    <span className="font-medium text-[20px] leading-[30px] text-[#121927] leading-[150%] tracking-[0%]">
+                      {cardValue.heading}
+                    </span>
+                    {arr.length - 1 === i ? (
+                      <span className="text-[14px] text-[#888888] font-[350] leading-[150%] tracking-[0%]">{` ${cardValue.headingSpan}`}</span>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  {/* <h5 className="pt-[25px] pb-[14px] font-medium text-[20px] leading-[30px] text-[#121927] leading-[150%] tracking-[0%]">
+                    {cardValue.heading}
+                    {arr.length - 1 === i? <span className="text-[!12px] text-[#888888] font-[350] leading-[150%] tracking-[0%]">{cardValue.headingSpan}</span>: ''}
+                  </h5> */}
+                  <p className="font-normal text-[14px] leading-[20px] text-[#4F4F4F]">
+                    {cardValue.text}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        <section className="pb-[96px] sm:pb-0 "> 
+          <Expertise />
+
+        </section>
+        
         <section className="flex items-center sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]">
           <div>
             <Image
