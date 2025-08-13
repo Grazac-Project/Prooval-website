@@ -332,7 +332,7 @@ export const mentorCategoryList = [
     img: '/software-dev.png'
   },
   {
-    role: 'Sartup',
+    role: 'Startup',
     img: '/startup.png'
 
   },
