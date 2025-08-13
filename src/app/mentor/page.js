@@ -603,7 +603,7 @@ const mentor = () => {
                   <h5 className="font-normal text-[16px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap">
                     {listOfMentor?.role}
                   </h5>
-                  <div className="flex items-center gap-2 mb-[16px]">
+                  <div className="flex items-center gap-1 mb-[16px]">
                     <img
                       src={listOfMentor.flag}
                       alt={listOfMentor.country + " flag"}
@@ -658,7 +658,7 @@ const mentor = () => {
                     <h5 className="font-normal text-[16px] leading-[28px] text-[#1453FF] mb-[16px] truncate overflow-hidden whitespace-nowrap ">
                       {listOfMentor?.role}
                     </h5>
-                    <div className="flex items-center gap-2 mb-[16px]">
+                    <div className="flex items-center gap-1 mb-[16px]">
                       <img
                         src={listOfMentor.flag}
                         alt={listOfMentor.country + " flag"}
