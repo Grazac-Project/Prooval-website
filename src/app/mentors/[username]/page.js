@@ -463,7 +463,7 @@ const MentorDetails = () => {
                             ))}
                           </div>
                         </div>
-                        <div className=" border border-[#ffff]    ">
+                        <div className=" border border-[#ffff]  hidden  ">
                           <div className="flex flex-col items-center gap-2">
                             {mentorData?.bookings?.slice(0, 1).map((book) => (
                               <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">

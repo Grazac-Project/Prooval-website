@@ -11,6 +11,7 @@ import { formatPrice } from "@/Utils/price-formater";
 import BookingModal from "@/components/booking-modal";
 import Cookies from "js-cookie";
 import BookSession from "@/components/book-session";
+import EventCard from "@/components/webinerCard";
 const groupColors = [
   "#F48025",
   "#008753",
@@ -162,7 +163,7 @@ const MentorshipPackages = () => {
   };
 
   return (
-    <div className="bg-[#F2F2F7] pb-10 h-fit ">
+    <div className="bg-[#F2F2F7]  pb-10 h-[100%] ">
       {showModal && (
         <Payment
           onClick={() => setShowModal(false)}
@@ -271,79 +272,79 @@ const MentorshipPackages = () => {
           )}
           {/* 1-on-1 Sessions */}
           {mentorData?.bookings.length > 0 && (
-          <div>
-            <h3 className="text-lg font-semibold leading-[140%] mb-4">
-              1-on-1 Sessions
-            </h3>
-            <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-              {mentorData?.bookings.map((details, i) => (
-                <div key={i}>
-                  <div
-                    className="border border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer h-[205px] py-7 px-4 space-y-2"
-                    onClick={() =>
-                      bookSession(
-                        details?._id,
-                        details?.amount,
-                        details?.bookingType,
-                        details?.currency
-                      )
-                    }
-                  >
-                    <div className="flex gap-[16px] justify-between items-center mb-[10px] ">
-                      <div
-                        className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
-                          details.bookingType === "Paid"
-                            ? " bg-[#DEA8061A]"
-                            : " bg-[#3333331A]"
-                        }`}
-                      >
-                        {details.bookingType === "Paid" && (
-                          <Image
-                            src="/paid.svg"
-                            alt="mentor"
-                            width={12}
-                            height={12}
-                            className="w-[12px] h-[12px] rounded-full"
-                          />
-                        )}
-                        <span
-                          className={` text-[12px] font-medium leading-[18px] font-inter ${
-                            details?.bookingType === "Paid"
-                              ? "text-[#F3B704]"
-                              : "text-[#333333]"
-                          } `}
+            <div>
+              <h3 className="text-lg font-semibold leading-[140%] mb-4">
+                1-on-1 Sessions
+              </h3>
+              <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
+                {mentorData?.bookings.map((details, i) => (
+                  <div key={i}>
+                    <div
+                      className="border border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer h-[205px] py-7 px-4 space-y-2"
+                      onClick={() =>
+                        bookSession(
+                          details?._id,
+                          details?.amount,
+                          details?.bookingType,
+                          details?.currency
+                        )
+                      }
+                    >
+                      <div className="flex gap-[16px] justify-between items-center mb-[10px] ">
+                        <div
+                          className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
+                            details.bookingType === "Paid"
+                              ? " bg-[#DEA8061A]"
+                              : " bg-[#3333331A]"
+                          }`}
                         >
-                          {details.bookingType}
-                        </span>
-                      </div>
-                      {details.bookingType === "Paid" && (
-                        <div className=" flex items-center gap-1 justify-center">
-                          <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                            {details?.currency === "NGN" ? "₦" : "$"}
-                            {details?.amount}
+                          {details.bookingType === "Paid" && (
+                            <Image
+                              src="/paid.svg"
+                              alt="mentor"
+                              width={12}
+                              height={12}
+                              className="w-[12px] h-[12px] rounded-full"
+                            />
+                          )}
+                          <span
+                            className={` text-[12px] font-medium leading-[18px] font-inter ${
+                              details?.bookingType === "Paid"
+                                ? "text-[#F3B704]"
+                                : "text-[#333333]"
+                            } `}
+                          >
+                            {details.bookingType}
                           </span>
                         </div>
-                      )}
-                    </div>
+                        {details.bookingType === "Paid" && (
+                          <div className=" flex items-center gap-1 justify-center">
+                            <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
+                              {details?.currency === "NGN" ? "₦" : "$"}
+                              {details?.amount}
+                            </span>
+                          </div>
+                        )}
+                      </div>
 
-                    <div className="font-bold font-inter text-[#333333] text-sm truncate">
-                      {details?.title}
-                    </div>
-                    <p className="text-xs text-[#878787] leading=[140%] line-clamp-3">
-                      {details?.description}
-                    </p>
-                    <div className="flex justify-between items-center">
-                      <div className="text-xs">{details?.duration} Mins</div>
-                      <p className="text-sm text-primary font-medium flex items-center">
-                        Book Session{" "}
-                        <IoIosArrowRoundForward className="text-[16px] text-primary" />
+                      <div className="font-bold font-inter text-[#333333] text-sm truncate">
+                        {details?.title}
+                      </div>
+                      <p className="text-xs text-[#878787] leading=[140%] line-clamp-3">
+                        {details?.description}
                       </p>
+                      <div className="flex justify-between items-center">
+                        <div className="text-xs">{details?.sessionDuration} Mins</div>
+                        <p className="text-sm text-primary font-medium flex items-center">
+                          Book Session{" "}
+                          <IoIosArrowRoundForward className="text-[16px] text-primary" />
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
           )}
 
           {/* Group Package */}
@@ -401,6 +402,21 @@ const MentorshipPackages = () => {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* //webiner */}
+          <div className="grid md:grid-cols-1 gap-7 grid-cols-2">
+            <EventCard
+              title="7 UI design principles to improve product design"
+              month="SEPT"
+              day="10"
+              venue="Google Meet"
+              price="Free"
+              joinedLabel="149K Joined already"
+              image="/"
+              href="#"
+            />
+            
           </div>
         </div>
       ) : (
