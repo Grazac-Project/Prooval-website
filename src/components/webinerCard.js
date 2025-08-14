@@ -1,8 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { Video, Ticket, Users, ArrowRight } from "lucide-react";
-
+import { FaFileVideo } from "react-icons/fa";
+import { LiaMoneyBillWaveSolid } from "react-icons/lia";
+import { LuUsers } from "react-icons/lu";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import { Videocam, VideoLabel } from "@mui/icons-material";
+import { FaVideo } from "react-icons/fa6";
 export default function EventCard({
   title,
   month, // e.g. "SEPT"
@@ -14,7 +18,7 @@ export default function EventCard({
   href = "#",
 }) {
   return (
-    <article className="group relative overflow-hidden rounded-[22px] border border-slate-200 bg-white shadow-[0_6px_20px_rgba(17,24,39,.08)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(17,24,39,.12)]">
+    <article className="group relative overflow-hidden rounded-[22px] bg-[white] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hidden">
       {/* Media */}
       <div className="relative aspect-[16/9] w-full">
         <Image
@@ -28,16 +32,16 @@ export default function EventCard({
       </div>
 
       {/* Content */}
-      <div className="relative px-6 pb-5 pt-6">
+      <div className=" px-6 pb-5 pt-6">
         {/* Date pill */}
         <div
           aria-label={`${month} ${day}`}
-          className="absolute -top-6 left-5 w-16 rounded-[14px] border border-slate-200 bg-white shadow-[0_3px_10px_rgba(15,23,42,.06)]"
+          className=" rounded-[14px] w-[38px] h-[42px]  bg-[white] shadow-md"
         >
-          <div className="rounded-t-[12px] bg-blue-100 py-1 text-center text-[12px] font-extrabold tracking-wide text-blue-600">
+          <div className="rounded-t-[12px] bg-blue-100 py-1 text-center text-[10px] font-extrabold tracking-wide text-blue-600">
             {month}
           </div>
-          <div className="pb-2 pt-1 text-center text-[22px] font-extrabold leading-none text-slate-900">
+          <div className="pb-2 pt-1 text-center text-[14px] font-extrabold leading-none text-slate-900">
             {day}
           </div>
         </div>
@@ -50,15 +54,15 @@ export default function EventCard({
         {/* Meta */}
         <div className="grid gap-2.5 text-[15px] font-semibold text-slate-500">
           <div className="flex items-center gap-2">
-            <Video className="h-[18px] w-[18px]" />
+            <FaVideo className="h-[18px] w-[18px]" />
             <span>{venue}</span>
           </div>
           <div className="flex items-center gap-2">
-            <Ticket className="h-[18px] w-[18px]" />
+            <LiaMoneyBillWaveSolid className="h-[18px] w-[18px]" />
             <span>{price}</span>
           </div>
           <div className="flex items-center gap-2">
-            <Users className="h-[18px] w-[18px]" />
+            <LuUsers className="h-[18px] w-[18px]" />
             <span>{joinedLabel}</span>
           </div>
         </div>
@@ -69,7 +73,7 @@ export default function EventCard({
           className="mt-3 inline-flex items-center gap-2 py-2 font-bold text-blue-600"
         >
           Register
-          <ArrowRight className="h-[18px] w-[18px] transition-transform group-hover:translate-x-0.5" />
+          <IoIosArrowRoundForward ArrowRight className="h-[18px] w-[18px] transition-transform group-hover:translate-x-0.5" />
         </a>
       </div>
     </article>
