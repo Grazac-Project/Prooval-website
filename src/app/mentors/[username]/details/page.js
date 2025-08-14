@@ -405,7 +405,10 @@ const MentorshipPackages = () => {
           </div>
 
           {/* //webiner */}
-          <div className="grid md:grid-cols-1 gap-7 grid-cols-2">
+          <div className="">
+            <h3 className="text-lg font-semibold mb-4">Webinar</h3>
+         <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
+          {mentorData?.bookings.map((book, id) => (
             <EventCard
               title="7 UI design principles to improve product design"
               month="SEPT"
@@ -413,10 +416,12 @@ const MentorshipPackages = () => {
               venue="Google Meet"
               price="Free"
               joinedLabel="149K Joined already"
-              image="/"
+              image="/about-hero.png"
               href="#"
+              key={id}
             />
-            
+          ))}
+          </div>
           </div>
         </div>
       ) : (
