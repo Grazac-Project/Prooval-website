@@ -7,19 +7,26 @@ import { LuUsers } from "react-icons/lu";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Videocam, VideoLabel } from "@mui/icons-material";
 import { FaVideo } from "react-icons/fa6";
+import { formatPrice } from "@/Utils/price-formater";
 export default function EventCard({
   title,
-  month, // e.g. "SEPT"
-  day, // e.g. "10"
-  venue, // e.g. "Google Meet"
-  price, // e.g. "Free" or "N12,000"
-  joinedLabel, // e.g. "149K Joined already"
-  image, // image URL or /public path
-  href = "#",
-  id
+  month, 
+  day, 
+  venue, 
+  price, 
+  joinedLabel, 
+  image, 
+action,
+  amount ,
+  currency,
+  id,
 }) {
   return (
-    <article key={id} className="group relative overflow-hidden rounded-[8px] bg-[white] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+    <article
+      key={id}
+      className="group relative overflow-hidden rounded-[8px] bg-[white] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+      onClick={action}
+    >
       {/* Media */}
       <div className="relative aspect-[16/5] w-full">
         <Image
@@ -28,7 +35,6 @@ export default function EventCard({
           fill
           priority={false}
           className="object-cover h-[36p]"
-         
         />
       </div>
 
@@ -60,11 +66,20 @@ export default function EventCard({
             </div>
             <div className="flex items-center gap-2">
               <LiaMoneyBillWaveSolid className="h-[14px] w-[14px]" />
-              <span>{price}</span>
+              <span>
+                {price === "paid"
+                  ? `${currency === "NGN" ? "₦" : "$"}${formatPrice(amount)}`
+                  : price}
+              </span>
             </div>
             <div className="flex items-center gap-2">
               <LuUsers className="h-[14px] w-[14px]" />
-              <span>{joinedLabel}</span>
+
+              <span>
+                {joinedLabel === 0
+                  ? "No attendee yet."
+                  : `${joinedLabel} joined already`}
+              </span>
             </div>
           </div>
 

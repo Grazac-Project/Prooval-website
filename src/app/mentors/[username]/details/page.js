@@ -12,6 +12,7 @@ import BookingModal from "@/components/booking-modal";
 import Cookies from "js-cookie";
 import BookSession from "@/components/book-session";
 import EventCard from "@/components/webinerCard";
+import WebinarModal from "./components/webinalReg";
 const groupColors = [
   "#F48025",
   "#008753",
@@ -54,6 +55,8 @@ const MentorshipPackages = () => {
   const [category, setCategory] = useState("");
   const [mentorImage, setMentorImage] = useState("");
   const [successModal, setSuccessModal] = useState(false);
+  const [showWebModal, setShowWebModal] = useState(false);
+  const [webData, setWebData] = useState([]);
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   // const [token, setToken] = useState();
@@ -81,6 +84,7 @@ const MentorshipPackages = () => {
       .then((res) => {
         // console.log(res);
         setMentorData(res.data?.data?.data);
+        setWebData(res.data?.data?.data?.webinars);
         setLoading(false);
       })
       .catch((err) => {
@@ -161,6 +165,46 @@ const MentorshipPackages = () => {
       // window.location.href = `http://localhost:3001/auth/signup?redirectTo=${redirectTo}`;
     }
   };
+  const AttendWebinar = (
+    id,
+    type,
+    amount,
+    currency,
+    title,
+    description,
+    thumbnail,
+    category
+  ) => {
+    // if (token) {
+    //   setProductId(id);
+    //   setProductType(type);
+    //   setProductPrice(amount);
+    //   setProductCurrency(currency);
+    //   setProductThumbnail(thumbnail);
+    //   setProductTitle(title);
+    //   setProductDescription(description);
+    //   setCategory(category);
+    //   console.log({ id });
+    //   setShowWebModal(!showWebModal);
+    // } else {
+    //   const redirectTo = encodeURIComponent(
+    //     window.location.pathname + window.location.search
+    //   );
+    //   console.log({ redirectTo });
+    //   Cookies.set("redirectTo", redirectTo, {
+    //     secure: true,
+    //     sameSite: "Lax",
+    //     domain: ".hackthejobs.com",
+    //     path: "/",
+    //     expires: 1,
+    //   });
+
+    //   window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+    //   // window.location.href = `http://localhost:3001/auth/signup?redirectTo=${redirectTo}`;
+    // }
+      setShowWebModal(!showWebModal);
+
+  };
 
   return (
     <div className="bg-[#F2F2F7]  pb-10 h-[100%] ">
@@ -175,6 +219,19 @@ const MentorshipPackages = () => {
           productTitle={productTitle}
           productDescription={productDescription}
           category={category}
+        />
+      )}
+      {showWebModal && (
+        <WebinarModal
+          // onClick={() => setShowModal(false)}
+          // productId={productId}
+          // productType={productType}
+          // productPrice={productPrice}
+          // productCurrency={productCurrency}
+          // productThumbnail={productThumbnail}
+          // productTitle={productTitle}
+          // productDescription={productDescription}
+          // category={category}
         />
       )}
       {successModal && (
@@ -334,7 +391,9 @@ const MentorshipPackages = () => {
                         {details?.description}
                       </p>
                       <div className="flex justify-between items-center">
-                        <div className="text-xs">{details?.sessionDuration} Mins</div>
+                        <div className="text-xs">
+                          {details?.sessionDuration} Mins
+                        </div>
                         <p className="text-sm text-primary font-medium flex items-center">
                           Book Session{" "}
                           <IoIosArrowRoundForward className="text-[16px] text-primary" />
@@ -407,21 +466,23 @@ const MentorshipPackages = () => {
           {/* //webiner */}
           <div className="">
             <h3 className="text-lg font-semibold mb-4">Webinar</h3>
-         <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-          {mentorData?.bookings.map((book, id) => (
-            <EventCard
-              title="7 UI design principles to improve product design"
-              month="SEPT"
-              day="10"
-              venue="Google Meet"
-              price="Free"
-              joinedLabel="149K Joined already"
-              image="/about-hero.png"
-              href="#"
-              key={id}
-            />
-          ))}
-          </div>
+            <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
+              {mentorData?.webinars.map((webiner, id) => (
+                <EventCard
+                  title={webiner?.title}
+                  // month={}
+                  day="10"
+                  venue="Google Meet"
+                  price={webiner?.type}
+                  joinedLabel={webiner.guestAttendees.length}
+                  image={webiner.thumbnail}
+                  currency={webiner.currency}
+                  amount={webiner.amount}
+                  key={id}
+                  action={AttendWebinar}
+                />
+              ))}
+            </div>
           </div>
         </div>
       ) : (
