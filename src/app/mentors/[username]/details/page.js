@@ -122,8 +122,8 @@ const MentorshipPackages = () => {
         expires: 1,
       });
 
-      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-      // window.location.href = `http://localhost:3001/auth/signup?redirectTo=${redirectTo}`;
+      window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
+      // window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
     }
   };
 
@@ -161,8 +161,8 @@ const MentorshipPackages = () => {
         expires: 1,
       });
 
-      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-      // window.location.href = `http://localhost:3001/auth/signup?redirectTo=${redirectTo}`;
+      window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
+      // window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
     }
   };
   const AttendWebinar = (
@@ -200,7 +200,7 @@ const MentorshipPackages = () => {
     //   });
 
     //   window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-    //   // window.location.href = `http://localhost:3001/auth/signup?redirectTo=${redirectTo}`;
+    //   // window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
     // }
       setShowWebModal(!showWebModal);
 
