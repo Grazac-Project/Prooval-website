@@ -63,7 +63,10 @@ const MentorshipPackages = () => {
   const [token, setToken] = useState(""); // use state for token
 
   useEffect(() => {
-    Cookies.remove("redirectTo");
+    Cookies.remove("redirectTo", {
+      path: "/",
+      domain: ".hackthejobs.com",
+    });
     const data = Cookies.get("user_details");
     try {
       if (data) {
