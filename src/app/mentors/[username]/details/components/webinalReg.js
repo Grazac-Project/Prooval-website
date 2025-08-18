@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { FaCalendarDays } from "react-icons/fa6";
 import { IoIosArrowRoundBack } from "react-icons/io";
+import Modal from "./modal";
 
 function formatCurrency(amount, currency = "NGN") {
   try {
@@ -23,44 +24,67 @@ function formatCurrency(amount, currency = "NGN") {
   }
 }
 
-function useCountdown(targetDate) {
-  const target = useMemo(() => new Date(targetDate).getTime(), [targetDate]);
-  const [timeLeft, setTimeLeft] = useState(() =>
-    Math.max(0, target - Date.now())
-  );
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setTimeLeft(Math.max(0, target - Date.now()));
-    }, 1000);
-    return () => clearInterval(id);
-  }, [target]);
-
-  const totalSeconds = Math.floor(timeLeft / 1000);
-  const days = Math.floor(totalSeconds / (24 * 3600));
-  const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
-
-  return { days, hours, minutes, seconds, finished: totalSeconds === 0 };
-}
-
 const WebinarModal = ({
-  title = "7 UI design principles to improve product design",
-  description = "Eget egestas nulla aliquet eget sit risus ullamcorper. Fermentum egestas aliquet morbi volutpat. Ultricies sapien suspendisse facilisi ultrices porta vestibulum. Condimentum amet ridiculus a dolor. Convallis tortor venen.",
-  image = "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop",
-  priceType = "paid",
-  amount = 12000,
-  currency = "NGN",
-  startsAt = new Date(
-    Date.now() + 1000 * 60 * 60 * 24 * 20 + 1000 * 60 * 6 * 60 + 1000 * 15
-  ), // default: ~20 days 6hrs 15s
-  dateBadgeMonth = "SEPT",
-  dateBadgeDay = "10",
-  weekdayTimeLabel = "Tuesday",
-  time= "2pm"
+  title,
+  description,
+  image,
+  priceType,
+  amount,
+  currency,
+  startsAt,
+  dateBadgeMonth,
+  dateBadgeDay,
+  weekdayTimeLabel,
+  time,
+  action,
 }) => {
-  const { days, hours, minutes, seconds, finished } = useCountdown(startsAt);
+  const [success, setSuccess] = useState(false);
+  function useCountdown(targetDate) {
+    const target = useMemo(() => {
+      const t = new Date(targetDate).getTime();
+      return Number.isFinite(t) ? t : NaN;
+    }, [targetDate]);
+
+    const [timeLeft, setTimeLeft] = useState(() =>
+      Number.isFinite(target) ? Math.max(0, target - Date.now()) : 0
+    );
+
+    useEffect(() => {
+      if (!Number.isFinite(target)) return;
+      const id = setInterval(() => {
+        setTimeLeft(Math.max(0, target - Date.now()));
+      }, 1000);
+      return () => clearInterval(id);
+    }, [target]);
+
+    if (!Number.isFinite(target)) {
+      return {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+        finished: true,
+        invalid: true,
+      };
+    }
+
+    const totalSeconds = Math.floor(timeLeft / 1000);
+    const days = Math.floor(totalSeconds / (24 * 3600));
+    const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    return {
+      days,
+      hours,
+      minutes,
+      seconds,
+      finished: totalSeconds === 0,
+      invalid: false,
+    };
+  }
+
+  const { days, hours, seconds, finished, invalid } = useCountdown(startsAt);
 
   const amountLabel =
     priceType === "paid"
@@ -71,14 +95,14 @@ const WebinarModal = ({
     <div>
       <div
         className="bg-[#344054] opacity-[0.7] w-[100%] h-full fixed z-50 top-0 left-[0]"
-        // onClick={onClick}
+        onClick={action}
       ></div>
-
+      {success && <Modal close={action} />}
       <div className="max-w-[52rem] h-[90%] mx-auto mt-10 p-14 space-y-8 bg-[white] rounded-2xl fixed inset-0 z-50 overflow-y-auto ">
         <div className=" flex items-center text-sm leading-[150%] font-medium text-[#292D32] ">
           <button
             className="border-[1px] border-[#EAEAEA] rounded-[8px] p-[10px] cursor-pointer"
-            // onClick={onClick}
+            onClick={action}
           >
             <IoIosArrowRoundBack className="text-[16px] text-[#292D32]" />
           </button>
@@ -86,19 +110,19 @@ const WebinarModal = ({
         </div>
 
         {/* Digital Products */}
-        <div className="flex gap-[35px]">
-          <div className="mt-8 lg:mt-0 w-1/2">
-            <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+        <div className="flex md:flex-wrap gap-[35px]">
+          <div className="mt-8 lg:mt-0 w-1/2 md:w-full">
+            <div className="overflow-hidden rounded-[6.5px]  shadow-sm">
               <img
                 src={image}
                 alt="Event poster"
-                className="h-[480px] w-full object-cover"
+                className="h-[360px] w-full object-cover"
               />
             </div>
           </div>
 
           {/* Right content */}
-          <div className="flex flex-col gap-6 w-[50%]">
+          <div className="flex flex-col gap-6 ">
             <div className="pt-10 lg:pt-2 ">
               <h3 className="mb-2 font-semibold leading-[120%] text-[28px]  text-[#000000]">
                 {title}
@@ -137,7 +161,6 @@ const WebinarModal = ({
                   <div className="flex flex-col text-[#292D32]  text-[14px] leading-[100%] -tracking-[0.5]">
                     <p className="font-normal">{weekdayTimeLabel}</p>
                     <p className="font-normal">{time}</p>
-
                   </div>
                 </div>
               </div>
@@ -180,16 +203,11 @@ const WebinarModal = ({
               className="mt-2 rounded-lg border border-[#EAEAEA] p-6 bg-[#FAFAFA] shadow-sm"
             >
               <div className="grid md:grid-cols-1 grid-cols-2 gap-4">
-                <LabeledInput
-                  name="fullname"
-                  placeholder="Enter fullname"
-                  
-                />
+                <LabeledInput name="fullname" placeholder="Enter fullname" />
                 <LabeledInput
                   name="email"
                   type="email"
                   placeholder="Enter address"
-                 
                 />
               </div>
               <button
@@ -225,7 +243,6 @@ function TimeBox({ value, label }) {
 function LabeledInput({ name, type = "text", placeholder, icon }) {
   return (
     <label className="group relative flex items-center gap-2 rounded-lg  border border-[#EAEAEA]  bg-[white] p-4 text-[#828282] focus-within:ring-2 focus-within:ring-slate-900/10">
-
       <input
         name={name}
         type={type}

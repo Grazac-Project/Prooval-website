@@ -57,7 +57,8 @@ const MentorshipPackages = () => {
   const [successModal, setSuccessModal] = useState(false);
   const [showWebModal, setShowWebModal] = useState(false);
   const [webData, setWebData] = useState([]);
-
+  const [selectedWebinar, setSelectedWebinar] = useState(null);
+  
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   // const [token, setToken] = useState();
   const [token, setToken] = useState(""); // use state for token
@@ -165,46 +166,14 @@ const MentorshipPackages = () => {
       // window.location.href = `http://localhost:3001/auth/signup?redirectTo=${redirectTo}`;
     }
   };
-  const AttendWebinar = (
-    id,
-    type,
-    amount,
-    currency,
-    title,
-    description,
-    thumbnail,
-    category
-  ) => {
-    // if (token) {
-    //   setProductId(id);
-    //   setProductType(type);
-    //   setProductPrice(amount);
-    //   setProductCurrency(currency);
-    //   setProductThumbnail(thumbnail);
-    //   setProductTitle(title);
-    //   setProductDescription(description);
-    //   setCategory(category);
-    //   console.log({ id });
-    //   setShowWebModal(!showWebModal);
-    // } else {
-    //   const redirectTo = encodeURIComponent(
-    //     window.location.pathname + window.location.search
-    //   );
-    //   console.log({ redirectTo });
-    //   Cookies.set("redirectTo", redirectTo, {
-    //     secure: true,
-    //     sameSite: "Lax",
-    //     domain: ".hackthejobs.com",
-    //     path: "/",
-    //     expires: 1,
-    //   });
+  
 
-    //   window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-    //   // window.location.href = `http://localhost:3001/auth/signup?redirectTo=${redirectTo}`;
-    // }
-      setShowWebModal(!showWebModal);
+// Replace your AttendWebinar with this:
+const AttendWebinar = (webinar) => {
+  setSelectedWebinar(webinar);
+  setShowWebModal(true);
+};
 
-  };
 
   return (
     <div className="bg-[#F2F2F7]  pb-10 h-[100%] ">
@@ -223,15 +192,32 @@ const MentorshipPackages = () => {
       )}
       {showWebModal && (
         <WebinarModal
-          // onClick={() => setShowModal(false)}
-          // productId={productId}
-          // productType={productType}
-          // productPrice={productPrice}
-          // productCurrency={productCurrency}
-          // productThumbnail={productThumbnail}
-          // productTitle={productTitle}
-          // productDescription={productDescription}
-          // category={category}
+          title={selectedWebinar?.title}
+          description={selectedWebinar?.description}
+          image={selectedWebinar?.thumbnail}
+          priceType={selectedWebinar?.type}
+          amount={selectedWebinar?.amount}
+          currency={selectedWebinar?.currency}
+          startsAt={selectedWebinar?.date}
+          dateBadgeMonth={
+            new Date(selectedWebinar?.date).toLocaleDateString("en-US", {
+              month: "short",
+            })
+          }
+          dateBadgeDay={
+              new Date(selectedWebinar?.date).toLocaleDateString("en-US", {
+                day: "2-digit",
+              })
+          }
+          weekdayTimeLabel={
+            new Date(selectedWebinar?.date).toLocaleDateString("en-US", {
+              weekday: "long",
+            })
+          }
+          time={ new Date(selectedWebinar?.date).toLocaleTimeString("en-US", {
+            hour: "2-digit",
+          })}
+          action={() => setShowWebModal(false)}
         />
       )}
       {successModal && (
@@ -470,8 +456,8 @@ const MentorshipPackages = () => {
               {mentorData?.webinars.map((webiner, id) => (
                 <EventCard
                   title={webiner?.title}
-                  // month={}
-                  day="10"
+                  month={webiner?.date}
+                  day={webiner?.date}
                   venue="Google Meet"
                   price={webiner?.type}
                   joinedLabel={webiner.guestAttendees.length}
@@ -479,7 +465,7 @@ const MentorshipPackages = () => {
                   currency={webiner.currency}
                   amount={webiner.amount}
                   key={id}
-                  action={AttendWebinar}
+                  action={() => AttendWebinar(webiner)}
                 />
               ))}
             </div>
