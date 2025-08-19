@@ -210,7 +210,7 @@ const MentorshipPackages = () => {
   };
 
   return (
-    <div className="bg-[#F2F2F7]  pb-10 h-[100%] ">
+    <div className="bg-[#F2F2F7]  pb-10 h-screen"> 
       {showModal && (
         <Payment
           onClick={() => setShowModal(false)}
@@ -352,7 +352,7 @@ const MentorshipPackages = () => {
                     >
                       <div className="flex gap-[16px] justify-between items-center mb-[10px] ">
                         <div
-                          className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
+                          className={` h-[22px] px-3 rounded-full flex items-center justify-center ${
                             details.bookingType === "Paid"
                               ? " bg-[#DEA8061A]"
                               : " bg-[#3333331A]"
@@ -467,7 +467,7 @@ const MentorshipPackages = () => {
           </div>
 
           {/* //webiner */}
-          <div className="">
+          <div className="hidden">
             <h3 className="text-lg font-semibold mb-4">Webinar</h3>
             <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
               {mentorData?.webinars.map((webiner, id) => (
