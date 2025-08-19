@@ -82,7 +82,7 @@ const MentorDetails = () => {
       const redirectTo = encodeURIComponent(
         window.location.pathname + window.location.search
       );
-      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+      window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
       // window.location.href = `${baseUrl}/auth/signup`;
     }
   };
@@ -157,7 +157,7 @@ const MentorDetails = () => {
       const redirectTo = encodeURIComponent(
         window.location.pathname + window.location.search
       );
-      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+      window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
       // window.location.href = `${baseUrl}/auth/signup`;
     }
   };
