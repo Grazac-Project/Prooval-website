@@ -7,74 +7,88 @@ import { LuUsers } from "react-icons/lu";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Videocam, VideoLabel } from "@mui/icons-material";
 import { FaVideo } from "react-icons/fa6";
+import { formatPrice } from "@/Utils/price-formater";
 export default function EventCard({
   title,
-  month, // e.g. "SEPT"
-  day, // e.g. "10"
-  venue, // e.g. "Google Meet"
-  price, // e.g. "Free" or "N12,000"
-  joinedLabel, // e.g. "149K Joined already"
-  image, // image URL or /public path
-  href = "#",
+  month, 
+  day, 
+  venue, 
+  price, 
+  joinedLabel, 
+  image, 
+action,
+  amount ,
+  currency,
+  id,
 }) {
   return (
-    <article className="group relative overflow-hidden rounded-[22px] bg-[white] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md hidden">
+    <article
+      key={id}
+      className="group relative overflow-hidden rounded-[8px] bg-[white] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+      onClick={action}
+    >
       {/* Media */}
-      <div className="relative aspect-[16/9] w-full">
+      <div className="relative aspect-[16/5] w-full">
         <Image
           src={image}
           alt=""
           fill
           priority={false}
-          className="object-cover"
-          sizes="(max-width:768px) 100vw, 600px"
+          className="object-cover h-[36p]"
         />
       </div>
 
       {/* Content */}
-      <div className=" px-6 pb-5 pt-6">
+      <div className=" flex gap-4 px-6 py-4">
         {/* Date pill */}
         <div
           aria-label={`${month} ${day}`}
-          className=" rounded-[14px] w-[38px] h-[42px]  bg-[white] shadow-md"
+          className=" rounded-[6px] px-[6px] py-1 w-[38px] h-[43px] shadow-md"
         >
-          <div className="rounded-t-[12px] bg-blue-100 py-1 text-center text-[10px] font-extrabold tracking-wide text-blue-600">
+          <div className=" bg-blue-100  text-center text-[10px] font-bold  text-primary">
             {month}
           </div>
-          <div className="pb-2 pt-1 text-center text-[14px] font-extrabold leading-none text-slate-900">
+          <div className=" pt-1 text-center text-[14px] font-semibold leading-none text-[#000000]">
             {day}
           </div>
         </div>
+        <div>
+          {/* Title */}
+          <h3 className="mb-2 font-bold leading-[100%] test-[14px]  text-[#000000]">
+            {title}
+          </h3>
 
-        {/* Title */}
-        <h3 className="mb-3 mt-1 text-[clamp(18px,2.1vw,24px)] font-extrabold leading-tight tracking-[-0.01em] text-slate-900">
-          {title}
-        </h3>
+          {/* Meta */}
+          <div className="grid gap-1 text-[10px] text-[#667085]">
+            <div className="flex items-center gap-2">
+              <FaVideo className="h-[14px] w-[14px]" />
+              <span>{venue}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <LiaMoneyBillWaveSolid className="h-[14px] w-[14px]" />
+              <span>
+                {price === "paid"
+                  ? `${currency === "NGN" ? "₦" : "$"}${formatPrice(amount)}`
+                  : price}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <LuUsers className="h-[14px] w-[14px]" />
 
-        {/* Meta */}
-        <div className="grid gap-2.5 text-[15px] font-semibold text-slate-500">
-          <div className="flex items-center gap-2">
-            <FaVideo className="h-[18px] w-[18px]" />
-            <span>{venue}</span>
+              <span>
+                {joinedLabel === 0
+                  ? "No attendee yet."
+                  : `${joinedLabel} joined already`}
+              </span>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <LiaMoneyBillWaveSolid className="h-[18px] w-[18px]" />
-            <span>{price}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <LuUsers className="h-[18px] w-[18px]" />
-            <span>{joinedLabel}</span>
-          </div>
+
+          {/* CTA */}
+          <p className="text-sm text-primary font-medium flex items-center mt-4 cursor-pointer">
+            Register
+            <IoIosArrowRoundForward className="text-[16px] text-primary" />
+          </p>
         </div>
-
-        {/* CTA */}
-        <a
-          href={href}
-          className="mt-3 inline-flex items-center gap-2 py-2 font-bold text-blue-600"
-        >
-          Register
-          <IoIosArrowRoundForward ArrowRight className="h-[18px] w-[18px] transition-transform group-hover:translate-x-0.5" />
-        </a>
       </div>
     </article>
   );
