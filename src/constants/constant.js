@@ -332,20 +332,33 @@ export const mentorCategoryList = [
     img: '/software-dev.png'
   },
   {
+    role: 'Consulting',
+    img: '/consult.png'
+  },
+  {
+    role: 'Product',
+    img: '/product-01.png'
+  },
+  {
     role: 'Startup',
     img: '/startup.png'
 
   },
   {
     role: 'Finance',
-    img: '/finance-legal.png'
+    img: '/audit.svg'
   },
   {
-    role: 'Content',
+    role: 'Blockchain and web3',
+    img: '/blockchain1.svg',
+
+  },
+  {
+    role: 'Content & Marketing',
     img: '/content-writing.png'
   },
   {
-    role: 'Mental',
+    role: 'Mental Health & Wellness',
     img: '/ai-brain-01.png'
 
   },
@@ -355,24 +368,24 @@ export const mentorCategoryList = [
     
   },
   {
-    role: 'Fitness',
-    img: '/body-part-muscle.png'
-
-  },
-  {
-    role: 'Data',
+    role: 'Data & AI',
     img: '/artificial-intelligence-04.png'
   },
   {
-    role: 'HR',
+    role: 'Legal and Compliance',
+    img: '/justice.svg'
+  },
+  {
+    role: 'Leadership Resources HR',
     img: '/user-group.png'
   },
   {
-    role: 'Product',
-    img: '/product-01.png'
+    role: 'Leadership & Management',
+    img: '/leadership.png'
   },
   {
-    role: 'Leadership',
-    img: '/leadership.png'
-  }
+    role: 'Others',
+    img: '/others.svg'
+  },
+  
 ]
