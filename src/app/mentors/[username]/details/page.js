@@ -210,7 +210,7 @@ const MentorshipPackages = () => {
   };
 
   return (
-    <div className="bg-[#F2F2F7]  pb-10 h-screen"> 
+    <div className="bg-[#F2F2F7]  pb-10 min-h-screen"> 
       {showModal && (
         <Payment
           onClick={() => setShowModal(false)}
@@ -344,8 +344,8 @@ const MentorshipPackages = () => {
                       onClick={() =>
                         bookSession(
                           details?._id,
-                          details?.amount,
                           details?.bookingType,
+                          details?.amount,
                           details?.currency
                         )
                       }
@@ -381,7 +381,7 @@ const MentorshipPackages = () => {
                           <div className=" flex items-center gap-1 justify-center">
                             <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
                               {details?.currency === "NGN" ? "₦" : "$"}
-                              {details?.amount}
+                              {formatPrice(details?.amount)}
                             </span>
                           </div>
                         )}
