@@ -166,11 +166,11 @@ const MentorDetails = () => {
     const id = mentorId;
     if (id) {
       // window.location.href = `${baseUrl}/mentors/${slug}/details?id=${id}`;
-      window.location.href =
-        isProduction === "development"
-          ? `https://test.hackthejobs.com/mentors/${slug}/details?id=${id}`
-          : `https://www.hackthejobs.com/mentors/${slug}/details?id=${id}`;
-      // window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`;
+      // window.location.href =
+      //   isProduction === "development"
+      //     ? `https://test.hackthejobs.com/mentors/${slug}/details?id=${id}`
+      //     : `https://www.hackthejobs.com/mentors/${slug}/details?id=${id}`;
+      window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`;
     }
   };
 
@@ -186,6 +186,55 @@ const MentorDetails = () => {
     }
     return str;
   }
+  // Extract items separately
+  const digitalProducts =
+    mentorData?.digitalProducts?.map((book) => ({
+      type: "Digital Product",
+      title: book?.title,
+      category: book?.category,
+      bookingType: book?.type,
+      thumbnail: book?.thumbnail,
+      amount: book?.amount,
+      currency: book?.currency,
+    })) || [];
+
+  const oneOnOne =
+    mentorData?.bookings?.map((book) => ({
+      type: "1-on-1 session",
+      title: book?.title,
+      category: `${book?.sessionDuration} Mins`,
+      bookingType: book?.bookingType,
+      amount: book?.amount,
+      currency: book?.currency,
+    })) || [];
+
+  const mentorshipPackages =
+    mentorData?.packages?.map((book) => ({
+      type: "Mentorship Package",
+      title: book?.title,
+      category: `${book?.sessionDuration} Mins · Once a week`,
+      bookingType: book?.bookingType,
+      amount: book?.amount,
+      currency: book?.currency,
+    })) || [];
+
+  // Ensure at least 1 from each (if available)
+  let selected = [];
+
+  if (digitalProducts.length > 0) selected.push(digitalProducts[0]);
+  if (oneOnOne.length > 0) selected.push(oneOnOne[0]);
+  if (mentorshipPackages.length > 0) selected.push(mentorshipPackages[0]);
+
+  // Gather remaining items from all arrays
+  const remaining = [
+    ...digitalProducts.slice(1),
+    ...oneOnOne.slice(1),
+    ...mentorshipPackages.slice(1),
+  ];
+
+  // Fill until we have 5 total
+  const limitedItems = [...selected, ...remaining].slice(0, 5);
+
 
   return (
     <>
@@ -358,150 +407,61 @@ const MentorDetails = () => {
                           ))}
                         </div>
                       </div>
-                      <div className="flex flex-col gap-2  bg-[#ffff] border border-[#EAEAEA]  p-8 md:px-4">
-                        <div className="flex justify-between gap-2 items-center  mb-3   ">
-                          <h4 className="text-[12px] leading-[120%] font-medium ">
+                      <section className="flex flex-col gap-2 bg-[#ffff] border border-[#EAEAEA] p-8 md:px-4">
+                        <div className="flex justify-between gap-2 items-center mb-3">
+                          <h4 className="text-[12px] leading-[120%] font-medium">
                             Available packages
                           </h4>
                           <p
-                            className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center cursor-pointer"
-                            // onClick={() => setView(mentorData?.reviews?.length)}
+                            className="w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center cursor-pointer"
                             onClick={handleNextPage}
                           >
                             View All
                           </p>
                         </div>
-                        <div className=" border border-[#ffff]    ">
-                          <div className="flex flex-col items-center gap-2">
-                            {mentorData?.digitalProducts
-                              ?.slice(0, 1)
-                              .map((book) => (
-                                <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
-                                  <div className="flex justify-between items-center mb-[10px]">
-                                    <h4 className="text-[10px] leading-[140%] font-medium text-[#667085] ">
-                                      Digital Product
-                                    </h4>
-                                    <div
-                                      className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
-                                        book?.type === "Paid"
-                                          ? " bg-[#DEA8061A]"
-                                          : " bg-[#3333331A]"
-                                      }`}
-                                    >
-                                      {book?.type === "Paid" && (
-                                        <Image
-                                          src="/paid.svg"
-                                          alt="mentor"
-                                          width={12}
-                                          height={12}
-                                          className="w-[12px] h-[12px] rounded-full"
-                                        />
-                                      )}
-                                      <span
-                                        className={` text-[12px] font-medium leading-[18px] font-inter ${
-                                          book?.type === "Paid"
-                                            ? "text-[#F3B704]"
-                                            : "text-[#333333]"
-                                        } `}
-                                      >
-                                        {book?.type}
-                                      </span>
-                                    </div>
-                                  </div>
-                                  {/* <div className="flex gap-[16px] justify-between  mb-[10px] "></div> */}
-                                  <div className="flex justify items-start gap-5">
-                                    <div
-                                      className={`h-[56px] w-[72px] rounded-lg  bg-cover bg-center `}
-                                      style={{
-                                        backgroundImage: `url('${book?.thumbnail}')`,
-                                        // backgroundColor: "#FF353599",
-                                        // backgroundBlendMode: "multiply",
-                                      }}
-                                    />
-                                    <div className="text-[#344054] rounded-lg  text-[10px] leading-[18px] flex flex-col gap-[10px]">
-                                      <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F] ">
-                                        {book?.title}
-                                      </h5>
-                                      <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
-                                        {book?.category}
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              ))}
-                          </div>
-                        </div>
-                        <div className=" border border-[#ffff]    ">
-                          <div className="flex flex-col items-center gap-2">
-                            {mentorData?.bookings?.slice(0, 2).map((book) => (
-                              <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
-                                <div className="flex justify-between items-center mb-[10px]">
-                                  <h4 className="text-[10px] leading-[140%] font-medium text-[#667085] ">
-                                    1-on-1 session
-                                  </h4>
-                                  {book?.bookingType === "Paid" && (
-                                    <div className=" flex items-center gap-1 justify-center">
-                                      <span className="text-[#333333] text-[12px] font-semibold leading-[140%] font-inter ">
-                                        {book.currency === "NGN" ? "₦" : "$"}
-                                        {formatPrice(book?.amount)}
-                                      </span>
-                                    </div>
-                                  )}
-                                </div>
-                                {/* <div className="flex gap-[16px] justify-between  mb-[10px] "></div> */}
-                                <div className="flex justify items-start gap-5">
-                                  <div className="text-[#344054] rounded-lg  text-[10px] leading-[18px] flex flex-col gap-[10px]">
-                                    <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F] ">
-                                      {book?.title}
-                                    </h5>
-                                    <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
-                                      {book?.sessionDuration} Mins
+
+                        <div className="flex flex-col items-center gap-2">
+                          {limitedItems.map((item, index) => (
+                            <div
+                              key={index}
+                              className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg"
+                            >
+                              <div className="flex justify-between items-center mb-[10px]">
+                                <h4 className="text-[10px] leading-[140%] font-medium text-[#667085]">
+                                  {item.type}
+                                </h4>
+                                {item.bookingType === "Paid" && (
+                                  <div className="flex items-center gap-1 justify-center">
+                                    <span className="text-[#333333] text-[12px] font-semibold leading-[140%] font-inter">
+                                      {item.currency === "NGN" ? "₦" : "$"}
+                                      {formatPrice(item?.amount)}
                                     </span>
                                   </div>
+                                )}
+                              </div>
+
+                              <div className="flex gap-5 items-start">
+                                {item.thumbnail && (
+                                  <div
+                                    className="h-[56px] w-[72px] rounded-lg bg-cover bg-center"
+                                    style={{
+                                      backgroundImage: `url('${item.thumbnail}')`,
+                                    }}
+                                  />
+                                )}
+                                <div className="text-[#344054] text-[10px] leading-[18px] flex flex-col gap-[10px]">
+                                  <h5 className="text-[12px] font-medium text-[#4F4F4F] leading-[140%]">
+                                    {item.title}
+                                  </h5>
+                                  <span className="text-[#4F4F4F] text-[10px] leading-[140%]">
+                                    {item.category}
+                                  </span>
                                 </div>
                               </div>
-                            ))}
-                          </div>
+                            </div>
+                          ))}
                         </div>
-                        <div className=" border border-[#ffff]  hidden  ">
-                          <div className="flex flex-col items-center gap-2">
-                            {mentorData?.bookings?.slice(0, 1).map((book) => (
-                              <div className="py-4 px-3 w-full bg-[#ffff] border border-[#EAEAEA] rounded-lg  ">
-                                <div className="flex justify-between items-center mb-[10px]">
-                                  <h4 className="text-[10px] leading-[140%] font-medium text-[#667085] ">
-                                    Mentorship Package
-                                  </h4>
-                                  {book?.bookingType === "Paid" && (
-                                    <div className=" flex items-center gap-1 justify-center">
-                                      <span className="text-[#333333] text-[12px] font-semibold leading-[140%] font-inter ">
-                                        {book.currency === "NGN" ? "₦" : "$"}
-                                        {formatPrice(book?.amount)}
-                                      </span>
-                                    </div>
-                                  )}
-                                </div>
-                                {/* <div className="flex gap-[16px] justify-between  mb-[10px] "></div> */}
-                                <div className="flex justify items-start gap-5">
-                                  <div className="text-[#344054] rounded-lg  text-[10px] leading-[18px] flex flex-col gap-[10px]">
-                                    <h5 className="text-[12px] leading-[140%] font-medium text-[#4F4F4F] ">
-                                      {book?.title}
-                                    </h5>
-                                    <div className="flex items-center gap-2">
-                                      <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
-                                        {book?.sessionDuration} Mins{" "}
-                                      </span>
-                                      <span className=" w-2 h-2 bg-[#D9D9D9] rounded-full"></span>
-                                      <span className="text-[12px] leading-[140%] text-[#4F4F4F] ">
-                                        Once a week
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
+                      </section>
 
                       <div className=" border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 md:px-4 ">
                         <h4 className="text-[12px] leading-[140%] font-medium mb-2">
@@ -638,17 +598,21 @@ const MentorDetails = () => {
                                             </ul>
                                           </div>
                                           <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                                            {new Date(exp.startDate).toLocaleDateString("en-US", {
-                                                year: "numeric",
-                                                month: "short",
-                                              })}{" "}
-                                              -{" "}
-                                              {exp.endDate
-                                                ? new Date(exp.endDate).toLocaleDateString("en-US", {
-                                                    year: "numeric",
-                                                    month: "short",
-                                                  })
-                                                : "Present"}
+                                            {new Date(
+                                              exp.startDate
+                                            ).toLocaleDateString("en-US", {
+                                              year: "numeric",
+                                              month: "short",
+                                            })}{" "}
+                                            -{" "}
+                                            {exp.endDate
+                                              ? new Date(
+                                                  exp.endDate
+                                                ).toLocaleDateString("en-US", {
+                                                  year: "numeric",
+                                                  month: "short",
+                                                })
+                                              : "Present"}
                                           </p>
                                         </div>
                                       </div>

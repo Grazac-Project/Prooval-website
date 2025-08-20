@@ -38,7 +38,6 @@ const Page = () => {
   const [selectedRole, setSelectedRole] = useState("All");
   const [categories, setCategories] = useState([]);
 
-
   const observer = useRef();
   const router = useRouter();
   const lastMentorRef = useCallback(
@@ -132,41 +131,41 @@ const Page = () => {
     router.push(`/mentors/${mentorSlug}`);
   };
 
-const handleRoleClick = (selectedRole) => {
-  setInputText(""); 
-  setSelectedRole(selectedRole);
-  setListOfMentors([]); 
-  setNotFound(false);
-  setShowMentor(false);
-  setPage(1); 
-  setHasMorePages(false); 
-  setLoading(true);
+  const handleRoleClick = (selectedRole) => {
+    setInputText("");
+    setSelectedRole(selectedRole);
+    setListOfMentors([]);
+    setNotFound(false);
+    setShowMentor(false);
+    setPage(1);
+    setHasMorePages(false);
+    setLoading(true);
 
-  fetchMentorsByRole(selectedRole === "All" ? "" : selectedRole, 1)
-    .then((res) => {
-      // console.log(res);
-      const mentors = res.data?.data?.mentors || [];
-      const mentorCategories = res.data?.data?.categories || [];
+    fetchMentorsByRole(selectedRole === "All" ? "" : selectedRole, 1)
+      .then((res) => {
+        // console.log(res);
+        const mentors = res.data?.data?.mentors || [];
+        const mentorCategories = res.data?.data?.categories || [];
 
-      setListOfMentors(mentors);
-      setCategories(mentorCategories);
-      setShowMentor(true);
-      setNotFound(mentors.length === 0);
-      setHasMorePages(res.data?.data?.remainingPages > 0);
-      setLoading(false);
-    })
-    .catch((err) => {
-      console.error("Error fetching mentors:", err);
-      setListOfMentors([]);
-      setNotFound(true);
-      setLoading(false);
-    });
-};
-useEffect(() => {
-  handleRoleClick("All");
-}, []);
+        setListOfMentors(mentors);
+        setCategories(mentorCategories);
+        setShowMentor(true);
+        setNotFound(mentors.length === 0);
+        setHasMorePages(res.data?.data?.remainingPages > 0);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching mentors:", err);
+        setListOfMentors([]);
+        setNotFound(true);
+        setLoading(false);
+      });
+  };
+  useEffect(() => {
+    handleRoleClick("All");
+  }, []);
 
-   const scrollRef = useRef(null);
+  const scrollRef = useRef(null);
 
   // Manual scroll with drag
   const isDragging = useRef(false);
@@ -223,44 +222,52 @@ useEffect(() => {
             onChange={handleChange}
           />
         </div>
-      <div
-      ref={scrollRef}
-      className="overflow-x-auto whitespace-nowrap py-[24px]"
-      onMouseDown={onMouseDown}
-      onMouseUp={onMouseLeaveOrUp}
-      onMouseLeave={onMouseLeaveOrUp}
-      onMouseMove={onMouseMove}
-      style={{
-        scrollbarWidth: "none", // Firefox
-        msOverflowStyle: "none", // IE 10+
-      }}
-    >
-      {/* Hides the scrollbar in Webkit browsers */}
-      <style jsx>{`
-        div::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
-        <div className="inline-flex gap-4">
-          {mentorCategoryList.map((category, index) => (
-            <button
-            type="button"
-              key={index}
-              onClick={() => handleRoleClick(category.role)}
-              className={`flex items-center justify-center w-[139px] sm:w-[102.52px] sm:py-[8.13px] sm:px-[17.6px] sm:gap-[7.77px] sm:text-[10.83px] px-[24px] gap-[10px] py-[12px] rounded-full border-[1px] transition-all duration-200 font-onest font-normal
-      ${
-        selectedRole === category.role
-          ? "bg-[#1453FF] text-[#FFFFFF] border-[#1453FF]"
-          : "bg-white text-[#333333] border-[#909090]"
-      }
-    `}
-            >
-              <img src={category.img} alt={category.name}   className={`w-5 h-5 ${selectedRole === category.role ? "invert" : ""}`} />
-              <span>{category.role}</span>
-            </button>
-          ))}
+        <div
+          ref={scrollRef}
+          className="overflow-x-auto whitespace-nowrap py-[24px]"
+          onMouseDown={onMouseDown}
+          onMouseUp={onMouseLeaveOrUp}
+          onMouseLeave={onMouseLeaveOrUp}
+          onMouseMove={onMouseMove}
+          style={{
+            scrollbarWidth: "none", // Firefox
+            msOverflowStyle: "none", // IE 10+
+          }}
+        >
+          {/* Hides the scrollbar in Webkit browsers */}
+          <style jsx>{`
+            div::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
+          <div className="inline-flex gap-4">
+            {mentorCategoryList.map((category, index) => (
+              <button
+                type="button"
+                key={index}
+                onClick={() => handleRoleClick(category.role)}
+                className={`flex items-center justify-center text-[16px] min-w-[139px] px-4 py-2 gap-2 rounded-full border transition-all duration-200 font-onest font-normal
+    ${
+      selectedRole === category.role
+        ? "bg-[#1453FF] text-white border-[#1453FF]"
+        : "bg-white text-[#333] border-[#909090]"
+    }
+  `}
+              >
+                <img
+                  src={category.img}
+                  alt={category.name}
+                  className={`w-5 h-5 shrink-0 ${
+                    selectedRole === category.role
+                      ? "invert brightness-0"
+                      : "brightness-0"
+                  }`}
+                />
+                <span>{category.role}</span>
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
       </form>
 
       <div className="bg-[#FAFCFF] py-20">

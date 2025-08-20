@@ -12,6 +12,7 @@ import BookingModal from "@/components/booking-modal";
 import Cookies from "js-cookie";
 import BookSession from "@/components/book-session";
 import EventCard from "@/components/webinerCard";
+import WebinarModal from "./components/webinalReg";
 const groupColors = [
   "#F48025",
   "#008753",
@@ -54,13 +55,18 @@ const MentorshipPackages = () => {
   const [category, setCategory] = useState("");
   const [mentorImage, setMentorImage] = useState("");
   const [successModal, setSuccessModal] = useState(false);
+  const [showWebModal, setShowWebModal] = useState(false);
+  const [webData, setWebData] = useState([]);
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   // const [token, setToken] = useState();
   const [token, setToken] = useState(""); // use state for token
 
   useEffect(() => {
-    Cookies.remove("redirectTo");
+    Cookies.remove("redirectTo", {
+      path: "/",
+      domain: ".hackthejobs.com",
+    });
     const data = Cookies.get("user_details");
     try {
       if (data) {
@@ -81,6 +87,7 @@ const MentorshipPackages = () => {
       .then((res) => {
         // console.log(res);
         setMentorData(res.data?.data?.data);
+        setWebData(res.data?.data?.data?.webinars);
         setLoading(false);
       })
       .catch((err) => {
@@ -118,8 +125,8 @@ const MentorshipPackages = () => {
         expires: 1,
       });
 
-      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-      // window.location.href = `http://localhost:3001/auth/signup?redirectTo=${redirectTo}`;
+      window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
+      // window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
     }
   };
 
@@ -157,13 +164,53 @@ const MentorshipPackages = () => {
         expires: 1,
       });
 
-      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-      // window.location.href = `http://localhost:3001/auth/signup?redirectTo=${redirectTo}`;
+      window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
+      // window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
     }
+  };
+  const AttendWebinar = (
+    id,
+    type,
+    amount,
+    currency,
+    title,
+    description,
+    thumbnail,
+    category
+  ) => {
+    // if (token) {
+    //   setProductId(id);
+    //   setProductType(type);
+    //   setProductPrice(amount);
+    //   setProductCurrency(currency);
+    //   setProductThumbnail(thumbnail);
+    //   setProductTitle(title);
+    //   setProductDescription(description);
+    //   setCategory(category);
+    //   console.log({ id });
+    //   setShowWebModal(!showWebModal);
+    // } else {
+    //   const redirectTo = encodeURIComponent(
+    //     window.location.pathname + window.location.search
+    //   );
+    //   console.log({ redirectTo });
+    //   Cookies.set("redirectTo", redirectTo, {
+    //     secure: true,
+    //     sameSite: "Lax",
+    //     domain: ".hackthejobs.com",
+    //     path: "/",
+    //     expires: 1,
+    //   });
+
+    //   window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
+    //   // window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
+    // }
+      setShowWebModal(!showWebModal);
+
   };
 
   return (
-    <div className="bg-[#F2F2F7]  pb-10 h-[100%] ">
+    <div className="bg-[#F2F2F7]  pb-10 h-screen"> 
       {showModal && (
         <Payment
           onClick={() => setShowModal(false)}
@@ -175,6 +222,19 @@ const MentorshipPackages = () => {
           productTitle={productTitle}
           productDescription={productDescription}
           category={category}
+        />
+      )}
+      {showWebModal && (
+        <WebinarModal
+          // onClick={() => setShowModal(false)}
+          // productId={productId}
+          // productType={productType}
+          // productPrice={productPrice}
+          // productCurrency={productCurrency}
+          // productThumbnail={productThumbnail}
+          // productTitle={productTitle}
+          // productDescription={productDescription}
+          // category={category}
         />
       )}
       {successModal && (
@@ -292,7 +352,7 @@ const MentorshipPackages = () => {
                     >
                       <div className="flex gap-[16px] justify-between items-center mb-[10px] ">
                         <div
-                          className={`w-[61px] h-[22px] rounded-full flex items-center justify-center ${
+                          className={` h-[22px] px-3 rounded-full flex items-center justify-center ${
                             details.bookingType === "Paid"
                               ? " bg-[#DEA8061A]"
                               : " bg-[#3333331A]"
@@ -334,7 +394,9 @@ const MentorshipPackages = () => {
                         {details?.description}
                       </p>
                       <div className="flex justify-between items-center">
-                        <div className="text-xs">{details?.sessionDuration} Mins</div>
+                        <div className="text-xs">
+                          {details?.sessionDuration} Mins
+                        </div>
                         <p className="text-sm text-primary font-medium flex items-center">
                           Book Session{" "}
                           <IoIosArrowRoundForward className="text-[16px] text-primary" />
@@ -405,18 +467,25 @@ const MentorshipPackages = () => {
           </div>
 
           {/* //webiner */}
-          <div className="grid md:grid-cols-1 gap-7 grid-cols-2">
-            <EventCard
-              title="7 UI design principles to improve product design"
-              month="SEPT"
-              day="10"
-              venue="Google Meet"
-              price="Free"
-              joinedLabel="149K Joined already"
-              image="/"
-              href="#"
-            />
-            
+          <div className="hidden">
+            <h3 className="text-lg font-semibold mb-4">Webinar</h3>
+            <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
+              {mentorData?.webinars.map((webiner, id) => (
+                <EventCard
+                  title={webiner?.title}
+                  // month={}
+                  day="10"
+                  venue="Google Meet"
+                  price={webiner?.type}
+                  joinedLabel={webiner.guestAttendees.length}
+                  image={webiner.thumbnail}
+                  currency={webiner.currency}
+                  amount={webiner.amount}
+                  key={id}
+                  action={AttendWebinar}
+                />
+              ))}
+            </div>
           </div>
         </div>
       ) : (
