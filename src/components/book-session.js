@@ -71,7 +71,8 @@ useEffect(() => {
 
   useEffect(() => {
     
-    console.log({ type });
+    // console.log({ type });
+    // console.log({price });
     if (type === "Paid") {
       setButtonText("Proceed to payment");
     }

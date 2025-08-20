@@ -19,19 +19,25 @@ const Payment = ({
   category,
   productDescription,
 }) => {
-  const [loading, setLoading] = useState("Make Payment");
+  const [loading, setLoading] = useState("Access Product");
   const [mentorData, setMentorData] = useState([]);
   const [error, setError] = useState("");
+  const [disabled, setDisabled] = useState(false);
+  // const [buttonText, setButtonText] = useState("Make Payment");
 
   let token = "";
   const data = Cookies.get("user_details");
   useEffect(() => {
+    console.log("Product Type:", productType);
     try {
       const parsedData = JSON.parse(data);
       console.log(parsedData);
       if (data) {
         token = parsedData.token;
         console.log("Token:", token);
+      }
+      if (productType === "paid") {
+        setLoading("Make Payment");
       }
     } catch (error) {
       console.log(error);
@@ -56,6 +62,18 @@ const Payment = ({
         // toast.error(err.response?.data?.error || "Something went wrong");
         setLoading("Make Payment");
       });
+  };
+
+
+   const handleclick = () => {
+    setLoading(true);
+
+    if (productType === "paid") {
+    handlePayment();
+      // console.log("Proceed to payment clicked");
+    } else {
+      setDisabled(true);
+    }
   };
   return (
     <div>
@@ -82,8 +100,9 @@ const Payment = ({
               {productTitle || "Digital Product"}
             </h3>
             <button
-              className="text-sm bg-primary text-[white] px-3 py-4 w-[182px] rounded-[6.29px] font-medium"
+              className={`text-sm bg-primary text-[white] px-3 py-4 w-[182px] rounded-[6.29px] font-medium  ${productType === "free" ? "opacity-50 cursor-not-allowed" : ""}`}
               onClick={handlePayment}
+              disabled={productType === "free" ? true : false}
             >
               {loading}
             </button>
