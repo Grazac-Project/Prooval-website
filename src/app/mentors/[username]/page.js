@@ -149,28 +149,17 @@ const MentorDetails = () => {
     }
   };
   //rounte to book session page if the token is true
-  const bookSession = () => {
-    if (token) {
-      setShowMentorSession(true);
-    } else {
-      // window.location.href = "https://dashboard.hackthejobs.com/auth/signup";
-      const redirectTo = encodeURIComponent(
-        window.location.pathname + window.location.search
-      );
-      window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-      // window.location.href = `${baseUrl}/auth/signup`;
-    }
-  };
+  
   const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
   const handleNextPage = () => {
     const id = mentorId;
     if (id) {
       // window.location.href = `${baseUrl}/mentors/${slug}/details?id=${id}`;
-      // window.location.href =
-      //   isProduction === "development"
-      //     ? `https://test.hackthejobs.com/mentors/${slug}/details?id=${id}`
-      //     : `https://www.hackthejobs.com/mentors/${slug}/details?id=${id}`;
-      window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`;
+      window.location.href =
+        isProduction === "development"
+          ? `https://test.hackthejobs.com/mentors/${slug}/details?id=${id}`
+          : `https://www.hackthejobs.com/mentors/${slug}/details?id=${id}`;
+      // window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`;
     }
   };
 
