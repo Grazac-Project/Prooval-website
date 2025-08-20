@@ -249,8 +249,8 @@ const Page = () => {
                 className={`flex items-center justify-center text-[16px] min-w-[139px] px-4 py-2 gap-2 rounded-full border transition-all duration-200 font-onest font-normal
     ${
       selectedRole === category.role
-        ? "bg-[#1453FF] text-white border-[#1453FF]"
-        : "bg-white text-[#333] border-[#909090]"
+        ? "bg-[#1453FF] text-[white] border-[#1453FF]"
+        : "bg-[white] text-[#333] border-[#909090]"
     }
   `}
               >
