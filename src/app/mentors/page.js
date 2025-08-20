@@ -258,7 +258,9 @@ const Page = () => {
                   src={category.img}
                   alt={category.name}
                   className={`w-5 h-5 shrink-0 ${
-                    selectedRole === category.role ? "invert" : "brightness-0"
+                    selectedRole === category.role
+                      ? "invert brightness-0"
+                      : "brightness-0"
                   }`}
                 />
                 <span>{category.role}</span>
