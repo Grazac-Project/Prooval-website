@@ -3,6 +3,7 @@ import {
   getSingleDigitalProduct,
   initializeDigitalProductPayment,
 } from "@/api/authentication/auth";
+import { formatPrice } from "@/Utils/price-formater";
 import Cookies from "js-cookie";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -155,7 +156,7 @@ const Payment = ({
                 {productType === "paid" && (
                   <div className=" text-sm font-semibold font-inter text-primary ">
                     {productCurrency === "NGN" ? "₦" : "$"}
-                    {productPrice}
+                    {formatPrice(productPrice)}
                   </div>
                 )}
               </div>
