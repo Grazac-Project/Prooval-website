@@ -87,6 +87,20 @@ export const getSingleDigitalProduct = (Id, token) => {
       },
     });
 };
+export const getSingleWebinar = (Id, token) => {
+  return authKit.get(`api/v1/webinars/${Id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`, 
+      },
+    });
+};
+export const webinarReg = (Id, token) => {
+  return authKit.get(`api/v1/webinars/${Id}/register`, {
+      headers: {
+        Authorization: `Bearer ${token}`, 
+      },
+    });
+};
 export const getAllBookings = (mentorId) => {
   return authKit.get(`api/v1/mentors/bookings/${mentorId}`);
 };

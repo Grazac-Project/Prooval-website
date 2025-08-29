@@ -10,14 +10,14 @@ import { FaVideo } from "react-icons/fa6";
 import { formatPrice } from "@/Utils/price-formater";
 export default function EventCard({
   title,
-  month, 
-  day, 
-  venue, 
-  price, 
-  joinedLabel, 
-  image, 
-action,
-  amount ,
+  month,
+  day,
+  venue,
+  price,
+  joinedLabel,
+  image,
+  action,
+  amount,
   currency,
   id,
 }) {
@@ -46,10 +46,18 @@ action,
           className=" rounded-[6px] px-[6px] py-1 w-[38px] h-[43px] shadow-md"
         >
           <div className=" bg-blue-100  text-center text-[10px] font-bold  text-primary">
-            {month}
+            {month
+              ? new Date(month).toLocaleDateString("en-US", {
+                  month: "short",
+                })
+              : ""}
           </div>
           <div className=" pt-1 text-center text-[14px] font-semibold leading-none text-[#000000]">
-            {day}
+            {day
+              ? new Date(month).toLocaleDateString("en-US", {
+                  day: "2-digit",
+                })
+              : ""}
           </div>
         </div>
         <div>

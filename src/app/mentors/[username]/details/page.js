@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import Payment from "./components/payment";
-import { getBookings } from "@/api/authentication/auth";
+import { getBookings, getSingleWebinar } from "@/api/authentication/auth";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import DetailsLoading from "@/components/skeletonLoader";
 import { formatPrice } from "@/Utils/price-formater";
@@ -57,6 +57,9 @@ const MentorshipPackages = () => {
   const [successModal, setSuccessModal] = useState(false);
   const [showWebModal, setShowWebModal] = useState(false);
   const [webData, setWebData] = useState([]);
+  const [webinarId, setWebinarId] = useState();
+  const [singleWebData, setSingleWebData] = useState({});
+  const [error, setError] = useState("");
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   // const [token, setToken] = useState();
@@ -168,23 +171,14 @@ const MentorshipPackages = () => {
       // window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
     }
   };
-  const AttendWebinar = (
-    id,
-    type,
-    amount,
-    currency,
-    title,
-    description,
-    thumbnail,
-    category
-  ) => {
-   
-      setShowWebModal(!showWebModal);
-
+  const AttendWebinar = (id) => {
+    setWebinarId(id);
+    setShowWebModal(!showWebModal);
   };
+  
 
   return (
-    <div className="bg-[#F2F2F7]  pb-10 min-h-screen"> 
+    <div className="bg-[#F2F2F7]  pb-10 min-h-screen">
       {showModal && (
         <Payment
           onClick={() => setShowModal(false)}
@@ -200,15 +194,10 @@ const MentorshipPackages = () => {
       )}
       {showWebModal && (
         <WebinarModal
-          // onClick={() => setShowModal(false)}
-          // productId={productId}
-          // productType={productType}
-          // productPrice={productPrice}
-          // productCurrency={productCurrency}
-          // productThumbnail={productThumbnail}
-          // productTitle={productTitle}
-          // productDescription={productDescription}
-          // category={category}
+          onClick={() => setShowWebModal(false)}
+          webinarId={webinarId}
+          token={token}
+      
         />
       )}
       {successModal && (
@@ -250,7 +239,7 @@ const MentorshipPackages = () => {
           <h2 className="text-[28px] font-semibold">Available packages</h2>
 
           {/* Digital Products */}
-          {mentorData?.packages.length > 0 && (
+          {mentorData?.packages?.length > 0 && (
             <div>
               <h3 className="text-lg font-semibold mb-4 ">Digital products</h3>
               <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
@@ -305,7 +294,7 @@ const MentorshipPackages = () => {
             </div>
           )}
           {/* 1-on-1 Sessions */}
-          {mentorData?.bookings.length > 0 && (
+          {mentorData?.bookings?.length > 0 && (
             <div>
               <h3 className="text-lg font-semibold leading-[140%] mb-4">
                 1-on-1 Sessions
@@ -444,11 +433,11 @@ const MentorshipPackages = () => {
           <div className="">
             <h3 className="text-lg font-semibold mb-4">Webinar</h3>
             <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-              {mentorData?.webinars.map((webiner, id) => (
+              {mentorData?.webinars?.map((webiner, id) => (
                 <EventCard
                   title={webiner?.title}
-                  month={webiner?.month}
-                  day={"10"}
+                  month={webiner?.date}
+                  day={webiner?.date}
                   venue="Google Meet"
                   price={webiner?.type}
                   joinedLabel={webiner.guestAttendees.length}
@@ -456,7 +445,8 @@ const MentorshipPackages = () => {
                   currency={webiner.currency}
                   amount={webiner.amount}
                   key={id}
-                  action={AttendWebinar}
+                  action={() => AttendWebinar(webiner._id)}
+
                 />
               ))}
             </div>

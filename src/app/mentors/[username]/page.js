@@ -264,7 +264,7 @@ const MentorDetails = () => {
 
                           <div className="flex items-center gap-1 mb-[16px]">
                             <img
-                              src={mentorData?.flag.flag}
+                              src={mentorData?.flag?.flag}
                               alt={mentorData?.mentor?.country + " flag"}
                               className="w-[12px] h-[12px]"
                             />
@@ -422,7 +422,7 @@ const MentorDetails = () => {
                                 <h4 className="text-[10px] leading-[140%] font-medium text-[#667085]">
                                   {item.type}
                                 </h4>
-                                {item.bookingType === "Paid" && (
+                                {item.bookingType === "Paid"  && (
                                   <div className="flex items-center gap-1 justify-center">
                                     <span className="text-[#333333] text-[12px] font-semibold leading-[140%] font-inter">
                                       {item.currency === "NGN" ? "₦" : "$"}
