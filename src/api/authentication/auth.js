@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import { authKit } from "./base";
 import axios from "axios";
 
@@ -94,8 +95,8 @@ export const getSingleWebinar = (Id, token) => {
       },
     });
 };
-export const webinarReg = (Id, token) => {
-  return authKit.get(`api/v1/webinars/${Id}/register`, {
+export const webinarReg = (Id, data, token) => {
+  return authKit.post(`api/v1/webinars/${Id}/register`, data, {
       headers: {
         Authorization: `Bearer ${token}`, 
       },

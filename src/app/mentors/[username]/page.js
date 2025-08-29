@@ -219,8 +219,8 @@ const MentorDetails = () => {
 
   // Gather remaining items from all arrays
   const remaining = [
-    ...digitalProducts.slice(1),
-    ...oneOnOne.slice(1),
+    ...digitalProducts.slice(2),
+    ...oneOnOne.slice(2),
     ...mentorshipPackages.slice(1),
   ];
 
@@ -422,7 +422,7 @@ const MentorDetails = () => {
                                 <h4 className="text-[10px] leading-[140%] font-medium text-[#667085]">
                                   {item.type}
                                 </h4>
-                                {item.bookingType === "Paid"  && (
+                                {String(item.bookingType).toLowerCase() === "paid" && (
                                   <div className="flex items-center gap-1 justify-center">
                                     <span className="text-[#333333] text-[12px] font-semibold leading-[140%] font-inter">
                                       {item.currency === "NGN" ? "₦" : "$"}
