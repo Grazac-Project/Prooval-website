@@ -384,7 +384,7 @@ const MentorshipPackages = () => {
           )}
 
           {/* Group Package */}
-          <div className="hidden">
+          <div className="">
             <h3 className="text-lg font-semibold mb-4">Group Package</h3>
             <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
               {[
@@ -441,14 +441,14 @@ const MentorshipPackages = () => {
           </div>
 
           {/* //webiner */}
-          <div className="hidden">
+          <div className="">
             <h3 className="text-lg font-semibold mb-4">Webinar</h3>
             <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
               {mentorData?.webinars.map((webiner, id) => (
                 <EventCard
                   title={webiner?.title}
-                  // month={}
-                  day="10"
+                  month={webiner?.month}
+                  day={"10"}
                   venue="Google Meet"
                   price={webiner?.type}
                   joinedLabel={webiner.guestAttendees.length}
