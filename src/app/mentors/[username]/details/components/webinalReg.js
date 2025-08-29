@@ -1,29 +1,12 @@
-import { getSingleWebinar } from "@/api/authentication/auth";
+import { getSingleWebinar, webinarReg } from "@/api/authentication/auth";
 import { formatPrice } from "@/Utils/price-formater";
 import { MailOutline } from "@mui/icons-material";
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { FaCalendarDays } from "react-icons/fa6";
 import { IoIosArrowRoundBack } from "react-icons/io";
-
-function formatCurrency(amount, currency = "NGN") {
-  try {
-    return (
-      new Intl.NumberFormat(undefined, {
-        style: "currency",
-        currency,
-        maximumFractionDigits: 0,
-      })
-        .format(amount)
-        // Replace default currency code with symbol for NGN if needed
-        .replace(/^NGN\s?/, "₦")
-    );
-  } catch (e) {
-    // Fallback
-    const prefix = currency === "NGN" ? "₦" : "$";
-    return `${prefix}${amount.toLocaleString()}`;
-  }
-}
+import { toast, ToastContainer } from "react-toastify";
 
 function useCountdown(targetDate) {
   const target = useMemo(() => new Date(targetDate).getTime(), [targetDate]);
@@ -55,7 +38,8 @@ const WebinarModal = ({
 }) => {
   const [webData, setWebData] = useState({});
   const [singleWebData, setSingleWebData] = useState({});
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   useEffect(() => {
     setLoading(true);
     getSingleWebinar(webinarId, token)
@@ -65,18 +49,44 @@ const WebinarModal = ({
         setLoading(false);
       })
       .catch((err) => {
-          setLoading(false);
+        setLoading(false);
         console.log(err.response?.data?.message);
       });
   }, [webinarId, token]);
   const startsAt = webData?.startTime;
 
   const { days, hours, minutes, seconds, finished } = useCountdown(startsAt);
+  const handleRegister = async (e) => {
+    e.preventDefault();
 
-  const amountLabel =
-    webData?.type !== "free"
-      ? formatCurrency(webData?.amount, webData?.currency)
-      : String(webData?.type).toUpperCase();
+    const fd = new FormData(e.currentTarget);
+    const payload = {
+      fullName: fd.get("fullname"),
+      email: fd.get("email"),
+    };
+
+    try {
+      setLoading(true);
+
+      const res = await webinarReg(webinarId, payload, token);
+
+      if (res.status === 200) {
+        setSuccess(true);
+      }
+
+      console.log("Registration success:", res.data?.data?.webinar);
+
+      toast.success("Registration successful!");
+      e.target.reset(); // clear form
+    } catch (err) {
+      console.error("Registration error:", err.response?.data?.message);
+      toast.error(
+        err.response?.data?.message || "Something went wrong. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
@@ -84,8 +94,26 @@ const WebinarModal = ({
         className="bg-[#344054] opacity-[0.7] w-[100%] h-full fixed z-50 top-0 left-[0]"
         onClick={onClick}
       ></div>
-
-      <div className="max-w-[52rem] h-fit max-h-[90%] mx-auto mt-10 px-14 py-20 space-y-8 bg-[white] rounded-2xl fixed inset-0 z-50 overflow-y-auto ">
+      <ToastContainer />
+      
+      {success ? (
+      <div className="bg-[#fff] w-[447px] h-[291px]  md:max-w-full p-8 sm:p-6 pb-[277px] sm:pb-[41px] flex flex-col items-center text-center rounded-[8px]">
+        <Image src="/sucess.svg" width={57} height={57} alt="success" />
+        <h3 className="font-medium  text-[24px] text-[#121927] leading-[11.71px] py-[16px]">
+          Registered Successfully
+        </h3>
+        <p className="font-regular text-[16px] text-[#555555] leading-[24px] mb-[20px]">
+          You have successfully registered for <span className="bold">{webData?.title}</span> design webinar
+        </p>
+        <button
+          className="min-w-[76px] h-[44px] rounded-[8px] border-[1px] px-[20px] py-[12px] font-medium bg-[#1453FF] text-[14px] text-[#fff] leading-[19.6px] tracking-[2%] mx-auto"
+          onClick={onClick}
+        >
+          See Bookings
+        </button>
+      </div>
+      ): (
+        <div className="max-w-[52rem] h-fit max-h-[90%] mx-auto mt-10 px-14 py-20 sm:px-6 space-y-8 bg-[white] rounded-2xl fixed inset-0 z-50 overflow-y-auto ">
         <div className=" flex items-center text-sm leading-[150%] font-medium text-[#292D32] ">
           <button
             className="border-[1px] border-[#EAEAEA] rounded-[8px] p-[10px] cursor-pointer"
@@ -97,9 +125,9 @@ const WebinarModal = ({
         </div>
 
         {/* Digital Products */}
-        <div className="flex gap-[35px]">
-          <div className="mt-8 lg:mt-0 w-1/2">
-            <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+        <div className="flex sm:flex-wrap gap-[35px] md:gap-0 ">
+          <div className="mt-8 lg:mt-0 w-[308px] lg:w-[45%] md:w-full">
+            <div className="overflow-hidden rounded-2xl shadow-sm">
               <img
                 src={webData?.thumbnail}
                 alt="Event poster"
@@ -109,7 +137,7 @@ const WebinarModal = ({
           </div>
 
           {/* Right content */}
-          <div className="flex flex-col gap-6 w-[50%]">
+          <div className="flex flex-col gap-6 w-[55%] md:w-full">
             <div className="pt-10 lg:pt-2 ">
               <h3 className="mb-2 font-semibold leading-[120%] text-[28px]  text-[#000000]">
                 {webData?.title}
@@ -161,21 +189,26 @@ const WebinarModal = ({
                         : ""}
                     </div>
                   </div>
-                  <div className="flex flex-col text-[#292D32]  text-[14px] leading-[100%] -tracking-[0.5]">
+                  <div className="flex flex-col text-[#292D32] gap-1  text-[14px] leading-[100%] -tracking-[0.5] pr-3">
                     <p className="font-normal">
-                      {/* {webData?.date
-                        ? new Date(webData?.date).toLocaleDateString("en-US", {
-                            day: "weekday",
+                      {webData?.date
+                        ? new Date(webData?.startTime).toLocaleDateString("en-US", {
+                            weekday: "long",
                           })
-                        : ""} */}
+                        : ""}
                     </p>
                     <p className="font-normal">
                       {" "}
-                      {/* {webData?.date
-                        ? new Date(webData?.date).toLocaleDateString("en-US", {
-                            day: "weekday",
-                          })
-                        : ""} */}
+                     {webData?.date
+                          ? new Date(webData?.startTime).toLocaleTimeString(
+                              "en-US",
+                              {
+                                hour: "2-digit",
+                                minute: "2-digit",
+                                hour12: true,
+                              }
+                            )
+                          : ""}
                     </p>
                   </div>
                 </div>
@@ -205,20 +238,10 @@ const WebinarModal = ({
 
             {/* Register form */}
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const fd = new FormData(e.currentTarget);
-                const payload = Object.fromEntries(fd.entries());
-                console.log("Register:", payload);
-                alert(
-                  `Thanks, ${
-                    payload.fullname || "friend"
-                  }! We'll email you at ${payload.email || "(no email)"}.`
-                );
-              }}
-              className="mt-2 rounded-lg border border-[#EAEAEA] p-6 bg-[#FAFAFA] shadow-sm"
+              onSubmit={handleRegister}
+              className="mt-2 rounded-lg border border-[#EAEAEA] p-6 bg-[#FAFAFA] shadow-sm w-full"
             >
-              <div className="grid md:grid-cols-1 grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-1 grid-cols-2 gap-4">
                 <LabeledInput name="fullname" placeholder="Enter fullname" />
                 <LabeledInput
                   name="email"
@@ -227,6 +250,7 @@ const WebinarModal = ({
                 />
               </div>
               <button
+                disabled={loading}
                 type="submit"
                 className="mt-4 md-w-full w-auto rounded-lg bg-primary px-4 py-1.5 text-[white] font-500 text-sm leading-5  shadow hover:bg-[#0d36cc] focus:outline-none"
               >
@@ -236,6 +260,7 @@ const WebinarModal = ({
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 };
@@ -258,12 +283,12 @@ function TimeBox({ value, label }) {
 
 function LabeledInput({ name, type = "text", placeholder, icon }) {
   return (
-    <label className="group relative flex items-center gap-2 rounded-lg  border border-[#EAEAEA]  bg-[white] p-4 text-[#828282] focus-within:ring-2 focus-within:ring-slate-900/10">
+    <label className="group relative flex items-center gap-2 rounded-lg  border border-[#EAEAEA]  bg-[white]  text-[#828282] ">
       <input
         name={name}
         type={type}
         placeholder={placeholder}
-        className="w-full rounded-xl border-0 bg-transparent p-0 text-sm placeholder:text-slate-400 focus:ring-0"
+        className="w-full h-full  border-0 bg-transparent p-4 text-sm placeholder:text-slate-400 "
         required
       />
     </label>
