@@ -223,7 +223,7 @@ const MentorDetails = () => {
 
                           <div className="flex items-center gap-1 mb-[16px]">
                             <img
-                              src={mentorData?.flag.flag}
+                              src={mentorData?.flag?.flag}
                               alt={mentorData?.mentor?.country + " flag"}
                               className="w-[12px] h-[12px]"
                             />
