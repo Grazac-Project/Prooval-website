@@ -1,3 +1,5 @@
+import { getSingleWebinar } from "@/api/authentication/auth";
+import { formatPrice } from "@/Utils/price-formater";
 import { MailOutline } from "@mui/icons-material";
 import { useEffect, useMemo, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
@@ -46,39 +48,48 @@ function useCountdown(targetDate) {
 }
 
 const WebinarModal = ({
-  title = "7 UI design principles to improve product design",
-  description = "Eget egestas nulla aliquet eget sit risus ullamcorper. Fermentum egestas aliquet morbi volutpat. Ultricies sapien suspendisse facilisi ultrices porta vestibulum. Condimentum amet ridiculus a dolor. Convallis tortor venen.",
-  image = "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop",
-  priceType = "paid",
-  amount = 12000,
-  currency = "NGN",
-  startsAt = new Date(
-    Date.now() + 1000 * 60 * 60 * 24 * 20 + 1000 * 60 * 6 * 60 + 1000 * 15
-  ), // default: ~20 days 6hrs 15s
-  dateBadgeMonth = "SEPT",
-  dateBadgeDay = "10",
-  weekdayTimeLabel = "Tuesday",
-  time= "2pm"
+  webinarId,
+  token,
+
+  onClick,
 }) => {
+  const [webData, setWebData] = useState({});
+  const [singleWebData, setSingleWebData] = useState({});
+  // const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    getSingleWebinar(webinarId, token)
+      .then((res) => {
+        setWebData(res.data?.data?.webinar);
+        console.log(res.data?.data?.webinar);
+        setLoading(false);
+      })
+      .catch((err) => {
+          setLoading(false);
+        console.log(err.response?.data?.message);
+      });
+  }, [webinarId, token]);
+  const startsAt = webData?.startTime;
+
   const { days, hours, minutes, seconds, finished } = useCountdown(startsAt);
 
   const amountLabel =
-    priceType === "paid"
-      ? formatCurrency(amount, currency)
-      : String(priceType).toUpperCase();
+    webData?.type !== "free"
+      ? formatCurrency(webData?.amount, webData?.currency)
+      : String(webData?.type).toUpperCase();
 
   return (
     <div>
       <div
         className="bg-[#344054] opacity-[0.7] w-[100%] h-full fixed z-50 top-0 left-[0]"
-        // onClick={onClick}
+        onClick={onClick}
       ></div>
 
-      <div className="max-w-[52rem] h-[90%] mx-auto mt-10 p-14 space-y-8 bg-[white] rounded-2xl fixed inset-0 z-50 overflow-y-auto ">
+      <div className="max-w-[52rem] h-fit max-h-[90%] mx-auto mt-10 px-14 py-20 space-y-8 bg-[white] rounded-2xl fixed inset-0 z-50 overflow-y-auto ">
         <div className=" flex items-center text-sm leading-[150%] font-medium text-[#292D32] ">
           <button
             className="border-[1px] border-[#EAEAEA] rounded-[8px] p-[10px] cursor-pointer"
-            // onClick={onClick}
+            onClick={onClick}
           >
             <IoIosArrowRoundBack className="text-[16px] text-[#292D32]" />
           </button>
@@ -90,7 +101,7 @@ const WebinarModal = ({
           <div className="mt-8 lg:mt-0 w-1/2">
             <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
               <img
-                src={image}
+                src={webData?.thumbnail}
                 alt="Event poster"
                 className="h-[480px] w-full object-cover"
               />
@@ -101,9 +112,11 @@ const WebinarModal = ({
           <div className="flex flex-col gap-6 w-[50%]">
             <div className="pt-10 lg:pt-2 ">
               <h3 className="mb-2 font-semibold leading-[120%] text-[28px]  text-[#000000]">
-                {title}
+                {webData?.title}
               </h3>
-              <p className="mt-3 text-[#787878] text-[14px]">{description}</p>
+              <p className="mt-3 text-[#787878] text-[14px]">
+                {webData?.description}
+              </p>
             </div>
 
             {/* Amount */}
@@ -112,7 +125,13 @@ const WebinarModal = ({
                 <span className=" bg-white px-2 py-1 text-xs font-medium text-[#333333]">
                   Amount:
                 </span>
-                <span className="text-[#333333] text-base">{amountLabel}</span>
+                <span className="text-[#333333] text-base">
+                  {webData?.type !== "free"
+                    ? `${webData?.currency === "NGN" ? "₦" : "$"}${formatPrice(
+                        webData?.amount
+                      )}`
+                    : webData?.type}
+                </span>
               </span>
             </div>
 
@@ -128,16 +147,36 @@ const WebinarModal = ({
 
                   <div className=" rounded-[6px] px-[6px] py-1 w-[38px] h-[43px] shadow-md">
                     <div className=" bg-blue-100  text-center text-[10px] font-bold  text-primary">
-                      {dateBadgeMonth}
+                      {webData?.date
+                        ? new Date(webData?.date).toLocaleDateString("en-US", {
+                            month: "short",
+                          })
+                        : ""}
                     </div>
                     <div className=" pt-1 text-center text-[14px] font-semibold leading-none text-[#000000]">
-                      {dateBadgeDay}
+                      {webData?.date
+                        ? new Date(webData?.date).toLocaleDateString("en-US", {
+                            day: "2-digit",
+                          })
+                        : ""}
                     </div>
                   </div>
                   <div className="flex flex-col text-[#292D32]  text-[14px] leading-[100%] -tracking-[0.5]">
-                    <p className="font-normal">{weekdayTimeLabel}</p>
-                    <p className="font-normal">{time}</p>
-
+                    <p className="font-normal">
+                      {/* {webData?.date
+                        ? new Date(webData?.date).toLocaleDateString("en-US", {
+                            day: "weekday",
+                          })
+                        : ""} */}
+                    </p>
+                    <p className="font-normal">
+                      {" "}
+                      {/* {webData?.date
+                        ? new Date(webData?.date).toLocaleDateString("en-US", {
+                            day: "weekday",
+                          })
+                        : ""} */}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -180,16 +219,11 @@ const WebinarModal = ({
               className="mt-2 rounded-lg border border-[#EAEAEA] p-6 bg-[#FAFAFA] shadow-sm"
             >
               <div className="grid md:grid-cols-1 grid-cols-2 gap-4">
-                <LabeledInput
-                  name="fullname"
-                  placeholder="Enter fullname"
-                  
-                />
+                <LabeledInput name="fullname" placeholder="Enter fullname" />
                 <LabeledInput
                   name="email"
                   type="email"
                   placeholder="Enter address"
-                 
                 />
               </div>
               <button
@@ -225,7 +259,6 @@ function TimeBox({ value, label }) {
 function LabeledInput({ name, type = "text", placeholder, icon }) {
   return (
     <label className="group relative flex items-center gap-2 rounded-lg  border border-[#EAEAEA]  bg-[white] p-4 text-[#828282] focus-within:ring-2 focus-within:ring-slate-900/10">
-
       <input
         name={name}
         type={type}
