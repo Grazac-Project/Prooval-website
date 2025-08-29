@@ -178,33 +178,7 @@ const MentorshipPackages = () => {
     thumbnail,
     category
   ) => {
-    // if (token) {
-    //   setProductId(id);
-    //   setProductType(type);
-    //   setProductPrice(amount);
-    //   setProductCurrency(currency);
-    //   setProductThumbnail(thumbnail);
-    //   setProductTitle(title);
-    //   setProductDescription(description);
-    //   setCategory(category);
-    //   console.log({ id });
-    //   setShowWebModal(!showWebModal);
-    // } else {
-    //   const redirectTo = encodeURIComponent(
-    //     window.location.pathname + window.location.search
-    //   );
-    //   console.log({ redirectTo });
-    //   Cookies.set("redirectTo", redirectTo, {
-    //     secure: true,
-    //     sameSite: "Lax",
-    //     domain: ".hackthejobs.com",
-    //     path: "/",
-    //     expires: 1,
-    //   });
-
-    //   window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
-    //   // window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
-    // }
+   
       setShowWebModal(!showWebModal);
 
   };
