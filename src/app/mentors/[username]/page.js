@@ -156,10 +156,10 @@ const MentorDetails = () => {
     if (id) {
       // window.location.href = `${baseUrl}/mentors/${slug}/details?id=${id}`;
       window.location.href =
-        isProduction === "development"
-          ? `https://test.hackthejobs.com/mentors/${slug}/details?id=${id}`
-          : `https://www.hackthejobs.com/mentors/${slug}/details?id=${id}`;
-      // window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`;
+        // isProduction === "development"
+        //   ? `https://test.hackthejobs.com/mentors/${slug}/details?id=${id}`
+        //   : `https://www.hackthejobs.com/mentors/${slug}/details?id=${id}`;
+      window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`;
     }
   };
 
@@ -216,8 +216,8 @@ const MentorDetails = () => {
 
   // Gather remaining items from all arrays
   const remaining = [
-    ...digitalProducts.slice(1),
-    ...oneOnOne.slice(1),
+    ...digitalProducts.slice(2),
+    ...oneOnOne.slice(2),
     ...mentorshipPackages.slice(1),
   ];
 
@@ -261,7 +261,7 @@ const MentorDetails = () => {
 
                           <div className="flex items-center gap-1 mb-[16px]">
                             <img
-                              src={mentorData?.flag.flag}
+                              src={mentorData?.flag?.flag}
                               alt={mentorData?.mentor?.country + " flag"}
                               className="w-[12px] h-[12px]"
                             />

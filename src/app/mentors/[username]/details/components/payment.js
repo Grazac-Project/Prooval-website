@@ -78,13 +78,12 @@ const Payment = ({
 
     initializeDigitalProductPayment(data, token)
       .then((res) => {
+        console.log(res)
         const url = res?.data?.data?.payment?.paymentUrl;
-        if (!url) {
-          toast.error("Payment URL missing in response:", res);
-          setLoading("Make Payment");
-          return;
-        }
         window.location.href = url;
+        if (!url) {
+         
+        }
       })
       .catch((err) => {
         toast.error(err.response?.data?.message || err);
@@ -95,12 +94,9 @@ const Payment = ({
   const handleclick = () => {
     setLoading(true);
 
-    if (productType === "paid") {
+    
       handlePayment();
-      // console.log("Proceed to payment clicked");
-    } else {
-      setDisabled(true);
-    }
+     
   };
   return (
     <div>
@@ -128,11 +124,9 @@ const Payment = ({
               {productTitle || "Digital Product"}
             </h3>
             <button
-              className={`text-sm bg-primary text-[white] px-3 py-4 w-[182px] rounded-[6.29px] font-medium  ${
-                productType === "free" ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={`text-sm bg-primary text-[white] px-3 py-4 w-[182px] rounded-[6.29px] font-medium  `}
               onClick={handlePayment}
-              disabled={productType === "free" ? true : false}
+              // disabled={productType === "free" ? true : false}
             >
               {loading}
             </button>
