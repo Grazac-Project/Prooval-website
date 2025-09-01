@@ -142,6 +142,10 @@ export default function RootLayout({ children }) {
             `,
           }}
         /> */}
+         <Script
+          src="https://unpkg.com/@fincra-engineering/checkout@2.2.0/dist/inline.min.js"
+          strategy="afterInteractive"
+        />
         <RouteTracker />
         <GoogleAnalytics />
         {children}

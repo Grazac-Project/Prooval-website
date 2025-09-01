@@ -17,7 +17,6 @@ import Cookies from "js-cookie";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 
-
 const BookSession = ({
   closeModal,
   mentorId,
@@ -41,36 +40,38 @@ const BookSession = ({
   const [values, setValues] = useState({ suggestion: "" });
   const [buttonText, setButtonText] = useState("Book Session");
   const [showBookingModal, setShowBookingModal] = useState(false);
-  const [token, setToken] = useState("")
-
+  const [token, setToken] = useState("");
+  const [isSuccess, setSetIsSuccess] = useState(false);
+console.log(mentor)
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
   let userId;
+  let userFirstName;
+  let userLastName;
+  let userEmail;
+
   try {
     let details = Cookies.get("user_details");
     // console.log(details);
     userId = JSON.parse(details).id;
-   
+    userFirstName = JSON.parse(details).name;
+    userLastName = JSON.parse(details).lastName;
+    userEmail = JSON.parse(details).email;
   } catch (err) {
     //err
   }
-     
-useEffect(() => {
-  try {
-    let details = Cookies.get("user_details");
-    setToken(JSON.parse(details).token)
-  } catch (err) {
-    //err
-  }
-}, [])
-
-
-
-
 
   useEffect(() => {
-    
+    try {
+      let details = Cookies.get("user_details");
+      setToken(JSON.parse(details).token);
+    } catch (err) {
+      //err
+    }
+  }, []);
+
+  useEffect(() => {
     // console.log({ type });
     // console.log({price });
     if (type === "Paid") {
@@ -96,7 +97,7 @@ useEffect(() => {
         console.log(err);
       });
   }, [type]);
-
+  console.log(bookingData);
   const handleDayClick = (date) => {
     const formattedDate = dayjs(date).format("YYYY-MM-DD");
     console.log("Clicked Date:", formattedDate);
@@ -152,27 +153,26 @@ useEffect(() => {
   //   if (view === "month") {
   //     const formattedDate = dayjs(date).format("YYYY-MM-DD");
   //     if (activeDates.includes(formattedDate)) {
-  //       return "highlighted-date"; 
+  //       return "highlighted-date";
   //     }
   //   }
   //   return "";
   // };
 
   const tileClassName = ({ date, view }) => {
-  if (view === "month") {
-    const formattedDate = dayjs(date).format("YYYY-MM-DD");
+    if (view === "month") {
+      const formattedDate = dayjs(date).format("YYYY-MM-DD");
 
-    const isActive = activeDates.includes(formattedDate);
-    const isSelected =
-      selectedDate &&
-      dayjs(date).isSame(selectedDate, "date"); // compare only the date part
+      const isActive = activeDates.includes(formattedDate);
+      const isSelected =
+        selectedDate && dayjs(date).isSame(selectedDate, "date"); // compare only the date part
 
-    if (isSelected) return "selected-date";
-    if (isActive) return "highlighted-date";
-  }
+      if (isSelected) return "selected-date";
+      if (isActive) return "highlighted-date";
+    }
 
-  return "";
-};
+    return "";
+  };
 
   const handleTimeSelected = (time, index) => {
     setSelectedTimeIndex(index);
@@ -199,38 +199,64 @@ useEffect(() => {
         successModal();
       })
       .catch((err) => {
-        toast.error(err.response?.data?.error );
+        toast.error(err.response?.data?.error);
         setLoading(false);
       });
   };
+  // const handlePayment = () => {
+  //   const data = {
+  //     bookingId: bookingValues?.bookingId,
+  //     slotId: bookingValues?.slotId,
+  //     userId: userId,
+  //     suggestion: values.suggestion,
+  //     amount: price,
+  //     currency: bookingCurrency
+  //   };
+  //   console.log(data);
+  //   fincraPayment(data, token)
+  //     .then((res) => {
+  //       console.log(res);
+  //       setLoading(false);
+  //       // setShowBookingModal(true);
+  //       const url = res.data.data.checkoutUrl
+  //       window.location.href = url;
+  //     })
+  //     .catch((err) => {
+  //       toast.error(err.response?.data?.error );
+  //       setLoading(false);
+  //     });
+  // };
+  console.log("ddddddd", userEmail);
+  // console.log("fffff", userName)
+
   const handlePayment = () => {
-    const data = {
-      bookingId: bookingValues?.bookingId,
-      slotId: bookingValues?.slotId,
-      userId: userId,
-      suggestion: values.suggestion,
-      amount: price,
-      currency: bookingCurrency
-    };
-    console.log(data);
-    fincraPayment(data, token)
-      .then((res) => {
-        console.log(res);
+    Fincra.initialize({
+      key: process.env.NEXT_PUBLIC_FINCRA_KEY, // replace with your public key
+      amount: parseInt(price),
+      currency: bookingCurrency,
+      customer: {
+        name: `${userFirstName} ${userLastName || ""}`.trim(),
+        email: userEmail,
+      },
+      // Choose who bears the transaction fee
+      feeBearer: "customer",
+
+      onClose: function () {
+        toast.error("Transaction was not completed, window closed.");
         setLoading(false);
-        // setShowBookingModal(true);
-        const url = res.data.data.checkoutUrl
-        window.location.href = url;
-      })
-      .catch((err) => {
-        toast.error(err.response?.data?.error );
+      },
+      onSuccess: function () {
+        // const reference = data.reference;
+        setSetIsSuccess(true);
         setLoading(false);
-      });
+      },
+    });
   };
   const handleclick = () => {
     setLoading(true);
 
     if (type === "Paid") {
-      handlePayment()
+      handlePayment();
       // console.log("Proceed to payment clicked");
     } else {
       handleBookingSubmit();
@@ -239,12 +265,33 @@ useEffect(() => {
   return (
     <div>
       <ToastContainer />
-      
-        <div className="font-whyte">
-          <div
-            className="bg-[#344054] opacity-[0.7] w-[100%] h-full fixed z-50 top-0 left-[0]"
-            onClick={closeModal}
-          ></div>
+
+      <div className="font-whyte ">
+        <div
+          className="bg-[#344054] opacity-[0.7] w-[100%] h-[100vh] fixed z-50 top-0 left-[0]"
+          onClick={closeModal}
+        ></div>
+
+        {isSuccess ? (
+          
+          <div className="bg-[#fff] w-[447px] h-[291px]  md:max-w-full p-8 sm:p-6 pb-[277px] sm:pb-[41px] flex flex-col items-center text-center rounded-[8px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
+            <Image src="/sucess.svg" width={57} height={57} alt="success" />
+            <h3 className="font-medium  text-[24px] text-[#121927] leading-[11.71px] py-[16px]">
+              Session Booked
+            </h3>
+            <p className="font-regular text-[16px] text-[#555555] leading-[24px] mb-[20px]">
+              Your booking with {mentor?.mentor?.firstName}{" "}
+              {mentor?.mentor?.lastName} was successful. A confirmation
+              email has been sent to your inbox.
+            </p>
+            <button
+              className="w-[76px] h-[44px] rounded-[8px] border-[1px] px-[20px] py-[12px] font-medium bg-[#1453FF] text-[14px] text-[#fff] leading-[19.6px] tracking-[2%] mx-auto"
+              onClick={closeModal}
+            >
+              Done
+            </button>
+          </div>
+        ) : (
           <div className="h-full bg-[#fff] w-full max-w-[629px] md:max-w-full p-8 sm:p-3 pb-[277px] sm:pb-[41px] overflow-y-auto flex flex-col fixed top-0 right-0 z-50">
             <div className="pb-[40px] flex gap-[16px] items-center">
               <div
@@ -367,7 +414,8 @@ useEffect(() => {
               )}
             </div>
           </div>
-        </div>
+        )}
+      </div>
     </div>
   );
 };

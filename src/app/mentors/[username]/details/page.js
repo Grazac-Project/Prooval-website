@@ -85,7 +85,7 @@ const MentorshipPackages = () => {
     setLoading(true);
     getBookings(mentorId)
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setMentorData(res.data?.data?.data);
         setWebData(res.data?.data?.data?.webinars);
         setLoading(false);
@@ -228,7 +228,7 @@ const MentorshipPackages = () => {
           image={mentorData?.mentor?.image}
           type={bookType}
           price={mentorPrice}
-          // mentor={mentor}
+          mentor={mentorData}
           successModal={() => setSuccessModal(true)}
           bookingCurrency={currency}
         />
