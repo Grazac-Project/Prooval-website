@@ -118,11 +118,11 @@ const Payment = ({
           setLoading(false);
           return;
         });
-        
+
       const result = await startPayment({
         price: productPrice,
         currency: productCurrency,
-        reference: ref,
+       ref,
         onSuccess: (data) => {
           setIsSuccess(true);
         },

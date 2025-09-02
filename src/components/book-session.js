@@ -46,6 +46,7 @@ const BookSession = ({
   const [token, setToken] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [loader, setLoader] = useState(false)
+  const [ref,setRef] =  useState("")
   const { startPayment } = useFincraPayment();
   console.log(mentor);
   const handleChange = (e) => {
@@ -224,6 +225,7 @@ const BookSession = ({
       fincraBookingCheckoutData(data, token)
         .then((res) => {
           console.log(res);
+          setRef(res.data?.data?.data?.reference)
           setLoading(false);
         })
         .catch((err) => {
@@ -234,6 +236,7 @@ const BookSession = ({
       const result = await startPayment({
         price,
         currency: bookingCurrency,
+        ref,
         onSuccess: (data) => {
           setIsSuccess(true);
         },
