@@ -1,16 +1,18 @@
 "use client";
 import {
+  fincraDigitalCheckoutData,
   getSingleDigitalProduct,
   initializeDigitalProductPayment,
 } from "@/api/authentication/auth";
+import useFincraPayment from "@/lib/fincraCheckout";
 import { formatPrice } from "@/Utils/price-formater";
 import Cookies from "js-cookie";
+import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 
 const Payment = ({
   onClick,
@@ -26,7 +28,10 @@ const Payment = ({
   const [loading, setLoading] = useState("Access Product");
   const [mentorData, setMentorData] = useState([]);
   const [error, setError] = useState("");
-  const [disabled, setDisabled] = useState(false);
+  const [freeMode, setFreeMode] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const { startPayment } = useFincraPayment();
+  const {ref, setRef} = useState("")
   // const [buttonText, setButtonText] = useState("Make Payment");
 
   // make sure this file has: 'use client';
@@ -64,13 +69,14 @@ const Payment = ({
     else setLoading("Access Product");
   }, [productType]);
 
-  const handlePayment = () => {
+  const handleAccessProduct = () => {
     console.log("Token at payment time:", token); // will be "" if cookie wasn’t readable
-    setLoading("Initiating payment ...");
+    setLoading("Initiating access ...");
+    
 
     if (!token) {
-      console.error("Missing token; cannot init payment");
-      setLoading("Make Payment");
+      console.error("Missing token; cannot init access");
+      setLoading("Access Product");
       return;
     }
 
@@ -78,89 +84,157 @@ const Payment = ({
 
     initializeDigitalProductPayment(data, token)
       .then((res) => {
-        console.log(res)
-        const url = res?.data?.data?.payment?.paymentUrl;
-        window.location.href = url;
-        if (!url) {
-         
-        }
+        console.log(res);
+        setFreeMode(true)
+        
       })
       .catch((err) => {
         toast.error(err.response?.data?.message || err);
-        setLoading("Make Payment");
+        setLoading("Access Product");
       });
   };
 
-  const handleclick = () => {
-    setLoading(true);
-
+  const handlePayment = async () => {
+    try {
     
-      handlePayment();
-     
+      setLoading("Initiating payment ...");
+
+      if (!token) {
+        console.error("Missing token; cannot init payment");
+        setLoading("Make Payment");
+        return;
+      }
+
+      const data = { productId: productId, currency: productCurrency };
+
+      fincraDigitalCheckoutData(data, token)
+        .then((res) => {
+          console.log(res);
+          setRef(res.data?.data?.data?.reference)
+          setLoading(false);
+        })
+        .catch((err) => {
+          toast.error(err.response?.data?.error);
+          setLoading(false);
+          return;
+        });
+        
+      const result = await startPayment({
+        price: productPrice,
+        currency: productCurrency,
+        reference: ref,
+        onSuccess: (data) => {
+          setIsSuccess(true);
+        },
+        onClose: () => {
+          toast.error("Transaction was not completed, window closed.");
+          setLoading("Make Payment");
+        },
+      });
+      console.log("Resolved:", result);
+    } catch (err) {
+      toast.error(err);
+      console.error(err);
+      setLoading("Make Payment");
+    }
   };
+
+  const handleClick = () => {
+    if (productType === "paid") {
+      handlePayment();
+    } else {
+      handleAccessProduct();
+    }
+  };
+  const handleClose = () => {
+    const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
+
+    window.location.href =
+      isProduction === "development"
+        ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/digital-products`
+        : `${process.env.NEXT_PUBLIC_DASH_URL}/digital-products`;
+  };
+
   return (
     <div>
       <div
         className="bg-[#344054] opacity-[0.7] w-[100%] h-full fixed z-50 top-0 left-[0]"
         onClick={onClick}
       ></div>
-
-      <div className="max-w-[52rem] h-[90%] mx-auto mt-10 p-14 space-y-8 bg-[white] rounded-2xl fixed inset-0 z-50 overflow-y-auto ">
-      <ToastContainer />
-        <div className=" flex items-center text-sm leading-[150%] font-medium text-[#292D32] ">
+      {isSuccess ? (
+        <div className="bg-[#fff] w-[447px] h-[291px]  md:max-w-full p-8 sm:p-6 pb-[277px] sm:pb-[41px] flex flex-col items-center text-center rounded-[8px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
+          <Image src="/sucess.svg" width={57} height={57} alt="success" />
+          <h3 className="font-medium  text-[24px] text-[#121927] leading-[11.71px] py-[16px]">
+          {freeMode? "You’re all set!": " Purchase successful"}
+          </h3>
+          <p className="font-regular text-[16px] text-[#555555] leading-[24px] mb-[20px]">
+         {freeMode ?`${productTitle} has been added to your dashboard. You can access it anytime` :   "You can now access your purchase"}
+          </p>
           <button
-            className="border-[1px] border-[#EAEAEA] rounded-[8px] p-[10px] cursor-pointer"
-            onClick={onClick}
+            className="min-w-[76px] h-[44px] rounded-[8px] border-[1px] px-[20px] py-[12px] font-medium bg-[#1453FF] text-[14px] text-[#fff] leading-[19.6px] tracking-[2%] mx-auto"
+            onClick={handleClose}
           >
-            <IoIosArrowRoundBack className="text-[16px] text-[#292D32]" />
+            View Product
           </button>
-          <span className="text-2xl font-semibold ml-4">Back</span>
         </div>
-
-        {/* Digital Products */}
-        <div>
-          <div className="flex gap-3 items-center mb-[35px] justify-between ">
-            <h3 className="text-[28px] font-semibold mb-4 ">
-              {productTitle || "Digital Product"}
-            </h3>
+      ) : (
+        <div className="max-w-[52rem] h-[90%] mx-auto mt-10 p-14 space-y-8 bg-[white] rounded-2xl fixed inset-0 z-50 overflow-y-auto ">
+          <ToastContainer />
+          <div className=" flex items-center text-sm leading-[150%] font-medium text-[#292D32] ">
             <button
-              className={`text-sm bg-primary text-[white] px-3 py-4 w-[182px] rounded-[6.29px] font-medium  `}
-              onClick={handlePayment}
-              // disabled={productType === "free" ? true : false}
+              className="border-[1px] border-[#EAEAEA] rounded-[8px] p-[10px] cursor-pointer"
+              onClick={onClick}
             >
-              {loading}
+              <IoIosArrowRoundBack className="text-[16px] text-[#292D32]" />
             </button>
+            <span className="text-2xl font-semibold ml-4">Back</span>
           </div>
-          <div className="">
-            <div className="border p-2 border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer ">
-              <div
-                className={`h-64 rounded-lg  bg-cover bg-center `}
-                style={{
-                  backgroundImage: `url(${productThumbnail})`,
-                  // backgroundColor: "#FF353599",
-                  // backgroundBlendMode: "multiply",
-                }}
-              />
+
+          {/* Digital Products */}
+          <div>
+            <div className="flex gap-3 items-center mb-[35px] justify-between ">
+              <h3 className="text-[28px] font-semibold mb-4 ">
+                {productTitle || "Digital Product"}
+              </h3>
+              <button
+                className={`text-sm bg-primary text-[white] px-3 py-4 w-[182px] rounded-[6.29px] font-medium  `}
+                onClick={handleClick}
+                // disabled={productType === "free" ? true : false}
+              >
+                {loading}
+              </button>
             </div>
             <div className="">
-              <div className="flex gap-3 items-center my-[35px]">
-                <span className="text-xs bg-[#DEA8061A] text-[#DEA806] px-3 py-1 rounded-[32px] font-medium">
-                  {category}
-                </span>
-                {productType === "paid" && (
-                  <div className=" text-sm font-semibold font-inter text-primary ">
-                    {productCurrency === "NGN" ? "₦" : "$"}
-                    {formatPrice(productPrice)}
-                  </div>
-                )}
+              <div className="border p-2 border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer ">
+                <div
+                  className={`h-64 rounded-lg  bg-cover bg-center `}
+                  style={{
+                    backgroundImage: `url(${productThumbnail})`,
+                    // backgroundColor: "#FF353599",
+                    // backgroundBlendMode: "multiply",
+                  }}
+                />
               </div>
-              <div className="text-sm tracking-[150%] mt-4 text-[#333333] ">
-                {productDescription || ""}
+              <div className="">
+                <div className="flex gap-3 items-center my-[35px]">
+                  <span className="text-xs bg-[#DEA8061A] text-[#DEA806] px-3 py-1 rounded-[32px] font-medium">
+                    {category}
+                  </span>
+                  {productType === "paid" && (
+                    <div className=" text-sm font-semibold font-inter text-primary ">
+                      {productCurrency === "NGN" ? "₦" : "$"}
+                      {formatPrice(productPrice)}
+                    </div>
+                  )}
+                </div>
+                <div className="text-sm tracking-[150%] mt-4 text-[#333333] ">
+                  {productDescription || ""}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

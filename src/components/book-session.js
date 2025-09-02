@@ -10,12 +10,15 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   BookingsSubmitAction,
+  fincraBookingCheckoutData,
   fincraPayment,
   getAvailableBookings,
 } from "@/api/authentication/auth";
 import Cookies from "js-cookie";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowLeft } from "react-icons/md";
+import useFincraPayment from "@/lib/fincraCheckout";
+import { Load } from "./loading";
 
 const BookSession = ({
   closeModal,
@@ -41,8 +44,10 @@ const BookSession = ({
   const [buttonText, setButtonText] = useState("Book Session");
   const [showBookingModal, setShowBookingModal] = useState(false);
   const [token, setToken] = useState("");
-  const [isSuccess, setSetIsSuccess] = useState(false);
-console.log(mentor)
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [loader, setLoader] = useState(false)
+  const { startPayment } = useFincraPayment();
+  console.log(mentor);
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
@@ -72,6 +77,7 @@ console.log(mentor)
   }, []);
 
   useEffect(() => {
+    setLoader(true)
     // console.log({ type });
     // console.log({price });
     if (type === "Paid") {
@@ -91,10 +97,12 @@ console.log(mentor)
         console.log(uniqueDateData);
 
         setActiveDates(uniqueDateData);
+        setLoader(false)
       })
       .catch((err) => {
         toast.error(err.response?.data?.error || "An error occurred");
         console.log(err);
+        closeModal()
       });
   }, [type]);
   console.log(bookingData);
@@ -203,61 +211,46 @@ console.log(mentor)
         setLoading(false);
       });
   };
-  // const handlePayment = () => {
-  //   const data = {
-  //     bookingId: bookingValues?.bookingId,
-  //     slotId: bookingValues?.slotId,
-  //     userId: userId,
-  //     suggestion: values.suggestion,
-  //     amount: price,
-  //     currency: bookingCurrency
-  //   };
-  //   console.log(data);
-  //   fincraPayment(data, token)
-  //     .then((res) => {
-  //       console.log(res);
-  //       setLoading(false);
-  //       // setShowBookingModal(true);
-  //       const url = res.data.data.checkoutUrl
-  //       window.location.href = url;
-  //     })
-  //     .catch((err) => {
-  //       toast.error(err.response?.data?.error );
-  //       setLoading(false);
-  //     });
-  // };
-  console.log("ddddddd", userEmail);
-  // console.log("fffff", userName)
+  
+  const handlePayment = async () => {
+    try {
+      const data = {
+        bookingId: bookingValues?.bookingId,
+        slotId: bookingValues?.slotId,
+        suggestion: values.suggestion,
+        currency: bookingCurrency,
+      };
+      console.log(data);
+      fincraBookingCheckoutData(data, token)
+        .then((res) => {
+          console.log(res);
+          setLoading(false);
+        })
+        .catch((err) => {
+          toast.error(err.response?.data?.error);
+          setLoading(false);
+        });
 
-  const handlePayment = () => {
-    Fincra.initialize({
-      key: process.env.NEXT_PUBLIC_FINCRA_KEY, // replace with your public key
-      amount: parseInt(price),
-      currency: bookingCurrency,
-      customer: {
-        name: `${userFirstName} ${userLastName || ""}`.trim(),
-        email: userEmail,
-      },
-      // Choose who bears the transaction fee
-      feeBearer: "customer",
-
-      onClose: function () {
-        toast.error("Transaction was not completed, window closed.");
-        setLoading(false);
-      },
-      onSuccess: function () {
-        // const reference = data.reference;
-        setSetIsSuccess(true);
-        setLoading(false);
-      },
-    });
+      const result = await startPayment({
+        price,
+        currency: bookingCurrency,
+        onSuccess: (data) => {
+          setIsSuccess(true);
+        },
+        onClose: () => {
+          toast.error("Transaction was not completed, window closed.");
+        },
+      });
+      console.log("Resolved:", result);
+    } catch (err) {
+      console.error(err);
+    }
   };
   const handleclick = () => {
     setLoading(true);
 
     if (type === "Paid") {
       handlePayment();
-      // console.log("Proceed to payment clicked");
     } else {
       handleBookingSubmit();
     }
@@ -273,7 +266,6 @@ console.log(mentor)
         ></div>
 
         {isSuccess ? (
-          
           <div className="bg-[#fff] w-[447px] h-[291px]  md:max-w-full p-8 sm:p-6 pb-[277px] sm:pb-[41px] flex flex-col items-center text-center rounded-[8px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
             <Image src="/sucess.svg" width={57} height={57} alt="success" />
             <h3 className="font-medium  text-[24px] text-[#121927] leading-[11.71px] py-[16px]">
@@ -281,8 +273,8 @@ console.log(mentor)
             </h3>
             <p className="font-regular text-[16px] text-[#555555] leading-[24px] mb-[20px]">
               Your booking with {mentor?.mentor?.firstName}{" "}
-              {mentor?.mentor?.lastName} was successful. A confirmation
-              email has been sent to your inbox.
+              {mentor?.mentor?.lastName} was successful. A confirmation email
+              has been sent to your inbox.
             </p>
             <button
               className="w-[76px] h-[44px] rounded-[8px] border-[1px] px-[20px] py-[12px] font-medium bg-[#1453FF] text-[14px] text-[#fff] leading-[19.6px] tracking-[2%] mx-auto"
@@ -304,6 +296,8 @@ console.log(mentor)
                 Book Session
               </h1>
             </div>
+            {loader ? <Load/>:(
+
             <div>
               <Image
                 src={image || "/dummyPic.svg"}
@@ -413,6 +407,8 @@ console.log(mentor)
                 </button>
               )}
             </div>
+            )}
+
           </div>
         )}
       </div>
