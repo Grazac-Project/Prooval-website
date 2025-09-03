@@ -85,7 +85,7 @@ const MentorshipPackages = () => {
     setLoading(true);
     getBookings(mentorId)
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setMentorData(res.data?.data?.data);
         setWebData(res.data?.data?.data?.webinars);
         setLoading(false);
@@ -164,8 +164,8 @@ const MentorshipPackages = () => {
         expires: 1,
       });
 
-      window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
-      // window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
+      // window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
+      window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
     }
   };
   const AttendWebinar = (
@@ -228,7 +228,7 @@ const MentorshipPackages = () => {
           image={mentorData?.mentor?.image}
           type={bookType}
           price={mentorPrice}
-          // mentor={mentor}
+          mentor={mentorData}
           successModal={() => setSuccessModal(true)}
           bookingCurrency={currency}
         />
