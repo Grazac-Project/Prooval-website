@@ -53,7 +53,9 @@ const BookSession = ({
     setValues({ ...values, [e.target.name]: e.target.value });
   };
   let userId;
-
+  let userFirstName;
+  let userLastName;
+  let userEmail;
 
   try {
     let details = Cookies.get("user_details");
