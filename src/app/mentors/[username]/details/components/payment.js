@@ -31,7 +31,7 @@ const Payment = ({
   const [freeMode, setFreeMode] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const { startPayment } = useFincraPayment();
-  const {ref, setRef} = useState("")
+  const { ref, setRef } = useState("");
   // const [buttonText, setButtonText] = useState("Make Payment");
 
   // make sure this file has: 'use client';
@@ -72,7 +72,6 @@ const Payment = ({
   const handleAccessProduct = () => {
     console.log("Token at payment time:", token); // will be "" if cookie wasn’t readable
     setLoading("Initiating access ...");
-    
 
     if (!token) {
       console.error("Missing token; cannot init access");
@@ -85,8 +84,8 @@ const Payment = ({
     initializeDigitalProductPayment(data, token)
       .then((res) => {
         console.log(res);
-        setFreeMode(true)
-        
+        setFreeMode(true);
+        setIsSuccess(true);
       })
       .catch((err) => {
         toast.error(err.response?.data?.message || err);
@@ -95,49 +94,57 @@ const Payment = ({
   };
 
   const handlePayment = async () => {
-    try {
-    
-      setLoading("Initiating payment ...");
+  // optional: prevent double clicks
+  if (loading === true || loading === "Initiating payment ...") return;
 
-      if (!token) {
-        console.error("Missing token; cannot init payment");
-        setLoading("Make Payment");
-        return;
-      }
+  try {
+    setLoading("Initiating payment ...");
 
-      const data = { productId: productId, currency: productCurrency };
-
-      fincraDigitalCheckoutData(data, token)
-        .then((res) => {
-          console.log(res);
-          setRef(res.data?.data?.data?.reference)
-          setLoading(false);
-        })
-        .catch((err) => {
-          toast.error(err.response?.data?.error);
-          setLoading(false);
-          return;
-        });
-
-      const result = await startPayment({
-        price: productPrice,
-        currency: productCurrency,
-       ref,
-        onSuccess: (data) => {
-          setIsSuccess(true);
-        },
-        onClose: () => {
-          toast.error("Transaction was not completed, window closed.");
-          setLoading("Make Payment");
-        },
-      });
-      console.log("Resolved:", result);
-    } catch (err) {
-      toast.error(err);
-      console.error(err);
-      setLoading("Make Payment");
+    if (!token) {
+      toast.error("Session expired. Please sign in again.");
+      return;
     }
-  };
+
+    const payload = { productId, currency: productCurrency };
+
+    // 1) Get checkout reference from your backend
+    const res = await fincraDigitalCheckoutData(payload, token);
+    const reference =
+      res?.data?.data?.data?.reference ?? res?.data?.data?.reference;
+
+    if (!reference) throw new Error("Missing payment reference from server");
+
+   
+    
+    const url = new URL(window.location.href);
+    url.searchParams.set("ref", reference);
+    window.history.replaceState({}, "", url.toString());
+   
+    const result = await startPayment({
+      price: Number(productPrice),                                 
+      currency: String(productCurrency || "NGN").toUpperCase(),
+     
+      reference,                                                   
+      ref: reference,                                             
+      onSuccess: () => {
+        setIsSuccess(true);
+       
+      },
+      onClose: () => {
+        toast.error("Transaction was not completed, window closed.");
+      },
+    });
+
+    console.log("Payment resolved:", result);
+  } catch (err) {
+    const msg = err?.response?.data?.message || err?.message || "Payment failed";
+    toast.error(msg);
+    console.error(err);
+  } finally {
+    setLoading("Make Payment"); // keep this consistent with how you render the button
+  }
+};
+
 
   const handleClick = () => {
     if (productType === "paid") {
@@ -165,10 +172,12 @@ const Payment = ({
         <div className="bg-[#fff] w-[447px] h-[291px]  md:max-w-full p-8 sm:p-6 pb-[277px] sm:pb-[41px] flex flex-col items-center text-center rounded-[8px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
           <Image src="/sucess.svg" width={57} height={57} alt="success" />
           <h3 className="font-medium  text-[24px] text-[#121927] leading-[11.71px] py-[16px]">
-          {freeMode? "You’re all set!": " Purchase successful"}
+            {freeMode ? "You’re all set!" : " Purchase successful"}
           </h3>
           <p className="font-regular text-[16px] text-[#555555] leading-[24px] mb-[20px]">
-         {freeMode ?`${productTitle} has been added to your dashboard. You can access it anytime` :   "You can now access your purchase"}
+            {freeMode
+              ? `${productTitle} has been added to your dashboard. You can access it anytime`
+              : "You can now access your purchase"}
           </p>
           <button
             className="min-w-[76px] h-[44px] rounded-[8px] border-[1px] px-[20px] py-[12px] font-medium bg-[#1453FF] text-[14px] text-[#fff] leading-[19.6px] tracking-[2%] mx-auto"

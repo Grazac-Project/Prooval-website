@@ -59,7 +59,7 @@ export default function useFincraPayment(
               email,
             },
             feeBearer: "customer",
-            reference: ref,
+            
 
             onClose: () => {
               setLoading(false);
@@ -69,7 +69,7 @@ export default function useFincraPayment(
             onSuccess: (data) => {
               setLoading(false);
               onSuccess?.(data);
-              resolve({ reference: data?.reference, data });
+              resolve({ reference: ref, data });
             },
           });
         } catch (err) {
