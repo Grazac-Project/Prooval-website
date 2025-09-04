@@ -187,7 +187,7 @@ const Payment = ({
           </button>
         </div>
       ) : (
-        <div className="max-w-[52rem] h-[90%] mx-auto mt-10 p-14 space-y-8 bg-[white] rounded-2xl fixed inset-0 z-50 overflow-y-auto ">
+        <div className="max-w-[52rem] h-[90%] mx-auto mt-10 sm:p-4 p-14 space-y-8 bg-[white] rounded-2xl fixed inset-0 z-50 overflow-y-auto ">
           <ToastContainer />
           <div className=" flex items-center text-sm leading-[150%] font-medium text-[#292D32] ">
             <button
@@ -202,7 +202,7 @@ const Payment = ({
           {/* Digital Products */}
           <div>
             <div className="flex gap-3 items-center mb-[35px] justify-between ">
-              <h3 className="text-[28px] font-semibold mb-4 ">
+              <h3 className="text-[28px] font-semibold mb-4 truncate ">
                 {productTitle || "Digital Product"}
               </h3>
               <button
