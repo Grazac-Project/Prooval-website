@@ -178,13 +178,11 @@ const MentorshipPackages = () => {
     thumbnail,
     category
   ) => {
-   
-      setShowWebModal(!showWebModal);
-
+    setShowWebModal(!showWebModal);
   };
 
   return (
-    <div className="bg-[#F2F2F7]  pb-10 min-h-screen"> 
+    <div className="bg-[#F2F2F7]  pb-10 min-h-screen">
       {showModal && (
         <Payment
           onClick={() => setShowModal(false)}
@@ -200,15 +198,15 @@ const MentorshipPackages = () => {
       )}
       {showWebModal && (
         <WebinarModal
-          // onClick={() => setShowModal(false)}
-          // productId={productId}
-          // productType={productType}
-          // productPrice={productPrice}
-          // productCurrency={productCurrency}
-          // productThumbnail={productThumbnail}
-          // productTitle={productTitle}
-          // productDescription={productDescription}
-          // category={category}
+        // onClick={() => setShowModal(false)}
+        // productId={productId}
+        // productType={productType}
+        // productPrice={productPrice}
+        // productCurrency={productCurrency}
+        // productThumbnail={productThumbnail}
+        // productTitle={productTitle}
+        // productDescription={productDescription}
+        // category={category}
         />
       )}
       {successModal && (
@@ -351,13 +349,17 @@ const MentorshipPackages = () => {
                             {details.bookingType}
                           </span>
                         </div>
-                        {details.bookingType === "Paid" && (
+                        {details.bookingType === "Paid" ? (
                           <div className=" flex items-center gap-1 justify-center">
                             <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
                               {details?.currency === "NGN" ? "₦" : "$"}
                               {formatPrice(details?.amount)}
                             </span>
                           </div>
+                        ) : (
+                          <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
+                            Free
+                          </span>
                         )}
                       </div>
 
