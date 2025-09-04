@@ -128,10 +128,11 @@ const Payment = ({
       ref: reference,                                             
       onSuccess: () => {
         setIsSuccess(true);
-       
+       setLoading("Make Payment");
       },
       onClose: () => {
         toast.error("Transaction was not completed, window closed.");
+        setLoading("Make Payment");
       },
     });
 
