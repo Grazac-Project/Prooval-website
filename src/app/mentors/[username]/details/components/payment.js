@@ -95,7 +95,7 @@ const Payment = ({
 
   const handlePayment = async () => {
   // optional: prevent double clicks
-  if (loading === true || loading === "Initiating payment ...") return;
+  // if (loading === true || loading === "Initiating payment ...") return;
 
   try {
     setLoading("Initiating payment ...");
@@ -131,8 +131,8 @@ const Payment = ({
        setLoading("Make Payment");
       },
       onClose: () => {
-        toast.error("Transaction was not completed, window closed.");
         setLoading("Make Payment");
+        toast.error("Transaction was not completed, window closed.");
       },
     });
 
@@ -140,6 +140,7 @@ const Payment = ({
   } catch (err) {
     const msg = err?.response?.data?.message || err?.message || "Payment failed";
     toast.error(msg);
+    setLoading("Make Payment");
     console.error(err);
   } finally {
     setLoading("Make Payment"); // keep this consistent with how you render the button
@@ -169,6 +170,7 @@ const Payment = ({
         className="bg-[#344054] opacity-[0.7] w-[100%] h-full fixed z-50 top-0 left-[0]"
         onClick={onClick}
       ></div>
+            <ToastContainer />
       {isSuccess ? (
         <div className="bg-[#fff] w-[447px] h-[291px]  md:max-w-full p-8 sm:p-6 pb-[277px] sm:pb-[41px] flex flex-col items-center text-center rounded-[8px] fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
           <Image src="/sucess.svg" width={57} height={57} alt="success" />
@@ -189,7 +191,6 @@ const Payment = ({
         </div>
       ) : (
         <div className="max-w-[52rem] h-[90%] mx-auto mt-10 sm:p-4 p-14 space-y-8 bg-[white] rounded-2xl fixed inset-0 z-50 overflow-y-auto ">
-          <ToastContainer />
           <div className=" flex items-center text-sm leading-[150%] font-medium text-[#292D32] ">
             <button
               className="border-[1px] border-[#EAEAEA] rounded-[8px] p-[10px] cursor-pointer"
@@ -207,7 +208,7 @@ const Payment = ({
                 {productTitle || "Digital Product"}
               </h3>
               <button
-                className={`text-sm bg-primary text-[white] px-3 py-4 w-[182px] rounded-[6.29px] font-medium  `}
+                className={`text-sm bg-primary text-[white] px-3 py-4 w-[182px] rounded-[6.29px] font-medium truncate  `}
                 onClick={handleClick}
                 // disabled={productType === "free" ? true : false}
               >
