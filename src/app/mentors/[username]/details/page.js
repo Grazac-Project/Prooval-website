@@ -349,17 +349,13 @@ const MentorshipPackages = () => {
                             {details.bookingType}
                           </span>
                         </div>
-                        {details.bookingType === "Paid" ? (
+                        {details.bookingType === "Paid" && (
                           <div className=" flex items-center gap-1 justify-center">
                             <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
                               {details?.currency === "NGN" ? "₦" : "$"}
                               {formatPrice(details?.amount)}
                             </span>
                           </div>
-                        ) : (
-                          <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                            Free
-                          </span>
                         )}
                       </div>
 
