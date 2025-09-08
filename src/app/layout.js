@@ -117,6 +117,11 @@ export const metadata = {
   icons: {
     icon: "/favicon.png",
   },
+  verification: {
+    other: {
+      "facebook-domain-verification": "x1lptb6rqnck8sunf3ww6vhl2njnhw",
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
