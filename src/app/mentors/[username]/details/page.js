@@ -59,7 +59,6 @@ const MentorshipPackages = () => {
   const [webData, setWebData] = useState([]);
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  // const [token, setToken] = useState();
   const [token, setToken] = useState(""); // use state for token
 
   useEffect(() => {
