@@ -117,6 +117,11 @@ export const metadata = {
   icons: {
     icon: "/favicon.png",
   },
+  verification: {
+    other: {
+      "facebook-domain-verification": "x1lptb6rqnck8sunf3ww6vhl2njnhw",
+    },
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -142,7 +147,7 @@ export default function RootLayout({ children }) {
             `,
           }}
         /> */}
-         <Script
+        <Script
           src="https://unpkg.com/@fincra-engineering/checkout@2.2.0/dist/inline.min.js"
           strategy="afterInteractive"
         />
