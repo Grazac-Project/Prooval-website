@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import Payment from "./components/payment";
-import { getBookings } from "@/api/authentication/auth";
+import { getBookings, getSingleWebinar } from "@/api/authentication/auth";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import DetailsLoading from "@/components/skeletonLoader";
 import { formatPrice } from "@/Utils/price-formater";
@@ -57,6 +57,9 @@ const MentorshipPackages = () => {
   const [successModal, setSuccessModal] = useState(false);
   const [showWebModal, setShowWebModal] = useState(false);
   const [webData, setWebData] = useState([]);
+  const [webinarId, setWebinarId] = useState();
+  const [singleWebData, setSingleWebData] = useState({});
+  const [error, setError] = useState("");
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   // const [token, setToken] = useState();
@@ -85,7 +88,7 @@ const MentorshipPackages = () => {
     setLoading(true);
     getBookings(mentorId)
       .then((res) => {
-        console.log(res);
+        console.log(res.data?.data?.data);
         setMentorData(res.data?.data?.data);
         setWebData(res.data?.data?.data?.webinars);
         setLoading(false);
@@ -168,18 +171,23 @@ const MentorshipPackages = () => {
       // window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
     }
   };
-  const AttendWebinar = (
-    id,
-    type,
-    amount,
-    currency,
-    title,
-    description,
-    thumbnail,
-    category
-  ) => {
+  const AttendWebinar = (id) => {
+    setWebinarId(id);
     setShowWebModal(!showWebModal);
   };
+
+  const duration = (time) => {
+  const map = {
+    1: 'Once',
+    2: 'Twice',
+    3: 'Thrice',
+    4: 'Four times',
+    5: 'Five times',
+    6: 'Six times',
+    7: 'Seven times',
+  };
+  return map[time] ?? `${time} times`;
+};
 
   return (
     <div className="bg-[#F2F2F7]  pb-10 min-h-screen">
@@ -198,15 +206,9 @@ const MentorshipPackages = () => {
       )}
       {showWebModal && (
         <WebinarModal
-        // onClick={() => setShowModal(false)}
-        // productId={productId}
-        // productType={productType}
-        // productPrice={productPrice}
-        // productCurrency={productCurrency}
-        // productThumbnail={productThumbnail}
-        // productTitle={productTitle}
-        // productDescription={productDescription}
-        // category={category}
+          onClick={() => setShowWebModal(false)}
+          webinarId={webinarId}
+          token={token}
         />
       )}
       {successModal && (
@@ -226,7 +228,7 @@ const MentorshipPackages = () => {
           image={mentorData?.mentor?.image}
           type={bookType}
           price={mentorPrice}
-          mentor={mentorData}
+          // mentor={mentor}
           successModal={() => setSuccessModal(true)}
           bookingCurrency={currency}
         />
@@ -248,11 +250,11 @@ const MentorshipPackages = () => {
           <h2 className="text-[28px] font-semibold">Available packages</h2>
 
           {/* Digital Products */}
-          {mentorData?.packages.length > 0 && (
+          {mentorData?.digitalProducts?.length > 0 && (
             <div>
               <h3 className="text-lg font-semibold mb-4 ">Digital products</h3>
               <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-                {mentorData?.packages.map((book, id) => (
+                {mentorData?.digitalProducts.map((book, id) => (
                   <div
                     key={id}
                     className="border p-4 border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer "
@@ -303,13 +305,13 @@ const MentorshipPackages = () => {
             </div>
           )}
           {/* 1-on-1 Sessions */}
-          {mentorData?.bookings.length > 0 && (
+          {mentorData?.bookings?.sessions.length > 0 && (
             <div>
               <h3 className="text-lg font-semibold leading-[140%] mb-4">
                 1-on-1 Sessions
               </h3>
               <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-                {mentorData?.bookings.map((details, i) => (
+                {mentorData?.bookings?.sessions.map((details, i) => (
                   <div key={i}>
                     <div
                       className="border border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer h-[205px] py-7 px-4 space-y-2"
@@ -385,17 +387,26 @@ const MentorshipPackages = () => {
           <div className="hidden">
             <h3 className="text-lg font-semibold mb-4">Group Package</h3>
             <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
-              {[
-                { duration: "3 Months", price: "₦250,000" },
-                { duration: "1 Month", price: "₦250,000" },
-              ].map((pkg, idx) => (
-                <div key={idx}>
+              {mentorData?.bookings?.mentorshipPackages.map((pkg, idx) => (
+                <div
+                  key={idx}
+                  onClick={() =>
+                    bookSession(
+                      pkg?._id,
+                      pkg?.bookingType,
+                      pkg?.amount,
+                      pkg?.currency
+                    )
+                  }
+                >
                   <div
                     className="border border-[#EDEDED] border-t-4 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer py-7 px-4 space-y-2"
                     style={{
                       borderTopColor: groupColors[idx % groupColors.length],
                     }}
                   >
+                    <div className="flex justify-between items-center">
+
                     <span
                       className="text-xs px-2 py-1 rounded-[32px] font-medium"
                       style={{
@@ -404,27 +415,24 @@ const MentorshipPackages = () => {
                         }1A`,
                         color: groupColors[idx % groupColors.length],
                       }}
-                    >
-                      {pkg.duration}
+                      >
+                      {pkg.packageDuration} month
                     </span>
                     <div className="text-right text-sm font-semibold">
-                      {pkg.price}
+                      {pkg?.currency === "NGN" ? "₦" : "$"}
+                      {formatPrice(pkg?.amount)}
                     </div>
-                    <div className="font-semibold text-sm">
-                      Let’s talk about negotiations
-                    </div>
-                    <p className="text-xs text-gray-600">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse varius enim in eros...
-                    </p>
+                      </div>
+                    <div className="font-semibold text-sm">{pkg.title}</div>
+                    <p className="text-xs text-gray-600">{pkg.description}</p>
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-2">
                         <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
-                          45 Mins{" "}
+                          {pkg.sessionDuration} Mins{" "}
                         </span>
                         <span className=" w-2 h-2 bg-[#D9D9D9] rounded-full"></span>
                         <span className="text-[12px] leading-[140%] text-[#4F4F4F] ">
-                          Once a week
+                          {duration(pkg.sessionsPerWeek)} a week
                         </span>
                       </div>
                       <p className="text-sm text-primary font-medium flex items-center">
@@ -442,11 +450,11 @@ const MentorshipPackages = () => {
           <div className="hidden">
             <h3 className="text-lg font-semibold mb-4">Webinar</h3>
             <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-              {mentorData?.webinars.map((webiner, id) => (
+              {mentorData?.webinars?.map((webiner, id) => (
                 <EventCard
                   title={webiner?.title}
-                  // month={}
-                  day="10"
+                  month={webiner?.date}
+                  day={webiner?.date}
                   venue="Google Meet"
                   price={webiner?.type}
                   joinedLabel={webiner.guestAttendees.length}
@@ -454,7 +462,7 @@ const MentorshipPackages = () => {
                   currency={webiner.currency}
                   amount={webiner.amount}
                   key={id}
-                  action={AttendWebinar}
+                  action={() => AttendWebinar(webiner._id)}
                 />
               ))}
             </div>
