@@ -135,6 +135,14 @@ export const initializeDigitalProductPayment = (id, token) => {
     },
   });
 };
+export const initializeWebinarPayment = (data, token) => {
+  return authKit.post(`api/v1/payment/checkout-data/webinar-registration`, data, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 authKit.interceptors.request.use((config) => {
   // console.log("Request Config:", config);
   return config;
@@ -143,3 +151,4 @@ authKit.interceptors.request.use((config) => {
 export const fetchMentorsByRole = (role = "all") => {
   return authKit.get(`/api/v1/mentors/by-role?role=${role}`);
 };
+
