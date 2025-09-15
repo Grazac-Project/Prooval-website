@@ -231,14 +231,37 @@ const BookSession = ({
       console.error(err);
     }
   };
+  const handleForeignPayment = () => {
+    const data = {
+      bookingId: bookingValues?.bookingId,
+      slotId: bookingValues?.slotId,
+      userId: userId,
+      suggestion: values.suggestion,
+      amount: price,
+      currency: bookingCurrency
+    };
+    console.log(data);
+    fincraPayment(data, token)
+      .then((res) => {
+        console.log(res);
+        setLoading(false);
+        // setShowBookingModal(true);
+        const url = res.data.data.checkoutUrl
+        window.location.href = url;
+      })
+      .catch((err) => {
+        toast.error(err.response?.data?.error );
+        setLoading(false);
+      });
+  };
   const handleclick = () => {
     setLoading(true);
 
     if (type === "Paid" && bookingCurrency === "NGN") {
       handlePayment();
-    } if (type === "Paid" && bookingCurrency !== "NGN") {
+    }if (type === "Paid" && bookingCurrency !== "NGN") {
       handleForeignPayment();
-    } else {
+    }  else {
       handleBookingSubmit();
     }
   };
