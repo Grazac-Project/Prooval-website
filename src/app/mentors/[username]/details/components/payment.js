@@ -149,8 +149,10 @@ const Payment = ({
 
 
   const handleClick = () => {
-    if (productType === "paid") {
+    if (productType === "paid" && productCurrency === "NGN") {
       handlePayment();
+    } if (productType === "paid" && productCurrency !== "NGN") {
+      handleForeignPayment();
     } else {
       handleAccessProduct();
     }
