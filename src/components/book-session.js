@@ -259,9 +259,9 @@ const BookSession = ({
 
     if (type === "Paid" && bookingCurrency === "NGN") {
       handlePayment();
-    }if (type === "Paid" && bookingCurrency !== "NGN") {
+    } else if (type === "Paid" && bookingCurrency !== "NGN") {
       handleForeignPayment();
-    }  else {
+    } else {
       handleBookingSubmit();
     }
   };

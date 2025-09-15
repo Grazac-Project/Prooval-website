@@ -157,7 +157,7 @@ const handleForeignPayment = () => {
     initializeDigitalProductPayment(data, token)
       .then((res) => {
         console.log(res);
-        const url = res.data.data.payment.paymentUrl;
+        const url = res.data.data.redirectUrl;
         console.log(url);
         window.location.href = url; // Redirect to payment page
       })
@@ -170,7 +170,7 @@ const handleForeignPayment = () => {
   const handleClick = () => {
     if (productType === "paid" && productCurrency === "NGN") {
       handlePayment();
-    } if (productType === "paid" && productCurrency !== "NGN") {
+    } else if (productType === "paid" && productCurrency !== "NGN") {
       handleForeignPayment();
     } else {
       handleAccessProduct();
