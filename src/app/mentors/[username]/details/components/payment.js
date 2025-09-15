@@ -147,6 +147,25 @@ const Payment = ({
   }
 };
 
+const handleForeignPayment = () => {
+    console.log(token);
+    setLoading("Initiating payment ...");
+    const data = {
+      productId: productId,
+    };
+
+    initializeDigitalProductPayment(data, token)
+      .then((res) => {
+        console.log(res);
+        const url = res.data.data.payment.paymentUrl;
+        console.log(url);
+        window.location.href = url; // Redirect to payment page
+      })
+      .catch((err) => {
+        // toast.error(err.response?.data?.error || "Something went wrong");
+        setLoading("Make Payment");
+      });
+  };
 
   const handleClick = () => {
     if (productType === "paid" && productCurrency === "NGN") {
