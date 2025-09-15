@@ -234,8 +234,10 @@ const BookSession = ({
   const handleclick = () => {
     setLoading(true);
 
-    if (type === "Paid") {
+    if (type === "Paid" && bookingCurrency === "NGN") {
       handlePayment();
+    } if (type === "Paid" && bookingCurrency !== "NGN") {
+      handleForeignPayment();
     } else {
       handleBookingSubmit();
     }
