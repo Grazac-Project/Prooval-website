@@ -112,6 +112,14 @@ export const fincraDigitalCheckoutData = (data, token) => {
     },
   });
 };
+export const fincraPayment = (data, token) => {
+  return authKit.post(`api/v1/payment/generate-payment-link`, data, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 export const fincraBookingCheckoutData = (data, token) => {
   return authKit.post(`api/v1/payment/checkout-data/mentor-session`, data, {
     headers: {
