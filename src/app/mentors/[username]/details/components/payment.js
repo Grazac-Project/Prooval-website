@@ -177,14 +177,6 @@ const handleForeignPayment = () => {
       handleAccessProduct();
     }
   };
-  const handleClose = () => {
-    const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
-
-    window.location.href =
-      isProduction === "development"
-        ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/digital-products`
-        : `${process.env.NEXT_PUBLIC_DASH_URL}/digital-products`;
-  };
 
   const handleClose = () => {
     const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
