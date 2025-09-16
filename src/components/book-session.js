@@ -81,7 +81,7 @@ const BookSession = ({
     setLoader(true);
     // console.log({ type });
     // console.log({price });
-    if (type === "Paid") {
+    if (type && type.toLowerCase() === "paid") {
       setButtonText("Proceed to payment");
     }
 
@@ -259,9 +259,9 @@ const BookSession = ({
   const handleclick = () => {
     setLoading(true);
 
-    if (type === "Paid" && bookingCurrency === "NGN") {
+    if (type && type.toLowerCase() === "paid" && bookingCurrency === "NGN") {
       handlePayment();
-    } else if (type === "Paid" && bookingCurrency !== "NGN") {
+    } else if (type && type.toLowerCase() === "paid" && bookingCurrency !== "NGN") {
       handleForeignPayment();
     } else {
       handleBookingSubmit();

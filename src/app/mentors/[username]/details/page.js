@@ -399,7 +399,7 @@ const MentorshipPackages = () => {
                   }
                 >
                   <div
-                    className="border border-[#EDEDED] border-t-4 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer py-7 px-4 space-y-2"
+                    className="border border-[#EDEDED] border-t-4 shadow-sm hover:shadow-md rounded-md transition-shadow duration-200 cursor-pointer py-7 px-4 space-y-2"
                     style={{
                       borderTopColor: groupColors[idx % groupColors.length],
                     }}
