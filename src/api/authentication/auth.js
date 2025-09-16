@@ -151,7 +151,7 @@ export const initializeDigitalProductPayment = (id, token) => {
     },
   });
 };
-export const initializeWebinarPayment = (data, token) => {
+export const fincraWebinarCheckoutData = (data, token) => {
   return authKit.post(`api/v1/payment/checkout-data/webinar-registration`, data, {
     headers: {
       "Content-Type": "application/json",

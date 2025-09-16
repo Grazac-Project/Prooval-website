@@ -1,4 +1,9 @@
-import { getSingleWebinar, webinarReg } from "@/api/authentication/auth";
+import {
+  fincraPayment,
+  fincraWebinarCheckoutData,
+  getSingleWebinar,
+  webinarReg,
+} from "@/api/authentication/auth";
 import { Load } from "@/components/loading";
 import useFincraPayment from "@/lib/fincraCheckout";
 import { formatPrice } from "@/Utils/price-formater";
@@ -34,7 +39,7 @@ function useCountdown(targetDate) {
 const WebinarModal = ({
   webinarId,
   token,
-  
+
   onClick,
 }) => {
   const [webData, setWebData] = useState({});
@@ -43,23 +48,24 @@ const WebinarModal = ({
   const [submit, setSubmit] = useState(false);
   const { startPayment } = useFincraPayment();
   const [success, setSuccess] = useState(false);
-
+  const [formValues, setFormValues] = useState({ fullname: "", email: "" });
+  const [error, setError] = useState(false);
 
   let userId;
-    let userFirstName;
-    let userLastName;
-    let userEmail;
-  
-    try {
-      let details = Cookies.get("user_details");
-      // console.log(details);
-      userId = JSON.parse(details).id;
-      userFirstName = JSON.parse(details).name;
-      userLastName = JSON.parse(details).lastName;
-      userEmail = JSON.parse(details).email;
-    } catch (err) {
-      //err
-    }
+  let userFirstName;
+  let userLastName;
+  let userEmail;
+
+  try {
+    let details = Cookies.get("user_details");
+    // console.log(details);
+    userId = JSON.parse(details).id;
+    userFirstName = JSON.parse(details).name;
+    userLastName = JSON.parse(details).lastName;
+    userEmail = JSON.parse(details).email;
+  } catch (err) {
+    //err
+  }
   useEffect(() => {
     setLoading(true);
     getSingleWebinar(webinarId, token)
@@ -78,8 +84,8 @@ const WebinarModal = ({
   const { days, hours, minutes, seconds, finished } = useCountdown(startsAt);
   const handleRegister = async (e) => {
     e.preventDefault();
-
     const fd = new FormData(e.currentTarget);
+
     const payload = {
       fullName: fd.get("fullname"),
       email: fd.get("email"),
@@ -90,14 +96,12 @@ const WebinarModal = ({
 
       const res = await webinarReg(webinarId, payload, token);
 
-      if (res.status === 200) {
+      if (res) {
+        console.log("Registration success:", res.data?.data?.webinar);
         setSuccess(true);
+        toast.success("Registration successful!");
+        e.target.reset(); // clear form
       }
-
-      console.log("Registration success:", res.data?.data?.webinar);
-
-      toast.success("Registration successful!");
-      e.target.reset(); // clear form
     } catch (err) {
       console.error("Registration error:", err.response?.data?.message);
       toast.error(
@@ -107,13 +111,13 @@ const WebinarModal = ({
       setSubmit(false);
     }
   };
-  const handlePayment = async () => {
+  const handlePayment = async (e) => {
+    e.preventDefault();
     try {
       const data = {
         webinarId: webData._id,
-        fullName: userFirstName + userLastName,
-        email: userEmail,
-        phoneNumber: "09038453243",
+        fullName: formValues.fullname,
+        email: formValues.email,
         currency: webData.currency,
       };
       console.log(data);
@@ -125,14 +129,16 @@ const WebinarModal = ({
           setLoading(false);
         })
         .catch((err) => {
-          toast.error(err.response?.data?.error);
+          toast.error(err.response?.data?.message);
           setLoading(false);
+          setError(true);
         });
-      // if (!reference) throw new Error("Missing payment reference from server");
+
+      if (error) return;
 
       const result = await startPayment({
-        price,
-        currency: bookingCurrency,
+        price: webData.amount,
+        currency: webData.currency,
         ref: reference,
         onSuccess: (data) => {
           setSuccess(true);
@@ -149,15 +155,56 @@ const WebinarModal = ({
       console.error(err);
     }
   };
-  const handleclick = () => {
+  const handleForeignPayment = async (e) => {
+    e.preventDefault();
+    const data = {
+      webinarId: webData._id,
+      fullName: formValues.fullname,
+      email: formValues.email,
+      currency: webData.currency,
+    };
+    console.log(data);
+    fincraWebinarCheckoutData(data, token)
+      .then((res) => {
+        console.log(res);
+        setLoading(false);
+        // setShowBookingModal(true);
+        const url = res.data.data.redirectUrl;
+        window.location.href = url;
+      })
+      .catch((err) => {
+        toast.error(err.response?.data?.error);
+        setLoading(false);
+      });
+  };
+  const handleclick = (e) => {
+    e.preventDefault();
     setSubmit(true);
 
-    if (type === "Paid") {
-      handlePayment();
+    if (
+      webData?.type &&
+      webData?.type.toLowerCase() === "paid" &&
+      webData?.currency &&
+      webData?.currency.toUpperCase() === "NGN"
+    ) {
+      handlePayment(e);
+    } else if (
+      webData?.type &&
+      webData?.type.toLowerCase() === "paid" &&
+      webData?.currency &&
+      webData?.currency.toUpperCase() !== "NGN"
+    ) {
+      handleForeignPayment(e);
     } else {
-      handleRegister();
+      handleRegister(e);
     }
   };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prev) => ({ ...prev, [name]: value }));
+  };
+
   return (
     <div>
       <div
@@ -167,14 +214,15 @@ const WebinarModal = ({
       <ToastContainer />
 
       {success ? (
-        <div className="bg-[#fff] w-[447px] h-[291px]  md:max-w-full p-8 sm:p-6 pb-[277px] sm:pb-[41px] flex flex-col items-center text-center rounded-[8px]">
+        <div className="bg-[#fff] w-[447px] h-[291px]  md:max-w-full p-8 sm:p-6 pb-[277px] sm:pb-[41px] flex flex-col items-center text-center rounded-[8px]  fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 overflow-y-auto">
           <Image src="/sucess.svg" width={57} height={57} alt="success" />
           <h3 className="font-medium  text-[24px] text-[#121927] leading-[11.71px] py-[16px]">
             Registered Successfully
           </h3>
           <p className="font-regular text-[16px] text-[#555555] leading-[24px] mb-[20px]">
             You have successfully registered for{" "}
-            <span className="bold">{webData?.title}</span> design webinar
+            <span className="font-semibold">{webData?.title}</span> design
+            webinar
           </p>
           <button
             className="min-w-[76px] h-[44px] rounded-[8px] border-[1px] px-[20px] py-[12px] font-medium bg-[#1453FF] text-[14px] text-[#fff] leading-[19.6px] tracking-[2%] mx-auto"
@@ -328,15 +376,24 @@ const WebinarModal = ({
                     <LabeledInput
                       name="fullname"
                       placeholder="Enter fullname"
+                      value={formValues.fullname}
+                      onChange={handleInputChange}
                     />
                     <LabeledInput
                       name="email"
                       type="email"
                       placeholder="Enter address"
+                      value={formValues.email}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <button
-                    disabled={loading}
+                    disabled={
+                      loading ||
+                      !formValues.fullname ||
+                      !formValues.email ||
+                      submit
+                    }
                     type="submit"
                     className="mt-4 md-w-full w-auto rounded-lg bg-primary px-4 py-1.5 text-[white] font-500 text-sm leading-5  shadow hover:bg-[#0d36cc] focus:outline-none"
                   >
@@ -368,7 +425,14 @@ function TimeBox({ value, label }) {
   );
 }
 
-function LabeledInput({ name, type = "text", placeholder, icon }) {
+function LabeledInput({
+  name,
+  type = "text",
+  placeholder,
+  icon,
+  value,
+  onChange,
+}) {
   return (
     <label className="group relative flex items-center gap-2 rounded-lg  border border-[#EAEAEA]  bg-[white]  text-[#828282] ">
       <input
@@ -377,6 +441,8 @@ function LabeledInput({ name, type = "text", placeholder, icon }) {
         placeholder={placeholder}
         className="w-full h-full  border-0 bg-transparent p-4 text-sm placeholder:text-slate-400 "
         required
+        value={value}
+        onChange={onChange}
       />
     </label>
   );
