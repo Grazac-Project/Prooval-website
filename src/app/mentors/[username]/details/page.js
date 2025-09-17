@@ -176,17 +176,17 @@ const MentorshipPackages = () => {
   };
 
   const duration = (time) => {
-  const map = {
-    1: 'Once',
-    2: 'Twice',
-    3: 'Thrice',
-    4: 'Four times',
-    5: 'Five times',
-    6: 'Six times',
-    7: 'Seven times',
+    const map = {
+      1: "Once",
+      2: "Twice",
+      3: "Thrice",
+      4: "Four times",
+      5: "Five times",
+      6: "Six times",
+      7: "Seven times",
+    };
+    return map[time] ?? `${time} times`;
   };
-  return map[time] ?? `${time} times`;
-};
 
   return (
     <div className="bg-[#F2F2F7]  pb-10 min-h-screen">
@@ -405,23 +405,28 @@ const MentorshipPackages = () => {
                     }}
                   >
                     <div className="flex justify-between items-center">
-
-                    <span
-                      className="text-xs px-2 py-1 rounded-[32px] font-medium"
-                      style={{
-                        backgroundColor: `${
-                          groupColors[idx % groupColors.length]
-                        }1A`,
-                        color: groupColors[idx % groupColors.length],
-                      }}
+                      <span
+                        className="text-xs px-2 py-1 rounded-[32px] font-medium"
+                        style={{
+                          backgroundColor: `${
+                            groupColors[idx % groupColors.length]
+                          }1A`,
+                          color: groupColors[idx % groupColors.length],
+                        }}
                       >
-                      {pkg.packageDuration} month
-                    </span>
-                    <div className="text-right text-sm font-semibold">
-                      {pkg?.currency === "NGN" ? "₦" : "$"}
-                      {formatPrice(pkg?.amount)}
+                        {pkg.packageDuration} month
+                      </span>
+                        {pkg.bookingType.toLowerCase() === "paid"?(
+                          <div className="text-right text-sm font-semibold">
+                            {pkg?.currency === "NGN" ? "₦" : "$"}
+                            {formatPrice(pkg?.amount)}
+                          </div>
+                        ): (
+                          <div className="text-right text-sm font-semibold">
+                            Free
+                          </div>
+                        )}
                     </div>
-                      </div>
                     <div className="font-semibold text-sm">{pkg.title}</div>
                     <p className="text-xs text-gray-600">{pkg.description}</p>
                     <div className="flex justify-between items-center">
