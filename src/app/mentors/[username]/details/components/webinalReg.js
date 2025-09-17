@@ -120,26 +120,25 @@ const WebinarModal = ({
         email: formValues.email,
         currency: webData.currency,
       };
-      console.log(data);
+      setSubmit(true);
       let reference;
-      fincraWebinarCheckoutData(data, token)
-        .then((res) => {
-          console.log(res);
-          reference = res.data?.data?.data?.reference;
-          setLoading(false);
-        })
-        .catch((err) => {
-          toast.error(err.response?.data?.message);
-          setLoading(false);
-          setError(true);
-        });
-
-      if (error) return;
+      try {
+        const res = await fincraWebinarCheckoutData(data, token);
+        reference = res.data?.data?.data?.reference;
+      } catch (err) {
+        toast.error(
+          err.response?.data?.message || "An error occurred. Please try again."
+        );
+        setSubmit(false);
+        return;
+      }
 
       const result = await startPayment({
         price: webData.amount,
         currency: webData.currency,
         ref: reference,
+        nameProp: formValues.fullname,
+        emailProp: formValues.email,
         onSuccess: (data) => {
           setSuccess(true);
           const url = new URL(window.location.href);
@@ -153,6 +152,7 @@ const WebinarModal = ({
       console.log("Resolved:", result);
     } catch (err) {
       console.error(err);
+      setSubmit(false);
     }
   };
   const handleForeignPayment = async (e) => {
@@ -167,14 +167,15 @@ const WebinarModal = ({
     fincraWebinarCheckoutData(data, token)
       .then((res) => {
         console.log(res);
-        setLoading(false);
+        setSubmit(false);
         // setShowBookingModal(true);
         const url = res.data.data.redirectUrl;
         window.location.href = url;
       })
       .catch((err) => {
-        toast.error(err.response?.data?.error);
-        setLoading(false);
+        console.log(err);
+        toast.error(err.response?.data?.message || "Something went wrong");
+        setSubmit(false);
       });
   };
   const handleclick = (e) => {
