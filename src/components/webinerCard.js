@@ -24,7 +24,7 @@ export default function EventCard({
   return (
     <article
       key={id}
-      className="group relative overflow-hidden rounded-[8px] bg-[white] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+      className="group relative overflow-hidden rounded-[8px] bg-[white] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md cursor-pointer"
       onClick={action}
     >
       {/* Media */}
