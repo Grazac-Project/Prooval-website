@@ -209,7 +209,7 @@ const WebinarModal = ({
   return (
     <div>
       <div
-        className="bg-[#344054] opacity-[0.7] w-[100%] h-full fixed z-50 top-0 left-[0]"
+        className="bg-[#344054] opacity-[0.7] w-[100%] h-full fixed z-50 top-0 left-[0] cursor-pointer"
         onClick={onClick}
       ></div>
       <ToastContainer />
@@ -397,7 +397,7 @@ const WebinarModal = ({
                       submit
                     }
                     type="submit"
-                    className="mt-4 md-w-full w-auto rounded-lg bg-primary px-4 py-1.5 text-[white] font-500 text-sm leading-5  shadow hover:bg-[#0d36cc] focus:outline-none"
+                    className="mt-4 md-w-full w-auto rounded-lg bg-primary px-4 py-1.5 text-[white] font-500 text-sm leading-5 cursor-pointer shadow hover:bg-[#0d36cc] focus:outline-none"
                   >
                     {submit ? "Registering..." : "Register"}
                   </button>
