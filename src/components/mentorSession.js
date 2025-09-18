@@ -9,6 +9,7 @@ import BookSession from "./book-session";
 import Cookies from "js-cookie";
 import { getAllBookings} from "@/api/authentication/auth";
 import { formatPrice } from "@/Utils/price-formater";
+import { getCurrencySymbol } from "@/Utils/currency-formatter";
 
 
 
@@ -174,7 +175,7 @@ const openModal = () => {
                             />
 
                             <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                             {bookings.currency === "NGN" ? "₦" : "$"}{formatPrice(bookings?.amount)}
+                             {getCurrencySymbol(bookings.currency)}{formatPrice(bookings?.amount)}
                             </span>
                           </div>
                         )}

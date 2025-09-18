@@ -20,6 +20,7 @@ import Cookies from "js-cookie";
 import MentorSession from "@/components/mentorSession";
 import { formatPrice } from "@/Utils/price-formater";
 import Error from "@/components/error";
+import { getCurrencySymbol } from "@/Utils/currency-formatter";
 
 const MentorDetails = () => {
   const [view, setView] = useState(3);
@@ -425,7 +426,7 @@ const MentorDetails = () => {
                                 {String(item.bookingType).toLowerCase() === "paid" && (
                                   <div className="flex items-center gap-1 justify-center">
                                     <span className="text-[#333333] text-[12px] font-semibold leading-[140%] font-inter">
-                                      {item.currency === "NGN" ? "₦" : "$"}
+                                      {getCurrencySymbol(item.currency)}
                                       {formatPrice(item?.amount)}
                                     </span>
                                   </div>

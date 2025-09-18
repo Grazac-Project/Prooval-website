@@ -6,6 +6,7 @@ import {
 } from "@/api/authentication/auth";
 import { Load } from "@/components/loading";
 import useFincraPayment from "@/lib/fincraCheckout";
+import { getCurrencySymbol } from "@/Utils/currency-formatter";
 import { formatPrice } from "@/Utils/price-formater";
 import { MailOutline } from "@mui/icons-material";
 import Image from "next/image";
@@ -278,9 +279,7 @@ const WebinarModal = ({
                     </span>
                     <span className="text-[#333333] text-base">
                       {webData?.type !== "free"
-                        ? `${
-                            webData?.currency === "NGN" ? "₦" : "$"
-                          }${formatPrice(webData?.amount)}`
+                        ? `${getCurrencySymbol(webData?.currency)}${formatPrice(webData?.amount)}`
                         : webData?.type}
                     </span>
                   </span>
