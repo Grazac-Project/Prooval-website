@@ -8,6 +8,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { Videocam, VideoLabel } from "@mui/icons-material";
 import { FaVideo } from "react-icons/fa6";
 import { formatPrice } from "@/Utils/price-formater";
+import { getCurrencySymbol } from "@/Utils/currency-formatter";
 export default function EventCard({
   title,
   month,
@@ -76,7 +77,7 @@ export default function EventCard({
               <LiaMoneyBillWaveSolid className="h-[14px] w-[14px]" />
               <span>
                 {price === "paid"
-                  ? `${currency === "NGN" ? "₦" : "$"}${formatPrice(amount)}`
+                  ? `${getCurrencySymbol(currency)}${formatPrice(amount)}`
                   : price}
               </span>
             </div>

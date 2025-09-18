@@ -13,6 +13,7 @@ import Cookies from "js-cookie";
 import BookSession from "@/components/book-session";
 import EventCard from "@/components/webinerCard";
 import WebinarModal from "./components/webinalReg";
+import { getCurrencySymbol } from "@/Utils/currency-formatter";
 const groupColors = [
   "#F48025",
   "#008753",
@@ -285,7 +286,7 @@ const MentorshipPackages = () => {
                         </span>
                         {book?.type === "paid" && (
                           <div className=" text-sm font-semibold font-inter ">
-                            {book.currency === "NGN" ? "₦" : "$"}
+                            {getCurrencySymbol(book.currency)}
                             {formatPrice(book?.amount)}
                           </div>
                         )}
@@ -353,7 +354,7 @@ const MentorshipPackages = () => {
                         {details.bookingType === "Paid" && (
                           <div className=" flex items-center gap-1 justify-center">
                             <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                              {details?.currency === "NGN" ? "₦" : "$"}
+                              {getCurrencySymbol(details?.currency)}
                               {formatPrice(details?.amount)}
                             </span>
                           </div>
@@ -418,7 +419,7 @@ const MentorshipPackages = () => {
                       </span>
                         {pkg.bookingType.toLowerCase() === "paid"?(
                           <div className="text-right text-sm font-semibold">
-                            {pkg?.currency === "NGN" ? "₦" : "$"}
+                            {getCurrencySymbol(pkg?.currency)}
                             {formatPrice(pkg?.amount)}
                           </div>
                         ): (

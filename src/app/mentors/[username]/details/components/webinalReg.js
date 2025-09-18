@@ -6,6 +6,7 @@ import {
 } from "@/api/authentication/auth";
 import { Load } from "@/components/loading";
 import useFincraPayment from "@/lib/fincraCheckout";
+import { getCurrencySymbol } from "@/Utils/currency-formatter";
 import { formatPrice } from "@/Utils/price-formater";
 import { MailOutline } from "@mui/icons-material";
 import Image from "next/image";
@@ -278,9 +279,7 @@ const WebinarModal = ({
                     </span>
                     <span className="text-[#333333] text-base">
                       {webData?.type !== "free"
-                        ? `${
-                            webData?.currency === "NGN" ? "₦" : "$"
-                          }${formatPrice(webData?.amount)}`
+                        ? `${getCurrencySymbol(webData?.currency)}${formatPrice(webData?.amount)}`
                         : webData?.type}
                     </span>
                   </span>
@@ -373,7 +372,9 @@ const WebinarModal = ({
                   onSubmit={handleclick}
                   className="mt-2 rounded-lg border border-[#EAEAEA] p-6 bg-[#FAFAFA] shadow-sm w-full relative"
                 >
-                  <div className="bg-[#ffff] cursor-not-allowed bg-gradient-to-br from-white/30 to-white/50 backdrop-blur-sm opacity-[0.7] w-[100%] h-full absolute z-50 top-0 left-[0]"></div>
+                  {finished && (
+                    <div className="bg-[#ffff] cursor-not-allowed bg-gradient-to-br from-white/30 to-white/50 backdrop-blur-sm opacity-[0.7] w-[100%] h-full absolute z-50 top-0 left-[0]"></div>
+                  )}
                   <div className="grid sm:grid-cols-1 grid-cols-2 gap-4">
                     <LabeledInput
                       name="fullname"
