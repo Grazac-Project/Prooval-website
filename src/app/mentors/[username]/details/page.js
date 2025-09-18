@@ -400,7 +400,7 @@ const MentorshipPackages = () => {
                   }
                 >
                   <div
-                    className="border border-[#EDEDED] border-t-4 shadow-sm hover:shadow-md rounded-md transition-shadow duration-200 cursor-pointer py-7 px-4 space-y-2"
+                    className="border border-[#EDEDED] h-[174px] border-t-4 shadow-sm hover:shadow-md rounded-md transition-shadow duration-200 cursor-pointer py-7 px-4 space-y-2"
                     style={{
                       borderTopColor: groupColors[idx % groupColors.length],
                     }}
@@ -429,7 +429,7 @@ const MentorshipPackages = () => {
                         )}
                     </div>
                     <div className="font-semibold text-sm">{pkg.title}</div>
-                    <p className="text-xs text-gray-600">{pkg.description}</p>
+                    <p className="text-xs text-gray-600 line-clamp-2">{pkg.description}</p>
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-2">
                         <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
