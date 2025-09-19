@@ -13,6 +13,7 @@ import Cookies from "js-cookie";
 import BookSession from "@/components/book-session";
 import EventCard from "@/components/webinerCard";
 import WebinarModal from "./components/webinalReg";
+import { getCurrencySymbol } from "@/Utils/currency-formatter";
 const groupColors = [
   "#F48025",
   "#008753",
@@ -176,17 +177,17 @@ const MentorshipPackages = () => {
   };
 
   const duration = (time) => {
-  const map = {
-    1: 'Once',
-    2: 'Twice',
-    3: 'Thrice',
-    4: 'Four times',
-    5: 'Five times',
-    6: 'Six times',
-    7: 'Seven times',
+    const map = {
+      1: "Once",
+      2: "Twice",
+      3: "Thrice",
+      4: "Four times",
+      5: "Five times",
+      6: "Six times",
+      7: "Seven times",
+    };
+    return map[time] ?? `${time} times`;
   };
-  return map[time] ?? `${time} times`;
-};
 
   return (
     <div className="bg-[#F2F2F7]  pb-10 min-h-screen">
@@ -285,7 +286,7 @@ const MentorshipPackages = () => {
                         </span>
                         {book?.type === "paid" && (
                           <div className=" text-sm font-semibold font-inter ">
-                            {book.currency === "NGN" ? "₦" : "$"}
+                            {getCurrencySymbol(book.currency)}
                             {formatPrice(book?.amount)}
                           </div>
                         )}
@@ -353,7 +354,7 @@ const MentorshipPackages = () => {
                         {details.bookingType === "Paid" && (
                           <div className=" flex items-center gap-1 justify-center">
                             <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                              {details?.currency === "NGN" ? "₦" : "$"}
+                              {getCurrencySymbol(details?.currency)}
                               {formatPrice(details?.amount)}
                             </span>
                           </div>
@@ -383,7 +384,7 @@ const MentorshipPackages = () => {
           )}
 
           {/* Group Package */}
-          <div className="hidden">
+          <div className="">
             <h3 className="text-lg font-semibold mb-4">Group Package</h3>
             <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
               {mentorData?.bookings?.mentorshipPackages.map((pkg, idx) => (
@@ -399,31 +400,36 @@ const MentorshipPackages = () => {
                   }
                 >
                   <div
-                    className="border border-[#EDEDED] border-t-4 shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer py-7 px-4 space-y-2"
+                    className="border border-[#EDEDED] h-[174px] border-t-4 shadow-sm hover:shadow-md rounded-md transition-shadow duration-200 cursor-pointer py-7 px-4 space-y-2"
                     style={{
                       borderTopColor: groupColors[idx % groupColors.length],
                     }}
                   >
                     <div className="flex justify-between items-center">
-
-                    <span
-                      className="text-xs px-2 py-1 rounded-[32px] font-medium"
-                      style={{
-                        backgroundColor: `${
-                          groupColors[idx % groupColors.length]
-                        }1A`,
-                        color: groupColors[idx % groupColors.length],
-                      }}
+                      <span
+                        className="text-xs px-2 py-1 rounded-[32px] font-medium"
+                        style={{
+                          backgroundColor: `${
+                            groupColors[idx % groupColors.length]
+                          }1A`,
+                          color: groupColors[idx % groupColors.length],
+                        }}
                       >
-                      {pkg.packageDuration} month
-                    </span>
-                    <div className="text-right text-sm font-semibold">
-                      {pkg?.currency === "NGN" ? "₦" : "$"}
-                      {formatPrice(pkg?.amount)}
+                        {pkg.packageDuration} month
+                      </span>
+                        {pkg.bookingType.toLowerCase() === "paid"?(
+                          <div className="text-right text-sm font-semibold">
+                            {getCurrencySymbol(pkg?.currency)}
+                            {formatPrice(pkg?.amount)}
+                          </div>
+                        ): (
+                          <div className="text-right text-sm font-semibold">
+                            Free
+                          </div>
+                        )}
                     </div>
-                      </div>
                     <div className="font-semibold text-sm">{pkg.title}</div>
-                    <p className="text-xs text-gray-600">{pkg.description}</p>
+                    <p className="text-xs text-gray-600 line-clamp-2">{pkg.description}</p>
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-2">
                         <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
@@ -446,7 +452,7 @@ const MentorshipPackages = () => {
           </div>
 
           {/* //webiner */}
-          <div className="hidden">
+          <div className="">
             <h3 className="text-lg font-semibold mb-4">Webinar</h3>
             <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
               {mentorData?.webinars?.map((webiner, id) => (

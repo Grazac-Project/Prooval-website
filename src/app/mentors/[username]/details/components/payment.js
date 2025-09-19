@@ -174,8 +174,10 @@ const handleForeignPayment = () => {
       handleForeignPayment();
     } else {
       handleAccessProduct();
+      handleAccessProduct();
     }
   };
+
   const handleClose = () => {
     const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
 

@@ -8,23 +8,24 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { Videocam, VideoLabel } from "@mui/icons-material";
 import { FaVideo } from "react-icons/fa6";
 import { formatPrice } from "@/Utils/price-formater";
+import { getCurrencySymbol } from "@/Utils/currency-formatter";
 export default function EventCard({
   title,
-  month, 
-  day, 
-  venue, 
-  price, 
-  joinedLabel, 
-  image, 
-action,
-  amount ,
+  month,
+  day,
+  venue,
+  price,
+  joinedLabel,
+  image,
+  action,
+  amount,
   currency,
   id,
 }) {
   return (
     <article
       key={id}
-      className="group relative overflow-hidden rounded-[8px] bg-[white] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+      className="group relative overflow-hidden rounded-[8px] bg-[white] shadow-sm transition hover:-translate-y-0.5 hover:shadow-md cursor-pointer"
       onClick={action}
     >
       {/* Media */}
@@ -46,10 +47,18 @@ action,
           className=" rounded-[6px] px-[6px] py-1 w-[38px] h-[43px] shadow-md"
         >
           <div className=" bg-blue-100  text-center text-[10px] font-bold  text-primary">
-            {month}
+            {month
+              ? new Date(month).toLocaleDateString("en-US", {
+                  month: "short",
+                })
+              : ""}
           </div>
           <div className=" pt-1 text-center text-[14px] font-semibold leading-none text-[#000000]">
-            {day}
+            {day
+              ? new Date(month).toLocaleDateString("en-US", {
+                  day: "2-digit",
+                })
+              : ""}
           </div>
         </div>
         <div>
@@ -68,7 +77,7 @@ action,
               <LiaMoneyBillWaveSolid className="h-[14px] w-[14px]" />
               <span>
                 {price === "paid"
-                  ? `${currency === "NGN" ? "₦" : "$"}${formatPrice(amount)}`
+                  ? `${getCurrencySymbol(currency)}${formatPrice(amount)}`
                   : price}
               </span>
             </div>

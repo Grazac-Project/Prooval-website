@@ -4,14 +4,21 @@ import { useCallback, useState } from "react";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
 
-
 export default function useFincraPayment(
   publicKeyFromEnv = process.env.NEXT_PUBLIC_FINCRA_KEY
 ) {
   const [loading, setLoading] = useState(false);
 
   const startPayment = useCallback(
-    ({ price, currency = "NGN", ref, onClose, onSuccess } = {}) => {
+    ({
+      price,
+      currency = "NGN",
+      ref,
+      onClose,
+      onSuccess,
+      nameProp,
+      emailProp,
+    } = {}) => {
       return new Promise((resolve, reject) => {
         // Guard: must be in the browser and SDK must be available
         if (typeof window === "undefined") {
@@ -21,14 +28,18 @@ export default function useFincraPayment(
         }
         const fincra = window.Fincra;
         if (!fincra || typeof fincra.initialize !== "function") {
-          const err = new Error("Fincra SDK not loaded. Include the script tag before calling.");
+          const err = new Error(
+            "Fincra SDK not loaded. Include the script tag before calling."
+          );
           reject(err);
           return;
         }
 
         const key = publicKeyFromEnv;
         if (!key) {
-          const err = new Error("Public key missing. Set NEXT_PUBLIC_FINCRA_KEY or pass a key.");
+          const err = new Error(
+            "Public key missing. Set NEXT_PUBLIC_FINCRA_KEY or pass a key."
+          );
           reject(err);
           return;
         }
@@ -52,19 +63,19 @@ export default function useFincraPayment(
         try {
           fincra.initialize({
             key,
-            amount: Number(price),                       // ensure a number
+            amount: Number(price), // ensure a number
             currency: String(currency || "NGN").toUpperCase(),
             customer: {
-              name: `${firstName} ${lastName}`.trim(),
-              email,
+              name: nameProp
+                ? nameProp.trim()
+                : `${firstName} ${lastName}`.trim() || nameProp,
+              email: emailProp ? emailProp : email || emailProp,
             },
             feeBearer: "customer",
-            
 
             onClose: () => {
               setLoading(false);
               onClose?.();
-              
             },
             onSuccess: (data) => {
               setLoading(false);
@@ -73,6 +84,8 @@ export default function useFincraPayment(
             },
           });
         } catch (err) {
+          console.error(err);
+          toast.error("Error initializing payment. Try again.");
           setLoading(false);
           reject(err);
         }
