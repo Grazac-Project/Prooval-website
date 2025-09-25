@@ -61,6 +61,7 @@ const MentorshipPackages = () => {
   const [webinarId, setWebinarId] = useState();
   const [singleWebData, setSingleWebData] = useState({});
   const [error, setError] = useState("");
+  const [sessionType, setSessionType] = useState("");
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const [token, setToken] = useState(""); // use state for token
@@ -106,13 +107,14 @@ const MentorshipPackages = () => {
       getMentorsDetails();
     }
   }, []);
-  const bookSession = (id, type, amount, bookingCurrency) => {
+  const bookSession = (id, type, amount, bookingCurrency, sessionType) => {
     if (token) {
       setBookingId(id);
       setBookType(type);
       setMentorPrice(amount);
       setCurrency(bookingCurrency);
       setLoading(false);
+      setSessionType(sessionType);
       console.log({ id });
       setShowBookingModal(true);
     } else {
@@ -231,6 +233,7 @@ const MentorshipPackages = () => {
           // mentor={mentor}
           successModal={() => setSuccessModal(true)}
           bookingCurrency={currency}
+          sessionType={sessionType}
         />
       )}
 
@@ -384,18 +387,20 @@ const MentorshipPackages = () => {
           )}
 
           {/* Group Package */}
-          <div className="">
-            <h3 className="text-lg font-semibold mb-4">Group Package</h3>
-            <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
-              {mentorData?.bookings?.mentorshipPackages.map((pkg, idx) => (
-                <div
-                  key={idx}
+          {mentorData?.bookings?.mentorshipPackages.length > 0 && (
+            <div className="">
+              <h3 className="text-lg font-semibold mb-4">Group Package</h3>
+              <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
+                {mentorData?.bookings?.mentorshipPackages.map((pkg, idx) => (
+                  <div
+                    key={idx}
                   onClick={() =>
                     bookSession(
                       pkg?._id,
                       pkg?.bookingType,
                       pkg?.amount,
-                      pkg?.currency
+                      pkg?.currency,
+                      "mentorship_package"
                     )
                   }
                 >
@@ -450,13 +455,14 @@ const MentorshipPackages = () => {
               ))}
             </div>
           </div>
-
+        )}
           {/* //webiner */}
-          <div className="">
-            <h3 className="text-lg font-semibold mb-4">Webinar</h3>
-            <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-              {mentorData?.webinars?.map((webiner, id) => (
-                <EventCard
+          {mentorData?.webinars?.length > 0 && (
+            <div className="">
+              <h3 className="text-lg font-semibold mb-4">Webinar</h3>
+              <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
+                {mentorData?.webinars?.map((webiner, id) => (
+                  <EventCard
                   title={webiner?.title}
                   month={webiner?.date}
                   day={webiner?.date}
@@ -472,6 +478,7 @@ const MentorshipPackages = () => {
               ))}
             </div>
           </div>
+          )}
         </div>
       ) : (
         <DetailsLoading />
