@@ -29,6 +29,7 @@ const BookSession = ({
   price,
   successModal,
   mentor,
+  sessionType
 }) => {
   const [activeDates, setActiveDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -267,6 +268,7 @@ const BookSession = ({
       handleBookingSubmit();
     }
   };
+  console.log(sessionType);
   return (
     <div>
       <ToastContainer />
@@ -327,7 +329,7 @@ const BookSession = ({
                     "The booking description goes here in full with lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare."}
                 </p>
                 <div className="flex justify-between items-center">
-                  <div className="w-[30%] xxm:w-fit">
+                  <div className=" xxm:w-fit">
                     <h3 className="font-medium text-[16px] text-[#4F4F4F] leading-[19.2px] mb-[8px]">
                       Location
                     </h3>
@@ -335,7 +337,7 @@ const BookSession = ({
                       Google Meet
                     </p>
                   </div>
-                  <div className="w-[30%] xxm:w-fit">
+                  <div className=" xxm:w-fit">
                     <h3 className="font-medium text-[16px] text-[#4F4F4F] leading-[19.2px] mb-[8px]">
                       Duration
                     </h3>
@@ -343,7 +345,7 @@ const BookSession = ({
                       {bookingData.sessionDuration} mins
                     </p>
                   </div>
-                  <div className="w-[30%] xxm:w-fit">
+                  <div className=" xxm:w-fit">
                     <h3 className="font-medium text-[16px] text-[#4F4F4F] leading-[19.2px] mb-[8px]">
                       Timezone
                     </h3>
@@ -351,6 +353,17 @@ const BookSession = ({
                       {bookingData.timezone}
                     </p>
                   </div>
+                   {sessionType && (
+                      <div className=" xxm:w-fit">
+                        <h3 className="font-medium text-[16px] text-[#4F4F4F] leading-[19.2px] mb-[8px]">
+                          Package Duration
+                        </h3>
+                        <p className="font-normal text-[16px] text-[#7D7D7D] leading-[19.2px]">
+                          {bookingData.duration}{" "}
+                          {bookingData.duration > 1 ? "Months" : "Month"}
+                        </p>
+                      </div>
+                    )}
                 </div>
                 <div className="flex flex-col  w-[100%] mt-[24px]">
                   <Calendar
