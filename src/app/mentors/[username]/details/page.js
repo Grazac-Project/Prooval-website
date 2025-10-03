@@ -287,11 +287,15 @@ const MentorshipPackages = () => {
                         <span className="text-xs bg-[#DEA8061A] text-[#DEA806] px-3 py-1 rounded-[32px] font-medium">
                           {book?.category}
                         </span>
-                        {book?.type === "paid" && (
+                        {book?.type === "paid" ? (
                           <div className=" text-sm font-semibold font-inter ">
                             {getCurrencySymbol(book.currency)}
                             {formatPrice(book?.amount)}
                           </div>
+                        ) : (
+                          <span className="text-xs bg-[#3333331A] text-[#333333] px-3 py-1 rounded-[32px] font-medium">
+                            Free
+                          </span>
                         )}
                       </div>
                       <div className="text-sm font-medium mt-4 truncate">
@@ -394,68 +398,71 @@ const MentorshipPackages = () => {
                 {mentorData?.bookings?.mentorshipPackages.map((pkg, idx) => (
                   <div
                     key={idx}
-                  onClick={() =>
-                    bookSession(
-                      pkg?._id,
-                      pkg?.bookingType,
-                      pkg?.amount,
-                      pkg?.currency,
-                      "mentorship_package"
-                    )
-                  }
-                >
-                  <div
-                    className="border border-[#EDEDED] h-[174px] border-t-4 shadow-sm hover:shadow-md rounded-md transition-shadow duration-200 cursor-pointer py-7 px-4 space-y-2"
-                    style={{
-                      borderTopColor: groupColors[idx % groupColors.length],
-                    }}
+                    onClick={() =>
+                      bookSession(
+                        pkg?._id,
+                        pkg?.bookingType,
+                        pkg?.amount,
+                        pkg?.currency,
+                        "mentorship_package"
+                      )
+                    }
                   >
-                    <div className="flex justify-between items-center">
-                      <span
-                        className="text-xs px-2 py-1 rounded-[32px] font-medium"
-                        style={{
-                          backgroundColor: `${
-                            groupColors[idx % groupColors.length]
-                          }1A`,
-                          color: groupColors[idx % groupColors.length],
-                        }}
-                      >
-                        {pkg.packageDuration} month
-                      </span>
-                        {pkg.bookingType.toLowerCase() === "paid"?(
+                    <div
+                      className="border border-[#EDEDED] h-[174px] border-t-4 shadow-sm hover:shadow-md rounded-md transition-shadow duration-200 cursor-pointer py-7 px-4 space-y-2"
+                      style={{
+                        borderTopColor: groupColors[idx % groupColors.length],
+                      }}
+                    >
+                      <div className="flex justify-between items-center">
+                        <span
+                          className="text-xs px-2 py-1 rounded-[32px] font-medium"
+                          style={{
+                            backgroundColor: `${
+                              groupColors[idx % groupColors.length]
+                            }1A`,
+                            color: groupColors[idx % groupColors.length],
+                          }}
+                        >
+                          {pkg.packageDuration}{" "}
+                          {pkg.packageDuration > 1 ? "Weeks" : "Week"}
+                        </span>
+                        {pkg.bookingType.toLowerCase() === "paid" ? (
                           <div className="text-right text-sm font-semibold">
                             {getCurrencySymbol(pkg?.currency)}
                             {formatPrice(pkg?.amount)}
                           </div>
-                        ): (
+                        ) : (
                           <div className="text-right text-sm font-semibold">
                             Free
                           </div>
                         )}
-                    </div>
-                    <div className="font-semibold text-sm">{pkg.title}</div>
-                    <p className="text-xs text-gray-600 line-clamp-2">{pkg.description}</p>
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-2">
-                        <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
-                          {pkg.sessionDuration} Mins{" "}
-                        </span>
-                        <span className=" w-2 h-2 bg-[#D9D9D9] rounded-full"></span>
-                        <span className="text-[12px] leading-[140%] text-[#4F4F4F] ">
-                          {duration(pkg.sessionsPerWeek)} a week
-                        </span>
                       </div>
-                      <p className="text-sm text-primary font-medium flex items-center">
-                        Book Session{" "}
-                        <IoIosArrowRoundForward className="text-[16px] text-primary" />
+                      <div className="font-semibold text-sm">{pkg.title}</div>
+                      <p className="text-xs text-gray-600 line-clamp-2">
+                        {pkg.description}
                       </p>
+                      <div className="flex justify-between items-center">
+                        <div className="flex items-center gap-2">
+                          <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
+                            {pkg.sessionDuration} Mins{" "}
+                          </span>
+                          <span className=" w-2 h-2 bg-[#D9D9D9] rounded-full"></span>
+                          <span className="text-[12px] leading-[140%] text-[#4F4F4F] ">
+                            {duration(pkg.sessionsPerWeek)} a week
+                          </span>
+                        </div>
+                        <p className="text-sm text-primary font-medium flex items-center">
+                          Book Session{" "}
+                          <IoIosArrowRoundForward className="text-[16px] text-primary" />
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )}
           {/* //webiner */}
           {mentorData?.webinars?.length > 0 && (
             <div className="">
@@ -463,21 +470,21 @@ const MentorshipPackages = () => {
               <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
                 {mentorData?.webinars?.map((webiner, id) => (
                   <EventCard
-                  title={webiner?.title}
-                  month={webiner?.date}
-                  day={webiner?.date}
-                  venue="Google Meet"
-                  price={webiner?.type}
-                  joinedLabel={webiner.guestAttendees.length}
-                  image={webiner.thumbnail}
-                  currency={webiner.currency}
-                  amount={webiner.amount}
-                  key={id}
-                  action={() => AttendWebinar(webiner._id)}
-                />
-              ))}
+                    title={webiner?.title}
+                    month={webiner?.date}
+                    day={webiner?.date}
+                    venue="Google Meet"
+                    price={webiner?.type}
+                    joinedLabel={webiner.guestAttendees.length}
+                    image={webiner.thumbnail}
+                    currency={webiner.currency}
+                    amount={webiner.amount}
+                    key={id}
+                    action={() => AttendWebinar(webiner._id)}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
           )}
         </div>
       ) : (
