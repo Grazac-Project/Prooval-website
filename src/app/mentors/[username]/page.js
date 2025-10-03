@@ -21,6 +21,61 @@ import MentorSession from "@/components/mentorSession";
 import { formatPrice } from "@/Utils/price-formater";
 import Error from "@/components/error";
 import { getCurrencySymbol } from "@/Utils/currency-formatter";
+// De-dupe key (adjust if you have real IDs)
+const keyOf = (c) => `${c.type}::${c.title}`;
+
+function pickLimited(groups, quotas, total) {
+  if (groups.length !== quotas.length) {
+    throw new Error("groups and quotas must have the same length");
+  }
+
+  const pointers = groups.map(() => 0);
+  const takenPerGroup = groups.map(() => 0);
+  const result = [];
+  const seen = new Set();
+
+  const nextFrom = (i) => {
+    const arr = groups[i];
+    let p = pointers[i];
+    while (p < arr.length) {
+      const candidate = arr[p++];
+      const k = keyOf(candidate);
+      if (!seen.has(k)) {
+        pointers[i] = p;
+        seen.add(k);
+        return candidate;
+      }
+    }
+    return undefined;
+  };
+
+  // Pass 1: satisfy quotas (e.g., 2–2–1)
+  for (let i = 0; i < groups.length; i++) {
+    while (takenPerGroup[i] < quotas[i]) {
+      const item = nextFrom(i);
+      if (!item) break; // this group ran out
+      result.push(item);
+      takenPerGroup[i]++;
+      if (result.length === total) return result;
+    }
+  }
+
+  // Pass 2: redistribute leftovers round-robin
+  let progressed = true;
+  while (result.length < total && progressed) {
+    progressed = false;
+    for (let i = 0; i < groups.length && result.length < total; i++) {
+      const item = nextFrom(i);
+      if (item) {
+        result.push(item);
+        progressed = true;
+      }
+    }
+  }
+
+  return result.slice(0, total);
+}
+
 
 const MentorDetails = () => {
   const [view, setView] = useState(3);
@@ -176,57 +231,43 @@ const MentorDetails = () => {
     }
     return str;
   }
-  // Extract items separately
   const digitalProducts =
-    mentorData?.digitalProducts?.map((book) => ({
-      type: "Digital Product",
-      title: book?.title,
-      category: book?.category,
-      bookingType: book?.type,
-      thumbnail: book?.thumbnail,
-      amount: book?.amount,
-      currency: book?.currency,
-    })) || [];
+  mentorData?.digitalProducts?.map((book) => ({
+    type: "Digital Product",
+    title: book?.title,
+    category: book?.category,
+    bookingType: book?.type,
+    thumbnail: book?.thumbnail,
+    amount: book?.amount,
+    currency: book?.currency,
+  })) || [];
 
-  const oneOnOne =
-    mentorData?.bookings?.map((book) => ({
-      type: "1-on-1 session",
-      title: book?.title,
-      category: `${book?.sessionDuration} Mins`,
-      bookingType: book?.bookingType,
-      amount: book?.amount,
-      currency: book?.currency,
-    })) || [];
+const oneOnOne =
+  mentorData?.bookings?.map((book) => ({
+    type: "1-on-1 session",
+    title: book?.title,
+    category: `${book?.sessionDuration} Mins`,
+    bookingType: book?.bookingType,
+    amount: book?.amount,
+    currency: book?.currency,
+  })) || [];
 
-  const mentorshipPackages =
-    mentorData?.packages?.map((book) => ({
-      type: "Mentorship Package",
-      title: book?.title,
-      category: `${book?.sessionDuration} Mins · Once a week`,
-      bookingType: book?.bookingType,
-      amount: book?.amount,
-      currency: book?.currency,
-    })) || [];
-    
+const mentorshipPackages =
+  mentorData?.packages?.map((book) => ({
+    type: "Mentorship Package",
+    title: book?.title,
+    category: `${book?.sessionDuration} Mins · Once a week`,
+    bookingType: book?.bookingType,
+    amount: book?.amount,
+    currency: book?.currency,
+  })) || [];
 
-    
-
-  // Ensure at least 1 from each (if available)
-  let selected = [];
-
-  if (digitalProducts.length > 0) selected.push(digitalProducts[0]);
-  if (oneOnOne.length > 0) selected.push(oneOnOne[0]);
-  if (mentorshipPackages.length > 0) selected.push(mentorshipPackages[0]);
-
-  // Gather remaining items from all arrays
-  const remaining = [
-    ...digitalProducts.slice(2),
-    ...oneOnOne.slice(2),
-    ...mentorshipPackages.slice(1),
-  ];
-
-  // Fill until we have 5 total
-  const limitedItems = [...selected, ...remaining].slice(0, 5);
+// Exactly 5 items by 2–2–1, with smart fallback
+const limitedItems = pickLimited(
+  [digitalProducts, oneOnOne, mentorshipPackages],
+  [2, 2, 1],
+  5
+);
 
 
   return (
@@ -423,13 +464,17 @@ const MentorDetails = () => {
                                 <h4 className="text-[10px] leading-[140%] font-medium text-[#667085]">
                                   {item.type}
                                 </h4>
-                                {String(item.bookingType).toLowerCase() === "paid" && (
+                                {String(item.bookingType).toLowerCase() === "paid" ? (
                                   <div className="flex items-center gap-1 justify-center">
                                     <span className="text-[#333333] text-[12px] font-semibold leading-[140%] font-inter">
                                       {getCurrencySymbol(item.currency)}
                                       {formatPrice(item?.amount)}
                                     </span>
                                   </div>
+                                ) : (
+                                  <span className="text-[#33333] bg-[#3333331A] text-[12px] font-medium leading-[140%] font-inter rounded-lg px-3 ">
+                                    Free
+                                  </span>
                                 )}
                               </div>
 

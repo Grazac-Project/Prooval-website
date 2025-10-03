@@ -13,6 +13,7 @@ import {
   fincraBookingCheckoutData,
   fincraPayment,
   getAvailableBookings,
+  MentorshipPackageSubmitAction,
 } from "@/api/authentication/auth";
 import Cookies from "js-cookie";
 import { MdKeyboardArrowRight } from "react-icons/md";
@@ -192,6 +193,27 @@ const BookSession = ({
         setLoading(false);
       });
   };
+   const handleMentorshipPackageSubmit = () => {
+    const data = {
+      packageId: bookingValues?.bookingId,
+      slotId: bookingValues?.slotId,
+      userId: userId,
+      suggestion: values.suggestion,
+    };
+    console.log(data);
+    MentorshipPackageSubmitAction(data)
+      .then((res) => {
+        console.log(res);
+        setLoading(false);
+        setShowBookingModal(true);
+        closeModal();
+        successModal(); 
+      })
+      .catch((err) => {
+        toast.error(err.response?.data?.error);
+        setLoading(false);
+      });
+  };
 
   const handlePayment = async () => {
     try {
@@ -264,6 +286,8 @@ const BookSession = ({
       handlePayment();
     } else if (type && type.toLowerCase() === "paid" && bookingCurrency !== "NGN") {
       handleForeignPayment();
+    } else if (type && type.toLowerCase() === "free" && sessionType === "mentorship_package") {
+      handleMentorshipPackageSubmit();
     } else {
       handleBookingSubmit();
     }
