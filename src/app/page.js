@@ -229,7 +229,7 @@ const Landing = () => {
             </div>
           </div>
           {/* Hero Image  */}
-          <div className="relative w-full max-w-[1200px] mx-auto mt-16">
+          <div className="relative w-full max-w-[1200px] mx-auto mt-16 mb-[80px]">
             {/* Main Image */}
             <div className="w-full">
               <img
@@ -244,290 +244,89 @@ const Landing = () => {
                 {/* Digital Products */}
                 <div className="flex items-center justify-between bg-[#0000001A] p-2 rounded-md">
                   <div className="flex flex-col">
-                    <span className="text-2xl font-bold leading-tight">
+                    <span className="text-[30.72px] font-semibold leading-[101.01%]">
                       50+
                     </span>
-                    <span className="text-[12.29px] font-normal leading-none">
+                    <span className="text-[12.29px] font-normal leading-[16.9px]">
                       Digital Products
                     </span>
                   </div>
-                  <img src="/product_img.png" alt="icon" className="w-6 h-6" />
+                  <img
+                    src="/product_img.png"
+                    alt="icon"
+                    className="w-[41.61px] h-[41.61px]"
+                  />
                 </div>
 
                 {/* Page Views */}
                 <div className="flex items-center justify-between bg-[#0000001A] p-2 rounded-md">
+                  <img
+                    src="/pageView.png"
+                    alt="icon"
+                    className="w-[60.93px] h-[48.64px]"
+                  />
                   <div className="flex flex-col">
-                    <span className="text-2xl font-bold leading-tight">
+                    <span className="text-[30.72px] font-semibold leading-[101.01%]">
                       8,000+
                     </span>
-                    <span className="text-[12.29px] font-normal leading-none">
+                    <span className="text-[12.29px] font-normal leading-[16.9px]">
                       Page Views
                     </span>
                   </div>
-                  <img src="/pageView.png" alt="icon" className="w-6 h-6" />
                 </div>
 
                 {/* Sessions Booked */}
                 <div className="flex items-center justify-between bg-[#0000001A] p-2 rounded-md">
                   <div className="flex flex-col">
-                    <span className="text-2xl font-bold leading-tight">
+                    <span className="text-[30.72px] font-semibold leading-[101.01%]">
                       200+
                     </span>
-                    <span className="text-[12.29px] font-normal leading-none">
+                    <span className="text-[12.29px] font-normal leading-[16.9px]">
                       Sessions Booked
                     </span>
                   </div>
                   <img
                     src="/sessionBooked.png"
                     alt="icon"
-                    className="w-6 h-6"
+                    className="w-[41.61px] h-[41.61px]"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Earnings Badge - Top Right */}
-            <div className="absolute top-[20px] right-[40px] bg-white rounded-full shadow-md flex items-center gap-2 px-4 py-2">
-              <img src="/preview_sign.png" alt="coin" className="w-5 h-5" />
-              <span className="font-semibold">$6,000</span>
+            {/* Badge - Top center */}
+            <div className="absolute top-[20px] right-[350px] z-10 bg-[#FFFFFF] rounded-[4px] shadow-md border-[#E4E7EC] border-[1px] flex items-center gap-[17.5px] px-[20px] py-[24.5px]">
+              {/* Icon on the left */}
+              <img
+                src="/preview_sign.png"
+                alt="coin"
+                className="w-5 h-5 mr-2"
+              />
+              <div className="flex flex-col items-start">
+                <span className="font-semibold text-[14px] leading-[18.96px] text-[#121927]">
+                  $5,000
+                </span>
+                <span className="text-[10px] text-[#8B8B8B] leading-[100%] font-normal">
+                  Revenue Earned
+                </span>
+              </div>
             </div>
 
-            {/* Booking Badge - Mid Right */}
-            <div className="absolute top-[45%] right-[-15px] bg-white rounded-full shadow-md flex items-center gap-2 px-4 py-2">
+            {/* Badge - Mid Right */}
+            <div className="absolute top-[45%] right-[-15px] bg-white rounded-[4px] shadow-md flex items-center gap-[17.5px] px-[20px] py-[12px] bg-[#FFFFFF]">
               <img src="/preview_sign.png" alt="booking" className="w-5 h-5" />
-              <span className="font-semibold">+50</span>
+              <div className="flex flex-col items-start">
+                <span className="font-semibold text-[14px] leading-[18.96px] text-[#121927]">
+                  +50
+                </span>
+                <span className="text-[10px] text-[#8B8B8B] leading-[100%] font-normal">
+                  Bookings Created
+                </span>
+              </div>
             </div>
           </div>
         </section>
-        <section className="h-[64px] sm:h-[40px] bg-[#fff]"></section>
-        <section className="font-onest px-[80px] xl:px-[25px] xm:px-[16px] py-[48px] sm:py-[32px] bg-[#F9F9F9]">
-          <h2 className="font-medium text-[24px] leading-[38px] text-[#121927] text-center mb-[32px]">
-            As featured in
-          </h2>
-          <div className="sm:hidden flex justify-between items-center">
-            <div
-              className=""
-              onMouseOver={handleLogoEvent}
-              onMouseOut={handleLogoEvent}
-            >
-              {logo ? (
-                <Image
-                  src="/techcabal.png"
-                  alt="group of pictures"
-                  width={164}
-                  height={39}
-                />
-              ) : (
-                <Image
-                  src="/techcabal-initial.png"
-                  alt="group of pictures"
-                  width={164}
-                  height={39}
-                />
-              )}
-            </div>
-            <div
-              className=""
-              onMouseOver={handleLogoEvent1}
-              onMouseOut={handleLogoEvent1}
-            >
-              {logo1 ? (
-                <Image
-                  src="/bendada.png"
-                  alt="group of pictures"
-                  width={179}
-                  height={29}
-                />
-              ) : (
-                <Image
-                  src="/bendada-initial.png"
-                  alt="group of pictures"
-                  width={179}
-                  height={29}
-                />
-              )}
-            </div>
-            <div
-              className=""
-              onMouseOver={handleLogoEvent2}
-              onMouseOut={handleLogoEvent2}
-            >
-              {logo2 ? (
-                <Image
-                  src="/techcrunch.png"
-                  alt="group of pictures"
-                  width={74}
-                  height={37}
-                />
-              ) : (
-                <Image
-                  src="/techcrunch-initial.png"
-                  alt="group of pictures"
-                  width={74}
-                  height={37}
-                />
-              )}
-            </div>
-            <div
-              className=""
-              onMouseOver={handleLogoEvent3}
-              onMouseOut={handleLogoEvent3}
-            >
-              {logo3 ? (
-                <Image
-                  src="/bi.png"
-                  alt="group of pictures"
-                  width={165}
-                  height={15}
-                />
-              ) : (
-                <Image
-                  src="/bi-initial.png"
-                  alt="group of pictures"
-                  width={165}
-                  height={15}
-                />
-              )}
-            </div>
-            <div
-              className=""
-              onMouseOver={handleLogoEvent4}
-              onMouseOut={handleLogoEvent4}
-            >
-              {logo4 ? (
-                <Image
-                  src="/techpoint.png"
-                  alt="group of pictures"
-                  width={164}
-                  height={50}
-                />
-              ) : (
-                <Image
-                  src="/techpoint-initial.png"
-                  alt="group of pictures"
-                  width={164}
-                  height={50}
-                />
-              )}
-            </div>
-          </div>
-          <div className="hidden sm:block sm:pb-[0px] sm:w-[100%] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
-            <Slider
-              ref={(slider) => {
-                sliderRef = slider;
-              }}
-              {...logoSettings}
-              className=""
-            >
-              <div
-                className="pr-[30px]"
-                onMouseOver={handleLogoEvent}
-                onMouseOut={handleLogoEvent}
-              >
-                {logo ? (
-                  <Image
-                    src="/techcabal-mobile.png"
-                    alt="group of pictures"
-                    width={146}
-                    height={34}
-                  />
-                ) : (
-                  <Image
-                    src="/techcabal-mobile-initial.png"
-                    alt="group of pictures"
-                    width={146}
-                    height={34}
-                  />
-                )}
-              </div>
-              <div
-                className="pr-[30px]"
-                onMouseOver={handleLogoEvent1}
-                onMouseOut={handleLogoEvent1}
-              >
-                {logo1 ? (
-                  <Image
-                    src="/bendada-mobile.png"
-                    alt="group of pictures"
-                    width={160}
-                    height={26}
-                  />
-                ) : (
-                  <Image
-                    src="/bendada-mobile-initial.png"
-                    alt="group of pictures"
-                    width={160}
-                    height={26}
-                  />
-                )}
-              </div>
-              <div
-                className=""
-                onMouseOver={handleLogoEvent2}
-                onMouseOut={handleLogoEvent2}
-              >
-                {logo2 ? (
-                  <Image
-                    src="/techcrunch-mobile.png"
-                    alt="group of pictures"
-                    width={66}
-                    height={36}
-                  />
-                ) : (
-                  <Image
-                    src="/techcrunch-mobile-initial.png"
-                    alt="group of pictures"
-                    width={66}
-                    height={36}
-                  />
-                )}
-              </div>
-              <div
-                className="pr-[30px]"
-                onMouseOver={handleLogoEvent3}
-                onMouseOut={handleLogoEvent3}
-              >
-                {logo3 ? (
-                  <Image
-                    src="/bi-mobile.png"
-                    alt="group of pictures"
-                    width={147}
-                    height={14}
-                  />
-                ) : (
-                  <Image
-                    src="/bi-mobile-initial.png"
-                    alt="group of pictures"
-                    width={147}
-                    height={14}
-                  />
-                )}
-              </div>
-              <div
-                className="pr-[30px]"
-                onMouseOver={handleLogoEvent4}
-                onMouseOut={handleLogoEvent4}
-              >
-                {logo4 ? (
-                  <Image
-                    src="/techpoint-mobile.png"
-                    alt="group of pictures"
-                    width={146}
-                    height={44}
-                  />
-                ) : (
-                  <Image
-                    src="/techpoint-mobile-initial.png"
-                    alt="group of pictures"
-                    width={146}
-                    height={45}
-                  />
-                )}
-              </div>
-            </Slider>
-          </div>
-        </section>
-        <section className="h-[64px] bg-[#fff]"></section>
+        
         <section className="px-[80px] xl:px-[25px] xm:px-4 py-[137.5px] sm:py-[62px] font-onest bg-[#121927] relative">
           <h2 className="font-medium text-[48px] lg:text-[32px] leading-[52.8px] lg:leading-[41.6px] text-[#FFFFFF] text-center w-[865px] lg:w-[95%] mx-auto pb-3">
             What you get from Hackthejobs.
@@ -571,75 +370,6 @@ const Landing = () => {
             </button>
           </Link>
         </section>
-        {/* <section className="pb-[96px] sm:pb-[52px] ">
-          <div className="sm:hidden flex px-[80px] lgx:px-[25px] sm:px-[16px] flex justify-center lg:justify-start flex-wrap gap-[22px] pb-[96px] sm:pb-[52px]">
-            {listOfMentors.map((listOfMentor, i) => {
-              return (
-                <div key={i} className="font-onest w-[23%] lg:w-[29%] ">
-                  <div className="h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] overflow-hidden">
-                    <Image
-                      src={listOfMentor.image}
-                      width={296}
-                      height={296}
-                      alt="mentor image"
-                      className="object-cover filter grayscale hover:filter-none"
-                    />
-                  </div>
-                  <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px]">
-                    {listOfMentor?.firstName} {listOfMentor?.lastName}
-                  </h4>
-                  <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
-                    {listOfMentor?.role}
-                  </h5>
-                  <p className="font-normal  text-[16px] leading-[20.8px] text-[#667085]">
-                    {listOfMentor?.company}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-          <div className="font-inter hidden flex justify-center sm:block sm:pb-[40px] sm:w-[400px] xm:w-[100%] mx-auto px-[80px] lgx:px-[25px] sm:px-[16px]">
-            <Slider
-              ref={(slider) => {
-                sliderRef = slider;
-              }}
-              {...mentorSettings}
-              className=""
-            >
-              {listOfMentors.map((listOfMentor, i) => {
-                return (
-                  <div
-                    key={i}
-                    className="font-onest mx-auto sm:w-[302px] xm:w-[80%]"
-                  >
-                    <div className="h-[296px] sm:h-[258px] overflow-hidden">
-                      <Image
-                        src={listOfMentor.image}
-                        width={363}
-                        height={297}
-                        alt="mentor image"
-                        className="object-cover px-[5px]"
-                      />
-                    </div>
-                    <h4 className="font-medium text-[20px] leading-[30px] text-[#101828] mt-[24px] mb-[4px] ">
-                      {listOfMentor.firstName} {listOfMentor.lastName}
-                    </h4>
-                    <h5 className="font-normal text-[18px] leading-[28px] text-[#1453FF] mb-[16px]">
-                      {listOfMentor.role}
-                    </h5>
-                    <p className="font-normal w-[296px] xm:w-[100%] text-[16px] leading-[20.8px] text-[#667085]">
-                      {listOfMentor.company}
-                    </p>
-                  </div>
-                );
-              })}
-            </Slider>
-          </div>
-
-          <button className=" w-[239px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%] mx-auto sm:block hidden">
-            View More Mentors
-          </button>
-        </section> */}
         <section className="pb-[96px] sm:pb-0 ">
           <div className="flex sm:hidden  xm:justify-around lg:justify-start flex-wrap gap-[32px] pb-[0px] sm:pb-[0px] w-[1280px]  1xl:w-[90%] mb-20 md:mb-10  mx-auto ">
             {listOfMentors?.slice(0, 8).map((listOfMentor, i) => {
