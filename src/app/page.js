@@ -17,6 +17,7 @@ import useAnalytics from "@/components/useAnalytics";
 import Expertise from "@/components/expertise/page";
 import Cookies from "js-cookie";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { TypeAnimation } from "react-type-animation";
 
 const Landing = () => {
   const router = useRouter();
@@ -175,179 +176,128 @@ const Landing = () => {
       <Navbar />
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
       <div className="max-w-[1440px] mx-auto">
-        <section className="font-onest px-[80px] xl:px-[25px] sm:px-[25px] xm:px-[16px] relative bg-[#F9FBFF]">
-          <div className="  py-[48px] flex sm:flex-col gap-[58px] xl:gap-[25px] items-center ">
-            <div className="">
-              <div className="font-inter flex gap-2 w-[256px] md:w-[200px] sm:w-[256px] px-3 py-2 rounded-[32px] justify-center items-center border-[0.6px] border-[#989898] mb-[32px] whitespace-pre">
-                <MdVerified className="text-[#FFD700] text-[16px]" />
-                <h3 className="font-medium text-[14px] text-[#121927] leading-[15.4px] tracking-[4%] ">
-                  <span className="text-[#4F4F4F] text-[14px]">Empowered</span>{" "}
-                  over 5k talents
-                </h3>
-              </div>
-              <h1 className="font-bold w-[621px]  xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[52px] xm:text-[45px] xxm:text-[40px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px]  text-[#121927] ">
-                Scale your career with
-                <span
-                  style={{
-                    transform: `rotate(${angle})`,
-                    background: color,
-                    border: `4px solid ${border}`,
-                  }}
-                  className={`text-[#fff] text-[42px] leading-[59.4px] lg:leading-[50px] md:leading-[33px] sm:leading-[33px] w-[266px]  rounded-[48px] px-5 py-3 border-[#B3C7FF] border-[2px] inline-block`}
-                >
-                  {color === "#F2C003" ? "mentorship" : "experience"}
-                </span>
-              </h1>
-              <p className="font-normal text-[18px] lg:text-[16px] leading-6 text-[#727272] w-[555px] xl:w-[500px] lg:w-[400px] md:w-[300px] sm:w-[100%] pt-8 sm:pt-4 pb-8">
-                We understand the challenges every talents face due to their
-                lack of quality mentorship and we have built hackthejobs to give
-                you the right mentorship and work experience to build your
-                career.
-              </p>
-              {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
-              {/* <a
-                href="https://dashboard.hackthejobs.com/auth/signup"
-                target="_blank"
-              > */}
-              <Link href="/mentors">
-                <button className="w-[173px] lg:w-[150px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px]  font-medium leading-6 tracking-[3%] text-4 text-[#fff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-3 py-4 mr-[16px] lg:mr-[12px] sm:mr-[5px]">
-                  Get Started
-                </button>
-              </Link>
-              {/* </a> */}
-              <Link href="/mentor">
-                <button className="w-[213px] lg:w-[170px] md:w-[150px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-4 text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border-[1px] border-[#DADADA]">
-                  For Experts
-                </button>
-              </Link>
+        {/* Hero Section */}
+        <section className="font-onest mx-auto relative bg-[#FFFFFF]">
+          <div className="flex flex-col items-center justify-center text-center py-[48px]">
+            {/* Heading */}
+            <h1 className="font-bold text-[60px] text-center xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[40px] xm:text-[35px] xxm:text-[30px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px] text-[#121927]">
+              Monetize Your
+            </h1>
+
+            {/* Typing animation + static text */}
+            <div className="flex flex-wrap justify-center items-center gap-2">
+              <TypeAnimation
+                sequence={[
+                  "1-on-1 Booking",
+                  1500,
+                  "Mentorship",
+                  1500,
+                  "Talent",
+                  1500,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+                className="text-primary font-[700] text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[40px] xm:text-[35px] xxm:text-[30px] leading-[68px]"
+              />
+              <span className="text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[40px] xm:text-[35px] xxm:text-[30px] leading-[68px] font-[700] text-[#121927]">
+                in One Place
+              </span>
             </div>
-            <div className="w-[598px] sm:w-[100%] pl-[40px] xxl:pl-[30px] pr-[37px] xxl:pr-[30px]">
-              <Image
-                // src="/hero-pic.png"
-                src="/main-hero.png"
-                alt="group of pictures"
-                width={524}
-                height={673}
-                className="object-cover"
-                onMouseOver={handleMouseOver}
+
+            {/* Paragraph & Buttons */}
+            <div className="max-w-[989px] pt-4">
+              <p className="font-normal text-[18px] leading-[160%] text-[#727272] pb-8">
+                Turn what you know into income by hosting webinars, selling
+                resources, and offering 1:1 bookings. Everything is designed to
+                help you grow your brand and build meaningful connections with
+                your audience.
+              </p>
+
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link href="/mentors">
+                  <button className="w-[195px] md:w-[130px] sm:w-[120px] xm:w-[140px] sxm:w-[130px] font-medium leading-6 tracking-[3%] text-[16px] text-[#fff] bg-primary rounded-[8px] md:px-3 py-4">
+                    View All Experts
+                  </button>
+                </Link>
+                <Link href="/signup">
+                  <button className="w-[226px] md:w-[150px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-[16px] text-primary bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border border-[#DADADA]">
+                    Create your profile
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+          {/* Hero Image  */}
+          <div className="relative w-full max-w-[1200px] mx-auto mt-16">
+            {/* Main Image */}
+            <div className="w-full">
+              <img
+                src="/dashboard_img.png"
+                alt="Main Mockup"
+                className="w-full h-auto "
               />
             </div>
+            {/* Yellow Stats Card */}
+            <div className="absolute left-[-20px] bottom-[100px] sm:left-2 sm:bottom-2 bg-[#FFCA01] text-[#FBFCFD] rounded-xl shadow-lg py-[32px] px-[26px] w-[351px]">
+              <div className="flex flex-col space-y-2">
+                {/* Digital Products */}
+                <div className="flex items-center justify-between bg-[#0000001A] p-2 rounded-md">
+                  <div className="flex flex-col">
+                    <span className="text-2xl font-bold leading-tight">
+                      50+
+                    </span>
+                    <span className="text-[12.29px] font-normal leading-none">
+                      Digital Products
+                    </span>
+                  </div>
+                  <img src="/product_img.png" alt="icon" className="w-6 h-6" />
+                </div>
+
+                {/* Page Views */}
+                <div className="flex items-center justify-between bg-[#0000001A] p-2 rounded-md">
+                  <div className="flex flex-col">
+                    <span className="text-2xl font-bold leading-tight">
+                      8,000+
+                    </span>
+                    <span className="text-[12.29px] font-normal leading-none">
+                      Page Views
+                    </span>
+                  </div>
+                  <img src="/pageView.png" alt="icon" className="w-6 h-6" />
+                </div>
+
+                {/* Sessions Booked */}
+                <div className="flex items-center justify-between bg-[#0000001A] p-2 rounded-md">
+                  <div className="flex flex-col">
+                    <span className="text-2xl font-bold leading-tight">
+                      200+
+                    </span>
+                    <span className="text-[12.29px] font-normal leading-none">
+                      Sessions Booked
+                    </span>
+                  </div>
+                  <img
+                    src="/sessionBooked.png"
+                    alt="icon"
+                    className="w-6 h-6"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Earnings Badge - Top Right */}
+            <div className="absolute top-[20px] right-[40px] bg-white rounded-full shadow-md flex items-center gap-2 px-4 py-2">
+              <img src="/preview_sign.png" alt="coin" className="w-5 h-5" />
+              <span className="font-semibold">$6,000</span>
+            </div>
+
+            {/* Booking Badge - Mid Right */}
+            <div className="absolute top-[45%] right-[-15px] bg-white rounded-full shadow-md flex items-center gap-2 px-4 py-2">
+              <img src="/preview_sign.png" alt="booking" className="w-5 h-5" />
+              <span className="font-semibold">+50</span>
+            </div>
           </div>
-          <div
-            className={`z-[1] absolute w-[195px] lgx:w-[180px] sm:w-[117.32px] px-[18px] lgx:px-[10px] py-[16px] lgx:py-2 rounded-[4px] border-[0.6px] bg-[#fff] border-[#E4E7EC] shadow-def transition-all duration-1000 ease-in-out ${
-              load
-                ? "top-[120px] xxl:top-[120px] sm:top-[540px] xxm:top-[560px] sxm:top-[650px] right-[463px] xxl:right-[400px] xl:right-[370px] lgx:right-[320px] lg:right-[330px] md:right-[250px] sm:right-[350px] xm:right-[240px] xxm:right-[220px] sxm:right-[150px]"
-                : "top-[81px] 1xl:top-[60px] xxl:top-[70px] sm:top-[510px] xm:top-[560px] xxm:top-[570px] xxxm:top-[520px] xxxxm:top-[570px] sxm:top-[630px] right-[623px] 1xl:right-[520px] xxl:right-[470px] xl:right-[440px] lgx:right-[370px] lg:right-[380px] md:right-[280px] sm:right-[410px] xm:right-[290px] xxm:right-[230px] xxxm:right-[280px] xxxxm:right-[250px] sxm:right-[200px]"
-            }`}
-          >
-            <Image
-              src="/students.png"
-              alt="students"
-              width={76}
-              height={22}
-              className="mx-auto object-contain sm:hidden"
-            />
-            <Image
-              src="/students-mobile.png"
-              alt="students"
-              width={44}
-              height={13}
-              className="mx-auto object-contain hidden sm:block"
-            />
-            <p className="font-normal text-[12px] text-[#414449] pt-[12px] sm:pt-[6px] sm:text-[6.87px] leading-[13px] sm:leading-[7.44px] w-[169px] sm:w-[96.72px] mx-auto text-center text-[#121927]">
-              More than +5,000 Satisfied users across the globe
-            </p>
-          </div>
-          <div
-            className={` absolute bg-[#fff] w-[139.5px] lgx:w-[123.5px] sm:w-[79.83px] rounded-[4px] px-[18px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-ghi border-[#E4E7EC] border-[0.9px] flex justify-center gap-[17.5px] lg:gap-[8px] sm:gap-[2.29px] sm:items-center transition-all duration-1000 ease-in-out ${
-              load
-                ? "top-[189px] lgx:top-[160px] sm:top-[580px] sxm:top-[665px] right-[62.5px] lgx:right-[40px] sm:right-[70px] xm:right-[60px]"
-                : "top-[149px] lgx:top-[120px] sm:top-[530px] xm:top-[600px] sxm:top-[625px] right-[22.5px] lgx:right-[0px] sm:right-[30px] xm:right-[10px]  "
-            }`}
-          >
-            <Image
-              src="/courses.png"
-              width={33}
-              height={33}
-              alt="course"
-              className="object-contain sm:hidden"
-            />
-            <Image
-              src="/courses-mobile.png"
-              width={19}
-              height={19}
-              alt="course"
-              className="object-contain hidden sm:block"
-            />
-            <p className="font-normal text-[14px] sm:text-[8px] text-[#414449] leading-[24px] lgx:leading-4 sm:leading-[11.54px] w-[54px] sm:w-[30.9px]">
-              +46 <span className="text-[#8B8B8B]">Teams</span>
-            </p>
-          </div>
-          <div
-            className={` absolute bg-[#fff] flex justify-center gap-[16px] lg:gap-[8px] sm:gap-[1.72px] sm:items-center rounded-[4px] w-[146px] lgx:w-[126px] sm:w-[83.55px] border-[0.99px] border-[#E4E7EC] px-[20px] lgx:px-[10px] py-[10px] lgx:py-[6px] shadow-def transition-all duration-1000 ease-in-out ${
-              load
-                ? "bottom-[232px] xxl:bottom-[200px] lgx:bottom-[140px] md:bottom-[170px] sm:bottom-[310px] xm:bottom-[210px] sxm:bottom-[150px] right-[513px] xxl:right-[450px] xl:right-[470px] lgx:right-[370px] lg:right-[340px] md:right-[290px] sm:right-[440px] xm:right-[290px] xxm:right-[260px] xxxm:right-[270px] xxxxm:right-[260px] ssxm:right-[240px] sxm:right-[200px]"
-                : "bottom-[182px] xxl:bottom-[140px] lgx:bottom-[110px] md:bottom-[130px] sm:bottom-[280px] xm:bottom-[180px] sxm:bottom-[120px] right-[613px] 1xl:right-[540px] xxl:right-[480px] xl:right-[500px] lgx:right-[400px] lg:right-[390px] md:right-[320px] sm:right-[470px] xm:right-[320px] xxm:right-[280px] xxxm:right-[300px] xxxxm:right-[280px] ssxm:right-[260px] sxm:right-[220px]"
-            }`}
-          >
-            <Image
-              src="/mentors.png"
-              width={33}
-              height={33}
-              alt="mentors"
-              className="object-contain sm:hidden"
-            />
-            <Image
-              src="/mentors-mobile.png"
-              width={19}
-              height={19}
-              alt="mentors"
-              className="object-contain hidden sm:block"
-            />
-            <p className="font-normal w-[58px] sm:w-[33.19px] text-[14px] sm:text-[8px] text-[#414449] leading-[20.85px] lgx:leading-4 sm:leading-[11.93px]">
-              +250 <span className="text-[#8B8B8B]">Mentors</span>
-            </p>
-          </div>
-          <div
-            className={` absolute bg-[#fff] w-[161px] lgx:w-[141px] sm:w-[99.29px] flex sm:items-center justify-center gap-[17px] lg:gap-[8px] sm:gap-[2.29px] rounded-[4px] border-[0.9px] border-[#E4E7EC]  py-[12px] lgx:py-2 shadow-ghi transition-all duration-1000 ease-in-out ${
-              load
-                ? "bottom-[200px] xxl:bottom-[160px] sm:bottom-[180px] xm:bottom-[140px] right-[100px] xxl:right-[50px] sm:right-[60px] xm:right-[40px]"
-                : "bottom-[134px] sm:bottom-[140px] xm:bottom-[100px] right-[0px] sm:right-[40px] xm:right-[10px]"
-            }`}
-          >
-            <Image
-              src="/live.png"
-              width={33}
-              height={33}
-              alt="live"
-              className="object-contain sm:hidden"
-            />
-            <Image
-              src="/live-mobile.png"
-              width={19}
-              height={19}
-              alt="live"
-              className="object-contain hidden sm:block"
-            />
-            <p className="w-[84px] sm:w-[48.07px] font-normal text-[14px] sm:text-[8.01px] text-[#414449] leading-[18.96px] lgx:leading-4 sm:leading-[10.85px]">
-              +50
-              <br /> <span className="text-[#8B8B8B]">Live projects</span>
-            </p>
-          </div>
-          <Image
-            src="/tiny-star.png"
-            width={25}
-            height={24}
-            alt="tiny star"
-            className="absolute top-[112.38px] 1xl:top-[70px] lgx:top-[25px] sm:top-[20px] left-[110.88px] xxl:left-[100px] lgx:left-[60px] sm:left-[37px]"
-          />
-          <Image
-            src="/hero-star.png"
-            width={59}
-            height={59}
-            alt="big star"
-            className="absolute top-[112.38px] 1xl:top-[70px]  sm:top-[10px] right-[753px] 1xl:right-[650px] xxl:right-[620px] lgx:right-[520px] lg:right-[500px] md:right-[400px] sm:right-[20px] z-[0]"
-          />
         </section>
         <section className="h-[64px] sm:h-[40px] bg-[#fff]"></section>
         <section className="font-onest px-[80px] xl:px-[25px] xm:px-[16px] py-[48px] sm:py-[32px] bg-[#F9F9F9]">
@@ -603,7 +553,7 @@ const Landing = () => {
             className="absolute top-[0] right-[16px] lgx:block hidden"
           />
         </section>
-        
+
         <section className="font-onest flex justify-between sm:flex-col px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
           <div>
             <h3 className="font-semibold w-[768px] xl:w-[720px] lgx:w-[630px] lg:w-[560px] md:w-[510px] sm:w-[100%] text-[48px] xl:text-[44px] lgx:text-[36px] md:text-[32px] leading-[52.8px] sm:leading-[35.2px] text-[#121927] mb-[20px] sm:mb-[0px] sm:text-center">
@@ -862,11 +812,10 @@ const Landing = () => {
           </div>
         </section>
 
-        <section className="pb-[96px] sm:pb-0 "> 
+        <section className="pb-[96px] sm:pb-0 ">
           <Expertise />
-
         </section>
-        
+
         <section className="flex items-center sm:flex-wrap px-[80px] xl:px-[25px] xm:px-[16px] gap-[50px] lgx:gap-[30px] sm:gap-[0] py-[160px] sm:py-[52px] bg-[#F5F8FF]">
           <div>
             <Image
