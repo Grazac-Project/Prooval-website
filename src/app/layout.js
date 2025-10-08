@@ -1,7 +1,5 @@
-// import { Space_Grotesk, Montserrat, Inter } from 'next/font/google'
 
 import localFont from "next/font/local";
-import { Onest } from "next/font/google";
 import "./globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,104 +8,31 @@ import GoogleAnalytics from "@/components/googleAnalytics";
 import RouteTracker from "@/components/RouteTracker";
 import Error from "./error";
 
-// const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
-const onest = Onest({
-  subsets: ["latin"],
-  variable: "--font-onest",
-  display: "swap",
-});
-
-const whyte = localFont({
+const satoshi = localFont({
   src: [
     {
-      path: "../../public/fonts/Whyte/Whyte-Regular.ttf",
-      weight: "400",
-    },
-    {
-      path: "../../public/fonts/Whyte/Whyte-Medium.ttf",
-      weight: "500",
-    },
-    {
-      path: "../../public/fonts/Whyte/Whyte-Bold.ttf",
-      weight: "700",
-    },
-  ],
-  variable: "--font-whyte",
-});
-const inter = localFont({
-  src: [
-    {
-      path: "../../public/fonts/Inter/Inter-Regular.ttf",
-      weight: "400",
-    },
-    {
-      path: "../../public/fonts/Inter/Inter-Medium.ttf",
-      weight: "500",
-    },
-    {
-      path: "../../public/fonts/Inter/Inter-SemiBold.ttf",
-      weight: "600",
-    },
-    {
-      path: "../../public/fonts/Inter/Inter-Bold.ttf",
-      weight: "700",
-    },
-    {
-      path: "../../public/fonts/Inter/Inter-ExtraBold.ttf",
-      weight: "800",
-    },
-  ],
-  variable: "--font-inter",
-});
-const myFont = localFont({
-  src: [
-    {
-      path: "../../public/fonts/Montserrat/Montserrat-Regular.ttf",
-      weight: "400",
-    },
-    {
-      path: "../../public/fonts/Montserrat/Montserrat-Medium.ttf",
-      weight: "500",
-    },
-    {
-      path: "../../public/fonts/Montserrat/Montserrat-SemiBold.ttf",
-      weight: "600",
-    },
-    {
-      path: "../../public/fonts/Montserrat/Montserrat-Bold.ttf",
-      weight: "700",
-    },
-    {
-      path: "../../public/fonts/Montserrat/Montserrat-ExtraBold.ttf",
-      weight: "800",
-    },
-  ],
-  variable: "--font-montserrat",
-});
-const spaceGrotesk = localFont({
-  src: [
-    {
-      path: "../../public/fonts/Space_Grotesk/SpaceGrotesk-Light.ttf",
+      path: "../../public/fonts/Satoshi/Satoshi-Light.woff2",
       weight: "300",
     },
     {
-      path: "../../public/fonts/Space_Grotesk/SpaceGrotesk-Regular.ttf",
+      path: "../../public/fonts/Satoshi/Satoshi-Regular.woff2",
       weight: "400",
     },
     {
-      path: "../../public/fonts/Space_Grotesk/SpaceGrotesk-Medium.ttf",
+      path: "../../public/fonts/Satoshi/Satoshi-Medium.woff2",
       weight: "500",
     },
     {
-      path: "../../public/fonts/Space_Grotesk/SpaceGrotesk-SemiBold.ttf",
-      weight: "600",
-    },
-    {
-      path: "../../public/fonts/Space_Grotesk/SpaceGrotesk-Bold.ttf",
+      path: "../../public/fonts/Satoshi/Satoshi-Bold.woff2",
       weight: "700",
     },
+    {
+      path: "../../public/fonts/Satoshi/Satoshi-Black.woff2",
+      weight: "900",
+    },
   ],
-  variable: "--font-space-grotesk",
+  display: 'swap',
+  variable: "--font-satoshi",
 });
 
 export const metadata = {
@@ -128,7 +53,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={` ${myFont.variable} ${spaceGrotesk.variable} ${inter.variable} ${whyte.variable} ${onest.variable}`}
+        className={`${satoshi.variable}`}
       >
         {/* <Script
           id="tawk-to"
