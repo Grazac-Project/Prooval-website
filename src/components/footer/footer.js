@@ -1,12 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-// import Classes from "./footer.module.css";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import { newsLetterSub } from "@/api/authentication/auth";
 import { useState } from "react";
-import { FaLinkedin, FaInstagram } from "react-icons/fa";
-import { BsTwitterX } from "react-icons/bs";
 import Modal from "../modal/subscribeModal";
 
 const initialValues = {
@@ -61,10 +58,10 @@ const Footer = () => {
     onSubmit,
   });
   return (
-    <footer className="font-satoshi bg-[#121927] px-[80px] xl:px-[25px] xm:px-[16px] mt-[80px]">
+    <footer className="font-satoshi bg-[#121927] px-[80px] pt-[48px] pb-[10px] xl:px-[25px] xm:px-[16px] mt-[80px]">
       {open && <Modal close={close} />}
-      <div className="flex md:flex-col justify-between sm:gap-[32px]">
-        <div className="pb-[64px] xm:pb-[24px] sm:order-3">
+      <div className="flex flex-wrap justify-between pb-[16px] border-b-[1px] border-[#FFFFFF0A]">
+        <div className="xm:pb-[24px]">
           <Link href="/">
             <Image
               src="/proovalLogoWhite.png"
@@ -73,125 +70,173 @@ const Footer = () => {
               alt="hackthejobs logo"
             />
           </Link>
-
-          <ul className="flex xm:flex-col gap-[27px] xm:gap-[16px] pt-[32px]">
-          
-            <Link href="/about-us">
-              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
-                About
-              </li>
-            </Link>
-            <Link href="/faq">
-              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
-                FAQ
-              </li>
-            </Link>
-            <Link href="/donation">
-              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
-                Donation
-              </li>
-            </Link>
-            <Link href="/mentor">
-              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
-                Mentor
-              </li>
-            </Link>{" "}
-            <Link href="/spm">
-              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
-                PM
-              </li>
-            </Link> 
-            <Link href="/terms">
-              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
-                Terms
-              </li>
-            </Link>
-            <Link href="/privacy">
-              <li className="font-normal text-[16px] leading-[20.8px] text-[#4F4F4F]">
-                Privacy
-              </li>
-            </Link>
-          </ul>
-          <ul className="flex gap-[24.5px] mt-[16px]">
-            <a href="https://www.linkedin.com/company/hackthejobs">
-              <li>
-                <FaLinkedin className="text-[24px]" />
-              </li>
-            </a>
-            <a href="http://www.x.com/hackthejobs">
-              <li>
-                <BsTwitterX className="text-[24px]" />
-              </li>
-            </a>
-            <a href="http://www.instagram.com/hackthejobs">
-              <li>
-                <FaInstagram className="text-[24px]" />
-              </li>
-            </a>
-          </ul>
+          <div className="pt-[12px] font-normal text-[12px] leading-[160%] text-[#FFFFFFCC] pb-[24px] w-[292px] sm:w-full sm:text-[14px]">
+            <p>
+              Join our community and get open access to people of like minds.
+              Build connections that will last throughout your career.
+            </p>
+          </div>
+          <div className="flex gap-[8px] items-center">
+            <div className="flex items-center text-[#ffffff] border-[1px] border-[#FFFFFF1A] rounded-[24px] gap-[4px] p-[8px] sm:px-[12px] shadow-lg xm:[126px]">
+              <img src="/mail.png" className="xm:w-[13.33px]  sxm:w-[10px]" />
+              <span className="text-[12px] xm:text-[10px] sxm:text-[8px] font-normal font-satoshi leading-[160%]">
+                mail@prooval.com
+              </span>
+            </div>
+            <div className="flex items-center text-[#ffffff] border-[1px] border-[#FFFFFF1A] rounded-[24px] gap-[4px] p-[8px] sm:px-[12px] shadow-lg">
+              <img src="/call_end.png" className="xm:w-[16px] sxm:w-[11px] " />
+              <span className="text-[12px] xm:text-[10px] sxm:text-[8px] font-normal font-satoshi leading-[160%]">
+                +22 902900292
+              </span>
+            </div>
+            <div className="flex items-center text-[#ffffff] border-[1px] border-[#FFFFFF1A] rounded-[24px] gap-[4px] p-[8px] sm:px-[12px] shadow-lg">
+              <img src="location.png" className="sxm:w-[10px]" />
+              <span className="text-[12px] xm:text-[10px] sxm:text-[8px] font-normal font-satoshi leading-[160%]">
+                Nigeria
+              </span>
+            </div>
+          </div>
         </div>
-        <div className="order-1">
-          <h5 className="font-medium text-[14px] text-[#101828] leading-[19.6px] tracking-[2%] pb-[16px] xm:pb-[8px]">
-            Stay updated
-          </h5>
-          {errorResponse && <p className="text-[#fc8181]">{errorResponse}</p>}
-          <form
-            className="flex flex-wrap xm:block gap-[6px]"
-            onSubmit={handleSubmit}
-          >
-            <div className=" xm:mb-[8px] py-[0px]">
-              <input
-                type="text"
-                id="fullName"
-                placeholder="Enter your full name"
-                value={values.fullName}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className="font-inter w-[208px] h-[44px] placeholder:overflow-visible lg:w-[150px] md:w-[150px] xm:w-[100%] px-[14px] py-[10px] md:py-[6px] font-normal text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD]"
-              />
-              {errors.fullName && touched.fullName && (
-                <p className="text-[#fc8181]">{errors.fullName}</p>
-              )}
+        <div className="flex gap-6 sm:flex-col xm:w-full">
+          <div className="flex gap-6">
+            <div className="w-[137px] lgx:w-[100px] ">
+              <p className="font-bold text-[14px] leading-[20px] text-[#FFFFFFCC] pb-[16px]">
+                Links
+              </p>
+              <ul className="flex flex-col space-y-[10px]">
+                <Link href="/">
+                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
+                    Home
+                  </li>
+                </Link>
+                <Link href="/about-us">
+                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
+                    About
+                  </li>
+                </Link>
+                <Link href="/faq">
+                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
+                    FAQ
+                  </li>
+                </Link>
+                <Link href="/pricing">
+                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
+                    Pricing
+                  </li>
+                </Link>
+                <Link href="#">
+                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
+                    Contact Us
+                  </li>
+                </Link>
+              </ul>
             </div>
-            <div className="xm:mb-[8px]">
-              <input
-                type="text"
-                id="email"
-                placeholder="Enter your email"
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                className="font-inter overflow-visible w-[208px] h-[44px] placeholder:overflow-visible lg:w-[150px] md:w-[150px] xm:w-[100%] p-[14px] font-normal text-[16px] leading-[20.8px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
-              />
-              {errors.email && touched.email && (
-                <p className="text-[#fc8181]">{errors.email}</p>
-              )}
+            <div className="w-[117px]">
+              <p className="font-bold text-[14px] leading-[20px] text-[#FFFFFFCC] pb-[16px]">
+                Explore
+              </p>
+              <ul className="flex flex-col space-y-[10px]">
+                <Link href="#">
+                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
+                    Digital Products
+                  </li>
+                </Link>
+                <Link href="#">
+                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
+                    Marketplace
+                  </li>
+                </Link>
+                <Link href="#">
+                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
+                    Resources
+                  </li>
+                </Link>
+                <Link href="#">
+                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
+                    Bookings
+                  </li>
+                </Link>
+                <Link href="#">
+                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
+                    Webinar
+                  </li>
+                </Link>
+              </ul>
             </div>
-            <div className="h-[44px]">
-              <button
-                type="submit"
-                className="disabled:opacity-[35%] w-[135.93px] h-[100%] xm:w-[100%] rounded-[6.29px] px-[31.43px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center"
-              >
-                {loader ? (
-                  <Image
-                    src="/loader.gif"
-                    width={16}
-                    height={16}
-                    alt="loader"
-                    className="mx-auto"
-                    unoptimized={true}
-                  />
-                ) : (
-                  "Subscribe"
+          </div>
+          <div>
+            <h5 className="font-medium text-[12px] text-[#FFFFFF] leading-[140%] tracking-[2%] pb-[16px] xm:pb-[18px]">
+              Stay updated with our newsletter
+            </h5>
+            {errorResponse && <p className="text-[#fc8181]">{errorResponse}</p>}
+            <form
+              className="flex flex-col xm:block gap-[6px]"
+              onSubmit={handleSubmit}
+            >
+              <div className=" xm:mb-[8px] py-[0px]">
+                <input
+                  type="text"
+                  id="fullName"
+                  placeholder="Enter your full name"
+                  value={values.fullName}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className="font-satoshi w-[310px] xm:w-[100%] h-[48px] placeholder:overflow-visible px-[14px] py-[13.5px] font-normal text-[16px] leading-[130px] text-[rgba(102, 112, 133, 1))] rounded-[8px] border-[1px] border-[#D0D5DD]"
+                />
+                {errors.fullName && touched.fullName && (
+                  <p className="text-[#fc8181]">{errors.fullName}</p>
                 )}
-              </button>
-            </div>
-          </form>
+              </div>
+              <div className="xm:mb-[8px]">
+                <input
+                  type="text"
+                  id="email"
+                  placeholder="Enter your email"
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className="font-satoshi overflow-visible w-[310px] xm:w-[100%] h-[48px] placeholder:overflow-visible px-[14px] py-[13.5px] font-normal text-[16px] leading-[130px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
+                />
+                {errors.email && touched.email && (
+                  <p className="text-[#fc8181]">{errors.email}</p>
+                )}
+              </div>
+              <div className="h-[44px]">
+                <button
+                  type="submit"
+                  className="disabled:opacity-[35%] w-[310px] h-[48px] xm:w-[100%] rounded-[6.29px] px-[31.43px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center"
+                >
+                  {loader ? (
+                    <Image
+                      src="/loader.gif"
+                      width={16}
+                      height={16}
+                      alt="loader"
+                      className="mx-auto"
+                      unoptimized={true}
+                    />
+                  ) : (
+                    "Subscribe"
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-      <h6 className="font-normal text-[16px] leading-[20.8px] text-center xm:text-start text-[#333333] border-[#EAECF0] border-t-[1px] pt-[32px] pb-[48px] md:mt-[40px] sm:mt-[0px]">
-        &copy; {new Date().getFullYear()} HACK THEJOBS TECHNOLOGIES LTD. All rights reserved.
-      </h6>
+      <div className="flex justify-between pt-[20px] pb-[48px]  ">
+        <h6 className="font-normal text-[12px] leading-[16px] text-[#FFFFFFCC]">
+          &copy; {new Date().getFullYear()} Proovals
+        </h6>
+        <div className="flex gap-4 text-[12px] font-satoshi text-[#FFFFFFCC] leading-[16px] font-normal">
+          <Link href="/terms">
+            <h1>Terms & condition</h1>
+          </Link>
+          <Link href="/privacy">
+            <h1>Privacy Policy</h1>
+          </Link>
+        </div>
+      </div>
     </footer>
   );
 };

@@ -1,14 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
-import ValueCard from "@/components/valueCard/valueCard";
-import { MdVerified } from "react-icons/md";
-import {
-  card,
-  valueCards,
-  imageCards,
-  testimonials,
-} from "@/constants/constant";
+import { card, valueCards, testimonials } from "@/constants/constant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -19,12 +12,10 @@ import "react-loading-skeleton/dist/skeleton.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Modal from "@/components/modal/modal";
-import { fetchMentors } from "@/api/authentication/auth";
 import useAnalytics from "@/components/useAnalytics";
-import Expertise from "@/components/expertise/page";
-import Cookies from "js-cookie";
-import { FaArrowRightLong } from "react-icons/fa6";
 import { TypeAnimation } from "react-type-animation";
+import { motion, useAnimation } from "framer-motion";
+import { RiDoubleQuotesL } from "react-icons/ri";
 
 const professionals = [
   {
@@ -58,126 +49,81 @@ const professionals = [
     image: "/professional_3.jpg",
   },
 ];
+
+const testimonialsTop = [
+  {
+    name: "Jane Doe",
+    role: "CEO, Grazac LTD",
+    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    image: "/testimonial_1.png",
+    icon: <RiDoubleQuotesL />,
+  },
+  {
+    name: "Jane Doe",
+    role: "CEO, Grazac LTD",
+    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    image: "/testimonial_1.png",
+    icon: <RiDoubleQuotesL />,
+  },
+  {
+    name: "Jane Doe",
+    role: "CEO, Grazac LTD",
+    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    image: "/testimonial_1.png",
+    icon: <RiDoubleQuotesL />,
+  },
+  {
+    name: "Jane Doe",
+    role: "CEO, Grazac LTD",
+    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    image: "/testimonial_1.png",
+    icon: <RiDoubleQuotesL />,
+  },
+];
+
+const testimonialsBottom = [
+  {
+    name: "Jane Doe",
+    role: "CEO, Grazac LTD",
+    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    image: "/testimonial_1.png",
+    icon: <RiDoubleQuotesL />,
+  },
+  {
+    name: "Jane Doe",
+    role: "CEO, Grazac LTD",
+    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    image: "/testimonial_1.png",
+    icon: <RiDoubleQuotesL />,
+  },
+  {
+    name: "Jane Doe",
+    role: "CEO, Grazac LTD",
+    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    image: "/testimonial_1.png",
+    icon: <RiDoubleQuotesL />,
+  },
+  {
+    name: "Jane Doe",
+    role: "CEO, Grazac LTD",
+    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    image: "/testimonial_1.png",
+    icon: <RiDoubleQuotesL />,
+  },
+];
 const Landing = () => {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
-  const [angle, setAngle] = useState("2.93deg");
-  const [color, setColor] = useState("#F2C003");
-  const [border, setBorder] = useState("#FFEFB2");
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [dotPosition, setDotPosition] = useState(1);
   const [load, setLoad] = useState(false);
-  const [logo, setLogo] = useState(false);
-  const [logo1, setLogo1] = useState(false);
-  const [logo2, setLogo2] = useState(false);
-  const [logo3, setLogo3] = useState(false);
-  const [logo4, setLogo4] = useState(false);
-  const [listOfMentors, setListOfMentors] = useState([]);
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
-  const logoSettings = {
-    dots: false,
-    infinite: true,
-    speed: 900,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    nextArrow: false,
-    dotsClass: "slick-dots custom-dots",
-    beforeChange: (current, next) => setCurrentSlide(next),
-
-    afterChange: (index) => setCurrentSlide(index),
-  };
-  const mentorSettings = {
-    dots: false,
-    infinite: true,
-    speed: 900,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    centerMode: true,
-    centerPadding: "15px",
-    arrows: false,
-    nextArrow: false,
-    prevArrow: false,
-    dotsClass: "slick-dots custom-dots",
-    beforeChange: (current, next) => setCurrentSlide(next),
-
-    afterChange: (index) => setCurrentSlide(index),
-  };
-
-  const goToSlide = (index, i) => {
-    if (index === i) {
-      sliderRef.slickGoTo(i);
-      // setCurrentSlide(i);
-      setDotPosition(i);
-    }
-    sliderRef.slickGoTo(i);
-    // setCurrentSlide(i);
-    setDotPosition(i);
-  };
-
-  const handleMouseOver = () => {
-    setLoad(true);
-  };
-
-  const handleLogoEvent = () => {
-    setLogo((prev) => !prev);
-  };
-  const handleLogoEvent1 = () => {
-    setLogo1((prev) => !prev);
-  };
-  const handleLogoEvent2 = () => {
-    setLogo2((prev) => !prev);
-  };
-  const handleLogoEvent3 = () => {
-    setLogo3((prev) => !prev);
-  };
-  const handleLogoEvent4 = () => {
-    setLogo4((prev) => !prev);
-  };
 
   const handleContact = () => {
     router.push("/faq#contact-form");
   };
-  useEffect(() => {
-    fetchMentors("")
-      .then((res) => {
-        // console.log(res);
-        // console.log(res.data.data.mentors[0].firstName);
-        const mentors = res.data.data.mentors;
-        const mentorsSlice = mentors.slice(0, 8);
-        setListOfMentors(mentorsSlice);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setAngle((prevAngle) => {
-        return prevAngle === "-2.93deg" ? "2.93deg" : "-2.93deg";
-      });
-      setColor((prevColor) => {
-        return prevColor === "#F2C003" ? "#1453ff" : "#F2C003";
-      });
-      setBorder((prevColor) => {
-        return prevColor === "#FFEFB2" ? "#B3C7FF" : "#FFEFB2";
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-  // console.log(listOfMentors);
 
   const GA_TRACKING_ID = "G-JS3RNTYLD8";
   useAnalytics(GA_TRACKING_ID);
-  const handleMentorClick = (mentorSlug) => {
-    Cookies.set("mentorSlug", mentorSlug, { expires: 7 });
-    router.push(`/mentors/${mentorSlug}`);
-  };
   return (
     <div className="overflow-x-hidden ">
       <Navbar />
@@ -186,12 +132,11 @@ const Landing = () => {
         {/* Hero Section */}
         <section className="font-satoshi mx-auto relative bg-[#FFFFFF]">
           <div className="flex flex-col items-center justify-center text-center py-[48px]">
-            {/* Heading */}
             <h1 className="font-bold text-[60px] text-center xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[40px] xm:text-[35px] xxm:text-[30px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px] text-[#121927]">
               Monetize Your
             </h1>
 
-            {/* Typing animation + static text */}
+            {/* Typing animation */}
             <div className="flex flex-wrap justify-center items-center gap-2">
               <TypeAnimation
                 sequence={[
@@ -212,7 +157,6 @@ const Landing = () => {
               </span>
             </div>
 
-            {/* Paragraph & Buttons */}
             <div className="max-w-[989px] lgx:w-[700px] xm:w-[100%] xm:px-[21.5px] pt-4">
               <p className="font-normal text-[18px]  leading-[160%] text-[#727272] pb-8">
                 Turn what you know into income by hosting webinars, selling
@@ -222,7 +166,7 @@ const Landing = () => {
               </p>
 
               <div className="flex justify-center gap-4 sxm:gap-2">
-                <Link href="/mentors">
+                <Link href="/professionals">
                   <button className="w-[226px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-[16px] text bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border border-[#DADADA] sxm:text-[14px]">
                     View All Experts
                   </button>
@@ -235,7 +179,6 @@ const Landing = () => {
               </div>
             </div>
           </div>
-          {/* Hero Image  */}
           <div className="relative w-full max-w-[1200px] mx-auto mt-16 mb-[80px] font-satoshi">
             {/* Main Image */}
             <div className="w-full">
@@ -245,10 +188,9 @@ const Landing = () => {
                 className="w-full h-auto "
               />
             </div>
-            {/* Yellow Stats Card */}
+            {/* Yellow Card */}
             <div className="absolute left-[-20px] bottom-[100px] sm:left-2 sm:bottom-2 bg-[#FFCA01] text-[#FBFCFD] rounded-xl shadow-lg py-[32px] px-[26px] w-[351px] xm:w-[112.42px] xm:py-[9.89px] xm:px-[7.98px] xm:bottom-[40px] lgx:w-[300px] lgx:py-[25px] lgx:px-[25px] lgx:left-[20px] md:w-[200px] md:py-[15px] md:px-[15px] md:bottom-[60px] sxm:bottom-[20px]">
               <div className="flex flex-col space-y-2">
-                {/* Digital Products */}
                 <div className="flex items-center justify-between bg-[#0000001A] p-2 xm:p-1 lgx:p-2 md:p-2 rounded-md">
                   <div className="flex flex-col">
                     <span className="text-[30.72px] xm:text-[9.84px] lgx:text-[16px] font-semibold leading-[101.01%]">
@@ -265,7 +207,6 @@ const Landing = () => {
                   />
                 </div>
 
-                {/* Page Views */}
                 <div className="flex items-center justify-between bg-[#0000001A] p-2 xm:p-1 rounded-md lgx:p-2">
                   <img
                     src="/pageView.png"
@@ -282,7 +223,6 @@ const Landing = () => {
                   </div>
                 </div>
 
-                {/* Sessions Booked */}
                 <div className="flex items-center justify-between bg-[#0000001A] p-2 xm:p-1 rounded-md lgx:p-2">
                   <div className="flex flex-col">
                     <span className="text-[30.72px] xm:text-[9.84px] lgx:text-[16px] font-semibold leading-[101.01%]">
@@ -301,9 +241,8 @@ const Landing = () => {
               </div>
             </div>
 
-            {/* Badge - Top center */}
+            {/* Badge - Top*/}
             <div className="absolute top-[20px] right-[350px] lgx:right-[300px] md:right-[220px] xm:right-[100px] z-10 bg-[#FFFFFF] rounded-[4px] shadow-md border-[#E4E7EC] border-[1px] flex items-center gap-[17.5px] px-[20px] py-[24.5px] md:px-[15px] md:py-[15px] xm:px-[9px] xm:py-[9px] xm:gap-[8px] xm:top-[-5px] sxm:right-[60px] sxm:p-[5px] sxm:gap-[2px]">
-              {/* Icon on the left */}
               <img
                 src="/preview_sign.png"
                 alt="coin"
@@ -319,7 +258,7 @@ const Landing = () => {
               </div>
             </div>
 
-            {/* Badge - Mid Right */}
+            {/* Badge-Right */}
             <div className="absolute top-[45%] right-[-15px] lgx:right-[15px] lgx:top-[35%] lgx:px-[12px] lgx:py-[12px] lgx:gap-[12px] md:px-[10px] md:py-[10px] md:gap-[10px] xm:px-[8px] xm:py-[8px] xm:gap-[8px] sxm:px-[5px] sm:py-[5px] bg-white rounded-[4px] shadow-md flex items-center gap-[17.5px] px-[20px] py-[12px] bg-[#FFFFFF]">
               <img
                 src="/preview_sign.png"
@@ -370,8 +309,8 @@ const Landing = () => {
           </div>
         </section>
 
-        <section className="font-satoshi px-[80px] lgx:px-[25px] xm:px-[16px] pt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
-          <div className="flex flex-col items-center sm:px-[26px] xxm:px-[16px] sxm:px-[8px] sm:flex-col">
+        <section className="font-satoshi bg-[url(/background.png)] bg-center px-[80px] lgx:px-[25px] xm:px-[16px] mt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
+          <div className="flex flex-col items-center py-[80px] sm:px-[26px] xxm:px-[16px] sxm:px-[8px] sm:flex-col">
             <h3 className="font-bold w-[924px] text-center md:w-[100%] md:leading-[48px] sm:w-[100%] text-[48px] sm:text-[30px] lgx:text-[36px] md:text-[32px] leading-[56px] sm:leading-[35.2px] text-[#121927] mb-[20px]">
               See all trusted experts and picture your profile right alongside
               them.
@@ -388,7 +327,7 @@ const Landing = () => {
           </div>
 
           <div className="w-full max-w-[1200px] mx-auto px-4 py-10">
-            {/* ✅ Desktop & Tablet: Static Layout */}
+            {/* Static Layout */}
             <div className="sm:hidden flex justify-center gap-2 md:flex-wrap">
               {professionals.map((pro, index) => (
                 <div
@@ -401,10 +340,6 @@ const Landing = () => {
                     alt={pro.name}
                     className="w-full h-full object-cover"
                   />
-
-                  {/* <div className="absolute inset-0 bg-gradient-to-t[#00000000] from-black to-transparent"></div> */}
-
-                  {/* Text Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-2 z-10 ">
                     <h3 className="font-medium text-[16px] text-[#fff]">
                       {pro.name}
@@ -417,7 +352,7 @@ const Landing = () => {
               ))}
             </div>
 
-            {/* ✅ Mobile: Carousel */}
+            {/* Mobile Carousel */}
             <div className="sm:block 3xl:hidden">
               <Slider
                 dots={false}
@@ -444,7 +379,6 @@ const Landing = () => {
 
                       <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
 
-                      {/* Text */}
                       <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
                         <h3 className="font-medium text-[16px] text-[#fff]">
                           {pro.name}
@@ -461,7 +395,71 @@ const Landing = () => {
           </div>
         </section>
 
-        <section className="w-[100%] font-satoshi flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] lgx:px-[80px] md:px-[40px] xl:px-[25px] xm:px-[16px] py-[80px] sm:py-[52px] ">
+        <section className="pt-[80px] pb-[80px] font-satoshi">
+          <div className="m-auto w-[800px] lgx:w-[90%] md:w-[100%] text-center px-[16px]">
+            <h1 className="text-[48px] leading-[56px] font-bold text-[#121927]">
+              Limitless ways to share your expertise across board
+            </h1>
+            <p className="font-normal text-[16px] leading-[160%] text-[#787878] mt-[20px] mb-[40px]">
+              Every expert adds something unique. Join the growing community of
+              professionals turning their knowledge into impact and income.
+            </p>
+          </div>
+
+          <div className="px-[120px] flex justify-center gap-[19.7px] flex-wrap">
+            <button className="border border-[#DDDDDD] text-[#050212] font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] h-[48px]">
+              1-on-1 bookings
+            </button>
+            <button className="border border-[#DDDDDD] text-[#050212] font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] h-[48px]">
+              Digital Products
+            </button>
+            <button className="border border-[#DDDDDD] text-[#050212] font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] h-[48px]">
+              Package Bookings
+            </button>
+            <button className="border border-[#DDDDDD] text-[#050212] font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] h-[48px]">
+              Resources
+            </button>
+            <button className="border border-[#DDDDDD] text-[#050212] font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] h-[48px]">
+              Webinar
+            </button>
+          </div>
+
+          <div className="px-[80px] mt-[153px] relative flex flex-col items-center">
+            <div className="relative w-full max-w-[1000px] h-[480px]">
+              <img
+                src="/session.png"
+                alt=""
+                className="absolute top-0 right-0 z-[1]"
+              />
+              <img
+                src="/digital_product.png"
+                alt=""
+                className="absolute top-[20px] right-[20px] z-[2]"
+              />
+              <img
+                src="/package_session.png"
+                alt=""
+                className="absolute top-[40px] right-[40px] z-[3]"
+              />
+              <img
+                src="/resources_1.png"
+                alt=""
+                className="absolute top-[60px] right-[60px] z-[4]"
+              />
+              <img
+                src="/webinar_img.png"
+                alt=""
+                className="absolute top-[80px] right-[80px] z-[5]"
+              />
+            </div>
+
+            <button className="mt-[24px] bg-primary border border-[#DDDDDD] text-[#FFFFFF] font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] h-[48px]">
+              Start Creating
+            </button>
+          </div>
+        </section>
+
+        <section className="w-[100%] bg-[#F5F8FF] font-satoshi flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] lgx:px-[80px] md:px-[40px] xl:px-[25px] xm:px-[16px] py-[80px] sm:pt-[52px] sm:pb-0 md:py-[40px] ">
           <div className="bg-[#1453FF] w-[429px] pt-[103.81px] px-[34px] rounded-[16px] md:w-[300px] sm:w-full sm:pb-[48px] relative">
             <h4 className="text-[60px] font-bold leading-[68px] text-[#FBFCFD] pb-[24px] md:text-[30px] md:leading-[36px]">
               Get Onboarded in Four Easy Steps!
@@ -502,9 +500,71 @@ const Landing = () => {
           </div>
         </section>
 
-        <section className="w-full flex justify-center items-center px-[80px] md:px-[40px] xl:px-[25px] xm:px-[16px] ">
+        <section className="sm:pt-[40px]">
+          <div className="w-full font-satoshi bg-[url(/background.png)] bg-cover bg-center py-[50px] sm:py-[19.06px] overflow-hidden">
+            <div>
+              <h1 className="text-[#121927] font-bold text-[48px] leading-[56px] mx-auto text-center mb-[40px] w-[978px] md:w-[100%] sm:text-[30px] sm:leading-[38px]">
+                Words from people who have interacted with us
+              </h1>
+            </div>
+            <motion.div
+              className="flex gap-6 sm:gap-4"
+              animate={{ x: ["-100%", "0%"] }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            >
+              {[...testimonialsTop, ...testimonialsTop].map((t, i) => (
+                <div
+                  key={i}
+                  className="sm:min-w-[100%] sm:max-w-[100%] min-w-[400px] max-w-[400px] bg-[#FAFAFA] p-8 rounded-xl shadow-xl flex flex-col justify-between sm:p-4"
+                >
+                  <p className="text-[80px] font-normal text-[#1453FF] mb-2">
+                    {t.icon}
+                  </p>
+                  <p className="text-[#787878] text-base mb-8">{t.text}</p>
+                  <div className="flex gap-2">
+                    <img src={t.image} alt={t.name} />
+                    <div>
+                      <h4 className="font-bold text-base text-[#787878]">
+                        {t.name}
+                      </h4>
+                      <p className="text-xs text-[#787878]">{t.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              className="flex gap-6 mt-8"
+              animate={{ x: ["0%", "-100%"] }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            >
+              {[...testimonialsBottom, ...testimonialsBottom].map((t, i) => (
+                <div
+                  key={i}
+                  className="min-w-[400px] max-w-[400px] bg-[#FAFAFA] p-8 rounded-xl shadow-xl flex flex-col justify-between"
+                >
+                  <p className="text-[80px] font-normal text-[#1453FF] mb-2">
+                    {t.icon}
+                  </p>
+                  <p className="text-[#787878] text-base mb-8">{t.text}</p>
+                  <div className="flex gap-2">
+                    <img src={t.image} alt={t.name} />
+                    <div>
+                      <h4 className="font-bold text-base text-[#787878]">
+                        {t.name}
+                      </h4>
+                      <p className="text-xs text-[#787878]">{t.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="w-full flex justify-center items-center pt-[40px] px-[80px] md:px-[40px] xl:px-[25px] xm:px-[16px] ">
           <div className="relative w-full bg-[#0057FF] rounded-[24px] text-center text-white overflow-hidden bg-[url(/Stroke_1.svg)] bg-cover bg-center">
-            {/* Top Right Star */}
             <div className="absolute top-11 right-14 w-[59px] h-[59px] sm:w-[28px] sm:h-[28px] sm:top-6 sm:right-7 ">
               <Image
                 src="/Stars.png"
@@ -514,7 +574,6 @@ const Landing = () => {
               />
             </div>
 
-            {/* Bottom Left Star */}
             <div className="absolute bottom-8 left-6 w-[59px] h-[59px] sm:left-5 sm:bottom-7 sm:w-[28px] sm:h-[28px] ">
               <Image
                 src="/Stars.png"
