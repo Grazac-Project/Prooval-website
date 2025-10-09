@@ -23,6 +23,29 @@ import Error from "@/components/error";
 import { getCurrencySymbol } from "@/Utils/currency-formatter";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { getBookings } from "@/api/authentication/auth";
+
+const groupColors = [
+  "#F48025",
+  "#008753",
+  "#FF3535",
+  "#DEA806",
+  "#1E90FF",
+  "#32CD32",
+  "#FF69B4",
+  "#8A2BE2",
+  "#FFD700",
+  "#DC143C",
+  "#00CED1",
+  "#FF7F50",
+  "#6A5ACD",
+  "#20B2AA",
+  "#FF6347",
+  "#40E0D0",
+  "#A0522D",
+  "#7FFF00",
+  "#FF4500",
+  "#2E8B57",
+];
 // De-dupe key (adjust if you have real IDs)
 const keyOf = (c) => `${c.type}::${c.title}`;
 
