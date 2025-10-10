@@ -8,11 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        mont: ["var(--font-montserrat)"],
-        inter: ["var(--font-inter)"],
-        whyte: ["var(--font-whyte)"],
-        grotesk: ["var(--font-space-grotesk)"],
-        onest: ["var(--font-onest)"]
+        satoshi: ["var(--font-satoshi)"]
       },
       boxShadow: {
         abc: "0 2px 8px 0 rgba(0, 0, 0, 0.15)",
@@ -22,7 +18,7 @@ module.exports = {
       },
     },
     screens: {
-      // '3xl': {'max': '2560px'},
+      '3xl': {'max': '2560px'},
       "2xl": { max: "1535px" },
       // => @media (max-width: 1535px) { ... }
       "1xl": { max: "1440px" },

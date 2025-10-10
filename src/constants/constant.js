@@ -1,25 +1,43 @@
-export const cardValues = [
+export const card = [
+  {
+    image: "/one.png",
+    heading: "All-in-One",
+    text: "Every expert adds something unique. Join the growing community of professionals turning their knowledge into impact and income.",
+  },
+  {
+    image: "/group_icon.png",
+    heading: "Get Discovered",
+    text: "Every expert adds something unique. Join the growing community of professionals turning their knowledge into impact and income.",
+  },
+  {
+    image: "/money_icon.png",
+    heading: "100% Easy Payout",
+    text: "Every expert adds something unique. Join the growing community of professionals turning their knowledge into impact and income.",
+  },
+];
+
+export const valueCards = [
   {
     number: 1,
     heading: "Create an Account",
-    text: "Sign up with your name, email, phone number and select a career path.",
+    text: "All naira withdrawal will remain NGN 50. Other currencies are subject to the provider and the expert bears the cost in any case.",
   },
   {
     number: 2,
-    heading: "Access our Mentors",
-    text: "Search through our list of vetted industry experts ready to share their knowledge with you.",
+    heading: "Get Verified",
+    text: "All naira withdrawal will remain NGN 50. Other currencies are subject to the provider and the expert bears the cost in any case.",
   },
   {
     number: 3,
-    heading: "Book a session",
-    text: "Check mentors availability and book a session",
+    heading: "Get Verified",
+    text: "All naira withdrawal will remain NGN 50. Other currencies are subject to the provider and the expert bears the cost in any case.",
   },
   {
     number: 4,
-    heading: "Get work experience",
-    headingSpan:'(Assessment Required)',
-    text: "We match interested talents with other fellows who will work in your team and a senior product manager who will supervise your team. You’d be able to join our talent slack community.",
+    heading: "Get Verified",
+    text: "All naira withdrawal will remain NGN 50. Other currencies are subject to the provider and the expert bears the cost in any case.",
   },
+
 ];
 export const mentorCardValues = [
   {

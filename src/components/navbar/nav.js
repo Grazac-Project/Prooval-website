@@ -59,18 +59,10 @@ const Navbar = () => {
       >
         <div className={Classes.navbar}>
           <Link href="/" className={Classes.logo}>
-            <Image src="/navLogo.svg" alt="logo" width={164} height={36} />
+            <Image src="/proovalLogo.svg" alt="logo" width={100.44} height={36} />
           </Link>
           <nav className={Classes.nav}>
             <ul>
-              {/* <li>
-                <Link
-                  href="/"
-                  style={{ color: pathname === "/" ? "#1453ff" : "#667085" }}
-                >
-                  Home
-                </Link>
-              </li> */}
               <li>
                 <Link
                   href="/about-us"
@@ -91,49 +83,18 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/donation"
+                  href="/pricing"
                   style={{
-                    color: pathname === "/donation" ? "#1453ff" : "#667085",
+                    color: pathname === "/pricing" ? "#1453ff" : "#667085",
                   }}
                 >
-                  Donation
+                  Pricing
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/mentor"
-                  style={{
-                    color: pathname === "/mentor" ? "#1453ff" : "#667085",
-                  }}
-                >
-                  Mentor
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/spm"
-                  style={{
-                    color: pathname === "/spm" ? "#1453ff" : "#667085",
-                  }}
-                >
-                  PM
-                </Link>
-              </li>
-              {/* <li>
-                <Link
-                  href="/hire"
-                  style={{
-                    color: pathname === "/hire" ? "#1453ff" : "#667085",
-                  }}
-                >
-                  Hire
-                </Link>
-              </li> */}
             </ul>
             {token ? (
               <div className="flex items-center space-x-4 relative">
                 <button className=" border border-[#1453FF] rounded-[8px] px-[18px] py-[10px] font-medium text-[#1453FF] text-[12px] bg-[#fff] leading-[150%] tracking-[3%]">
-                  {/* <Link href="https://dashboard.hackthejobs.com/dashboard"> */}
                   <Link
                     href={
                       isProduction === "development"
@@ -197,22 +158,8 @@ const Navbar = () => {
                             View my bookings
                           </Link>
                         </div>
-
-                        {/* <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
-                          <Link
-                            href="https://dashboard.hackthejobs.com/auth/expertise"
-                            // onClick={() => setDropdown(false)}
-                          >
-                            Gain Experience{" "}
-                            <span className="font-[350px] text-[10px] text-[#888888] leading-[120%]">
-                              (become a fellow)
-                            </span>
-                          </Link>
-                        </div> */}
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
                           <Link
-                            // href="https://dashboard.hackthejobs.com/settings"
-                            // href={`${baseUrl}/settings`}
                             href={
                               isProduction === "development"
                                 ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/settings`
@@ -233,9 +180,7 @@ const Navbar = () => {
             ) : (
               <div className={Classes.btnFlex}>
                 <button className={Classes.btnFlex1}>
-                  {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
                   <a
-                    // href="https://dashboard.hackthejobs.com/auth/login"
                     href={
                       isProduction === "development"
                         ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/login`
@@ -247,10 +192,7 @@ const Navbar = () => {
                   </a>
                 </button>
                 <button className={Classes.btnFlex2}>
-                  {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
                   <a
-                    // href="https://dashboard.hackthejobs.com/auth/signup"
-                    // href={`${baseUrl}/auth/signup`}
                     href={
                       isProduction === "development"
                         ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
@@ -315,21 +257,8 @@ const Navbar = () => {
                             View my bookings
                           </Link>
                         </div>
-
-                        {/* <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
-                          <Link
-                            href="https://dashboard.hackthejobs.com/auth/expertise"
-                            onClick={() => setDropdown(false)}
-                          >
-                            Gain Experience{" "}
-                            <span className="font-[350px] text-[10px] text-[#888888] leading-[120%]">
-                              (become a fellow)
-                            </span>
-                          </Link>
-                        </div> */}
                         <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%] border border-[#ffff] border-b-[#EAEAEA]">
                           <Link
-                            // href="https://dashboard.hackthejobs.com/settings"
                             href={
                               isProduction === "development"
                                 ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/settings`

@@ -1,7 +1,7 @@
 .header {
   /* position: relative; */
   background: #ffffff;
-  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15); */
   position: sticky;
   top: 0;
   left: 0;
@@ -15,7 +15,7 @@
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  padding: 20px 0;
+  padding: 38px 0;
 }
 .nav li {
   color: #667085;
@@ -37,11 +37,11 @@
 }
 
 .nav {
-  width: 70%;
+  width: 60%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  justify-items: right;
+  /* justify-items: right; */
 }
 .nav li:hover {
   border-bottom: 2px solid #1453ff;
