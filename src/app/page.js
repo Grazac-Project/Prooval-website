@@ -16,6 +16,7 @@ import useAnalytics from "@/components/useAnalytics";
 import { TypeAnimation } from "react-type-animation";
 import { motion, useAnimation } from "framer-motion";
 import { RiDoubleQuotesL } from "react-icons/ri";
+import InteractiveTabs from "@/components/interactiveTabs";
 
 const professionals = [
   {
@@ -395,69 +396,7 @@ const Landing = () => {
           </div>
         </section>
 
-        <section className="pt-[80px] pb-[80px] font-satoshi">
-          <div className="m-auto w-[800px] lgx:w-[90%] md:w-[100%] text-center px-[16px]">
-            <h1 className="text-[48px] leading-[56px] font-bold text-[#121927]">
-              Limitless ways to share your expertise across board
-            </h1>
-            <p className="font-normal text-[16px] leading-[160%] text-[#787878] mt-[20px] mb-[40px]">
-              Every expert adds something unique. Join the growing community of
-              professionals turning their knowledge into impact and income.
-            </p>
-          </div>
-
-          <div className="px-[120px] flex justify-center gap-[19.7px] flex-wrap">
-            <button className="border border-[#DDDDDD] text-[#050212] font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] h-[48px]">
-              1-on-1 bookings
-            </button>
-            <button className="border border-[#DDDDDD] text-[#050212] font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] h-[48px]">
-              Digital Products
-            </button>
-            <button className="border border-[#DDDDDD] text-[#050212] font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] h-[48px]">
-              Package Bookings
-            </button>
-            <button className="border border-[#DDDDDD] text-[#050212] font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] h-[48px]">
-              Resources
-            </button>
-            <button className="border border-[#DDDDDD] text-[#050212] font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] h-[48px]">
-              Webinar
-            </button>
-          </div>
-
-          <div className="px-[80px] mt-[153px] relative flex flex-col items-center">
-            <div className="relative w-full max-w-[1000px] h-[480px]">
-              <img
-                src="/session.png"
-                alt=""
-                className="absolute top-0 right-0 z-[1]"
-              />
-              <img
-                src="/digital_product.png"
-                alt=""
-                className="absolute top-[20px] right-[20px] z-[2]"
-              />
-              <img
-                src="/package_session.png"
-                alt=""
-                className="absolute top-[40px] right-[40px] z-[3]"
-              />
-              <img
-                src="/resources_1.png"
-                alt=""
-                className="absolute top-[60px] right-[60px] z-[4]"
-              />
-              <img
-                src="/webinar_img.png"
-                alt=""
-                className="absolute top-[80px] right-[80px] z-[5]"
-              />
-            </div>
-
-            <button className="mt-[24px] bg-primary border border-[#DDDDDD] text-[#FFFFFF] font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] h-[48px]">
-              Start Creating
-            </button>
-          </div>
-        </section>
+        <InteractiveTabs />
 
         <section className="w-[100%] bg-[#F5F8FF] font-satoshi flex sm:flex-wrap justify-center sm:justify-around gap-[24px] lg:gap-[16px] px-[112px] lgx:px-[80px] md:px-[40px] xl:px-[25px] xm:px-[16px] py-[80px] sm:pt-[52px] sm:pb-0 md:py-[40px] ">
           <div className="bg-[#1453FF] w-[429px] pt-[103.81px] px-[34px] rounded-[16px] md:w-[300px] sm:w-full sm:pb-[48px] relative">
