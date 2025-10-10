@@ -119,6 +119,46 @@ const Landing = () => {
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
+  // State to track the index of the highlighted card (0, 1, or 2)
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Refs to access the DOM elements for positioning
+  const containerRef = useRef(null);
+  const highlightRef = useRef(null);
+
+  const totalCards = 3;
+
+  // Effect #1: Set up a timer to cycle through the cards
+  useEffect(() => {
+    // Change the active index every 2 seconds (2000 milliseconds)
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % totalCards);
+    }, 2000); // You can adjust the speed here
+
+    // Cleanup: clear the interval when the component is unmounted
+    return () => clearInterval(interval);
+  }, []); // The empty array [] ensures this effect runs only once on mount
+
+  // Effect #2: Move the highlight div whenever the activeIndex changes
+  useEffect(() => {
+    if (!containerRef.current || !highlightRef.current) return;
+
+    // Find the currently active card inside the container
+    // The children are [highlightDiv, card1, card2, card3], so we add 1 to the index
+    const activeCard = containerRef.current.children[activeIndex + 1];
+
+    if (activeCard) {
+      const { offsetTop, offsetLeft, offsetWidth, offsetHeight } = activeCard;
+
+      // Update the style of the highlight div to match the active card's position and size
+      const highlight = highlightRef.current;
+      highlight.style.top = `${offsetTop}px`;
+      highlight.style.left = `${offsetLeft}px`;
+      highlight.style.width = `${offsetWidth}px`;
+      highlight.style.height = `${offsetHeight}px`;
+      highlight.style.opacity = "1";
+    }
+  }, [activeIndex]);
   const handleContact = () => {
     router.push("/faq#contact-form");
   };
@@ -184,15 +224,24 @@ const Landing = () => {
             {/* Main Image */}
             <div className="w-full">
               <img
-                src="/dashboard_img.png"
+                src="/hero_img.png"
                 alt="Main Mockup"
                 className="w-full h-auto "
               />
             </div>
             {/* Yellow Card */}
             <div className="absolute left-[-20px] bottom-[100px] sm:left-2 sm:bottom-2 bg-[#FFCA01] text-[#FBFCFD] rounded-xl shadow-lg py-[32px] px-[26px] w-[351px] xm:w-[112.42px] xm:py-[9.89px] xm:px-[7.98px] xm:bottom-[40px] lgx:w-[300px] lgx:py-[25px] lgx:px-[25px] lgx:left-[20px] md:w-[200px] md:py-[15px] md:px-[15px] md:bottom-[60px] sxm:bottom-[20px]">
-              <div className="flex flex-col space-y-2">
-                <div className="flex items-center justify-between bg-[#0000001A] p-2 xm:p-1 lgx:p-2 md:p-2 rounded-md">
+              <div
+                ref={containerRef}
+                className="relative flex flex-col space-y-2"
+              >
+                <div
+                  ref={highlightRef}
+                  className="absolute bg-[#0000001A] rounded-md transition-all duration-500 ease-in-out pointer-events-none"
+                  style={{ opacity: 0 }}
+                ></div>
+
+                <div className="relative flex items-center justify-between bg-[#0000001A] p-2 xm:p-1 lgx:p-2 md:p-2 rounded-md z-10">
                   <div className="flex flex-col">
                     <span className="text-[30.72px] xm:text-[9.84px] lgx:text-[16px] font-semibold leading-[101.01%]">
                       50+
@@ -208,7 +257,7 @@ const Landing = () => {
                   />
                 </div>
 
-                <div className="flex items-center justify-between bg-[#0000001A] p-2 xm:p-1 rounded-md lgx:p-2">
+                <div className="relative flex items-center justify-between bg-[#0000001A] p-2 xm:p-1 rounded-md lgx:p-2 z-10">
                   <img
                     src="/pageView.png"
                     alt="icon"
@@ -224,7 +273,7 @@ const Landing = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between bg-[#0000001A] p-2 xm:p-1 rounded-md lgx:p-2">
+                <div className="relative flex items-center justify-between bg-[#0000001A] p-2 xm:p-1 rounded-md lgx:p-2 z-10">
                   <div className="flex flex-col">
                     <span className="text-[30.72px] xm:text-[9.84px] lgx:text-[16px] font-semibold leading-[101.01%]">
                       200+
@@ -260,7 +309,7 @@ const Landing = () => {
             </div>
 
             {/* Badge-Right */}
-            <div className="absolute top-[45%] right-[-15px] lgx:right-[15px] lgx:top-[35%] lgx:px-[12px] lgx:py-[12px] lgx:gap-[12px] md:px-[10px] md:py-[10px] md:gap-[10px] xm:px-[8px] xm:py-[8px] xm:gap-[8px] sxm:px-[5px] sm:py-[5px] bg-white rounded-[4px] shadow-md flex items-center gap-[17.5px] px-[20px] py-[12px] bg-[#FFFFFF]">
+            <div className="absolute top-[45%] right-[20px] lgx:right-[15px] lgx:top-[35%] lgx:px-[12px] lgx:py-[12px] lgx:gap-[12px] md:px-[10px] md:py-[10px] md:gap-[10px] xm:px-[8px] xm:py-[8px] xm:gap-[8px] sxm:px-[5px] sm:py-[5px] bg-white rounded-[4px] shadow-md flex items-center gap-[17.5px] px-[20px] py-[12px] bg-[#FFFFFF]">
               <img
                 src="/preview_sign.png"
                 alt="booking"
@@ -292,7 +341,7 @@ const Landing = () => {
                 return (
                   <div
                     key={index}
-                    className="w-[351.33px] flex flex-col items-center py-[32px] px-[16px] rounded-2xl border-[1px] border-[#DDDDDD1A] lgx:py-[25px] lgx:px-[12px] sm:w-[100%] sm:py-[21.5px] sm:px-[16px] bg-[#070C1633]"
+                    className="w-[351.33px] flex flex-col items-center py-[32px] px-[16px] rounded-2xl border-[1px] border-[#DDDDDD1A] lgx:py-[25px] lgx:px-[12px] sm:w-[100%] sm:py-[21.5px] sm:px-[16px] bg-[#070C1633] hover:bg-primary transition-all duration-300 ease-in-out"
                   >
                     <img src={card.image} alt="name" />
                     <div className="text-center mt-[20px] ">
