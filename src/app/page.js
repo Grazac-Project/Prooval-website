@@ -128,29 +128,21 @@ const Landing = () => {
 
   const totalCards = 3;
 
-  // Effect #1: Set up a timer to cycle through the cards
   useEffect(() => {
-    // Change the active index every 2 seconds (2000 milliseconds)
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % totalCards);
-    }, 2000); // You can adjust the speed here
-
-    // Cleanup: clear the interval when the component is unmounted
+    }, 2000); 
     return () => clearInterval(interval);
-  }, []); // The empty array [] ensures this effect runs only once on mount
+  }, []);
 
-  // Effect #2: Move the highlight div whenever the activeIndex changes
   useEffect(() => {
     if (!containerRef.current || !highlightRef.current) return;
 
-    // Find the currently active card inside the container
-    // The children are [highlightDiv, card1, card2, card3], so we add 1 to the index
     const activeCard = containerRef.current.children[activeIndex + 1];
 
     if (activeCard) {
       const { offsetTop, offsetLeft, offsetWidth, offsetHeight } = activeCard;
 
-      // Update the style of the highlight div to match the active card's position and size
       const highlight = highlightRef.current;
       highlight.style.top = `${offsetTop}px`;
       highlight.style.left = `${offsetLeft}px`;

@@ -29,14 +29,6 @@ const tabs = [
     zIndex: -3,
   },
   {
-    id: 'resources',
-    label: 'Resources',
-    imageSrc: '/resources_1.png',
-    mobileImage: '/mobile_resources.png',
-    positionClasses: 'top-[-40px] right-[-40px]',
-    zIndex: -4,
-  },
-  {
     id: 'webinar',
     label: 'Webinar',
     imageSrc: '/webinar_img.png',
