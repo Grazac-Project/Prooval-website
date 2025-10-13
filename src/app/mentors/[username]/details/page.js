@@ -64,6 +64,7 @@ const MentorshipPackages = () => {
   const [sessionType, setSessionType] = useState("");
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
   const [token, setToken] = useState(""); // use state for token
 
   useEffect(() => {
@@ -108,6 +109,7 @@ const MentorshipPackages = () => {
     }
   }, []);
   const bookSession = (id, type, amount, bookingCurrency, sessionType) => {
+    console.log(baseUrl);
     if (token) {
       setBookingId(id);
       setBookType(type);
@@ -190,6 +192,8 @@ const MentorshipPackages = () => {
     };
     return map[time] ?? `${time} times`;
   };
+
+  console.log(baseUrl);
 
   return (
     <div className="bg-[#F2F2F7]  pb-10 min-h-screen">
