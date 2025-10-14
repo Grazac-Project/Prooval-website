@@ -1,18 +1,18 @@
 export const card = [
   {
-    image: "/one.png",
-    heading: "All-in-One",
-    text: "Every expert adds something unique. Join the growing community of professionals turning their knowledge into impact and income.",
+    image: "/link.png",
+    heading: "Single Link",
+    text: "Every expert adds something unique. Join the growing community of professionals turning their knowledge into impact and income."
   },
   {
-    image: "/group_icon.png",
-    heading: "Get Discovered",
-    text: "Every expert adds something unique. Join the growing community of professionals turning their knowledge into impact and income.",
+    image: "/market.png",
+    heading: "Our marketplace",
+    text: "Join our growing community of professionals, showcase your expertise, and reach more clients who are looking for your exact skillsets."
   },
   {
     image: "/money_icon.png",
-    heading: "100% Easy Payout",
-    text: "Every expert adds something unique. Join the growing community of professionals turning their knowledge into impact and income.",
+    heading: "Instant Payouts",
+    text: "No payment delays or T+1 settlement. Withdraw directly to your local bank account and get it instantly."
   },
 ];
 
@@ -20,22 +20,17 @@ export const valueCards = [
   {
     number: 1,
     heading: "Create an Account",
-    text: "All naira withdrawal will remain NGN 50. Other currencies are subject to the provider and the expert bears the cost in any case.",
+    text: "Sign up with your email or Google,  it’s quick, simple, and free.",
   },
   {
     number: 2,
-    heading: "Get Verified",
-    text: "All naira withdrawal will remain NGN 50. Other currencies are subject to the provider and the expert bears the cost in any case.",
+    heading: "Set Up Your Page",
+    text: "Add your photo, description, experience and offerings. Customize your link and make it truly yours.",
   },
   {
     number: 3,
-    heading: "Get Verified",
-    text: "All naira withdrawal will remain NGN 50. Other currencies are subject to the provider and the expert bears the cost in any case.",
-  },
-  {
-    number: 4,
-    heading: "Get Verified",
-    text: "All naira withdrawal will remain NGN 50. Other currencies are subject to the provider and the expert bears the cost in any case.",
+    heading: "Set, Go!",
+    text: "Start selling your sessions, products, and content. Share your link, grow your audience, and get paid instantly.",
   },
 
 ];
