@@ -12,7 +12,7 @@ const Terms = () => {
       <div className="bg-[#EFF6FF] py-[64px] md:py-[32px] relative overflow-hidden">
         {/* Overlay image */}
         <Image
-          src="/terms_overlay.png"
+          src="/Terms_overlay.png"
           alt="Overlay"
           fill
           className="object-cover pointer-events-none z-0"
