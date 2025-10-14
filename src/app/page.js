@@ -53,30 +53,30 @@ const professionals = [
 
 const testimonialsTop = [
   {
-    name: "Jane Doe",
-    role: "CEO, Grazac LTD",
-    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    name: "Abayomi Babajide",
+    role: " Digital Marketing Expert",
+    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
     image: "/testimonial_1.png",
     icon: <RiDoubleQuotesL />,
   },
   {
-    name: "Jane Doe",
-    role: "CEO, Grazac LTD",
-    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    name: "Abayomi Babajide",
+    role: " Digital Marketing Expert",
+    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
     image: "/testimonial_1.png",
     icon: <RiDoubleQuotesL />,
   },
   {
-    name: "Jane Doe",
-    role: "CEO, Grazac LTD",
-    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    name: "Abayomi Babajide",
+    role: " Digital Marketing Expert",
+    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
     image: "/testimonial_1.png",
     icon: <RiDoubleQuotesL />,
   },
   {
-    name: "Jane Doe",
-    role: "CEO, Grazac LTD",
-    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    name: "Abayomi Babajide",
+    role: " Digital Marketing Expert",
+    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
     image: "/testimonial_1.png",
     icon: <RiDoubleQuotesL />,
   },
@@ -84,30 +84,30 @@ const testimonialsTop = [
 
 const testimonialsBottom = [
   {
-    name: "Jane Doe",
-    role: "CEO, Grazac LTD",
-    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    name: "Abayomi Babajide",
+    role: " Digital Marketing Expert",
+    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
     image: "/testimonial_1.png",
     icon: <RiDoubleQuotesL />,
   },
   {
-    name: "Jane Doe",
-    role: "CEO, Grazac LTD",
-    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    name: "Abayomi Babajide",
+    role: " Digital Marketing Expert",
+    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
     image: "/testimonial_1.png",
     icon: <RiDoubleQuotesL />,
   },
   {
-    name: "Jane Doe",
-    role: "CEO, Grazac LTD",
-    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    name: "Abayomi Babajide",
+    role: " Digital Marketing Expert",
+    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
     image: "/testimonial_1.png",
     icon: <RiDoubleQuotesL />,
   },
   {
-    name: "Jane Doe",
-    role: "CEO, Grazac LTD",
-    text: "Join our community and get open access to people of like minds. Build connections that will last throughout your career.",
+    name: "Abayomi Babajide",
+    role: " Digital Marketing Expert",
+    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
     image: "/testimonial_1.png",
     icon: <RiDoubleQuotesL />,
   },
@@ -131,7 +131,7 @@ const Landing = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % totalCards);
-    }, 2000); 
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 
@@ -192,21 +192,15 @@ const Landing = () => {
 
             <div className="max-w-[989px] lgx:w-[700px] sm:w-[100%] sm:px-[21.5px] xm:w-[100%] xm:px-[21.5px] pt-4">
               <p className="font-normal text-[18px]  leading-[160%] text-[#727272] pb-8">
-                Turn what you know into income by hosting webinars, selling
-                resources, and offering 1:1 bookings. Everything is designed to
-                help you grow your brand and build meaningful connections with
-                your audience.
+                Host live sessions, sell digital products, and grow your
+                audience, all from a single link. Everything is designed to help
+                you grow and build meaningful connections with your audience.
               </p>
 
               <div className="flex justify-center gap-4 sxm:gap-2">
-                <Link href="/professionals">
-                  <button className="w-[226px] sm:w-[150px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-[16px] text bg-[#fff] rounded-[8px] px-10 lg:px-4 md:px-2 py-4 border border-[#DADADA] sxm:text-[14px]">
-                    View All Experts
-                  </button>
-                </Link>
                 <Link href="/signup">
                   <button className="w-[226px] sm:w-[160px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-[16px] text-[#ffffff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-2 py-4  border border-[#DADADA] sxm:text-[14px]">
-                    Create your profile
+                    Create your page
                   </button>
                 </Link>
               </div>
@@ -318,15 +312,14 @@ const Landing = () => {
             </div>
           </div>
         </section>
-                      {/* Why you should use Prooval */}
+        {/* Why you should use Prooval */}
         <section className="px-[80px] xl:px-[25px] xm:px-4 font-satoshi">
           <div className="bg-[#121927] rounded-[24px] p-[80px] lgx:p-[40px] lg:p-[20px] md:p-[20px]">
             <h2 className="font-bold text-[48px] lg:text-[32px] leading-[56px] lg:leading-[41.6px] text-[#FCFCFC] text-center w-[865px] lg:w-[95%] mx-auto pb-3 sm:text-[30px] sm:leading-[38px] sm:pb-[8px]">
-              Why you should use Prooval?
+              Why professionals prefer Prooval?
             </h2>
             <h3 className="font-normal text-[16px] text-[#FCFCFC] leading-[160%] text-center w-[786px] lg:w-[100%] md:w-[100%] mx-auto pb-[64px] md:pb-[40px] md:text-[12px] sm:text-[16px] sm:pb-[64px]">
-              You no longer need to jump from one platform to another, we help
-              you organize all you need to do in 1 place
+              Everything you need to manage your schedule with no stress and monetize your expertise.
             </h3>
             <div className="flex items-center gap-[33px] lgx:gap-[20px] sm:flex-col">
               {card.map((card, index) => {
@@ -350,16 +343,14 @@ const Landing = () => {
             </div>
           </div>
         </section>
-                {/* Trusted Expert */}
+        {/* Trusted Expert */}
         <section className="font-satoshi bg-[url(/background.png)] bg-center px-[80px] lgx:px-[25px] xm:px-[16px] mt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
           <div className="flex flex-col items-center py-[80px] lg:py-[40px] sm:px-[26px] xxm:px-[16px] sxm:px-[8px] sm:flex-col">
             <h3 className="font-bold w-[924px] text-center lg:w-[100%] md:w-[100%] md:leading-[48px] sm:w-[100%] text-[48px] sm:text-[30px] lgx:text-[36px] md:text-[32px] leading-[56px] sm:leading-[35.2px] text-[#121927] mb-[20px]">
-              See all trusted experts and picture your profile right alongside
-              them.
+              The go-to-platform for professionals
             </h3>
             <p className="font-normal text-center text-[16px] leading-[30px] text-[#787878] mb-[32px]">
-              Every expert adds something unique. Join the growing community of
-              professionals turning their knowledge into impact and income.
+              Experts from every niche use Prooval to build trust, grow revenue and stay booked.
             </p>
             <Link href="/mentors">
               <button className="w-[239px] lg:w-[200px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%]">
@@ -441,13 +432,12 @@ const Landing = () => {
 
         {/* onboarding */}
         <section className="w-[100%] bg-[#F5F8FF] font-satoshi flex sm:flex-wrap justify-center gap-[24px] lg:gap-[16px] px-[112px] lgx:px-[80px] lg:px-[30px]  md:px-[40px] xl:px-[25px] xm:px-[16px] py-[80px] sm:pt-[52px] sm:pb-0 sm:px-[16px] md:py-[40px] ">
-          <div className="bg-[#1453FF] w-[429px] pt-[103.81px] px-[34px] rounded-[16px] md:w-[300px] sm:w-[100%] sm:pb-[48px] relative">
-            <h4 className="text-[60px] font-bold leading-[68px] text-[#FBFCFD] pb-[24px] md:text-[30px] md:leading-[36px]">
-              Get Onboarded in Four Easy Steps!
+          <div className="bg-[#1453FF] w-[429px] pt-[99.81px] h-[390px] px-[34px] rounded-[16px] md:w-[300px] sm:w-[100%] sm:pb-[48px] relative">
+            <h4 className="text-[60px] font-bold leading-[68px] text-[#FBFCFD] md:text-[30px] md:leading-[36px]">
+              Get Started in 3 Easy Steps!
             </h4>
             <p className="font-normal text-[20px] leading-[160%] text-[#EDEDED] md:text-[16px] md:leading-[24px]">
-              Follow these simple steps to start monetizing your skills on
-              Prooval
+              Follow these simple steps to start monetizing your skills on Prooval
             </p>
             <Image
               src="/easy-arrow.png"
@@ -461,7 +451,7 @@ const Landing = () => {
             {valueCards.map((valueCards, i) => {
               return (
                 <div
-                  className="font-satoshi  border-[1px] border-[#EAEAEA] rounded-[8px] py-[26px] px-[19px] flex gap-[8px] lgx:py[18px] lgx:px-[12px] md:py-[12px] md:px-[8px] "
+                  className="font-satoshi bg-[#FFFFFF] border-[1px] border-[#EAEAEA] rounded-[8px] py-[26px] px-[19px] flex gap-[8px] lgx:py[18px] lgx:px-[12px] md:py-[12px] md:px-[8px]  "
                   key={i}
                 >
                   <h4 className="border-[2px] border-[#D0DDFF] w-[44px] h-[44px] rounded-[50%] flex items-center py-[10.84px] px-[18px] justify-center text-[18px] leading-[24px] font-medium text-[#fff] bg-[#1453FF] md:text-[12px]">
@@ -480,16 +470,17 @@ const Landing = () => {
             })}
           </div>
         </section>
-
+                  {/* Testimonials section */}
         <section className="sm:pt-[40px]">
           <div className="w-full font-satoshi bg-[url(/background.png)] bg-cover bg-center py-[50px] sm:py-[19.06px] overflow-hidden">
-            <div>
-              <h1 className="text-[#121927] font-bold text-[48px] leading-[56px] mx-auto text-center mb-[40px] w-[978px] md:w-[100%] sm:text-[30px] sm:leading-[38px]">
-                Words from people who have interacted with us
+            <div className="flex flex-col items-center justify-center">
+              <h1 className="text-[#121927] font-bold text-[48px] leading-[56px] mx-auto text-center mb-[20px] w-[978px] md:w-[100%] sm:text-[30px] sm:leading-[38px]">
+                What Experts Are Saying
               </h1>
+              <p className="text-base font-normal leading-[160%] text-[#787878] mb-[40px]">Real stories from experts building their income on Prooval.</p>
             </div>
             <motion.div
-              className="flex gap-6 sm:gap-4"
+              className="flex gap-6 sm:gap-4 drop-shadow-[#0000001A]"
               animate={{ x: ["-100%", "0%"] }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
             >
@@ -567,18 +558,17 @@ const Landing = () => {
             <div className="relative z-10 flex flex-col items-center justify-center pt-[114.5px] pb-[80px]">
               <div className="w-[609px] max-w-full sm:w-[300px]">
                 <h1 className="text-[48px] text-[#FCFCFC] font-bold mb-2 leading-[56px] sm:text-[20px] sm:leading-[32px]">
-                  Hurry Up &amp; monetize your{" "}
+                  Turn Your Knowledge into {" "}
                   <br className="hidden sm:block" />
-                  skills seamlessly
+                  Income Seamlessly
                 </h1>
                 <p className="text-base text-[#FCFCFC] leading-[160%] mb-8 sm:text-[14px]">
-                  You no longer need to jump from one platform to another, we
-                  help you organize all you need to do in 1 place
+                 You no longer have to juggle multiple platforms to monetize your knowledge. Prooval makes it simple to share your expertise and earn all from a single link.
                 </p>
               </div>
 
               <button className="bg-[#ffffff] text-[#1453FF] font-medium px-6 py-3 w-[300px] sm:w-[218px] rounded-md hover:bg-gray-100 transition">
-                Start Creating
+                Start my page
               </button>
             </div>
           </div>

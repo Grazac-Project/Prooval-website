@@ -61,7 +61,7 @@ const Footer = () => {
     <footer className="font-satoshi bg-[#121927] px-[80px] pt-[48px] pb-[10px] xl:px-[25px] xm:px-[16px] mt-[80px]">
       {open && <Modal close={close} />}
       <div className="flex flex-wrap justify-between pb-[16px] border-b-[1px] border-[#FFFFFF0A]">
-        <div className="xm:pb-[24px]">
+        <div className="xm:pb-[24px] md:pb-[40px]">
           <Link href="/">
             <Image
               src="/proovalLogoWhite.png"
@@ -70,37 +70,63 @@ const Footer = () => {
               alt="hackthejobs logo"
             />
           </Link>
+          <p className="font-[700] text-[12px] text-[#FFFFFFCC] leading-[160%] pt-[12px]">
+            Proooval (formally Hackthejobs)
+          </p>
           <div className="pt-[12px] font-normal text-[12px] leading-[160%] text-[#FFFFFFCC] pb-[24px] w-[292px] sm:w-full sm:text-[14px]">
             <p>
-              Join our community and get open access to people of like minds.
-              Build connections that will last throughout your career.
+              Join a global community of professionals and monetize your
+              knowledge. Grow your audience and impact all in one place.
             </p>
           </div>
           <div className="flex gap-[8px] items-center">
-            <div className="flex items-center text-[#ffffff] border-[1px] border-[#FFFFFF1A] rounded-[24px] gap-[4px] p-[8px] sm:px-[12px] shadow-lg xm:[126px]">
-              <img src="/mail.png" className="xm:w-[13.33px]  sxm:w-[10px]" />
-              <span className="text-[12px] xm:text-[10px] sxm:text-[8px] font-normal font-satoshi leading-[160%]">
-                mail@prooval.com
-              </span>
-            </div>
-            <div className="flex items-center text-[#ffffff] border-[1px] border-[#FFFFFF1A] rounded-[24px] gap-[4px] p-[8px] sm:px-[12px] shadow-lg">
-              <img src="/call_end.png" className="xm:w-[16px] sxm:w-[11px] " />
-              <span className="text-[12px] xm:text-[10px] sxm:text-[8px] font-normal font-satoshi leading-[160%]">
-                +22 902900292
-              </span>
-            </div>
-            <div className="flex items-center text-[#ffffff] border-[1px] border-[#FFFFFF1A] rounded-[24px] gap-[4px] p-[8px] sm:px-[12px] shadow-lg">
-              <img src="location.png" className="sxm:w-[10px]" />
-              <span className="text-[12px] xm:text-[10px] sxm:text-[8px] font-normal font-satoshi leading-[160%]">
-                Nigeria
-              </span>
-            </div>
+            {/* Email Button */}
+            <a href="#" target="_blank">
+              <div
+                className="flex items-center text-[#ffffff] 
+            bg-[#FFFFFF1A] backdrop-blur-md 
+              border border-[white/20] 
+              rounded-[24px] gap-[4px] p-[8px] sm:px-[52px] sxm:px-[24px] 
+              cursor-pointer transition-all hover:bg-white/20 hover:shadow-lg"
+              >
+                <img src="/mail.png" />
+                <span className="text-[12px] text-[#FFFFFFCC] font-normal font-satoshi leading-[160%]">
+                  support@prooval.com
+                </span>
+              </div>
+            </a>
+
+            {/* Instagram Button */}
+            <a href="#" target="_blank">
+              <div
+                className="flex items-center text-[#ffffff] 
+              bg-[#FFFFFF1A] backdrop-blur-md 
+             border border-white/20 
+             rounded-full gap-[4px] p-[8px]
+              cursor-pointer transition-all hover:bg-white/20 hover:shadow-lg"
+              >
+                <img src="/instagram.png" />
+              </div>
+            </a>
+
+            {/* Twitter Button */}
+            <a href="#" target="_blank">
+              <div
+                className="flex items-center text-[#ffffff] 
+               bg-[#FFFFFF1A] backdrop-blur-md 
+              border border-white/20 
+              rounded-full gap-[4px] p-[8px] 
+              cursor-pointer transition-all hover:bg-white/20 hover:shadow-lg"
+              >
+                <img src="/twitter.png" />
+              </div>
+            </a>
           </div>
         </div>
         <div className="flex gap-6 sm:flex-col xm:w-full">
           <div className="flex gap-6">
             <div className="w-[137px] lgx:w-[100px] ">
-              <p className="font-bold text-[14px] leading-[20px] text-[#FFFFFFCC] pb-[16px]">
+              <p className="font-bold text-[14px] leading-[20px] text-[#FFFFFFCC] pb-[30px]">
                 Links
               </p>
               <ul className="flex flex-col space-y-[10px]">
@@ -132,7 +158,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-[117px]">
-              <p className="font-bold text-[14px] leading-[20px] text-[#FFFFFFCC] pb-[16px]">
+              <p className="font-bold text-[14px] leading-[20px] text-[#FFFFFFCC] pb-[30px]">
                 Explore
               </p>
               <ul className="flex flex-col space-y-[10px]">
@@ -144,11 +170,6 @@ const Footer = () => {
                 <Link href="#">
                   <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
                     Marketplace
-                  </li>
-                </Link>
-                <Link href="#">
-                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
-                    Resources
                   </li>
                 </Link>
                 <Link href="#">
