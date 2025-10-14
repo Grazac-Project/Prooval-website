@@ -172,14 +172,7 @@ const Landing = () => {
             {/* Typing animation */}
             <div className="flex flex-wrap justify-center items-center gap-2">
               <TypeAnimation
-                sequence={[
-                  "1-on-1 Booking",
-                  1500,
-                  "Mentorship",
-                  1500,
-                  "Talent",
-                  1500,
-                ]}
+                sequence={["Knowledge", 1500, "Skills", 1500]}
                 wrapper="span"
                 speed={50}
                 repeat={Infinity}
@@ -319,7 +312,8 @@ const Landing = () => {
               Why professionals prefer Prooval?
             </h2>
             <h3 className="font-normal text-[16px] text-[#FCFCFC] leading-[160%] text-center w-[786px] lg:w-[100%] md:w-[100%] mx-auto pb-[64px] md:pb-[40px] md:text-[12px] sm:text-[16px] sm:pb-[64px]">
-              Everything you need to manage your schedule with no stress and monetize your expertise.
+              Everything you need to manage your schedule with no stress and
+              monetize your expertise.
             </h3>
             <div className="flex items-center gap-[33px] lgx:gap-[20px] sm:flex-col">
               {card.map((card, index) => {
@@ -350,7 +344,8 @@ const Landing = () => {
               The go-to-platform for professionals
             </h3>
             <p className="font-normal text-center text-[16px] leading-[30px] text-[#787878] mb-[32px]">
-              Experts from every niche use Prooval to build trust, grow revenue and stay booked.
+              Experts from every niche use Prooval to build trust, grow revenue
+              and stay booked.
             </p>
             <Link href="/mentors">
               <button className="w-[239px] lg:w-[200px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%]">
@@ -365,14 +360,15 @@ const Landing = () => {
               {professionals.map((pro, index) => (
                 <div
                   key={pro.id}
-                  className={`relative rounded-lg overflow-hidden shadow-md h-[329px] 
-        ${index === 2 ? "w-[419px]" : "w-[207.5px]"}`}
+                  className="relative rounded-lg overflow-hidden shadow-md h-[329px] w-[207.5px] hover:w-[419px] transition-all transition-duration-500 ease-in-out bg-gradient-from-d-[#00000000] to-t
+             bg-[#000000]"
                 >
                   <img
                     src={pro.image}
                     alt={pro.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover absolute inset-0"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#000000] to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-2 z-10 ">
                     <h3 className="font-medium text-[16px] text-[#fff]">
                       {pro.name}
@@ -437,7 +433,8 @@ const Landing = () => {
               Get Started in 3 Easy Steps!
             </h4>
             <p className="font-normal text-[20px] leading-[160%] text-[#EDEDED] md:text-[16px] md:leading-[24px]">
-              Follow these simple steps to start monetizing your skills on Prooval
+              Follow these simple steps to start monetizing your skills on
+              Prooval
             </p>
             <Image
               src="/easy-arrow.png"
@@ -470,14 +467,16 @@ const Landing = () => {
             })}
           </div>
         </section>
-                  {/* Testimonials section */}
+        {/* Testimonials section */}
         <section className="sm:pt-[40px]">
           <div className="w-full font-satoshi bg-[url(/background.png)] bg-cover bg-center py-[50px] sm:py-[19.06px] overflow-hidden">
             <div className="flex flex-col items-center justify-center">
               <h1 className="text-[#121927] font-bold text-[48px] leading-[56px] mx-auto text-center mb-[20px] w-[978px] md:w-[100%] sm:text-[30px] sm:leading-[38px]">
                 What Experts Are Saying
               </h1>
-              <p className="text-base font-normal leading-[160%] text-[#787878] mb-[40px]">Real stories from experts building their income on Prooval.</p>
+              <p className="text-base font-normal leading-[160%] text-[#787878] mb-[40px]">
+                Real stories from experts building their income on Prooval.
+              </p>
             </div>
             <motion.div
               className="flex gap-6 sm:gap-4 drop-shadow-[#0000001A]"
@@ -558,12 +557,13 @@ const Landing = () => {
             <div className="relative z-10 flex flex-col items-center justify-center pt-[114.5px] pb-[80px]">
               <div className="w-[609px] max-w-full sm:w-[300px]">
                 <h1 className="text-[48px] text-[#FCFCFC] font-bold mb-2 leading-[56px] sm:text-[20px] sm:leading-[32px]">
-                  Turn Your Knowledge into {" "}
-                  <br className="hidden sm:block" />
+                  Turn Your Knowledge into <br className="hidden sm:block" />
                   Income Seamlessly
                 </h1>
                 <p className="text-base text-[#FCFCFC] leading-[160%] mb-8 sm:text-[14px]">
-                 You no longer have to juggle multiple platforms to monetize your knowledge. Prooval makes it simple to share your expertise and earn all from a single link.
+                  You no longer have to juggle multiple platforms to monetize
+                  your knowledge. Prooval makes it simple to share your
+                  expertise and earn all from a single link.
                 </p>
               </div>
 

@@ -107,14 +107,14 @@ const ExpertiseSection = () => {
   }, [scrollYProgress, tabs]);
 
   return (
-    <section ref={scrollRef} className="relative mb-[80px]">
+    <section ref={scrollRef} className="relative mb-[80px] font-satoshi">
       <div className="sm:hidden">
         {/* Header Section */}
         <div className="m-auto w-[800px] lgx:w-[90%] md:w-[100%] sm:w-[100%] text-center px-[16px] pt-10">
-          <h1 className="text-[48px] leading-[56px] font-bold text-[#121927] sm:text-[30px] sm:leading-[38px] ">
+          <h1 className="text-[48px] leading-[56px] font-bold text-[#121927] sm:text-[30px] sm:leading-[38px] font-satoshi ">
            Unlimited ways to share your expertise across board
           </h1>
-          <p className="font-normal text-[16px] leading-[160%] text-[#787878] mt-[20px] mb-[40px]">
+          <p className="font-normal text-[16px] leading-[160%] text-[#787878] mt-[20px] mb-[40px] font-satoshi">
             Share what you know with your audience and get paid
           </p>
         </div>
