@@ -158,7 +158,7 @@ const Landing = () => {
   const GA_TRACKING_ID = "G-JS3RNTYLD8";
   useAnalytics(GA_TRACKING_ID);
   return (
-    <div className="overflow-x-hidden ">
+    <div className="overflow-visible">
       <Navbar />
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
       <div className="max-w-[1440px] mx-auto">
