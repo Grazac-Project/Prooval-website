@@ -38,8 +38,6 @@ const tabs = [
   },
 ];
 
-// import { useScroll, useTransform } from "framer-motion";
-
 function getScrollYTransform(ref, index) {
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -108,29 +106,6 @@ const ExpertiseSection = () => {
     return () => unsubscribe();
   }, [scrollYProgress, tabs]);
 
-  // Manual scroll with drag
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
-
-  const onMouseDown = (e) => {
-    isDragging.current = true;
-    startX.current = e.pageX - scrollRef.current.offsetLeft;
-    scrollLeft.current = scrollRef.current.scrollLeft;
-  };
-
-  const onMouseLeaveOrUp = () => {
-    isDragging.current = false;
-  };
-
-  const onMouseMove = (e) => {
-    if (!isDragging.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5; // speed
-    scrollRef.current.scrollLeft = scrollLeft.current - walk;
-  };
-
   return (
     <section ref={scrollRef} className="relative mb-[80px]">
       <div className="sm:hidden">
@@ -166,8 +141,8 @@ const ExpertiseSection = () => {
         </div>
 
         {/* Images Section */}
-        <div className="relative w-full max-w-[1000px] mx-auto mt-[153px] h-[250vh] lgx:w-[80%] md:w-[90%] ">
-          <div className="sticky top-[200px] h-[480px] lgx:h-[400px] md:h-[350px]">
+        <div className="relative w-full max-w-[1000px] mx-auto mt-[153px] h-[250vh] lgx:w-[80%] md:w-[90%]">
+          <div className="sticky top-[200px] h-[465.94px] lgx:h-[400px] md:h-[350px]">
             {tabs.map((tab) => (
               <motion.div
                 key={tab.id}
@@ -202,56 +177,58 @@ const ExpertiseSection = () => {
       </div>
 
       {/* Mobile View */}
-      {/* 📱 Mobile View */}
-         <section className="sm:block 3xl:hidden relative" ref={scrollRef}>
-      {/* Header */}
-      <div className="m-auto w-[800px] lgx:w-[90%] md:w-[100%] sm:w-[100%] text-center px-[16px] pt-10">
-        <h1 className="text-[48px] leading-[56px] font-bold text-[#121927] sm:text-[30px] sm:leading-[38px] ">
-          Limitless ways to share your expertise across board
-        </h1>
-        <p className="font-normal text-[16px] leading-[160%] text-[#787878] mt-[20px] mb-[20px]">
-          Every expert adds something unique. Join the growing community of
-          professionals turning their knowledge into impact and income.
-        </p>
-      </div>
+      <section className="sm:block 3xl:hidden relative" ref={scrollRef}>
+        {/* Header */}
+        <div className="m-auto w-[800px] sm:w-[100%] text-center px-[16px] pt-10">
+          <h1 className="text-[48px] leading-[56px] font-bold text-[#121927] sm:text-[30px] sm:leading-[38px] ">
+            Limitless ways to share your expertise across board
+          </h1>
+          <p className="font-normal text-[16px] leading-[160%] text-[#787878] mt-[20px] mb-[20px]">
+            Every expert adds something unique. Join the growing community of
+            professionals turning their knowledge into impact and income.
+          </p>
+        </div>
 
-      {/* ✅ Sticky & Scrollable Tab Buttons */}
-      <div
-        ref={tabScrollRef}
-        className="overflow-x-auto whitespace-nowrap px-4 flex gap-4 scrollbar-hide pb-4 sticky top-1 z-50 bg-white"
-      >
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            className={`
+        {/* Sticky & Scrollable Tab Buttons */}
+        <div
+          ref={tabScrollRef}
+          className="overflow-x-auto whitespace-nowrap px-4 flex gap-4  pb-4 sticky top-1 z-50 bg-[white] scrollbar-hide"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+        >
+          <style jsx>{`
+            div::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`
               font-semibold font-satoshi text-[16px] rounded-[9.02px] px-5 w-[197px] h-[48px] transition-colors duration-300
-              ${activeTab === tab.id
-                ? 'bg-[#050212] text-[#fff] border border-[#050212]'
-                : 'border border-[#DDDDDD] text-[#050212] hover:bg-gray-100'}
+              ${
+                activeTab === tab.id
+                  ? "bg-[#050212] text-[#fff] border border-[#050212]"
+                  : "border border-[#DDDDDD] text-[#050212] hover:bg-gray-100"
+              }
             `}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
 
-      {/* ✅ Stacking Images Section */}
-      <div className="relative h-[400vh] mt-6">
-        {tabs.map((tab, index) => {
-          const yTransform = useTransform(
-            scrollYProgress,
-            [index * 0.1, 1],
-            [0, -(index * 100)]
-          );
-
-          return (
+        {/* Stacking Images Section */}
+        <div className="relative h-[250vh] mt-6">
+          {tabs.map((tab, index) => (
             <motion.div
               key={tab.id}
               className="sticky top-[100px] flex justify-center"
               style={{
-                y: yTransform,
-                zIndex: index + 1,
+                zIndex: index + 1, // each new image is above the previous
               }}
             >
               <div className="w-[90%] max-w-[400px]">
@@ -260,22 +237,20 @@ const ExpertiseSection = () => {
                   alt={tab.label}
                   width={400}
                   height={300}
-                  className="w-full h-auto rounded-lg shadow-lg"
-                  style={{ objectFit: 'cover' }}
+                  className="w-full h-auto"
+                  style={{ objectFit: "cover" }}
                 />
               </div>
             </motion.div>
-          );
-        })}
-      </div>
+          ))}
+        </div>
 
-      {/* CTA Button */}
-      <div className="flex justify-center mt-8">
-        <button className="bg-primary border border-[#DDDDDD] text-[#FFFFFF] font-semibold font-satoshi text-lg rounded-lg w-[300px] h-16">
-          Start Creating
-        </button>
-      </div>
-    </section>
+        <div className="flex justify-center mt-8">
+          <button className="bg-primary border border-[#DDDDDD] text-[#FFFFFF] font-semibold font-satoshi text-lg rounded-lg w-[300px] h-16">
+            Start Creating
+          </button>
+        </div>
+      </section>
     </section>
   );
 };
