@@ -211,7 +211,7 @@ const Navbar = () => {
               <ul>
                 {token ? (
                   <div className="">
-                    <div className="w-full flex flex-col justify-between  gap-8   ">
+                    <div className="w-full flex flex-col justify-between  gap-8 font-satoshi  ">
                       <div className=" w-full flex flex-col    gap-3  ">
                         <Image
                           src={details?.profilePic}
@@ -275,7 +275,7 @@ const Navbar = () => {
                 ) : (
                   ""
                 )}
-                <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%] ">
+                <div className="p-2  w-full font-medium text-[16px] text-[#64748B] leading-[150%] font-satoshi ">
                   <Link
                     href="/about-us"
                     onClick={() => setDropdown(false)}
@@ -284,7 +284,7 @@ const Navbar = () => {
                     About
                   </Link>
                 </div>
-                <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
+                <div className="p-2  w-full font-medium text-[16px] text-[#64748B] leading-[150%] font-satoshi">
                   <Link
                     href="/faq"
                     onClick={() => setDropdown(false)}
@@ -293,45 +293,18 @@ const Navbar = () => {
                     FAQ
                   </Link>
                 </div>
-                <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
-                  <Link
-                    href="/donation"
-                    onClick={() => setDropdown(false)}
-                    style={{ color: pathname === "/donation" ? "#1453ff" : "" }}
-                  >
-                    Donation
-                  </Link>
-                </div>
-                <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
-                  <Link
-                    href="/mentor"
-                    onClick={() => setDropdown(false)}
-                    style={{ color: pathname === "/mentor" ? "#1453ff" : "" }}
-                  >
-                    Mentor
-                  </Link>
-                </div>
-                <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
+                <div className="p-2  w-full font-medium text-[16px] text-[#64748B] leading-[150%] font-satoshi">
                   <Link
                     href="/spm"
                     onClick={() => setDropdown(false)}
-                    style={{ color: pathname === "/spm" ? "#1453ff" : "" }}
+                    style={{ color: pathname === "/pricing" ? "#1453ff" : "" }}
                   >
-                    PM
+                    Pricing
                   </Link>
                 </div>
-                {/* <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
-                  <Link
-                    href="/hire"
-                    onClick={() => setDropdown(false)}
-                    style={{ color: pathname === "/hire" ? "#1453ff" : "" }}
-                  >
-                    Hire
-                  </Link>
-                </div> */}
               </ul>
               {token ? (
-                <div className="p-2  w-full font-medium text-[14px] text-[#EA4335] leading-[120%] cursor-pointer border border-[#ffff] border-t-[#EAEAEA] mb-3">
+                <div className="p-2  w-full font-medium text-[14px] text-[#EA4335] leading-[120%] cursor-pointer border border-[#ffff] border-t-[#EAEAEA] mb-3 font-satoshi">
                   <div onClick={() => handleLogOut()}>Sign out</div>
                 </div>
               ) : (

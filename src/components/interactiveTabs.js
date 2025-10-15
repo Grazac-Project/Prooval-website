@@ -107,26 +107,26 @@ const ExpertiseSection = () => {
   }, [scrollYProgress, tabs]);
 
   return (
-    <section ref={scrollRef} className="relative mb-[80px]">
+    <section ref={scrollRef} className="relative mb-[80px] font-satoshi">
       <div className="sm:hidden">
         {/* Header Section */}
         <div className="m-auto w-[800px] lgx:w-[90%] md:w-[100%] sm:w-[100%] text-center px-[16px] pt-10">
-          <h1 className="text-[48px] leading-[56px] font-bold text-[#121927] sm:text-[30px] sm:leading-[38px] ">
-           Unlimited ways to share your expertise across board
+          <h1 className="text-[48px] leading-[56px] font-bold text-[#121927] sm:text-[30px] sm:leading-[38px] font-satoshi">
+          Unlimited ways to share your expertise across board
           </h1>
-          <p className="font-normal text-[16px] leading-[160%] text-[#787878] mt-[20px] mb-[40px]">
+          <p className="font-normal text-[16px] leading-[160%] text-[#787878] mt-[20px] mb-[40px] font-satoshi">
             Share what you know with your audience and get paid
           </p>
         </div>
 
         {/*  Tab Buttons */}
-        <div className="sticky top-0 z-40 bg-[white] px-4 py-4 lg:px-[120px] flex justify-center gap-4 lg:whitespace-nowrap md:whitespace-nowrap md:px-2 ">
+        <div className="sticky top-0 z-40 bg-[white] px-4 py-4 lg:px-[90px] flex justify-center gap-4 lg:whitespace-nowrap md:whitespace-nowrap md:px-2 ">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`
-            font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] md:w-[160px] h-[48px] transition-colors duration-300
+            font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] md:w-[160px] lg:w-[250px] h-[48px] transition-colors duration-300
             ${
               activeTab === tab.id
                 ? "bg-[#050212] text-[#fff] border border-[#050212]"
@@ -176,15 +176,15 @@ const ExpertiseSection = () => {
       </div>
 
       {/* Mobile View */}
-      <section className="sm:block 3xl:hidden relative" ref={scrollRef}>
+      <section className="sm:block 3xl:hidden relative" ref={scrollRef} >
         {/* Header */}
         <div className="m-auto w-[800px] sm:w-[100%] text-center px-[16px] pt-10">
-          <h1 className="text-[48px] leading-[56px] font-bold text-[#121927] sm:text-[30px] sm:leading-[38px] ">
-            Limitless ways to share your expertise across board
+          <h1 className="text-[30px] leading-[38px] font-bold text-[#121927]">
+          Unlimited ways to share your expertise across board
+
           </h1>
-          <p className="font-normal text-[16px] leading-[160%] text-[#787878] mt-[20px] mb-[20px]">
-            Every expert adds something unique. Join the growing community of
-            professionals turning their knowledge into impact and income.
+          <p className="font-normal text-[16px] leading-[160%] text-[#787878] mt-[20px] mb-[24px]">
+           Share what you know with your audience and get paid
           </p>
         </div>
 
