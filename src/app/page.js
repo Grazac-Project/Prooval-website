@@ -179,7 +179,7 @@ const Landing = () => {
                 className="text-primary font-[700] text-[60px] xxl:text-[50px] lgx:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px]  sm:leading-[38px] leading-[68px]"
               />
               <span className="text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px] sm:leading-[38px] leading-[68px] font-[700] text-[#121927]">
-               All In One Place
+                All In One Place
               </span>
             </div>
 
@@ -308,7 +308,7 @@ const Landing = () => {
         {/* Why you should use Prooval */}
         <section className="px-[80px] xl:px-[25px] xm:px-4 font-satoshi">
           <div className="bg-[#121927] rounded-[24px] p-[80px] lgx:p-[40px] lg:p-[20px] md:p-[20px]">
-            <h2 className="font-bold text-[48px] lg:text-[32px] leading-[56px] lg:leading-[41.6px] text-[#FCFCFC] text-center w-[865px] lg:w-[95%] mx-auto pb-3 sm:text-[30px] sm:leading-[38px] sm:pb-[8px]">
+            <h2 className="font-bold text-[48px] lg:text-[32px] leading-[56px] lg:leading-[41.6px] text-[#FCFCFC] text-center w-[865px] lg:w-[95%] mx-auto pb-3 sm:text-[30px] sm:leading-[38px] sm:pb-[8px] sxm:text-[24px]">
               Why professionals prefer Prooval?
             </h2>
             <h3 className="font-normal text-[16px] text-[#FCFCFC] leading-[160%] text-center w-[786px] lg:w-[100%] md:w-[100%] mx-auto pb-[64px] md:pb-[40px] md:text-[12px] sm:text-[16px] sm:pb-[64px]">
@@ -338,9 +338,9 @@ const Landing = () => {
           </div>
         </section>
         {/* Go-To-Platform */}
-        <section className="font-satoshi bg-[url(/background.png)] bg-center px-[80px] lgx:px-[25px] xm:px-[16px] mt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px] sm:mt-[40px]">
+        <section className="font-satoshi bg-[url(/background.png)] bg-center px-[80px] lgx:px-[25px] sm:px-[0px] mt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px] sm:mt-[40px]">
           <div className="flex flex-col items-center py-[80px] lg:py-[40px] sm:px-[26px] xxm:px-[16px] sxm:px-[8px] sm:flex-col">
-            <h3 className="font-bold w-[924px] text-center lg:w-[100%] md:w-[100%] md:leading-[48px] sm:w-[100%] text-[48px] sm:text-[30px] lgx:text-[36px] md:text-[32px] leading-[56px] sm:leading-[35.2px] text-[#121927] mb-[20px]">
+            <h3 className="font-bold w-[924px] text-center lg:w-[100%] md:w-[100%] md:leading-[48px] sm:w-[100%] text-[48px] sm:text-[30px] lgx:text-[36px] md:text-[32px] leading-[56px] sm:leading-[35.2px] text-[#121927] mb-[20px] sxm:text-[24px]">
               The go-to-platform for professionals
             </h3>
             <p className="font-normal text-center text-[16px] leading-[30px] text-[#787878] mb-[32px]">
@@ -360,8 +360,7 @@ const Landing = () => {
               {professionals.map((pro, index) => (
                 <div
                   key={pro.id}
-                  className="relative rounded-lg overflow-hidden shadow-md h-[329px] w-[207.5px] hover:w-[419px] transition-all transition-duration-500 ease-in-out bg-gradient-from-d-[#00000000] to-t
-             bg-[#000000]"
+                  className="relative rounded-lg overflow-hidden shadow-md h-[329px] w-[207.5px] hover:w-[419px] transition-all transition-duration-500 ease-in-out"
                 >
                   <img
                     src={pro.image}
@@ -380,47 +379,42 @@ const Landing = () => {
                 </div>
               ))}
             </div>
+          </div>
 
-            {/* Mobile Carousel */}
-            <div className="sm:block 3xl:hidden">
-              <Slider
-                dots={false}
-                infinite={true}
-                speed={500}
-                slidesToShow={1}
-                slidesToScroll={1}
-                autoplay={true}
-                arrows={false}
-              >
-                {professionals.map((pro, index) => (
-                  <div
-                    key={pro.id}
-                    className={`${
-                      index === 2 ? "w-[207.5px]" : "w-[419px]"
-                    } px-0`}
-                  >
-                    <div className="relative rounded-lg overflow-hidden shadow-md h-[332px]">
-                      <img
-                        src={pro.image}
-                        alt={pro.name}
-                        className="w-full h-full object-cover"
-                      />
+          {/* Mobile Carousel */}
+          <div className="sm:block 3xl:hidden w-full px-[16px]">
+            <Slider
+              dots={false}
+              infinite={true}
+              speed={500}
+              slidesToShow={1}
+              slidesToScroll={1}
+              autoplay={true}
+              arrows={false}
+            >
+              {professionals.map((pro, index) => (
+                <div key={pro.id} className="w-[100%]">
+                  <div className="relative rounded-lg overflow-hidden shadow-md h-[332px]">
+                    <img
+                      src={pro.image}
+                      alt={pro.name}
+                      className="w-full h-full object-cover inset-0"
+                    />
 
-                      {/* <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div> */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#000000] to-transparent"></div>
 
-                      <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
-                        <h3 className="font-medium text-[16px] text-[#fff]">
-                          {pro.name}
-                        </h3>
-                        <p className="text-[10px] font-normal text-[#fff] border-[0.69px] border-[#FFFFFF] rounded-[5.5px] py-[2.62px] px-[6.87px] w-[140.74px]">
-                          {pro.role}
-                        </p>
-                      </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
+                      <h3 className="font-medium text-[16px] text-[#fff]">
+                        {pro.name}
+                      </h3>
+                      <p className="text-[10px] font-normal text-[#fff] border-[0.69px] border-[#FFFFFF] rounded-[5.5px] py-[2.62px] px-[6.87px] w-[140.74px]">
+                        {pro.role}
+                      </p>
                     </div>
                   </div>
-                ))}
-              </Slider>
-            </div>
+                </div>
+              ))}
+            </Slider>
           </div>
         </section>
 

@@ -246,10 +246,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex justify-between pt-[20px] pb-[48px]  ">
-        <h6 className="font-normal text-[12px] leading-[16px] text-[#FFFFFFCC]">
+        <h6 className="font-normal text-[12px] leading-[16px] text-[#FFFFFFCC] sxm:text-[10px]">
           &copy; {new Date().getFullYear()} Proovals
         </h6>
-        <div className="flex gap-4 text-[12px] font-satoshi text-[#FFFFFFCC] leading-[16px] font-normal">
+        <div className="flex gap-4 text-[12px] font-satoshi text-[#FFFFFFCC] leading-[16px] font-normal sxm:text-[10px]">
           <Link href="/terms">
             <h1>Terms & condition</h1>
           </Link>
