@@ -2,7 +2,7 @@
 import Navbar from "@/components/navbar/nav";
 import Classes from "./faq.module.css";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "@/components/footer/footer";
 import { faq } from "@/constants/faq";
 import { useFormik } from "formik";
@@ -22,44 +22,35 @@ const initialValues = {
 
 const Faq = () => {
   const [show, setShow] = useState({});
-  const [visibleCount, setVisibleCount] = useState(4); // show only 4 initially
-
   const [show2, setShow2] = useState({});
   const [question, setQuestion] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
 
-  const handleToggle = (id) => {
-    // console.log(id);
-    setShow((prevshow) => ({
-      ...prevshow,
-      [id]: !prevshow[id],
-    }));
-    // setShow(false);
-  };
-  const handleToggle2 = (id) => {
-    // console.log(id);
-    setShow2((prevshow) => ({
-      ...prevshow,
-      [id]: !prevshow[id],
-    }));
-    // setShow(false);
-  };
+  const [visibleCount, setVisibleCount] = useState(4);
+  const [isDesktop, setIsDesktop] = useState(false);
 
-  React.useEffect(() => {
+  // Handle window width safely
+  useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setVisibleCount(4); // small screen → show 4
-      } else {
-        setVisibleCount(faq.length); // large screen → show all
-      }
+      const desktop = window.innerWidth > 768;
+      setIsDesktop(desktop);
+      setVisibleCount(desktop ? faq.length : 4);
     };
 
-    handleResize(); // run once at load
+    handleResize(); // Run once when mounted
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const handleToggle = (id) => {
+    setShow((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const handleToggle2 = (id) => {
+    setShow2((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   const schema = yup.object({
     email: yup
@@ -70,6 +61,7 @@ const Faq = () => {
     lastName: yup.string().required("Last name is required"),
     msg: yup.string().required("Message is required"),
   });
+
   const { values, handleSubmit, handleChange, handleBlur, errors, touched } =
     useFormik({
       initialValues,
@@ -80,14 +72,13 @@ const Faq = () => {
           .then((res) => {
             if (res.status === 200) {
               setLoading(false);
-              // console.log(res);
               actions.resetForm();
               setShowModal2(true);
             }
           })
           .catch((error) => {
-            // console.log(error);
-            toast.warn(error.response.data.message);
+            toast.warn(error.response?.data?.message || "Something went wrong");
+            setLoading(false);
           });
       },
     });
@@ -109,79 +100,63 @@ const Faq = () => {
             <input type="search" placeholder="Search" />
           </div>
         </div>
+
         <div className={Classes.innerContainer}>
           <h2 className="font-satoshi">Frequently asked questions</h2>
 
           <div className={Classes.questionFlex}>
             <div className={Classes.flex1}>
-              {faq
-                .slice(0, window.innerWidth > 768 ? 7 : visibleCount)
-                .map((item, index) => (
+              {faq.slice(0, isDesktop ? 7 : visibleCount).map((item, index) => (
+                <div className={Classes.questionContainer} key={index}>
                   <div
-                    className={Classes.questionContainer}
-                    // onClick={handleToggle}
-                    key={index}
+                    className={Classes.question}
+                    onClick={() => handleToggle(index)}
                   >
-                    <div
-                      className={Classes.question}
-                      onClick={() => handleToggle(index)}
-                    >
-                      {item.question}
-                      <>
-                        {!show[index] ? (
-                          <Image
-                            src="/drop.svg"
-                            alt="img"
-                            width={20}
-                            height={20}
-                            key={index}
-                            style={{
-                              cursor: "pointer",
-                              marginTop: "-20px",
-                              marginLeft: "5x",
-                            }}
-                          />
-                        ) : (
-                          <Image
-                            src="/drop2.svg"
-                            alt="img"
-                            width={20}
-                            height={20}
-                            key={index}
-                            style={{ cursor: "pointer", marginBottom: "2px" }}
-                          />
-                        )}
-                      </>
-                    </div>
-                    {show[index] && (
-                      <div className={`${Classes.answer} font-satoshi`}>
-                        {item.answer}{" "}
-                        {item.link1 && (
-                          <a href="#">
-                            <span className={Classes.link}>{item.link1}</span>
-                          </a>
-                        )}{" "}
-                        {item.link2 && (
-                          <a href="mailto:hello@hackthejobs.com">
-                            <span className={`${Classes.link} font-satoshi`}>
-                              {item.link2}
-                            </span>
-                          </a>
-                        )}
-                      </div>
+                    {item.question}
+                    {!show[index] ? (
+                      <Image
+                        src="/drop.svg"
+                        alt="img"
+                        width={20}
+                        height={20}
+                        style={{ cursor: "pointer", marginTop: "-20px" }}
+                      />
+                    ) : (
+                      <Image
+                        src="/drop2.svg"
+                        alt="img"
+                        width={20}
+                        height={20}
+                        style={{ cursor: "pointer", marginBottom: "2px" }}
+                      />
                     )}
                   </div>
-                ))}
+                  {show[index] && (
+                    <div className={`${Classes.answer} font-satoshi`}>
+                      {item.answer}{" "}
+                      {item.link1 && (
+                        <a href="#">
+                          <span className={Classes.link}>{item.link1}</span>
+                        </a>
+                      )}{" "}
+                      {item.link2 && (
+                        <a href="mailto:hello@hackthejobs.com">
+                          <span className={`${Classes.link} font-satoshi`}>
+                            {item.link2}
+                          </span>
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
+
             <div className={Classes.flex2}>
               {faq
                 .slice(
-                  window.innerWidth > 768 ? 7 : 0,
-                  window.innerWidth > 768
-                    ? 13
-                    : visibleCount > 4
-                    ? visibleCount
-                    : 0
+                  isDesktop ? 7 : 0,
+                  isDesktop ? 13 : visibleCount > 4 ? visibleCount : 0
                 )
                 .map((item, index) => (
                   <div className={Classes.questionContainer} key={index}>
@@ -197,7 +172,6 @@ const Faq = () => {
                             alt="img"
                             width={20}
                             height={20}
-                            key={index}
                             style={{ cursor: "pointer" }}
                           />
                         ) : (
@@ -206,7 +180,6 @@ const Faq = () => {
                             alt="img"
                             width={20}
                             height={20}
-                            key={index}
                             style={{ cursor: "pointer" }}
                           />
                         )}
@@ -220,50 +193,7 @@ const Faq = () => {
                   </div>
                 ))}
             </div>
-            {question && (
-              <div className={Classes.flex3}>
-                {faq.slice(4, 14).map((item, index) => (
-                  <div
-                    className={Classes.questionContainer}
-                    click={handleToggle}
-                    key={index}
-                  >
-                    <div
-                      className={`${Classes.question} font-satoshi`}
-                      onClick={() => handleToggle2(index)}
-                    >
-                      {item.question}
-                      <>
-                        {!show2[index] ? (
-                          <Image
-                            src="/drop.svg"
-                            alt="img"
-                            width={20}
-                            height={20}
-                            key={index}
-                            style={{ cursor: "pointer" }}
-                          />
-                        ) : (
-                          <Image
-                            src="/drop2.svg"
-                            alt="img"
-                            width={20}
-                            height={20}
-                            key={index}
-                            style={{ cursor: "pointer" }}
-                          />
-                        )}
-                      </>
-                    </div>
-                    {show2[index] && (
-                      <div className={`${Classes.answer} font-satoshi`}>
-                        {item.answer}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
+
             {visibleCount < faq.length ? (
               <button
                 className={Classes.mobileBtn}
@@ -281,6 +211,7 @@ const Faq = () => {
             )}
           </div>
         </div>
+
         <div className={Classes.formContainer} id="contact-form">
           <h4>Get in touch</h4>
           <p>We’d love to hear from you. Please fill out this form.</p>
@@ -363,6 +294,7 @@ const Faq = () => {
           </form>
         </div>
       </div>
+
       <Footer openModal={() => setShowModal(true)} />
     </>
   );
