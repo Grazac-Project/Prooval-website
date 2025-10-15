@@ -165,7 +165,7 @@ const Landing = () => {
         {/* Hero Section */}
         <section className="font-satoshi mx-auto relative bg-[#FFFFFF]">
           <div className="flex flex-col items-center justify-center text-center py-[48px]">
-            <h1 className="font-bold text-[60px] text-center xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[40px] xm:text-[35px] xxm:text-[30px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px] text-[#121927]">
+            <h1 className="font-bold text-[60px] text-center xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[38px] text-[#121927]">
               Monetize Your
             </h1>
 
@@ -176,10 +176,10 @@ const Landing = () => {
                 wrapper="span"
                 speed={50}
                 repeat={Infinity}
-                className="text-primary font-[700] text-[60px] xxl:text-[50px] lgx:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[40px] xm:text-[35px] xxm:text-[30px] leading-[68px]"
+                className="text-primary font-[700] text-[60px] xxl:text-[50px] lgx:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px]  sm:leading-[38px] leading-[68px]"
               />
-              <span className="text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[40px] xm:text-[35px] xxm:text-[30px] leading-[68px] font-[700] text-[#121927]">
-                in One Place
+              <span className="text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px] sm:leading-[38px] leading-[68px] font-[700] text-[#121927]">
+               All In One Place
               </span>
             </div>
 
@@ -337,8 +337,8 @@ const Landing = () => {
             </div>
           </div>
         </section>
-        {/* Trusted Expert */}
-        <section className="font-satoshi bg-[url(/background.png)] bg-center px-[80px] lgx:px-[25px] xm:px-[16px] mt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
+        {/* Go-To-Platform */}
+        <section className="font-satoshi bg-[url(/background.png)] bg-center px-[80px] lgx:px-[25px] xm:px-[16px] mt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px] sm:mt-[40px]">
           <div className="flex flex-col items-center py-[80px] lg:py-[40px] sm:px-[26px] xxm:px-[16px] sxm:px-[8px] sm:flex-col">
             <h3 className="font-bold w-[924px] text-center lg:w-[100%] md:w-[100%] md:leading-[48px] sm:w-[100%] text-[48px] sm:text-[30px] lgx:text-[36px] md:text-[32px] leading-[56px] sm:leading-[35.2px] text-[#121927] mb-[20px]">
               The go-to-platform for professionals
@@ -428,8 +428,8 @@ const Landing = () => {
 
         {/* onboarding */}
         <section className="w-[100%] bg-[#F5F8FF] font-satoshi flex sm:flex-wrap justify-center gap-[24px] lg:gap-[16px] px-[112px] lgx:px-[80px] lg:px-[30px]  md:px-[40px] xl:px-[25px] xm:px-[16px] py-[80px] sm:pt-[52px] sm:pb-0 sm:px-[16px] md:py-[40px] ">
-          <div className="bg-[#1453FF] w-[429px] pt-[99.81px] h-[390px] px-[34px] rounded-[16px] md:w-[300px] sm:w-[100%] sm:pb-[48px] relative">
-            <h4 className="text-[60px] font-bold leading-[68px] text-[#FBFCFD] md:text-[30px] md:leading-[36px]">
+          <div className="bg-[#1453FF] w-[429px] pt-[99.81px] h-[390px] px-[34px] rounded-[16px] md:w-[300px] sm:w-[100%] sm:h-[100%] sm:pb-[48px] sm:px-[16px] relative">
+            <h4 className="text-[60px] font-bold leading-[68px] text-[#FBFCFD] md:text-[30px] md:leading-[36px] sm:pb-[24px]">
               Get Started in 3 Easy Steps!
             </h4>
             <p className="font-normal text-[20px] leading-[160%] text-[#EDEDED] md:text-[16px] md:leading-[24px]">
@@ -474,7 +474,7 @@ const Landing = () => {
               <h1 className="text-[#121927] font-bold text-[48px] leading-[56px] mx-auto text-center mb-[20px] w-[978px] md:w-[100%] sm:text-[30px] sm:leading-[38px]">
                 What Experts Are Saying
               </h1>
-              <p className="text-base font-normal leading-[160%] text-[#787878] mb-[40px]">
+              <p className="text-base font-normal leading-[160%] text-[#787878] mb-[40px] text-center">
                 Real stories from experts building their income on Prooval.
               </p>
             </div>
@@ -560,7 +560,7 @@ const Landing = () => {
                   Turn Your Knowledge into <br className="hidden sm:block" />
                   Income Seamlessly
                 </h1>
-                <p className="text-base text-[#FCFCFC] leading-[160%] mb-8 sm:text-[14px]">
+                <p className="text-base text-[#FCFCFC] leading-[160%] mb-8 sm:text-[14px] text-center sxm:px-2">
                   You no longer have to juggle multiple platforms to monetize
                   your knowledge. Prooval makes it simple to share your
                   expertise and earn all from a single link.
