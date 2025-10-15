@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
-import { card, valueCards, testimonials } from "@/constants/constant";
+import { card, valueCards, testimonialsTop, testimonialsBottom, professionals } from "@/constants/constant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -15,103 +15,10 @@ import Modal from "@/components/modal/modal";
 import useAnalytics from "@/components/useAnalytics";
 import { TypeAnimation } from "react-type-animation";
 import { motion, useAnimation } from "framer-motion";
-import { RiDoubleQuotesL } from "react-icons/ri";
 import InteractiveTabs from "@/components/interactiveTabs";
 
-const professionals = [
-  {
-    id: 1,
-    name: "Jay Doe",
-    role: "Financial Mentor at Energy",
-    image: "/professional_1.jpg",
-  },
-  {
-    id: 2,
-    name: "Allan Stanton",
-    role: "Expert in Creative Business",
-    image: "/professional_2.jpg",
-  },
-  {
-    id: 3,
-    name: "Joy Doe",
-    role: "Personal Coach",
-    image: "/professional_5.jpg",
-  },
-  {
-    id: 4,
-    name: "Jay Doe",
-    role: "Financial Mentor at Energy",
-    image: "/professional_1.jpg",
-  },
-  {
-    id: 5,
-    name: "Jay Doe",
-    role: "Financial Mentor at Energy",
-    image: "/professional_3.jpg",
-  },
-];
+ 
 
-const testimonialsTop = [
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-];
-
-const testimonialsBottom = [
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-];
 const Landing = () => {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
