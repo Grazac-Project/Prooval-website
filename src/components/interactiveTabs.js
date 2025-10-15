@@ -48,12 +48,30 @@ function getScrollYTransform(ref, index) {
 }
 
 const ExpertiseSection = () => {
-  const [activeTab, setActiveTab] = useState(tabs[0].id);
-  const scrollRef = useRef(null);
-  const tabScrollRef = useRef(null);
 
+  const [activeTab, setActiveTab] = useState(tabs[0].id);
+  const tabScrollRef = useRef(null);
+  const desktopScrollRef = useRef(null);
+  const mobileScrollRef = useRef(null);
+
+  //  Reset scroll position before anything else
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    // Make sure the scroll reset happens after hydration
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+  }, []);
+
+  //  Determine scroll target AFTER reset
   const { scrollYProgress } = useScroll({
-    target: scrollRef,
+    target:
+      typeof window !== "undefined" && window.innerWidth < 640
+        ? mobileScrollRef
+        : desktopScrollRef,
     offset: ["start start", "end end"],
   });
 
@@ -67,22 +85,19 @@ const ExpertiseSection = () => {
     }
   }, [activeTab]);
 
+  //  Sync active tab with scroll progress
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", (latest) => {
-      const currentTabIndex = Math.min(
-        Math.floor(latest * tabs.length),
-        tabs.length - 1
+      const index = Math.min(
+        tabs.length - 1,
+        Math.floor(latest * tabs.length)
       );
-      const newActiveTabId = tabs[currentTabIndex]?.id;
-
-      if (newActiveTabId && newActiveTabId !== activeTab) {
-        setActiveTab(newActiveTabId);
-      }
+      setActiveTab(tabs[index].id);
     });
     return () => unsubscribe();
-  }, [scrollYProgress, activeTab]);
+  }, [scrollYProgress]);
 
-  // ✅ Scroll to active tab when it changes (including back to first)
+  //  Scroll to active tab when it changes
   useEffect(() => {
     if (!tabScrollRef.current) return;
     const activeIndex = tabs.findIndex((t) => t.id === activeTab);
@@ -95,19 +110,10 @@ const ExpertiseSection = () => {
         block: "nearest",
       });
     }
-  }, [activeTab, tabs]);
-
-  // ✅ Update active tab on scroll
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (latest) => {
-      const index = Math.min(tabs.length - 1, Math.floor(latest * tabs.length));
-      setActiveTab(tabs[index].id);
-    });
-    return () => unsubscribe();
-  }, [scrollYProgress, tabs]);
+  }, [activeTab]);
 
   return (
-    <section ref={scrollRef} className="relative mb-[80px] font-satoshi">
+    <section ref={desktopScrollRef} className="relative mb-[80px] font-satoshi">
       <div className="sm:hidden">
         {/* Header Section */}
         <div className="m-auto w-[800px] lgx:w-[90%] md:w-[100%] sm:w-[100%] text-center px-[16px] pt-10">
@@ -176,7 +182,7 @@ const ExpertiseSection = () => {
       </div>
 
       {/* Mobile View */}
-      <section className="sm:block 3xl:hidden relative" ref={scrollRef} >
+      <section className="sm:block 3xl:hidden relative" ref={mobileScrollRef} >
         {/* Header */}
         <div className="m-auto w-[800px] sm:w-[100%] text-center px-[16px] pt-10">
           <h1 className="text-[30px] leading-[38px] font-bold text-[#121927]">
