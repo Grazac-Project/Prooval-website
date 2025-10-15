@@ -120,13 +120,13 @@ const ExpertiseSection = () => {
         </div>
 
         {/*  Tab Buttons */}
-        <div className="sticky top-0 z-40 bg-[white] px-4 py-4 lg:px-[120px] flex justify-center gap-4 lg:whitespace-nowrap md:whitespace-nowrap md:px-2 ">
+        <div className="sticky top-0 z-40 bg-[white] px-4 py-4 lg:px-[90px] flex justify-center gap-4 lg:whitespace-nowrap md:whitespace-nowrap md:px-2 ">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`
-            font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] md:w-[160px] h-[48px] transition-colors duration-300
+            font-semibold font-satoshi text-[16px] rounded-[9.02px] w-[197px] md:w-[160px] lg:w-[250px] h-[48px] transition-colors duration-300
             ${
               activeTab === tab.id
                 ? "bg-[#050212] text-[#fff] border border-[#050212]"
@@ -176,7 +176,7 @@ const ExpertiseSection = () => {
       </div>
 
       {/* Mobile View */}
-      <section className="sm:block 3xl:hidden relative pt-[]" ref={scrollRef} >
+      <section className="sm:block 3xl:hidden relative" ref={scrollRef} >
         {/* Header */}
         <div className="m-auto w-[800px] sm:w-[100%] text-center px-[16px] pt-10">
           <h1 className="text-[30px] leading-[38px] font-bold text-[#121927]">

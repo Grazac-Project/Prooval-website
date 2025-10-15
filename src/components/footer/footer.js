@@ -61,7 +61,7 @@ const Footer = () => {
     <footer className="font-satoshi bg-[#121927] px-[80px] pt-[48px] pb-[10px] xl:px-[25px] xm:px-[16px] mt-[80px]">
       {open && <Modal close={close} />}
       <div className="flex flex-wrap justify-between pb-[16px] border-b-[1px] border-[#FFFFFF0A]">
-        <div className="xm:pb-[24px] md:pb-[40px]">
+        <div className="xm:pb-[24px] md:pb-[40px] lg:mb-[40px]">
           <Link href="/">
             <Image
               src="/proovalLogoWhite.png"
@@ -123,7 +123,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="flex gap-6 sm:flex-col xm:w-full">
+        <div className="flex gap-6 sm:flex-col xm:w-full sm-pb-[]">
           <div className="flex gap-6">
             <div className="w-[137px] lgx:w-[100px] ">
               <p className="font-bold text-[14px] leading-[20px] text-[#FFFFFFCC] pb-[30px]">

@@ -320,14 +320,14 @@ const Landing = () => {
                 return (
                   <div
                     key={index}
-                    className="w-[351.33px] flex flex-col items-center py-[32px] px-[16px] rounded-2xl border-[1px] border-[#DDDDDD1A] lgx:py-[25px] lgx:px-[12px] sm:w-[100%] sm:py-[21.5px] sm:px-[16px] bg-[#070C1633] hover:bg-primary transition-all duration-300 ease-in-out"
+                    className="w-[351.33px] h-[301px] flex flex-col items-center py-[32px] px-[16px] rounded-2xl border-[1px] border-[#DDDDDD1A] lgx:py-[25px] lgx:px-[12px] sm:w-[100%] sm:py-[21.5px] sm:px-[16px] bg-[#070C1633] hover:bg-primary transition-all duration-300 ease-in-out"
                   >
                     <img src={card.image} alt="name" />
                     <div className="text-center mt-[20px] ">
                       <h1 className="font-semibold text-[20px] md:text-[16px] leading-[100%] text-[#FFFFFF] mb-[8px]">
                         {card.heading}
                       </h1>
-                      <p className="font-light text-[14px] md:text-[12px] leading-[150%] text-[#E3E3E3]">
+                      <p className="font-light text-[14px] md:text-[12px] leading-[150%] text-[#E3E3E3] lg:text-[12px]">
                         {card.text}
                       </p>
                     </div>
@@ -356,7 +356,7 @@ const Landing = () => {
 
           <div className="w-full max-w-[1200px] mx-auto px-4 py-10">
             {/* Static Layout */}
-            <div className="sm:hidden flex justify-center gap-2 md:flex-wrap">
+            <div className="sm:hidden flex justify-center gap-2 md:flex-wrap lg:flex-wrap">
               {professionals.map((pro, index) => (
                 <div
                   key={pro.id}
@@ -422,8 +422,8 @@ const Landing = () => {
 
         {/* onboarding */}
         <section className="w-[100%] bg-[#F5F8FF] font-satoshi flex sm:flex-wrap justify-center gap-[24px] lg:gap-[16px] px-[112px] lgx:px-[80px] lg:px-[30px]  md:px-[40px] xl:px-[25px] xm:px-[16px] py-[80px] sm:pt-[52px] sm:pb-0 sm:px-[16px] md:py-[40px] ">
-          <div className="bg-[#1453FF] w-[429px] pt-[99.81px] h-[390px] px-[34px] rounded-[16px] md:w-[300px] sm:w-[100%] sm:h-[100%] sm:pb-[48px] sm:px-[16px] relative">
-            <h4 className="text-[60px] font-bold leading-[68px] text-[#FBFCFD] md:text-[30px] md:leading-[36px] sm:pb-[24px]">
+          <div className="bg-[#1453FF] w-[429px] pt-[99.81px] h-[390px] px-[34px] rounded-[16px] md:w-[300px] lg:h-[435px] sm:w-[100%] sm:h-[100%] sm:pb-[48px] sm:px-[16px] relative">
+            <h4 className="text-[60px] font-bold leading-[68px] text-[#FBFCFD] md:text-[30px] lg:text-[40px] lg:leading-[48px] md:leading-[36px] sm:pb-[24px] lg:pb-[32px] lgx:text-[40px] lgx:leading-[48px] lgx:pb-[32px] xxl:text-[50px] xxl:pb-[32px]">
               Get Started in 3 Easy Steps!
             </h4>
             <p className="font-normal text-[20px] leading-[160%] text-[#EDEDED] md:text-[16px] md:leading-[24px]">
@@ -465,7 +465,7 @@ const Landing = () => {
         <section className="sm:pt-[40px]">
           <div className="w-full font-satoshi bg-[url(/background.png)] bg-cover bg-center py-[50px] sm:py-[19.06px] overflow-hidden">
             <div className="flex flex-col items-center justify-center">
-              <h1 className="text-[#121927] font-bold text-[48px] leading-[56px] mx-auto text-center mb-[20px] w-[978px] md:w-[100%] sm:text-[30px] sm:leading-[38px]">
+              <h1 className="text-[#121927] font-bold text-[48px] leading-[56px] mx-auto text-center mb-[20px] sm:text-[30px] sm:leading-[38px]">
                 What Experts Are Saying
               </h1>
               <p className="text-base font-normal leading-[160%] text-[#787878] mb-[40px] text-center">

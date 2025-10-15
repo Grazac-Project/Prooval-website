@@ -128,7 +128,7 @@
 }
 @media screen and (max-width: 985px) {
   .nav {
-    width: 80%;
+    width: 70%;
   }
   .navMobile ul {
     gap: 20px;
