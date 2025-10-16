@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
-import { card, valueCards, testimonials } from "@/constants/constant";
+import { card, valueCards, testimonialsTop, testimonialsBottom, professionals } from "@/constants/constant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -15,107 +15,16 @@ import Modal from "@/components/modal/modal";
 import useAnalytics from "@/components/useAnalytics";
 import { TypeAnimation } from "react-type-animation";
 import { motion, useAnimation } from "framer-motion";
-import { RiDoubleQuotesL } from "react-icons/ri";
 import InteractiveTabs from "@/components/interactiveTabs";
+import FeatureScroll from "@/components/featureScroll";
 
-const professionals = [
-  {
-    id: 1,
-    name: "Jay Doe",
-    role: "Financial Mentor at Energy",
-    image: "/professional_1.jpg",
-  },
-  {
-    id: 2,
-    name: "Allan Stanton",
-    role: "Expert in Creative Business",
-    image: "/professional_2.jpg",
-  },
-  {
-    id: 3,
-    name: "Joy Doe",
-    role: "Personal Coach",
-    image: "/professional_5.jpg",
-  },
-  {
-    id: 4,
-    name: "Jay Doe",
-    role: "Financial Mentor at Energy",
-    image: "/professional_1.jpg",
-  },
-  {
-    id: 5,
-    name: "Jay Doe",
-    role: "Financial Mentor at Energy",
-    image: "/professional_3.jpg",
-  },
-];
+ 
 
-const testimonialsTop = [
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-];
-
-const testimonialsBottom = [
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-];
 const Landing = () => {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const [load, setLoad] = useState(false);
+  const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -165,28 +74,21 @@ const Landing = () => {
         {/* Hero Section */}
         <section className="font-satoshi mx-auto relative bg-[#FFFFFF]">
           <div className="flex flex-col items-center justify-center text-center py-[48px]">
-            <h1 className="font-bold text-[60px] text-center xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[40px] xm:text-[35px] xxm:text-[30px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[54px] text-[#121927]">
+            <h1 className="font-bold text-[60px] text-center xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[38px] text-[#121927]">
               Monetize Your
             </h1>
 
             {/* Typing animation */}
             <div className="flex flex-wrap justify-center items-center gap-2">
               <TypeAnimation
-                sequence={[
-                  "1-on-1 Booking",
-                  1500,
-                  "Mentorship",
-                  1500,
-                  "Talent",
-                  1500,
-                ]}
+                sequence={["Knowledge", 1500, "Skills", 1500]}
                 wrapper="span"
                 speed={50}
                 repeat={Infinity}
-                className="text-primary font-[700] text-[60px] xxl:text-[50px] lgx:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[40px] xm:text-[35px] xxm:text-[30px] leading-[68px]"
+                className="text-primary font-[700] text-[60px] xxl:text-[50px] lgx:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px]  sm:leading-[38px] leading-[68px]"
               />
-              <span className="text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[40px] xm:text-[35px] xxm:text-[30px] leading-[68px] font-[700] text-[#121927]">
-                in One Place
+              <span className="text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px] sm:leading-[38px] leading-[68px] font-[700] text-[#121927]">
+                All In One Place
               </span>
             </div>
 
@@ -198,11 +100,17 @@ const Landing = () => {
               </p>
 
               <div className="flex justify-center gap-4 sxm:gap-2">
-                <Link href="/signup">
+                <Link
+                    href={
+                      isProduction === "development"
+                        ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+                        : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+                    }
+                  >
                   <button className="w-[226px] sm:w-[160px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-[16px] text-[#ffffff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-2 py-4  border border-[#DADADA] sxm:text-[14px]">
                     Create your page
                   </button>
-                </Link>
+                  </Link>
               </div>
             </div>
           </div>
@@ -315,25 +223,26 @@ const Landing = () => {
         {/* Why you should use Prooval */}
         <section className="px-[80px] xl:px-[25px] xm:px-4 font-satoshi">
           <div className="bg-[#121927] rounded-[24px] p-[80px] lgx:p-[40px] lg:p-[20px] md:p-[20px]">
-            <h2 className="font-bold text-[48px] lg:text-[32px] leading-[56px] lg:leading-[41.6px] text-[#FCFCFC] text-center w-[865px] lg:w-[95%] mx-auto pb-3 sm:text-[30px] sm:leading-[38px] sm:pb-[8px]">
+            <h2 className="font-bold text-[48px] lg:text-[32px] leading-[56px] lg:leading-[41.6px] text-[#FCFCFC] text-center w-[865px] lg:w-[95%] mx-auto pb-3 sm:text-[30px] sm:leading-[38px] sm:pb-[8px] sxm:text-[24px]">
               Why professionals prefer Prooval?
             </h2>
             <h3 className="font-normal text-[16px] text-[#FCFCFC] leading-[160%] text-center w-[786px] lg:w-[100%] md:w-[100%] mx-auto pb-[64px] md:pb-[40px] md:text-[12px] sm:text-[16px] sm:pb-[64px]">
-              Everything you need to manage your schedule with no stress and monetize your expertise.
+              Everything you need to manage your schedule with no stress and
+              monetize your expertise.
             </h3>
             <div className="flex items-center gap-[33px] lgx:gap-[20px] sm:flex-col">
               {card.map((card, index) => {
                 return (
                   <div
                     key={index}
-                    className="w-[351.33px] flex flex-col items-center py-[32px] px-[16px] rounded-2xl border-[1px] border-[#DDDDDD1A] lgx:py-[25px] lgx:px-[12px] sm:w-[100%] sm:py-[21.5px] sm:px-[16px] bg-[#070C1633] hover:bg-primary transition-all duration-300 ease-in-out"
+                    className="w-[351.33px] h-[301px] flex flex-col items-center py-[32px] px-[16px] rounded-2xl border-[1px] border-[#DDDDDD1A] lgx:py-[25px] lgx:px-[12px] sm:w-[100%] sm:py-[21.5px] sm:px-[16px] bg-[#070C1633] hover:bg-primary transition-all duration-300 ease-in-out"
                   >
                     <img src={card.image} alt="name" />
                     <div className="text-center mt-[20px] ">
                       <h1 className="font-semibold text-[20px] md:text-[16px] leading-[100%] text-[#FFFFFF] mb-[8px]">
                         {card.heading}
                       </h1>
-                      <p className="font-light text-[14px] md:text-[12px] leading-[150%] text-[#E3E3E3]">
+                      <p className="font-light text-[14px] md:text-[12px] leading-[150%] text-[#E3E3E3] lg:text-[12px]">
                         {card.text}
                       </p>
                     </div>
@@ -343,16 +252,17 @@ const Landing = () => {
             </div>
           </div>
         </section>
-        {/* Trusted Expert */}
-        <section className="font-satoshi bg-[url(/background.png)] bg-center px-[80px] lgx:px-[25px] xm:px-[16px] mt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px]">
+        {/* Go-To-Platform */}
+        <section className="font-satoshi bg-[url(/background.png)] bg-center px-[80px] lgx:px-[25px] sm:px-[0px] mt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px] sm:mt-[40px]">
           <div className="flex flex-col items-center py-[80px] lg:py-[40px] sm:px-[26px] xxm:px-[16px] sxm:px-[8px] sm:flex-col">
-            <h3 className="font-bold w-[924px] text-center lg:w-[100%] md:w-[100%] md:leading-[48px] sm:w-[100%] text-[48px] sm:text-[30px] lgx:text-[36px] md:text-[32px] leading-[56px] sm:leading-[35.2px] text-[#121927] mb-[20px]">
+            <h3 className="font-bold w-[924px] text-center lg:w-[100%] md:w-[100%] md:leading-[48px] sm:w-[100%] text-[48px] sm:text-[30px] lgx:text-[36px] md:text-[32px] leading-[56px] sm:leading-[35.2px] text-[#121927] mb-[20px] sxm:text-[24px]">
               The go-to-platform for professionals
             </h3>
             <p className="font-normal text-center text-[16px] leading-[30px] text-[#787878] mb-[32px]">
-              Experts from every niche use Prooval to build trust, grow revenue and stay booked.
+              Experts from every niche use Prooval to build trust, grow revenue
+              and stay booked.
             </p>
-            <Link href="/mentors">
+            <Link href="/market-place">
               <button className="w-[239px] lg:w-[200px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%]">
                 Go to Marketplace
               </button>
@@ -361,18 +271,18 @@ const Landing = () => {
 
           <div className="w-full max-w-[1200px] mx-auto px-4 py-10">
             {/* Static Layout */}
-            <div className="sm:hidden flex justify-center gap-2 md:flex-wrap">
+            <div className="sm:hidden flex justify-center gap-2 md:flex-wrap lg:flex-wrap">
               {professionals.map((pro, index) => (
                 <div
                   key={pro.id}
-                  className={`relative rounded-lg overflow-hidden shadow-md h-[329px] 
-        ${index === 2 ? "w-[419px]" : "w-[207.5px]"}`}
+                  className="relative rounded-lg overflow-hidden shadow-md h-[329px] w-[207.5px] hover:w-[419px] transition-all transition-duration-500 ease-in-out"
                 >
                   <img
                     src={pro.image}
                     alt={pro.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover absolute inset-0"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#000000] to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-2 z-10 ">
                     <h3 className="font-medium text-[16px] text-[#fff]">
                       {pro.name}
@@ -384,60 +294,57 @@ const Landing = () => {
                 </div>
               ))}
             </div>
+          </div>
 
-            {/* Mobile Carousel */}
-            <div className="sm:block 3xl:hidden">
-              <Slider
-                dots={false}
-                infinite={true}
-                speed={500}
-                slidesToShow={1}
-                slidesToScroll={1}
-                autoplay={true}
-                arrows={false}
-              >
-                {professionals.map((pro, index) => (
-                  <div
-                    key={pro.id}
-                    className={`${
-                      index === 2 ? "w-[207.5px]" : "w-[419px]"
-                    } px-0`}
-                  >
-                    <div className="relative rounded-lg overflow-hidden shadow-md h-[332px]">
-                      <img
-                        src={pro.image}
-                        alt={pro.name}
-                        className="w-full h-full object-cover"
-                      />
+          {/* Mobile Carousel */}
+          <div className="sm:block 3xl:hidden w-full px-[16px]">
+            <Slider
+              dots={false}
+              infinite={true}
+              speed={500}
+              slidesToShow={1}
+              slidesToScroll={1}
+              autoplay={true}
+              arrows={false}
+            >
+              {professionals.map((pro, index) => (
+                <div key={pro.id} className="w-[100%]">
+                  <div className="relative rounded-lg overflow-hidden shadow-md h-[332px]">
+                    <img
+                      src={pro.image}
+                      alt={pro.name}
+                      className="w-full h-full object-cover inset-0"
+                    />
 
-                      {/* <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div> */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#000000] to-transparent"></div>
 
-                      <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
-                        <h3 className="font-medium text-[16px] text-[#fff]">
-                          {pro.name}
-                        </h3>
-                        <p className="text-[10px] font-normal text-[#fff] border-[0.69px] border-[#FFFFFF] rounded-[5.5px] py-[2.62px] px-[6.87px] w-[140.74px]">
-                          {pro.role}
-                        </p>
-                      </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
+                      <h3 className="font-medium text-[16px] text-[#fff]">
+                        {pro.name}
+                      </h3>
+                      <p className="text-[10px] font-normal text-[#fff] border-[0.69px] border-[#FFFFFF] rounded-[5.5px] py-[2.62px] px-[6.87px] w-[140.74px]">
+                        {pro.role}
+                      </p>
                     </div>
                   </div>
-                ))}
-              </Slider>
-            </div>
+                </div>
+              ))}
+            </Slider>
           </div>
         </section>
 
-        <InteractiveTabs />
+        {/* <InteractiveTabs /> */}
+        <FeatureScroll/>
 
         {/* onboarding */}
         <section className="w-[100%] bg-[#F5F8FF] font-satoshi flex sm:flex-wrap justify-center gap-[24px] lg:gap-[16px] px-[112px] lgx:px-[80px] lg:px-[30px]  md:px-[40px] xl:px-[25px] xm:px-[16px] py-[80px] sm:pt-[52px] sm:pb-0 sm:px-[16px] md:py-[40px] ">
-          <div className="bg-[#1453FF] w-[429px] pt-[99.81px] h-[390px] px-[34px] rounded-[16px] md:w-[300px] sm:w-[100%] sm:pb-[48px] relative">
-            <h4 className="text-[60px] font-bold leading-[68px] text-[#FBFCFD] md:text-[30px] md:leading-[36px]">
+          <div className="bg-[#1453FF] w-[429px] pt-[99.81px] h-[390px] px-[34px] rounded-[16px] md:w-[300px] lg:h-[435px] sm:w-[100%] sm:h-[100%] sm:pb-[48px] sm:px-[16px] relative">
+            <h4 className="text-[60px] font-bold leading-[68px] text-[#FBFCFD] md:text-[30px] lg:text-[40px] lg:leading-[48px] md:leading-[36px] sm:pb-[24px] lg:pb-[32px] lgx:text-[40px] lgx:leading-[48px] lgx:pb-[32px] xxl:text-[50px] xxl:pb-[32px]">
               Get Started in 3 Easy Steps!
             </h4>
             <p className="font-normal text-[20px] leading-[160%] text-[#EDEDED] md:text-[16px] md:leading-[24px]">
-              Follow these simple steps to start monetizing your skills on Prooval
+              Follow these simple steps to start monetizing your skills on
+              Prooval
             </p>
             <Image
               src="/easy-arrow.png"
@@ -470,14 +377,16 @@ const Landing = () => {
             })}
           </div>
         </section>
-                  {/* Testimonials section */}
+        {/* Testimonials section */}
         <section className="sm:pt-[40px]">
           <div className="w-full font-satoshi bg-[url(/background.png)] bg-cover bg-center py-[50px] sm:py-[19.06px] overflow-hidden">
             <div className="flex flex-col items-center justify-center">
-              <h1 className="text-[#121927] font-bold text-[48px] leading-[56px] mx-auto text-center mb-[20px] w-[978px] md:w-[100%] sm:text-[30px] sm:leading-[38px]">
+              <h1 className="text-[#121927] font-bold text-[48px] leading-[56px] mx-auto text-center mb-[20px] sm:text-[30px] sm:leading-[38px]">
                 What Experts Are Saying
               </h1>
-              <p className="text-base font-normal leading-[160%] text-[#787878] mb-[40px]">Real stories from experts building their income on Prooval.</p>
+              <p className="text-base font-normal leading-[160%] text-[#787878] mb-[40px] text-center">
+                Real stories from experts building their income on Prooval.
+              </p>
             </div>
             <motion.div
               className="flex gap-6 sm:gap-4 drop-shadow-[#0000001A]"
@@ -535,7 +444,7 @@ const Landing = () => {
           </div>
         </section>
 
-        <section className="w-full flex justify-center items-center pt-[40px] px-[80px] md:px-[40px] xl:px-[25px] xm:px-[16px] sm:px-[16px] ">
+        <section className="w-full flex justify-center items-center pt-[40px] px-[80px] md:px-[40px] xl:px-[25px] xm:px-[16px] sm:px-[16px] font-satoshi ">
           <div className="relative w-full bg-[#0057FF] rounded-[24px] text-center text-white overflow-hidden bg-[url(/Stroke_1.svg)] bg-cover bg-center">
             <div className="absolute top-11 right-14 w-[59px] h-[59px] sm:w-[28px] sm:h-[28px] sm:top-6 sm:right-7 ">
               <Image
@@ -558,18 +467,26 @@ const Landing = () => {
             <div className="relative z-10 flex flex-col items-center justify-center pt-[114.5px] pb-[80px]">
               <div className="w-[609px] max-w-full sm:w-[300px]">
                 <h1 className="text-[48px] text-[#FCFCFC] font-bold mb-2 leading-[56px] sm:text-[20px] sm:leading-[32px]">
-                  Turn Your Knowledge into {" "}
-                  <br className="hidden sm:block" />
+                  Turn Your Knowledge into <br className="hidden sm:block" />
                   Income Seamlessly
                 </h1>
-                <p className="text-base text-[#FCFCFC] leading-[160%] mb-8 sm:text-[14px]">
-                 You no longer have to juggle multiple platforms to monetize your knowledge. Prooval makes it simple to share your expertise and earn all from a single link.
+                <p className="text-base text-[#FCFCFC] leading-[160%] mb-8 sm:text-[14px] text-center sxm:px-2">
+                  You no longer have to juggle multiple platforms to monetize
+                  your knowledge. Prooval makes it simple to share your
+                  expertise and earn all from a single link.
                 </p>
               </div>
-
+              <Link
+                    href={
+                      isProduction === "development"
+                        ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+                        : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+                    }
+                  >
               <button className="bg-[#ffffff] text-[#1453FF] font-medium px-6 py-3 w-[300px] sm:w-[218px] rounded-md hover:bg-gray-100 transition">
                 Start my page
               </button>
+              </Link>
             </div>
           </div>
         </section>
