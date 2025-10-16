@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
-import { card, valueCards, testimonials } from "@/constants/constant";
+import { card, valueCards, testimonialsTop, testimonialsBottom, professionals } from "@/constants/constant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -15,107 +15,16 @@ import Modal from "@/components/modal/modal";
 import useAnalytics from "@/components/useAnalytics";
 import { TypeAnimation } from "react-type-animation";
 import { motion, useAnimation } from "framer-motion";
-import { RiDoubleQuotesL } from "react-icons/ri";
 import InteractiveTabs from "@/components/interactiveTabs";
+import FeatureScroll from "@/components/featureScroll";
 
-const professionals = [
-  {
-    id: 1,
-    name: "Jay Doe",
-    role: "Financial Mentor at Energy",
-    image: "/professional_1.jpg",
-  },
-  {
-    id: 2,
-    name: "Allan Stanton",
-    role: "Expert in Creative Business",
-    image: "/professional_2.jpg",
-  },
-  {
-    id: 3,
-    name: "Joy Doe",
-    role: "Personal Coach",
-    image: "/professional_5.jpg",
-  },
-  {
-    id: 4,
-    name: "Jay Doe",
-    role: "Financial Mentor at Energy",
-    image: "/professional_1.jpg",
-  },
-  {
-    id: 5,
-    name: "Jay Doe",
-    role: "Financial Mentor at Energy",
-    image: "/professional_3.jpg",
-  },
-];
+ 
 
-const testimonialsTop = [
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-];
-
-const testimonialsBottom = [
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-  {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
-    icon: <RiDoubleQuotesL />,
-  },
-];
 const Landing = () => {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const [load, setLoad] = useState(false);
+  const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -191,11 +100,17 @@ const Landing = () => {
               </p>
 
               <div className="flex justify-center gap-4 sxm:gap-2">
-                <Link href="/signup">
+                <Link
+                    href={
+                      isProduction === "development"
+                        ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+                        : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+                    }
+                  >
                   <button className="w-[226px] sm:w-[160px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-[16px] text-[#ffffff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-2 py-4  border border-[#DADADA] sxm:text-[14px]">
                     Create your page
                   </button>
-                </Link>
+                  </Link>
               </div>
             </div>
           </div>
@@ -347,7 +262,7 @@ const Landing = () => {
               Experts from every niche use Prooval to build trust, grow revenue
               and stay booked.
             </p>
-            <Link href="/mentors">
+            <Link href="/market-place">
               <button className="w-[239px] lg:w-[200px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%]">
                 Go to Marketplace
               </button>
@@ -418,7 +333,8 @@ const Landing = () => {
           </div>
         </section>
 
-        <InteractiveTabs />
+        {/* <InteractiveTabs /> */}
+        <FeatureScroll/>
 
         {/* onboarding */}
         <section className="w-[100%] bg-[#F5F8FF] font-satoshi flex sm:flex-wrap justify-center gap-[24px] lg:gap-[16px] px-[112px] lgx:px-[80px] lg:px-[30px]  md:px-[40px] xl:px-[25px] xm:px-[16px] py-[80px] sm:pt-[52px] sm:pb-0 sm:px-[16px] md:py-[40px] ">
@@ -560,10 +476,17 @@ const Landing = () => {
                   expertise and earn all from a single link.
                 </p>
               </div>
-
+              <Link
+                    href={
+                      isProduction === "development"
+                        ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+                        : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+                    }
+                  >
               <button className="bg-[#ffffff] text-[#1453FF] font-medium px-6 py-3 w-[300px] sm:w-[218px] rounded-md hover:bg-gray-100 transition">
                 Start my page
               </button>
+              </Link>
             </div>
           </div>
         </section>
