@@ -24,6 +24,7 @@ import Error from "@/components/error";
 import { getCurrencySymbol } from "@/Utils/currency-formatter";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { getBookings } from "@/api/authentication/auth";
+import Link from "next/link";
 
 const groupColors = [
   "#F48025",
@@ -476,7 +477,7 @@ const MentorDetails = () => {
     <>
       <div>
         <ToastContainer />
-        <Navbar />
+        {/* <Navbar /> */}
 
         {error ? (
           <Error text={error} />
@@ -529,8 +530,23 @@ const MentorDetails = () => {
                     token={token}
                   />
                 )}
-                <div className="bg-[#F2F2F7] py-[50px] md:py-8 font-onest ">
+
+                <div className="bg-[#F2F2F7] py-[50px] md:py-8 font-satoshi ">
                   <div className=" w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
+                    <Link href="/">
+                      <div
+                        className="bg-[#ffff] mt-10
+                       mb-4 rounded-md py-6 px-6"
+                      >
+                        <Image
+                          src="/prooval logo.png"
+                          width={100.44}
+                          height={36}
+                          alt="Prooval logo"
+                        />
+                      </div>
+                    </Link>
+
                     <div className="min-h-[212px]  mx-auto bg-[#ffffff] py-6 px-20 lg:px-10 md:px-4 mb-[10px]  rounded-[8px] ">
                       <div className="flex md:flex-col justify-between items-center gap-3 ">
                         <div className="flex sm:flex-col  gap-3 items-center justify-center">
@@ -1229,6 +1245,16 @@ const MentorDetails = () => {
                             </div>
                           </div>
                         )}
+                        <div className="font-satoshi minmd:flex-row minmd:justify-between minmd:items-center text-center  flex flex-col justify-center">
+                          <p className="mb-5 minmd:mb-0   text-[20px]">
+                            Powered by Prooval
+                          </p>
+                          <Link href="/signup">
+                            <button className="bg-[#000] text-[#fff] px-14 py-4 items-center rounded-lg">
+                              Create my page
+                            </button>
+                          </Link>
+                        </div>
                       </div>
                     </section>
                   </div>
