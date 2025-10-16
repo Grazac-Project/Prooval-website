@@ -45,11 +45,10 @@ const AboutUs = () => {
         </div> */}
         <div className="w-[95%] mx-auto pl-5 md:pl-[1px] mt-[48px] sm:mt-[24px] ">
           <h1 className="font-whyte text-[54px] sm:text-[40px] leading-[60px] sm:leading-12 font-500">
-            Positioning you for success
+            Positioning yourself for growth
           </h1>
           <p className=" font-onest text-[16px] leading-[20.8px] font-400 my-6 ">
-            We strongly believe mentorship is the hidden gem required to build
-            highly competitive talents.
+            Join thousands of professionals growing their impact and income with Prooval.
           </p>
         </div>
         {/* <Image src="/about.png" alt="img" width={1440} height={600} /> */}
@@ -58,10 +57,8 @@ const AboutUs = () => {
       <div className={Classes.mission}>
         <h4>Our Mission </h4>
         <p>
-          Our mission is to equip individuals with the right mentorship and
-          experience needed to scale their tech careers to the next level. We
-          are dedicated to building a supportive community that promotes growth
-          and encourages collaboration.
+          Our mission is to make it simple for experts to share what they know and for people to connect with them through seamless, 
+          personalized interactions that feel easy and meaningful.
         </p>
       </div>
       <div className={Classes.story}>
@@ -83,21 +80,15 @@ const AboutUs = () => {
         />
 
         <div className={Classes.storyFlex}>
-          <p>
-            The launch of bootcamps keep rising globally with the goal of
-            upskilling millions of young individuals but there is less attention
-            paid to the already upskilled talents in the job market. After we
-            launched a bootcamp in 2019, we strongly believe the workforce of
-            the future will be from Africa but bootcamps alone won’t prepare our
-            talents for this and to fill this void, we have built hackthejobs to
-            build their soft skills, give them work experience, and most
-            importantly the right mentorship to attract and retain global
-            opportunities.
-          </p>
+          <p>Prooval was born from a simple truth, talented professionals shouldn't have to struggle to share their expertise or earn from what they know.</p>
         </div>
+        <p className="-mt-[119px] mb-[15px]">We saw how experts, coaches, consultants, mentors, and creators were forced to juggle multiple platforms just to host sessions, sell products, or get paid. It was messy, time-consuming, and often discouraging. So, we set out to change that.</p>
+        <p >Prooval was built to make it easy for professionals to do what they do best, teach, guide, create, and inspire without the tech headaches.
+          From a single link, you can make an impact and generate more income, you can host live sessions, sell digital products, and connect with your audience.
+        </p>
       </div>
       <div>
-        <div className="text-center mt-[48px] mb-[148px] md:mb-[48px] sm:[24px] font-onest">
+        <div className="text-center mt-[140px] md:mt-[49px]  mb-[148px] md:mb-[48px] sm:[24px] font-onest">
           <div className="w-[430px] sm:w-[95%] m-auto ">
             <h3 className="text-[48px] sm:text-[32px] leading-[51.36px] sm:[41.6px] font-[500] text-[#101828] mb-[16px]">
               Our Core Values
@@ -132,7 +123,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-      <div className={Classes.donation}>
+      {/* <div className={Classes.donation}>
         <div className={Classes.donateText}>
           <h3>
             Support our vision by empowering a talent to get mentorship and work
@@ -157,7 +148,46 @@ const AboutUs = () => {
             className={Classes.donateImg}
           />
         </>
-      </div>
+      </div> */}
+      <section className="w-full flex justify-center items-center pt-[40px] px-[80px] md:px-[40px] xl:px-[25px] xm:px-[16px] sm:px-[16px] ">
+                <div className="relative w-full bg-[#0057FF] rounded-[24px] text-center text-white overflow-hidden bg-[url(/Stroke_1.svg)] bg-cover bg-center">
+                  <div className="absolute top-11 right-14 w-[59px] h-[59px] sm:w-[28px] sm:h-[28px] sm:top-6 sm:right-7 ">
+                    <Image
+                      src="/Stars.png"
+                      alt="Star Icon"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+      
+                  <div className="absolute bottom-8 left-6 w-[59px] h-[59px] sm:left-5 sm:bottom-7 sm:w-[28px] sm:h-[28px] ">
+                    <Image
+                      src="/Stars.png"
+                      alt="Star Icon"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+      
+                  <div className="relative z-10 flex flex-col items-center justify-center pt-[114.5px] pb-[80px]">
+                    <div className="w-[609px] max-w-full sm:w-[300px]">
+                      <h1 className="text-[48px] text-[#FCFCFC] font-bold mb-2 leading-[56px] sm:text-[20px] sm:leading-[32px]">
+                        All-in-one platform to monetize your knowledge {" "}
+                        <br className="hidden sm:block" />
+                        and scale your impact.
+                      </h1>
+                      <p className="text-base text-[#FCFCFC] leading-[160%] mb-8 sm:text-[14px]">
+                       When you share what you know, it becomes easier for more people to learn, grow, and thrive.
+                      </p>
+                    </div>
+      
+                    <button className="bg-[#ffffff] text-[#1453FF] font-medium px-6 py-3 w-[300px] sm:w-[218px] rounded-md hover:bg-gray-100 transition">
+                      Create my Page
+                    </button>
+                  </div>
+                </div>
+              </section>
+      
 
       <Footer openModal={() => setShowModal(true)} />
     </>

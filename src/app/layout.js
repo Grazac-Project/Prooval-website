@@ -51,7 +51,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
         className={`${satoshi.variable}`}
       >
@@ -72,7 +72,7 @@ export default function RootLayout({ children }) {
             `,
           }}
         /> */}
-         <Script
+        <Script
           src="https://unpkg.com/@fincra-engineering/checkout@2.2.0/dist/inline.min.js"
           strategy="afterInteractive"
         />
