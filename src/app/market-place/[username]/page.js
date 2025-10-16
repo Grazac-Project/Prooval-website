@@ -213,9 +213,9 @@ const MentorDetails = () => {
       // window.location.href = `${baseUrl}/mentors/${slug}/details?id=${id}`;
       window.location.href =
         isProduction === "development"
-          ? `https://test.hackthejobs.com/mentors/${slug}/details?id=${id}`
-          : `https://www.hackthejobs.com/mentors/${slug}/details?id=${id}`;
-      // window.location.href = `http://localhost:3000/mentors/${slug}/details?id=${id}`;
+          ? `https://test.hackthejobs.com/market-place/${slug}/details?id=${id}`
+          : `https://www.hackthejobs.com/market-place/${slug}/details?id=${id}`;
+      // window.location.href = `http://localhost:3000/market-place/${slug}/details?id=${id}`;
     }
   };
 

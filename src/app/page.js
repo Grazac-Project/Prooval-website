@@ -24,6 +24,7 @@ const Landing = () => {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const [load, setLoad] = useState(false);
+  const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -99,11 +100,17 @@ const Landing = () => {
               </p>
 
               <div className="flex justify-center gap-4 sxm:gap-2">
-                <Link href="/signup">
+                <Link
+                    href={
+                      isProduction === "development"
+                        ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+                        : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+                    }
+                  >
                   <button className="w-[226px] sm:w-[160px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-[16px] text-[#ffffff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-2 py-4  border border-[#DADADA] sxm:text-[14px]">
                     Create your page
                   </button>
-                </Link>
+                  </Link>
               </div>
             </div>
           </div>
@@ -255,7 +262,7 @@ const Landing = () => {
               Experts from every niche use Prooval to build trust, grow revenue
               and stay booked.
             </p>
-            <Link href="/mentors">
+            <Link href="/market-place">
               <button className="w-[239px] lg:w-[200px] h-[64px] rounded-[8px] bg-[#1453FF] text-[#fff] font-medium text-[16px] leading-6 tracking-[3%]">
                 Go to Marketplace
               </button>
@@ -469,10 +476,17 @@ const Landing = () => {
                   expertise and earn all from a single link.
                 </p>
               </div>
-
+              <Link
+                    href={
+                      isProduction === "development"
+                        ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+                        : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+                    }
+                  >
               <button className="bg-[#ffffff] text-[#1453FF] font-medium px-6 py-3 w-[300px] sm:w-[218px] rounded-md hover:bg-gray-100 transition">
                 Start my page
               </button>
+              </Link>
             </div>
           </div>
         </section>

@@ -7,6 +7,7 @@ import {
   useMotionValueEvent,
   AnimatePresence,
 } from "framer-motion";
+import Link from "next/link";
 
 const features = [
   {
@@ -53,6 +54,7 @@ export default function FeatureScroll() {
   const tabRefs = useRef({});
   const tabScrollRef = useRef(null); // ✅ added
   const hasMounted = useRef(false);
+  const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
 
   // Disable browser scroll restoration
   if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
@@ -116,7 +118,7 @@ export default function FeatureScroll() {
 
         {/* Tabs */}
         <div
-          ref={tabScrollRef} 
+          ref={tabScrollRef}
           className="sticky top-0 z-40 bg-[white] px-4 py-4 flex justify-center gap-3 
   sm:overflow-x-auto sm:px-[16px] sm:justify-start sm:whitespace-nowrap sm:gap-4 sm:pb-4 scrollbar-hide"
           style={{
@@ -157,7 +159,9 @@ export default function FeatureScroll() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -80 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className={`w-full max-w-[1200px] rounded-[22px] overflow-hidden py-[55px] px-[75px] ${activeFeature.bg} text-black 
+                className={`w-full max-w-[1200px] rounded-[22px] overflow-hidden py-[55px] px-[75px] ${
+                  activeFeature.bg
+                } text-black 
         flex justify-between items-center gap-[60px]
         md:px-8 md:py-10 md:gap-10
         sm:flex-col-reverse sm:py-6 sm:px-4 sm:rounded-[18px] sxm:px-2
@@ -193,9 +197,18 @@ export default function FeatureScroll() {
       </section>
 
       <section className="flex justify-center pb-20 sm:py-[40px]">
-        <button className="bg-primary text-[white] font-semibold text-lg rounded-lg w-[300px] h-16 transition hover:bg-[#141026] sm:w-[220px] sm:h-12 sm:text-base">
-          Start Creating
-        </button>
+        <Link
+          href={
+            isProduction === "development"
+              ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+              : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+          }
+          
+        >
+          <button className="bg-primary text-[white] font-semibold text-lg rounded-lg w-[300px] h-16 transition sm:w-[220px] sm:h-12 sm:text-base">
+            Start Creating
+          </button>
+        </Link>
       </section>
     </>
   );
