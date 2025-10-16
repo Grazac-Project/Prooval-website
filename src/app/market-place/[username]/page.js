@@ -531,7 +531,7 @@ const MentorDetails = () => {
                   />
                 )}
 
-                <div className="bg-[#F2F2F7] py-[50px] md:py-8 font-satoshi ">
+                <div className="bg-[#F2F2F7] py-[50px] md:py-8 font-satoshi -mt-[4rem]">
                   <div className=" w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
                     <Link href="/">
                       <div
@@ -1245,18 +1245,18 @@ const MentorDetails = () => {
                             </div>
                           </div>
                         )}
-                        <div className="font-satoshi minmd:flex-row minmd:justify-between minmd:items-center text-center  flex flex-col justify-center">
-                          <p className="mb-5 minmd:mb-0   text-[20px]">
-                            Powered by Prooval
-                          </p>
-                          <Link href="/signup">
-                            <button className="bg-[#000] text-[#fff] px-14 py-4 items-center rounded-lg">
-                              Create my page
-                            </button>
-                          </Link>
-                        </div>
                       </div>
                     </section>
+                    <div className="font-satoshi minmd:flex-row minmd:justify-between minmd:items-center text-center  flex flex-col justify-center w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
+                      <p className="mb-5 minmd:mb-0   text-[20px] uppercase text-[#878787]">
+                        Powered by Prooval
+                      </p>
+                      <Link href="/signup">
+                        <button className="bg-[#000] text-[#fff] px-14 py-4 items-center rounded-lg">
+                          Create my own page
+                        </button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </>
