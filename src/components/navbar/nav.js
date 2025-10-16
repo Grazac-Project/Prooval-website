@@ -16,6 +16,7 @@ const Navbar = () => {
   const [role, setRole] = useState();
   const router = useRouter();
   const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
+  
   // const DashboardbaseUrl = process.env.NEXT_PUBLIC_DASH_URL;
   // const DashboardTestbaseUrl = process.env.NEXT_PUBLIC_STAGING_DASH_URL;
 
@@ -121,7 +122,7 @@ const Navbar = () => {
                     onMouseLeave={handleMouseLeave}
                   >
                     <div className="w-full flex flex-col justify-between items-center gap-8   ">
-                      <div className=" w-full flex flex-col    gap-3  ">
+                      <div className=" w-full flex flex-col gap-3  ">
                         <Image
                           src={details?.profilePic}
                           alt="avatar"
@@ -180,28 +181,26 @@ const Navbar = () => {
             ) : (
               <div className={Classes.btnFlex}>
                 <button className={Classes.btnFlex1}>
-                  <a
+                  <Link
                     href={
                       isProduction === "development"
                         ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/login`
                         : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/login`
                     }
-                    target="_blank"
                   >
                     Log in
-                  </a>
+                  </Link>
                 </button>
                 <button className={Classes.btnFlex2}>
-                  <a
+                  <Link
                     href={
                       isProduction === "development"
                         ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
                         : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
                     }
-                    target="_blank"
                   >
                     Sign up
-                  </a>
+                  </Link>
                 </button>
               </div>
             )}
@@ -211,7 +210,7 @@ const Navbar = () => {
               <ul>
                 {token ? (
                   <div className="">
-                    <div className="w-full flex flex-col justify-between  gap-8   ">
+                    <div className="w-full flex flex-col justify-between  gap-8 font-satoshi  ">
                       <div className=" w-full flex flex-col    gap-3  ">
                         <Image
                           src={details?.profilePic}
@@ -275,7 +274,7 @@ const Navbar = () => {
                 ) : (
                   ""
                 )}
-                <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%] ">
+                <div className="p-2  w-full font-medium text-[16px] text-[#64748B] leading-[150%] font-satoshi ">
                   <Link
                     href="/about-us"
                     onClick={() => setDropdown(false)}
@@ -284,7 +283,7 @@ const Navbar = () => {
                     About
                   </Link>
                 </div>
-                <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
+                <div className="p-2  w-full font-medium text-[16px] text-[#64748B] leading-[150%] font-satoshi">
                   <Link
                     href="/faq"
                     onClick={() => setDropdown(false)}
@@ -293,79 +292,50 @@ const Navbar = () => {
                     FAQ
                   </Link>
                 </div>
-                <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
+                <div className="p-2  w-full font-medium text-[16px] text-[#64748B] leading-[150%] font-satoshi">
                   <Link
-                    href="/donation"
+                    href="/pricing"
                     onClick={() => setDropdown(false)}
-                    style={{ color: pathname === "/donation" ? "#1453ff" : "" }}
+                    style={{ color: pathname === "/pricing" ? "#1453ff" : "" }}
                   >
-                    Donation
+                    Pricing
                   </Link>
                 </div>
-                <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
-                  <Link
-                    href="/mentor"
-                    onClick={() => setDropdown(false)}
-                    style={{ color: pathname === "/mentor" ? "#1453ff" : "" }}
-                  >
-                    Mentor
-                  </Link>
-                </div>
-                <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
-                  <Link
-                    href="/spm"
-                    onClick={() => setDropdown(false)}
-                    style={{ color: pathname === "/spm" ? "#1453ff" : "" }}
-                  >
-                    PM
-                  </Link>
-                </div>
-                {/* <div className="p-2  w-full font-medium text-[14px] text-[#333333] leading-[120%]">
-                  <Link
-                    href="/hire"
-                    onClick={() => setDropdown(false)}
-                    style={{ color: pathname === "/hire" ? "#1453ff" : "" }}
-                  >
-                    Hire
-                  </Link>
-                </div> */}
               </ul>
               {token ? (
-                <div className="p-2  w-full font-medium text-[14px] text-[#EA4335] leading-[120%] cursor-pointer border border-[#ffff] border-t-[#EAEAEA] mb-3">
+                <div className="p-2  w-full font-medium text-[14px] text-[#EA4335] leading-[120%] cursor-pointer border border-[#ffff] border-t-[#EAEAEA] mb-3 font-satoshi">
                   <div onClick={() => handleLogOut()}>Sign out</div>
                 </div>
               ) : (
                 <div className={Classes.btnFlex}>
-                  <a
+                  <Link
                     // href="https://dashboard.hackthejobs.com/auth/login"
                     href={
                       isProduction === "development"
                         ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/login`
                         : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/login`
                     }
-                    target="_blank"
                   >
                     <button>
                       {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/login"> */}
                       {/* <Link href="/login">Log in</Link> */}
                       Log in
                     </button>
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     // href="https://dashboard.hackthejobs.com/auth/signup"
                     href={
                       isProduction === "development"
                         ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
                         : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
                     }
-                    target="_blank"
                   >
                     <button>
                       {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
                       {/* <Link href="/signup">Sign up</Link> */}
                       Sign up
                     </button>
-                  </a>
+                  </Link>
                 </div>
               )}
             </nav>
