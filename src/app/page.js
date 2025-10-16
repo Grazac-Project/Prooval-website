@@ -16,6 +16,7 @@ import useAnalytics from "@/components/useAnalytics";
 import { TypeAnimation } from "react-type-animation";
 import { motion, useAnimation } from "framer-motion";
 import InteractiveTabs from "@/components/interactiveTabs";
+import FeatureScroll from "@/components/featureScroll";
 
  
 
@@ -325,7 +326,8 @@ const Landing = () => {
           </div>
         </section>
 
-        <InteractiveTabs />
+        {/* <InteractiveTabs /> */}
+        <FeatureScroll/>
 
         {/* onboarding */}
         <section className="w-[100%] bg-[#F5F8FF] font-satoshi flex sm:flex-wrap justify-center gap-[24px] lg:gap-[16px] px-[112px] lgx:px-[80px] lg:px-[30px]  md:px-[40px] xl:px-[25px] xm:px-[16px] py-[80px] sm:pt-[52px] sm:pb-0 sm:px-[16px] md:py-[40px] ">
