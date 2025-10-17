@@ -206,7 +206,7 @@ export default function FeatureScroll() {
           
         >
           <button className="bg-primary text-[white] font-semibold text-lg rounded-lg w-[300px] h-16 transition sm:w-[220px] sm:h-12 sm:text-base">
-            Start Creating
+            Create my Page
           </button>
         </Link>
       </section>

@@ -111,15 +111,8 @@ export const BookingsSubmitAction = (data) => {
 export const MentorshipPackageSubmitAction = (data) => {
   return authKit.post(`api/v1/book/enroll-and-book-free-package`, data);
 };
-export const getMentorsBySlug = (slug, token) => {
-  // Create headers object
-  const headers = token
-    ? { Authorization: `Bearer ${token}` } // Add Authorization header if token exists
-    : {}; // Leave headers empty if no token
-
-  return authKit.get(`api/v1/mentors/slug/${slug}`, {
-    headers, // Use the headers object
-  });
+export const getMentorsBySlug = (slug) => {
+  return authKit.get(`api/v1/mentors/slug/${slug}`);
 };
 
 export const fincraDigitalCheckoutData = (data, token) => {

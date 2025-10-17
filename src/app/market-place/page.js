@@ -39,7 +39,7 @@ const Page = () => {
   const [selectedRole, setSelectedRole] = useState("All");
   const [categories, setCategories] = useState([]);
 
-  console.log(listOfMentors);
+  // console.log(listOfMentors);
 
   const observer = useRef();
   const router = useRouter();

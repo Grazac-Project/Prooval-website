@@ -199,7 +199,7 @@ const Navbar = () => {
                         : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
                     }
                   >
-                    Sign up
+                    Start my Page
                   </Link>
                 </button>
               </div>
@@ -333,7 +333,7 @@ const Navbar = () => {
                     <button>
                       {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
                       {/* <Link href="/signup">Sign up</Link> */}
-                      Sign up
+                      Start my Page
                     </button>
                   </Link>
                 </div>

@@ -97,7 +97,7 @@ const Footer = () => {
             </a>
 
             {/* Instagram Button */}
-            <a href="#" target="_blank">
+            <a href="http://www.instagram.com/proovalhq" target="_blank">
               <div
                 className="flex items-center text-[#ffffff] 
               bg-[#FFFFFF1A] backdrop-blur-md 
@@ -110,7 +110,7 @@ const Footer = () => {
             </a>
 
             {/* Twitter Button */}
-            <a href="#" target="_blank">
+            <a href="www.x.com/proovalhq" target="_blank">
               <div
                 className="flex items-center text-[#ffffff] 
                bg-[#FFFFFF1A] backdrop-blur-md 

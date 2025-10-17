@@ -1,7 +1,13 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
-import { card, valueCards, testimonialsTop, testimonialsBottom, professionals } from "@/constants/constant";
+import {
+  card,
+  valueCards,
+  testimonialsTop,
+  testimonialsBottom,
+  professionals,
+} from "@/constants/constant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -17,8 +23,6 @@ import { TypeAnimation } from "react-type-animation";
 import { motion, useAnimation } from "framer-motion";
 import InteractiveTabs from "@/components/interactiveTabs";
 import FeatureScroll from "@/components/featureScroll";
-
- 
 
 const Landing = () => {
   const router = useRouter();
@@ -77,17 +81,16 @@ const Landing = () => {
             <h1 className="font-bold text-[60px] text-center xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[38px] text-[#121927]">
               Monetize Your
             </h1>
-
             {/* Typing animation */}
-            <div className="flex flex-wrap justify-center items-center gap-2">
+            <div className="flex flex-wrap justify-center items-center gap-2 sm:block text-center">
               <TypeAnimation
                 sequence={["Knowledge", 1500, "Skills", 1500]}
                 wrapper="span"
                 speed={50}
                 repeat={Infinity}
-                className="text-primary font-[700] text-[60px] xxl:text-[50px] lgx:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px]  sm:leading-[38px] leading-[68px]"
+                className="text-primary font-[700] text-[60px] xxl:text-[50px] lgx:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px] sm:leading-[38px] leading-[68px]"
               />
-              <span className="text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px] sm:leading-[38px] leading-[68px] font-[700] text-[#121927]">
+              <span className="text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px] sm:leading-[38px] leading-[68px] font-[700] text-[#121927] block sm:mt-2">
                 All In One Place
               </span>
             </div>
@@ -101,16 +104,16 @@ const Landing = () => {
 
               <div className="flex justify-center gap-4 sxm:gap-2">
                 <Link
-                    href={
-                      isProduction === "development"
-                        ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
-                        : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
-                    }
-                  >
+                  href={
+                    isProduction === "development"
+                      ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+                      : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+                  }
+                >
                   <button className="w-[226px] sm:w-[160px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-[16px] text-[#ffffff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-2 py-4  border border-[#DADADA] sxm:text-[14px]">
-                    Create your page
+                    Start my Page
                   </button>
-                  </Link>
+                </Link>
               </div>
             </div>
           </div>
@@ -334,7 +337,7 @@ const Landing = () => {
         </section>
 
         {/* <InteractiveTabs /> */}
-        <FeatureScroll/>
+        <FeatureScroll />
 
         {/* onboarding */}
         <section className="w-[100%] bg-[#F5F8FF] font-satoshi flex sm:flex-wrap justify-center gap-[24px] lg:gap-[16px] px-[112px] lgx:px-[80px] lg:px-[30px]  md:px-[40px] xl:px-[25px] xm:px-[16px] py-[80px] sm:pt-[52px] sm:pb-0 sm:px-[16px] md:py-[40px] ">
@@ -477,15 +480,15 @@ const Landing = () => {
                 </p>
               </div>
               <Link
-                    href={
-                      isProduction === "development"
-                        ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
-                        : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
-                    }
-                  >
-              <button className="bg-[#ffffff] text-[#1453FF] font-medium px-6 py-3 w-[300px] sm:w-[218px] rounded-md hover:bg-gray-100 transition">
-                Start my page
-              </button>
+                href={
+                  isProduction === "development"
+                    ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+                    : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+                }
+              >
+                <button className="bg-[#ffffff] text-[#1453FF] font-medium px-6 py-3 w-[300px] sm:w-[218px] rounded-md hover:bg-gray-100 transition">
+                  Start my page
+                </button>
               </Link>
             </div>
           </div>
