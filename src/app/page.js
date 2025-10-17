@@ -111,7 +111,7 @@ const Landing = () => {
                   }
                 >
                   <button className="w-[226px] sm:w-[160px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-[16px] text-[#ffffff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-2 py-4  border border-[#DADADA] sxm:text-[14px]">
-                    Start my Page
+                    Create my Page
                   </button>
                 </Link>
               </div>
@@ -487,7 +487,7 @@ const Landing = () => {
                 }
               >
                 <button className="bg-[#ffffff] text-[#1453FF] font-medium px-6 py-3 w-[300px] sm:w-[218px] rounded-md hover:bg-gray-100 transition">
-                  Start my page
+                  Create my Page
                 </button>
               </Link>
             </div>
