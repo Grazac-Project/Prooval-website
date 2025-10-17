@@ -257,7 +257,7 @@ const Landing = () => {
         </section>
         {/* Go-To-Platform */}
         <section className="font-satoshi bg-[url(/background.png)] bg-center px-[80px] lgx:px-[25px] sm:px-[0px] mt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px] sm:mt-[40px]">
-          <div className="flex flex-col items-center py-[80px] lg:py-[40px] sm:px-[26px] xxm:px-[16px] sxm:px-[8px] sm:flex-col">
+          <div className="flex flex-col items-center pt-[80px] pb-[40px] lg:pt-[40px] lg:pb-[32px] sm:px-[26px] xxm:px-[16px] sxm:px-[8px] sm:flex-col">
             <h3 className="font-bold w-[924px] text-center lg:w-[100%] md:w-[100%] md:leading-[48px] sm:w-[100%] text-[48px] sm:text-[30px] lgx:text-[36px] md:text-[32px] leading-[56px] sm:leading-[35.2px] text-[#121927] mb-[20px] sxm:text-[24px]">
               The go-to-platform for professionals
             </h3>
@@ -272,7 +272,7 @@ const Landing = () => {
             </Link>
           </div>
 
-          <div className="w-full max-w-[1200px] mx-auto px-4 py-10">
+          <div className="w-full max-w-[1200px] mx-auto px-4 sm:hidden">
             {/* Static Layout */}
             <div className="sm:hidden flex justify-center gap-2 md:flex-wrap lg:flex-wrap">
               {professionals.map((pro, index) => (
