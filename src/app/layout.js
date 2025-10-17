@@ -36,9 +36,9 @@ const satoshi = localFont({
 });
 
 export const metadata = {
-  title: "Hackthejobs | Scale your tech career with mentorship and experience",
+  title: "Prooval empowers professionals to monetize their knowledge",
   description:
-    "Bridge the gap between the completion of your Bootcamp and landing your dream tech role by getting relevant working experience through Hackthejobs",
+    "Join Prooval to turn your professional expertise into income. Offer consultations, sell digital products, host webinars, and grow your brand from anywhere. ",
   icons: {
     icon: "/favicon.png",
   },
@@ -55,23 +55,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${satoshi.variable}`}
       >
-        {/* <Script
-          id="tawk-to"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-              (function(){
-                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-                s1.async=true;
-                s1.src='https://embed.tawk.to/66ceed2eea492f34bc0aec5a/1i6c4svqj';
-                s1.charset='UTF-8';
-                s1.setAttribute('crossorigin','*');
-                s0.parentNode.insertBefore(s1,s0);
-              })();
-            `,
-          }}
-        /> */}
         <Script
           src="https://unpkg.com/@fincra-engineering/checkout@2.2.0/dist/inline.min.js"
           strategy="afterInteractive"

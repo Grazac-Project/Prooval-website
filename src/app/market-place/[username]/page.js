@@ -192,9 +192,9 @@ const MentorDetails = () => {
 
   const getMentorsDetails = () => {
     // console.log({ token });
-    getMentorsBySlug(username, token || "")
+    getMentorsBySlug(username)
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setMentorData(res.data.data.data);
         setMentorId(res.data.data.data.mentor._id);
 
@@ -232,7 +232,7 @@ const MentorDetails = () => {
     setLoading(true);
     getBookings(mentorId)
       .then((res) => {
-        console.log(res.data?.data?.data);
+        // console.log(res.data?.data?.data);
         setMentData(res.data?.data?.data);
         setWebData(res.data?.data?.data?.webinars);
         setLoading(false);
@@ -251,7 +251,7 @@ const MentorDetails = () => {
     }
   }, [mentorId]);
 
-  console.log(mentData);
+  // console.log(mentData);
 
   const shareMentorProfile = () => {
     const shareUrl = `${pathname}${
@@ -1135,7 +1135,7 @@ const MentorDetails = () => {
                         {mentData?.bookings?.mentorshipPackages.length > 0 && (
                           <div className="">
                             <h3 className="text-lg font-semibold mb-4">
-                              Group Package
+                              Mentorship Package
                             </h3>
                             <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
                               {mentData?.bookings?.mentorshipPackages.map(
@@ -1251,7 +1251,13 @@ const MentorDetails = () => {
                       <p className="mb-5 minmd:mb-0   text-[20px] uppercase text-[#878787]">
                         Powered by Prooval
                       </p>
-                      <Link href="/signup">
+                      <Link
+                        href={
+                          isProduction === "development"
+                            ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+                            : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+                        }
+                      >
                         <button className="bg-[#000] text-[#fff] px-14 py-4 items-center rounded-lg">
                           Create my own page
                         </button>
