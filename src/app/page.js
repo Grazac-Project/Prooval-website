@@ -403,7 +403,7 @@ const Landing = () => {
                   </p>
                   <p className="text-[#787878] text-base mb-8">{t.text}</p>
                   <div className="flex gap-2">
-                    <img src={t.image} alt={t.name} />
+                    <img className="h-[48px] w-[48px] rounded-full object-cover" src={t.image} alt={t.name} />
                     <div>
                       <h4 className="font-bold text-base text-[#787878]">
                         {t.name}
@@ -430,7 +430,7 @@ const Landing = () => {
                   </p>
                   <p className="text-[#787878] text-base mb-8">{t.text}</p>
                   <div className="flex gap-2">
-                    <img src={t.image} alt={t.name} />
+                    <img className="h-[48px] w-[48px] rounded-full object-cover" src={t.image} alt={t.name} />
                     <div>
                       <h4 className="font-bold text-base text-[#787878]">
                         {t.name}
