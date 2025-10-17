@@ -2,7 +2,7 @@ export const card = [
   {
     image: "/link.png",
     heading: "Single Link",
-    text: "Every expert adds something unique. Join the growing community of professionals turning their knowledge into impact and income.",
+    text: "Manage your digital products, consultation, mentorship sessions, seamlessly from one dashboard.",
   },
   {
     image: "/market.png",
