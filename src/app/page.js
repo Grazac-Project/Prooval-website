@@ -275,7 +275,7 @@ const Landing = () => {
               {professionals.map((pro, index) => (
                 <div
                   key={pro.id}
-                  className="relative rounded-lg overflow-hidden shadow-md h-[329px] w-[207.5px] hover:w-[419px] transition-all transition-duration-500 ease-in-out"
+                  className="relative rounded-lg overflow-hidden shadow-md h-[329px] w-[207.5px] hover:w-[419px] transition-all transition-duration-500 ease-in-out cursor-pointer"
                 >
                   <img
                     src={pro.image}

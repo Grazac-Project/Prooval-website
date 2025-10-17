@@ -10,6 +10,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { IoIosSearch } from "react-icons/io";
 import Navbar from "@/components/navbar/nav";
+
 import { fetchMentors, cancel } from "@/api/authentication/auth";
 import Image from "next/image";
 import Footer from "@/components/footer/footer";
@@ -196,17 +197,18 @@ const Page = () => {
     <section className="font-onest ">
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
       <Navbar />
+
       <div
         id="hero-section"
         className=" text-[#fff] text-center bg-[#121927] mx-auto"
       >
         <div className="py-[96px] xm:py-[78px]" data-aos="fade-down">
-          <h1 className="font-medium w-[894px] lgx:w-[90%] sm:w-[90%] xm:w-[98%] text-[56px] sm:text-[40px] mx-auto leading-[56px] sm:leading-[48px] tracking-[-2%] text-[#fff] mb-[24px]">
-            World class mentorship at your finger tips
+          <h1 className="font-medium w-[894px] lgx:w-[90%] sm:w-[90%] xm:w-[98%] text-[56px] sm:text-[40px] mx-auto leading-[56px] sm:leading-[48px] tracking-[-2%] text-[#fff] mb-[24px] font-satoshi">
+            Explore Skilled Professionals and creators from around the World.
           </h1>
-          <p className="font-normal px-[10px] w-[768px] lgx:w-[75%] md:w-[85%] sm:w-[90%] xm:w-[98%] text-[20px] sm:text-[16px] mx-auto leading-[30px] sm:leading-[24px] text-[#EAECF0] mb-[24px]">
-            Easily connect with exceptional mentors from various backgrounds and
-            openly discuss your career challenges with them.
+          <p className="font-normal px-[10px] w-[768px] lgx:w-[75%] md:w-[85%] sm:w-[90%] xm:w-[98%] text-[20px] sm:text-[16px] mx-auto leading-[30px] sm:leading-[24px] text-[#EAECF0] mb-[24px] font-satoshi">
+            Connect and learn from exceptional professionals across different
+            sectors and learn from their wealth of experience.
           </p>
           {/* <button className="font- w-[198px] px-[40px] py-[20px] font-medium text-[16px] leading-[24px] tracking-[3%] text-[#fff] bg-[#1453FF] rounded-[8px] ">
             Book a Mentor
