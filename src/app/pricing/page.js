@@ -2,7 +2,7 @@
 
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect,useRef,useState } from "react";
 import Navbar from "@/components/navbar/nav";
 import Footer from "@/components/footer/footer";
 import Modal from "@/components/modal/modal";
@@ -17,28 +17,42 @@ const testimonialsTop = [
     name: "Abayomi Babajide",
     role: " Digital Marketing Expert",
     text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
+    image: "/testimonial1.png",
     icon: <RiDoubleQuotesL />,
   },
   {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
+    name: "Joy Omowaye",
+    role: " Product Designer",
+    text: "Beyond my 9-5, Prooval helped me turn my design expertise into a side income. I now run design mentorships, consultation,  sell UI templates and guides for new designers and host webinars with ease.",
+    image: "/testimonial2.png",
     icon: <RiDoubleQuotesL />,
   },
   {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
+    name: "Gift Adeyemi",
+    role: " Wellness Coach",
+    text: "I wanted to create my own website before I found out about Prooval and what I love mostly about Prooval is having my own personalized page. I manage my entire business from one using my prooval link and it’s been fulfilling for me",
+    image: "/testimonial3.png",
     icon: <RiDoubleQuotesL />,
   },
   {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
+    name: "Sola Ogunbanwo",
+    role: " Creative Director",
+    text: "Prooval has changed the way I connect with creatives. The major challenge for me was difficulty in managing mentorship requests and as much as I wanted to make the impact, I just couldn't manage all via DMs and this is one of the reason I will stick with Prooval till forever.",
+    image: "/testimonial4.png",
+    icon: <RiDoubleQuotesL />,
+  },
+  {
+    name: "Festus Osas",
+    role: " HR Consultant",
+    text: "Mentoring the next generation has always been something I’m passionate about, but Prooval just changed the game for me. It gave me a platform to share my knowledge, connect with aspiring professionals, and finally get paid for doing what I love.",
+    image: "/testimonial5.png",
+    icon: <RiDoubleQuotesL />,
+  },
+  {
+    name: "James Babalola",
+    role: " Immigration Consultant",
+    text: "Prooval took my immigration consultancy to the next level. It gave me a seamless way to offer consultations, share valuable resources, and connect with clients globally. Now, I can guide more people towards achieving their dream of living abroad and professionally earning from what I know best.",
+    image: "/testimonial6.png",
     icon: <RiDoubleQuotesL />,
   },
 ];
@@ -48,28 +62,42 @@ const testimonialsBottom = [
     name: "Abayomi Babajide",
     role: " Digital Marketing Expert",
     text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
+    image: "/testimonial1.png",
     icon: <RiDoubleQuotesL />,
   },
   {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
+    name: "Joy Omowaye",
+    role: " Product Designer",
+    text: "Beyond my 9-5, Prooval helped me turn my design expertise into a side income. I now run design mentorships, consultation,  sell UI templates and guides for new designers and host webinars with ease.",
+    image: "/testimonial2.png",
     icon: <RiDoubleQuotesL />,
   },
   {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
+    name: "Gift Adeyemi",
+    role: " Wellness Coach",
+    text: "I wanted to create my own website before I found out about Prooval and what I love mostly about Prooval is having my own personalized page. I manage my entire business from one using my prooval link and it’s been fulfilling for me",
+    image: "/testimonial3.png",
     icon: <RiDoubleQuotesL />,
   },
   {
-    name: "Abayomi Babajide",
-    role: " Digital Marketing Expert",
-    text: "As someone who juggles multiple clients, I needed a simple way to share digital products and offer consultations without stress. Prooval made that possible. It feels like having an organized online office here.",
-    image: "/testimonial_1.png",
+    name: "Sola Ogunbanwo",
+    role: " Creative Director",
+    text: "Prooval has changed the way I connect with creatives. The major challenge for me was difficulty in managing mentorship requests and as much as I wanted to make the impact, I just couldn't manage all via DMs and this is one of the reason I will stick with Prooval till forever.",
+    image: "/testimonial4.png",
+    icon: <RiDoubleQuotesL />,
+  },
+  {
+    name: "Festus Osas",
+    role: " HR Consultant",
+    text: "Mentoring the next generation has always been something I’m passionate about, but Prooval just changed the game for me. It gave me a platform to share my knowledge, connect with aspiring professionals, and finally get paid for doing what I love.",
+    image: "/testimonial5.png",
+    icon: <RiDoubleQuotesL />,
+  },
+  {
+    name: "James Babalola",
+    role: " Immigration Consultant",
+    text: "Prooval took my immigration consultancy to the next level. It gave me a seamless way to offer consultations, share valuable resources, and connect with clients globally. Now, I can guide more people towards achieving their dream of living abroad and professionally earning from what I know best.",
+    image: "/testimonial6.png",
     icon: <RiDoubleQuotesL />,
   },
 ];
@@ -77,6 +105,8 @@ const testimonialsBottom = [
 const Pricing = () => {
   const [showModal, setShowModal] = useState(false);
   const [currency, setCurrency] = useState("Nigerian Naira");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const currencies = [
     { name: "Nigerian Naira", flag: "/Nigeria.png" },
@@ -85,7 +115,26 @@ const Pricing = () => {
 
   // Get the current flag based on selected currency
   const currentFlag = currencies.find(c => c.name === currency)?.flag || "/Nigeria.png";
+  const currentCurrency = currencies.find(c => c.name === currency) || currencies[0];
   const feePercent = currency === "United States Dollar" ? 8 : 5;
+  const currAbbrev = currency === "United States Dollar" ? "USD" : "NGN"
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleCurrencySelect = (selectedCurrency) => {
+    setCurrency(selectedCurrency.name);
+    setIsDropdownOpen(false);
+  };
 
   return (
     <>
@@ -108,36 +157,80 @@ const Pricing = () => {
           <div className="bg-[#FAFAFA] border border-[#E2E8F0] rounded-2xl shadow-sm mt-7 p-8  md:p-6 w-full max-w-md ">
             <p className="font-bold pb-3">Select Currency</p>
             
-            {/* Currency Selector with Dynamic Flag */}
-            <div className="flex items-center justify-center mb-6 relative">
-              {/* Flag display */}
-              <div className="absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                <Image 
-                  src={currentFlag}
-                  alt="flag" 
-                  width={24} 
-                  height={24} 
-                />
-              </div>
-              
-              <select
-                value={currency}
-                onChange={(e) => setCurrency(e.target.value)}
-                className="border border-[#E2E8F0] rounded-lg px-12 py-3 w-full text-[#000000] focus:outline-none focus:ring-2 focus:ring-[#1453FF] cursor-pointer appearance-none bg-[#FFFFFF]"
+            
+            {/* Stylish Custom Currency Dropdown */}
+            <div className="relative mb-6" ref={dropdownRef}>
+              {/* Dropdown Trigger */}
+              <div 
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="border border-[#E2E8F0] rounded-lg px-4 py-3 w-full text-[#000000] focus:outline-none focus:ring-2 focus:ring-[#1453FF] cursor-pointer bg-[#FFFFFF] hover:bg-[#F8FAFC] transition-colors duration-200 flex items-center justify-between"
               >
-                {currencies.map((c) => (
-                  <option key={c.name} value={c.name}>
-                    {c.name}
-                  </option>
-                ))}
-              </select>
-              
-              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                <svg className="w-4 h-4 text-[#666666]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-6 rounded overflow-hidden flex items-center justify-center">
+                    <Image 
+                      src={currentCurrency.flag}
+                      alt={`${currentCurrency.name} flag`} 
+                      width={32}
+                      height={24}
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="text-left">
+                    <div className="font-medium text-[#000000]">{currentCurrency.name}</div>
+                    <div className="text-xs text-[#666666]">{currentCurrency.code}</div>
+                  </div>
+                </div>
+                <svg 
+                  className={`w-5 h-5 text-[#666666] transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </div>
+
+              {/* Dropdown Menu */}
+              {isDropdownOpen && (
+                <div className="absolute top-full left-0 right-0 mt-1 bg-[#FFFFFF] border border-[#E2E8F0] rounded-lg shadow-lg z-10 overflow-hidden">
+                  {currencies.map((currencyOption) => (
+                    <div
+                      key={currencyOption.name}
+                      onClick={() => handleCurrencySelect(currencyOption)}
+                      className={`flex items-center space-x-3 px-4 py-3 cursor-pointer transition-colors duration-150 ${
+                        currency === currencyOption.name 
+                          ? 'bg-[#F6FAFF] border-r-2 border-[#1453FF]' 
+                          : 'hover:bg-[#F8FAFC]'
+                      }`}
+                    >
+                      <div className="w-8 h-6 rounded overflow-hidden flex items-center justify-center">
+                        <Image 
+                          src={currencyOption.flag}
+                          alt={`${currencyOption.name} flag`} 
+                          width={32}
+                          height={24}
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="text-left flex-1">
+                        <div className={`font-medium ${
+                          currency === currencyOption.name ? 'text-[#1453FF]' : 'text-[#000000]'
+                        }`}>
+                          {currencyOption.name}
+                        </div>
+                        <div className="text-xs text-[#666666]">{currencyOption.code}</div>
+                      </div>
+                      {currency === currencyOption.name && (
+                        <svg className="w-4 h-4 text-[#1453FF]" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
+
 
             {/* Fee Display */}
             <div className="bg-[#F6FAFF] border border-[#E2E8F0] text-center rounded-lg">
@@ -145,7 +238,7 @@ const Pricing = () => {
               <p className=" ">
                 <span className="font-bold text-base sm:text-sm pb-[10px] block">Transaction Fee</span> 
                 <div className=" text-sm  sm:text-xs px-3  mb-6 max-w-[377px]">
-                  We charge {feePercent}% on all transactions and this is charged before the professional is credited. 
+                  We charge {feePercent}% on all {currAbbrev} transactions and this is charged before the professional is credited. 
                 </div>
               </p>
             </div>
@@ -199,8 +292,8 @@ const Pricing = () => {
                             {t.icon}
                           </p>
                           <p className="text-[#787878] text-base mb-8">{t.text}</p>
-                          <div className="flex gap-2">
-                            <img src={t.image} alt={t.name} />
+                          <div className="flex gap-2 ">
+                            <img className="h-[48px] w-[48px] rounded-full object-cover" src={t.image} alt={t.name} />
                             <div>
                               <h4 className="font-bold text-base text-[#787878]">
                                 {t.name}
@@ -227,7 +320,7 @@ const Pricing = () => {
                           </p>
                           <p className="text-[#787878] text-base mb-8">{t.text}</p>
                           <div className="flex gap-2">
-                            <img src={t.image} alt={t.name} />
+                            <img className="h-[48px] w-[48px] rounded-full object-cover" src={t.image} alt={t.name} />
                             <div>
                               <h4 className="font-bold text-base text-[#787878]">
                                 {t.name}
