@@ -36,7 +36,7 @@ const satoshi = localFont({
 });
 
 export const metadata = {
-  title: "Prooval empowers professionals to monetize their knowledge",
+  title: "Prooval | Empowers professionals to monetize their knowledge",
   description:
     "Join Prooval to turn your professional expertise into income. Offer consultations, sell digital products, host webinars, and grow your brand from anywhere. ",
   icons: {
