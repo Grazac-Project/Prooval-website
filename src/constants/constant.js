@@ -141,7 +141,7 @@ export const professionals = [
     id: 2,
     name: "Issac Iwalaiye",
     role: "Technical Account Manager at Microsoft",
-    image: "/professional_2.jpg",
+    image: "https://res.cloudinary.com/grazac/image/upload/v1754691323/mentors/bwwtz8vidwebkbepp7zr.jpg",
   },
   {
     id: 3,
