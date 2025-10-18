@@ -25,6 +25,7 @@ import { getCurrencySymbol } from "@/Utils/currency-formatter";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { getBookings } from "@/api/authentication/auth";
 import Link from "next/link";
+import EventCard from "@/components/webinerCard";
 
 const groupColors = [
   "#F48025",
@@ -48,6 +49,7 @@ const groupColors = [
   "#FF4500",
   "#2E8B57",
 ];
+
 // De-dupe key (adjust if you have real IDs)
 const keyOf = (c) => `${c.type}::${c.title}`;
 
@@ -238,7 +240,7 @@ const MentorDetails = () => {
         setLoading(false);
       })
       .catch((err) => {
-        setError(err.response?.data?.message);
+        // setError(err.response?.data?.message);
         setLoading(false);
       });
   };
@@ -472,6 +474,7 @@ const MentorDetails = () => {
       />
     );
   }
+  
 
   return (
     <>
@@ -988,13 +991,13 @@ const MentorDetails = () => {
                         </h2>
 
                         {/* Digital Products */}
-                        {mentData?.digitalProducts?.length > 0 && (
+                        {mentorData?.digitalProducts?.length > 0 && (
                           <div>
                             <h3 className="text-lg font-semibold mb-4 ">
                               Digital products
                             </h3>
                             <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-                              {mentData?.digitalProducts.map((book, id) => (
+                              {mentorData?.digitalProducts.map((book, id) => (
                                 <div
                                   key={id}
                                   className="border p-4 border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer "
@@ -1049,13 +1052,13 @@ const MentorDetails = () => {
                           </div>
                         )}
                         {/* 1-on-1 Sessions */}
-                        {mentData?.bookings?.sessions.length > 0 && (
+                        {mentorData?.oneOnOneSessions?.length > 0 && (
                           <div>
                             <h3 className="text-lg font-semibold leading-[140%] mb-4">
                               1-on-1 Sessions
                             </h3>
                             <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-                              {mentData?.bookings?.sessions.map(
+                              {mentorData?.oneOnOneSessions?.map(
                                 (details, i) => (
                                   <div key={i}>
                                     <div
@@ -1132,13 +1135,13 @@ const MentorDetails = () => {
                         )}
 
                         {/* Group Package */}
-                        {mentData?.bookings?.mentorshipPackages.length > 0 && (
+                        {mentorData?.bookings?.packageMentorships?.length > 0 && (
                           <div className="">
                             <h3 className="text-lg font-semibold mb-4">
                               Mentorship Package
                             </h3>
                             <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
-                              {mentData?.bookings?.mentorshipPackages.map(
+                              {mentorData?.bookings?.packageMentorships?.map(
                                 (pkg, idx) => (
                                   <div
                                     key={idx}
@@ -1220,24 +1223,24 @@ const MentorDetails = () => {
                             </div>
                           </div>
                         )}
-                        {/* //webiner */}
-                        {mentData?.webinars?.length > 0 && (
+                        {/* //webinar */}
+                        {mentorData?.webinars?.length > 0 && (
                           <div className="">
                             <h3 className="text-lg font-semibold mb-4">
                               Webinar
                             </h3>
                             <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-                              {mentorData?.webinars?.map((webiner, id) => (
+                              {mentorData?.webinars?.map((webinar, id) => (
                                 <EventCard
-                                  title={webiner?.title}
-                                  month={webiner?.date}
-                                  day={webiner?.date}
+                                  title={webinar?.title}
+                                  month={webinar?.startDate}
+                                  day={webinar?.startDate}
                                   venue="Google Meet"
-                                  price={webiner?.type}
-                                  joinedLabel={webiner.guestAttendees.length}
-                                  image={webiner.thumbnail}
-                                  currency={webiner.currency}
-                                  amount={webiner.amount}
+                                  price={webinar?.type}
+                                  joinedLabel={webinar?.guestAttendees?.length}
+                                  image={webinar.thumbnail}
+                                  currency={webinar.currency}
+                                  amount={webinar.amount}
                                   key={id}
                                   action={() => AttendWebinar(webiner._id)}
                                 />

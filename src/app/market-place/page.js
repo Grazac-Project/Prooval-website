@@ -131,7 +131,7 @@ const Page = () => {
   };
   const handleMentorClick = (mentorSlug) => {
     Cookies.set("mentorSlug", mentorSlug, { expires: 7 });
-    router.push(`market-place/${mentorSlug}`);
+    router.push(`/${mentorSlug}`);
   };
 
   const handleRoleClick = (selectedRole) => {

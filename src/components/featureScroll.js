@@ -196,7 +196,7 @@ export default function FeatureScroll() {
         </div>
       </section>
 
-      <section className="flex justify-center pb-20 sm:py-[40px]">
+      <section className="flex justify-center pb-20 sm:pb-[24px] sm:pt-[24px]">
         <Link
           href={
             isProduction === "development"
