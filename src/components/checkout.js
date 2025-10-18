@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { allProductCheckout } from "@/api/authentication/auth";
+import { getCurrencySymbol } from "@/Utils/currency-formatter";
 
 const initialValues = {
   firstName: "",
@@ -15,7 +16,7 @@ const initialValues = {
   email: "",
 };
 
-const Checkout = ({goBack, checkoutCallback, productId, productCurrency, productType, category}) => {
+const Checkout = ({goBack, checkoutCallback, productId, productDescription, productPrice, productCurrency, productType, category}) => {
   console.table(productId, productCurrency, productType)
   console.log(checkoutCallback)
   const router = useRouter();
@@ -37,23 +38,23 @@ const Checkout = ({goBack, checkoutCallback, productId, productCurrency, product
       productId: productId,
       currency: productCurrency
     }
-    // checkoutCallback({productId: productId, currency: productCurrency, name: 'name'})
+    checkoutCallback(newValues)
     console.log(newValues)
-    allProductCheckout(newValues, category)
-      .then((res) => {
-        console.log(res);
-        if (res.status === 200) {
-          setLoader(false);
-          toast.success(res.data.message);
-          checkoutCallback({productId: productId, currency: productCurrency}) 
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-        setLoader(false);
-        toast.error(err?.response?.data?.message);
-      });
-    actions.resetForm();
+    // allProductCheckout(newValues, category)
+    //   .then((res) => {
+    //     console.log(res);
+    //     if (res.status === 200) {
+    //       setLoader(false);
+    //       toast.success(res.data.message);
+    //       checkoutCallback({productId: productId, currency: productCurrency}) 
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err)
+    //     setLoader(false);
+    //     toast.error(err?.response?.data?.message);
+    //   });
+    // actions.resetForm();
   };
 
   const {
@@ -98,15 +99,15 @@ const Checkout = ({goBack, checkoutCallback, productId, productCurrency, product
                 Product type
               </h2>
               <p className="font-bold text-[16px] text-[#292D32] leading-[22px]">
-                Digital product
+                {category}
               </p>
             </div>
             <div>
               <h2 className="font-normal text-[14px] text-[#101828] leading-[180%] tracking-[0] mb-2">
-                Product type
+                Price
               </h2>
               <p className="font-bold text-[16px] text-[#292D32] leading-[22px]">
-                Digital product
+                {getCurrencySymbol(productCurrency)}{productPrice}
               </p>
             </div>
           </div>
@@ -115,7 +116,7 @@ const Checkout = ({goBack, checkoutCallback, productId, productCurrency, product
               Product name
             </h2>
             <p className="font-bold text-[16px] text-[#292D32] leading-[22px]">
-              Let's talk abouit ...
+              {productDescription}
             </p>
           </div>
         </div>
