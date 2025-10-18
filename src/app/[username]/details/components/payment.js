@@ -315,16 +315,19 @@ const Payment = ({
   }, [productType]);
 
   // Handle free product access
-  const handleAccessProduct = () => {
+  const handleAccessProduct = (z) => {
     try {
       setLoading("Initiating access ...");
-      const data = { productId };
+      const data = { productId, ...z };
 
       initializeDigitalProductPayment(data)
         .then((res) => {
           console.log(res);
-          setFreeMode(true);
+          // setCheckout(false)
+          // setShowModal(false)
+          // setShowMain(true)
           setIsSuccess(true);
+          setFreeMode(true);
         })
         .catch((err) => {
           toast.error(err.response?.data?.message || "Something went wrong");
@@ -338,7 +341,8 @@ const Payment = ({
 console.log(setCheckoutCallback)
 console.log(productType)
   // Handle local (NGN) payment
-  const handlePayment = async () => {
+  const handlePayment = async (x) => {
+    console.log(x)
     try {
       setLoading("Initiating payment ...");
 
@@ -346,7 +350,9 @@ console.log(productType)
       console.log(payload)
 
       // Get payment reference from backend
-      const res = await fincraDigitalCheckoutData(payload);
+      // const res = await fincraDigitalCheckoutData(payload);
+      const res = await fincraDigitalCheckoutData(x);
+      console.log(res)
       const reference =
         res?.data?.data?.data?.reference ?? res?.data?.data?.reference;
 
@@ -357,12 +363,14 @@ console.log(productType)
       url.searchParams.set("ref", reference);
       window.history.replaceState({}, "", url.toString());
 
+      const fullname = `${x.firstName} ${x.lastName}`
       // Trigger Fincra payment modal
       await startPayment({
         price: Number(productPrice),
         currency: String(productCurrency || "NGN").toUpperCase(),
-        reference,
         ref: reference,
+        nameProp: fullname,
+        emailProp: x.email,
         onSuccess: () => {
           setIsSuccess(true);
           setLoading("Make Payment");
@@ -383,10 +391,10 @@ console.log(productType)
   };
 
   // Handle international payment (non-NGN)
-  const handleForeignPayment = () => {
+  const handleForeignPayment = (y) => {
     try {
       setLoading("Initiating payment ...");
-      const data = { productId };
+      const data = { productId, ...y };
 
       initializeDigitalProductPayment(data)
         .then((res) => {
@@ -410,19 +418,19 @@ console.log(productType)
     setCheckout(true)
   }
   // Handle all click types
-  const handleClick = () => {
-    console.log(productType)
+  const handleClick = (val) => {
+    console.log(val)
     if (productType === "paid" && productCurrency === "NGN") {
-      handlePayment();
+      handlePayment(val);
     } else if (productType === "paid" && productCurrency !== "NGN") {
-      handleForeignPayment();
+      handleForeignPayment(val);
     } else {
-      handleAccessProduct();
+      handleAccessProduct(val);
     }
   };
 
   useEffect(()=>{
-    setCheckoutCallback(()=> handleClick())
+    setCheckoutCallback(() => (...args) => handleClick(...args))
 
   }, [])
   // Redirect to dashboard after success

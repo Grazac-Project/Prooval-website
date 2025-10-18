@@ -243,7 +243,7 @@ const MentorDetails = () => {
     setLoading(true);
     getBookings(mentorId)
       .then((res) => {
-        // console.log(res.data?.data?.data);
+        console.log(res.data?.data?.data);
         setMentData(res.data?.data?.data);
         setWebData(res.data?.data?.data?.webinars);
         setLoading(false);
@@ -359,15 +359,16 @@ const MentorDetails = () => {
     5
   );
 
-  const bookSession = (id, type, amount, bookingCurrency, sessionType) => {
+  const bookSession = (id, type, amount, bookingCurrency, description, title) => {
     setBookingId(id);
     setBookType(type);
     setMentorPrice(amount);
     setCurrency(bookingCurrency);
+    setProductDescription(description)
+    setProductTitle(title)
     setLoading(false);
-    setSessionType(sessionType);
-    console.log({ id });
-    console.log(bookingId, bookType, mentorPrice, currency);
+    // setSessionType(sessionType);
+    // console.log(bookingId, bookType, mentorPrice, currency);
     setShowBookingModal(true);
 
     // else {
@@ -536,6 +537,7 @@ const MentorDetails = () => {
                     setBookingModal={setShowBookingModal}
                     setCheckout={setCheckout}
                     setShowMain={setShowMain}
+                    setCheckoutCallback={setCheckoutCallback}
                   />
                 )}
                 {successModal && (
@@ -1088,10 +1090,13 @@ const MentorDetails = () => {
                                       className="border border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer h-[205px] py-7 px-4 space-y-2"
                                       onClick={() =>
                                         bookSession(
-                                          details?._id,
+                                          // details?._id,
+                                          details?.bookingId,
                                           details?.bookingType,
                                           details?.amount,
-                                          details?.currency
+                                          details?.currency,
+                                          details?.description,
+                                          details?.title,
                                         )
                                       }
                                     >
@@ -1296,7 +1301,7 @@ const MentorDetails = () => {
           </>
         )}
       </div>}
-      {checkout && <Checkout goBack={exitCheckout} checkoutCallback={checkoutCallback} productId={productId} productCurrency={productCurrency} productType={productType} category={category}/>}
+      {checkout && <Checkout goBack={exitCheckout} checkoutCallback={checkoutCallback} productId={productId} productDescription={productDescription} productPrice={productPrice || mentorPrice} productCurrency={productCurrency || currency} productType={productType || bookType} category={category}/>}
     </>
   );
 };

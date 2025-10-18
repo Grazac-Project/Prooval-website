@@ -116,12 +116,7 @@ export const getMentorsBySlug = (slug) => {
 };
 
 export const fincraDigitalCheckoutData = (data, token) => {
-  return authKit.post(`api/v1/payment/checkout-data/digital-product`, data, {
-    // headers: {
-    //   "Content-Type": "application/json",
-    //   Authorization: `Bearer ${token}`,
-    // },
-  });
+  return authKit.post(`api/v1/payment/checkout-data/digital-product`, data);
 };
 export const fincraPayment = (data, token) => {
   return authKit.post(`api/v1/payment/generate-payment-link`, data, {
@@ -132,12 +127,7 @@ export const fincraPayment = (data, token) => {
   });
 };
 export const fincraBookingCheckoutData = (data, token) => {
-  return authKit.post(`api/v1/payment/checkout-data/mentor-session`, data, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  return authKit.post(`api/v1/payment/checkout-data/mentor-session`, data);
 };
 export const initializeDigitalProductPayment = (id, token) => {
   console.log(id)

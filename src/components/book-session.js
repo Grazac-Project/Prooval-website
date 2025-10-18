@@ -33,7 +33,8 @@ const BookSession = ({
   sessionType,
   setBookingModal,
   setCheckout,
-  setShowMain
+  setShowMain,
+  setCheckoutCallback
 }) => {
   const [activeDates, setActiveDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -223,7 +224,7 @@ const BookSession = ({
       const data = {
         bookingId: bookingValues?.bookingId,
         slotId: bookingValues?.slotId,
-        suggestion: values.suggestion,
+        // suggestion: values.suggestion,
         currency: bookingCurrency,
       };
       console.log(data);
@@ -301,6 +302,11 @@ const BookSession = ({
       handleBookingSubmit();
     }
   };
+
+  useEffect(()=>{
+      setCheckoutCallback(() => (...args) => handleclick(...args))
+  
+    }, [])
   console.log(sessionType);
   return (
     <div>
