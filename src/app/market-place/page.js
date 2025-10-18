@@ -39,7 +39,7 @@ const Page = () => {
   const [selectedRole, setSelectedRole] = useState("All");
   const [categories, setCategories] = useState([]);
 
-  console.log(listOfMentors);
+  // console.log(listOfMentors);
 
   const observer = useRef();
   const router = useRouter();
@@ -131,7 +131,7 @@ const Page = () => {
   };
   const handleMentorClick = (mentorSlug) => {
     Cookies.set("mentorSlug", mentorSlug, { expires: 7 });
-    router.push(`market-place/${mentorSlug}`);
+    router.push(`/${mentorSlug}`);
   };
 
   const handleRoleClick = (selectedRole) => {

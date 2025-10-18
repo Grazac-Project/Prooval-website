@@ -51,6 +51,7 @@ const groupColors = [
   "#FF4500",
   "#2E8B57",
 ];
+
 // De-dupe key (adjust if you have real IDs)
 const keyOf = (c) => `${c.type}::${c.title}`;
 
@@ -202,9 +203,9 @@ const MentorDetails = () => {
 
   const getMentorsDetails = () => {
     // console.log({ token });
-    getMentorsBySlug(username, token || "")
+    getMentorsBySlug(username)
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setMentorData(res.data.data.data);
         setMentorId(res.data.data.data.mentor._id);
 
@@ -242,13 +243,13 @@ const MentorDetails = () => {
     setLoading(true);
     getBookings(mentorId)
       .then((res) => {
-        console.log(res.data?.data?.data);
+        // console.log(res.data?.data?.data);
         setMentData(res.data?.data?.data);
         setWebData(res.data?.data?.data?.webinars);
         setLoading(false);
       })
       .catch((err) => {
-        setError(err.response?.data?.message);
+        // setError(err.response?.data?.message);
         setLoading(false);
       });
   };
@@ -487,6 +488,8 @@ const MentorDetails = () => {
       />
     );
   }
+  
+
   return (
     <>
       {showMain &&<div>
@@ -1011,13 +1014,13 @@ const MentorDetails = () => {
                         </h2>
 
                         {/* Digital Products */}
-                        {mentData?.digitalProducts?.length > 0 && (
+                        {mentorData?.digitalProducts?.length > 0 && (
                           <div>
                             <h3 className="text-lg font-semibold mb-4 ">
                               Digital products
                             </h3>
                             <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-                              {mentData?.digitalProducts.map((book, id) => (
+                              {mentorData?.digitalProducts.map((book, id) => (
                                 <div
                                   key={id}
                                   className="border p-4 border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer "
@@ -1072,13 +1075,13 @@ const MentorDetails = () => {
                           </div>
                         )}
                         {/* 1-on-1 Sessions */}
-                        {mentData?.bookings?.sessions.length > 0 && (
+                        {mentorData?.oneOnOneSessions?.length > 0 && (
                           <div>
                             <h3 className="text-lg font-semibold leading-[140%] mb-4">
                               1-on-1 Sessions
                             </h3>
                             <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-                              {mentData?.bookings?.sessions.map(
+                              {mentorData?.oneOnOneSessions?.map(
                                 (details, i) => (
                                   <div key={i}>
                                     <div
@@ -1155,13 +1158,13 @@ const MentorDetails = () => {
                         )}
 
                         {/* Group Package */}
-                        {mentData?.bookings?.mentorshipPackages.length > 0 && (
+                        {mentorData?.bookings?.packageMentorships?.length > 0 && (
                           <div className="">
                             <h3 className="text-lg font-semibold mb-4">
-                              Group Package
+                              Mentorship Package
                             </h3>
                             <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
-                              {mentData?.bookings?.mentorshipPackages.map(
+                              {mentorData?.bookings?.packageMentorships?.map(
                                 (pkg, idx) => (
                                   <div
                                     key={idx}
@@ -1243,26 +1246,26 @@ const MentorDetails = () => {
                             </div>
                           </div>
                         )}
-                        {/* //webiner */}
-                        {mentData?.webinars?.length > 0 && (
+                        {/* //webinar */}
+                        {mentorData?.webinars?.length > 0 && (
                           <div className="">
                             <h3 className="text-lg font-semibold mb-4">
                               Webinar
                             </h3>
                             <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-                              {mentorData?.webinars?.map((webiner, id) => (
+                              {mentorData?.webinars?.map((webinar, id) => (
                                 <EventCard
-                                  title={webiner?.title}
-                                  month={webiner?.date}
-                                  day={webiner?.date}
+                                  title={webinar?.title}
+                                  month={webinar?.startDate}
+                                  day={webinar?.startDate}
                                   venue="Google Meet"
-                                  price={webiner?.type}
-                                  joinedLabel={webiner.guestAttendees?.length}
-                                  image={webiner?.thumbnail}
-                                  currency={webiner?.currency}
-                                  amount={webiner?.amount}
+                                  price={webinar?.type}
+                                  joinedLabel={webinar?.guestAttendees?.length}
+                                  image={webinar.thumbnail}
+                                  currency={webinar.currency}
+                                  amount={webinar.amount}
                                   key={id}
-                                  action={() => AttendWebinar(webiner?._id)}
+                                  action={() => AttendWebinar(webinar._id)}
                                 />
                               ))}
                             </div>
@@ -1274,7 +1277,13 @@ const MentorDetails = () => {
                       <p className="mb-5 minmd:mb-0   text-[20px] uppercase text-[#878787]">
                         Powered by Prooval
                       </p>
-                      <Link href="/signup">
+                      <Link
+                        href={
+                          isProduction === "development"
+                            ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+                            : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+                        }
+                      >
                         <button className="bg-[#000] text-[#fff] px-14 py-4 items-center rounded-lg">
                           Create my own page
                         </button>

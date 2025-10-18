@@ -52,12 +52,14 @@ const AboutUs = () => {
           </p>
         </div>
         {/* <Image src="/about.png" alt="img" width={1440} height={600} /> */}
-        <Image src="/about-hero.png" alt="img" width={1440} height={600} />
+        {/* <Image src="/about-hero.png" alt="img" width={1440} height={600} /> */}
+        <Image src="https://res.cloudinary.com/grazac/image/upload/v1760741623/prooval%20professional/about-us-min_m8yxai.png" alt="img" width={1440} height={600} />
+
       </div>
       <div className={Classes.mission}>
         <h4>Our Mission </h4>
         <p>
-          Our mission is to make it simple for experts to share what they know and for people to connect with them through seamless, 
+          Our mission is to make it simple for experts to share what they know and for people to connect with them through seamless,
           personalized interactions that feel easy and meaningful.
         </p>
       </div>
@@ -65,14 +67,14 @@ const AboutUs = () => {
         <h4>Our Story</h4>
         <Image
           // src="/story.png"
-          src="/about-story.png"
+          src="https://res.cloudinary.com/grazac/image/upload/v1760741782/prooval%20professional/about2-min_1_1_yuivpc.png"
           alt="img"
           width={1280}
           height={432}
           className={Classes.storyImg1}
         />
         <Image
-          src="/about-story2.png"
+          src="https://res.cloudinary.com/grazac/image/upload/v1760741782/prooval%20professional/about2-min_1_1_yuivpc.png"
           alt="img"
           width={1280}
           height={432}

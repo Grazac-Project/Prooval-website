@@ -42,7 +42,7 @@ const ValueCard = () => {
       >
         <Image src="/glimpse1.png" width={56} height={57} alt="gvh" />
         <h4 className="font-medium text-[24px] leading-[36px] text-[#FBFCFD] pt-8 pb-4 ">
-          Personalized Mentorship
+          Unlimited Products
         </h4>
         <p className="font-normal text-[16px] text-[#D1D1D1] leading-[24px] pb-[80px]">
           Upload and sell as many digital products as you want: courses, guides, templates, eBooks, or videos.<br/> 

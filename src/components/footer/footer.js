@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import * as yup from "yup";
@@ -31,7 +32,7 @@ const Footer = () => {
     await newsLetterSub(values)
       .then((res) => {
         setLoader(false);
-        // console.log(res);
+        console.log(res);
         if (res.status === 201) {
           // console.log(openModal);
           setOpen(!open);
@@ -43,6 +44,24 @@ const Footer = () => {
         setErrorResponse(err?.response?.data?.message?.error);
       });
     actions.resetForm();
+  };
+
+  // Smooth scroll handler for in-page feature links
+  const handleScrollToFeature = (e) => {
+    try {
+      if (e && e.preventDefault) e.preventDefault();
+      const id = "explore-features";
+      const el = document.getElementById(id);
+      if (el) {
+        // Scroll so the section top is at the top of the viewport
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        // Fallback: navigate to homepage hash so server renders the section and browser can scroll
+        window.location.hash = id;
+      }
+    } catch (err) {
+      console.error("scroll error", err);
+    }
   };
   const {
     values,
@@ -67,7 +86,7 @@ const Footer = () => {
               src="/proovalLogoWhite.png"
               width={111.6}
               height={40}
-              alt="hackthejobs logo"
+              alt="prooval logo"
             />
           </Link>
           <p className="font-[700] text-[12px] text-[#FFFFFFCC] leading-[160%] pt-[12px]">
@@ -87,7 +106,7 @@ const Footer = () => {
             bg-[#FFFFFF1A] backdrop-blur-md 
               border border-[white/20] 
               rounded-[24px] gap-[4px] p-[8px] sm:px-[52px] sxm:px-[24px] 
-              cursor-pointer transition-all hover:bg-white/20 hover:shadow-lg"
+              cursor-pointer transition-all "
               >
                 <img src="/mail.png" />
                 <span className="text-[12px] text-[#FFFFFFCC] font-normal font-satoshi leading-[160%]">
@@ -97,26 +116,26 @@ const Footer = () => {
             </a>
 
             {/* Instagram Button */}
-            <a href="#" target="_blank">
+            <a href="http://www.instagram.com/proovalhq" target="_blank">
               <div
                 className="flex items-center text-[#ffffff] 
               bg-[#FFFFFF1A] backdrop-blur-md 
              border border-white/20 
              rounded-full gap-[4px] p-[8px]
-              cursor-pointer transition-all hover:bg-white/20 hover:shadow-lg"
+              cursor-pointer transition-all"
               >
                 <img src="/instagram.png" />
               </div>
             </a>
 
             {/* Twitter Button */}
-            <a href="#" target="_blank">
+            <a href="www.x.com/proovalhq" target="_blank">
               <div
                 className="flex items-center text-[#ffffff] 
                bg-[#FFFFFF1A] backdrop-blur-md 
               border border-white/20 
               rounded-full gap-[4px] p-[8px] 
-              cursor-pointer transition-all hover:bg-white/20 hover:shadow-lg"
+              cursor-pointer transition-all"
               >
                 <img src="/twitter.png" />
               </div>
@@ -162,23 +181,45 @@ const Footer = () => {
                 Explore
               </p>
               <ul className="flex flex-col space-y-[10px]">
-                <Link href="#">
-                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
+                <Link href="/#explore-features">
+                  <li
+                    onClick={(e) => {
+                      // If we're already on the homepage, prevent navigation and smooth scroll
+                      if (window.location.pathname === "/") {
+                        handleScrollToFeature(e);
+                      }
+                    }}
+                    className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]"
+                  >
                     Digital Products
                   </li>
                 </Link>
-                <Link href="#">
+                <Link href="/market-place">
                   <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
                     Marketplace
                   </li>
                 </Link>
-                <Link href="#">
-                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
+                <Link href="/#explore-features">
+                  <li
+                    onClick={(e) => {
+                      if (window.location.pathname === "/") {
+                        handleScrollToFeature(e);
+                      }
+                    }}
+                    className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]"
+                  >
                     Bookings
                   </li>
                 </Link>
-                <Link href="#">
-                  <li className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]">
+                <Link href="/#explore-features">
+                  <li
+                    onClick={(e) => {
+                      if (window.location.pathname === "/") {
+                        handleScrollToFeature(e);
+                      }
+                    }}
+                    className="font-normal text-[14px] leading-[20.8px] text-[#FFFFFFCC]"
+                  >
                     Webinar
                   </li>
                 </Link>
