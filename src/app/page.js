@@ -72,6 +72,10 @@ const Landing = () => {
   useAnalytics(GA_TRACKING_ID);
   return (
     <div className="overflow-visible">
+      <div className="bg-[#121927] w-[full] py-[14px] sm:py-[16px] px-[10px] md:px-[20px]">
+        <p className="font-satoshi font-normal text-[18px] leadig-[28px] text-[#FFFFFF] text-center">We’re rebranding from <span className="text-[#FEC84B]">Hackthejobs</span> to Prooval giving you the opportunity to do more than just mentorship.</p>
+
+      </div>
       <Navbar />
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
       <div className="max-w-[1440px] mx-auto">
