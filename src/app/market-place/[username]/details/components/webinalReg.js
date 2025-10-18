@@ -49,7 +49,7 @@ const WebinarModal = ({
   const [submit, setSubmit] = useState(false);
   const { startPayment } = useFincraPayment();
   const [success, setSuccess] = useState(false);
-  const [formValues, setFormValues] = useState({ fullname: "", email: "" });
+  const [formValues, setFormValues] = useState({ firstName: "", lastName: '', email: "" });
   const [error, setError] = useState(false);
 
   let userId;
@@ -88,13 +88,14 @@ const WebinarModal = ({
     const fd = new FormData(e.currentTarget);
 
     const payload = {
-      fullName: fd.get("fullname"),
+      firstName: fd.get("firstName"),
+      lastName: fd.get("lastName"),
       email: fd.get("email"),
     };
 
+    console.log(payload)
     try {
       setSubmit(true);
-
       const res = await webinarReg(webinarId, payload, token);
 
       if (res) {
@@ -117,28 +118,34 @@ const WebinarModal = ({
     try {
       const data = {
         webinarId: webData._id,
-        fullName: formValues.fullname,
+        firstName: formValues.firstName,
+        lastName: formValues.lastName,
         email: formValues.email,
         currency: webData.currency,
       };
+      console.log(data)
       setSubmit(true);
       let reference;
       try {
         const res = await fincraWebinarCheckoutData(data, token);
-        reference = res.data?.data?.data?.reference;
+        reference = res.data?.data?.payment?.reference;
+        console.log(res)
+        console.log('reference',reference)
       } catch (err) {
+        console.log(err);
+        
         toast.error(
           err.response?.data?.message || "An error occurred. Please try again."
         );
         setSubmit(false);
         return;
       }
-
+      const fullname = `${formValues.firstName} ${formValues.lastName}`
       const result = await startPayment({
         price: webData.amount,
         currency: webData.currency,
         ref: reference,
-        nameProp: formValues.fullname,
+        nameProp: fullname,
         emailProp: formValues.email,
         onSuccess: (data) => {
           setSuccess(true);
@@ -160,9 +167,10 @@ const WebinarModal = ({
     e.preventDefault();
     const data = {
       webinarId: webData._id,
-      fullName: formValues.fullname,
-      email: formValues.email,
-      currency: webData.currency,
+      firstName: formValues?.firstName,
+      lastName: formValues?.lastName,
+      email: formValues?.email,
+      currency: webData?.currency,
     };
     console.log(data);
     fincraWebinarCheckoutData(data, token)
@@ -377,9 +385,15 @@ const WebinarModal = ({
                   )}
                   <div className="grid sm:grid-cols-1 grid-cols-2 gap-4">
                     <LabeledInput
-                      name="fullname"
-                      placeholder="Enter fullname"
-                      value={formValues.fullname}
+                      name="firstName"
+                      placeholder="Enter full name"
+                      value={formValues.firstName}
+                      onChange={handleInputChange}
+                    />
+                    <LabeledInput
+                      name="lastName"
+                      placeholder="Enter last name"
+                      value={formValues.lastName}
                       onChange={handleInputChange}
                     />
                     <LabeledInput
@@ -393,7 +407,8 @@ const WebinarModal = ({
                   <button
                     disabled={
                       loading ||
-                      !formValues.fullname ||
+                      !formValues.firstName ||
+                      !formValues.lastName ||
                       !formValues.email ||
                       submit
                     }
