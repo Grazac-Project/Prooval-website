@@ -406,7 +406,7 @@ const Landing = () => {
                   </p>
                   <p className="text-[#787878] text-base mb-8">{t.text}</p>
                   <div className="flex gap-2">
-                    <img src={t.image} alt={t.name} />
+                    <img className="h-[48px] w-[48px] rounded-full object-cover" src={t.image} alt={t.name} />
                     <div>
                       <h4 className="font-bold text-base text-[#787878]">
                         {t.name}
@@ -433,7 +433,7 @@ const Landing = () => {
                   </p>
                   <p className="text-[#787878] text-base mb-8">{t.text}</p>
                   <div className="flex gap-2">
-                    <img src={t.image} alt={t.name} />
+                    <img className="h-[48px] w-[48px] rounded-full object-cover" src={t.image} alt={t.name} />
                     <div>
                       <h4 className="font-bold text-base text-[#787878]">
                         {t.name}
@@ -446,6 +446,7 @@ const Landing = () => {
             </motion.div>
           </div>
         </section>
+
 
         <section className="w-full flex justify-center items-center pt-[40px] px-[80px] md:px-[40px] xl:px-[25px] xm:px-[16px] sm:px-[16px] font-satoshi ">
           <div className="relative w-full bg-[#0057FF] rounded-[24px] text-center text-white overflow-hidden bg-[url(/Stroke_1.svg)] bg-cover bg-center">
