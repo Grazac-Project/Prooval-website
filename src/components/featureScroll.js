@@ -61,7 +61,6 @@ export default function FeatureScroll() {
     window.history.scrollRestoration = "manual";
   }
 
-  // Reset scroll on mount
   useEffect(() => {
     const timer = setTimeout(() => {
       window.scrollTo({ top: 0, behavior: "instant" });
@@ -98,13 +97,55 @@ export default function FeatureScroll() {
     }
   }, [activeTab]);
 
+  // Handle incoming hash navigation (e.g., from footer links on other pages)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    // don't auto-scroll when the user reloads the page — only when navigating with a hash
+    const isReload = (() => {
+      try {
+        const navEntries = performance.getEntriesByType && performance.getEntriesByType("navigation");
+        if (navEntries && navEntries.length > 0) {
+          return navEntries[0].type === "reload";
+        }
+        // fallback for older browsers
+        if (performance && performance.navigation) {
+          return performance.navigation.type === performance.navigation.TYPE_RELOAD;
+        }
+      } catch (e) {
+      }
+      return false;
+    })();
+
+    if (isReload) return;
+
+    const hash = window.location.hash ? window.location.hash.replace("#", "") : null;
+    if (!hash) return;
+
+    // If hash matches a feature id
+    if (features.some((f) => f.id === hash)) {
+      setActiveTab(hash);
+      // small timeout to allow layout to settle
+      setTimeout(() => {
+        const el = document.getElementById("explore-features");
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 80);
+    } else if (hash === "explore-features") {
+      setTimeout(() => {
+        const el = document.getElementById("explore-features");
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 80);
+    }
+  }, []);
+
   const activeFeature = features.find((f) => f.id === activeTab);
 
   return (
     <>
       <section
+        id="explore-features"
         ref={containerRef}
-        className="relative h-[400vh] md:h-[350vh] sm:h-[400vh] font-satoshi"
+        className="relative h-[400vh] md:h-[350vh] sm:h-[400vh] font-satoshi "
       >
         {/* Header */}
         <div className="max-w-[800px] mx-auto text-center px-4 pt-10">
@@ -135,6 +176,7 @@ export default function FeatureScroll() {
           {features.map((feature) => (
             <button
               ref={(el) => (tabRefs.current[feature.id] = el)}
+              id={feature.id}
               key={feature.id}
               onClick={() => setActiveTab(feature.id)}
               className={`font-semibold text-[16px] rounded-[9.02px] px-5 min-w-[179px] h-[48px] transition-colors duration-300
