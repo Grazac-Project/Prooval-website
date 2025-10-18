@@ -30,7 +30,10 @@ const BookSession = ({
   price,
   successModal,
   mentor,
-  sessionType
+  sessionType,
+  setBookingModal,
+  setCheckout,
+  setShowMain
 }) => {
   const [activeDates, setActiveDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -279,6 +282,12 @@ const BookSession = ({
         setLoading(false);
       });
   };
+  const handleShowCheckout = () => {
+    setShowMain(false)
+    setBookingModal(false)
+    setCheckout(true)
+  }
+
   const handleclick = () => {
     setLoading(true);
 
@@ -441,7 +450,8 @@ const BookSession = ({
                 {showButton && (
                   <button
                     // onClick={handleBookingSubmit}
-                    onClick={handleclick}
+                    // onClick={handleclick}
+                    onClick={handleShowCheckout}
                     className="font-medium w-[100%] flex justify-center items-center gap-1 text-[14px] leading-[19.6px] tracking-[2%] text-[#fff] bg-[#1453FF] border-[1px] border-[#1453FF] py-[12px] px-[20px] rounded-[8px] sm:flex mb-[16px] mt-[24px]"
                   >
                     {loading ? (
