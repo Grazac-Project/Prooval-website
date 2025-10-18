@@ -111,7 +111,7 @@ const Landing = () => {
                   }
                 >
                   <button className="w-[226px] sm:w-[160px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-[16px] text-[#ffffff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-2 py-4  border border-[#DADADA] sxm:text-[14px]">
-                    Start my Page
+                    Create my Page
                   </button>
                 </Link>
               </div>
@@ -446,6 +446,7 @@ const Landing = () => {
             </motion.div>
           </div>
         </section>
+
 
         <section className="w-full flex justify-center items-center pt-[40px] px-[80px] md:px-[40px] xl:px-[25px] xm:px-[16px] sm:px-[16px] font-satoshi ">
           <div className="relative w-full bg-[#0057FF] rounded-[24px] text-center text-white overflow-hidden bg-[url(/Stroke_1.svg)] bg-cover bg-center">
