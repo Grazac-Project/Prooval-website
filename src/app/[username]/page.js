@@ -1242,7 +1242,7 @@ const MentorDetails = () => {
                                   currency={webinar.currency}
                                   amount={webinar.amount}
                                   key={id}
-                                  action={() => AttendWebinar(webiner._id)}
+                                  action={() => AttendWebinar(webinar._id)}
                                 />
                               ))}
                             </div>
