@@ -60,7 +60,7 @@ const Navbar = () => {
       >
         <div className={Classes.navbar}>
           <Link href="/" className={Classes.logo}>
-            <Image src="/prooval logo.png" alt="logo" width={100.44} height={36} />
+            <Image src="/prooval-logo.svg" alt="logo" width={100.44} height={36} />
           </Link>
           <nav className={Classes.nav}>
             <ul>
