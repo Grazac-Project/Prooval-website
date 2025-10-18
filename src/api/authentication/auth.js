@@ -97,9 +97,9 @@ export const getSingleWebinar = (Id, token) => {
 };
 export const webinarReg = (Id, data, token) => {
   return authKit.post(`api/v1/webinars/${Id}/register`, data, {
-      headers: {
-        Authorization: `Bearer ${token}`, 
-      },
+      // headers: {
+      //   Authorization: `Bearer ${token}`, 
+      // },
     });
 };
 export const getAllBookings = (mentorId) => {
@@ -117,10 +117,10 @@ export const getMentorsBySlug = (slug) => {
 
 export const fincraDigitalCheckoutData = (data, token) => {
   return authKit.post(`api/v1/payment/checkout-data/digital-product`, data, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
+    // headers: {
+    //   "Content-Type": "application/json",
+    //   Authorization: `Bearer ${token}`,
+    // },
   });
 };
 export const fincraPayment = (data, token) => {
@@ -140,6 +140,8 @@ export const fincraBookingCheckoutData = (data, token) => {
   });
 };
 export const initializeDigitalProductPayment = (id, token) => {
+  console.log(id)
+  console.log(token)
   return authKit.post(`api/v1/payment/digital-product/purchase`, id, {
     headers: {
       "Content-Type": "application/json",
@@ -163,4 +165,12 @@ authKit.interceptors.request.use((config) => {
 export const fetchMentorsByRole = (role = "all") => {
   return authKit.get(`/api/v1/mentors/by-role?role=${role}`);
 };
+export const allProductCheckout = (data, category) => {
+  console.log(category)
+  return authKit.post(`api/v1/payment/checkout-data/digital-product`, data);
+};
+authKit.interceptors.request.use((config) => {
+  // console.log("Request Config:", config);
+  return config;
+});
 

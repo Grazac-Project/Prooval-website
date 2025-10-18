@@ -25,7 +25,9 @@ import { getCurrencySymbol } from "@/Utils/currency-formatter";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { getBookings } from "@/api/authentication/auth";
 import Link from "next/link";
+import Checkout from "@/components/checkout";
 import EventCard from "@/components/webinerCard";
+import WebinarModal from "./details/components/webinalReg";
 
 const groupColors = [
   "#F48025",
@@ -139,6 +141,13 @@ const MentorDetails = () => {
   const [successModal, setSuccessModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showWebModal, setShowWebModal] = useState(false);
+  const [showMain, setShowMain] = useState(true)
+  const [checkout, setCheckout] = useState(false)
+  const [webinarId, setWebinarId] =  useState()
+  const [checkoutCallback, setCheckoutCallback] = useState()
+  
+  console.log(checkoutCallback);
+  
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
   const baseUrl =
@@ -381,7 +390,11 @@ const MentorDetails = () => {
     //   window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
     // }
   };
-
+  const exitCheckout = () => {
+    // setShowModal(true)
+    setShowMain(true)
+    setCheckout(false)
+  } 
   const BuyDigitalProduct = (
     id,
     type,
@@ -421,6 +434,7 @@ const MentorDetails = () => {
 
     // }
   };
+
   const AttendWebinar = (id) => {
     setWebinarId(id);
     setShowWebModal(!showWebModal);
@@ -478,7 +492,7 @@ const MentorDetails = () => {
 
   return (
     <>
-      <div>
+      {showMain &&<div>
         <ToastContainer />
         {/* <Navbar /> */}
 
@@ -501,6 +515,12 @@ const MentorDetails = () => {
                     productTitle={productTitle}
                     productDescription={productDescription}
                     category={category}
+                    setShowModal={setShowModal}
+                    setCheckout={setCheckout}
+                    setShowMain={setShowMain}
+                    setCheckoutCallback={setCheckoutCallback}
+                    
+                    
                   />
                 )}
                 {showBookingModal && (
@@ -513,6 +533,9 @@ const MentorDetails = () => {
                     successModal={() => setSuccessModal(true)}
                     bookingCurrency={currency}
                     sessionType={sessionType}
+                    setBookingModal={setShowBookingModal}
+                    setCheckout={setCheckout}
+                    setShowMain={setShowMain}
                   />
                 )}
                 {successModal && (
@@ -1272,7 +1295,8 @@ const MentorDetails = () => {
             )}
           </>
         )}
-      </div>
+      </div>}
+      {checkout && <Checkout goBack={exitCheckout} checkoutCallback={checkoutCallback} productId={productId} productCurrency={productCurrency} productType={productType} category={category}/>}
     </>
   );
 };

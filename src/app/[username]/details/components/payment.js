@@ -297,6 +297,10 @@ const Payment = ({
   productTitle,
   category,
   productDescription,
+  setShowModal,
+  setCheckout,
+  setShowMain,
+  setCheckoutCallback
 }) => {
   const [loading, setLoading] = useState("Access Product");
   const [freeMode, setFreeMode] = useState(false);
@@ -331,13 +335,15 @@ const Payment = ({
       setLoading("Access Product");
     }
   };
-
+console.log(setCheckoutCallback)
+console.log(productType)
   // Handle local (NGN) payment
   const handlePayment = async () => {
     try {
       setLoading("Initiating payment ...");
 
-      const payload = { productId, currency: productCurrency };
+      const payload = { productId, currency: productCurrency};
+      console.log(payload)
 
       // Get payment reference from backend
       const res = await fincraDigitalCheckoutData(payload);
@@ -398,8 +404,14 @@ const Payment = ({
     }
   };
 
+  const handleShowCheckout = () => {
+    setShowMain(false)
+    setShowModal(false)
+    setCheckout(true)
+  }
   // Handle all click types
   const handleClick = () => {
+    console.log(productType)
     if (productType === "paid" && productCurrency === "NGN") {
       handlePayment();
     } else if (productType === "paid" && productCurrency !== "NGN") {
@@ -409,6 +421,10 @@ const Payment = ({
     }
   };
 
+  useEffect(()=>{
+    setCheckoutCallback(()=> handleClick())
+
+  }, [])
   // Redirect to dashboard after success
   const handleClose = () => {
     const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
@@ -469,7 +485,8 @@ const Payment = ({
               </h3>
               <button
                 className="text-sm text-[#fff] bg-primary text-white px-3 py-4 w-[182px] rounded-[6.29px] font-medium truncate"
-                onClick={handleClick}
+                // onClick={handleClick}
+                onClick={handleShowCheckout}
               >
                 {loading}
               </button>
