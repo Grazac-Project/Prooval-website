@@ -1,8 +1,10 @@
+
+
 {
   "redirects": [
     {
       "source": "/:path*",
-      "destination": "https://prooval.com",
+      "destination": "https://prooval.com/:path*",
       "permanent": true
     }
   ]
