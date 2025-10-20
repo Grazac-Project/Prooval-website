@@ -1,10 +1,18 @@
-
-
 {
   "redirects": [
     {
-      "source": "/:path*",
-      "destination": "https://prooval.com/:path*",
+      "source": "/login",
+      "destination": "https://prooval.com/login",
+      "permanent": true
+    },
+    {
+      "source": "/signup",
+      "destination": "https://prooval.com/signup",
+      "permanent": true
+    },
+    {
+      "source": "/forgot-password",
+      "destination": "https://prooval.com/forgot-password",
       "permanent": true
     }
   ]
