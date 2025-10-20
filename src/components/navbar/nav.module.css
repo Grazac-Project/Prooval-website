@@ -181,7 +181,7 @@
     color: #667085;
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
     background: #1453ff;
     border-radius: 8px;
     /* gap: 10px; */

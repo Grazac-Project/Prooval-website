@@ -309,10 +309,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between pt-[20px] pb-[48px]  ">
+      <div className="flex justify-between pt-[20px] pb-[48px] sm:pb-[16px]  ">
         <h6 className="font-normal text-[12px] leading-[16px] text-[#FFFFFFCC] sxm:text-[10px]">
           &copy; {new Date().getFullYear()} Proovals
         </h6>
+        <p className="text-[12px] font-normal text-[#FFFFFFCC] sm:hidden">Prooval is a brand owned and operated by Hackthejobs Technologies LTD.</p>
         <div className="flex gap-4 text-[12px] font-satoshi text-[#FFFFFFCC] leading-[16px] font-normal sxm:text-[10px]">
           <Link href="/terms">
             <h1>Terms & condition</h1>
@@ -322,6 +323,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
+      <p className="text-[12px] font-normal text-[#FFFFFFCC] text-center pb-[15.5px] sm:block 3xl:hidden ">Prooval is a brand owned and operated by Hackthejobs Technologies LTD.</p>
     </footer>
   );
 };
