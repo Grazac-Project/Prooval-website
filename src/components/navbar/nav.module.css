@@ -73,7 +73,7 @@
   gap: 10px;
   border-radius: 8px;
   color: #667085;
-  font-family: var(--font-sasatoshi);
+  font-family: var(--font-satoshi);
   font-size: 18px;
   font-weight: 500;
   animation: textDrop 1s ease-out;
@@ -86,7 +86,7 @@
   border-radius: 8px;
   background-color: #1453ff;
   color: #fff;
-  font-family: var(--font-sasatoshi);
+  font-family: var(--font-satoshi);
   font-size: 18px;
   font-weight: 500;
   animation: textDrop 1s ease-out;
@@ -95,7 +95,7 @@
 .navMobile ul {
   color: #fff;
   text-align: left;
-  font-family: var(--font-sasatoshi);
+  font-family: var(--font-satoshi);
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -194,7 +194,7 @@
     background: #1453ff;
     color: #fff;
     width: 150px;
-
+    font-family: var(--font-satoshi);
   }
   /* .btnFlex button:hover {
     color: #fff;
@@ -206,7 +206,7 @@
     justify-content: center;
     gap: 10px;
     margin-top: 38px;
-
+    font-family: var(--font-satoshi);
   }
 
   .navbar {

@@ -79,7 +79,7 @@ const Navbar = () => {
                   href="/faq"
                   style={{ color: pathname === "/faq" ? "#1453ff" : "#667085" }}
                 >
-                  FAQ
+                  FAQs
                 </Link>
               </li>
               <li>
@@ -94,7 +94,7 @@ const Navbar = () => {
               </li>
             </ul>
             {token ? (
-              <div className="flex items-center space-x-4 relative">
+              <div className="flex items-center space-x-4 relative font-satoshi">
                 <button className=" border border-[#1453FF] rounded-[8px] px-[18px] py-[10px] font-medium text-[#1453FF] text-[12px] bg-[#fff] leading-[150%] tracking-[3%]">
                   <Link
                     href={
@@ -287,7 +287,7 @@ const Navbar = () => {
                     onClick={() => setDropdown(false)}
                     style={{ color: pathname === "/faq" ? "#1453ff" : "" }}
                   >
-                    FAQ
+                    FAQs
                   </Link>
                 </div>
                 <div className="p-2  w-full font-medium text-[16px] text-[#64748B] leading-[150%] font-satoshi">
