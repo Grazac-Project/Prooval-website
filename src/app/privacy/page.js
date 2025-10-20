@@ -55,8 +55,9 @@ const Privacy = () => {
                   </span>{" "}
                   <p className="text-[16px] mb-[26px] md:mb-[16px] sm:mb-[8px] font-satoshi leading-[24px] text-[#4F4F4F]">
                     We automatically collect information about how you interact
-                    with Prooval, including access times pages viewed, features
-                    used, device type, browser information, and IP address.
+                    with Prooval (formally Hackthejobs), including access times
+                    pages viewed, features used, device type, browser
+                    information, and IP address.
                   </p>
                 </div>
 
