@@ -212,11 +212,14 @@ const Faq = () => {
           </div>
         </div>
 
-        <div className={Classes.formContainer} id="contact-form">
-          <h4>Get in touch</h4>
+        <div
+          className={`${Classes.formContainer}  font-satoshi`}
+          id="contact-form"
+        >
+          <h4 className="text-[36px] font-satoshi">Get in touch</h4>
           <p>We’d love to hear from you. Please fill out this form.</p>
           <form className={Classes.form} onSubmit={handleSubmit}>
-            <div className={Classes.inputFlex}>
+            <div className={`${Classes.inputFlex} font-satoshi`}>
               <div>
                 <h5>First name</h5>
                 <input
