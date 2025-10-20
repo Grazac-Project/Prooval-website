@@ -47,7 +47,7 @@ const Navbar = () => {
     setDropdown(false);
     Cookies.remove("user_details", {
       path: "/",
-      domain: ".hackthejobs.com",
+      domain: ".prooval.com",
     });
     router.push("/");
     window.location.reload();
@@ -60,7 +60,7 @@ const Navbar = () => {
       >
         <div className={Classes.navbar}>
           <Link href="/" className={Classes.logo}>
-            <Image src="/prooval logo.png" alt="logo" width={100.44} height={36} />
+            <Image src="/prooval-logo.svg" alt="logo" width={100.44} height={36} />
           </Link>
           <nav className={Classes.nav}>
             <ul>
@@ -199,7 +199,7 @@ const Navbar = () => {
                         : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
                     }
                   >
-                    Sign up
+                    Start my Page
                   </Link>
                 </button>
               </div>
@@ -211,7 +211,7 @@ const Navbar = () => {
                 {token ? (
                   <div className="">
                     <div className="w-full flex flex-col justify-between  gap-8 font-satoshi  ">
-                      <div className=" w-full flex flex-col    gap-3  ">
+                      <div className=" w-full flex flex-col gap-3  ">
                         <Image
                           src={details?.profilePic}
                           alt="avatar"
@@ -224,11 +224,9 @@ const Navbar = () => {
                             {details?.name} {details?.lastName}
                           </h2>
                           <p className="font-medium text-[14px] text-[#888888] leading-[130%]">
-                            {/* {mentorData?.mentor?.role}, {mentorData?.mentor?.company} */}{" "}
                             {details?.email}
                           </p>
                           <Link
-                            // href="https://dashboard.hackthejobs.com"
                             href={
                               isProduction === "development"
                                 ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}`
@@ -333,7 +331,7 @@ const Navbar = () => {
                     <button>
                       {/* <Link href="https://hackthejobs-web-dashoard-production.up.railway.app/auth/signup"> */}
                       {/* <Link href="/signup">Sign up</Link> */}
-                      Sign up
+                      Start my Page
                     </button>
                   </Link>
                 </div>

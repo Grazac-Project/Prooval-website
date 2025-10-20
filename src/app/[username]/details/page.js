@@ -147,7 +147,7 @@ const MentorshipPackages = () => {
     thumbnail,
     category
   ) => {
-    if (token) {
+    // if (token) {
       setProductId(id);
       setProductType(type);
       setProductPrice(amount);
@@ -157,23 +157,23 @@ const MentorshipPackages = () => {
       setProductDescription(description);
       setCategory(category);
       console.log({ id });
-      setShowModal(!showModal);
-    } else {
-      const redirectTo = encodeURIComponent(
-        window.location.pathname + window.location.search
-      );
-      console.log({ redirectTo });
-      Cookies.set("redirectTo", redirectTo, {
-        secure: true,
-        sameSite: "Lax",
-        domain: ".hackthejobs.com",
-        path: "/",
-        expires: 1,
-      });
+    //   setShowModal(!showModal);
+    // } else {
+    //   const redirectTo = encodeURIComponent(
+    //     window.location.pathname + window.location.search
+    //   );
+    //   console.log({ redirectTo });
+    //   Cookies.set("redirectTo", redirectTo, {
+    //     secure: true,
+    //     sameSite: "Lax",
+    //     domain: ".hackthejobs.com",
+    //     path: "/",
+    //     expires: 1,
+    //   });
 
-      window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
-      // window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
-    }
+    //   window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
+    //   // window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
+    // }
   };
   const AttendWebinar = (id) => {
     setWebinarId(id);

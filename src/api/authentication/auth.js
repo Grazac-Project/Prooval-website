@@ -97,9 +97,9 @@ export const getSingleWebinar = (Id, token) => {
 };
 export const webinarReg = (Id, data, token) => {
   return authKit.post(`api/v1/webinars/${Id}/register`, data, {
-      headers: {
-        Authorization: `Bearer ${token}`, 
-      },
+      // headers: {
+      //   Authorization: `Bearer ${token}`, 
+      // },
     });
 };
 export const getAllBookings = (mentorId) => {
@@ -111,24 +111,12 @@ export const BookingsSubmitAction = (data) => {
 export const MentorshipPackageSubmitAction = (data) => {
   return authKit.post(`api/v1/book/enroll-and-book-free-package`, data);
 };
-export const getMentorsBySlug = (slug, token) => {
-  // Create headers object
-  const headers = token
-    ? { Authorization: `Bearer ${token}` } // Add Authorization header if token exists
-    : {}; // Leave headers empty if no token
-
-  return authKit.get(`api/v1/mentors/slug/${slug}`, {
-    headers, // Use the headers object
-  });
+export const getMentorsBySlug = (slug) => {
+  return authKit.get(`api/v1/mentors/slug/${slug}`);
 };
 
 export const fincraDigitalCheckoutData = (data, token) => {
-  return authKit.post(`api/v1/payment/checkout-data/digital-product`, data, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  return authKit.post(`api/v1/payment/checkout-data/digital-product`, data);
 };
 export const fincraPayment = (data, token) => {
   return authKit.post(`api/v1/payment/generate-payment-link`, data, {
@@ -139,14 +127,11 @@ export const fincraPayment = (data, token) => {
   });
 };
 export const fincraBookingCheckoutData = (data, token) => {
-  return authKit.post(`api/v1/payment/checkout-data/mentor-session`, data, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  return authKit.post(`api/v1/payment/checkout-data/mentor-session`, data);
 };
 export const initializeDigitalProductPayment = (id, token) => {
+  console.log(id)
+  console.log(token)
   return authKit.post(`api/v1/payment/digital-product/purchase`, id, {
     headers: {
       "Content-Type": "application/json",
@@ -170,4 +155,12 @@ authKit.interceptors.request.use((config) => {
 export const fetchMentorsByRole = (role = "all") => {
   return authKit.get(`/api/v1/mentors/by-role?role=${role}`);
 };
+export const allProductCheckout = (data, category) => {
+  console.log(category)
+  return authKit.post(`api/v1/payment/checkout-data/digital-product`, data);
+};
+authKit.interceptors.request.use((config) => {
+  // console.log("Request Config:", config);
+  return config;
+});
 

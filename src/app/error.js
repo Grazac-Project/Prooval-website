@@ -15,7 +15,7 @@ export default function Error({ error, reset }) {
       <div className=" ">
         <a href="/">
           <Image
-            src="/hack-logo.png"
+            src="/proovalLogo.svg"
             alt="hack the jobs logo"
             width={180}
             height={52}

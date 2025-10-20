@@ -1,7 +1,13 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
-import { card, valueCards, testimonialsTop, testimonialsBottom, professionals } from "@/constants/constant";
+import {
+  card,
+  valueCards,
+  testimonialsTop,
+  testimonialsBottom,
+  professionals,
+} from "@/constants/constant";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -17,8 +23,6 @@ import { TypeAnimation } from "react-type-animation";
 import { motion, useAnimation } from "framer-motion";
 import InteractiveTabs from "@/components/interactiveTabs";
 import FeatureScroll from "@/components/featureScroll";
-
- 
 
 const Landing = () => {
   const router = useRouter();
@@ -68,6 +72,10 @@ const Landing = () => {
   useAnalytics(GA_TRACKING_ID);
   return (
     <div className="overflow-visible">
+      <div className="bg-[#121927] w-[full] py-[14px] sm:py-[16px] px-[10px] md:px-[20px]">
+        <p className="font-satoshi font-normal text-[18px] leadig-[28px] text-[#FFFFFF] text-center">We’re rebranding from <span className="text-[#FEC84B]">Hackthejobs</span> to Prooval giving you the opportunity to do more than just mentorship.</p>
+
+      </div>
       <Navbar />
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
       <div className="max-w-[1440px] mx-auto">
@@ -77,17 +85,16 @@ const Landing = () => {
             <h1 className="font-bold text-[60px] text-center xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px] leading-[83.2px] xxl:leading-[75px] md:leading-[44px] sm:leading-[38px] text-[#121927]">
               Monetize Your
             </h1>
-
             {/* Typing animation */}
-            <div className="flex flex-wrap justify-center items-center gap-2">
+            <div className="flex flex-wrap justify-center items-center gap-2 sm:block text-center">
               <TypeAnimation
                 sequence={["Knowledge", 1500, "Skills", 1500]}
                 wrapper="span"
                 speed={50}
                 repeat={Infinity}
-                className="text-primary font-[700] text-[60px] xxl:text-[50px] lgx:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px]  sm:leading-[38px] leading-[68px]"
+                className="text-primary font-[700] text-[60px] xxl:text-[50px] lgx:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px] sm:leading-[38px] leading-[68px]"
               />
-              <span className="text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px] sm:leading-[38px] leading-[68px] font-[700] text-[#121927]">
+              <span className="text-[60px] xxl:text-[50px] xl:text-[45px] lg:text-[35px] md:text-[25px] sm:text-[30px] sm:leading-[38px] leading-[68px] font-[700] text-[#121927] block sm:mt-2">
                 All In One Place
               </span>
             </div>
@@ -101,16 +108,16 @@ const Landing = () => {
 
               <div className="flex justify-center gap-4 sxm:gap-2">
                 <Link
-                    href={
-                      isProduction === "development"
-                        ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
-                        : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
-                    }
-                  >
+                  href={
+                    isProduction === "development"
+                      ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+                      : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+                  }
+                >
                   <button className="w-[226px] sm:w-[160px] xm:w-[160px] sxm:w-[150px] font-medium leading-6 tracking-[3%] text-[16px] text-[#ffffff] bg-primary rounded-[8px] px-10 lg:px-4 md:px-2 py-4  border border-[#DADADA] sxm:text-[14px]">
-                    Create your page
+                    Create my Page
                   </button>
-                  </Link>
+                </Link>
               </div>
             </div>
           </div>
@@ -254,7 +261,7 @@ const Landing = () => {
         </section>
         {/* Go-To-Platform */}
         <section className="font-satoshi bg-[url(/background.png)] bg-center px-[80px] lgx:px-[25px] sm:px-[0px] mt-[96px] sm:pt-[40px] pb-[64px] sm:pb-[24px] sm:mt-[40px]">
-          <div className="flex flex-col items-center py-[80px] lg:py-[40px] sm:px-[26px] xxm:px-[16px] sxm:px-[8px] sm:flex-col">
+          <div className="flex flex-col items-center pt-[80px] pb-[40px] lg:pt-[40px] lg:pb-[32px] sm:px-[26px] xxm:px-[16px] sxm:px-[8px] sm:flex-col">
             <h3 className="font-bold w-[924px] text-center lg:w-[100%] md:w-[100%] md:leading-[48px] sm:w-[100%] text-[48px] sm:text-[30px] lgx:text-[36px] md:text-[32px] leading-[56px] sm:leading-[35.2px] text-[#121927] mb-[20px] sxm:text-[24px]">
               The go-to-platform for professionals
             </h3>
@@ -269,7 +276,7 @@ const Landing = () => {
             </Link>
           </div>
 
-          <div className="w-full max-w-[1200px] mx-auto px-4 py-10">
+          <div className="w-full max-w-[1200px] mx-auto px-4 sm:hidden">
             {/* Static Layout */}
             <div className="sm:hidden flex justify-center gap-2 md:flex-wrap lg:flex-wrap">
               {professionals.map((pro, index) => (
@@ -334,7 +341,7 @@ const Landing = () => {
         </section>
 
         {/* <InteractiveTabs /> */}
-        <FeatureScroll/>
+        <FeatureScroll />
 
         {/* onboarding */}
         <section className="w-[100%] bg-[#F5F8FF] font-satoshi flex sm:flex-wrap justify-center gap-[24px] lg:gap-[16px] px-[112px] lgx:px-[80px] lg:px-[30px]  md:px-[40px] xl:px-[25px] xm:px-[16px] py-[80px] sm:pt-[52px] sm:pb-0 sm:px-[16px] md:py-[40px] ">
@@ -444,6 +451,7 @@ const Landing = () => {
           </div>
         </section>
 
+
         <section className="w-full flex justify-center items-center pt-[40px] px-[80px] md:px-[40px] xl:px-[25px] xm:px-[16px] sm:px-[16px] font-satoshi ">
           <div className="relative w-full bg-[#0057FF] rounded-[24px] text-center text-white overflow-hidden bg-[url(/Stroke_1.svg)] bg-cover bg-center">
             <div className="absolute top-11 right-14 w-[59px] h-[59px] sm:w-[28px] sm:h-[28px] sm:top-6 sm:right-7 ">
@@ -477,15 +485,15 @@ const Landing = () => {
                 </p>
               </div>
               <Link
-                    href={
-                      isProduction === "development"
-                        ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
-                        : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
-                    }
-                  >
-              <button className="bg-[#ffffff] text-[#1453FF] font-medium px-6 py-3 w-[300px] sm:w-[218px] rounded-md hover:bg-gray-100 transition">
-                Start my page
-              </button>
+                href={
+                  isProduction === "development"
+                    ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+                    : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+                }
+              >
+                <button className="bg-[#ffffff] text-[#1453FF] font-medium px-6 py-3 w-[300px] sm:w-[218px] rounded-md hover:bg-gray-100 transition">
+                  Create my Page
+                </button>
               </Link>
             </div>
           </div>
