@@ -25,7 +25,9 @@ import { getCurrencySymbol } from "@/Utils/currency-formatter";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { getBookings } from "@/api/authentication/auth";
 import Link from "next/link";
+import Checkout from "@/components/checkout";
 import EventCard from "@/components/webinerCard";
+import WebinarModal from "./details/components/webinalReg";
 
 const groupColors = [
   "#F48025",
@@ -139,6 +141,13 @@ const MentorDetails = () => {
   const [successModal, setSuccessModal] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showWebModal, setShowWebModal] = useState(false);
+  const [showMain, setShowMain] = useState(true)
+  const [checkout, setCheckout] = useState(false)
+  const [webinarId, setWebinarId] =  useState()
+  const [checkoutCallback, setCheckoutCallback] = useState()
+  
+  console.log(checkoutCallback);
+  
   const checkboxRef = useRef(null);
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
@@ -241,7 +250,7 @@ const MentorDetails = () => {
     setLoading(true);
     getBookings(mentorId)
       .then((res) => {
-        // console.log(res.data?.data?.data);
+        console.log(res.data?.data?.data);
         setMentData(res.data?.data?.data);
         setWebData(res.data?.data?.data?.webinars);
         setLoading(false);
@@ -357,18 +366,43 @@ const MentorDetails = () => {
     5
   );
 
-  const bookSession = (id, type, amount, bookingCurrency, sessionType) => {
+  const bookSession = (id, type, amount, bookingCurrency, description, title) => {
     setBookingId(id);
     setBookType(type);
     setMentorPrice(amount);
     setCurrency(bookingCurrency);
+    setProductDescription(description)
+    setProductTitle(title)
     setLoading(false);
-    setSessionType(sessionType);
-    console.log({ id });
-    console.log(bookingId, bookType, mentorPrice, currency);
+    // setSessionType(sessionType);
+    // console.log(bookingId, bookType, mentorPrice, currency);
     setShowBookingModal(true);
-  };
 
+    // else {
+    //   const redirectTo = encodeURIComponent(
+    //     window.location.pathname + window.location.search
+    //   );
+    //   console.log({ redirectTo });
+    //   Cookies.set("redirectTo", redirectTo, {
+    //     secure: true,
+    //     sameSite: "Lax",
+    //     domain: ".hackthejobs.com",
+    //     path: "/",
+    //     expires: 1,
+    //   });
+    //   console.log("Base URL:", baseUrl);
+    //   console.log(
+    //     "Redirect URL:",
+    //     `${baseUrl}/auth/login?redirectTo=${redirectTo}`
+    //   );
+    //   window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
+    // }
+  };
+  const exitCheckout = () => {
+    // setShowModal(true)
+    setShowMain(true)
+    setCheckout(false)
+  } 
   const BuyDigitalProduct = (
     id,
     type,
@@ -390,6 +424,7 @@ const MentorDetails = () => {
     console.log({ id });
     setShowModal(true);
   };
+
   const AttendWebinar = (id) => {
     setWebinarId(id);
     setShowWebModal(!showWebModal);
@@ -447,7 +482,7 @@ const MentorDetails = () => {
 
   return (
     <>
-      <div>
+      {showMain &&<div>
         <ToastContainer />
         {/* <Navbar /> */}
 
@@ -470,6 +505,12 @@ const MentorDetails = () => {
                     productTitle={productTitle}
                     productDescription={productDescription}
                     category={category}
+                    setShowModal={setShowModal}
+                    setCheckout={setCheckout}
+                    setShowMain={setShowMain}
+                    setCheckoutCallback={setCheckoutCallback}
+                    
+                    
                   />
                 )}
                 {showBookingModal && (
@@ -482,6 +523,10 @@ const MentorDetails = () => {
                     successModal={() => setSuccessModal(true)}
                     bookingCurrency={currency}
                     sessionType={sessionType}
+                    setBookingModal={setShowBookingModal}
+                    setCheckout={setCheckout}
+                    setShowMain={setShowMain}
+                    setCheckoutCallback={setCheckoutCallback}
                   />
                 )}
                 {successModal && (
@@ -1042,10 +1087,13 @@ const MentorDetails = () => {
                                       className="border border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer h-[205px] py-7 px-4 space-y-2"
                                       onClick={() =>
                                         bookSession(
-                                          details?._id,
+                                          // details?._id,
+                                          details?.bookingId,
                                           details?.bookingType,
                                           details?.amount,
-                                          details?.currency
+                                          details?.currency,
+                                          details?.description,
+                                          details?.title,
                                         )
                                       }
                                     >
@@ -1249,7 +1297,8 @@ const MentorDetails = () => {
             )}
           </>
         )}
-      </div>
+      </div>}
+      {checkout && <Checkout goBack={exitCheckout} checkoutCallback={checkoutCallback} productId={productId} productDescription={productDescription} productPrice={productPrice || mentorPrice} productCurrency={productCurrency || currency} productType={productType || bookType} category={category}/>}
     </>
   );
 };

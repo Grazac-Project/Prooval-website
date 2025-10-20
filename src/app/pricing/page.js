@@ -148,7 +148,7 @@ const Pricing = () => {
             No monthly fees, no hidden costs. We only earn when you do.
           </h1>
           <p className="text-[#666666] max-w-5xl mb-8 text-base sm:text-sm">
-            Prooval is completely free to use. You only pay a small transaction fee after every sale, no monthly subscriptions, no hidden charges. 
+            Prooval is completely free to use. You only pay a small platform fee after every sale, no monthly subscriptions, no hidden charges. 
             The cost may vary slightly depending on your sales currency.
             Focus on creating and selling, and let Prooval handle the rest.
           </p>
@@ -236,7 +236,7 @@ const Pricing = () => {
             <div className="bg-[#F6FAFF] border border-[#E2E8F0] text-center rounded-lg">
               <p className="text-6xl md:text-5xl text-[#1453FF]  mt-8 mb-4">{feePercent}%</p>
               <p className=" ">
-                <span className="font-bold text-base sm:text-sm pb-[10px] block">Transaction Fee</span> 
+                <span className="font-bold text-base sm:text-sm pb-[10px] block">Platform Fee</span> 
                 <div className=" text-sm  sm:text-xs px-3  mb-6 max-w-[377px]">
                   We charge {feePercent}% on all {currAbbrev} transactions and this is charged before the professional is credited. 
                 </div>
