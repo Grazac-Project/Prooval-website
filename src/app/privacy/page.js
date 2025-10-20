@@ -28,7 +28,7 @@ const Privacy = () => {
             </div>
             <div className="p-[44px] sm:p-[11px]">
               <p className="text-[16px] mb-[16px] md:mb-[16px] sm:mb-[8px]  leading-[24px] text-[#4F4F4F]">
-                This Privacy Policy describes how Prooval (formally Hackthejobs)
+                This Privacy Policy describes how Prooval(formally Hackthejobs)
                 ("we", "our", or "us") collects, uses, and shares your personal
                 information when you use our website, platform, and related
                 services.
@@ -43,10 +43,10 @@ const Privacy = () => {
                     1.1 Personal Information
                   </span>{" "}
                   <p className="text-[16px] mb-[16px] md:mb-[16px] sm:mb-[8px] font-satoshi leading-[24px] text-[#4F4F4F]">
-                    When you create an account on Prooval, we collect personal
-                    details such as your name, email address and professional
-                    information related to the services you offer(e.g..
-                    mentorship, consultations, or digital products).
+                    When you create an account on Prooval(formally Hackthejobs),
+                    we collect personal details such as your name, email address
+                    and professional information related to the services you
+                    offer(e.g.. mentorship, consultations, or digital products).
                   </p>
                 </div>
                 <div className="">
@@ -65,10 +65,10 @@ const Privacy = () => {
                     1.3 Payment Information
                   </span>{" "}
                   <p className="text-[16px] mb-[26px] md:mb-[16px] sm:mb-[8px] font-satoshi leading-[24px] text-[#4F4F4F]">
-                    When you make or recieve payments through Prooval, we
-                    collect necessary transaction and billing information to
-                    process and complete those payments securely through our
-                    trusted payment partners.
+                    When you make or recieve payments through Prooval(formally
+                    Hackthejobs), we collect necessary transaction and billing
+                    information to process and complete those payments securely
+                    through our trusted payment partners.
                   </p>
                 </div>
               </div>
@@ -81,7 +81,8 @@ const Privacy = () => {
                     We use your personal information to:
                   </p>
                   <li className="text-[16px]  pl-[14px] font-satoshi leading-[24px] text-[#4F4F4F]">
-                    Provide, operate, and maintain the Prooval platform.
+                    Provide, operate, and maintain the Prooval(formally
+                    Hackthejobs) platform.
                   </li>
                   <li className="text-[16px]  pl-[14px] font-satoshi leading-[24px] text-[#4F4F4F]">
                     Process transactions and facilitate payments.
