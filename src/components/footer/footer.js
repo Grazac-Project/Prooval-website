@@ -80,7 +80,7 @@ const Footer = () => {
     <footer className="font-satoshi bg-[#121927] px-[80px] pt-[48px] pb-[10px] xl:px-[25px] xm:px-[16px] mt-[80px]">
       {open && <Modal close={close} />}
       <div className="flex flex-wrap justify-between pb-[16px] border-b-[1px] border-[#FFFFFF0A]">
-        <div className="xm:pb-[24px] md:pb-[40px] lg:mb-[40px]">
+        <div className="xm:pb-[24px] md:pb-[20px] lg:mb-[20px] lgx:mb-[20px]">
           <Link href="/">
             <Image
               src="/proovalLogoWhite.png"
@@ -140,12 +140,34 @@ const Footer = () => {
                 <img src="/twitter.png" />
               </div>
             </a>
+            <a href="http://www.facebook.com/proovalhq" target="_blank">
+              <div
+                className="flex items-center text-[#ffffff] 
+               bg-[#FFFFFF1A] backdrop-blur-md 
+              border border-white/20 
+              rounded-full gap-[4px] p-[8px] 
+              cursor-pointer transition-all"
+              >
+                <img src="/fb.png" />
+              </div>
+            </a>
+            <a href="http://www.linkedin.com/company/proovalhq" target="_blank">
+              <div
+                className="flex items-center text-[#ffffff] 
+               bg-[#FFFFFF1A] backdrop-blur-md 
+              border border-white/20 
+              rounded-full gap-[4px] p-[8px] 
+              cursor-pointer transition-all"
+              >
+                <img src="/linkedin.png" />
+              </div>
+            </a>
           </div>
         </div>
-        <div className="flex gap-6 sm:flex-col xm:w-full sm-pb-[]">
+        <div className="flex gap-6 sm:flex-col xm:w-full">
           <div className="flex gap-6">
             <div className="w-[137px] lgx:w-[100px] ">
-              <p className="font-bold text-[14px] leading-[20px] text-[#FFFFFFCC] pb-[30px]">
+              <p className="font-bold text-[14px] leading-[20px] text-[#FFFFFFCC] pb-[55px]">
                 Links
               </p>
               <ul className="flex flex-col space-y-[10px]">
@@ -177,7 +199,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-[117px]">
-              <p className="font-bold text-[14px] leading-[20px] text-[#FFFFFFCC] pb-[30px]">
+              <p className="font-bold text-[14px] leading-[20px] text-[#FFFFFFCC] pb-[55px]">
                 Explore
               </p>
               <ul className="flex flex-col space-y-[10px]">
@@ -227,9 +249,10 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h5 className="font-medium text-[12px] text-[#FFFFFF] leading-[140%] tracking-[2%] pb-[16px] xm:pb-[18px]">
-              Stay updated with our newsletter
+            <h5 className="font-medium text-[14px] text-[#FFFFFF] leading-[140%] tracking-[2%] pb-[16px] xm:pb-[18px]">
+              Stay Connected
             </h5>
+            <p className="font-normal text-[14px] text-[#FFFFFFCC] pb-[16px]">Get tips, insights, and platform updates straight to your inbox.</p>
             {errorResponse && <p className="text-[#fc8181]">{errorResponse}</p>}
             <form
               className="flex flex-col xm:block gap-[6px]"
@@ -243,7 +266,7 @@ const Footer = () => {
                   value={values.fullName}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="font-satoshi w-[310px] xm:w-[100%] h-[48px] placeholder:overflow-visible px-[14px] py-[13.5px] font-normal text-[16px] leading-[130px] text-[rgba(102, 112, 133, 1))] rounded-[8px] border-[1px] border-[#D0D5DD]"
+                  className="font-satoshi w-[387px] xm:w-[100%] h-[48px] placeholder:overflow-visible px-[14px] py-[13.5px] font-normal text-[16px] leading-[130px] text-[rgba(102, 112, 133, 1))] rounded-[8px] border-[1px] border-[#D0D5DD]"
                 />
                 {errors.fullName && touched.fullName && (
                   <p className="text-[#fc8181]">{errors.fullName}</p>
@@ -257,7 +280,7 @@ const Footer = () => {
                   value={values.email}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  className="font-satoshi overflow-visible w-[310px] xm:w-[100%] h-[48px] placeholder:overflow-visible px-[14px] py-[13.5px] font-normal text-[16px] leading-[130px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
+                  className="font-satoshi overflow-visible w-[387px] xm:w-[100%] h-[48px] placeholder:overflow-visible px-[14px] py-[13.5px] font-normal text-[16px] leading-[130px] text-[rgba(102, 112, 133, 1)] rounded-[8px] border-[1px] border-[#D0D5DD] "
                 />
                 {errors.email && touched.email && (
                   <p className="text-[#fc8181]">{errors.email}</p>
@@ -266,7 +289,7 @@ const Footer = () => {
               <div className="h-[44px]">
                 <button
                   type="submit"
-                  className="disabled:opacity-[35%] w-[310px] h-[48px] xm:w-[100%] rounded-[6.29px] px-[31.43px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center"
+                  className="disabled:opacity-[35%] w-[387px] h-[48px] xm:w-[100%] rounded-[6.29px] px-[31.43px] bg-[#1453FF] text-[#fff] font-medium tracking-[3%] leading-[18.86px] text-center"
                 >
                   {loader ? (
                     <Image
