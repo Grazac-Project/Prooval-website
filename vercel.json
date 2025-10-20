@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "destination": "https://prooval.com/:1",
+      "destination": "https://prooval.com",
       "permanent": true
     }
   ]
