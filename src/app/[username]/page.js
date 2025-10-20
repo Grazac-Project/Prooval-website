@@ -5,7 +5,7 @@ import BookingModal from "@/components/booking-modal";
 import Payment from "./details/components/payment";
 import Navbar from "@/components/navbar/nav";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -148,6 +148,7 @@ const MentorDetails = () => {
   
   console.log(checkoutCallback);
   
+  const checkboxRef = useRef(null);
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
   const baseUrl =
@@ -198,6 +199,12 @@ const MentorDetails = () => {
       );
       window.location.href = `${baseUrl}/auth/signup?redirectTo=${redirectTo}`;
       // window.location.href = `${baseUrl}/auth/signup`;
+    }
+  };
+
+  const handleButtonClick = (e) => {
+    if (checkboxRef && checkboxRef.current) {
+      checkboxRef.current.click();
     }
   };
 
@@ -406,7 +413,6 @@ const MentorDetails = () => {
     thumbnail,
     category
   ) => {
-    // if (token) {
     setProductId(id);
     setProductType(type);
     setProductPrice(amount);
@@ -417,23 +423,6 @@ const MentorDetails = () => {
     setCategory(category);
     console.log({ id });
     setShowModal(true);
-    // }
-    // else {
-    //   const redirectTo = encodeURIComponent(
-    //     window.location.pathname + window.location.search
-    //   );
-    //   console.log({ redirectTo });
-    //   Cookies.set("redirectTo", redirectTo, {
-    //     secure: true,
-    //     sameSite: "Lax",
-    //     domain: ".hackthejobs.com",
-    //     path: "/",
-    //     expires: 1,
-    //   });
-
-    //   window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
-
-    // }
   };
 
   const AttendWebinar = (id) => {
@@ -567,7 +556,7 @@ const MentorDetails = () => {
                        mb-4 rounded-md py-6 px-6"
                       >
                         <Image
-                          src="/prooval logo.png"
+                          src="/prooval-logo.svg"
                           width={100.44}
                           height={36}
                           alt="Prooval logo"
@@ -612,10 +601,18 @@ const MentorDetails = () => {
                             </a>
 
                             <div className="flex flex-row justify-start md:justify-center gap-2 align-center mt-0 sm:mt-6">
-                              <button className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] h-[35.6px] flex items-center xxxxm:w-[117px] xxxxm:text-[8px]">
-                                <div className="cursor-pointer">
+                              <button
+                                type="button"
+                                onClick={handleButtonClick}
+                                className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] h-[35.6px] flex items-center xxxxm:w-[117px] xxxxm:text-[8px]"
+                              >
+                                <div
+                                  className="cursor-pointer"
+                                  onClick={(e) => e.stopPropagation()}
+                                >
                                   <Checkbox
                                     {...label}
+                                    inputRef={checkboxRef}
                                     icon={<FavoriteBorder />}
                                     checkedIcon={
                                       <Favorite
