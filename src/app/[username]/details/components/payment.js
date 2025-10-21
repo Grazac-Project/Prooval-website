@@ -26,7 +26,7 @@ const Payment = ({
   setShowModal,
   setCheckout,
   setShowMain,
-  setCheckoutCallback
+  setCheckoutCallback,
 }) => {
   const [loading, setLoading] = useState("Access Product");
   const [freeMode, setFreeMode] = useState(false);
@@ -64,21 +64,21 @@ const Payment = ({
       setLoading("Access Product");
     }
   };
-console.log(setCheckoutCallback)
-console.log(productType)
+  console.log(setCheckoutCallback);
+  console.log(productType);
   // Handle local (NGN) payment
   const handlePayment = async (x) => {
-    console.log(x)
+    console.log(x);
     try {
       setLoading("Initiating payment ...");
 
-      const payload = { productId, currency: productCurrency};
-      console.log(payload)
+      const payload = { productId, currency: productCurrency };
+      console.log(payload);
 
       // Get payment reference from backend
       // const res = await fincraDigitalCheckoutData(payload);
       const res = await fincraDigitalCheckoutData(x);
-      console.log(res)
+      console.log(res);
       const reference =
         res?.data?.data?.data?.reference ?? res?.data?.data?.reference;
 
@@ -89,7 +89,7 @@ console.log(productType)
       url.searchParams.set("ref", reference);
       window.history.replaceState({}, "", url.toString());
 
-      const fullname = `${x.firstName} ${x.lastName}`
+      const fullname = `${x.firstName} ${x.lastName}`;
       // Trigger Fincra payment modal
       await startPayment({
         price: Number(productPrice),
@@ -139,13 +139,13 @@ console.log(productType)
   };
 
   const handleShowCheckout = () => {
-    setShowMain(false)
-    setShowModal(false)
-    setCheckout(true)
-  }
+    setShowMain(false);
+    setShowModal(false);
+    setCheckout(true);
+  };
   // Handle all click types
   const handleClick = (val) => {
-    console.log(val)
+    console.log(val);
     if (productType === "paid" && productCurrency === "NGN") {
       handlePayment(val);
     } else if (productType === "paid" && productCurrency !== "NGN") {
@@ -155,10 +155,13 @@ console.log(productType)
     }
   };
 
-  useEffect(()=>{
-    setCheckoutCallback(() => (...args) => handleClick(...args))
-
-  }, [])
+  useEffect(() => {
+    setCheckoutCallback(
+      () =>
+        (...args) =>
+          handleClick(...args)
+    );
+  }, []);
   // Redirect to dashboard after success
   const handleClose = () => {
     const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
@@ -240,15 +243,18 @@ console.log(productType)
                     {category}
                   </span>
                   <button className="flex items-center gap-[4.87px] bg-[#3333331A] rounded-[38.96px] py-[5.37px] px-[14.61px] sxm:px-3">
-                    <FiDownload/>
-                    <p className="font-500 text-xs tex-[#333333]">Downloadable</p>
-                    </button>
-                  {productType === "paid" && (
-                    <div className="text-sm font-semibold text-primary">
-                      {productCurrency === "NGN" ? "₦" : "$"}
-                      {formatPrice(productPrice)}
-                    </div>
-                  )}
+                    <FiDownload />
+                    <p className="font-500 text-xs tex-[#333333]">
+                      Downloadable
+                    </p>
+                  </button>
+                  <div className="text-sm font-semibold text-primary">
+                    {productType === "paid"
+                      ? `${productCurrency === "NGN" ? "₦" : "$"}${formatPrice(
+                          productPrice
+                        )}`
+                      : "Free"}
+                  </div>
                 </div>
                 <div className="text-sm tracking-[150%] mt-4 text-[#333333]">
                   {productDescription || ""}
