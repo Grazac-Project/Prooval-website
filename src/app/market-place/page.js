@@ -70,58 +70,50 @@ const Page = () => {
   }, []);
 
   useEffect(() => {
-    setListOfMentors([]);
-  }, [inputText]);
+  if (selectedRole !== "All") return;
+  setLoading(true);
+  setError(false);
+  setNotFound(false);
 
-  useEffect(() => {
-    if (selectedRole !== "All") return;
-    setLoading(true);
-    setError(false);
-    let isMounted = true;
-    fetchMentors(inputText, page)
-      .then((res) => {
-        // console.log(res);
-        const remainingPages = res.data.data.remainingPages;
-        if (isMounted) {
-          const mentors = res.data.data.mentors;
-          if (
-            (mentors.length === 1 || mentors.length > 4) &&
-            inputText.length > 1
-          ) {
-            setPositionStyle(true);
-          }
-          // console.log(res.data.data.mentors[0].firstName);
+  let isMounted = true;
+
+  fetchMentors(inputText, page)
+    .then((res) => {
+      console.log(res)
+      const mentors = res.data?.mentors || [];
+      const remainingPages = res.data?.remainingPages || 0;
+
+      if (isMounted) {
+        if (mentors.length > 0) {
+          setListOfMentors((prev) =>
+            page === 1 ? mentors : [...prev, ...mentors]
+          );
           setShowMentor(true);
           setNotFound(false);
-          // setListOfMentors(mentors)
-          setListOfMentors((prevMentors) => {
-            return [...prevMentors, ...mentors];
-          });
+        } else {
+          setListOfMentors([]);
+          setShowMentor(false);
+          setNotFound(true);
         }
-        // console.log(remainingPages > 0);
         setHasMorePages(remainingPages > 0);
         setLoading(false);
-      })
-      .catch((err) => {
-        // console.log(err.response.status);
-        setLoading(false);
+      }
+    })
+    .catch((err) => {
+      // console.error("Error fetching mentors:", err);
+      setLoading(false);
+      if (isMounted) {
+        setListOfMentors([]);
+        setShowMentor(false);
+        setNotFound(true);
+      }
+    });
 
-        if (isMounted) {
-          // if (axios.isCancel(err)) return
-          if (err.response?.status) {
-            // console.log(err);
-            setListOfMentors(undefined);
-            setShowMentor(false);
-            setNotFound(true);
-          }
-        }
-        // err.response.status === 404 && setListOfMentors(undefined)
-      });
-    return () => {
-      isMounted = false; // Cleanup: Set isMounted to false when component unmounts
-      cancel();
-    };
-  }, [inputText, page, selectedRole]);
+  return () => {
+    isMounted = false;
+    cancel();
+  };
+}, [inputText, page, selectedRole]);
 
   const handleChange = (e) => {
     const inputValue = e.target.value;
@@ -210,12 +202,9 @@ const Page = () => {
             Connect and learn from exceptional professionals across different
             sectors and learn from their wealth of experience.
           </p>
-          {/* <button className="font- w-[198px] px-[40px] py-[20px] font-medium text-[16px] leading-[24px] tracking-[3%] text-[#fff] bg-[#1453FF] rounded-[8px] ">
-            Book a Mentor
-          </button> */}
         </div>
       </div>
-      <form className="font-inter py-[32px] px-[80px] xm:px-[16px] sticky top-[0px] lg:top-[75px] md:top-[50.5px] z-5 bg-[#fff]">
+      <form className="font-inter py-[32px] px-[80px] xm:px-[16px] sticky top-[0px] lg:top-[75px] md:top-[0px] z-5 bg-[#fff]">
         <div className="relative w-[800px] lgx:w-[70%] xm:w-[100%] mx-auto">
           <IoIosSearch className="text-[20px] text-[#667085] absolute left-[16px] top-[12px] transform-translate-y-1/2" />
           <input
