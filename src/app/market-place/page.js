@@ -186,7 +186,7 @@ const Page = () => {
   };
 
   return (
-    <section className="font-onest ">
+    <section className="font-satoshi ">
       {showModal && <Modal modalClose={() => setShowModal(false)} />}
       <Navbar />
 
@@ -276,7 +276,7 @@ const Page = () => {
                   <div
                     key={i}
                     ref={lastMentorRef}
-                    className="font-onest w-[23%] lgx:w-[30.5%] xm:w-[100%] sm:w-[48%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer group hover:border-b-[3px] hover:border-b-[#1453FF] transition-all duration-300"
+                    className="font-satoshi w-[23%] lgx:w-[30.5%] xm:w-[100%] sm:w-[48%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer group hover:border-b-[3px] hover:border-b-[#1453FF] transition-all duration-300"
                     onClick={() => handleMentorClick(listOfMentor.slug)}
                   >
                     <div className="relative h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden">
@@ -320,7 +320,7 @@ const Page = () => {
                 return (
                   <div
                     key={listOfMentor._id}
-                    className="ffont-onest w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[100%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer group xm:border-b-[3px] xm:border-b-[#1453FF] hover:border-b-[3px] hover:border-b-[#1453FF] transition-all duration-300"
+                    className="font-satoshi w-[23%] lgx:w-[30.5%] sm:w-[48%] xm:w-[100%] p-2 border border-[#EAEAEA] rounded-lg cursor-pointer group xm:border-b-[3px] xm:border-b-[#1453FF] hover:border-b-[3px] hover:border-b-[#1453FF] transition-all duration-300"
                     onClick={() => handleMentorClick(listOfMentor.slug)}
                   >
                     <div className="relative h-[296px] 1xl:h-[256px] xxl:h-[230px] lgx:h-[210px] xm:h-[296px] overflow-hidden">
