@@ -311,7 +311,7 @@ const Footer = () => {
       </div>
       <div className="flex justify-between pt-[20px] pb-[48px] sm:pb-[16px]  ">
         <h6 className="font-normal text-[12px] leading-[16px] text-[#FFFFFFCC] sxm:text-[10px]">
-          &copy; {new Date().getFullYear()} Proovals
+          &copy; {new Date().getFullYear()} Prooval
         </h6>
         <p className="text-[12px] font-normal text-[#FFFFFFCC] sm:hidden">Prooval is a brand owned and operated by Hackthejobs Technologies LTD.</p>
         <div className="flex gap-4 text-[12px] font-satoshi text-[#FFFFFFCC] leading-[16px] font-normal sxm:text-[10px]">
