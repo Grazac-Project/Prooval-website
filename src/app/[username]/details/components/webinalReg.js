@@ -81,15 +81,19 @@ const WebinarModal = ({
       });
   }, [webinarId, token]);
 
-  useEffect(() => {
-  document.documentElement.style.overflow = "hidden";
-  document.body.style.overflow = "hidden";
+    useEffect(() => {
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+    const prevBodyOverflow = document.body.style.overflow;
 
-  return () => {
-    document.documentElement.style.overflow = "auto";
-    document.body.style.overflow = "auto";
-  };
-}, []);
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.documentElement.style.overflow = prevHtmlOverflow;
+      document.body.style.overflow = prevBodyOverflow;
+    };
+  }, []);
+
   const startsAt = webData?.startTime;
 
   const { days, hours, minutes, seconds, finished } = useCountdown(startsAt);
