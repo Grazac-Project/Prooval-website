@@ -349,8 +349,7 @@ const MentorDetails = () => {
     })) || [];
 
   const mentorshipPackages =
-    // mentorData?.packages?.map((book) => ({
-    mentorData?.packageMentorships?.map((book) => ({
+    mentorData?.packages?.map((book) => ({
       type: "Mentorship Package",
       title: book?.title,
       category: `${book?.sessionDuration} Mins · Once a week`,
@@ -366,7 +365,7 @@ const MentorDetails = () => {
     5
   );
 
-  const bookSession = (id, type, amount, bookingCurrency, description, title, sessionType) => {
+  const bookSession = (id, type, amount, bookingCurrency, description, title) => {
     setBookingId(id);
     setBookType(type);
     setMentorPrice(amount);
@@ -374,7 +373,7 @@ const MentorDetails = () => {
     setProductDescription(description);
     setProductTitle(title);
     setLoading(false);
-    setSessionType(sessionType);
+    // setSessionType(sessionType);
     // console.log(bookingId, bookType, mentorPrice, currency);
     setShowBookingModal(true);
 
@@ -475,11 +474,10 @@ const MentorDetails = () => {
         successModal={() => setSuccessModal(true)}
         bookingCurrency={currency}
         sessionType={sessionType}
-        slot={slot}
-        setSlot={setSlot}
       />
     );
   }
+  
 
   return (
     <>
@@ -1021,26 +1019,24 @@ const MentorDetails = () => {
                           </h2>
 
                         {/* Group Package */}
-                        {mentorData?.packageMentorships?.length > 0 && (
+                        {mentorData?.bookings?.packageMentorships?.length > 0 && (
                           <div className="">
                             <h3 className="text-lg font-semibold mb-4">
                               Mentorship Package
                             </h3>
                             <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
-                              {mentorData?.packageMentorships?.map(
+                              {mentorData?.bookings?.packageMentorships?.map(
                                 (pkg, idx) => (
                                   <div
                                     key={id}
                                     className="border p-4 border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer "
                                     onClick={() =>
                                       bookSession(
-                                        pkg?.bookingId,
+                                        pkg?._id,
                                         pkg?.bookingType,
                                         pkg?.amount,
                                         pkg?.currency,
-                                        pkg?.description,
-                                        pkg?.title,
-                                        "mentorship"
+                                        "mentorship_package"
                                       )
                                     }
                                   >
@@ -1068,12 +1064,12 @@ const MentorDetails = () => {
                                               ],
                                           }}
                                         >
-                                          {pkg?.packageDuration}{" "}
-                                          {pkg?.packageDuration > 1
+                                          {pkg.packageDuration}{" "}
+                                          {pkg.packageDuration > 1
                                             ? "Weeks"
                                             : "Week"}
                                         </span>
-                                        {pkg?.bookingType.toLowerCase() ===
+                                        {pkg.bookingType.toLowerCase() ===
                                         "paid" ? (
                                           <div className="text-right text-sm font-semibold">
                                             {getCurrencySymbol(pkg?.currency)}
@@ -1086,15 +1082,15 @@ const MentorDetails = () => {
                                         )}
                                       </div>
                                       <div className="font-semibold text-sm">
-                                        {pkg?.title}
+                                        {pkg.title}
                                       </div>
                                       <p className="text-xs text-gray-600 line-clamp-2">
-                                        {pkg?.description}
+                                        {pkg.description}
                                       </p>
                                       <div className="flex justify-between items-center">
                                         <div className="flex items-center gap-2">
                                           <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
-                                            {pkg?.sessionDuration} Mins{" "}
+                                            {pkg.sessionDuration} Mins{" "}
                                           </span>
                                           <span className=" w-2 h-2 bg-[#D9D9D9] rounded-full"></span>
                                           <span className="text-[12px] leading-[140%] text-[#4F4F4F] ">

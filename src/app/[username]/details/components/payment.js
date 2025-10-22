@@ -26,8 +26,7 @@ const Payment = ({
   setShowModal,
   setCheckout,
   setShowMain,
-  setCheckoutCallback,
-  successModal
+  setCheckoutCallback
 }) => {
   const [loading, setLoading] = useState("Access Product");
   const [freeMode, setFreeMode] = useState(false);
@@ -41,13 +40,6 @@ const Payment = ({
     else setLoading("Access Product");
   }, [productType]);
 
-  useEffect(() => {
-  console.log("Payment component mounted");
-}, []);
-  useEffect(() => {
-  console.log("isSuccess changed:", isSuccess);
-}, [isSuccess]);
-
   // Handle free product access
   const handleAccessProduct = (z) => {
     try {
@@ -58,19 +50,12 @@ const Payment = ({
         .then((res) => {
           console.log(res);
           // setCheckout(false)
-          // setShowModal(true)
+          // setShowModal(false)
           // setShowMain(true)
-          console.log(isSuccess)
-          setCheckout(false)
           setIsSuccess(true);
           setFreeMode(true);
-          setShowMain(true)
-          setShowModal(false)
-          // setIsSuccess(true);
-          successModal()
         })
         .catch((err) => {
-          console.log(err)
           toast.error(err.response?.data?.message || "Something went wrong");
           setLoading("Access Product");
         });
@@ -79,8 +64,8 @@ const Payment = ({
       setLoading("Access Product");
     }
   };
-// console.log(setCheckoutCallback)
-// console.log(productType)
+console.log(setCheckoutCallback)
+console.log(productType)
   // Handle local (NGN) payment
   const handlePayment = async (x) => {
     console.log(x);
@@ -113,11 +98,7 @@ const Payment = ({
         nameProp: fullname,
         emailProp: x.email,
         onSuccess: () => {
-          setShowMain(false)
-          setShowModal(false)
-    setCheckout(false)
-          // setIsSuccess(true);
-          successModal()
+          setIsSuccess(true);
           setLoading("Make Payment");
         },
         onClose: () => {
@@ -190,7 +171,7 @@ const Payment = ({
         ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/digital-products`
         : `${process.env.NEXT_PUBLIC_DASH_URL}/digital-products`;
   };
-  
+
   return (
     <div className="font-satoshi">
       {/* Overlay background */}

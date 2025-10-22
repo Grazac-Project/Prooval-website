@@ -106,15 +106,10 @@ export const getAllBookings = (mentorId) => {
   return authKit.get(`api/v1/mentors/bookings/${mentorId}`);
 };
 export const BookingsSubmitAction = (data) => {
-  // return authKit.post(`api/v1/book/book-session`, data);
-  return authKit.post(`api/v1/anonymous/book-free-session`, data);
+  return authKit.post(`api/v1/book/book-session`, data);
 };
 export const MentorshipPackageSubmitAction = (data) => {
-  // return authKit.post(`api/v1/book/enroll-and-book-free-package`, data);
-  return authKit.post(`api/v1/anonymous/book-free-package`, data);
-};
-export const MentorshipPaidPackageAction = (data) => {
-  return authKit.post(`api/v1/anonymous/book-paid-package`, data);
+  return authKit.post(`api/v1/book/enroll-and-book-free-package`, data);
 };
 export const getMentorsBySlug = (slug) => {
   return authKit.get(`api/v1/mentors/slug/${slug}`);
@@ -132,12 +127,17 @@ export const fincraPayment = (data, token) => {
   });
 };
 export const fincraBookingCheckoutData = (data, token) => {
-  console.log(data)
-  // return authKit.post(`api/v1/payment/checkout-data/mentor-session`, data);
-  return authKit.post(`api/v1/anonymous/book-paid-session`, data);
+  return authKit.post(`api/v1/payment/checkout-data/mentor-session`, data);
 };
 export const initializeDigitalProductPayment = (id, token) => {
-  return authKit.post(`api/v1/payment/digital-product/purchase`, id);
+  console.log(id)
+  console.log(token)
+  return authKit.post(`api/v1/payment/digital-product/purchase`, id, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
 };
 export const fincraWebinarCheckoutData = (data, token) => {
   return authKit.post(`api/v1/payment/checkout-data/webinar-registration`, data, {
