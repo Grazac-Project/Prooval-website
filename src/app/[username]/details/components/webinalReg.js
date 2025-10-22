@@ -80,6 +80,16 @@ const WebinarModal = ({
         console.log(err.response?.data?.message);
       });
   }, [webinarId, token]);
+
+  useEffect(() => {
+  document.documentElement.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
+
+  return () => {
+    document.documentElement.style.overflow = "auto";
+    document.body.style.overflow = "auto";
+  };
+}, []);
   const startsAt = webData?.startTime;
 
   const { days, hours, minutes, seconds, finished } = useCountdown(startsAt);
@@ -218,7 +228,7 @@ const WebinarModal = ({
   return (
     <div>
       <div
-        className="bg-[#344054] opacity-[0.7] w-[100%] h-full fixed z-50 top-0 left-[0] cursor-pointer"
+        className="bg-[#344054] opacity-70 w-[100%] h-full fixed z-50 top-0 left-[0] cursor-pointer"
         onClick={onClick}
       ></div>
       <ToastContainer />
@@ -253,11 +263,11 @@ const WebinarModal = ({
             <span className="text-2xl font-semibold ml-4">Back</span>
           </div>
 
-          {/* Digital Products */}
+          {/* Digital Products and webinar */}
           {loading ? (
             <Load />
           ) : (
-            <div className="flex sm:flex-wrap gap-[35px] md:gap-0 ">
+            <div className="flex sm:flex-wrap gap-[35px] md:gap-4 ">
               <div className="mt-8 lg:mt-0 w-[308px] lg:w-[45%] md:w-full">
                 <div className="overflow-hidden rounded-2xl shadow-sm">
                   <img
