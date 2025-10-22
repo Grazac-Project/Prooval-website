@@ -1,4 +1,3 @@
-
 "use client";
 
 import BookSession from "@/components/book-session";
@@ -6,7 +5,7 @@ import BookingModal from "@/components/booking-modal";
 import Payment from "./details/components/payment";
 import Navbar from "@/components/navbar/nav";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -148,9 +147,7 @@ const MentorDetails = () => {
   const [checkoutCallback, setCheckoutCallback] = useState()
   const [slot, setSlot] = useState({})
   
-  // console.log(checkoutCallback);
-  console.log(mentorData);
-  
+  const checkboxRef = useRef(null);
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
   const baseUrl =
