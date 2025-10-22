@@ -31,7 +31,7 @@ const Terms = () => {
           </div>
           <div className="p-[44px] sm:p-[11px]">
             <p className="text-[14px] mb-[16px] md:mb-[16px] sm:mb-[8px] font-onest leading-[24px] text-[#4F4F4F]">
-              Welcome to <span className="font-bold">Prooval</span>. Please read these Terms of Service ("Terms") carefully before using our website, platform, and related services (collectively, the “Service”).
+              Welcome to <span className="font-bold">Prooval</span>(formerly HackTheJobs). Please read these Terms of Service ("Terms") carefully before using our website, platform, and related services (collectively, the “Service”).
               By accessing or using Prooval, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please do not use our Service.
 
             </p>
@@ -40,7 +40,7 @@ const Terms = () => {
                 1. Acceptance of Terms
               </h4>
               <p className="text-[14px] mb-[16px] md:mb-[16px] sm:mb-[8px] font-onest leading-[24px] text-[#4F4F4F]">
-                By creating an account or using Prooval in any manner, you agree to comply with and be legally bound by these Terms and our Privacy Policy. 
+                By creating an account or using Prooval(formerly HackTheJobs) in any manner, you agree to comply with and be legally bound by these Terms and our Privacy Policy. 
                 These Terms apply to all users, including professionals, clients, and visitors.
               </p>
             </div>
@@ -49,8 +49,8 @@ const Terms = () => {
                 2. Description of Service
               </h4>
               <p className="text-[14px] mb-[16px] md:mb-[16px] sm:mb-[8px] font-onest leading-[24px] text-[#4F4F4F]">
-                Prooval is a digital platform that enables professionals to monetize their knowledge by hosting mentorship sessions, consultations, webinars, and selling digital products all from a single link.
-                Prooval provides tools for scheduling, hosting, payments, and audience management to help professionals grow their businesses efficiently.
+                Prooval(formerly HackTheJobs) is a digital platform that enables professionals to monetize their knowledge by hosting mentorship sessions, consultations, webinars, and selling digital products all from a single link.
+                Prooval(formerly HackTheJobs) provides tools for scheduling, hosting, payments, and audience management to help professionals grow their businesses efficiently.
               </p>
             </div>
             <div>
@@ -109,7 +109,7 @@ const Terms = () => {
                   4.2 Professional Use
                 </span>{" "}
                 <p className="text-[14px] mb-[16px] md:mb-[16px] sm:mb-[8px] font-onest leading-[24px] text-[#4F4F4F]">
-                  You agree to use Prooval only for lawful, 
+                  You agree to use Prooval(formerly HackTheJobs) only for lawful, 
                   professional purposes and in a manner consistent with applicable laws and regulations.
                 </p>
               </div>
@@ -123,7 +123,7 @@ const Terms = () => {
                   5.1
                 </span>{" "} */}
                 <p className="text-[14px] mb-[26px] sm:mb-[16px] font-onest leading-[24px] text-[#4F4F4F]">
-                  All content, design elements, software, trademarks, and materials within Prooval are the property of Prooval and are protected by copyright, trademark, and other intellectual property laws.
+                  All content, design elements, software, trademarks, and materials within Prooval(formerly HackTheJobs) are the property of Prooval(formerly HackTheJobs) and are protected by copyright, trademark, and other intellectual property laws.
                   You may not copy, modify, distribute, or exploit any part of the Service without our express written consent.
                 </p>
               </div>
@@ -139,9 +139,9 @@ const Terms = () => {
                 <ul className="list-disc pl-5 text-[14px] mb-[8px] font-onest leading-[24px] text-[#4F4F4F] ">
                   <li>Pay applicable transaction fees as outlined on the platform.</li>
                   <li>Ensure that all payment information provided is accurate and authorized.</li>
-                  <li>Understand that Prooval is not liable for issues arising from third-party payment providers.</li>
+                  <li>Understand that Prooval(formerly HackTheJobs) is not liable for issues arising from third-party payment providers.</li>
                 </ul>
-                <p className="text-[14px] mb-[8px] font-onest leading-[24px] text-[#4F4F4F]">Prooval reserves the right to update its fee structure with notice to users.</p>
+                <p className="text-[14px] mb-[8px] font-onest leading-[24px] text-[#4F4F4F]">Prooval(formerly HackTheJobs) reserves the right to update its fee structure with notice to users.</p>
               </div>
             </div>
             <div>
@@ -163,9 +163,9 @@ const Terms = () => {
                 </span>{" "}
                 <p className="text-[14px] mb-[16px] md:mb-[16px] sm:mb-[8px] font-onest leading-[24px] text-[#4F4F4F]">
                   Refunds for mentorship sessions, consultations, or webinars are determined by the individual professional offering the service. 
-                  Prooval acts solely as a facilitator and is not responsible for issuing refunds on behalf of professionals.
+                  Prooval(formerly HackTheJobs) acts solely as a facilitator and is not responsible for issuing refunds on behalf of professionals.
                 </p>
-                <p className="text-[14px] mb-[16px] md:mb-[16px] sm:mb-[8px] font-onest leading-[24px] text-[#4F4F4F]">We encourage professionals to clearly communicate their cancellation and refund policies on their Prooval pages.</p>
+                <p className="text-[14px] mb-[16px] md:mb-[16px] sm:mb-[8px] font-onest leading-[24px] text-[#4F4F4F]">We encourage professionals to clearly communicate their cancellation and refund policies on their Prooval(formerly HackTheJobs) pages.</p>
               </div>
               <div className=" gap-[12px]">
                 <span className="text-[16px] font-onest leading-[27px] text-[#000000]">
@@ -219,7 +219,7 @@ const Terms = () => {
                 at:{" "}
                 <span className="block">
                   <span className="font-bold">Email:</span>
-                  <a className="hover:underline transition" href="mailto:hello@hackthejobs.com">hello@hackthejobs.com</a>
+                  <a className="hover:underline transition" href="mailto:hello@prooval.com">hello@prooval.com</a>
                   </span>.
               </p>
             </div>
