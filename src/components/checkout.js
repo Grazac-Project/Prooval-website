@@ -17,8 +17,8 @@ const initialValues = {
 };
 
 const Checkout = ({goBack, checkoutCallback, productId, productDescription, productPrice, productCurrency, productType, category}) => {
-  console.table(productId, productCurrency, productType)
-  console.log(checkoutCallback)
+  // console.table(productId, productCurrency, productType)
+  // console.log(checkoutCallback)
   const router = useRouter();
   const [loader, setLoader] = useState(false);
 
@@ -39,7 +39,7 @@ const Checkout = ({goBack, checkoutCallback, productId, productDescription, prod
       currency: productCurrency
     }
     checkoutCallback(newValues)
-    console.log(newValues)
+    // console.log(newValues)
     // allProductCheckout(newValues, category)
     //   .then((res) => {
     //     console.log(res);

@@ -145,8 +145,10 @@ const MentorDetails = () => {
   const [checkout, setCheckout] = useState(false)
   const [webinarId, setWebinarId] =  useState()
   const [checkoutCallback, setCheckoutCallback] = useState()
+  const [slot, setSlot] = useState({})
   
-  console.log(checkoutCallback);
+  // console.log(checkoutCallback);
+  console.log(mentorData);
   
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
@@ -343,7 +345,8 @@ const MentorDetails = () => {
     })) || [];
 
   const mentorshipPackages =
-    mentorData?.packages?.map((book) => ({
+    // mentorData?.packages?.map((book) => ({
+    mentorData?.packageMentorships?.map((book) => ({
       type: "Mentorship Package",
       title: book?.title,
       category: `${book?.sessionDuration} Mins · Once a week`,
@@ -359,7 +362,7 @@ const MentorDetails = () => {
     5
   );
 
-  const bookSession = (id, type, amount, bookingCurrency, description, title) => {
+  const bookSession = (id, type, amount, bookingCurrency, description, title, sessionType) => {
     setBookingId(id);
     setBookType(type);
     setMentorPrice(amount);
@@ -367,7 +370,7 @@ const MentorDetails = () => {
     setProductDescription(description)
     setProductTitle(title)
     setLoading(false);
-    // setSessionType(sessionType);
+    setSessionType(sessionType);
     // console.log(bookingId, bookType, mentorPrice, currency);
     setShowBookingModal(true);
 
@@ -486,10 +489,11 @@ const MentorDetails = () => {
         successModal={() => setSuccessModal(true)}
         bookingCurrency={currency}
         sessionType={sessionType}
+        slot={slot}
+        setSlot={setSlot}
       />
     );
   }
-  
 
   return (
     <>
@@ -520,6 +524,7 @@ const MentorDetails = () => {
                     setCheckout={setCheckout}
                     setShowMain={setShowMain}
                     setCheckoutCallback={setCheckoutCallback}
+                    successModal={() => setSuccessModal(true)}
                     
                     
                   />
@@ -538,6 +543,8 @@ const MentorDetails = () => {
                     setCheckout={setCheckout}
                     setShowMain={setShowMain}
                     setCheckoutCallback={setCheckoutCallback}
+                    slot={slot}
+                    setSlot={setSlot}
                   />
                 )}
                 {successModal && (
@@ -1163,23 +1170,25 @@ const MentorDetails = () => {
                         )}
 
                         {/* Group Package */}
-                        {mentorData?.bookings?.packageMentorships?.length > 0 && (
+                        {mentorData?.packageMentorships?.length > 0 && (
                           <div className="">
                             <h3 className="text-lg font-semibold mb-4">
                               Mentorship Package
                             </h3>
                             <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
-                              {mentorData?.bookings?.packageMentorships?.map(
+                              {mentorData?.packageMentorships?.map(
                                 (pkg, idx) => (
                                   <div
                                     key={idx}
                                     onClick={() =>
                                       bookSession(
-                                        pkg?._id,
+                                        pkg?.bookingId,
                                         pkg?.bookingType,
                                         pkg?.amount,
                                         pkg?.currency,
-                                        "mentorship_package"
+                                        pkg?.description,
+                                        pkg?.title,
+                                        "mentorship"
                                       )
                                     }
                                   >
@@ -1205,12 +1214,12 @@ const MentorDetails = () => {
                                               ],
                                           }}
                                         >
-                                          {pkg.packageDuration}{" "}
-                                          {pkg.packageDuration > 1
+                                          {pkg?.packageDuration}{" "}
+                                          {pkg?.packageDuration > 1
                                             ? "Weeks"
                                             : "Week"}
                                         </span>
-                                        {pkg.bookingType.toLowerCase() ===
+                                        {pkg?.bookingType.toLowerCase() ===
                                         "paid" ? (
                                           <div className="text-right text-sm font-semibold">
                                             {getCurrencySymbol(pkg?.currency)}
@@ -1223,19 +1232,19 @@ const MentorDetails = () => {
                                         )}
                                       </div>
                                       <div className="font-semibold text-sm">
-                                        {pkg.title}
+                                        {pkg?.title}
                                       </div>
                                       <p className="text-xs text-gray-600 line-clamp-2">
-                                        {pkg.description}
+                                        {pkg?.description}
                                       </p>
                                       <div className="flex justify-between items-center">
                                         <div className="flex items-center gap-2">
                                           <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
-                                            {pkg.sessionDuration} Mins{" "}
+                                            {pkg?.sessionDuration} Mins{" "}
                                           </span>
                                           <span className=" w-2 h-2 bg-[#D9D9D9] rounded-full"></span>
                                           <span className="text-[12px] leading-[140%] text-[#4F4F4F] ">
-                                            {duration(pkg.sessionsPerWeek)} a
+                                            {duration(pkg?.sessionsPerWeek)} a
                                             week
                                           </span>
                                         </div>

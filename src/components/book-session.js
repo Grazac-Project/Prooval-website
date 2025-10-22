@@ -14,6 +14,7 @@ import {
   fincraPayment,
   getAvailableBookings,
   MentorshipPackageSubmitAction,
+  MentorshipPaidPackageAction,
 } from "@/api/authentication/auth";
 import Cookies from "js-cookie";
 import { MdKeyboardArrowRight } from "react-icons/md";
@@ -34,7 +35,9 @@ const BookSession = ({
   setBookingModal,
   setCheckout,
   setShowMain,
-  setCheckoutCallback
+  setCheckoutCallback,
+  slot,
+  setSlot
 }) => {
   const [activeDates, setActiveDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -52,6 +55,7 @@ const BookSession = ({
   const [token, setToken] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
   const [loader, setLoader] = useState(false);
+  const [clickedDate, setClickedDate] = useState('')
   const [ref, setRef] = useState("");
   const { startPayment } = useFincraPayment();
   console.log(mentor);
@@ -74,6 +78,7 @@ const BookSession = ({
     //err
   }
 
+  
   useEffect(() => {
     try {
       let details = Cookies.get("user_details");
@@ -82,7 +87,8 @@ const BookSession = ({
       //err
     }
   }, []);
-
+  console.log(slot)
+  // console.log(setSlot)
   useEffect(() => {
     setLoader(true);
     // console.log({ type });
@@ -115,6 +121,7 @@ const BookSession = ({
   console.log(bookingData);
   const handleDayClick = (date) => {
     const formattedDate = dayjs(date).format("YYYY-MM-DD");
+    setClickedDate(formattedDate)
     console.log("Clicked Date:", formattedDate);
     console.log("Active Dates:", activeDates);
 
@@ -174,103 +181,250 @@ const BookSession = ({
     const data = filteredData[index];
     setBookingValues(data);
 
+    setSlot(data);
+    console.log("Selected slot object:", data);
     // setBookingData(prev => ({ ...prev, time }));
   };
-  const handleBookingSubmit = () => {
+  const handleBookingSubmit = (x) => {
     const data = {
-      bookingId: bookingValues?.bookingId,
-      slotId: bookingValues?.slotId,
-      userId: userId,
-      suggestion: values.suggestion,
+      // bookingId: bookingValues?.bookingId,
+      bookingId: slot?.bookingId,
+      // slotId: bookingValues?.slotId,
+      slotId: slot?.slotId,
+      userId: mentorId,
+      // suggestion: values.suggestion,
+      ...x
     };
     console.log(data);
     BookingsSubmitAction(data)
       .then((res) => {
         console.log(res);
         setLoading(false);
-        setShowBookingModal(true);
+        // setShowBookingModal(true);
+        setShowMain(true)
+        setCheckout(false)
         closeModal();
         successModal();
       })
       .catch((err) => {
+        console.log(err)
         toast.error(err.response?.data?.error);
         setLoading(false);
       });
   };
-   const handleMentorshipPackageSubmit = () => {
+   const handleMentorshipPackageSubmit = (x) => {
     const data = {
-      packageId: bookingValues?.bookingId,
-      slotId: bookingValues?.slotId,
-      userId: userId,
-      suggestion: values.suggestion,
+      packageId: slot?.bookingId,
+      slotId: slot?.slotId,
+      userId: mentorId,
+      // suggestion: values.suggestion,
+      ...x
     };
     console.log(data);
     MentorshipPackageSubmitAction(data)
       .then((res) => {
         console.log(res);
         setLoading(false);
-        setShowBookingModal(true);
+        // setShowBookingModal(true);
+        setShowMain(true)
+        setCheckout(false)
         closeModal();
         successModal(); 
       })
       .catch((err) => {
-        toast.error(err.response?.data?.error);
+        console.log(err)
+        toast.error(err.response?.data?.message);
         setLoading(false);
       });
   };
+   const handleMentorshipPaidPackage = async (x) => {
+    const data = {
+      packageId: slot?.bookingId,
+      slotId: slot?.slotId,
+      userId: mentorId,
+      // suggestion: values.suggestion,
+      ...x
+    };
+    console.log(data);
+    // MentorshipPaidPackageAction(data)
+    //   .then((res) => {
+    //     console.log(res);
+    //     setLoading(false);
+    //     // setShowBookingModal(true);
+    //     setShowMain(true)
+    //     setCheckout(false)
+    //     closeModal();
+    //     successModal(); 
+    //   })
+    //   .catch((err) => {
+    //     console.log(err)
+    //     toast.error(err.response?.data?.error);
+    //     setLoading(false);
+    //   });
+      try {
+        const res = await MentorshipPaidPackageAction(data, token);
+        console.log(res);
+        
+        const payload = res?.data?.data || {};
+        const reference = payload.reference;
+        const firstname = payload.firstName || payload.first_name || "";
+        const lastname = payload.lastName || payload.last_name || "";
+        const fullname = `${firstname} ${lastname}`.trim();
+        const email = payload.email || payload.emailAddress || "";
+        
+        setLoading(false);
+        
+        if(bookingCurrency.toUpperCase() === 'NGN'){
+          if (reference) {
+            const url = new URL(window.location.href);
+            url.searchParams.set("ref", reference);
+            window.history.replaceState({}, "", url.toString());
+          }
+    
+          await startPayment({
+            price: Number(price),
+            currency: String(bookingCurrency).toUpperCase(),
+            ref: reference,
+            nameProp: fullname,
+            emailProp: email,
+            onSuccess: (data) => {
+              // setCheckout(false)
+              // setShowBookingModal(true)
+              // setShowMain(true)
+              // setIsSuccess(true);
 
-  const handlePayment = async () => {
+              setShowMain(true)
+        setCheckout(false)
+        closeModal();
+        successModal();
+            },
+            onClose: () => {
+              toast.error("Transaction was not completed, window closed.");
+            },
+          });  
+
+        } else {
+          const url = res.data.data.checkoutUrl
+          window.location.href = url;
+        }
+      // persist ref in URL
+      } catch (error) {
+        console.error(err);
+        toast.error(err.response?.data?.error );
+        setLoading(false);
+      }
+  };
+
+  const handlePayment = async (x) => {
+    console.log(slot)
+    delete x.productId
     try {
       const data = {
-        bookingId: bookingValues?.bookingId,
-        slotId: bookingValues?.slotId,
+        bookingId: slot?.bookingId,
+        slotId: slot?.slotId,
         // suggestion: values.suggestion,
         currency: bookingCurrency,
+        ...x,
       };
       console.log(data);
-      let reference;
-      fincraBookingCheckoutData(data, token)
-        .then((res) => {
-          console.log(res);
-          reference = res.data?.data?.data?.reference;
-          setLoading(false);
-        })
-        .catch((err) => {
-          toast.error(err.response?.data?.error);
-          setLoading(false);
-        });
-      // if (!reference) throw new Error("Missing payment reference from server");
+      // let reference;
+      // let fullname;
+      // let email;
+      // fincraBookingCheckoutData(data, token)
+      //   .then((res) => {
+      //     console.log(res);
+      //     reference = res.data?.data?.reference;
+      //     fullname = `${res?.data?.data.firstName} ${res?.data?.data.lastName}`
+      //     email = res?.data?.data?.email
+      //     setLoading(false);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err)
+      //     toast.error(err.response?.data?.error);
+      //     setLoading(false);
+      //   });
+      //   console.log('fullname', fullname)
+      //   console.log('email', email)
+      //   const url = new URL(window.location.href);
+      //     url.searchParams.set("ref", reference);
+      //     window.history.replaceState({}, "", url.toString());
+      // // if (!reference) throw new Error("Missing payment reference from server");
+      // await startPayment({
+      //   price: Number(price),
+      //   currency: String(bookingCurrency).toUpperCase(),
+      //   ref: reference,
+      //   nameProp: fullname,
+      //   emailProp: email,
+      //   onSuccess: (data) => {
+      //     setIsSuccess(true);
+      //     // const url = new URL(window.location.href);
+      //     // url.searchParams.set("ref", reference);
+      //     // window.history.replaceState({}, "", url.toString());
+      //   },
+      //   onClose: () => {
+      //     toast.error("Transaction was not completed, window closed.");
+      //   },
+      // });
+      // console.log("Resolved:", result);
 
-      const result = await startPayment({
-        price,
-        currency: bookingCurrency,
+    const res = await fincraBookingCheckoutData(data, token);
+      console.log(res);
+
+      const payload = res?.data?.data || {};
+      const reference = payload.reference;
+      const firstname = payload.firstName || payload.first_name || "";
+      const lastname = payload.lastName || payload.last_name || "";
+      const fullname = `${firstname} ${lastname}`.trim();
+      const email = payload.email || payload.emailAddress || "";
+
+      setLoading(false);
+
+      // persist ref in URL
+      if (reference) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("ref", reference);
+        window.history.replaceState({}, "", url.toString());
+      }
+
+      await startPayment({
+        price: Number(price),
+        currency: String(bookingCurrency).toUpperCase(),
         ref: reference,
+        nameProp: fullname,
+        emailProp: email,
         onSuccess: (data) => {
-          setIsSuccess(true);
-          const url = new URL(window.location.href);
-          url.searchParams.set("ref", reference);
-          window.history.replaceState({}, "", url.toString());
+          // setCheckout(false)
+          // setShowBookingModal(true)
+          // setShowMain(true)
+          // setIsSuccess(true);
+
+          setShowMain(true)
+        setCheckout(false)
+        closeModal();
+        successModal();
         },
         onClose: () => {
           toast.error("Transaction was not completed, window closed.");
         },
-      });
-      console.log("Resolved:", result);
+      });  
     } catch (err) {
       console.error(err);
     }
   };
-  const handleForeignPayment = () => {
+  const handleForeignPayment = (x) => {
+    console.log(slot)
     const data = {
-      bookingId: bookingValues?.bookingId,
-      slotId: bookingValues?.slotId,
-      userId: userId,
-      suggestion: values.suggestion,
+      bookingId: slot?.bookingId,
+      slotId: slot?.slotId,
+      userId: mentorId,
+      // suggestion: values.suggestion,
       amount: price,
-      currency: bookingCurrency
+      currency: bookingCurrency,
+      ...x
     };
     console.log(data);
-    fincraPayment(data, token)
+    // fincraPayment(data, token)
+    fincraBookingCheckoutData(data, token)
       .then((res) => {
         console.log(res);
         setLoading(false);
@@ -279,6 +433,7 @@ const BookSession = ({
         window.location.href = url;
       })
       .catch((err) => {
+        console.log(err)
         toast.error(err.response?.data?.error );
         setLoading(false);
       });
@@ -289,25 +444,51 @@ const BookSession = ({
     setCheckout(true)
   }
 
-  const handleclick = () => {
+  const handleclick = (val) => {
     setLoading(true);
-
-    if (type && type.toLowerCase() === "paid" && bookingCurrency === "NGN") {
-      handlePayment();
-    } else if (type && type.toLowerCase() === "paid" && bookingCurrency !== "NGN") {
-      handleForeignPayment();
-    } else if (type && type.toLowerCase() === "free" && sessionType === "mentorship_package") {
-      handleMentorshipPackageSubmit();
-    } else {
-      handleBookingSubmit();
+    console.log(type)
+    console.log(bookingCurrency)
+    console.log(slot)
+    // if (type && type.toLowerCase() === "paid" && bookingCurrency === "NGN") {
+    //   handlePayment(val);
+    // } else if (type && type.toLowerCase() === "paid" && bookingCurrency !== "NGN") {
+    //   handleForeignPayment(val);
+    // } else if (type && type.toLowerCase() === "free" && sessionType === "mentorship") {
+    //   handleMentorshipPackageSubmit(val);
+    // } else if(type && type.toLowerCase() === "paid" && sessionType === "mentorship") {
+    //   handleMentorshipPaidPackage(val);
+    // } else{
+    //   handleBookingSubmit(val);
+    // }
+    if (type && type.toLowerCase() === "paid" && sessionType === "mentorship") {
+      handleMentorshipPaidPackage(val);
+    } else if (type && type.toLowerCase() === "free" && sessionType === "mentorship") {
+      handleMentorshipPackageSubmit(val);
+    } else if (type && type.toLowerCase() === "paid" && bookingCurrency === "NGN") {
+      handlePayment(val);
+    } else if(type && type.toLowerCase() === "paid" && bookingCurrency !== "NGN") {
+      handleForeignPayment(val);
+    } else{
+      handleBookingSubmit(val);
     }
   };
 
   useEffect(()=>{
       setCheckoutCallback(() => (...args) => handleclick(...args))
   
-    }, [])
-  console.log(sessionType);
+    }, [slot])
+//   console.log(sessionType);
+//   console.log(availableTimes);
+//   console.log(availableSessions);
+//   console.log(selectedTimeIndex);
+//   console.log(clickedDate);
+// console.log(mentorId);
+// console.log(slot)
+
+  
+console.log('slot', slot)
+console.log('sessionType', sessionType)
+console.log('type', type)
   return (
     <div>
       <ToastContainer />
