@@ -609,7 +609,7 @@ const MentorDetails = () => {
                                 <button
                                   type="button"
                                   onClick={handleButtonClick}
-                                  className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] h-[35.6px] flex items-center xxxxm:w-[117px] xxxxm:text-[8px]"
+                                  className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[32px] flex items-center xxxxm:w-[94px] xxxxm:text-[8px]"
                                 >
                                   <div
                                     className="cursor-pointer"
@@ -635,10 +635,10 @@ const MentorDetails = () => {
                                       }
                                     />
                                   </div>
-                                  Preferred Mentor
+                                  Preferred
                                 </button>
                                 <button
-                                  className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[90px] h-[35.6px] flex justify-center items-center gap-1 sxm:[80px] xxxxm:text-[8px]"
+                                  className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[32px] flex justify-center items-center gap-1 sxm:w-[94px] xxxxm:text-[8px]"
                                   onClick={shareMentorProfile}
                                 >
                                   <Image
@@ -650,7 +650,7 @@ const MentorDetails = () => {
                                   Share Link
                                 </button>
                                 <a
-                                  className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[35.6px] flex justify-center items-center gap-1 sxm:w-[80px] xxxxm:text-[8px]"
+                                  className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[32px] flex justify-center items-center gap-1 sxm:w-[94px] xxxxm:text-[8px]"
                                   href={mentorData?.mentor?.linkedinLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
@@ -675,9 +675,9 @@ const MentorDetails = () => {
                       </div>
                       {/* First eNDING */}
                       <div className="flex md:flex-col  bg-[#ffff] rounded-2xl">
-                        <div className="w-[45%] md:w-full  ">
-                          <div className="min-h-[186px] border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA] flex px-4 items-center justify-center gap-2 py-8 ">
-                            <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[122.33px] lg:max-w-[122.33px] h-[122px] rounded-lg px-4 text-center">
+                        <div className="w-[45%] md:w-full">
+                          <div className="min-h-[186px]  border border-[#F2F2F7] border-r-[#EAEAEA]  border-b-[#EAEAEA] flex px-[32px] items-center  gap-2 py-[32px] sm:justify-center sm:px-[16px] ">
+                            <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[187.5px]  h-[122px] rounded-lg px-4 text-center sxm:w-[151.5px] md:w-[300px]">
                               <Image
                                 src="/mentee.svg"
                                 alt="avatar"
@@ -686,28 +686,13 @@ const MentorDetails = () => {
                                 className="w-[27px] h-[27px] rounded-[50%]"
                               />
                               <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
-                                Total Mentees
+                                Total Sold Products
                               </h5>
                               <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                                {mentorData?.mentor?.totalMentees || 0}
+                                {mentorData?.mentor?.totalSoldProducts || 0}
                               </h3>
                             </div>
-                            <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[122.33px] lg:max-w-[122.33px]  h-[122px] rounded-lg px-4 text-center ">
-                              <Image
-                                src="/session.svg"
-                                alt="avatar"
-                                width={27}
-                                height={27}
-                                className="w-[27px] h-[27px] rounded-[50%]"
-                              />
-                              <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
-                                Total Sessions Booked
-                              </h5>
-                              <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                                {mentorData?.mentor?.totalSessionBooked || 0}
-                              </h3>
-                            </div>{" "}
-                            <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[122.33px] lg:max-w-[122.33px] h-[122px] rounded-lg px-4 text-center ">
+                            <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[187.5px]  h-[122px] rounded-lg px-4 text-center sxm:w-[151.5px] md:w-[300px]">
                               <Image
                                 src="/views.svg"
                                 alt="avatar"
@@ -716,10 +701,10 @@ const MentorDetails = () => {
                                 className="w-[27px] h-[27px] rounded-[50%]"
                               />
                               <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
-                                Total Profile Views
+                                Total Page Views
                               </h5>
                               <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                                {mentorData?.mentor?.totalPageViews}
+                               {mentorData?.mentor?.totalPageViews}
                               </h3>
                             </div>
                           </div>
