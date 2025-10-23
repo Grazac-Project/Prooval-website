@@ -270,8 +270,6 @@
 
 // export default Payment;
 
-
-
 "use client";
 import {
   fincraDigitalCheckoutData,
@@ -301,7 +299,10 @@ const Payment = ({
   setCheckout,
   setShowMain,
   setCheckoutCallback,
-  successModal
+  successModal,
+  setLoader,
+  successPaymentModal,
+  makeFree,
 }) => {
   const [loading, setLoading] = useState("Access Product");
   const [freeMode, setFreeMode] = useState(false);
@@ -316,11 +317,11 @@ const Payment = ({
   }, [productType]);
 
   useEffect(() => {
-  console.log("Payment component mounted");
-}, []);
+    console.log("Payment component mounted");
+  }, []);
   useEffect(() => {
-  console.log("isSuccess changed:", isSuccess);
-}, [isSuccess]);
+    console.log("isSuccess changed:", isSuccess);
+  }, [isSuccess]);
 
   // Handle free product access
   const handleAccessProduct = (z) => {
@@ -334,17 +335,23 @@ const Payment = ({
           // setCheckout(false)
           // setShowModal(true)
           // setShowMain(true)
-          console.log(isSuccess)
-          setCheckout(false)
+          console.log(isSuccess);
+          setLoader(false);
+          setCheckout(false);
           setIsSuccess(true);
           setFreeMode(true);
-          setShowMain(true)
-          setShowModal(false)
+          setShowMain(true);
+          setShowModal(false);
           // setIsSuccess(true);
-          successModal()
+          // successModal();
+          successPaymentModal()
+          makeFree()
         })
         .catch((err) => {
-          console.log(err)
+          console.log(err);
+          setLoader(false);
+          setShowMain(true);
+          setShowModal(false);
           toast.error(err.response?.data?.message || "Something went wrong");
           setLoading("Access Product");
         });
@@ -353,8 +360,8 @@ const Payment = ({
       setLoading("Access Product");
     }
   };
-// console.log(setCheckoutCallback)
-// console.log(productType)
+  // console.log(setCheckoutCallback)
+  // console.log(productType)
   // Handle local (NGN) payment
   const handlePayment = async (x) => {
     console.log(x);
@@ -387,11 +394,11 @@ const Payment = ({
         nameProp: fullname,
         emailProp: x.email,
         onSuccess: () => {
-          setShowMain(true)
-          setShowModal(true)
-          setCheckout(false)
+          setShowMain(true);
+          setShowModal(false);
+          setCheckout(false);
           // setIsSuccess(true);
-          successModal()
+          successPaymentModal()
           setLoading("Make Payment");
         },
         onClose: () => {
@@ -402,10 +409,15 @@ const Payment = ({
     } catch (err) {
       const msg =
         err?.response?.data?.message || err?.message || "Payment failed";
+      setShowMain(true);
+      setShowModal(false);
+      setCheckout(false);
       toast.error(msg);
       console.error(err);
     } finally {
       setLoading("Make Payment");
+
+      setLoader(false);
     }
   };
 
@@ -422,12 +434,16 @@ const Payment = ({
           else throw new Error("No redirect URL found");
         })
         .catch((err) => {
+          setShowMain(true)
+          setShowModal(false)
+          setCheckout(false)
           toast.error(err.response?.data?.error || "Something went wrong");
           setLoading("Make Payment");
         });
     } catch (err) {
       console.error(err);
       setLoading("Make Payment");
+      setLoader(false);
     }
   };
 
@@ -464,7 +480,7 @@ const Payment = ({
         ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/digital-products`
         : `${process.env.NEXT_PUBLIC_DASH_URL}/digital-products`;
   };
-  
+
   return (
     <div className="font-satoshi">
       {/* Overlay background */}

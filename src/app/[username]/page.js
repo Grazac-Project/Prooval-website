@@ -28,6 +28,7 @@ import Link from "next/link";
 import Checkout from "@/components/checkout";
 import EventCard from "@/components/webinerCard";
 import WebinarModal from "./details/components/webinalReg";
+import PaymentModal from "@/components/payment-modal";
 
 const groupColors = [
   "#F48025",
@@ -139,6 +140,8 @@ const MentorDetails = () => {
   const [mentorPrice, setMentorPrice] = useState("");
   const [sessionType, setSessionType] = useState("");
   const [successModal, setSuccessModal] = useState(false);
+  const [successPaymentModal, setSuccessPaymentModal] = useState(false);
+  const [freeMode, setFreeMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showWebModal, setShowWebModal] = useState(false);
   const [showMain, setShowMain] = useState(true)
@@ -146,6 +149,7 @@ const MentorDetails = () => {
   const [webinarId, setWebinarId] =  useState()
   const [checkoutCallback, setCheckoutCallback] = useState()
   const [slot, setSlot] = useState({})
+  const [loader, setLoader] = useState(false)
   
   const checkboxRef = useRef(null);
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -523,8 +527,9 @@ const MentorDetails = () => {
                     setShowMain={setShowMain}
                     setCheckoutCallback={setCheckoutCallback}
                     successModal={() => setSuccessModal(true)}
-                    
-                    
+                    setLoader={setLoader}
+                    successPaymentModal={() => setSuccessPaymentModal(true)}
+                    makeFree={()=>setFreeMode(true)}  
                   />
                 )}
                 {showBookingModal && (
@@ -543,6 +548,7 @@ const MentorDetails = () => {
                     setCheckoutCallback={setCheckoutCallback}
                     slot={slot}
                     setSlot={setSlot}
+                    setLoadingState={setLoader}
                   />
                 )}
                 {successModal && (
@@ -554,6 +560,13 @@ const MentorDetails = () => {
                       mentorData?.mentor?.lastName
                     }`}
                     closeModal={() => setSuccessModal(false)}
+                  />
+                )}
+                {successPaymentModal && (
+                  <PaymentModal
+                    productTitle={productTitle}
+                    freeMode={freeMode}
+                    // closeModal={() => setSuccessModal(false)}
                   />
                 )}
                 {showWebModal && (
@@ -572,7 +585,7 @@ const MentorDetails = () => {
                        mb-4 rounded-md py-6 px-6"
                       >
                         <Image
-                          src="/prooval logo.png"
+                          src="/prooval-logo.svg"
                           width={100.44}
                           height={36}
                           alt="Prooval logo"
@@ -1308,7 +1321,7 @@ const MentorDetails = () => {
           </>
         )}
       </div>}
-      {checkout && <Checkout goBack={exitCheckout} checkoutCallback={checkoutCallback} productId={productId} productDescription={productDescription} productPrice={productPrice || mentorPrice} productCurrency={productCurrency || currency} productType={productType || bookType} category={category}/>}
+      {checkout && <Checkout setLoader={setLoader} loader={loader} goBack={exitCheckout} checkoutCallback={checkoutCallback} productId={productId} productDescription={productDescription} productPrice={productPrice || mentorPrice} productCurrency={productCurrency || currency} productType={productType || bookType} category={category}/>}
     </>
   );
 };

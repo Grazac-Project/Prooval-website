@@ -16,11 +16,11 @@ const initialValues = {
   email: "",
 };
 
-const Checkout = ({goBack, checkoutCallback, productId, productDescription, productPrice, productCurrency, productType, category}) => {
+const Checkout = ({loader, setLoader, goBack, checkoutCallback, productId, productDescription, productPrice, productCurrency, productType, category}) => {
   console.table(productId, productCurrency, productType)
   console.log(checkoutCallback)
   const router = useRouter();
-  const [loader, setLoader] = useState(false);
+  // const [loader, setLoader] = useState(false);
 
   const schema = yup.object({
     firstName: yup.string().required("Firstname is required"),
