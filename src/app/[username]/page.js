@@ -209,7 +209,7 @@ const MentorDetails = () => {
     // console.log({ token });
     getMentorsBySlug(username)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setMentorData(res.data.data.data);
         setMentorId(res.data.data.data.mentor._id);
 
@@ -247,7 +247,7 @@ const MentorDetails = () => {
     setLoading(true);
     getBookings(mentorId)
       .then((res) => {
-        console.log(res.data?.data?.data);
+        // console.log(res.data?.data?.data);
         setMentData(res.data?.data?.data);
         setWebData(res.data?.data?.data?.webinars);
         setLoading(false);
@@ -367,8 +367,8 @@ const MentorDetails = () => {
   const bookSession = (id, type, amount, bookingCurrency, description, title, sessionType) => {
     setBookingId(id);
     setBookType(type);
-    setMentorPrice(amount);
-    setCurrency(bookingCurrency);
+    setProductPrice(amount);
+    setProductCurrency(bookingCurrency);
     setProductDescription(description)
     setProductTitle(title)
     setLoading(false);
@@ -486,10 +486,10 @@ const MentorDetails = () => {
         mentorId={bookingId}
         image={mentorData?.mentor?.image}
         type={bookType}
-        price={mentorPrice}
+        price={productPrice}
         // mentor={mentor}
         successModal={() => setSuccessModal(true)}
-        bookingCurrency={currency}
+        bookingCurrency={productCurrency}
         sessionType={sessionType}
         slot={slot}
         setSlot={setSlot}
@@ -538,9 +538,9 @@ const MentorDetails = () => {
                     mentorId={bookingId}
                     image={mentorData?.mentor?.image}
                     type={bookType}
-                    price={mentorPrice}
+                    price={productPrice}
                     successModal={() => setSuccessModal(true)}
-                    bookingCurrency={currency}
+                    bookingCurrency={productCurrency}
                     sessionType={sessionType}
                     setBookingModal={setShowBookingModal}
                     setCheckout={setCheckout}
@@ -1321,7 +1321,7 @@ const MentorDetails = () => {
           </>
         )}
       </div>}
-      {checkout && <Checkout setLoader={setLoader} loader={loader} goBack={exitCheckout} checkoutCallback={checkoutCallback} productId={productId} productDescription={productDescription} productPrice={productPrice || mentorPrice} productCurrency={productCurrency || currency} productType={productType || bookType} category={category}/>}
+      {checkout && <Checkout setLoader={setLoader} loader={loader} goBack={exitCheckout} checkoutCallback={checkoutCallback} productId={productId} productDescription={productDescription} productPrice={productPrice} productCurrency={productCurrency} productType={productType || bookType} category={category}/>}
     </>
   );
 };

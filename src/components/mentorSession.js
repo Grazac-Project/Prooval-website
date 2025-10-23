@@ -44,7 +44,6 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
       setBookType(type);
       setMentorPrice(amount);
       setCurrency(bookingCurrency);
-      console.log({bookType})
       
       setShowBookSession(true);
 
@@ -55,10 +54,9 @@ const MentorSession = ({ closeSessionModal, mentorId, mentorImage, mentorDetails
   };
   useEffect(() => {
     setLoading(true);
-    console.log({ token });
     getAllBookings(mentorId)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setMentorData(res.data.data.mentor);
         setBookingData(res.data.data.bookings);
 

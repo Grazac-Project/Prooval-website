@@ -3,13 +3,14 @@
 import { getMentorsBySlug } from "@/api/authentication/auth";
 import Cookies from "js-cookie";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const BookingModal = ({ closeModal, mentor }) => {
   const [mentorData, setMentorData] = useState({});
     const [loading, setLoading] = useState(false);
     const [slug, setSlug] = useState("");
-  
+    const router = useRouter();
     useEffect(() => {
       try {
         const mentorSlug = Cookies.get("mentorSlug");
@@ -32,7 +33,7 @@ const BookingModal = ({ closeModal, mentor }) => {
       // setLoading(true); // Start loading
       getMentorsBySlug(slug)
         .then((res) => {
-          console.log("Mentor Details Response:", res);
+          // console.log("Mentor Details Response:", res);
           setMentorData(res.data.data.data.mentor); 
           
         })
@@ -55,7 +56,7 @@ const BookingModal = ({ closeModal, mentor }) => {
     <div className="relative">
       <div
         className="fixed inset-0 bg-[#344054B2] opacity-[0.9] z-100"
-        onClick={closeModal}
+        // onClick={closeModal}
       ></div>
       <div className="fixed inset-0 flex items-center justify-center z-100 p-4 sm:p-6 md:p-8">
         
@@ -70,7 +71,7 @@ const BookingModal = ({ closeModal, mentor }) => {
           </p>
           <button
             className="w-[76px] h-[44px] rounded-[8px] border-[1px] px-[20px] py-[12px] font-medium bg-[#1453FF] text-[14px] text-[#fff] leading-[19.6px] tracking-[2%] mx-auto"
-            onClick={closeModal}
+            onClick={() => router.push('https://dashboard.prooval.com/auth/login')}
           >
             Done
           </button>

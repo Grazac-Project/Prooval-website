@@ -17,8 +17,6 @@ const initialValues = {
 };
 
 const Checkout = ({loader, setLoader, goBack, checkoutCallback, productId, productDescription, productPrice, productCurrency, productType, category}) => {
-  console.table(productId, productCurrency, productType)
-  console.log(checkoutCallback)
   const router = useRouter();
   // const [loader, setLoader] = useState(false);
 
@@ -39,22 +37,6 @@ const Checkout = ({loader, setLoader, goBack, checkoutCallback, productId, produ
       currency: productCurrency
     }
     checkoutCallback(newValues)
-    console.log(newValues)
-    // allProductCheckout(newValues, category)
-    //   .then((res) => {
-    //     console.log(res);
-    //     if (res.status === 200) {
-    //       setLoader(false);
-    //       toast.success(res.data.message);
-    //       checkoutCallback({productId: productId, currency: productCurrency}) 
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log(err)
-    //     setLoader(false);
-    //     toast.error(err?.response?.data?.message);
-    //   });
-    // actions.resetForm();
   };
 
   const {
@@ -107,7 +89,7 @@ const Checkout = ({loader, setLoader, goBack, checkoutCallback, productId, produ
                 Price
               </h2>
               <p className="font-bold text-[16px] text-[#292D32] leading-[22px]">
-                {getCurrencySymbol(productCurrency)}{productPrice}
+                {getCurrencySymbol(productCurrency)}{String(productPrice)}
               </p>
             </div>
           </div>
