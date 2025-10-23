@@ -301,6 +301,9 @@ const Payment = ({
   setShowMain,
   setCheckoutCallback,
   successModal,
+  setLoader,
+  successPaymentModal,
+  makeFree,
 }) => {
   const [loading, setLoading] = useState("Access Product");
   const [freeMode, setFreeMode] = useState(false);
@@ -334,16 +337,22 @@ const Payment = ({
           // setShowModal(true)
           // setShowMain(true)
           console.log(isSuccess);
+          setLoader(false);
           setCheckout(false);
           setIsSuccess(true);
           setFreeMode(true);
           setShowMain(true);
           setShowModal(false);
           // setIsSuccess(true);
-          successModal();
+          // successModal();
+          successPaymentModal()
+          makeFree()
         })
         .catch((err) => {
           console.log(err);
+          setLoader(false);
+          setShowMain(true);
+          setShowModal(false);
           toast.error(err.response?.data?.message || "Something went wrong");
           setLoading("Access Product");
         });
@@ -387,10 +396,10 @@ const Payment = ({
         emailProp: x.email,
         onSuccess: () => {
           setShowMain(true);
-          setShowModal(true);
+          setShowModal(false);
           setCheckout(false);
           // setIsSuccess(true);
-          successModal();
+          successPaymentModal()
           setLoading("Make Payment");
         },
         onClose: () => {
@@ -401,10 +410,15 @@ const Payment = ({
     } catch (err) {
       const msg =
         err?.response?.data?.message || err?.message || "Payment failed";
+      setShowMain(true);
+      setShowModal(false);
+      setCheckout(false);
       toast.error(msg);
       console.error(err);
     } finally {
       setLoading("Make Payment");
+
+      setLoader(false);
     }
   };
 
@@ -433,12 +447,16 @@ const Payment = ({
           else throw new Error("No redirect URL found");
         })
         .catch((err) => {
+          setShowMain(true)
+          setShowModal(false)
+          setCheckout(false)
           toast.error(err.response?.data?.error || "Something went wrong");
           setLoading("Make Payment");
         });
     } catch (err) {
       console.error(err);
       setLoading("Make Payment");
+      setLoader(false);
     }
   };
 

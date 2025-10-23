@@ -28,6 +28,7 @@ import Link from "next/link";
 import Checkout from "@/components/checkout";
 import EventCard from "@/components/webinerCard";
 import WebinarModal from "./details/components/webinalReg";
+import PaymentModal from "@/components/payment-modal";
 
 const groupColors = [
   "#F48025",
@@ -140,14 +141,17 @@ const MentorDetails = () => {
   const [mentorPrice, setMentorPrice] = useState("");
   const [sessionType, setSessionType] = useState("");
   const [successModal, setSuccessModal] = useState(false);
+  const [successPaymentModal, setSuccessPaymentModal] = useState(false);
+  const [freeMode, setFreeMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showWebModal, setShowWebModal] = useState(false);
-  const [showMain, setShowMain] = useState(true);
-  const [checkout, setCheckout] = useState(false);
-  const [webinarId, setWebinarId] = useState();
-  const [checkoutCallback, setCheckoutCallback] = useState();
-  const [slot, setSlot] = useState({});
-
+  const [showMain, setShowMain] = useState(true)
+  const [checkout, setCheckout] = useState(false)
+  const [webinarId, setWebinarId] =  useState()
+  const [checkoutCallback, setCheckoutCallback] = useState()
+  const [slot, setSlot] = useState({})
+  const [loader, setLoader] = useState(false)
+  
   const checkboxRef = useRef(null);
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
@@ -518,69 +522,79 @@ const MentorDetails = () => {
           <ToastContainer />
           {/* <Navbar /> */}
 
-          {error ? (
-            <Error text={error} />
-          ) : (
-            <>
-              {loading ? (
-                <Load />
-              ) : (
-                <>
-                  {showModal && (
-                    <Payment
-                      onClick={() => setShowModal(false)}
-                      productId={productId}
-                      productType={productType}
-                      productPrice={productPrice}
-                      productCurrency={productCurrency}
-                      productThumbnail={productThumbnail}
-                      productTitle={productTitle}
-                      productDescription={productDescription}
-                      category={category}
-                      accessType={accessType}
-                      setShowModal={setShowModal}
-                      setCheckout={setCheckout}
-                      setShowMain={setShowMain}
-                      setCheckoutCallback={setCheckoutCallback}
-                      successModal={() => setSuccessModal(true)}
-                    />
-                  )}
-                  {showBookingModal && (
-                    <BookSession
-                      closeModal={() => setShowBookingModal(false)}
-                      mentorId={bookingId}
-                      image={mentorData?.mentor?.image}
-                      type={bookType}
-                      price={mentorPrice}
-                      successModal={() => setSuccessModal(true)}
-                      bookingCurrency={currency}
-                      sessionType={sessionType}
-                      setBookingModal={setShowBookingModal}
-                      setCheckout={setCheckout}
-                      setShowMain={setShowMain}
-                      setCheckoutCallback={setCheckoutCallback}
-                      slot={slot}
-                      setSlot={setSlot}
-                    />
-                  )}
-                  {successModal && (
-                    <BookingModal
-                      mentorId={bookingId}
-                      mentor={`${
-                        mentorData?.mentor?.firstName +
-                        " " +
-                        mentorData?.mentor?.lastName
-                      }`}
-                      closeModal={() => setSuccessModal(false)}
-                    />
-                  )}
-                  {showWebModal && (
-                    <WebinarModal
-                      onClick={() => setShowWebModal(false)}
-                      webinarId={webinarId}
-                      token={token}
-                    />
-                  )}
+        {error ? (
+          <Error text={error} />
+        ) : (
+          <>
+            {loading ? (
+              <Load />
+            ) : (
+              <>
+                {showModal && (
+                  <Payment
+                    onClick={() => setShowModal(false)}
+                    productId={productId}
+                    productType={productType}
+                    productPrice={productPrice}
+                    productCurrency={productCurrency}
+                    productThumbnail={productThumbnail}
+                    productTitle={productTitle}
+                    productDescription={productDescription}
+                    category={category}
+                    setShowModal={setShowModal}
+                    setCheckout={setCheckout}
+                    setShowMain={setShowMain}
+                    setCheckoutCallback={setCheckoutCallback}
+                    successModal={() => setSuccessModal(true)}
+                    setLoader={setLoader}
+                    successPaymentModal={() => setSuccessPaymentModal(true)}
+                    makeFree={()=>setFreeMode(true)}  
+                  />
+                )}
+                {showBookingModal && (
+                  <BookSession
+                    closeModal={() => setShowBookingModal(false)}
+                    mentorId={bookingId}
+                    image={mentorData?.mentor?.image}
+                    type={bookType}
+                    price={mentorPrice}
+                    successModal={() => setSuccessModal(true)}
+                    bookingCurrency={currency}
+                    sessionType={sessionType}
+                    setBookingModal={setShowBookingModal}
+                    setCheckout={setCheckout}
+                    setShowMain={setShowMain}
+                    setCheckoutCallback={setCheckoutCallback}
+                    slot={slot}
+                    setSlot={setSlot}
+                    setLoadingState={setLoader}
+                  />
+                )}
+                {successModal && (
+                  <BookingModal
+                    mentorId={bookingId}
+                    mentor={`${
+                      mentorData?.mentor?.firstName +
+                      " " +
+                      mentorData?.mentor?.lastName
+                    }`}
+                    closeModal={() => setSuccessModal(false)}
+                  />
+                )}
+                {successPaymentModal && (
+                  <PaymentModal
+                    productTitle={productTitle}
+                    freeMode={freeMode}
+                    // closeModal={() => setSuccessModal(false)}
+                  />
+                )}
+                {showWebModal && (
+                  <WebinarModal
+                    onClick={() => setShowWebModal(false)}
+                    webinarId={webinarId}
+                    token={token}
+                  />
+                )}
 
                   <div className="bg-[#F2F2F7] py-[50px] md:py-8 font-satoshi -mt-[4rem]">
                     <div className=" w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
@@ -1338,7 +1352,7 @@ const MentorDetails = () => {
         </div>
       )}
       {checkout && (
-        <Checkout
+        <Checkout setLoader={setLoader} loader={loader}
           goBack={exitCheckout}
           checkoutCallback={checkoutCallback}
           productId={productId}

@@ -495,7 +495,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import Calendar from "react-calendar";
 import dayjs from "dayjs";
 import "react-calendar/dist/Calendar.css";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   BookingsSubmitAction,
@@ -526,7 +526,8 @@ const BookSession = ({
   setShowMain,
   setCheckoutCallback,
   slot,
-  setSlot
+  setSlot,
+  setLoadingState
 }) => {
   const [activeDates, setActiveDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -689,6 +690,7 @@ const BookSession = ({
       .then((res) => {
         console.log(res);
         setLoading(false);
+        setLoadingState(false)
         // setShowBookingModal(true);
         setShowMain(true)
         setCheckout(false)
@@ -697,7 +699,10 @@ const BookSession = ({
       })
       .catch((err) => {
         console.log(err)
-        toast.error(err.response?.data?.error);
+        setLoadingState(false)
+        setShowMain(true)
+        setCheckout(false)
+        toast.error(err.response?.data?.message);
         setLoading(false);
       });
   };
@@ -714,6 +719,7 @@ const BookSession = ({
       .then((res) => {
         console.log(res);
         setLoading(false);
+        setLoadingState(false)
         // setShowBookingModal(true);
         setShowMain(true)
         setCheckout(false)
@@ -722,6 +728,10 @@ const BookSession = ({
       })
       .catch((err) => {
         console.log(err)
+        setLoadingState(false)
+        setShowMain(true)
+        setCheckout(false)
+        closeModal();
         toast.error(err.response?.data?.message);
         setLoading(false);
       });
@@ -762,7 +772,7 @@ const BookSession = ({
         const email = payload.email || payload.emailAddress || "";
         
         setLoading(false);
-        
+        setLoadingState(false)
         if(bookingCurrency.toUpperCase() === 'NGN'){
           if (reference) {
             const url = new URL(window.location.href);
@@ -781,7 +791,6 @@ const BookSession = ({
               // setShowBookingModal(true)
               // setShowMain(true)
               // setIsSuccess(true);
-
               setShowMain(true)
         setCheckout(false)
         closeModal();
@@ -799,6 +808,9 @@ const BookSession = ({
       // persist ref in URL
       } catch (error) {
         console.error(err);
+        setShowMain(true)
+        setCheckout(false)
+        closeModal();
         toast.error(err.response?.data?.error );
         setLoading(false);
       }
@@ -867,6 +879,7 @@ const BookSession = ({
       const email = payload.email || payload.emailAddress || "";
 
       setLoading(false);
+      setLoadingState(false)
 
       // persist ref in URL
       if (reference) {
@@ -898,6 +911,9 @@ const BookSession = ({
       });  
     } catch (err) {
       console.error(err);
+      setShowMain(true)
+        setCheckout(false)
+        closeModal();
     }
   };
   const handleForeignPayment = (x) => {
@@ -917,12 +933,17 @@ const BookSession = ({
       .then((res) => {
         console.log(res);
         setLoading(false);
+        setLoadingState(false)
         // setShowBookingModal(true);
         const url = res.data.data.checkoutUrl
         window.location.href = url;
       })
       .catch((err) => {
         console.log(err)
+        setLoadingState(false)
+        setShowMain(true)
+        setCheckout(false)
+        closeModal();
         toast.error(err.response?.data?.error );
         setLoading(false);
       });
@@ -980,7 +1001,7 @@ console.log('sessionType', sessionType)
 console.log('type', type)
   return (
     <div>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
 
       <div className="font-whyte ">
         <div
