@@ -585,7 +585,7 @@ const MentorDetails = () => {
                        mb-4 rounded-md py-6 px-6"
                         >
                           <Image
-                            src="/prooval logo.png"
+                            src="/prooval-logo.svg"
                             width={100.44}
                             height={36}
                             alt="Prooval logo"
@@ -1305,9 +1305,12 @@ const MentorDetails = () => {
                         </div>
                       </section>
                       <div className="font-satoshi minmd:flex-row minmd:justify-between minmd:items-center text-center  flex flex-col justify-center w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
-                        <p className="mb-5 minmd:mb-0   text-[20px] uppercase text-[#878787]">
-                          Powered by Prooval
+                        <div className="flex items-center gap-1 sm:pb-[10px] sm:justify-center">
+                        <p className="minmd:mb-0   text-[20px] uppercase text-[#878787]">
+                          Powered by 
                         </p>
+                        <img src="/footer-logo1.svg" alt="prooval-logo" className="w-[53px] h-[19px]"/>
+                        </div>
                         <Link
                           href={
                             isProduction === "development"
