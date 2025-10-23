@@ -270,8 +270,6 @@
 
 // export default Payment;
 
-
-
 "use client";
 import {
   fincraDigitalCheckoutData,
@@ -285,7 +283,7 @@ import React, { useEffect, useState } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FiDownload } from "react-icons/fi";
+import { FiDownload, FiEye } from "react-icons/fi";
 
 const Payment = ({
   onClick,
@@ -296,12 +294,13 @@ const Payment = ({
   productThumbnail,
   productTitle,
   category,
+  accessType,
   productDescription,
   setShowModal,
   setCheckout,
   setShowMain,
   setCheckoutCallback,
-  successModal
+  successModal,
 }) => {
   const [loading, setLoading] = useState("Access Product");
   const [freeMode, setFreeMode] = useState(false);
@@ -316,11 +315,11 @@ const Payment = ({
   }, [productType]);
 
   useEffect(() => {
-  console.log("Payment component mounted");
-}, []);
+    console.log("Payment component mounted");
+  }, []);
   useEffect(() => {
-  console.log("isSuccess changed:", isSuccess);
-}, [isSuccess]);
+    console.log("isSuccess changed:", isSuccess);
+  }, [isSuccess]);
 
   // Handle free product access
   const handleAccessProduct = (z) => {
@@ -334,17 +333,17 @@ const Payment = ({
           // setCheckout(false)
           // setShowModal(true)
           // setShowMain(true)
-          console.log(isSuccess)
-          setCheckout(false)
+          console.log(isSuccess);
+          setCheckout(false);
           setIsSuccess(true);
           setFreeMode(true);
-          setShowMain(true)
-          setShowModal(false)
+          setShowMain(true);
+          setShowModal(false);
           // setIsSuccess(true);
-          successModal()
+          successModal();
         })
         .catch((err) => {
-          console.log(err)
+          console.log(err);
           toast.error(err.response?.data?.message || "Something went wrong");
           setLoading("Access Product");
         });
@@ -353,8 +352,8 @@ const Payment = ({
       setLoading("Access Product");
     }
   };
-// console.log(setCheckoutCallback)
-// console.log(productType)
+  // console.log(setCheckoutCallback)
+  // console.log(productType)
   // Handle local (NGN) payment
   const handlePayment = async (x) => {
     console.log(x);
@@ -387,11 +386,11 @@ const Payment = ({
         nameProp: fullname,
         emailProp: x.email,
         onSuccess: () => {
-          setShowMain(true)
-          setShowModal(true)
-          setCheckout(false)
+          setShowMain(true);
+          setShowModal(true);
+          setCheckout(false);
           // setIsSuccess(true);
-          successModal()
+          successModal();
           setLoading("Make Payment");
         },
         onClose: () => {
@@ -464,7 +463,7 @@ const Payment = ({
         ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/digital-products`
         : `${process.env.NEXT_PUBLIC_DASH_URL}/digital-products`;
   };
-  
+
   return (
     <div className="font-satoshi">
       {/* Overlay background */}
@@ -536,9 +535,13 @@ const Payment = ({
                     {category}
                   </span>
                   <button className="flex items-center gap-[4.87px] bg-[#3333331A] rounded-[38.96px] py-[5.37px] px-[14.61px] sxm:px-3">
-                    <FiDownload />
-                    <p className="font-500 text-xs tex-[#333333]">
-                      Downloadable
+                    {accessType ? (
+                      <FiDownload className="text-[#333333]" />
+                    ) : (
+                      <FiEye className="text-[#333333]" />
+                    )}
+                    <p className="font-medium text-xs text-[#333333]">
+                      {accessType ? "Download" : "View Only"}
                     </p>
                   </button>
                   <div className="text-sm font-semibold text-primary">

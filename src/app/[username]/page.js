@@ -127,6 +127,7 @@ const MentorDetails = () => {
   const [productCurrency, setProductCurrency] = useState("");
   const [productThumbnail, setProductThumbnail] = useState("");
   const [productDescription, setProductDescription] = useState("");
+  const [accessType, setAccessType] = useState("");
   const searchParams = useSearchParams();
   const [reviews, setReviews] = useState([]);
   const [slug, setSlug] = useState("");
@@ -330,6 +331,7 @@ const MentorDetails = () => {
       thumbnail: book?.thumbnail,
       amount: book?.amount,
       currency: book?.currency,
+      accessType: book?.accessType,
     })) || [];
 
   const oneOnOne =
@@ -419,7 +421,8 @@ const MentorDetails = () => {
     title,
     description,
     thumbnail,
-    category
+    category,
+    accessType
   ) => {
     // if (token) {
     setProductId(id);
@@ -430,6 +433,7 @@ const MentorDetails = () => {
     setProductTitle(title);
     setProductDescription(description);
     setCategory(category);
+    setAccessType(accessType);
     console.log({ id });
     setShowModal(true);
     // }
@@ -533,6 +537,7 @@ const MentorDetails = () => {
                       productTitle={productTitle}
                       productDescription={productDescription}
                       category={category}
+                      accessType={accessType}
                       setShowModal={setShowModal}
                       setCheckout={setCheckout}
                       setShowMain={setShowMain}
@@ -701,9 +706,7 @@ const MentorDetails = () => {
                       <div className="flex md:flex-col  bg-[#ffff] rounded-2xl">
                         <div className="w-[45%] md:w-full  ">
                           <div className="min-h-[186px] border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA] flex px-4 items-center justify-center gap-2 py-8 ">
-                            <div
-                              className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[150px] sm:w-[180px] md:w-[250px] lg:w-[187.5px] h-[122px] rounded-lg px-4 text-center"
-                            >
+                            <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[150px] sm:w-[180px] md:w-[250px] lg:w-[187.5px] h-[122px] rounded-lg px-4 text-center">
                               <Image
                                 src="/mentee.svg"
                                 alt="avatar"
@@ -718,9 +721,7 @@ const MentorDetails = () => {
                                 {mentorData?.mentor?.totalSoldProducts || 0}
                               </h3>
                             </div>
-                            <div
-                              className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[150px] sm:w-[180px] md:w-[250px] lg:w-[187.5px] h-[122px] rounded-lg px-4 text-center"
-                            >
+                            <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[150px] sm:w-[180px] md:w-[250px] lg:w-[187.5px] h-[122px] rounded-lg px-4 text-center">
                               <Image
                                 src="/views.svg"
                                 alt="avatar"
@@ -1055,7 +1056,8 @@ const MentorDetails = () => {
                                         book?.title,
                                         book?.description,
                                         book?.thumbnail,
-                                        book?.category
+                                        book?.category,
+                                        book?.accessType,
                                       )
                                     }
                                   >
@@ -1306,10 +1308,14 @@ const MentorDetails = () => {
                       </section>
                       <div className="font-satoshi minmd:flex-row minmd:justify-between minmd:items-center text-center  flex flex-col justify-center w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
                         <div className="flex items-center gap-1 sm:pb-[10px] sm:justify-center">
-                        <p className="minmd:mb-0   text-[20px] uppercase text-[#878787]">
-                          Powered by 
-                        </p>
-                        <img src="/footer-logo1.svg" alt="prooval-logo" className="w-[53px] h-[19px]"/>
+                          <p className="minmd:mb-0   text-[20px] uppercase text-[#878787]">
+                            Powered by
+                          </p>
+                          <img
+                            src="/footer-logo1.svg"
+                            alt="prooval-logo"
+                            className="w-[53px] h-[19px]"
+                          />
                         </div>
                         <Link
                           href={
