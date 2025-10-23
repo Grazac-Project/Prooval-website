@@ -541,6 +541,7 @@ const MentorDetails = () => {
                     productTitle={productTitle}
                     productDescription={productDescription}
                     category={category}
+                    accessType={accessType}
                     setShowModal={setShowModal}
                     setCheckout={setCheckout}
                     setShowMain={setShowMain}
