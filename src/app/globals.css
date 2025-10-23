@@ -69,8 +69,8 @@ button.slick-arrow.slick-next {
 .react-calendar__tile.selected-date {
   background-color: #1453ff;
   color: #fff;
-  font-size: 24px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 500;
 }
 .react-calendar__navigation {
   display: flex !important;
@@ -87,7 +87,7 @@ button.slick-arrow.slick-next {
   font-size: 20px;
   color: #101828;
   pointer-events: none;
-  font-family: --font-onest;
+  font-family: --font-satoshi;
 }
 
 .react-calendar__navigation__prev2-button,
@@ -121,6 +121,7 @@ button.slick-arrow.slick-next {
 .react-calendar__month-view__weekdays,
 .react-calendar__month-view__days {
   display: grid !important;
+  gap: 16px;
   grid-template-columns: repeat(7, auto);
 }
 .react-calendar__month-view__weekdays__weekday {
@@ -135,9 +136,9 @@ button.slick-arrow.slick-next {
 }
 
 .react-calendar__month-view__weekdays__weekday abbr {
-  font-family: --font-whyte;
+  font-family: --font-satoshi;
   text-transform: capitalize;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
   color: #7d7d7d;
   text-decoration: none;
@@ -150,9 +151,9 @@ button.slick-arrow.slick-next {
   text-align: center;
 }
 .react-calendar__month-view__days__day abbr {
-  font-size: 24px;
-  font-family: --font-whyte;
-  font-weight: 400;
+  font-size: 16px;
+  font-family: --font-satoshi;
+  font-weight: 500;
 }
 
 .scroll-snap-drag {
@@ -165,18 +166,27 @@ button.slick-arrow.slick-next {
   cursor: grabbing;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 425px) {
+ .react-calendar__month-view__weekdays,
+.react-calendar__month-view__days {
+    gap: 2px;
+}
+}
+
+@media (max-width: 425px) {
   .react-calendar {
     max-width: 100% !important;
     padding: 12px !important;
   }
 
   .react-calendar__month-view__weekdays__weekday abbr {
-    font-size: 13px !important;
+    font-size: 10px !important;
+    font-weight: 400;
   }
 
   .react-calendar__month-view__days__day abbr {
-    font-size: 16px !important;
+    font-size: 12px !important;
+    font-weight: 400;
   }
   .react-calendar__month-view__weekdays__weekday {
     height: 25px;
@@ -186,4 +196,8 @@ button.slick-arrow.slick-next {
     height: 30px;
     width: 30px;
   }
+  .react-calendar__month-view__weekdays,
+.react-calendar__month-view__days {
+    gap: 8px;
+}
 }
