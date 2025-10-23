@@ -1,5 +1,7 @@
 "use client";
 
+import { getMentorsBySlug } from "@/api/authentication/auth";
+import Cookies from "js-cookie";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
