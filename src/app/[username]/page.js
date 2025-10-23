@@ -128,6 +128,7 @@ const MentorDetails = () => {
   const [productCurrency, setProductCurrency] = useState("");
   const [productThumbnail, setProductThumbnail] = useState("");
   const [productDescription, setProductDescription] = useState("");
+  const [accessType, setAccessType] = useState("");
   const searchParams = useSearchParams();
   const [reviews, setReviews] = useState([]);
   const [slug, setSlug] = useState("");
@@ -334,6 +335,7 @@ const MentorDetails = () => {
       thumbnail: book?.thumbnail,
       amount: book?.amount,
       currency: book?.currency,
+      accessType: book?.accessType,
     })) || [];
 
   const oneOnOne =
@@ -364,7 +366,15 @@ const MentorDetails = () => {
     5
   );
 
-  const bookSession = (id, type, amount, bookingCurrency, description, title, sessionType) => {
+  const bookSession = (
+    id,
+    type,
+    amount,
+    bookingCurrency,
+    description,
+    title,
+    sessionType
+  ) => {
     setBookingId(id);
     setBookType(type);
     setProductPrice(amount);
@@ -398,9 +408,15 @@ const MentorDetails = () => {
   };
   const exitCheckout = () => {
     // setShowModal(true)
-    setShowMain(true)
-    setCheckout(false)
-  } 
+    setShowMain(true);
+    setCheckout(false);
+  };
+
+  const handleButtonClick = () => {
+    console.log("Preferred button clicked");
+    // Optionally call your existing logic:
+    checkboxRef.current?.click(); // programmatically click the checkbox
+  };
   const BuyDigitalProduct = (
     id,
     type,
@@ -409,7 +425,8 @@ const MentorDetails = () => {
     title,
     description,
     thumbnail,
-    category
+    category,
+    accessType
   ) => {
     // if (token) {
     setProductId(id);
@@ -420,6 +437,7 @@ const MentorDetails = () => {
     setProductTitle(title);
     setProductDescription(description);
     setCategory(category);
+    setAccessType(accessType);
     console.log({ id });
     setShowModal(true);
     // }
@@ -499,9 +517,10 @@ const MentorDetails = () => {
 
   return (
     <>
-      {showMain &&<div>
-        <ToastContainer />
-        {/* <Navbar /> */}
+      {showMain && (
+        <div>
+          <ToastContainer />
+          {/* <Navbar /> */}
 
         {error ? (
           <Error text={error} />
@@ -522,6 +541,7 @@ const MentorDetails = () => {
                     productTitle={productTitle}
                     productDescription={productDescription}
                     category={category}
+                    accessType={accessType}
                     setShowModal={setShowModal}
                     setCheckout={setCheckout}
                     setShowMain={setShowMain}
@@ -577,750 +597,761 @@ const MentorDetails = () => {
                   />
                 )}
 
-                <div className="bg-[#F2F2F7] py-[50px] md:py-8 font-satoshi -mt-[4rem]">
-                  <div className=" w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
-                    <Link href="/">
-                      <div
-                        className="bg-[#ffff] mt-10
+                  <div className="bg-[#F2F2F7] py-[50px] md:py-8 font-satoshi -mt-[4rem]">
+                    <div className=" w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
+                      <Link href="/">
+                        <div
+                          className="bg-[#ffff] mt-10
                        mb-4 rounded-md py-6 px-6"
-                      >
-                        <Image
-                          src="/prooval-logo.svg"
-                          width={100.44}
-                          height={36}
-                          alt="Prooval logo"
-                        />
-                      </div>
-                    </Link>
-
-                    <div className="min-h-[212px]  mx-auto bg-[#ffffff] py-6 px-20 lg:px-10 md:px-4 mb-[10px]  rounded-[8px] ">
-                      <div className="flex md:flex-col justify-between items-center gap-3 ">
-                        <div className="flex sm:flex-col  gap-3 items-center justify-center">
+                        >
                           <Image
-                            src={mentorData?.mentor?.image}
-                            alt="avatar"
-                            width={164}
-                            height={164}
-                            className="w-[164px] h-[164px] object-cover rounded-[50%]"
+                            src="/prooval-logo.svg"
+                            width={100.44}
+                            height={36}
+                            alt="Prooval logo"
                           />
-                          <div className="flex flex-col md:justify-center md:text-center md:items-center gap-2">
-                            <h2 className="font-medium text-[18px] text-[#101828] leading-[25.62px]">
-                              {mentorData?.mentor?.firstName}{" "}
-                              {mentorData?.mentor?.lastName}
-                            </h2>
-                            <p className="font-medium text-[14px] text-[#1453FF] leading-[130%]">
-                              {mentorData?.mentor?.role},{" "}
-                              {mentorData?.mentor?.company}
-                            </p>
+                        </div>
+                      </Link>
 
-                            <div className="flex items-center gap-1 mb-[16px]">
-                              <img
-                                src={mentorData?.flag?.flag}
-                                alt={mentorData?.mentor?.country + " flag"}
-                                className="w-[12px] h-[12px]"
-                              />
-                              <span className="text-[16px] text-[#667085] font-normal truncate">
-                                {mentorData?.mentor?.country}
-                              </span>
-                            </div>
-                            <a href="#book-session">
-                              <button className="hidden md:block w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] ">
-                                View All Packages
-                              </button>
-                            </a>
+                      <div className="min-h-[212px]  mx-auto bg-[#ffffff] py-6 px-20 lg:px-10 md:px-4 mb-[10px]  rounded-[8px] ">
+                        <div className="flex md:flex-col justify-between items-center gap-3 ">
+                          <div className="flex sm:flex-col  gap-3 items-center justify-center">
+                            <Image
+                              src={mentorData?.mentor?.image}
+                              alt="avatar"
+                              width={164}
+                              height={164}
+                              className="w-[164px] h-[164px] object-cover rounded-[50%]"
+                            />
+                            <div className="flex flex-col md:justify-center md:text-center md:items-center gap-2">
+                              <h2 className="font-medium text-[18px] text-[#101828] leading-[25.62px]">
+                                {mentorData?.mentor?.firstName}{" "}
+                                {mentorData?.mentor?.lastName}
+                              </h2>
+                              <p className="font-medium text-[14px] text-[#1453FF] leading-[130%]">
+                                {mentorData?.mentor?.role},{" "}
+                                {mentorData?.mentor?.company}
+                              </p>
 
-                            <div className="flex flex-row justify-start md:justify-center gap-2 align-center mt-0 sm:mt-6">
-                              <button className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[146.5px] h-[35.6px] flex items-center xxxxm:w-[117px] xxxxm:text-[8px]">
-                                <div className="cursor-pointer">
-                                  <Checkbox
-                                    {...label}
-                                    icon={<FavoriteBorder />}
-                                    checkedIcon={
-                                      <Favorite
-                                        sx={{
-                                          color: mentorData?.mentor?.hasLiked
-                                            ? "green"
-                                            : "transparent",
-                                        }}
-                                      />
-                                    }
-                                    onChange={handleChange}
-                                    id="fav"
-                                    checked={
-                                      mentorData?.mentor?.hasLiked || false
-                                    }
-                                  />
-                                </div>
-                                Preferred Mentor
-                              </button>
-                              <button
-                                className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[90px] h-[35.6px] flex justify-center items-center gap-1 sxm:[80px] xxxxm:text-[8px]"
-                                onClick={shareMentorProfile}
-                              >
-                                <Image
-                                  src="/share.svg"
-                                  alt="linkedin"
-                                  width={20}
-                                  height={20}
+                              <div className="flex items-center gap-1 mb-[16px]">
+                                <img
+                                  src={mentorData?.flag?.flag}
+                                  alt={mentorData?.mentor?.country + " flag"}
+                                  className="w-[12px] h-[12px]"
                                 />
-                                Share Link
-                              </button>
-                              <a
-                                className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[35.6px] flex justify-center items-center gap-1 sxm:w-[80px] xxxxm:text-[8px]"
-                                href={mentorData?.mentor?.linkedinLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <LinkedInIcon style={{ fontSize: 17 }} />
-                                View LinkedIn
+                                <span className="text-[16px] text-[#667085] font-normal truncate">
+                                  {mentorData?.mentor?.country}
+                                </span>
+                              </div>
+                              <a href="#book-session">
+                                <button className="hidden md:block w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff]  bg-primary rounded-[6.29px] ">
+                                  View All Packages
+                                </button>
                               </a>
+
+                              <div className="flex flex-row justify-start md:justify-center gap-1 align-center mt-0 sm:mt-6">
+                                <button
+                                  type="button"
+                                  onClick={handleButtonClick}
+                                  className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[32px] flex items-center xxxxm:w-[94px] xxxxm:text-[8px]"
+                                >
+                                  <div
+                                    className="cursor-pointer"
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    <Checkbox
+                                      {...label}
+                                      inputRef={checkboxRef}
+                                      icon={<FavoriteBorder />}
+                                      checkedIcon={
+                                        <Favorite
+                                          sx={{
+                                            color: mentorData?.mentor?.hasLiked
+                                              ? "green"
+                                              : "transparent",
+                                          }}
+                                        />
+                                      }
+                                      onChange={handleChange}
+                                      id="fav"
+                                      checked={
+                                        mentorData?.mentor?.hasLiked || false
+                                      }
+                                    />
+                                  </div>
+                                  Preferred
+                                </button>
+                                <button
+                                  className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[32px] flex justify-center items-center gap-1 sxm:w-[94px] xxxxm:text-[8px]"
+                                  onClick={shareMentorProfile}
+                                >
+                                  <Image
+                                    src="/share.svg"
+                                    alt="linkedin"
+                                    width={20}
+                                    height={20}
+                                  />
+                                  Share Link
+                                </button>
+                                <a
+                                  className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[32px] flex justify-center items-center gap-1 sxm:w-[94px] xxxxm:text-[8px]"
+                                  href={mentorData?.mentor?.linkedinLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <LinkedInIcon style={{ fontSize: 17 }} />
+                                  View LinkedIn
+                                </a>
+                              </div>
                             </div>
                           </div>
-                        </div>
 
-                        <a href="#book-session">
-                          <button
-                            className={`md:hidden w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff] bg-primary  rounded-[6.29px] `}
-                            // onClick={bookSession}
-                            // onClick={handleNextPage}
-                          >
-                            View all packages
-                          </button>
-                        </a>
+                          <a href="#book-session">
+                            <button
+                              className={`md:hidden w-[183px]  h-[44.43px] leading-[150%] text-[12.57px] text-[#ffff] bg-primary  rounded-[6.29px] `}
+                              // onClick={bookSession}
+                              // onClick={handleNextPage}
+                            >
+                              View all packages
+                            </button>
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                    {/* First eNDING */}
-                    <div className="flex md:flex-col  bg-[#ffff] rounded-2xl">
-                      <div className="w-[45%] md:w-full  ">
-                        <div className="min-h-[186px] border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA] flex px-4 items-center justify-center gap-2 py-8 ">
-                          <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[122.33px] lg:max-w-[122.33px] h-[122px] rounded-lg px-4 text-center">
-                            <Image
-                              src="/mentee.svg"
-                              alt="avatar"
-                              width={27}
-                              height={27}
-                              className="w-[27px] h-[27px] rounded-[50%]"
-                            />
-                            <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
-                              Total Mentees
-                            </h5>
-                            <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                              {mentorData?.mentor?.totalMentees || 0}
-                            </h3>
+                      {/* First eNDING */}
+                      <div className="flex md:flex-col  bg-[#ffff] rounded-2xl">
+                        <div className="w-[45%] md:w-full  ">
+                          <div className="min-h-[186px] border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA] flex px-4 items-center justify-center gap-2 py-8 ">
+                            <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[150px] sm:w-[180px] md:w-[250px] lg:w-[187.5px] h-[122px] rounded-lg px-4 text-center">
+                              <Image
+                                src="/mentee.svg"
+                                alt="avatar"
+                                width={27}
+                                height={27}
+                                className="w-[27px] h-[27px] rounded-[50%]"
+                              />
+                              <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
+                                Total Sold Products
+                              </h5>
+                              <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
+                                {mentorData?.mentor?.totalSoldProduct || 0}
+                              </h3>
+                            </div>
+                            <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[150px] sm:w-[180px] md:w-[250px] lg:w-[187.5px] h-[122px] rounded-lg px-4 text-center">
+                              <Image
+                                src="/views.svg"
+                                alt="avatar"
+                                width={27}
+                                height={27}
+                                className="w-[27px] h-[27px] rounded-[50%]"
+                              />
+                              <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
+                                Total Profile Views
+                              </h5>
+                              <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
+                                {mentorData?.mentor?.totalPageViews}
+                              </h3>
+                            </div>
                           </div>
-                          <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[122.33px] lg:max-w-[122.33px]  h-[122px] rounded-lg px-4 text-center ">
-                            <Image
-                              src="/session.svg"
-                              alt="avatar"
-                              width={27}
-                              height={27}
-                              className="w-[27px] h-[27px] rounded-[50%]"
-                            />
-                            <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
-                              Total Sessions Booked
-                            </h5>
-                            <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                              {mentorData?.mentor?.totalSessionBooked || 0}
-                            </h3>
-                          </div>{" "}
-                          <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[122.33px] lg:max-w-[122.33px] h-[122px] rounded-lg px-4 text-center ">
-                            <Image
-                              src="/views.svg"
-                              alt="avatar"
-                              width={27}
-                              height={27}
-                              className="w-[27px] h-[27px] rounded-[50%]"
-                            />
-                            <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
-                              Total Profile Views
-                            </h5>
-                            <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                              {mentorData?.mentor?.totalPageViews}
-                            </h3>
-                          </div>
-                        </div>
-                        <div className=" border border-[#fff] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 ">
-                          <h4 className="text-[12px] leading-[140%] font-medium mb-2">
-                            Skills / Expertise
-                          </h4>
-                          <div className="flex justify-start flex-wrap gap-3 mb-2">
-                            {mentorData?.mentor?.skills?.map((element, i) => (
-                              <div
-                                key={i}
-                                className="h-6 w-fit bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px] p-3"
-                              >
-                                <span>{element}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className=" border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 md:px-4 ">
-                          <h4 className="text-[12px] leading-[140%] font-medium mb-2">
-                            Available Booking Slots
-                          </h4>
-                          <div className="flex justify-start flex-wrap gap-6 md:gap-2">
-                            {mentorData?.availability?.availableDays.map(
-                              (element, i) => (
+                          <div className=" border border-[#fff] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 ">
+                            <h4 className="text-[12px] leading-[140%] font-medium mb-2">
+                              Skills / Expertise
+                            </h4>
+                            <div className="flex justify-start flex-wrap gap-3 mb-2">
+                              {mentorData?.mentor?.skills?.map((element, i) => (
                                 <div
                                   key={i}
-                                  className="h-10 max:w-[112px]  text-[#344054] border border-[#EAEAEA] flex justify-center items-center text-[10px] leading-[18px] px-6"
+                                  className="h-6 w-fit bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px] p-3"
                                 >
-                                  <span>
-                                    {capitalizeFirstLetter(element.day)}
-                                  </span>
+                                  <span>{element}</span>
                                 </div>
-                              )
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Section for Available Bookings */}
-
-                        <div className="block md:hidden h-[5%] border  border-[#fff] border-r-[#EAEAEA]   p-8 md:px-4 "></div>
-                      </div>
-                      <div className="w-[55%] md:w-full ">
-                        <div className=" border border-[#F2F2F7] border-b-[#EAEAEA]  py-6 md:py-4 ">
-                          <div className="flex justify-between items-center border border-[#fff] border-b-[#EAEAEA] mx-12 md:mx-4 py-[8.5px]  ">
-                            <h4 className="text-[12px] leading-[140%] font-medium">
-                              About
-                            </h4>
-                            <div className="flex items-center gap-2 ">
-                              <div className="flex items-center ">
-                                {Array.from({ length: 5 }).map((_, i) =>
-                                  i < mentorData.averageRating ? (
-                                    <Image
-                                      key={i}
-                                      src="/rate.svg"
-                                      alt="star"
-                                      width={16}
-                                      height={16}
-                                      className=""
-                                    />
-                                  ) : (
-                                    <Image
-                                      key={i}
-                                      src="/rate2.svg"
-                                      alt="star"
-                                      width={16}
-                                      height={16}
-                                      className=""
-                                    />
-                                  )
-                                )}
-                              </div>
-                              <div className="flex items-center gap-2">
-                                <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
-                                  {mentorData.averageRating || 0}
-                                </h4>
-                                <p className=" text-[10px] leading-[140%] font-inter font-normal text-[#888888] ">
-                                  {mentorData?.reviews?.length || "No"} reviews
-                                </p>
-                              </div>
+                              ))}
                             </div>
                           </div>
-                          {/* <div>
+
+                          <div className=" border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 md:px-4 ">
+                            <h4 className="text-[12px] leading-[140%] font-medium mb-2">
+                              Available Booking Slots
+                            </h4>
+                            <div className="flex justify-start flex-wrap gap-6 md:gap-2">
+                              {mentorData?.availability?.availableDays.map(
+                                (element, i) => (
+                                  <div
+                                    key={i}
+                                    className="h-10 max:w-[112px]  text-[#344054] border border-[#EAEAEA] flex justify-center items-center text-[10px] leading-[18px] px-6"
+                                  >
+                                    <span>
+                                      {capitalizeFirstLetter(element.day)}
+                                    </span>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Section for Available Bookings */}
+
+                          <div className="block md:hidden h-[5%] border  border-[#fff] border-r-[#EAEAEA]   p-8 md:px-4 "></div>
+                        </div>
+                        <div className="w-[55%] md:w-full ">
+                          <div className=" border border-[#F2F2F7] border-b-[#EAEAEA]  py-6 md:py-4 ">
+                            <div className="flex justify-between items-center border border-[#fff] border-b-[#EAEAEA] mx-12 md:mx-4 py-[8.5px]  ">
+                              <h4 className="text-[12px] leading-[140%] font-medium">
+                                About
+                              </h4>
+                              <div className="flex items-center gap-2 ">
+                                <div className="flex items-center ">
+                                  {Array.from({ length: 5 }).map((_, i) =>
+                                    i < mentorData.averageRating ? (
+                                      <Image
+                                        key={i}
+                                        src="/rate.svg"
+                                        alt="star"
+                                        width={16}
+                                        height={16}
+                                        className=""
+                                      />
+                                    ) : (
+                                      <Image
+                                        key={i}
+                                        src="/rate2.svg"
+                                        alt="star"
+                                        width={16}
+                                        height={16}
+                                        className=""
+                                      />
+                                    )
+                                  )}
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
+                                    {mentorData.averageRating || 0}
+                                  </h4>
+                                  <p className=" text-[10px] leading-[140%] font-inter font-normal text-[#888888] ">
+                                    {mentorData?.reviews?.length || "No"}{" "}
+                                    reviews
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            {/* <div>
                       <p className="text-[#4F4F4F] leading-[140%] text-[14px] mx-12 md:mx-4 py-4">
                         {mentorData?.mentor?.about}
                       </p>
                     </div> */}
-                          <div>
-                            <div
-                              className="text-[#4F4F4F] leading-[150%] text-[14px] mx-12 md:mx-4 py-4 [&>*]:my-[10px]"
-                              dangerouslySetInnerHTML={{
-                                __html: mentorData?.mentor?.about,
-                              }}
-                            />
-                          </div>
-                        </div>
-                        {mentorData?.mentor?.yearsOfExperience && (
-                          <div className=" border border-[#fff] border-b-[#EAEAEA] border-l-[#EAEAEA] py-6">
-                            <div className="mx-12 md:mx-4">
-                              <div className="flex gap-2 items-center  mb-6   ">
-                                <h4 className="text-[12px] leading-[120%] font-medium ">
-                                  Experience
-                                </h4>
-                                <div className="border border-primary w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] flex justify-center items-center text-center">
-                                  {mentorData?.mentor?.yearsOfExperience +
-                                    " " +
-                                    "years" || ""}
-                                </div>
-                              </div>
-                              <div className="flex flex-col gap-4">
-                                {mentorData?.mentor?.experience?.length ===
-                                0 ? (
-                                  <div className="min-h-[78px] border border-[#EAEAEA] p-6   flex flex-col justify-center items-center gap-4">
-                                    <Image
-                                      src="/exp.svg"
-                                      alt="avatar"
-                                      width={40}
-                                      height={40}
-                                      className=""
-                                    />
-                                    <div className="flex flex-col justify-center">
-                                      <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                                        No Experience Added
-                                      </p>
-                                    </div>
-                                  </div>
-                                ) : (
-                                  <>
-                                    {mentorData?.mentor?.experience?.map(
-                                      (exp, index) => (
-                                        <>
-                                          <div
-                                            key={index}
-                                            className="min-h-[78px] border border-[#EAEAEA] p-3 flex items-center gap-4"
-                                          >
-                                            <Image
-                                              src="/exp.svg"
-                                              alt="avatar"
-                                              width={40}
-                                              height={40}
-                                              className=""
-                                            />
-                                            <div className="flex flex-col gap-2">
-                                              <h4 className="text-[12px] leading-[120%] font-medium ">
-                                                {exp.jobTitle}
-                                              </h4>
-                                              <div className="flex items-center gap-2">
-                                                <p className="text-[12px] text-[#474747] leading-[120%] font-[350px] ">
-                                                  {exp.company}
-                                                </p>
-                                                <ul
-                                                  bookingType="disc"
-                                                  className=" text-[#8B8B8B] text-[12px]  leading-[140%] font-[350px]"
-                                                >
-                                                  <li> {exp.location}</li>
-                                                </ul>
-                                              </div>
-                                              <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                                                {new Date(
-                                                  exp.startDate
-                                                ).toLocaleDateString("en-US", {
-                                                  year: "numeric",
-                                                  month: "short",
-                                                })}{" "}
-                                                -{" "}
-                                                {exp.endDate
-                                                  ? new Date(
-                                                      exp.endDate
-                                                    ).toLocaleDateString(
-                                                      "en-US",
-                                                      {
-                                                        year: "numeric",
-                                                        month: "short",
-                                                      }
-                                                    )
-                                                  : "Present"}
-                                              </p>
-                                            </div>
-                                          </div>
-                                        </>
-                                      )
-                                    )}
-                                  </>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                        <div className=" border border-[#fff] border-l-[#EAEAEA] border-b-[#EAEAEA] px-12 md:px-4  py-6">
-                          <div className="flex justify-between gap-2 items-center  mb-6   ">
-                            <h4 className="text-[12px] leading-[120%] font-medium ">
-                              Reviews
-                            </h4>
-                            <p
-                              className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center cursor-pointer"
-                              onClick={() =>
-                                setView(mentorData?.reviews?.length)
-                              }
-                            >
-                              View All
-                            </p>
-                          </div>
-
-                          {mentorData?.reviews?.length === 0 ? (
-                            <div className="min-h-[78px] border border-[#EAEAEA] p-6   flex flex-col justify-center items-center gap-4">
-                              <Image
-                                src="/exp.svg"
-                                alt="avatar"
-                                width={40}
-                                height={40}
-                                className=""
+                            <div>
+                              <div
+                                className="text-[#4F4F4F] leading-[150%] text-[14px] mx-12 md:mx-4 py-4 [&>*]:my-[10px]"
+                                dangerouslySetInnerHTML={{
+                                  __html: mentorData?.mentor?.about,
+                                }}
                               />
-                              <div className="flex flex-col justify-center">
-                                <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                                  No Reviews Added
-                                </p>
-                              </div>
                             </div>
-                          ) : (
-                            <>
-                              {mentorData?.reviews
-                                ?.slice(0, view)
-                                .map((element, i) => (
-                                  <div
-                                    key={i}
-                                    className="min-h-[132px] border border-[#EAEAEA] p-3 flex  gap-4 bg-[#F7F7F7] rounded-lg flex-col mb-2 "
-                                  >
-                                    <div className="   py-4 ">
-                                      <div className="flex justify-between items-center ">
-                                        <div className="flex gap-2 items-center">
-                                          <Image
-                                            src={element.user.profilePic}
-                                            alt="avatar"
-                                            width={32}
-                                            height={32}
-                                            className="h-[32px] w-[32px] object-cover rounded-[50%]"
-                                          />
-                                          <h4 className="text-[12px] leading-[140%] font-medium ">
-                                            {element.user.firstName}{" "}
-                                            {element.user.laststName}
-                                          </h4>
-                                        </div>
-                                        <div className="flex  items-center gap-2 ">
-                                          <div className="flex items-center ">
-                                            {Array.from({ length: 5 }).map(
-                                              (_, i) =>
-                                                i < element.rating ? (
-                                                  <Image
-                                                    key={i}
-                                                    src="/rate.svg"
-                                                    alt="star"
-                                                    width={14}
-                                                    height={14}
-                                                    className=""
-                                                  />
-                                                ) : (
-                                                  <Image
-                                                    key={i}
-                                                    src="/rate2.svg"
-                                                    alt="star"
-                                                    width={14}
-                                                    height={14}
-                                                    className=""
-                                                  />
-                                                )
-                                            )}
-                                          </div>
-                                          <div className="flex items-center gap-2">
-                                            <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
-                                              {element.rating + "." + "0" || 0}
-                                            </h4>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div>
-                                        <p className="text-[#4F4F4F] leading-[140%] text-[14px] pt-4">
-                                          {element.comment}
+                          </div>
+                          {mentorData?.mentor?.yearsOfExperience && (
+                            <div className=" border border-[#fff] border-b-[#EAEAEA] border-l-[#EAEAEA] py-6">
+                              <div className="mx-12 md:mx-4">
+                                <div className="flex gap-2 items-center  mb-6   ">
+                                  <h4 className="text-[12px] leading-[120%] font-medium ">
+                                    Experience
+                                  </h4>
+                                  <div className="border border-primary w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] flex justify-center items-center text-center">
+                                    {mentorData?.mentor?.yearsOfExperience +
+                                      " " +
+                                      "years" || ""}
+                                  </div>
+                                </div>
+                                <div className="flex flex-col gap-4">
+                                  {mentorData?.mentor?.experience?.length ===
+                                  0 ? (
+                                    <div className="min-h-[78px] border border-[#EAEAEA] p-6   flex flex-col justify-center items-center gap-4">
+                                      <Image
+                                        src="/exp.svg"
+                                        alt="avatar"
+                                        width={40}
+                                        height={40}
+                                        className=""
+                                      />
+                                      <div className="flex flex-col justify-center">
+                                        <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
+                                          No Experience Added
                                         </p>
                                       </div>
                                     </div>
-                                  </div>
-                                ))}
-                            </>
+                                  ) : (
+                                    <>
+                                      {mentorData?.mentor?.experience?.map(
+                                        (exp, index) => (
+                                          <>
+                                            <div
+                                              key={index}
+                                              className="min-h-[78px] border border-[#EAEAEA] p-3 flex items-center gap-4"
+                                            >
+                                              <Image
+                                                src="/exp.svg"
+                                                alt="avatar"
+                                                width={40}
+                                                height={40}
+                                                className=""
+                                              />
+                                              <div className="flex flex-col gap-2">
+                                                <h4 className="text-[12px] leading-[120%] font-medium ">
+                                                  {exp.jobTitle}
+                                                </h4>
+                                                <div className="flex items-center gap-2">
+                                                  <p className="text-[12px] text-[#474747] leading-[120%] font-[350px] ">
+                                                    {exp.company}
+                                                  </p>
+                                                  <ul
+                                                    bookingType="disc"
+                                                    className=" text-[#8B8B8B] text-[12px]  leading-[140%] font-[350px]"
+                                                  >
+                                                    <li> {exp.location}</li>
+                                                  </ul>
+                                                </div>
+                                                <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
+                                                  {new Date(
+                                                    exp.startDate
+                                                  ).toLocaleDateString(
+                                                    "en-US",
+                                                    {
+                                                      year: "numeric",
+                                                      month: "short",
+                                                    }
+                                                  )}{" "}
+                                                  -{" "}
+                                                  {exp.endDate
+                                                    ? new Date(
+                                                        exp.endDate
+                                                      ).toLocaleDateString(
+                                                        "en-US",
+                                                        {
+                                                          year: "numeric",
+                                                          month: "short",
+                                                        }
+                                                      )
+                                                    : "Present"}
+                                                </p>
+                                              </div>
+                                            </div>
+                                          </>
+                                        )
+                                      )}
+                                    </>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
                           )}
+                          <div className=" border border-[#fff] border-l-[#EAEAEA] border-b-[#EAEAEA] px-12 md:px-4  py-6">
+                            <div className="flex justify-between gap-2 items-center  mb-6   ">
+                              <h4 className="text-[12px] leading-[120%] font-medium ">
+                                Reviews
+                              </h4>
+                              <p
+                                className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center cursor-pointer"
+                                onClick={() =>
+                                  setView(mentorData?.reviews?.length)
+                                }
+                              >
+                                View All
+                              </p>
+                            </div>
+
+                            {mentorData?.reviews?.length === 0 ? (
+                              <div className="min-h-[78px] border border-[#EAEAEA] p-6   flex flex-col justify-center items-center gap-4">
+                                <Image
+                                  src="/exp.svg"
+                                  alt="avatar"
+                                  width={40}
+                                  height={40}
+                                  className=""
+                                />
+                                <div className="flex flex-col justify-center">
+                                  <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
+                                    No Reviews Added
+                                  </p>
+                                </div>
+                              </div>
+                            ) : (
+                              <>
+                                {mentorData?.reviews
+                                  ?.slice(0, view)
+                                  .map((element, i) => (
+                                    <div
+                                      key={i}
+                                      className="min-h-[132px] border border-[#EAEAEA] p-3 flex  gap-4 bg-[#F7F7F7] rounded-lg flex-col mb-2 "
+                                    >
+                                      <div className="   py-4 ">
+                                        <div className="flex justify-between items-center ">
+                                          <div className="flex gap-2 items-center">
+                                            <Image
+                                              src={element.user.profilePic}
+                                              alt="avatar"
+                                              width={32}
+                                              height={32}
+                                              className="h-[32px] w-[32px] object-cover rounded-[50%]"
+                                            />
+                                            <h4 className="text-[12px] leading-[140%] font-medium ">
+                                              {element.user.firstName}{" "}
+                                              {element.user.laststName}
+                                            </h4>
+                                          </div>
+                                          <div className="flex  items-center gap-2 ">
+                                            <div className="flex items-center ">
+                                              {Array.from({ length: 5 }).map(
+                                                (_, i) =>
+                                                  i < element.rating ? (
+                                                    <Image
+                                                      key={i}
+                                                      src="/rate.svg"
+                                                      alt="star"
+                                                      width={14}
+                                                      height={14}
+                                                      className=""
+                                                    />
+                                                  ) : (
+                                                    <Image
+                                                      key={i}
+                                                      src="/rate2.svg"
+                                                      alt="star"
+                                                      width={14}
+                                                      height={14}
+                                                      className=""
+                                                    />
+                                                  )
+                                              )}
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                              <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
+                                                {element.rating + "." + "0" ||
+                                                  0}
+                                              </h4>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div>
+                                          <p className="text-[#4F4F4F] leading-[140%] text-[14px] pt-4">
+                                            {element.comment}
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  ))}
+                              </>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className=" mx-auto mt-3" id="book-session">
-                    <section className="flex flex-col  gap-2 bg-[#ffff] border border-[#EAEAEA] p-8  bg-[#ffffff] py-6 px-20 lg:px-10 md:px-4 mb-[10px]  rounded-[8px] w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
-                      <div className="max-w-6xl mx-auto mt-10 p-6 space-y-8 bg-[white] rounded-2xl">
-                        <h2 className="text-[28px] font-semibold">
-                          Available packages
-                        </h2>
+                    <div className=" mx-auto mt-3" id="book-session">
+                      <section className="flex flex-col  gap-2 bg-[#ffff] border border-[#EAEAEA] p-8  bg-[#ffffff] py-6 px-20 lg:px-10 md:px-4 mb-[10px]  rounded-[8px] w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
+                        <div className="max-w-6xl mx-auto mt-10 p-6 space-y-8 bg-[white] rounded-2xl">
+                          <h2 className="text-[28px] font-semibold">
+                            Available packages
+                          </h2>
 
-                        {/* Digital Products */}
-                        {mentorData?.digitalProducts?.length > 0 && (
-                          <div>
-                            <h3 className="text-lg font-semibold mb-4 ">
-                              Digital products
-                            </h3>
-                            <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-                              {mentorData?.digitalProducts.map((book, id) => (
-                                <div
-                                  key={id}
-                                  className="border p-4 border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer "
-                                  onClick={() =>
-                                    BuyDigitalProduct(
-                                      book?._id,
-                                      book?.type,
-                                      book?.amount,
-                                      book?.currency,
-                                      book?.title,
-                                      book?.description,
-                                      book?.thumbnail,
-                                      book?.category
-                                    )
-                                  }
-                                >
+                          {/* Digital Products */}
+                          {mentorData?.digitalProducts?.length > 0 && (
+                            <div>
+                              <h3 className="text-lg font-semibold mb-4 ">
+                                Digital products
+                              </h3>
+                              <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
+                                {mentorData?.digitalProducts.map((book, id) => (
                                   <div
-                                    className={`h-36 rounded-lg mb-2 bg-cover bg-center `}
-                                    style={{
-                                      backgroundImage: `url(${book?.thumbnail})`,
-                                      // backgroundColor: id === 1 ? "#FF353599" : "#00875399",
-                                      backgroundBlendMode: "multiply",
-                                    }}
-                                  />
-                                  <div className="py-4">
-                                    <div className="flex justify-between items-center">
-                                      <span className="text-xs bg-[#DEA8061A] text-[#DEA806] px-3 py-1 rounded-[32px] font-medium">
-                                        {book?.category}
-                                      </span>
-                                      {book?.type === "paid" ? (
-                                        <div className=" text-sm font-semibold font-inter ">
-                                          {getCurrencySymbol(book.currency)}
-                                          {formatPrice(book?.amount)}
-                                        </div>
-                                      ) : (
-                                        <span className="text-xs bg-[#3333331A] text-[#333333] px-3 py-1 rounded-[32px] font-medium">
-                                          Free
-                                        </span>
-                                      )}
-                                    </div>
-                                    <div className="text-sm font-medium mt-4 truncate">
-                                      {book?.title}
-                                    </div>
-                                    <div className="text-sm text-primary mt-2 font-medium inline-flex items-center">
-                                      Get product{" "}
-                                      <IoIosArrowRoundForward className="text-[16px] text-primary" />
-                                    </div>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                        {/* 1-on-1 Sessions */}
-                        {mentorData?.oneOnOneSessions?.length > 0 && (
-                          <div>
-                            <h3 className="text-lg font-semibold leading-[140%] mb-4">
-                              1-on-1 Sessions
-                            </h3>
-                            <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-                              {mentorData?.oneOnOneSessions?.map(
-                                (details, i) => (
-                                  <div key={i}>
-                                    <div
-                                      className="border border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer h-[205px] py-7 px-4 space-y-2"
-                                      onClick={() =>
-                                        bookSession(
-                                          // details?._id,
-                                          details?.bookingId,
-                                          details?.bookingType,
-                                          details?.amount,
-                                          details?.currency,
-                                          details?.description,
-                                          details?.title,
-                                        )
-                                      }
-                                    >
-                                      <div className="flex gap-[16px] justify-between items-center mb-[10px] ">
-                                        <div
-                                          className={` h-[22px] px-3 rounded-full flex items-center justify-center ${
-                                            details.bookingType === "Paid"
-                                              ? " bg-[#DEA8061A]"
-                                              : " bg-[#3333331A]"
-                                          }`}
-                                        >
-                                          {details.bookingType === "Paid" && (
-                                            <Image
-                                              src="/paid.svg"
-                                              alt="mentor"
-                                              width={12}
-                                              height={12}
-                                              className="w-[12px] h-[12px] rounded-full"
-                                            />
-                                          )}
-                                          <span
-                                            className={` text-[12px] font-medium leading-[18px] font-inter ${
-                                              details?.bookingType === "Paid"
-                                                ? "text-[#F3B704]"
-                                                : "text-[#333333]"
-                                            } `}
-                                          >
-                                            {details.bookingType}
-                                          </span>
-                                        </div>
-                                        {details.bookingType === "Paid" && (
-                                          <div className=" flex items-center gap-1 justify-center">
-                                            <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
-                                              {getCurrencySymbol(
-                                                details?.currency
-                                              )}
-                                              {formatPrice(details?.amount)}
-                                            </span>
-                                          </div>
-                                        )}
-                                      </div>
-
-                                      <div className="font-bold font-inter text-[#333333] text-sm truncate">
-                                        {details?.title}
-                                      </div>
-                                      <p className="text-xs text-[#878787] leading=[140%] line-clamp-3">
-                                        {details?.description}
-                                      </p>
-                                      <div className="flex justify-between items-center">
-                                        <div className="text-xs">
-                                          {details?.sessionDuration} Mins
-                                        </div>
-                                        <p className="text-sm text-primary font-medium flex items-center">
-                                          Book Session{" "}
-                                          <IoIosArrowRoundForward className="text-[16px] text-primary" />
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                )
-                              )}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Group Package */}
-                        {mentorData?.packageMentorships?.length > 0 && (
-                          <div className="">
-                            <h3 className="text-lg font-semibold mb-4">
-                              Mentorship Package
-                            </h3>
-                            <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
-                              {mentorData?.packageMentorships?.map(
-                                (pkg, idx) => (
-                                  <div
-                                    key={idx}
+                                    key={id}
+                                    className="border p-4 border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer "
                                     onClick={() =>
-                                      bookSession(
-                                        pkg?.bookingId,
-                                        pkg?.bookingType,
-                                        pkg?.amount,
-                                        pkg?.currency,
-                                        pkg?.description,
-                                        pkg?.title,
-                                        "mentorship"
+                                      BuyDigitalProduct(
+                                        book?._id,
+                                        book?.type,
+                                        book?.amount,
+                                        book?.currency,
+                                        book?.title,
+                                        book?.description,
+                                        book?.thumbnail,
+                                        book?.category,
+                                        book?.accessType,
                                       )
                                     }
                                   >
                                     <div
-                                      className="border border-[#EDEDED] h-[174px] border-t-4 shadow-sm hover:shadow-md rounded-md transition-shadow duration-200 cursor-pointer py-7 px-4 space-y-2"
+                                      className={`h-36 rounded-lg mb-2 bg-cover bg-center `}
                                       style={{
-                                        borderTopColor:
-                                          groupColors[idx % groupColors.length],
+                                        backgroundImage: `url(${book?.thumbnail})`,
+                                        // backgroundColor: id === 1 ? "#FF353599" : "#00875399",
+                                        backgroundBlendMode: "multiply",
                                       }}
-                                    >
+                                    />
+                                    <div className="py-4">
                                       <div className="flex justify-between items-center">
-                                        <span
-                                          className="text-xs px-2 py-1 rounded-[32px] font-medium"
-                                          style={{
-                                            backgroundColor: `${
-                                              groupColors[
-                                                idx % groupColors.length
-                                              ]
-                                            }1A`,
-                                            color:
-                                              groupColors[
-                                                idx % groupColors.length
-                                              ],
-                                          }}
-                                        >
-                                          {pkg?.packageDuration}{" "}
-                                          {pkg?.packageDuration > 1
-                                            ? "Weeks"
-                                            : "Week"}
+                                        <span className="text-xs bg-[#DEA8061A] text-[#DEA806] px-3 py-1 rounded-[32px] font-medium">
+                                          {book?.category}
                                         </span>
-                                        {pkg?.bookingType.toLowerCase() ===
-                                        "paid" ? (
-                                          <div className="text-right text-sm font-semibold">
-                                            {getCurrencySymbol(pkg?.currency)}
-                                            {formatPrice(pkg?.amount)}
+                                        {book?.type === "paid" ? (
+                                          <div className=" text-sm font-semibold font-inter ">
+                                            {getCurrencySymbol(book.currency)}
+                                            {formatPrice(book?.amount)}
                                           </div>
                                         ) : (
-                                          <div className="text-right text-sm font-semibold">
+                                          <span className="text-xs bg-[#3333331A] text-[#333333] px-3 py-1 rounded-[32px] font-medium">
                                             Free
-                                          </div>
+                                          </span>
                                         )}
                                       </div>
-                                      <div className="font-semibold text-sm">
-                                        {pkg?.title}
+                                      <div className="text-sm font-medium mt-4 truncate">
+                                        {book?.title}
                                       </div>
-                                      <p className="text-xs text-gray-600 line-clamp-2">
-                                        {pkg?.description}
-                                      </p>
-                                      <div className="flex justify-between items-center">
-                                        <div className="flex items-center gap-2">
-                                          <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
-                                            {pkg?.sessionDuration} Mins{" "}
-                                          </span>
-                                          <span className=" w-2 h-2 bg-[#D9D9D9] rounded-full"></span>
-                                          <span className="text-[12px] leading-[140%] text-[#4F4F4F] ">
-                                            {duration(pkg?.sessionsPerWeek)} a
-                                            week
-                                          </span>
-                                        </div>
-                                        <p className="text-sm text-primary font-medium flex items-center">
-                                          Book Session{" "}
-                                          <IoIosArrowRoundForward className="text-[16px] text-primary" />
-                                        </p>
+                                      <div className="text-sm text-primary mt-2 font-medium inline-flex items-center">
+                                        Get product{" "}
+                                        <IoIosArrowRoundForward className="text-[16px] text-primary" />
                                       </div>
                                     </div>
                                   </div>
-                                )
-                              )}
+                                ))}
+                              </div>
                             </div>
-                          </div>
-                        )}
-                        {/* //webinar */}
-                        {mentorData?.webinars?.length > 0 && (
-                          <div className="">
-                            <h3 className="text-lg font-semibold mb-4">
-                              Webinar
-                            </h3>
-                            <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
-                              {mentorData?.webinars?.map((webinar, id) => (
-                                <EventCard
-                                  title={webinar?.title}
-                                  month={webinar?.startDate}
-                                  day={webinar?.startDate}
-                                  venue="Google Meet"
-                                  price={webinar?.type}
-                                  joinedLabel={webinar?.guestAttendees?.length}
-                                  image={webinar.thumbnail}
-                                  currency={webinar.currency}
-                                  amount={webinar.amount}
-                                  key={id}
-                                  action={() => AttendWebinar(webinar._id)}
-                                />
-                              ))}
+                          )}
+                          {/* 1-on-1 Sessions */}
+                          {mentorData?.oneOnOneSessions?.length > 0 && (
+                            <div>
+                              <h3 className="text-lg font-semibold leading-[140%] mb-4">
+                                1-on-1 Sessions
+                              </h3>
+                              <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
+                                {mentorData?.oneOnOneSessions?.map(
+                                  (details, i) => (
+                                    <div key={i}>
+                                      <div
+                                        className="border border-[#EDEDED] rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 cursor-pointer h-[205px] py-7 px-4 space-y-2"
+                                        onClick={() =>
+                                          bookSession(
+                                            // details?._id,
+                                            details?.bookingId,
+                                            details?.bookingType,
+                                            details?.amount,
+                                            details?.currency,
+                                            details?.description,
+                                            details?.title
+                                          )
+                                        }
+                                      >
+                                        <div className="flex gap-[16px] justify-between items-center mb-[10px] ">
+                                          <div
+                                            className={` h-[22px] px-3 rounded-full flex items-center justify-center ${
+                                              details.bookingType === "Paid"
+                                                ? " bg-[#DEA8061A]"
+                                                : " bg-[#3333331A]"
+                                            }`}
+                                          >
+                                            {details.bookingType === "Paid" && (
+                                              <Image
+                                                src="/paid.svg"
+                                                alt="mentor"
+                                                width={12}
+                                                height={12}
+                                                className="w-[12px] h-[12px] rounded-full"
+                                              />
+                                            )}
+                                            <span
+                                              className={` text-[12px] font-medium leading-[18px] font-inter ${
+                                                details?.bookingType === "Paid"
+                                                  ? "text-[#F3B704]"
+                                                  : "text-[#333333]"
+                                              } `}
+                                            >
+                                              {details.bookingType}
+                                            </span>
+                                          </div>
+                                          {details.bookingType === "Paid" && (
+                                            <div className=" flex items-center gap-1 justify-center">
+                                              <span className="text-[#333333] text-[14px] font-bold leading-[140%] font-inter ">
+                                                {getCurrencySymbol(
+                                                  details?.currency
+                                                )}
+                                                {formatPrice(details?.amount)}
+                                              </span>
+                                            </div>
+                                          )}
+                                        </div>
+
+                                        <div className="font-bold font-inter text-[#333333] text-sm truncate">
+                                          {details?.title}
+                                        </div>
+                                        <p className="text-xs text-[#878787] leading=[140%] line-clamp-3">
+                                          {details?.description}
+                                        </p>
+                                        <div className="flex justify-between items-center">
+                                          <div className="text-xs">
+                                            {details?.sessionDuration} Mins
+                                          </div>
+                                          <p className="text-sm text-primary font-medium flex items-center">
+                                            Book Session{" "}
+                                            <IoIosArrowRoundForward className="text-[16px] text-primary" />
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  )
+                                )}
+                              </div>
                             </div>
-                          </div>
-                        )}
+                          )}
+
+                          {/* Group Package */}
+                          {mentorData?.packageMentorships?.length > 0 && (
+                            <div className="">
+                              <h3 className="text-lg font-semibold mb-4">
+                                Mentorship Package
+                              </h3>
+                              <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
+                                {mentorData?.packageMentorships?.map(
+                                  (pkg, idx) => (
+                                    <div
+                                      key={idx}
+                                      onClick={() =>
+                                        bookSession(
+                                          pkg?.bookingId,
+                                          pkg?.bookingType,
+                                          pkg?.amount,
+                                          pkg?.currency,
+                                          pkg?.description,
+                                          pkg?.title,
+                                          "mentorship"
+                                        )
+                                      }
+                                    >
+                                      <div
+                                        className="border border-[#EDEDED] h-[174px] border-t-4 shadow-sm hover:shadow-md rounded-md transition-shadow duration-200 cursor-pointer py-7 px-4 space-y-2"
+                                        style={{
+                                          borderTopColor:
+                                            groupColors[
+                                              idx % groupColors.length
+                                            ],
+                                        }}
+                                      >
+                                        <div className="flex justify-between items-center">
+                                          <span
+                                            className="text-xs px-2 py-1 rounded-[32px] font-medium"
+                                            style={{
+                                              backgroundColor: `${
+                                                groupColors[
+                                                  idx % groupColors.length
+                                                ]
+                                              }1A`,
+                                              color:
+                                                groupColors[
+                                                  idx % groupColors.length
+                                                ],
+                                            }}
+                                          >
+                                            {pkg?.packageDuration}{" "}
+                                            {pkg?.packageDuration > 1
+                                              ? "Weeks"
+                                              : "Week"}
+                                          </span>
+                                          {pkg?.bookingType.toLowerCase() ===
+                                          "paid" ? (
+                                            <div className="text-right text-sm font-semibold">
+                                              {getCurrencySymbol(pkg?.currency)}
+                                              {formatPrice(pkg?.amount)}
+                                            </div>
+                                          ) : (
+                                            <div className="text-right text-sm font-semibold">
+                                              Free
+                                            </div>
+                                          )}
+                                        </div>
+                                        <div className="font-semibold text-sm">
+                                          {pkg?.title}
+                                        </div>
+                                        <p className="text-xs text-gray-600 line-clamp-2">
+                                          {pkg?.description}
+                                        </p>
+                                        <div className="flex justify-between items-center">
+                                          <div className="flex items-center gap-2">
+                                            <span className="text-[#4F4F4F] text-[10px] leading-[140%]   ">
+                                              {pkg?.sessionDuration} Mins{" "}
+                                            </span>
+                                            <span className=" w-2 h-2 bg-[#D9D9D9] rounded-full"></span>
+                                            <span className="text-[12px] leading-[140%] text-[#4F4F4F] ">
+                                              {duration(pkg?.sessionsPerWeek)} a
+                                              week
+                                            </span>
+                                          </div>
+                                          <p className="text-sm text-primary font-medium flex items-center">
+                                            Book Session{" "}
+                                            <IoIosArrowRoundForward className="text-[16px] text-primary" />
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  )
+                                )}
+                              </div>
+                            </div>
+                          )}
+                          {/* //webinar */}
+                          {mentorData?.webinars?.length > 0 && (
+                            <div className="">
+                              <h3 className="text-lg font-semibold mb-4">
+                                Webinar
+                              </h3>
+                              <div className="grid md:grid-cols-1 grid-cols-3 gap-6">
+                                {mentorData?.webinars?.map((webinar, id) => (
+                                  <EventCard
+                                    title={webinar?.title}
+                                    month={webinar?.startDate}
+                                    day={webinar?.startDate}
+                                    venue="Google Meet"
+                                    price={webinar?.type}
+                                    joinedLabel={
+                                      webinar?.guestAttendees?.length
+                                    }
+                                    image={webinar.thumbnail}
+                                    currency={webinar.currency}
+                                    amount={webinar.amount}
+                                    key={id}
+                                    action={() => AttendWebinar(webinar._id)}
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </section>
+                      <div className="font-satoshi minmd:flex-row minmd:justify-between minmd:items-center text-center  flex flex-col justify-center w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
+                        <div className="flex items-center gap-1 sm:pb-[10px] sm:justify-center">
+                          <p className="minmd:mb-0   text-[20px] uppercase text-[#878787]">
+                            Powered by
+                          </p>
+                          <img
+                            src="/footer-logo1.svg"
+                            alt="prooval-logo"
+                            className="w-[53px] h-[19px]"
+                          />
+                        </div>
+                        <Link
+                          href={
+                            isProduction === "development"
+                              ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
+                              : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
+                          }
+                        >
+                          <button className="bg-[#000] text-[#fff] px-14 py-4 items-center rounded-lg">
+                            Create my own page
+                          </button>
+                        </Link>
                       </div>
-                    </section>
-                    <div className="font-satoshi minmd:flex-row minmd:justify-between minmd:items-center text-center  flex flex-col justify-center w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
-                      <p className="mb-5 minmd:mb-0   text-[20px] uppercase text-[#878787]">
-                        Powered by Prooval
-                      </p>
-                      <Link
-                        href={
-                          isProduction === "development"
-                            ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
-                            : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
-                        }
-                      >
-                        <button className="bg-[#000] text-[#fff] px-14 py-4 items-center rounded-lg">
-                          Create my own page
-                        </button>
-                      </Link>
                     </div>
                   </div>
-                </div>
+                {/* </div> */}
               </>
             )}
           </>
         )}
-      </div>}
+      </div>)}
       {checkout && <Checkout setLoader={setLoader} loader={loader} goBack={exitCheckout} checkoutCallback={checkoutCallback} productId={productId} productDescription={productDescription} productPrice={productPrice} productCurrency={productCurrency} productType={productType || bookType} category={category}/>}
     </>
   );

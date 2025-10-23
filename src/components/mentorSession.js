@@ -103,7 +103,7 @@ const openModal = () => {
               bookingCurrency={currency}
           />
         ) : (
-          <div className="font-whyte">
+          <div className="font-satoshi">
             <div
               className="bg-[#344054] opacity-[0.7] w-[100%] h-full fixed z-50 top-0 left-[0]"
               onClick={closeSessionModal}

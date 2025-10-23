@@ -57,7 +57,7 @@ const Checkout = ({loader, setLoader, goBack, checkoutCallback, productId, produ
       <div className="w-[538px] max-w-full xm:min-h-[100vh] bg-[#fff] p-8 sm:p-[16px] rounded-[8px]">
         <div className="mb-8 xm:mb-[40px]">
           <Image
-            src="/prooval logo.png"
+            src="/prooval-logo.svg"
             width={101}
             height={36}
             alt="prooval logo"
