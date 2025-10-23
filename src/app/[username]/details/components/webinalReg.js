@@ -49,7 +49,11 @@ const WebinarModal = ({
   const [submit, setSubmit] = useState(false);
   const { startPayment } = useFincraPayment();
   const [success, setSuccess] = useState(false);
-  const [formValues, setFormValues] = useState({ firstName: "", lastName: '', email: "" });
+  const [formValues, setFormValues] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
   const [error, setError] = useState(false);
 
   let userId;
@@ -81,7 +85,7 @@ const WebinarModal = ({
       });
   }, [webinarId, token]);
 
-    useEffect(() => {
+  useEffect(() => {
     const prevHtmlOverflow = document.documentElement.style.overflow;
     const prevBodyOverflow = document.body.style.overflow;
 
@@ -107,7 +111,7 @@ const WebinarModal = ({
       email: fd.get("email"),
     };
 
-    console.log(payload)
+    console.log(payload);
     try {
       setSubmit(true);
       const res = await webinarReg(webinarId, payload, token);
@@ -137,24 +141,24 @@ const WebinarModal = ({
         email: formValues.email,
         currency: webData.currency,
       };
-      console.log(data)
+      console.log(data);
       setSubmit(true);
       let reference;
       try {
         const res = await fincraWebinarCheckoutData(data, token);
         reference = res.data?.data?.payment?.reference;
-        console.log(res)
-        console.log('reference',reference)
+        console.log(res);
+        console.log("reference", reference);
       } catch (err) {
         console.log(err);
-        
+
         toast.error(
           err.response?.data?.message || "An error occurred. Please try again."
         );
         setSubmit(false);
         return;
       }
-      const fullname = `${formValues.firstName} ${formValues.lastName}`
+      const fullname = `${formValues.firstName} ${formValues.lastName}`;
       const result = await startPayment({
         price: webData.amount,
         currency: webData.currency,
@@ -301,7 +305,9 @@ const WebinarModal = ({
                     </span>
                     <span className="text-[#333333] text-base">
                       {webData?.type !== "free"
-                        ? `${getCurrencySymbol(webData?.currency)}${formatPrice(webData?.amount)}`
+                        ? `${getCurrencySymbol(webData?.currency)}${formatPrice(
+                            webData?.amount
+                          )}`
                         : webData?.type}
                     </span>
                   </span>

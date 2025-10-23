@@ -283,7 +283,7 @@ import React, { useEffect, useState } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FiDownload } from "react-icons/fi";
+import { FiDownload, FiEye } from "react-icons/fi";
 
 const Payment = ({
   onClick,
@@ -294,6 +294,7 @@ const Payment = ({
   productThumbnail,
   productTitle,
   category,
+  accessType,
   productDescription,
   setShowModal,
   setCheckout,
@@ -421,6 +422,18 @@ const Payment = ({
     }
   };
 
+  useEffect(() => {
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+    const prevBodyOverflow = document.body.style.overflow;
+
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.documentElement.style.overflow = prevHtmlOverflow;
+      document.body.style.overflow = prevBodyOverflow;
+    };
+  }, []);
   // Handle international payment (non-NGN)
   const handleForeignPayment = (y) => {
     try {
@@ -552,9 +565,13 @@ const Payment = ({
                     {category}
                   </span>
                   <button className="flex items-center gap-[4.87px] bg-[#3333331A] rounded-[38.96px] py-[5.37px] px-[14.61px] sxm:px-3">
-                    <FiDownload />
-                    <p className="font-500 text-xs tex-[#333333]">
-                      Downloadable
+                    {accessType ? (
+                      <FiDownload className="text-[#333333]" />
+                    ) : (
+                      <FiEye className="text-[#333333]" />
+                    )}
+                    <p className="font-medium text-xs text-[#333333]">
+                      {accessType ? "Download" : "View Only"}
                     </p>
                   </button>
                   <div className="text-sm font-semibold text-primary">
