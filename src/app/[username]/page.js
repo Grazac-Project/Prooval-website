@@ -718,7 +718,7 @@ const MentorDetails = () => {
                                 Total Sold Products
                               </h5>
                               <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
-                                {mentorData?.mentor?.totalSoldProducts || 0}
+                                {mentorData?.mentor?.totalSoldProduct || 0}
                               </h3>
                             </div>
                             <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[150px] sm:w-[180px] md:w-[250px] lg:w-[187.5px] h-[122px] rounded-lg px-4 text-center">
