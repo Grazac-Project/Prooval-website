@@ -116,7 +116,7 @@ const Pricing = () => {
   const currentCurrency =
     currencies.find((c) => c.name === currency) || currencies[0];
   const feePercent = 3.5;
-  const feeCharge = currency === "Nigerian Naira" ? "N100" : "$0.1";
+  // const feeCharge = currency === "Nigerian Naira" ? "N100" : "$0.1";
   const currAbbrev = currency === "United States Dollar" ? "USD" : "NGN";
 
   // Close dropdown when clicking outside
