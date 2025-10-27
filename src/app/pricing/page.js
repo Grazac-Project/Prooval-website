@@ -1,8 +1,6 @@
-
-
 "use client";
 
-import React, { useEffect,useRef,useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/navbar/nav";
 import Footer from "@/components/footer/footer";
 import Modal from "@/components/modal/modal";
@@ -10,7 +8,6 @@ import Image from "next/image";
 import ValueCard from "@/components/valueCard/PriceValueCard copy";
 import { motion, useAnimation } from "framer-motion";
 import { RiDoubleQuotesL } from "react-icons/ri";
-
 
 const testimonialsTop = [
   {
@@ -114,10 +111,13 @@ const Pricing = () => {
   ];
 
   // Get the current flag based on selected currency
-  const currentFlag = currencies.find(c => c.name === currency)?.flag || "/Nigeria.png";
-  const currentCurrency = currencies.find(c => c.name === currency) || currencies[0];
-  const feePercent = currency === "United States Dollar" ? 8 : 5;
-  const currAbbrev = currency === "United States Dollar" ? "USD" : "NGN"
+  const currentFlag =
+    currencies.find((c) => c.name === currency)?.flag || "/Nigeria.png";
+  const currentCurrency =
+    currencies.find((c) => c.name === currency) || currencies[0];
+  const feePercent = 3.5;
+  const feeCharge = currency === "Nigerian Naira" ? "N100" : "$0.1";
+  const currAbbrev = currency === "United States Dollar" ? "USD" : "NGN";
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -148,45 +148,56 @@ const Pricing = () => {
             No monthly fees, no hidden costs. We only earn when you do.
           </h1>
           <p className="text-[#666666] max-w-5xl mb-8 text-base sm:text-sm">
-            Prooval is completely free to use. You only pay a small platform fee after every sale, no monthly subscriptions, no hidden charges. 
-            The cost may vary slightly depending on your sales currency.
-            Focus on creating and selling, and let Prooval handle the rest.
+            Prooval is completely free to use. You only pay a small transaction
+            fee after every sale, no monthly subscriptions, no hidden charges.
+            The cost may vary slightly depending on your sales currency. Focus
+            on creating and selling, and let Prooval handle the rest.
           </p>
 
           {/* Card Container */}
           <div className="bg-[#FAFAFA] border border-[#E2E8F0] rounded-2xl shadow-sm mt-7 p-8  md:p-6 w-full max-w-md ">
             <p className="font-bold pb-3">Select Currency</p>
-            
-            
+
             {/* Stylish Custom Currency Dropdown */}
             <div className="relative mb-6" ref={dropdownRef}>
               {/* Dropdown Trigger */}
-              <div 
+              <div
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="border border-[#E2E8F0] rounded-lg px-4 py-3 w-full text-[#000000] focus:outline-none focus:ring-2 focus:ring-[#1453FF] cursor-pointer bg-[#FFFFFF] hover:bg-[#F8FAFC] transition-colors duration-200 flex items-center justify-between"
               >
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-6 rounded overflow-hidden flex items-center justify-center">
-                    <Image 
+                    <Image
                       src={currentCurrency.flag}
-                      alt={`${currentCurrency.name} flag`} 
+                      alt={`${currentCurrency.name} flag`}
                       width={32}
                       height={24}
                       className="object-cover"
                     />
                   </div>
                   <div className="text-left">
-                    <div className="font-medium text-[#000000]">{currentCurrency.name}</div>
-                    <div className="text-xs text-[#666666]">{currentCurrency.code}</div>
+                    <div className="font-medium text-[#000000]">
+                      {currentCurrency.name}
+                    </div>
+                    <div className="text-xs text-[#666666]">
+                      {currentCurrency.code}
+                    </div>
                   </div>
                 </div>
-                <svg 
-                  className={`w-5 h-5 text-[#666666] transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`}
-                  fill="none" 
-                  stroke="currentColor" 
+                <svg
+                  className={`w-5 h-5 text-[#666666] transition-transform duration-200 ${
+                    isDropdownOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </div>
 
@@ -198,31 +209,45 @@ const Pricing = () => {
                       key={currencyOption.name}
                       onClick={() => handleCurrencySelect(currencyOption)}
                       className={`flex items-center space-x-3 px-4 py-3 cursor-pointer transition-colors duration-150 ${
-                        currency === currencyOption.name 
-                          ? 'bg-[#F6FAFF] border-r-2 border-[#1453FF]' 
-                          : 'hover:bg-[#F8FAFC]'
+                        currency === currencyOption.name
+                          ? "bg-[#F6FAFF] border-r-2 border-[#1453FF]"
+                          : "hover:bg-[#F8FAFC]"
                       }`}
                     >
                       <div className="w-8 h-6 rounded overflow-hidden flex items-center justify-center">
-                        <Image 
+                        <Image
                           src={currencyOption.flag}
-                          alt={`${currencyOption.name} flag`} 
+                          alt={`${currencyOption.name} flag`}
                           width={32}
                           height={24}
                           className="object-cover"
                         />
                       </div>
                       <div className="text-left flex-1">
-                        <div className={`font-medium ${
-                          currency === currencyOption.name ? 'text-[#1453FF]' : 'text-[#000000]'
-                        }`}>
+                        <div
+                          className={`font-medium ${
+                            currency === currencyOption.name
+                              ? "text-[#1453FF]"
+                              : "text-[#000000]"
+                          }`}
+                        >
                           {currencyOption.name}
                         </div>
-                        <div className="text-xs text-[#666666]">{currencyOption.code}</div>
+                        <div className="text-xs text-[#666666]">
+                          {currencyOption.code}
+                        </div>
                       </div>
                       {currency === currencyOption.name && (
-                        <svg className="w-4 h-4 text-[#1453FF]" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        <svg
+                          className="w-4 h-4 text-[#1453FF]"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
                         </svg>
                       )}
                     </div>
@@ -231,18 +256,21 @@ const Pricing = () => {
               )}
             </div>
 
-
             {/* Fee Display */}
             <div className="bg-[#F6FAFF] border border-[#E2E8F0] text-center rounded-lg">
-              <p className="text-6xl md:text-5xl text-[#1453FF]  mt-8 mb-4">{feePercent}%</p>
+              <p className="text-6xl md:text-5xl text-[#1453FF]  mt-8 mb-4">
+                {feePercent}%
+              </p>
               <p className=" ">
-                <span className="font-bold text-base sm:text-sm pb-[10px] block">Platform Fee</span> 
+                <span className="font-bold text-base sm:text-sm pb-[10px] block">
+                  Platform Fee
+                </span>
                 <div className=" text-sm  sm:text-xs px-3  mb-6 max-w-[377px]">
-                  We charge {feePercent}% on all {currAbbrev} transactions and this is charged before the professional is credited. 
+                  We charge {feePercent}% on all {currAbbrev} transactions and
+                  this is charged before the professional is credited.
                 </div>
               </p>
             </div>
-            
           </div>
         </section>
         <section className="h-[64px] bg-[#fff]"></section>
@@ -269,109 +297,120 @@ const Pricing = () => {
         </section>
 
         {/* Rest of your code remains the same */}
-                  {/* Testimonials section */}
-                <section className="sm:pt-[40px]">
-                  <div className="w-full font-satoshi bg-[url(/background.png)] bg-cover bg-center py-[50px] sm:py-[19.06px] overflow-hidden">
-                    <div className="flex flex-col items-center justify-center">
-                      <h1 className="text-[#121927] font-bold text-[48px] leading-[56px] mx-auto text-center mb-[20px] w-[978px] md:w-[100%] sm:text-[30px] sm:leading-[38px]">
-                        What Experts Are Saying
-                      </h1>
-                      <p className="text-base sxm:text-[11px] text-center font-normal leading-[160%] text-[#787878] mb-[40px]">Real stories from experts building their income on Prooval.</p>
+        {/* Testimonials section */}
+        <section className="sm:pt-[40px]">
+          <div className="w-full font-satoshi bg-[url(/background.png)] bg-cover bg-center py-[50px] sm:py-[19.06px] overflow-hidden">
+            <div className="flex flex-col items-center justify-center">
+              <h1 className="text-[#121927] font-bold text-[48px] leading-[56px] mx-auto text-center mb-[20px] w-[978px] md:w-[100%] sm:text-[30px] sm:leading-[38px]">
+                What Experts Are Saying
+              </h1>
+              <p className="text-base sxm:text-[11px] text-center font-normal leading-[160%] text-[#787878] mb-[40px]">
+                Real stories from experts building their income on Prooval.
+              </p>
+            </div>
+            <motion.div
+              className="flex gap-6 sm:gap-4 drop-shadow-[#0000001A]"
+              animate={{ x: ["-100%", "0%"] }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            >
+              {[...testimonialsTop, ...testimonialsTop].map((t, i) => (
+                <div
+                  key={i}
+                  className="sm:min-w-[100%] sm:max-w-[100%] min-w-[400px] max-w-[400px] bg-[#FAFAFA] p-8 rounded-xl shadow-xl flex flex-col justify-between sm:p-4"
+                >
+                  <p className="text-[80px] font-normal text-[#1453FF] mb-2">
+                    {t.icon}
+                  </p>
+                  <p className="text-[#787878] text-base mb-8">{t.text}</p>
+                  <div className="flex gap-2 ">
+                    <img
+                      className="h-[48px] w-[48px] rounded-full object-cover"
+                      src={t.image}
+                      alt={t.name}
+                    />
+                    <div>
+                      <h4 className="font-bold text-base text-[#787878]">
+                        {t.name}
+                      </h4>
+                      <p className="text-xs text-[#787878]">{t.role}</p>
                     </div>
-                    <motion.div
-                      className="flex gap-6 sm:gap-4 drop-shadow-[#0000001A]"
-                      animate={{ x: ["-100%", "0%"] }}
-                      transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                    >
-                      {[...testimonialsTop, ...testimonialsTop].map((t, i) => (
-                        <div
-                          key={i}
-                          className="sm:min-w-[100%] sm:max-w-[100%] min-w-[400px] max-w-[400px] bg-[#FAFAFA] p-8 rounded-xl shadow-xl flex flex-col justify-between sm:p-4"
-                        >
-                          <p className="text-[80px] font-normal text-[#1453FF] mb-2">
-                            {t.icon}
-                          </p>
-                          <p className="text-[#787878] text-base mb-8">{t.text}</p>
-                          <div className="flex gap-2 ">
-                            <img className="h-[48px] w-[48px] rounded-full object-cover" src={t.image} alt={t.name} />
-                            <div>
-                              <h4 className="font-bold text-base text-[#787878]">
-                                {t.name}
-                              </h4>
-                              <p className="text-xs text-[#787878]">{t.role}</p>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </motion.div>
-        
-                    <motion.div
-                      className="flex gap-6 mt-8"
-                      animate={{ x: ["0%", "-100%"] }}
-                      transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                    >
-                      {[...testimonialsBottom, ...testimonialsBottom].map((t, i) => (
-                        <div
-                          key={i}
-                          className="min-w-[400px] max-w-[400px] bg-[#FAFAFA] p-8 rounded-xl shadow-xl flex flex-col justify-between"
-                        >
-                          <p className="text-[80px] font-normal text-[#1453FF] mb-2">
-                            {t.icon}
-                          </p>
-                          <p className="text-[#787878] text-base mb-8">{t.text}</p>
-                          <div className="flex gap-2">
-                            <img className="h-[48px] w-[48px] rounded-full object-cover" src={t.image} alt={t.name} />
-                            <div>
-                              <h4 className="font-bold text-base text-[#787878]">
-                                {t.name}
-                              </h4>
-                              <p className="text-xs text-[#787878]">{t.role}</p>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </motion.div>
                   </div>
-                </section>
+                </div>
+              ))}
+            </motion.div>
 
-                <section className="w-full flex justify-center items-center pt-[40px] px-[80px] md:px-[40px] xl:px-[25px] xm:px-[16px] sm:px-[16px] ">
-                          <div className="relative w-full bg-[#0057FF] rounded-[24px] text-center text-white overflow-hidden bg-[url(/Stroke_1.svg)] bg-cover bg-center">
-                            <div className="absolute top-11 right-14 w-[59px] h-[59px] sm:w-[28px] sm:h-[28px] sm:top-6 sm:right-7 ">
-                              <Image
-                                src="/Stars.png"
-                                alt="Star Icon"
-                                fill
-                                className="object-contain"
-                              />
-                            </div>
-                
-                            <div className="absolute bottom-8 left-6 w-[59px] h-[59px] sm:left-5 sm:bottom-7 sm:w-[28px] sm:h-[28px] ">
-                              <Image
-                                src="/Stars.png"
-                                alt="Star Icon"
-                                fill
-                                className="object-contain"
-                              />
-                            </div>
-                
-                            <div className="relative z-10 flex flex-col items-center justify-center pt-[114.5px] pb-[80px]">
-                              <div className="w-[609px] max-w-full sm:w-[300px]">
-                                <h1 className="text-[48px] text-[#FCFCFC] font-bold mb-2 leading-[56px] sm:text-[20px] sm:leading-[32px]">
-                                  Turn Your Knowledge into {" "}
-                                  <br className="hidden sm:block" />
-                                  Income Seamlessly
-                                </h1>
-                                <p className="text-base text-[#FCFCFC] leading-[160%] mb-8 sm:text-[14px]">
-                                 You no longer have to juggle multiple platforms to monetize your knowledge. Prooval makes it simple to share your expertise and earn all from a single link.
-                                </p>
-                              </div>
-                
-                              <button className="bg-[#ffffff] text-[#1453FF] font-medium px-6 py-3 w-[300px] sm:w-[218px] rounded-md hover:bg-gray-100 transition">
-                                Start my page
-                              </button>
-                            </div>
-                          </div>
-                        </section>
+            <motion.div
+              className="flex gap-6 mt-8"
+              animate={{ x: ["0%", "-100%"] }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            >
+              {[...testimonialsBottom, ...testimonialsBottom].map((t, i) => (
+                <div
+                  key={i}
+                  className="min-w-[400px] max-w-[400px] bg-[#FAFAFA] p-8 rounded-xl shadow-xl flex flex-col justify-between"
+                >
+                  <p className="text-[80px] font-normal text-[#1453FF] mb-2">
+                    {t.icon}
+                  </p>
+                  <p className="text-[#787878] text-base mb-8">{t.text}</p>
+                  <div className="flex gap-2">
+                    <img
+                      className="h-[48px] w-[48px] rounded-full object-cover"
+                      src={t.image}
+                      alt={t.name}
+                    />
+                    <div>
+                      <h4 className="font-bold text-base text-[#787878]">
+                        {t.name}
+                      </h4>
+                      <p className="text-xs text-[#787878]">{t.role}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="w-full flex justify-center items-center pt-[40px] px-[80px] md:px-[40px] xl:px-[25px] xm:px-[16px] sm:px-[16px] ">
+          <div className="relative w-full bg-[#0057FF] rounded-[24px] text-center text-white overflow-hidden bg-[url(/Stroke_1.svg)] bg-cover bg-center">
+            <div className="absolute top-11 right-14 w-[59px] h-[59px] sm:w-[28px] sm:h-[28px] sm:top-6 sm:right-7 ">
+              <Image
+                src="/Stars.png"
+                alt="Star Icon"
+                fill
+                className="object-contain"
+              />
+            </div>
+
+            <div className="absolute bottom-8 left-6 w-[59px] h-[59px] sm:left-5 sm:bottom-7 sm:w-[28px] sm:h-[28px] ">
+              <Image
+                src="/Stars.png"
+                alt="Star Icon"
+                fill
+                className="object-contain"
+              />
+            </div>
+
+            <div className="relative z-10 flex flex-col items-center justify-center pt-[114.5px] pb-[80px]">
+              <div className="w-[609px] max-w-full sm:w-[300px]">
+                <h1 className="text-[48px] text-[#FCFCFC] font-bold mb-2 leading-[56px] sm:text-[20px] sm:leading-[32px]">
+                  Turn Your Knowledge into <br className="hidden sm:block" />
+                  Income Seamlessly
+                </h1>
+                <p className="text-base text-[#FCFCFC] leading-[160%] mb-8 sm:text-[14px]">
+                  You no longer have to juggle multiple platforms to monetize
+                  your knowledge. Prooval makes it simple to share your
+                  expertise and earn all from a single link.
+                </p>
+              </div>
+
+              <button className="bg-[#ffffff] text-[#1453FF] font-medium px-6 py-3 w-[300px] sm:w-[218px] rounded-md hover:bg-gray-100 transition">
+                Start my page
+              </button>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer openModal={() => setShowModal(true)} />
