@@ -9,7 +9,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import XIcon from '@mui/icons-material/X';
+import XIcon from "@mui/icons-material/X";
 import Favorite from "@mui/icons-material/Favorite";
 import { getMentorsBySlug, PreferredMentor } from "@/api/authentication/auth";
 import { useParams, useRouter } from "next/navigation";
@@ -213,7 +213,7 @@ const MentorDetails = () => {
     // console.log({ token });
     getMentorsBySlug(username)
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setMentorData(res.data.data.data);
         setMentorId(res.data.data.data.mentor._id);
 
@@ -700,7 +700,6 @@ const MentorDetails = () => {
                                   mentorData?.mentor?.twitterLink ||
                                   mentorData?.mentor?.instagramLink) && (
                                   <div className="flex gap-2">
-                                  
                                     {mentorData?.mentor?.linkedinLink && (
                                       <a
                                         href={mentorData.mentor.linkedinLink}
@@ -723,9 +722,11 @@ const MentorDetails = () => {
                                         rel="noopener noreferrer"
                                         className="bg-[#F2F2F7] rounded-[2px] w-[59px] h-[32px] flex justify-center items-center"
                                       >
-                                        <XIcon  style={{
+                                        <XIcon
+                                          style={{
                                             fontSize: 24,
-                                          }}/>
+                                          }}
+                                        />
                                       </a>
                                     )}
 
@@ -886,7 +887,84 @@ const MentorDetails = () => {
                               ))}
                             </div>
                           </div>
-                          {mentorData?.mentor?.yearsOfExperience > 0 && (
+                          {(mentorData?.mentor?.yearsOfExperience > 0 ||
+                            (mentorData?.mentor?.experience &&
+                              mentorData?.mentor?.experience.length > 0)) && (
+                            <div className="border border-[#fff] border-b-[#EAEAEA] border-r-[#EAEAEA] py-6">
+                              <div className="mx-12 md:mx-4">
+                                {/* Heading + optional badge */}
+                                <div className="flex gap-2 items-center mb-6">
+                                  <h4 className="text-[12px] leading-[120%] font-medium">
+                                    Experience
+                                  </h4>
+
+                                  {mentorData?.mentor?.yearsOfExperience >
+                                    0 && (
+                                    <div className="border border-primary w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] flex justify-center items-center text-center">
+                                      {mentorData?.mentor?.yearsOfExperience}{" "}
+                                      years
+                                    </div>
+                                  )}
+                                </div>
+
+                                {/* Experience list */}
+                                {mentorData?.mentor?.experience?.length > 0 && (
+                                  <div className="flex flex-col gap-4">
+                                    {mentorData?.mentor?.experience.map(
+                                      (exp, index) => (
+                                        <div
+                                          key={index}
+                                          className="min-h-[78px] border border-[#EAEAEA] p-3 flex items-center gap-4"
+                                        >
+                                          <Image
+                                            src="/exp.svg"
+                                            alt="experience"
+                                            width={40}
+                                            height={40}
+                                          />
+                                          <div className="flex flex-col gap-2">
+                                            <h4 className="text-[12px] leading-[120%] font-medium">
+                                              {exp.jobTitle}
+                                            </h4>
+                                            <div className="flex items-center gap-2">
+                                              <p className="text-[12px] text-[#474747] leading-[120%] font-[350px]">
+                                                {exp.company}
+                                              </p>
+                                              <ul className="text-[#8B8B8B] text-[12px] leading-[140%] font-[350px] list-disc ml-4">
+                                                <li>{exp.location}</li>
+                                              </ul>
+                                            </div>
+                                            <p className="text-[12px] text-[#888888] leading-[140%] font-[350px]">
+                                              {new Date(
+                                                exp.startDate
+                                              ).toLocaleDateString("en-US", {
+                                                year: "numeric",
+                                                month: "short",
+                                              })}{" "}
+                                              -{" "}
+                                              {exp.endDate
+                                                ? new Date(
+                                                    exp.endDate
+                                                  ).toLocaleDateString(
+                                                    "en-US",
+                                                    {
+                                                      year: "numeric",
+                                                      month: "short",
+                                                    }
+                                                  )
+                                                : "Present"}
+                                            </p>
+                                          </div>
+                                        </div>
+                                      )
+                                    )}
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* {mentorData?.mentor?.yearsOfExperience > 0 && (
                             <div className=" border border-[#fff] border-b-[#EAEAEA] border-r-[#EAEAEA] py-6">
                               <div className="mx-12 md:mx-4">
                                 <div className="flex gap-2 items-center  mb-6   ">
@@ -980,7 +1058,7 @@ const MentorDetails = () => {
                                 </div>
                               </div>
                             </div>
-                          )}
+                          )} */}
                         </div>
                         <div className=" border border-[#fff] border-b-[#EAEAEA] px-12 md:px-4  py-6">
                           <div className="flex justify-between gap-2 items-center  mb-6 ">
