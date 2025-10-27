@@ -41,6 +41,7 @@ module.exports = {
       // => @media (max-width: 639px) { ... }
       sxm: { max: "350px" },
       // => @media (max-width: 639px) { ... }
+      minlg: "1024px",
       minmd: "768px",
       minsm: "639px",
       minxm: "468px",
