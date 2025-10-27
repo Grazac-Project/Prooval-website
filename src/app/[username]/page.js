@@ -9,6 +9,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import XIcon from '@mui/icons-material/X';
 import Favorite from "@mui/icons-material/Favorite";
 import { getMentorsBySlug, PreferredMentor } from "@/api/authentication/auth";
 import { useParams, useRouter } from "next/navigation";
@@ -29,6 +30,8 @@ import Checkout from "@/components/checkout";
 import EventCard from "@/components/webinerCard";
 import WebinarModal from "./details/components/webinalReg";
 import PaymentModal from "@/components/payment-modal";
+import { RiInstagramFill } from "react-icons/ri";
+import { FaFacebook } from "react-icons/fa6";
 
 const groupColors = [
   "#F48025",
@@ -145,13 +148,13 @@ const MentorDetails = () => {
   const [freeMode, setFreeMode] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showWebModal, setShowWebModal] = useState(false);
-  const [showMain, setShowMain] = useState(true)
-  const [checkout, setCheckout] = useState(false)
-  const [webinarId, setWebinarId] =  useState()
-  const [checkoutCallback, setCheckoutCallback] = useState()
-  const [slot, setSlot] = useState({})
-  const [loader, setLoader] = useState(false)
-  
+  const [showMain, setShowMain] = useState(true);
+  const [checkout, setCheckout] = useState(false);
+  const [webinarId, setWebinarId] = useState();
+  const [checkoutCallback, setCheckoutCallback] = useState();
+  const [slot, setSlot] = useState({});
+  const [loader, setLoader] = useState(false);
+
   const checkboxRef = useRef(null);
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
@@ -379,8 +382,8 @@ const MentorDetails = () => {
     setBookType(type);
     setProductPrice(amount);
     setProductCurrency(bookingCurrency);
-    setProductDescription(description)
-    setProductTitle(title)
+    setProductDescription(description);
+    setProductTitle(title);
     setLoading(false);
     setSessionType(sessionType);
     // console.log(bookingId, bookType, mentorPrice, currency);
@@ -522,80 +525,80 @@ const MentorDetails = () => {
           <ToastContainer />
           {/* <Navbar /> */}
 
-        {error ? (
-          <Error text={error} />
-        ) : (
-          <>
-            {loading ? (
-              <Load />
-            ) : (
-              <>
-                {showModal && (
-                  <Payment
-                    onClick={() => setShowModal(false)}
-                    productId={productId}
-                    productType={productType}
-                    productPrice={productPrice}
-                    productCurrency={productCurrency}
-                    productThumbnail={productThumbnail}
-                    productTitle={productTitle}
-                    productDescription={productDescription}
-                    category={category}
-                    accessType={accessType}
-                    setShowModal={setShowModal}
-                    setCheckout={setCheckout}
-                    setShowMain={setShowMain}
-                    setCheckoutCallback={setCheckoutCallback}
-                    successModal={() => setSuccessModal(true)}
-                    setLoader={setLoader}
-                    successPaymentModal={() => setSuccessPaymentModal(true)}
-                    makeFree={()=>setFreeMode(true)}  
-                  />
-                )}
-                {showBookingModal && (
-                  <BookSession
-                    closeModal={() => setShowBookingModal(false)}
-                    mentorId={bookingId}
-                    image={mentorData?.mentor?.image}
-                    type={bookType}
-                    price={productPrice}
-                    successModal={() => setSuccessModal(true)}
-                    bookingCurrency={productCurrency}
-                    sessionType={sessionType}
-                    setBookingModal={setShowBookingModal}
-                    setCheckout={setCheckout}
-                    setShowMain={setShowMain}
-                    setCheckoutCallback={setCheckoutCallback}
-                    slot={slot}
-                    setSlot={setSlot}
-                    setLoadingState={setLoader}
-                  />
-                )}
-                {successModal && (
-                  <BookingModal
-                    mentorId={bookingId}
-                    mentor={`${
-                      mentorData?.mentor?.firstName +
-                      " " +
-                      mentorData?.mentor?.lastName
-                    }`}
-                    closeModal={() => setSuccessModal(false)}
-                  />
-                )}
-                {successPaymentModal && (
-                  <PaymentModal
-                    productTitle={productTitle}
-                    freeMode={freeMode}
-                    // closeModal={() => setSuccessModal(false)}
-                  />
-                )}
-                {showWebModal && (
-                  <WebinarModal
-                    onClick={() => setShowWebModal(false)}
-                    webinarId={webinarId}
-                    token={token}
-                  />
-                )}
+          {error ? (
+            <Error text={error} />
+          ) : (
+            <>
+              {loading ? (
+                <Load />
+              ) : (
+                <>
+                  {showModal && (
+                    <Payment
+                      onClick={() => setShowModal(false)}
+                      productId={productId}
+                      productType={productType}
+                      productPrice={productPrice}
+                      productCurrency={productCurrency}
+                      productThumbnail={productThumbnail}
+                      productTitle={productTitle}
+                      productDescription={productDescription}
+                      category={category}
+                      accessType={accessType}
+                      setShowModal={setShowModal}
+                      setCheckout={setCheckout}
+                      setShowMain={setShowMain}
+                      setCheckoutCallback={setCheckoutCallback}
+                      successModal={() => setSuccessModal(true)}
+                      setLoader={setLoader}
+                      successPaymentModal={() => setSuccessPaymentModal(true)}
+                      makeFree={() => setFreeMode(true)}
+                    />
+                  )}
+                  {showBookingModal && (
+                    <BookSession
+                      closeModal={() => setShowBookingModal(false)}
+                      mentorId={bookingId}
+                      image={mentorData?.mentor?.image}
+                      type={bookType}
+                      price={productPrice}
+                      successModal={() => setSuccessModal(true)}
+                      bookingCurrency={productCurrency}
+                      sessionType={sessionType}
+                      setBookingModal={setShowBookingModal}
+                      setCheckout={setCheckout}
+                      setShowMain={setShowMain}
+                      setCheckoutCallback={setCheckoutCallback}
+                      slot={slot}
+                      setSlot={setSlot}
+                      setLoadingState={setLoader}
+                    />
+                  )}
+                  {successModal && (
+                    <BookingModal
+                      mentorId={bookingId}
+                      mentor={`${
+                        mentorData?.mentor?.firstName +
+                        " " +
+                        mentorData?.mentor?.lastName
+                      }`}
+                      closeModal={() => setSuccessModal(false)}
+                    />
+                  )}
+                  {successPaymentModal && (
+                    <PaymentModal
+                      productTitle={productTitle}
+                      freeMode={freeMode}
+                      // closeModal={() => setSuccessModal(false)}
+                    />
+                  )}
+                  {showWebModal && (
+                    <WebinarModal
+                      onClick={() => setShowWebModal(false)}
+                      webinarId={webinarId}
+                      token={token}
+                    />
+                  )}
 
                   <div className="bg-[#F2F2F7] py-[50px] md:py-8 font-satoshi -mt-[4rem]">
                     <div className=" w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
@@ -650,7 +653,7 @@ const MentorDetails = () => {
                               </a>
 
                               <div className="flex flex-row justify-start md:justify-center gap-1 align-center mt-0 sm:mt-6">
-                                <button
+                                {/* <button
                                   type="button"
                                   onClick={handleButtonClick}
                                   className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[32px] flex items-center xxxxm:w-[94px] xxxxm:text-[8px]"
@@ -680,7 +683,7 @@ const MentorDetails = () => {
                                     />
                                   </div>
                                   Preferred
-                                </button>
+                                </button> */}
                                 <button
                                   className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[32px] flex justify-center items-center gap-1 sxm:w-[94px] xxxxm:text-[8px]"
                                   onClick={shareMentorProfile}
@@ -693,15 +696,56 @@ const MentorDetails = () => {
                                   />
                                   Share Link
                                 </button>
-                                <a
-                                  className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[32px] flex justify-center items-center gap-1 sxm:w-[94px] xxxxm:text-[8px]"
-                                  href={mentorData?.mentor?.linkedinLink}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                >
-                                  <LinkedInIcon style={{ fontSize: 17 }} />
-                                  View LinkedIn
-                                </a>
+                                {(mentorData?.mentor?.linkedinLink ||
+                                  mentorData?.mentor?.twitterLink ||
+                                  mentorData?.mentor?.instagramLink) && (
+                                  <div className="flex gap-2">
+                                  
+                                    {mentorData?.mentor?.linkedinLink && (
+                                      <a
+                                        href={mentorData.mentor.linkedinLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-[#F2F2F7] rounded-[2px] w-[59px] h-[32px] flex justify-center items-center"
+                                      >
+                                        <LinkedInIcon
+                                          style={{
+                                            fontSize: 24,
+                                          }}
+                                        />
+                                      </a>
+                                    )}
+
+                                    {mentorData?.mentor?.twitterLink && (
+                                      <a
+                                        href={mentorData.mentor.twitterLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-[#F2F2F7] rounded-[2px] w-[59px] h-[32px] flex justify-center items-center"
+                                      >
+                                        <XIcon  style={{
+                                            fontSize: 24,
+                                          }}/>
+                                      </a>
+                                    )}
+
+                                    {mentorData?.mentor?.instagramLink && (
+                                      <a
+                                        href={mentorData.mentor.instagramLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-[#F2F2F7] rounded-[2px] w-[59px] h-[32px] flex justify-center items-center"
+                                      >
+                                        <Image
+                                          src="/instagram Copy.svg"
+                                          width={24}
+                                          height={24}
+                                          alt="instagram"
+                                        />
+                                      </a>
+                                    )}
+                                  </div>
+                                )}
                               </div>
                             </div>
                           </div>
@@ -719,7 +763,7 @@ const MentorDetails = () => {
                       </div>
                       {/* First eNDING */}
                       <div className="flex md:flex-col  bg-[#ffff] rounded-2xl">
-                        <div className="w-[45%] md:w-full  ">
+                        {/* <div className="w-[45%] md:w-full  ">
                           <div className="min-h-[186px] border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA] flex px-4 items-center justify-center gap-2 py-8 ">
                             <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[150px] sm:w-[180px] md:w-[250px] lg:w-[187.5px] h-[122px] rounded-lg px-4 text-center">
                               <Image
@@ -752,21 +796,7 @@ const MentorDetails = () => {
                               </h3>
                             </div>
                           </div>
-                          <div className=" border border-[#fff] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 ">
-                            <h4 className="text-[12px] leading-[140%] font-medium mb-2">
-                              Skills / Expertise
-                            </h4>
-                            <div className="flex justify-start flex-wrap gap-3 mb-2">
-                              {mentorData?.mentor?.skills?.map((element, i) => (
-                                <div
-                                  key={i}
-                                  className="h-6 w-fit bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px] p-3"
-                                >
-                                  <span>{element}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
+                          
 
                           <div className=" border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 md:px-4 ">
                             <h4 className="text-[12px] leading-[140%] font-medium mb-2">
@@ -787,13 +817,10 @@ const MentorDetails = () => {
                               )}
                             </div>
                           </div>
-
-                          {/* Section for Available Bookings */}
-
                           <div className="block md:hidden h-[5%] border  border-[#fff] border-r-[#EAEAEA]   p-8 md:px-4 "></div>
-                        </div>
+                        </div> */}
                         <div className="w-[55%] md:w-full ">
-                          <div className=" border border-[#F2F2F7] border-b-[#EAEAEA]  py-6 md:py-4 ">
+                          <div className="py-6 md:py-4 ">
                             <div className="flex justify-between items-center border border-[#fff] border-b-[#EAEAEA] mx-12 md:mx-4 py-[8.5px]  ">
                               <h4 className="text-[12px] leading-[140%] font-medium">
                                 About
@@ -833,11 +860,7 @@ const MentorDetails = () => {
                                 </div>
                               </div>
                             </div>
-                            {/* <div>
-                      <p className="text-[#4F4F4F] leading-[140%] text-[14px] mx-12 md:mx-4 py-4">
-                        {mentorData?.mentor?.about}
-                      </p>
-                    </div> */}
+
                             <div>
                               <div
                                 className="text-[#4F4F4F] leading-[150%] text-[14px] mx-12 md:mx-4 py-4 [&>*]:my-[10px]"
@@ -847,8 +870,24 @@ const MentorDetails = () => {
                               />
                             </div>
                           </div>
-                          {mentorData?.mentor?.yearsOfExperience && (
-                            <div className=" border border-[#fff] border-b-[#EAEAEA] border-l-[#EAEAEA] py-6">
+
+                          <div className=" border border-[#fff] border-t-[#EAEAEA] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 ">
+                            <h4 className="text-[12px] leading-[140%] font-medium mb-2">
+                              Skills / Expertise
+                            </h4>
+                            <div className="flex justify-start flex-wrap gap-3 mb-2">
+                              {mentorData?.mentor?.skills?.map((element, i) => (
+                                <div
+                                  key={i}
+                                  className="h-6 w-fit bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px] p-3"
+                                >
+                                  <span>{element}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                          {mentorData?.mentor?.yearsOfExperience > 0 && (
+                            <div className=" border border-[#fff] border-b-[#EAEAEA] border-r-[#EAEAEA] py-6">
                               <div className="mx-12 md:mx-4">
                                 <div className="flex gap-2 items-center  mb-6   ">
                                   <h4 className="text-[12px] leading-[120%] font-medium ">
@@ -942,104 +981,103 @@ const MentorDetails = () => {
                               </div>
                             </div>
                           )}
-                          <div className=" border border-[#fff] border-l-[#EAEAEA] border-b-[#EAEAEA] px-12 md:px-4  py-6">
-                            <div className="flex justify-between gap-2 items-center  mb-6   ">
-                              <h4 className="text-[12px] leading-[120%] font-medium ">
-                                Reviews
-                              </h4>
-                              <p
-                                className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center cursor-pointer"
-                                onClick={() =>
-                                  setView(mentorData?.reviews?.length)
-                                }
-                              >
-                                View All
-                              </p>
-                            </div>
+                        </div>
+                        <div className=" border border-[#fff] border-b-[#EAEAEA] px-12 md:px-4  py-6">
+                          <div className="flex justify-between gap-2 items-center  mb-6 ">
+                            <h4 className="text-[12px] leading-[120%] font-medium ">
+                              Reviews
+                            </h4>
+                            {/* <p
+                              className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center cursor-pointer"
+                              onClick={() =>
+                                setView(mentorData?.reviews?.length)
+                              }
+                            >
+                              View All
+                            </p> */}
+                          </div>
 
-                            {mentorData?.reviews?.length === 0 ? (
-                              <div className="min-h-[78px] border border-[#EAEAEA] p-6   flex flex-col justify-center items-center gap-4">
-                                <Image
-                                  src="/exp.svg"
-                                  alt="avatar"
-                                  width={40}
-                                  height={40}
-                                  className=""
-                                />
-                                <div className="flex flex-col justify-center">
-                                  <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                                    No Reviews Added
-                                  </p>
-                                </div>
+                          {mentorData?.reviews?.length === 0 ? (
+                            <div className="min-h-[78px] border border-[#EAEAEA] p-6 flex flex-col justify-center items-center gap-4">
+                              <Image
+                                src="/exp.svg"
+                                alt="avatar"
+                                width={40}
+                                height={40}
+                                className=""
+                              />
+                              <div className="flex flex-col justify-center">
+                                <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
+                                  No Reviews Added
+                                </p>
                               </div>
-                            ) : (
-                              <>
-                                {mentorData?.reviews
-                                  ?.slice(0, view)
-                                  .map((element, i) => (
-                                    <div
-                                      key={i}
-                                      className="min-h-[132px] border border-[#EAEAEA] p-3 flex  gap-4 bg-[#F7F7F7] rounded-lg flex-col mb-2 "
-                                    >
-                                      <div className="   py-4 ">
-                                        <div className="flex justify-between items-center ">
-                                          <div className="flex gap-2 items-center">
-                                            <Image
-                                              src={element.user.profilePic}
-                                              alt="avatar"
-                                              width={32}
-                                              height={32}
-                                              className="h-[32px] w-[32px] object-cover rounded-[50%]"
-                                            />
-                                            <h4 className="text-[12px] leading-[140%] font-medium ">
-                                              {element.user.firstName}{" "}
-                                              {element.user.laststName}
+                            </div>
+                          ) : (
+                            <>
+                              {mentorData?.reviews
+                                ?.slice(0, view)
+                                .map((element, i) => (
+                                  <div
+                                    key={i}
+                                    className="min-h-[132px] w-[351px] sm:w-[100%] md:w-[100%] border border-[#EAEAEA] p-3 flex  gap-4 bg-[#F7F7F7] rounded-lg flex-col mb-2 "
+                                  >
+                                    <div className="   py-4 ">
+                                      <div className="flex justify-between items-center ">
+                                        <div className="flex gap-2 items-center">
+                                          <Image
+                                            src={element.user.profilePic}
+                                            alt="avatar"
+                                            width={32}
+                                            height={32}
+                                            className="h-[32px] w-[32px] object-cover rounded-[50%]"
+                                          />
+                                          <h4 className="text-[12px] leading-[140%] font-medium ">
+                                            {element.user.firstName}{" "}
+                                            {element.user.laststName}
+                                          </h4>
+                                        </div>
+                                        <div className="flex  items-center gap-2 ">
+                                          <div className="flex items-center ">
+                                            {Array.from({ length: 5 }).map(
+                                              (_, i) =>
+                                                i < element.rating ? (
+                                                  <Image
+                                                    key={i}
+                                                    src="/rate.svg"
+                                                    alt="star"
+                                                    width={14}
+                                                    height={14}
+                                                    className=""
+                                                  />
+                                                ) : (
+                                                  <Image
+                                                    key={i}
+                                                    src="/rate2.svg"
+                                                    alt="star"
+                                                    width={14}
+                                                    height={14}
+                                                    className=""
+                                                  />
+                                                )
+                                            )}
+                                          </div>
+                                          <div className="flex items-center gap-2">
+                                            <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
+                                              {element.rating + "." + "0" || 0}
                                             </h4>
                                           </div>
-                                          <div className="flex  items-center gap-2 ">
-                                            <div className="flex items-center ">
-                                              {Array.from({ length: 5 }).map(
-                                                (_, i) =>
-                                                  i < element.rating ? (
-                                                    <Image
-                                                      key={i}
-                                                      src="/rate.svg"
-                                                      alt="star"
-                                                      width={14}
-                                                      height={14}
-                                                      className=""
-                                                    />
-                                                  ) : (
-                                                    <Image
-                                                      key={i}
-                                                      src="/rate2.svg"
-                                                      alt="star"
-                                                      width={14}
-                                                      height={14}
-                                                      className=""
-                                                    />
-                                                  )
-                                              )}
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                              <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
-                                                {element.rating + "." + "0" ||
-                                                  0}
-                                              </h4>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div>
-                                          <p className="text-[#4F4F4F] leading-[140%] text-[14px] pt-4">
-                                            {element.comment}
-                                          </p>
                                         </div>
                                       </div>
+                                      <div>
+                                        <p className="text-[#4F4F4F] leading-[140%] text-[14px] pt-4">
+                                          {element.comment}
+                                        </p>
+                                      </div>
                                     </div>
-                                  ))}
-                              </>
-                            )}
-                          </div>
+                                  </div>
+                                ))}
+                            </>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -1072,7 +1110,7 @@ const MentorDetails = () => {
                                         book?.description,
                                         book?.thumbnail,
                                         book?.category,
-                                        book?.accessType,
+                                        book?.accessType
                                       )
                                     }
                                   >
@@ -1346,13 +1384,27 @@ const MentorDetails = () => {
                       </div>
                     </div>
                   </div>
-                {/* </div> */}
-              </>
-            )}
-          </>
-        )}
-      </div>)}
-      {checkout && <Checkout setLoader={setLoader} loader={loader} goBack={exitCheckout} checkoutCallback={checkoutCallback} productId={productId} productDescription={productDescription} productPrice={productPrice} productCurrency={productCurrency} productType={productType || bookType} category={category}/>}
+                  {/* </div> */}
+                </>
+              )}
+            </>
+          )}
+        </div>
+      )}
+      {checkout && (
+        <Checkout
+          setLoader={setLoader}
+          loader={loader}
+          goBack={exitCheckout}
+          checkoutCallback={checkoutCallback}
+          productId={productId}
+          productDescription={productDescription}
+          productPrice={productPrice}
+          productCurrency={productCurrency}
+          productType={productType || bookType}
+          category={category}
+        />
+      )}
     </>
   );
 };
