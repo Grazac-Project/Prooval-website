@@ -10,6 +10,7 @@ import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
+import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
 import Favorite from "@mui/icons-material/Favorite";
 import { getMentorsBySlug, PreferredMentor } from "@/api/authentication/auth";
 import { useParams, useRouter } from "next/navigation";
@@ -698,14 +699,30 @@ const MentorDetails = () => {
                                 </button>
                                 {(mentorData?.mentor?.linkedinLink ||
                                   mentorData?.mentor?.twitterLink ||
+                                  mentorData?.mentor?.facebookLink ||
                                   mentorData?.mentor?.instagramLink) && (
                                   <div className="flex gap-2">
+                                    {mentorData?.mentor?.facebookLink && (
+                                      <a
+                                        href={mentorData.mentor.facebookLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-[#F2F2F7] rounded-[2px] w-[42.25px] h-[32px] flex justify-center items-center"
+                                      >
+                                        <FacebookOutlinedIcon
+                                          style={{
+                                            fontSize: 24,
+                                            color: "#1877F2",
+                                          }}
+                                        />
+                                      </a>
+                                    )}
                                     {mentorData?.mentor?.instagramLink && (
                                       <a
                                         href={mentorData.mentor.instagramLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="bg-[#F2F2F7] rounded-[2px] w-[59px] h-[32px] flex justify-center items-center"
+                                        className="bg-[#F2F2F7] rounded-[2px] w-[42.25px] h-[32px] flex justify-center items-center"
                                       >
                                         <Image
                                           src="/instagram-1.svg"
@@ -718,16 +735,16 @@ const MentorDetails = () => {
 
                                     {mentorData?.mentor?.twitterLink && (
                                       <a
-                                      href={mentorData.mentor.twitterLink}
+                                        href={mentorData.mentor.twitterLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="bg-[#F2F2F7] rounded-[2px] w-[59px] h-[32px] flex justify-center items-center"
+                                        className="bg-[#F2F2F7] rounded-[2px] w-[42.25px] h-[32px] flex justify-center items-center"
                                       >
                                         <XIcon
                                           style={{
                                             fontSize: 20,
                                           }}
-                                          />
+                                        />
                                       </a>
                                     )}
 
@@ -736,7 +753,7 @@ const MentorDetails = () => {
                                         href={mentorData.mentor.linkedinLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="bg-[#F2F2F7] rounded-[2px] w-[59px] h-[32px] flex justify-center items-center"
+                                        className="bg-[#F2F2F7] rounded-[2px] w-[42.25px] h-[32px] flex justify-center items-center"
                                       >
                                         <Image
                                           src="/linkedin-1.svg"
