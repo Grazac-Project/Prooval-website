@@ -872,7 +872,7 @@ const MentorDetails = () => {
                             </div>
                           </div>
 
-                          <div className=" border border-[#fff] border-t-[#EAEAEA] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 ">
+                          <div className=" border border-[#fff] border-t-[#EAEAEA] border-r-[#EAEAEA] border-b-[#EAEAEA] px-8 pt-8 pb-[200px] sm:pb-[8px] sm:px-4 sm:pt-4 md:pb-[100px] md:px-4 ">
                             <h4 className="text-[12px] leading-[140%] font-medium mb-2">
                               Skills / Expertise
                             </h4>
@@ -887,12 +887,11 @@ const MentorDetails = () => {
                               ))}
                             </div>
                           </div>
-                          {(mentorData?.mentor?.yearsOfExperience > 0 ||
+                          {/* {(mentorData?.mentor?.yearsOfExperience > 0 ||
                             (mentorData?.mentor?.experience &&
                               mentorData?.mentor?.experience.length > 0)) && (
                             <div className="border border-[#fff] border-b-[#EAEAEA] border-r-[#EAEAEA] py-6">
                               <div className="mx-12 md:mx-4">
-                                {/* Heading + optional badge */}
                                 <div className="flex gap-2 items-center mb-6">
                                   <h4 className="text-[12px] leading-[120%] font-medium">
                                     Experience
@@ -907,7 +906,6 @@ const MentorDetails = () => {
                                   )}
                                 </div>
 
-                                {/* Experience list */}
                                 {mentorData?.mentor?.experience?.length > 0 && (
                                   <div className="flex flex-col gap-4">
                                     {mentorData?.mentor?.experience.map(
@@ -962,7 +960,7 @@ const MentorDetails = () => {
                                 )}
                               </div>
                             </div>
-                          )}
+                          )} */}
 
                           {/* {mentorData?.mentor?.yearsOfExperience > 0 && (
                             <div className=" border border-[#fff] border-b-[#EAEAEA] border-r-[#EAEAEA] py-6">
