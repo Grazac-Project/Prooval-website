@@ -709,11 +709,11 @@ const MentorDetails = () => {
                                         rel="noopener noreferrer"
                                         className="bg-[#F2F2F7] rounded-[2px] w-[42.25px] h-[32px] flex justify-center items-center"
                                       >
-                                        <FacebookOutlinedIcon
-                                          style={{
-                                            fontSize: 24,
-                                            color: "#1877F2",
-                                          }}
+                                         <Image
+                                          src="/facebook-1.svg"
+                                          width={16}
+                                          height={16}
+                                          alt="instagram"
                                         />
                                       </a>
                                     )}
@@ -726,8 +726,8 @@ const MentorDetails = () => {
                                       >
                                         <Image
                                           src="/instagram-1.svg"
-                                          width={20}
-                                          height={20}
+                                          width={16}
+                                          height={16}
                                           alt="instagram"
                                         />
                                       </a>
@@ -742,7 +742,7 @@ const MentorDetails = () => {
                                       >
                                         <XIcon
                                           style={{
-                                            fontSize: 20,
+                                            fontSize: 16,
                                           }}
                                         />
                                       </a>
@@ -757,8 +757,8 @@ const MentorDetails = () => {
                                       >
                                         <Image
                                           src="/linkedin-1.svg"
-                                          width={20}
-                                          height={20}
+                                          width={16}
+                                          height={16}
                                           alt="instagram"
                                         />
                                       </a>
