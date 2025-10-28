@@ -700,36 +700,6 @@ const MentorDetails = () => {
                                   mentorData?.mentor?.twitterLink ||
                                   mentorData?.mentor?.instagramLink) && (
                                   <div className="flex gap-2">
-                                    {mentorData?.mentor?.linkedinLink && (
-                                      <a
-                                        href={mentorData.mentor.linkedinLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-[#F2F2F7] rounded-[2px] w-[59px] h-[32px] flex justify-center items-center"
-                                      >
-                                        <LinkedInIcon
-                                          style={{
-                                            fontSize: 24,
-                                          }}
-                                        />
-                                      </a>
-                                    )}
-
-                                    {mentorData?.mentor?.twitterLink && (
-                                      <a
-                                        href={mentorData.mentor.twitterLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-[#F2F2F7] rounded-[2px] w-[59px] h-[32px] flex justify-center items-center"
-                                      >
-                                        <XIcon
-                                          style={{
-                                            fontSize: 24,
-                                          }}
-                                        />
-                                      </a>
-                                    )}
-
                                     {mentorData?.mentor?.instagramLink && (
                                       <a
                                         href={mentorData.mentor.instagramLink}
@@ -738,9 +708,40 @@ const MentorDetails = () => {
                                         className="bg-[#F2F2F7] rounded-[2px] w-[59px] h-[32px] flex justify-center items-center"
                                       >
                                         <Image
-                                          src="/instagram Copy.svg"
-                                          width={24}
-                                          height={24}
+                                          src="/instagram-1.svg"
+                                          width={20}
+                                          height={20}
+                                          alt="instagram"
+                                        />
+                                      </a>
+                                    )}
+
+                                    {mentorData?.mentor?.twitterLink && (
+                                      <a
+                                      href={mentorData.mentor.twitterLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-[#F2F2F7] rounded-[2px] w-[59px] h-[32px] flex justify-center items-center"
+                                      >
+                                        <XIcon
+                                          style={{
+                                            fontSize: 20,
+                                          }}
+                                          />
+                                      </a>
+                                    )}
+
+                                    {mentorData?.mentor?.linkedinLink && (
+                                      <a
+                                        href={mentorData.mentor.linkedinLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-[#F2F2F7] rounded-[2px] w-[59px] h-[32px] flex justify-center items-center"
+                                      >
+                                        <Image
+                                          src="/linkedin-1.svg"
+                                          width={20}
+                                          height={20}
                                           alt="instagram"
                                         />
                                       </a>
@@ -872,7 +873,7 @@ const MentorDetails = () => {
                             </div>
                           </div>
 
-                          <div className=" border border-[#fff] border-t-[#EAEAEA] border-r-[#EAEAEA] border-b-[#EAEAEA] px-8 pt-8 pb-[200px] sm:pb-[8px] sm:px-4 sm:pt-4 md:pb-[100px] md:px-4 ">
+                          <div className=" border border-[#fff] border-t-[#EAEAEA] border-r-[#EAEAEA] border-b-[#EAEAEA] md:p-4 p-12 ">
                             <h4 className="text-[12px] leading-[140%] font-medium mb-2">
                               Skills / Expertise
                             </h4>
@@ -887,28 +888,25 @@ const MentorDetails = () => {
                               ))}
                             </div>
                           </div>
-                          {/* {(mentorData?.mentor?.yearsOfExperience > 0 ||
-                            (mentorData?.mentor?.experience &&
-                              mentorData?.mentor?.experience.length > 0)) && (
-                            <div className="border border-[#fff] border-b-[#EAEAEA] border-r-[#EAEAEA] py-6">
-                              <div className="mx-12 md:mx-4">
-                                <div className="flex gap-2 items-center mb-6">
-                                  <h4 className="text-[12px] leading-[120%] font-medium">
-                                    Experience
-                                  </h4>
-
-                                  {mentorData?.mentor?.yearsOfExperience >
-                                    0 && (
-                                    <div className="border border-primary w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] flex justify-center items-center text-center">
-                                      {mentorData?.mentor?.yearsOfExperience}{" "}
-                                      years
-                                    </div>
-                                  )}
-                                </div>
-
-                                {mentorData?.mentor?.experience?.length > 0 && (
+                          {mentorData?.mentor?.experience &&
+                            mentorData?.mentor?.experience.length > 0 && (
+                              <div className=" border border-[#fff] border-b-[#EAEAEA] border-r-[#EAEAEA] py-6">
+                                <div className="mx-12 md:mx-4">
+                                  <div className="flex gap-2 items-center  mb-6   ">
+                                    <h4 className="text-[12px] leading-[120%] font-medium ">
+                                      Experience
+                                    </h4>
+                                    {mentorData?.mentor?.yearsOfExperience >
+                                      0 && (
+                                      <div className="border border-primary w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] flex justify-center items-center text-center">
+                                        {mentorData?.mentor?.yearsOfExperience +
+                                          " " +
+                                          "years" || ""}
+                                      </div>
+                                    )}
+                                  </div>
                                   <div className="flex flex-col gap-4">
-                                    {mentorData?.mentor?.experience.map(
+                                    {mentorData?.mentor?.experience?.map(
                                       (exp, index) => (
                                         <div
                                           key={index}
@@ -916,23 +914,27 @@ const MentorDetails = () => {
                                         >
                                           <Image
                                             src="/exp.svg"
-                                            alt="experience"
+                                            alt="avatar"
                                             width={40}
                                             height={40}
+                                            className=""
                                           />
                                           <div className="flex flex-col gap-2">
-                                            <h4 className="text-[12px] leading-[120%] font-medium">
+                                            <h4 className="text-[12px] leading-[120%] font-medium ">
                                               {exp.jobTitle}
                                             </h4>
                                             <div className="flex items-center gap-2">
-                                              <p className="text-[12px] text-[#474747] leading-[120%] font-[350px]">
+                                              <p className="text-[12px] text-[#474747] leading-[120%] font-[350px] ">
                                                 {exp.company}
                                               </p>
-                                              <ul className="text-[#8B8B8B] text-[12px] leading-[140%] font-[350px] list-disc ml-4">
-                                                <li>{exp.location}</li>
+                                              <ul
+                                                bookingType="disc"
+                                                className=" text-[#8B8B8B] text-[12px]  leading-[140%] font-[350px]"
+                                              >
+                                                <li> {exp.location}</li>
                                               </ul>
                                             </div>
-                                            <p className="text-[12px] text-[#888888] leading-[140%] font-[350px]">
+                                            <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
                                               {new Date(
                                                 exp.startDate
                                               ).toLocaleDateString("en-US", {
@@ -957,106 +959,9 @@ const MentorDetails = () => {
                                       )
                                     )}
                                   </div>
-                                )}
-                              </div>
-                            </div>
-                          )} */}
-
-                          {/* {mentorData?.mentor?.yearsOfExperience > 0 && (
-                            <div className=" border border-[#fff] border-b-[#EAEAEA] border-r-[#EAEAEA] py-6">
-                              <div className="mx-12 md:mx-4">
-                                <div className="flex gap-2 items-center  mb-6   ">
-                                  <h4 className="text-[12px] leading-[120%] font-medium ">
-                                    Experience
-                                  </h4>
-                                  <div className="border border-primary w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] flex justify-center items-center text-center">
-                                    {mentorData?.mentor?.yearsOfExperience +
-                                      " " +
-                                      "years" || ""}
-                                  </div>
-                                </div>
-                                <div className="flex flex-col gap-4">
-                                  {mentorData?.mentor?.experience?.length ===
-                                  0 ? (
-                                    <div className="min-h-[78px] border border-[#EAEAEA] p-6   flex flex-col justify-center items-center gap-4">
-                                      <Image
-                                        src="/exp.svg"
-                                        alt="avatar"
-                                        width={40}
-                                        height={40}
-                                        className=""
-                                      />
-                                      <div className="flex flex-col justify-center">
-                                        <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                                          No Experience Added
-                                        </p>
-                                      </div>
-                                    </div>
-                                  ) : (
-                                    <>
-                                      {mentorData?.mentor?.experience?.map(
-                                        (exp, index) => (
-                                          <>
-                                            <div
-                                              key={index}
-                                              className="min-h-[78px] border border-[#EAEAEA] p-3 flex items-center gap-4"
-                                            >
-                                              <Image
-                                                src="/exp.svg"
-                                                alt="avatar"
-                                                width={40}
-                                                height={40}
-                                                className=""
-                                              />
-                                              <div className="flex flex-col gap-2">
-                                                <h4 className="text-[12px] leading-[120%] font-medium ">
-                                                  {exp.jobTitle}
-                                                </h4>
-                                                <div className="flex items-center gap-2">
-                                                  <p className="text-[12px] text-[#474747] leading-[120%] font-[350px] ">
-                                                    {exp.company}
-                                                  </p>
-                                                  <ul
-                                                    bookingType="disc"
-                                                    className=" text-[#8B8B8B] text-[12px]  leading-[140%] font-[350px]"
-                                                  >
-                                                    <li> {exp.location}</li>
-                                                  </ul>
-                                                </div>
-                                                <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
-                                                  {new Date(
-                                                    exp.startDate
-                                                  ).toLocaleDateString(
-                                                    "en-US",
-                                                    {
-                                                      year: "numeric",
-                                                      month: "short",
-                                                    }
-                                                  )}{" "}
-                                                  -{" "}
-                                                  {exp.endDate
-                                                    ? new Date(
-                                                        exp.endDate
-                                                      ).toLocaleDateString(
-                                                        "en-US",
-                                                        {
-                                                          year: "numeric",
-                                                          month: "short",
-                                                        }
-                                                      )
-                                                    : "Present"}
-                                                </p>
-                                              </div>
-                                            </div>
-                                          </>
-                                        )
-                                      )}
-                                    </>
-                                  )}
                                 </div>
                               </div>
-                            </div>
-                          )} */}
+                            )}
                         </div>
                         <div className=" border border-[#fff] border-b-[#EAEAEA] px-12 md:px-4  py-6">
                           <div className="flex justify-between gap-2 items-center  mb-6 ">
