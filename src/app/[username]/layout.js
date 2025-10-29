@@ -8,7 +8,7 @@ export async function generateMetadata({ params }) {
     const mentor = mentorData.mentor;
 
     return {
-      title: `${mentor.firstName} ${mentor.lastName} | Prooval Mentor`,
+      title: `${mentor.firstName} ${mentor.lastName} | Prooval Expert`,
       description: `Book a session with ${mentor.firstName} ${
         mentor.lastName
       }, ${mentor.role} at ${mentor.company}. Expert in ${mentor.skills

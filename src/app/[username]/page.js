@@ -10,10 +10,7 @@ import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
-<<<<<<< HEAD
-=======
 import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
->>>>>>> 3a436819c5f6e2c7e22125e4548f0b2195d62fbd
 import Favorite from "@mui/icons-material/Favorite";
 import { getMentorsBySlug, PreferredMentor } from "@/api/authentication/auth";
 import { useParams, useRouter } from "next/navigation";
@@ -36,38 +33,6 @@ import WebinarModal from "./details/components/webinalReg";
 import PaymentModal from "@/components/payment-modal";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebook } from "react-icons/fa6";
-
-// export async function generateMetadata({ params }) {
-//   try {
-//     const { username } = params;
-//     const response = await getMentorsBySlug(username);
-//     const mentorData = response.data.data.data;
-//     const mentor = mentorData.mentor;
-
-//     return {
-//       title: `${mentor.firstName} ${mentor.lastName} | Prooval Mentor`,
-//       description: `Book a session with ${mentor.firstName} ${
-//         mentor.lastName
-//       }, ${mentor.role} at ${mentor.company}. Expert in ${mentor.skills
-//         ?.slice(0, 3)
-//         .join(", ")}${mentor.skills?.length > 3 ? "..." : ""}`,
-//       openGraph: {
-//         title: `${mentor.firstName} ${mentor.lastName} | Prooval Mentor`,
-//         description: `Book a session with ${mentor.firstName} ${
-//           mentor.lastName
-//         }, ${mentor.role} at ${mentor.company}. Expert in ${mentor.skills
-//           ?.slice(0, 3)
-//           .join(", ")}${mentor.skills?.length > 3 ? "..." : ""}`,
-//         images: [mentor.image],
-//       },
-//     };
-//   } catch (error) {
-//     return {
-//       title: "Prooval Mentor",
-//       description: "Connect with expert mentors on Prooval",
-//     };
-//   }
-// }
 
 const groupColors = [
   "#F48025",
@@ -740,11 +705,7 @@ const MentorDetails = () => {
                                   mentorData?.mentor?.facebookLink ||
                                   mentorData?.mentor?.instagramLink) && (
                                   <div className="flex gap-2">
-<<<<<<< HEAD
-                                    {mentorData?.mentor?.linkedinLink && (
-=======
                                     {mentorData?.mentor?.facebookLink && (
->>>>>>> 3a436819c5f6e2c7e22125e4548f0b2195d62fbd
                                       <a
                                         href={mentorData.mentor.facebookLink}
                                         target="_blank"
@@ -784,11 +745,7 @@ const MentorDetails = () => {
                                       >
                                         <XIcon
                                           style={{
-<<<<<<< HEAD
-                                            fontSize: 24,
-=======
                                             fontSize: 20,
->>>>>>> 3a436819c5f6e2c7e22125e4548f0b2195d62fbd
                                           }}
                                         />
                                       </a>
