@@ -214,7 +214,7 @@ const MentorDetails = () => {
     // console.log({ token });
     getMentorsBySlug(username)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setMentorData(res.data.data.data);
         setMentorId(res.data.data.data.mentor._id);
 
@@ -633,7 +633,7 @@ const MentorDetails = () => {
                                 {mentorData?.mentor?.lastName}
                               </h2>
                               <p className="font-medium text-[14px] text-[#1453FF] leading-[130%]">
-                                {mentorData?.mentor?.role},{" "}
+                                {mentorData?.mentor?.role}{" "}
                                 {mentorData?.mentor?.company}
                               </p>
 
