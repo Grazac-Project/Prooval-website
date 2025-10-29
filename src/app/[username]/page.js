@@ -9,7 +9,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import XIcon from '@mui/icons-material/X';
+import XIcon from "@mui/icons-material/X";
 import Favorite from "@mui/icons-material/Favorite";
 import { getMentorsBySlug, PreferredMentor } from "@/api/authentication/auth";
 import { useParams, useRouter } from "next/navigation";
@@ -32,6 +32,38 @@ import WebinarModal from "./details/components/webinalReg";
 import PaymentModal from "@/components/payment-modal";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebook } from "react-icons/fa6";
+
+// export async function generateMetadata({ params }) {
+//   try {
+//     const { username } = params;
+//     const response = await getMentorsBySlug(username);
+//     const mentorData = response.data.data.data;
+//     const mentor = mentorData.mentor;
+
+//     return {
+//       title: `${mentor.firstName} ${mentor.lastName} | Prooval Mentor`,
+//       description: `Book a session with ${mentor.firstName} ${
+//         mentor.lastName
+//       }, ${mentor.role} at ${mentor.company}. Expert in ${mentor.skills
+//         ?.slice(0, 3)
+//         .join(", ")}${mentor.skills?.length > 3 ? "..." : ""}`,
+//       openGraph: {
+//         title: `${mentor.firstName} ${mentor.lastName} | Prooval Mentor`,
+//         description: `Book a session with ${mentor.firstName} ${
+//           mentor.lastName
+//         }, ${mentor.role} at ${mentor.company}. Expert in ${mentor.skills
+//           ?.slice(0, 3)
+//           .join(", ")}${mentor.skills?.length > 3 ? "..." : ""}`,
+//         images: [mentor.image],
+//       },
+//     };
+//   } catch (error) {
+//     return {
+//       title: "Prooval Mentor",
+//       description: "Connect with expert mentors on Prooval",
+//     };
+//   }
+// }
 
 const groupColors = [
   "#F48025",
@@ -155,6 +187,8 @@ const MentorDetails = () => {
   const [slot, setSlot] = useState({});
   const [loader, setLoader] = useState(false);
 
+  // const export metadata
+
   const checkboxRef = useRef(null);
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
@@ -215,6 +249,7 @@ const MentorDetails = () => {
       .then((res) => {
         // console.log(res);
         setMentorData(res.data.data.data);
+        console.log(res.data.data.data.mentor);
         setMentorId(res.data.data.data.mentor._id);
 
         setLoading(false);
@@ -700,7 +735,6 @@ const MentorDetails = () => {
                                   mentorData?.mentor?.twitterLink ||
                                   mentorData?.mentor?.instagramLink) && (
                                   <div className="flex gap-2">
-                                  
                                     {mentorData?.mentor?.linkedinLink && (
                                       <a
                                         href={mentorData.mentor.linkedinLink}
@@ -723,9 +757,11 @@ const MentorDetails = () => {
                                         rel="noopener noreferrer"
                                         className="bg-[#F2F2F7] rounded-[2px] w-[59px] h-[32px] flex justify-center items-center"
                                       >
-                                        <XIcon  style={{
+                                        <XIcon
+                                          style={{
                                             fontSize: 24,
-                                          }}/>
+                                          }}
+                                        />
                                       </a>
                                     )}
 
