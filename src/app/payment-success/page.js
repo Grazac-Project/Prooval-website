@@ -37,12 +37,12 @@ const BookingModal = () => {
     // setLoading(true); // Start loading
     getMentorsBySlug(slug)
       .then((res) => {
-        console.log("Mentor Details Response:", res);
+        // console.log("Mentor Details Response:", res);
         setMentorData(res.data.data.data.mentor); // Update mentor data
         // setLoading(false); // Stop loading
       })
       .catch((err) => {
-        console.error("Failed to fetch mentor details:", err);
+        // console.error("Failed to fetch mentor details:", err);
         toast.error(
           err.response?.data?.message || "Failed to fetch mentor details"
         );

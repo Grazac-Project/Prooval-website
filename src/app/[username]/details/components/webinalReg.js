@@ -76,12 +76,12 @@ const WebinarModal = ({
     getSingleWebinar(webinarId, token)
       .then((res) => {
         setWebData(res.data?.data?.webinar);
-        console.log(res.data?.data?.webinar);
+        // console.log(res.data?.data?.webinar);
         setLoading(false);
       })
       .catch((err) => {
         setLoading(false);
-        console.log(err.response?.data?.message);
+        // console.log(err.response?.data?.message);
       });
   }, [webinarId, token]);
 
@@ -111,19 +111,18 @@ const WebinarModal = ({
       email: fd.get("email"),
     };
 
-    console.log(payload);
     try {
       setSubmit(true);
       const res = await webinarReg(webinarId, payload, token);
 
       if (res) {
-        console.log("Registration success:", res.data?.data?.webinar);
+        // console.log("Registration success:", res.data?.data?.webinar);
         setSuccess(true);
         toast.success("Registration successful!");
         e.target.reset(); // clear form
       }
     } catch (err) {
-      console.error("Registration error:", err.response?.data?.message);
+      // console.error("Registration error:", err.response?.data?.message);
       toast.error(
         err.response?.data?.message || "Something went wrong. Please try again."
       );
@@ -141,14 +140,11 @@ const WebinarModal = ({
         email: formValues.email,
         currency: webData.currency,
       };
-      console.log(data);
       setSubmit(true);
       let reference;
       try {
         const res = await fincraWebinarCheckoutData(data, token);
         reference = res.data?.data?.payment?.reference;
-        console.log(res);
-        console.log("reference", reference);
       } catch (err) {
         console.log(err);
 
@@ -175,9 +171,8 @@ const WebinarModal = ({
           toast.error("Transaction was not completed, window closed.");
         },
       });
-      console.log("Resolved:", result);
     } catch (err) {
-      console.error(err);
+      // console.error(err);
       setSubmit(false);
     }
   };
@@ -190,10 +185,8 @@ const WebinarModal = ({
       email: formValues?.email,
       currency: webData?.currency,
     };
-    console.log(data);
     fincraWebinarCheckoutData(data, token)
       .then((res) => {
-        console.log(res);
         setSubmit(false);
         // setShowBookingModal(true);
         const url = res.data.data.redirectUrl;

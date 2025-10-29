@@ -80,7 +80,6 @@ const Page = () => {
 
     fetchMentors(inputText, page)
       .then((res) => {
-        console.log(res);
         const mentors = res.data?.mentors || [];
         const remainingPages = res.data?.remainingPages || 0;
 
@@ -206,7 +205,7 @@ const Page = () => {
         </div>
       </div>
 
-      {/* <form className="font-inter py-[32px] px-[80px] xm:px-[16px] sticky top-[0px] lg:top-[75px] md:top-[0px] z-5 bg-[#fff]">
+      <form className="font-inter py-[32px] px-[80px] xm:px-[16px] sticky top-[0px] lg:top-[75px] md:top-[0px] z-5 bg-[#fff]">
         <div className="relative w-[800px] lgx:w-[70%] xm:w-[100%] mx-auto">
           <IoIosSearch className="text-[20px] text-[#667085] absolute left-[16px] top-[12px] transform-translate-y-1/2" />
           <input
@@ -263,9 +262,9 @@ const Page = () => {
             ))}
           </div>
         </div>
-      </form> */}
+      </form>
 
-      {/* <div className="bg-[#FAFCFF] py-20">
+      <div className="bg-[#FAFCFF] py-20">
         {showMentor && (
           <div
             style={{ justifyContent: positionStyle ? "start" : "start" }}
@@ -398,39 +397,6 @@ const Page = () => {
             className="cursor-pointer fixed bottom-[35px] right-[80px] sm:right-[16px]"
           />
         </Link>
-      </div> */}
-
-      <div className="bg-[#F9FAFF] relative mx-2  minmd:mx-10 py-16 mt-32 h-auto font-satoshi minlg:mx-20">
-        <div className="text-center">
-          <p className="font-bold text-[20px] minmd:text-[30px] mb-4">
-            Coming Soon...
-          </p>
-          <p className="mb-10">
-            All Outstanding experts would be displayed here
-          </p>
-          <Link
-            href={
-              isProduction === "development"
-                ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/auth/signup`
-                : `${process.env.NEXT_PUBLIC_DASH_URL}/auth/signup`
-            }
-            className="bg-primary text-[#fff] px-6 py-4 rounded-lg "
-          >
-            Create My Page
-          </Link>
-          <div className="absolute top-2 right-2">
-            <Image src="/up.png" width={40} height={40} />
-          </div>
-          <div className="absolute bottom-2 left-2">
-            <Image src="/down.png" width={40} height={40} />
-          </div>
-          <div className="absolute bottom-0 right-4 minmd:right-6">
-            <Image src="/down-star.png" width={120} height={120} />
-          </div>
-          <div className="absolute top-2 left-3">
-            <Image src="/up-star.png" width={120} height={120} />
-          </div>
-        </div>
       </div>
       <div className="mt-16">
         <Footer openModal={() => setShowModal(true)} />
