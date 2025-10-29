@@ -156,6 +156,8 @@ const MentorDetails = () => {
   const [slot, setSlot] = useState({});
   const [loader, setLoader] = useState(false);
 
+  // const export metadata
+
   const checkboxRef = useRef(null);
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const isProduction = process.env.NEXT_PUBLIC_DOMAIN_DEV;
@@ -216,6 +218,7 @@ const MentorDetails = () => {
       .then((res) => {
         console.log(res);
         setMentorData(res.data.data.data);
+
         setMentorId(res.data.data.data.mentor._id);
 
         setLoading(false);
