@@ -300,7 +300,7 @@ export const fincraPayment = (data, token) => {
   });
 };
 export const fincraBookingCheckoutData = (data, token) => {
-  console.log(data)
+  // console.log(data)
   // return authKit.post(`api/v1/payment/checkout-data/mentor-session`, data);
   return authKit.post(`api/v1/anonymous/book-paid-session`, data);
 };

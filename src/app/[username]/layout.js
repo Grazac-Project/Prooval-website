@@ -4,7 +4,7 @@ export async function generateMetadata({ params }) {
   try {
     const { username } = params;
     const response = await getMentorsBySlug(username);
-    console.log(response.data.data.data);
+    // console.log(response.data.data.data);
     const mentorData = response.data.data.data;
     const mentor = mentorData.mentor;
 
