@@ -9,11 +9,11 @@ export async function generateMetadata({ params }) {
     const mentor = mentorData.mentor;
 
     return {
-      title: `${mentor.firstName} ${mentor.lastName} | Prooval Expert`,
-      description: `${mentor.firstName} ${mentor.lastName} - ${mentor.country} |  ${mentor.role} at ${mentor.company}.  `,
+      title: `${mentor.firstName} ${mentor.lastName} - ${mentor.country} |  ${mentor.role} at ${mentor.company}.  `,
+      // description: `${mentor.firstName} ${mentor.lastName} - ${mentor.country} |  ${mentor.role} at ${mentor.company}.  `,
       openGraph: {
-        title: `${mentor.firstName} ${mentor.lastName} | Prooval Mentor`,
-        description: `${mentor.firstName} ${mentor.lastName} - ${mentor.country} |  ${mentor.role} at ${mentor.company}.  `,
+        title: `${mentor.firstName} ${mentor.lastName} - ${mentor.country} |  ${mentor.role} at ${mentor.company}.  `,
+        // description: `${mentor.firstName} ${mentor.lastName} - ${mentor.country} |  ${mentor.role} at ${mentor.company}.  `,
         images: [mentor.image],
       },
     };
