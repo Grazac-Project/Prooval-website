@@ -171,7 +171,7 @@ const MentorDetails = () => {
         const parsedData = JSON.parse(data);
         setToken(parsedData?.token);
       } catch (error) {
-        // console.error("Failed to parse token:", error);
+        console.error("Failed to parse token:", error);
       }
     }
   }, []);
@@ -377,8 +377,7 @@ const MentorDetails = () => {
     bookingCurrency,
     description,
     title,
-    sessionType,
-    category
+    sessionType
   ) => {
     setBookingId(id);
     setBookType(type);
@@ -388,9 +387,28 @@ const MentorDetails = () => {
     setProductTitle(title);
     setLoading(false);
     setSessionType(sessionType);
-    setCategory(category)
     // console.log(bookingId, bookType, mentorPrice, currency);
     setShowBookingModal(true);
+
+    // else {
+    //   const redirectTo = encodeURIComponent(
+    //     window.location.pathname + window.location.search
+    //   );
+    //   console.log({ redirectTo });
+    //   Cookies.set("redirectTo", redirectTo, {
+    //     secure: true,
+    //     sameSite: "Lax",
+    //     domain: ".hackthejobs.com",
+    //     path: "/",
+    //     expires: 1,
+    //   });
+    //   console.log("Base URL:", baseUrl);
+    //   console.log(
+    //     "Redirect URL:",
+    //     `${baseUrl}/auth/login?redirectTo=${redirectTo}`
+    //   );
+    //   window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
+    // }
   };
   const exitCheckout = () => {
     // setShowModal(true)
@@ -421,10 +439,27 @@ const MentorDetails = () => {
     setProductThumbnail(thumbnail);
     setProductTitle(title);
     setProductDescription(description);
-    setCategory('Digital Product');
+    setCategory(category);
     setAccessType(accessType);
     // console.log({ id });
     setShowModal(true);
+    // }
+    // else {
+    //   const redirectTo = encodeURIComponent(
+    //     window.location.pathname + window.location.search
+    //   );
+    //   console.log({ redirectTo });
+    //   Cookies.set("redirectTo", redirectTo, {
+    //     secure: true,
+    //     sameSite: "Lax",
+    //     domain: ".hackthejobs.com",
+    //     path: "/",
+    //     expires: 1,
+    //   });
+
+    //   window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
+
+    // }
   };
 
   const AttendWebinar = (id) => {
@@ -618,6 +653,37 @@ const MentorDetails = () => {
                               </a>
 
                               <div className="flex flex-row justify-start md:justify-center gap-1 align-center mt-0 sm:mt-6">
+                                {/* <button
+                                  type="button"
+                                  onClick={handleButtonClick}
+                                  className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[32px] flex items-center xxxxm:w-[94px] xxxxm:text-[8px]"
+                                >
+                                  <div
+                                    className="cursor-pointer"
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    <Checkbox
+                                      {...label}
+                                      inputRef={checkboxRef}
+                                      icon={<FavoriteBorder />}
+                                      checkedIcon={
+                                        <Favorite
+                                          sx={{
+                                            color: mentorData?.mentor?.hasLiked
+                                              ? "green"
+                                              : "transparent",
+                                          }}
+                                        />
+                                      }
+                                      onChange={handleChange}
+                                      id="fav"
+                                      checked={
+                                        mentorData?.mentor?.hasLiked || false
+                                      }
+                                    />
+                                  </div>
+                                  Preferred
+                                </button> */}
                                 <button
                                   className="text-[10px] text-[#4F4F4F] leading-[130%] bg-[#F2F2F7] rounded-[2px] w-[106.33px] h-[32px] flex justify-center items-center gap-1 sxm:w-[94px] xxxxm:text-[8px]"
                                   onClick={shareMentorProfile}
@@ -715,6 +781,62 @@ const MentorDetails = () => {
                       </div>
                       {/* First eNDING */}
                       <div className="flex md:flex-col  bg-[#ffff] rounded-2xl">
+                        {/* <div className="w-[45%] md:w-full  ">
+                          <div className="min-h-[186px] border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA] flex px-4 items-center justify-center gap-2 py-8 ">
+                            <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[150px] sm:w-[180px] md:w-[250px] lg:w-[187.5px] h-[122px] rounded-lg px-4 text-center">
+                              <Image
+                                src="/mentee.svg"
+                                alt="avatar"
+                                width={27}
+                                height={27}
+                                className="w-[27px] h-[27px] rounded-[50%]"
+                              />
+                              <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
+                                Total Sold Products
+                              </h5>
+                              <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
+                                {mentorData?.mentor?.totalSoldProduct || 0}
+                              </h3>
+                            </div>
+                            <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[150px] sm:w-[180px] md:w-[250px] lg:w-[187.5px] h-[122px] rounded-lg px-4 text-center">
+                              <Image
+                                src="/views.svg"
+                                alt="avatar"
+                                width={27}
+                                height={27}
+                                className="w-[27px] h-[27px] rounded-[50%]"
+                              />
+                              <h5 className="text-[12px] text-[#4F4F4F] leading-[130%]">
+                                Total Profile Views
+                              </h5>
+                              <h3 className="text-[16px] text-[#101828] font-medium leading-[150%]">
+                                {mentorData?.mentor?.totalPageViews}
+                              </h3>
+                            </div>
+                          </div>
+                          
+
+                          <div className=" border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA]  p-8 md:px-4 ">
+                            <h4 className="text-[12px] leading-[140%] font-medium mb-2">
+                              Available Booking Slots
+                            </h4>
+                            <div className="flex justify-start flex-wrap gap-6 md:gap-2">
+                              {mentorData?.availability?.availableDays.map(
+                                (element, i) => (
+                                  <div
+                                    key={i}
+                                    className="h-10 max:w-[112px]  text-[#344054] border border-[#EAEAEA] flex justify-center items-center text-[10px] leading-[18px] px-6"
+                                  >
+                                    <span>
+                                      {capitalizeFirstLetter(element.day)}
+                                    </span>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          </div>
+                          <div className="block md:hidden h-[5%] border  border-[#fff] border-r-[#EAEAEA]   p-8 md:px-4 "></div>
+                        </div> */}
                         <div className="w-[55%] md:w-full ">
                           <div className="py-6 md:py-4 ">
                             <div className="flex justify-between items-center border border-[#fff] border-b-[#EAEAEA] mx-12 md:mx-4 py-[8.5px]  ">
@@ -1046,9 +1168,7 @@ const MentorDetails = () => {
                                             details?.amount,
                                             details?.currency,
                                             details?.description,
-                                            details?.title,
-                                            null,
-                                            '1-on-1 Session'
+                                            details?.title
                                           )
                                         }
                                       >
@@ -1076,7 +1196,7 @@ const MentorDetails = () => {
                                                   : "text-[#333333]"
                                               } `}
                                             >
-                                              {capitalizeFirstLetter(details.bookingType)}
+                                              {details.bookingType}
                                             </span>
                                           </div>
                                           {details.bookingType === "Paid" && (
@@ -1133,8 +1253,7 @@ const MentorDetails = () => {
                                           pkg?.currency,
                                           pkg?.description,
                                           pkg?.title,
-                                          "mentorship",
-                                          'Package'
+                                          "mentorship"
                                         )
                                       }
                                     >

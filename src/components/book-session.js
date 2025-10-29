@@ -110,7 +110,7 @@ const BookSession = ({
       })
       .catch((err) => {
         toast.error(err.response?.data?.error || "An error occurred");
-        // console.log(err);
+        console.log(err);
         closeModal();
       });
   }, [type]);
@@ -125,7 +125,7 @@ const BookSession = ({
       setSelectedDate(date);
       fetchAvailableTimes(date);
     } else {
-      // console.log("Invalid Date Selected");
+      console.log("Invalid Date Selected");
       setAvailableTimes([]);
       setShowButton(false);
     }
@@ -539,7 +539,7 @@ const BookSession = ({
                     <>
                       <div className="mt-6 grid grid-cols-4 gap-4">
                         {availableTimes.map((time, index) => {
-                          // console.log("Rendering Time:", time);
+                          console.log("Rendering Time:", time);
                           return (
                             <div
                               key={index}

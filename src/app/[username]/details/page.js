@@ -77,7 +77,7 @@ const MentorshipPackages = () => {
       if (data) {
         const parsedData = JSON.parse(data);
         setToken(parsedData.token); // set token in state
-        // console.log({ token: parsedData.token });
+        console.log({ token: parsedData.token });
       }
     } catch (error) {
       console.log(error);
@@ -90,7 +90,7 @@ const MentorshipPackages = () => {
     setLoading(true);
     getBookings(mentorId)
       .then((res) => {
-        // console.log(res.data?.data?.data);
+        console.log(res.data?.data?.data);
         setMentorData(res.data?.data?.data);
         setWebData(res.data?.data?.data?.webinars);
         setLoading(false);
@@ -109,7 +109,7 @@ const MentorshipPackages = () => {
     }
   }, []);
   const bookSession = (id, type, amount, bookingCurrency, sessionType) => {
-    // console.log(baseUrl);
+    console.log(baseUrl);
     if (token) {
       setBookingId(id);
       setBookType(type);
@@ -117,12 +117,13 @@ const MentorshipPackages = () => {
       setCurrency(bookingCurrency);
       setLoading(false);
       setSessionType(sessionType);
-      // console.log({ id });
+      console.log({ id });
       setShowBookingModal(true);
     } else {
       const redirectTo = encodeURIComponent(
         window.location.pathname + window.location.search
       );
+      console.log({ redirectTo });
       Cookies.set("redirectTo", redirectTo, {
         secure: true,
         sameSite: "Lax",
@@ -155,6 +156,24 @@ const MentorshipPackages = () => {
       setProductTitle(title);
       setProductDescription(description);
       setCategory(category);
+      console.log({ id });
+    //   setShowModal(!showModal);
+    // } else {
+    //   const redirectTo = encodeURIComponent(
+    //     window.location.pathname + window.location.search
+    //   );
+    //   console.log({ redirectTo });
+    //   Cookies.set("redirectTo", redirectTo, {
+    //     secure: true,
+    //     sameSite: "Lax",
+    //     domain: ".hackthejobs.com",
+    //     path: "/",
+    //     expires: 1,
+    //   });
+
+    //   window.location.href = `${baseUrl}/auth/login?redirectTo=${redirectTo}`;
+    //   // window.location.href = `http://localhost:3001/auth/login?redirectTo=${redirectTo}`;
+    // }
   };
   const AttendWebinar = (id) => {
     setWebinarId(id);
@@ -174,6 +193,7 @@ const MentorshipPackages = () => {
     return map[time] ?? `${time} times`;
   };
 
+  console.log(baseUrl);
 
   return (
     <div className="bg-[#F2F2F7]  pb-10 min-h-screen">

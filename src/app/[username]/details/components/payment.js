@@ -86,6 +86,7 @@ const Payment = ({
   };
 
   const handlePayment = async (x) => {
+    console.log(x);
     try {
       setLoading("Initiating payment ...");
 
@@ -189,6 +190,7 @@ const Payment = ({
   };
   // Handle all click types
   const handleClick = (val) => {
+    console.log(val);
     if (productType === "paid" && productCurrency === "NGN") {
       handlePayment(val);
     } else if (productType === "paid" && productCurrency !== "NGN") {
@@ -214,6 +216,7 @@ const Payment = ({
         ? `${process.env.NEXT_PUBLIC_STAGING_DASH_URL}/digital-products`
         : `${process.env.NEXT_PUBLIC_DASH_URL}/digital-products`;
   };
+
   return (
     <div className="font-satoshi">
       {/* Overlay background */}
