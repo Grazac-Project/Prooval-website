@@ -539,7 +539,7 @@ const BookSession = ({
                     <>
                       <div className="mt-6 grid grid-cols-4 gap-4">
                         {availableTimes.map((time, index) => {
-                          console.log("Rendering Time:", time);
+                          // console.log("Rendering Time:", time);
                           return (
                             <div
                               key={index}

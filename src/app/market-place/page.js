@@ -80,7 +80,7 @@ const Page = () => {
 
     fetchMentors(inputText, page)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         const mentors = res.data?.mentors || [];
         const remainingPages = res.data?.remainingPages || 0;
 

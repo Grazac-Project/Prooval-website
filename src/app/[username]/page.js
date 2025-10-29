@@ -377,7 +377,8 @@ const MentorDetails = () => {
     bookingCurrency,
     description,
     title,
-    sessionType
+    sessionType,
+    category
   ) => {
     setBookingId(id);
     setBookType(type);
@@ -387,6 +388,7 @@ const MentorDetails = () => {
     setProductTitle(title);
     setLoading(false);
     setSessionType(sessionType);
+    setCategory(category)
     // console.log(bookingId, bookType, mentorPrice, currency);
     setShowBookingModal(true);
 
@@ -439,7 +441,7 @@ const MentorDetails = () => {
     setProductThumbnail(thumbnail);
     setProductTitle(title);
     setProductDescription(description);
-    setCategory(category);
+    setCategory('Digital Product');
     setAccessType(accessType);
     // console.log({ id });
     setShowModal(true);
@@ -1168,7 +1170,9 @@ const MentorDetails = () => {
                                             details?.amount,
                                             details?.currency,
                                             details?.description,
-                                            details?.title
+                                            details?.title,
+                                            null,
+                                            '1-on-1 Session'
                                           )
                                         }
                                       >
@@ -1196,7 +1200,7 @@ const MentorDetails = () => {
                                                   : "text-[#333333]"
                                               } `}
                                             >
-                                              {details.bookingType}
+                                              {capitalizeFirstLetter(details?.bookingType)}
                                             </span>
                                           </div>
                                           {details.bookingType === "Paid" && (
@@ -1253,7 +1257,8 @@ const MentorDetails = () => {
                                           pkg?.currency,
                                           pkg?.description,
                                           pkg?.title,
-                                          "mentorship"
+                                          "mentorship",
+                                          'Package'
                                         )
                                       }
                                     >
