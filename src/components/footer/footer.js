@@ -159,7 +159,7 @@ const Footer = () => {
               rounded-full gap-[4px] p-[8px] 
               cursor-pointer transition-all"
               >
-                <img src="/linkedin.png" />
+                <img src="/linkedin-2.svg" />
               </div>
             </a>
           </div>
