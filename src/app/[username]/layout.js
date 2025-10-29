@@ -4,23 +4,16 @@ export async function generateMetadata({ params }) {
   try {
     const { username } = params;
     const response = await getMentorsBySlug(username);
+    console.log(response.data.data.data);
     const mentorData = response.data.data.data;
     const mentor = mentorData.mentor;
 
     return {
       title: `${mentor.firstName} ${mentor.lastName} | Prooval Expert`,
-      description: `Book a session with ${mentor.firstName} ${
-        mentor.lastName
-      }, ${mentor.role} at ${mentor.company}. Expert in ${mentor.skills
-        ?.slice(0, 3)
-        .join(", ")}${mentor.skills?.length > 3 ? "..." : ""}`,
+      description: `${mentor.firstName} ${mentor.lastName} - ${mentor.country} |  ${mentor.role} at ${mentor.company}.  `,
       openGraph: {
         title: `${mentor.firstName} ${mentor.lastName} | Prooval Mentor`,
-        description: `Book a session with ${mentor.firstName} ${
-          mentor.lastName
-        }, ${mentor.role} at ${mentor.company}. Expert in ${mentor.skills
-          ?.slice(0, 3)
-          .join(", ")}${mentor.skills?.length > 3 ? "..." : ""}`,
+        description: `${mentor.firstName} ${mentor.lastName} - ${mentor.country} |  ${mentor.role} at ${mentor.company}.  `,
         images: [mentor.image],
       },
     };

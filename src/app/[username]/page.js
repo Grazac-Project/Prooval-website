@@ -218,7 +218,7 @@ const MentorDetails = () => {
       .then((res) => {
         console.log(res);
         setMentorData(res.data.data.data);
-        console.log(res.data.data.data.mentor);
+
         setMentorId(res.data.data.data.mentor._id);
 
         setLoading(false);
