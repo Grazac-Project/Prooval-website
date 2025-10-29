@@ -113,7 +113,7 @@ function pickLimited(groups, quotas, total) {
 }
 
 const MentorDetails = () => {
-  const [view, setView] = useState(4);
+  const [view, setView] = useState(3);
   const [category, setCategory] = useState("");
   const [checked, setChecked] = useState(false);
   const [showMentorSession, setShowMentorSession] = useState(false);
@@ -155,8 +155,6 @@ const MentorDetails = () => {
   const [checkoutCallback, setCheckoutCallback] = useState();
   const [slot, setSlot] = useState({});
   const [loader, setLoader] = useState(false);
-
-  // const export metadata
 
   const checkboxRef = useRef(null);
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -216,9 +214,8 @@ const MentorDetails = () => {
     // console.log({ token });
     getMentorsBySlug(username)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setMentorData(res.data.data.data);
-
         setMentorId(res.data.data.data.mentor._id);
 
         setLoading(false);
@@ -380,7 +377,8 @@ const MentorDetails = () => {
     bookingCurrency,
     description,
     title,
-    sessionType
+    sessionType,
+    category
   ) => {
     setBookingId(id);
     setBookType(type);
@@ -390,6 +388,7 @@ const MentorDetails = () => {
     setProductTitle(title);
     setLoading(false);
     setSessionType(sessionType);
+    setCategory(category)
     // console.log(bookingId, bookType, mentorPrice, currency);
     setShowBookingModal(true);
 
@@ -421,8 +420,7 @@ const MentorDetails = () => {
 
   const handleButtonClick = () => {
     console.log("Preferred button clicked");
-    // Optionally call your existing logic:
-    checkboxRef.current?.click(); // programmatically click the checkbox
+    checkboxRef.current?.click(); 
   };
   const BuyDigitalProduct = (
     id,
@@ -443,9 +441,9 @@ const MentorDetails = () => {
     setProductThumbnail(thumbnail);
     setProductTitle(title);
     setProductDescription(description);
-    setCategory(category);
+    setCategory('Digital Product');
     setAccessType(accessType);
-    console.log({ id });
+    // console.log({ id });
     setShowModal(true);
     // }
     // else {
@@ -712,11 +710,11 @@ const MentorDetails = () => {
                                         rel="noopener noreferrer"
                                         className="bg-[#F2F2F7] rounded-[2px] w-[42.25px] h-[32px] flex justify-center items-center"
                                       >
-                                        <Image
-                                          src="/facebook-1.svg"
-                                          width={16}
-                                          height={16}
-                                          alt="instagram"
+                                        <FacebookOutlinedIcon
+                                          style={{
+                                            fontSize: 24,
+                                            color: "#1877F2",
+                                          }}
                                         />
                                       </a>
                                     )}
@@ -729,8 +727,8 @@ const MentorDetails = () => {
                                       >
                                         <Image
                                           src="/instagram-1.svg"
-                                          width={16}
-                                          height={16}
+                                          width={20}
+                                          height={20}
                                           alt="instagram"
                                         />
                                       </a>
@@ -745,7 +743,7 @@ const MentorDetails = () => {
                                       >
                                         <XIcon
                                           style={{
-                                            fontSize: 16,
+                                            fontSize: 20,
                                           }}
                                         />
                                       </a>
@@ -760,9 +758,9 @@ const MentorDetails = () => {
                                       >
                                         <Image
                                           src="/linkedin-1.svg"
-                                          width={16}
-                                          height={16}
-                                          alt="linkedin"
+                                          width={20}
+                                          height={20}
+                                          alt="instagram"
                                         />
                                       </a>
                                     )}
@@ -784,13 +782,7 @@ const MentorDetails = () => {
                         </div>
                       </div>
                       {/* First eNDING */}
-                      <div
-                        className={`bg-[white] rounded-2xl ${
-                          mentorData?.reviews?.length > 0
-                            ? "flex flex-row md:flex-col" // show both sides
-                            : "flex flex-col" // left side full width
-                        }`}
-                      >
+                      <div className="flex md:flex-col  bg-[#ffff] rounded-2xl">
                         {/* <div className="w-[45%] md:w-full  ">
                           <div className="min-h-[186px] border border-[#F2F2F7] border-r-[#EAEAEA] border-b-[#EAEAEA] flex px-4 items-center justify-center gap-2 py-8 ">
                             <div className="flex flex-col justify-center gap-1 items-center border border-[#EAEAEA] w-[150px] sm:w-[180px] md:w-[250px] lg:w-[187.5px] h-[122px] rounded-lg px-4 text-center">
@@ -847,14 +839,8 @@ const MentorDetails = () => {
                           </div>
                           <div className="block md:hidden h-[5%] border  border-[#fff] border-r-[#EAEAEA]   p-8 md:px-4 "></div>
                         </div> */}
-                        <div
-                          className={`transition-all duration-300 ${
-                            mentorData?.reviews?.length > 0
-                              ? "w-[55%] md:w-full  border-[#EAEAEA]" // when reviews exist
-                              : "w-full" // no reviews → full width
-                          }`}
-                        >
-                          <div className="py-6 md:py-4 md:px-4 sm:px-0 border border-[#fff] border-b-[#EAEAEA] ">
+                        <div className="w-[55%] md:w-full ">
+                          <div className="py-6 md:py-4 ">
                             <div className="flex justify-between items-center border border-[#fff] border-b-[#EAEAEA] mx-12 md:mx-4 py-[8.5px]  ">
                               <h4 className="text-[12px] leading-[140%] font-medium">
                                 About
@@ -905,9 +891,24 @@ const MentorDetails = () => {
                             </div>
                           </div>
 
+                          <div className=" border border-[#fff] border-t-[#EAEAEA] border-r-[#EAEAEA] border-b-[#EAEAEA] md:p-4 p-12 ">
+                            <h4 className="text-[12px] leading-[140%] font-medium mb-2">
+                              Skills / Expertise
+                            </h4>
+                            <div className="flex justify-start flex-wrap gap-3 mb-2">
+                              {mentorData?.mentor?.skills?.map((element, i) => (
+                                <div
+                                  key={i}
+                                  className="h-6 w-fit bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px] p-3"
+                                >
+                                  <span>{element}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                           {mentorData?.mentor?.experience &&
                             mentorData?.mentor?.experience.length > 0 && (
-                              <div className=" border border-[#fff] py-6 md:px-4 sm:px-0">
+                              <div className=" border border-[#fff] border-b-[#EAEAEA] border-r-[#EAEAEA] py-6">
                                 <div className="mx-12 md:mx-4">
                                   <div className="flex gap-2 items-center  mb-6   ">
                                     <h4 className="text-[12px] leading-[120%] font-medium ">
@@ -979,194 +980,109 @@ const MentorDetails = () => {
                                 </div>
                               </div>
                             )}
-
-                          <div className=" border border-[#fff] border-t-[#EAEAEA] border-r-[#EAEAEA] border-b-[#EAEAEA] md:p-7 sm:px-4 p-12 ">
-                            <h4 className="text-[12px] leading-[140%] font-medium mb-2">
-                              Skills / Expertise
-                            </h4>
-                            <div className="flex justify-start flex-wrap gap-3 mb-2">
-                              {mentorData?.mentor?.skills?.map((element, i) => (
-                                <div
-                                  key={i}
-                                  className="h-6 w-fit bg-[#F2F4F7]  text-[#344054] rounded-2xl flex justify-center items-center text-[10px] leading-[18px] p-3"
-                                >
-                                  <span>{element}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
                         </div>
-
-                             {mentorData?.reviews?.length > 0 && (
                         <div className=" border border-[#fff] border-b-[#EAEAEA] px-12 md:px-4  py-6">
                           <div className="flex justify-between gap-2 items-center  mb-6 ">
                             <h4 className="text-[12px] leading-[120%] font-medium ">
                               Reviews
                             </h4>
-                            {/* Show "View All" only if not all reviews are currently displayed */}
-                            {view < mentorData?.reviews?.length && (
-                                <p
-                                  className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center cursor-pointer"
-                                  onClick={() =>
-                                    setView(mentorData?.reviews?.length)
-                                  }
-                                >
-                                  View All
-                                </p>
-                            )}
-                          </div>
-                          
-                          {/* The scrollable div with max height */}
-                          <div className="max-h-[400px] overflow-y-auto pr-2 space-y-4">
-                            {mentorData?.reviews
-                              ?.slice(0, view)
-                              .map((element, i) => (
-                                <div
-                                  key={i}
-                                  // Removed margin-bottom (mb-2/mb-4) and used space-y-4 on parent for spacing
-                                  className="min-h-[132px] w-[351px] sm:w-[100%] md:w-[100%] border border-[#EAEAEA] p-3 flex  gap-4 bg-[#F7F7F7] rounded-lg flex-col"
-                                >
-                                  <div className="py-4">
-                                    <div className="flex justify-between items-center ">
-                                      <div className="flex gap-2 items-center">
-                                        <Image
-                                          src={element.user.profilePic}
-                                          alt="avatar"
-                                          width={32}
-                                          height={32}
-                                          className="h-[32px] w-[32px] object-cover rounded-[50%]"
-                                        />
-                                        <h4 className="text-[12px] leading-[140%] font-medium ">
-                                          {element.user.firstName}{" "}
-                                          {element.user.laststName}
-                                        </h4>
-                                      </div>
-                                      <div className="flex  items-center gap-2 ">
-                                        <div className="flex items-center ">
-                                          {Array.from({ length: 5 }).map((_, i) =>
-                                            i < element.rating ? (
-                                              <Image
-                                                key={i}
-                                                src="/rate.svg"
-                                                alt="star"
-                                                width={14}
-                                                height={14}
-                                                className=""
-                                              />
-                                            ) : (
-                                              <Image
-                                                key={i}
-                                                src="/rate2.svg"
-                                                alt="star"
-                                                width={14}
-                                                height={14}
-                                                className=""
-                                              />
-                                            )
-                                          )}
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                          <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
-                                            {element.rating + "." + "0" || 0}
-                                          </h4>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div>
-                                      <p className="text-[#4F4F4F] leading-[140%] text-[14px] pt-4">
-                                        {element.comment}
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              ))}
-                          </div>
-                        </div>
-                        )}
-                        {/* {mentorData?.reviews?.length > 0 && (
-                        <div className=" border border-[#fff] border-b-[#EAEAEA] px-12 md:px-4  py-6">
-                          <div className="flex justify-between gap-2 items-center  mb-6 ">
-                            <h4 className="text-[12px] leading-[120%] font-medium ">
-                              Reviews
-                            </h4>
-                            <p
+                            {/* <p
                               className=" w-[77px] h-6 text-primary text-[14px] font-medium leading-[120%] underline flex justify-center items-center text-center cursor-pointer"
                               onClick={() =>
                                 setView(mentorData?.reviews?.length)
                               }
                             >
                               View All
-                            </p>
+                            </p> */}
                           </div>
 
-                          {mentorData?.reviews
-                            ?.slice(0, view)
-                            .map((element, i) => (
-                              <div
-                                key={i}
-                                className="min-h-[132px] w-[351px] sm:w-[100%] md:w-[100%] border border-[#EAEAEA] p-3 flex  gap-4 bg-[#F7F7F7] rounded-lg flex-col mb-2 "
-                              >
-                                <div className="   py-4 ">
-                                  <div className="flex justify-between items-center ">
-                                    <div className="flex gap-2 items-center">
-                                      <Image
-                                        src={element.user.profilePic}
-                                        alt="avatar"
-                                        width={32}
-                                        height={32}
-                                        className="h-[32px] w-[32px] object-cover rounded-[50%]"
-                                      />
-                                      <h4 className="text-[12px] leading-[140%] font-medium ">
-                                        {element.user.firstName}{" "}
-                                        {element.user.laststName}
-                                      </h4>
-                                    </div>
-                                    <div className="flex  items-center gap-2 ">
-                                      <div className="flex items-center ">
-                                        {Array.from({ length: 5 }).map((_, i) =>
-                                          i < element.rating ? (
-                                            <Image
-                                              key={i}
-                                              src="/rate.svg"
-                                              alt="star"
-                                              width={14}
-                                              height={14}
-                                              className=""
-                                            />
-                                          ) : (
-                                            <Image
-                                              key={i}
-                                              src="/rate2.svg"
-                                              alt="star"
-                                              width={14}
-                                              height={14}
-                                              className=""
-                                            />
-                                          )
-                                        )}
-                                      </div>
-                                      <div className="flex items-center gap-2">
-                                        <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
-                                          {element.rating + "." + "0" || 0}
-                                        </h4>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div>
-                                    <p className="text-[#4F4F4F] leading-[140%] text-[14px] pt-4">
-                                      {element.comment}
-                                    </p>
-                                  </div>
-                                </div>
+                          {mentorData?.reviews?.length === 0 ? (
+                            <div className="min-h-[78px] border border-[#EAEAEA] p-6 flex flex-col justify-center items-center gap-4">
+                              <Image
+                                src="/exp.svg"
+                                alt="avatar"
+                                width={40}
+                                height={40}
+                                className=""
+                              />
+                              <div className="flex flex-col justify-center">
+                                <p className="text-[12px] text-[#888888] leading-[140%] font-[350px] ">
+                                  No Reviews Added
+                                </p>
                               </div>
-                            ))}
+                            </div>
+                          ) : (
+                            <>
+                              {mentorData?.reviews
+                                ?.slice(0, view)
+                                .map((element, i) => (
+                                  <div
+                                    key={i}
+                                    className="min-h-[132px] w-[351px] sm:w-[100%] md:w-[100%] border border-[#EAEAEA] p-3 flex  gap-4 bg-[#F7F7F7] rounded-lg flex-col mb-2 "
+                                  >
+                                    <div className="   py-4 ">
+                                      <div className="flex justify-between items-center ">
+                                        <div className="flex gap-2 items-center">
+                                          <Image
+                                            src={element.user.profilePic}
+                                            alt="avatar"
+                                            width={32}
+                                            height={32}
+                                            className="h-[32px] w-[32px] object-cover rounded-[50%]"
+                                          />
+                                          <h4 className="text-[12px] leading-[140%] font-medium ">
+                                            {element.user.firstName}{" "}
+                                            {element.user.laststName}
+                                          </h4>
+                                        </div>
+                                        <div className="flex  items-center gap-2 ">
+                                          <div className="flex items-center ">
+                                            {Array.from({ length: 5 }).map(
+                                              (_, i) =>
+                                                i < element.rating ? (
+                                                  <Image
+                                                    key={i}
+                                                    src="/rate.svg"
+                                                    alt="star"
+                                                    width={14}
+                                                    height={14}
+                                                    className=""
+                                                  />
+                                                ) : (
+                                                  <Image
+                                                    key={i}
+                                                    src="/rate2.svg"
+                                                    alt="star"
+                                                    width={14}
+                                                    height={14}
+                                                    className=""
+                                                  />
+                                                )
+                                            )}
+                                          </div>
+                                          <div className="flex items-center gap-2">
+                                            <h4 className="text-[10px] leading-[140%] font-inter font-medium text-[#333333] ">
+                                              {element.rating + "." + "0" || 0}
+                                            </h4>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div>
+                                        <p className="text-[#4F4F4F] leading-[140%] text-[14px] pt-4">
+                                          {element.comment}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))}
+                            </>
+                          )}
                         </div>
-                        )} */}
                       </div>
                     </div>
 
                     <div className=" mx-auto mt-3" id="book-session">
-                      <section className="flex flex-col  gap-2 bg-[#ffff] border border-[#EAEAEA] p-8  bg-[#ffffff] py-6 px-10 lg:px-10 md:px-4 lgx:px-5 mb-[10px]  rounded-[8px] w-[1084px] xl:w-[95%] min-h-[212px]  m-auto sm:px-0">
+                      <section className="flex flex-col  gap-2 bg-[#ffff] border border-[#EAEAEA] p-8  bg-[#ffffff] py-6 px-20 lg:px-10 md:px-4 mb-[10px]  rounded-[8px] w-[1084px] xl:w-[95%] min-h-[212px]  m-auto">
                         <div className="max-w-6xl mx-auto mt-10 p-6 space-y-8 bg-[white] rounded-2xl">
                           <h2 className="text-[28px] font-semibold">
                             Available packages
@@ -1254,7 +1170,9 @@ const MentorDetails = () => {
                                             details?.amount,
                                             details?.currency,
                                             details?.description,
-                                            details?.title
+                                            details?.title,
+                                            null,
+                                            '1-on-1 Session'
                                           )
                                         }
                                       >
@@ -1282,7 +1200,7 @@ const MentorDetails = () => {
                                                   : "text-[#333333]"
                                               } `}
                                             >
-                                              {details.bookingType}
+                                              {capitalizeFirstLetter(details?.bookingType)}
                                             </span>
                                           </div>
                                           {details.bookingType === "Paid" && (
@@ -1339,7 +1257,8 @@ const MentorDetails = () => {
                                           pkg?.currency,
                                           pkg?.description,
                                           pkg?.title,
-                                          "mentorship"
+                                          "mentorship",
+                                          'Package'
                                         )
                                       }
                                     >

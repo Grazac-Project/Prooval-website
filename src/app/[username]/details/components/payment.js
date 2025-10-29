@@ -86,7 +86,6 @@ const Payment = ({
   };
 
   const handlePayment = async (x) => {
-    console.log(x);
     try {
       setLoading("Initiating payment ...");
 
@@ -190,7 +189,6 @@ const Payment = ({
   };
   // Handle all click types
   const handleClick = (val) => {
-    console.log(val);
     if (productType === "paid" && productCurrency === "NGN") {
       handlePayment(val);
     } else if (productType === "paid" && productCurrency !== "NGN") {
