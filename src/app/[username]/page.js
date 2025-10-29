@@ -399,7 +399,7 @@ const MentorDetails = () => {
   };
 
   const handleButtonClick = () => {
-    // console.log("Preferred button clicked");
+    console.log("Preferred button clicked");
     checkboxRef.current?.click(); 
   };
   const BuyDigitalProduct = (
@@ -423,6 +423,7 @@ const MentorDetails = () => {
     setProductDescription(description);
     setCategory('Digital Product');
     setAccessType(accessType);
+    // console.log({ id });
     setShowModal(true);
   };
 
