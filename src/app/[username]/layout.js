@@ -9,11 +9,19 @@ export async function generateMetadata({ params }) {
     const mentor = mentorData.mentor;
 
     return {
-      title: `${mentor.firstName} ${mentor.lastName} - ${mentor.country} |  ${mentor.role} at ${mentor.company}.  `,
-      // description: `${mentor.firstName} ${mentor.lastName} - ${mentor.country} |  ${mentor.role} at ${mentor.company}.  `,
+      title: `${mentor.firstName} ${mentor.lastName} | Prooval `,
+      description: `${mentor.firstName} ${mentor.lastName}, ${mentor.role} at ${
+        mentor.company
+      }(${mentor.country}). Expert in ${mentor.skills?.slice(0, 3).join(", ")}${
+        mentor.skills?.length > 3 ? "..." : ""
+      }`,
       openGraph: {
-        title: `${mentor.firstName} ${mentor.lastName} - ${mentor.country} |  ${mentor.role} at ${mentor.company}.  `,
-        // description: `${mentor.firstName} ${mentor.lastName} - ${mentor.country} |  ${mentor.role} at ${mentor.company}.  `,
+        title: `${mentor.firstName} ${mentor.lastName} | Prooval `,
+        description: `${mentor.firstName} ${mentor.lastName}, ${
+          mentor.role
+        } at ${mentor.company}(${mentor.country}). Expert in ${mentor.skills
+          ?.slice(0, 3)
+          .join(", ")}${mentor.skills?.length > 3 ? "..." : ""}`,
         images: [mentor.image],
       },
     };
