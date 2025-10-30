@@ -327,6 +327,14 @@ export const allProductCheckout = (data, category) => {
   console.log(category)
   return authKit.post(`api/v1/payment/checkout-data/digital-product`, data);
 };
+export const paystackPayment = (data, token) => {
+  return authKit.post(`https://api.paystack.co/transaction/initialize`, data, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 authKit.interceptors.request.use((config) => {
   // console.log("Request Config:", config);
   return config;

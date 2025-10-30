@@ -34,6 +34,7 @@ import PaymentModal from "@/components/payment-modal";
 import { RiInstagramFill } from "react-icons/ri";
 import { FaFacebook } from "react-icons/fa6";
 
+
 const groupColors = [
   "#F48025",
   "#008753",
@@ -155,6 +156,8 @@ const MentorDetails = () => {
   const [checkoutCallback, setCheckoutCallback] = useState();
   const [slot, setSlot] = useState({});
   const [loader, setLoader] = useState(false);
+  const [provider, setProvider] = useState("");
+  
 
   const checkboxRef = useRef(null);
   // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -217,7 +220,7 @@ const MentorDetails = () => {
         // console.log(res);
         setMentorData(res.data.data.data);
         setMentorId(res.data.data.data.mentor._id);
-
+        setProvider(res.data.data.data.provider);
         setLoading(false);
         // console.log(data?.calendarLink);
         if (data?.calendarLink) {
@@ -519,6 +522,7 @@ const MentorDetails = () => {
       />
     );
   }
+    console.log("Provider in Payment component:", provider);
 
   return (
     <>
@@ -555,6 +559,7 @@ const MentorDetails = () => {
                       setLoader={setLoader}
                       successPaymentModal={() => setSuccessPaymentModal(true)}
                       makeFree={() => setFreeMode(true)}
+                      provider={provider}
                     />
                   )}
                   {showBookingModal && (
@@ -574,6 +579,7 @@ const MentorDetails = () => {
                       slot={slot}
                       setSlot={setSlot}
                       setLoadingState={setLoader}
+                      provider={provider}
                     />
                   )}
                   {successModal && (
@@ -599,6 +605,7 @@ const MentorDetails = () => {
                       onClick={() => setShowWebModal(false)}
                       webinarId={webinarId}
                       token={token}
+                      provider={provider}
                     />
                   )}
 

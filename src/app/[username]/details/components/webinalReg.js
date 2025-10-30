@@ -15,7 +15,7 @@ import { FaRegUser } from "react-icons/fa";
 import { FaCalendarDays } from "react-icons/fa6";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { toast, ToastContainer } from "react-toastify";
-
+import PaystackPop from "@paystack/inline-js";
 function useCountdown(targetDate) {
   const target = useMemo(() => new Date(targetDate).getTime(), [targetDate]);
   const [timeLeft, setTimeLeft] = useState(() =>
@@ -40,7 +40,7 @@ function useCountdown(targetDate) {
 const WebinarModal = ({
   webinarId,
   token,
-
+provider,
   onClick,
 }) => {
   const [webData, setWebData] = useState({});
@@ -143,6 +143,45 @@ const WebinarModal = ({
       let reference;
       try {
         const res = await fincraWebinarCheckoutData(data, token);
+
+if (provider === "paystack") {
+        console.log(res?.data?.data?.paystack);
+        console.log("Payment via Paystack selected");
+        console.log(
+          "Payment Data:",
+          res?.data?.data?.data?.paystack?.access_code
+        );
+
+        const accessCode = res?.data?.data?.data?.paystack?.access_code;
+
+        if (accessCode) {
+          console.log("Paystack Access Code.......:", accessCode);
+          const popup = new PaystackPop();
+          popup.resumeTransaction(accessCode, {
+            onCancel: () => {
+              console.log("this is being cancelled...");
+            },
+            onError: () => {
+              console.log(" error");
+            },
+            onLoad: () => {
+              console.log("this is being loaded..");
+            },
+            onSuccess: () => {
+              setShowMain(true);
+              setShowModal(false);
+              setCheckout(false);
+              setLoader(false);
+              // setIsSuccess(true);
+              successPaymentModal();
+              setLoading("Make Payment");
+            },
+          });
+          return;
+        }
+      }
+
+        
         reference = res.data?.data?.payment?.reference;
         // console.log("reference", reference);
       } catch (err) {
