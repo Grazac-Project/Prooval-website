@@ -12,6 +12,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FiDownload, FiEye } from "react-icons/fi";
+import PaystackPop from "@paystack/inline-js";
 
 const Payment = ({
   onClick,
@@ -32,15 +33,16 @@ const Payment = ({
   setLoader,
   successPaymentModal,
   makeFree,
+  provider,
 }) => {
   const [loading, setLoading] = useState("Access Product");
   const [freeMode, setFreeMode] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const { startPayment } = useFincraPayment();
   const [showCheckout, setShowCheckout] = useState(false);
-
   // Set button label based on product type
   useEffect(() => {
+    console.log("Provider in Payment component:", provider);
     if (productType === "paid") setLoading("Make Payment");
     else setLoading("Access Product");
   }, [productType]);
@@ -68,8 +70,8 @@ const Payment = ({
           setShowModal(false);
           // setIsSuccess(true);
           // successModal();
-          successPaymentModal()
-          makeFree()
+          successPaymentModal();
+          makeFree();
         })
         .catch((err) => {
           // console.log(err);
@@ -91,9 +93,45 @@ const Payment = ({
 
       const payload = { productId, currency: productCurrency };
 
-      // Get payment reference from backend
-      // const res = await fincraDigitalCheckoutData(payload);
       const res = await fincraDigitalCheckoutData(x);
+
+      if (provider === "paystack") {
+        console.log(res?.data?.data?.data?.paystack);
+        console.log("Payment via Paystack selected");
+        console.log(
+          "Payment Data:",
+          res?.data?.data?.data?.paystack?.access_code
+        );
+
+        const accessCode = res?.data?.data?.data?.paystack?.access_code;
+
+        if (accessCode) {
+          console.log("Paystack Access Code.......:", accessCode);
+          const popup = new PaystackPop();
+          popup.resumeTransaction(accessCode, {
+            onCancel: () => {
+              console.log("this is being cancelled...");
+            },
+            onError: () => {
+              console.log(" error");
+            },
+            onLoad: () => {
+              console.log("this is being loaded..");
+            },
+            onSuccess: () => {
+              setShowMain(true);
+              setShowModal(false);
+              setCheckout(false);
+              setLoader(false);
+              // setIsSuccess(true);
+              successPaymentModal();
+              setLoading("Make Payment");
+            },
+          });
+          return;
+        }
+      }
+
       const reference =
         res?.data?.data?.data?.reference ?? res?.data?.data?.reference;
 
@@ -118,7 +156,7 @@ const Payment = ({
           setCheckout(false);
           setLoader(false);
           // setIsSuccess(true);
-          successPaymentModal()
+          successPaymentModal();
           setLoading("Make Payment");
         },
         onClose: () => {
@@ -168,9 +206,9 @@ const Payment = ({
           else throw new Error("No redirect URL found");
         })
         .catch((err) => {
-          setShowMain(true)
-          setShowModal(false)
-          setCheckout(false)
+          setShowMain(true);
+          setShowModal(false);
+          setCheckout(false);
           setLoader(false);
           toast.error(err.response?.data?.error || "Something went wrong");
           setLoading("Make Payment");

@@ -15,12 +15,14 @@ import {
   getAvailableBookings,
   MentorshipPackageSubmitAction,
   MentorshipPaidPackageAction,
+  paystackPayment,
 } from "@/api/authentication/auth";
 import Cookies from "js-cookie";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import useFincraPayment from "@/lib/fincraCheckout";
 import { Load } from "./loading";
+import PaystackPop from "@paystack/inline-js";
 
 const BookSession = ({
   closeModal,
@@ -39,6 +41,7 @@ const BookSession = ({
   slot,
   setSlot,
   setLoadingState,
+  provider,
 }) => {
   const [activeDates, setActiveDates] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -262,6 +265,37 @@ const BookSession = ({
       setLoading(false);
       setLoadingState(false);
       if (bookingCurrency.toUpperCase() === "NGN") {
+        if (provider === "paystack") {
+          console.log(payload);
+          console.log("Payment via Paystack selected");
+          console.log("Payment Data:", payload.paystack?.access_code);
+
+          const accessCode = payload.paystack?.access_code;
+
+          if (accessCode) {
+            console.log("Paystack Access Code.......:", accessCode);
+            const popup = new PaystackPop();
+            popup.resumeTransaction(accessCode, {
+              onCancel: () => {
+                console.log("this is being cancelled...");
+              },
+              onError: () => {
+                console.log(" error");
+              },
+              onLoad: () => {
+                console.log("this is being loaded..");
+              },
+              onSuccess: () => {
+                setLoadingState(false);
+                setShowMain(true);
+                setCheckout(false);
+                closeModal();
+                successModal();
+              },
+            });
+            return;
+          }
+        }
         if (reference) {
           const url = new URL(window.location.href);
           url.searchParams.set("ref", reference);
@@ -282,7 +316,7 @@ const BookSession = ({
             successModal();
           },
           onClose: () => {
-            setLoadingState(false)
+            setLoadingState(false);
             toast.error("Transaction was not completed, window closed.");
           },
         });
@@ -292,11 +326,11 @@ const BookSession = ({
       }
       // persist ref in URL
     } catch (error) {
-      console.error(err);
+      console.log(error);
       setShowMain(true);
       setCheckout(false);
       closeModal();
-      toast.error(err.response?.data?.error);
+      toast.error(error.response?.data?.error);
       setLoading(false);
     }
   };
@@ -313,8 +347,8 @@ const BookSession = ({
       };
 
       const res = await fincraBookingCheckoutData(data, token);
-
       const payload = res?.data?.data || {};
+
       const reference = payload.reference;
       const firstname = payload.firstName || payload.first_name || "";
       const lastname = payload.lastName || payload.last_name || "";
@@ -323,7 +357,37 @@ const BookSession = ({
 
       setLoading(false);
       setLoadingState(false);
+      if (provider === "paystack") {
+        console.log(payload);
+        console.log("Payment via Paystack selected");
+        console.log("Payment Data:", payload.paystack?.access_code);
 
+        const accessCode = payload.paystack?.access_code;
+
+        if (accessCode) {
+          console.log("Paystack Access Code.......:", accessCode);
+          const popup = new PaystackPop();
+          popup.resumeTransaction(accessCode, {
+            onCancel: () => {
+              console.log("this is being cancelled...");
+            },
+            onError: () => {
+              console.log(" error");
+            },
+            onLoad: () => {
+              console.log("this is being loaded..");
+            },
+            onSuccess: () => {
+              setLoadingState(false);
+              setShowMain(true);
+              setCheckout(false);
+              closeModal();
+              successModal();
+            },
+          });
+          return;
+        }
+      }
       // persist ref in URL
       if (reference) {
         const url = new URL(window.location.href);
@@ -338,20 +402,20 @@ const BookSession = ({
         nameProp: fullname,
         emailProp: email,
         onSuccess: (data) => {
-          setLoadingState(false)
+          setLoadingState(false);
           setShowMain(true);
           setCheckout(false);
           closeModal();
           successModal();
         },
         onClose: () => {
-          setLoadingState(false)
+          setLoadingState(false);
           toast.error("Transaction was not completed, window closed.");
         },
       });
     } catch (err) {
       // console.error(err);
-      setLoadingState(false)
+      setLoadingState(false);
       setShowMain(true);
       setCheckout(false);
       closeModal();

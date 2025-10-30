@@ -10,6 +10,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import { allProductCheckout } from "@/api/authentication/auth";
 import { getCurrencySymbol } from "@/Utils/currency-formatter";
 
+
 const initialValues = {
   firstName: "",
   lastName: "",
