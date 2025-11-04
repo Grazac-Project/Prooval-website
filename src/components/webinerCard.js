@@ -22,6 +22,10 @@ export default function EventCard({
   currency,
   id,
 }) {
+
+  const displayPrice = price === "paid" ? `${getCurrencySymbol(currency)}${formatPrice(amount)}` : "Free";
+  const attendeeText = !joinedLabel || joinedLabel === 0 ? "No attendee yet." : `${joinedLabel} ${joinedLabel === 1 ? "person has" : "people have"} joined already`;
+
   return (
     <article
       key={id}
@@ -76,18 +80,20 @@ export default function EventCard({
             <div className="flex items-center gap-2">
               <LiaMoneyBillWaveSolid className="h-[14px] w-[14px]" />
               <span>
-                {price === "paid"
+                {/* {price === "paid"
                   ? `${getCurrencySymbol(currency)}${formatPrice(amount)}`
-                  : price}
+                  : price} */}
+                  {displayPrice}
               </span>
             </div>
             <div className="flex items-center gap-2">
               <LuUsers className="h-[14px] w-[14px]" />
 
               <span>
-                {joinedLabel === 0
+                {/* {joinedLabel === 0
                   ? "No attendee yet."
-                  : `${joinedLabel} joined already`}
+                  : `${joinedLabel} joined already`} */}
+                  {attendeeText}
               </span>
             </div>
           </div>
