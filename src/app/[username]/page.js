@@ -1253,7 +1253,7 @@ const MentorDetails = () => {
                           {mentorData?.packageMentorships?.length > 0 && (
                             <div className="">
                               <h3 className="text-lg font-semibold mb-4">
-                                Mentorship Package
+                                Packages
                               </h3>
                               <div className="grid md:grid-cols-1 grid-cols-2 gap-6">
                                 {mentorData?.packageMentorships?.map(
