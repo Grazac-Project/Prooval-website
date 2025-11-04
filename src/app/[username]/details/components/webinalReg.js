@@ -439,7 +439,7 @@ if (provider === "paystack") {
                   <div className="grid sm:grid-cols-1 grid-cols-2 gap-4">
                     <LabeledInput
                       name="firstName"
-                      placeholder="Enter full name"
+                      placeholder="Enter first name"
                       value={formValues.firstName}
                       onChange={handleInputChange}
                     />
