@@ -115,9 +115,12 @@ const Pricing = () => {
     currencies.find((c) => c.name === currency)?.flag || "/Nigeria.png";
   const currentCurrency =
     currencies.find((c) => c.name === currency) || currencies[0];
-  const feePercent = 3.5;
+  const feePercent = currency === "United States Dollar" ? 8.0 : 3.0;
   // const feeCharge = currency === "Nigerian Naira" ? "N100" : "$0.1";
   const currAbbrev = currency === "United States Dollar" ? "USD" : "NGN";
+  const feeMessage = currency === "United States Dollar"
+    ? `We charge ${feePercent}% on all ${currAbbrev} transactions and this is charged before the professional is credited.`
+    : `We charge ${feePercent}% + ${currAbbrev} 100 on all transactions capped at ${currAbbrev} 3,000. ${currAbbrev} 100 is waived for all transactions less than ${currAbbrev} 2,500`;
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -263,11 +266,10 @@ const Pricing = () => {
               </p>
               <p className=" ">
                 <span className="font-bold text-base sm:text-sm pb-[10px] block">
-                  Platform Fee
+                  Transaction Fee
                 </span>
                 <div className=" text-sm  sm:text-xs px-3  mb-6 max-w-[377px]">
-                  We charge {feePercent}% on all {currAbbrev} transactions and
-                  this is charged before the professional is credited.
+                  {feeMessage}
                 </div>
               </p>
             </div>
