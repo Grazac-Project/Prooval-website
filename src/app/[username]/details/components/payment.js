@@ -341,7 +341,8 @@ const Payment = ({
                       : "Free"}
                   </div>
                 </div>
-                <div className="text-sm tracking-[150%] mt-4 text-[#333333]">
+                {/* <div className="text-sm tracking-[150%] mt-4 text-[#333333]"> */}
+                <div className="text-sm tracking-[0.08em] mt-4 text-[#333333]">
                   {productDescription || ""}
                 </div>
               </div>
