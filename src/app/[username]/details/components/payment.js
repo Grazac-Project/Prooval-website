@@ -284,7 +284,7 @@ const Payment = ({
         </div>
       ) : (
         // 💳 Payment Modal
-        <div className="max-w-[52rem] h-[90%] mx-auto mt-10 sm:p-4 p-14 space-y-8 bg-[white] rounded-2xl fixed inset-0 z-50 overflow-y-auto ">
+        <div className="max-w-[52rem] sm:w-full h-[90%] sm:h-full mx-auto mt-10 sm:mt-0 sm:p-4 p-14 space-y-8 bg-[white] rounded-2xl sm:rounded-none fixed inset-0 z-50 overflow-y-auto ">
           <div className="flex items-center text-sm leading-[150%] font-medium text-[#292D32]">
             <button
               className="border-[1px] border-[#EAEAEA] rounded-[8px] p-[10px] cursor-pointer"
